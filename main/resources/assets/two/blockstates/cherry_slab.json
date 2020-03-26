@@ -1,0 +1,7 @@
+{
+    "variants" : {
+        "type=bottom" : { "model" : "two:block/cherry_slab" },
+        "type=top" : { "model" : "two:block/cherry_slab_top" },
+        "type=double" : { "model" : "two:block/cherry_planks" }
+    }
+}

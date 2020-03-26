@@ -1,0 +1,9 @@
+{
+	"replace" : false,
+  	"values" : [
+    	"two:cherry_log",
+    	"two:cherry_wood",
+    	"two:stripped_cherry_log",
+    	"two:stripped_cherry_wood"
+  	]
+}

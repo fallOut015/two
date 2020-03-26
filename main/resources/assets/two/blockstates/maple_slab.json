@@ -1,0 +1,7 @@
+{
+    "variants" : {
+        "type=bottom" : { "model" : "two:block/maple_slab" },
+        "type=top" : { "model" : "two:block/maple_slab_top" },
+        "type=double" : { "model" : "two:block/maple_planks" }
+    }
+}

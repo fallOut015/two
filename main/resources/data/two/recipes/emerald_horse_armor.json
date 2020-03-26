@@ -1,0 +1,16 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	"pattern" : [
+		"X X",
+    	"XXX",
+    	"X X"
+	],
+	"key" : {
+		"X" : {
+			"item" : "minecraft:emerald"
+		}
+  	},
+  	"result" : {
+    	"item" : "two:emerald_horse_armor"
+  	}
+}

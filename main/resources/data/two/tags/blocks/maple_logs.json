@@ -1,0 +1,9 @@
+{
+	"replace" : false,
+  	"values" : [
+    	"two:maple_log",
+    	"two:maple_wood",
+    	"two:stripped_maple_log",
+    	"two:stripped_maple_wood"
+  	]
+}

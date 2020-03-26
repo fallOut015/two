@@ -1,0 +1,32 @@
+{
+	"parent": "minecraft:recipes/root",
+  	"rewards": {
+    	"recipes": [
+      		"two:wooden_sickle"
+    	]
+  	},
+  	"criteria": {
+    	"has_stick": {
+      		"trigger": "minecraft:inventory_changed",
+      		"conditions": {
+        		"items": [
+          			{
+            			"item": "minecraft:stick"
+          			}
+        		]
+      		}
+    	},
+    	"has_the_recipe": {
+      		"trigger": "minecraft:recipe_unlocked",
+      		"conditions": {
+        		"recipe": "two:wooden_sickle"
+      		}
+    	}
+  	},
+  	"requirements": [
+    	[
+      		"has_stick",
+      		"has_the_recipe"
+    	]
+  	]
+}

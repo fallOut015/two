@@ -1,0 +1,21 @@
+{
+	"replace" : false,
+  	"values" : [
+    	"two:white_glazed_bricks",
+		"two:orange_glazed_bricks",
+		"two:magenta_glazed_bricks",
+		"two:light_blue_glazed_bricks",
+		"two:yellow_glazed_bricks",
+		"two:lime_glazed_bricks",
+		"two:pink_glazed_bricks",
+		"two:gray_glazed_bricks",
+		"two:light_gray_glazed_bricks",
+		"two:cyan_glazed_bricks",
+		"two:purple_glazed_bricks",
+		"two:blue_glazed_bricks",
+		"two:brown_glazed_bricks",
+		"two:green_glazed_bricks",
+		"two:red_glazed_bricks",
+		"two:black_glazed_bricks"
+  	]
+}

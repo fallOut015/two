@@ -1,0 +1,12 @@
+{
+  	"type": "minecraft:crafting_shapeless",
+  	"group": "minecraft:wooden_button",
+  	"ingredients": [
+    	{
+      		"item": "two:cherry_planks"
+    	}
+  	],
+  	"result": {
+    	"item": "two:cherry_button"
+  	}
+}

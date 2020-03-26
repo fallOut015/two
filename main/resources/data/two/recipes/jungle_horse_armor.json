@@ -1,0 +1,16 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	"pattern" : [
+		"X X",
+    	"XXX",
+    	"X X"
+	],
+	"key" : {
+		"X" : {
+			"item" : "minecraft:jungle_planks"
+		}
+  	},
+  	"result" : {
+    	"item" : "two:jungle_horse_armor"
+  	}
+}

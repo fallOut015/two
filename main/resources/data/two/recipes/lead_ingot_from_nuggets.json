@@ -1,0 +1,17 @@
+{
+	"type" : "minecraft:crafting_shaped",
+  	"group" : "forge:lead_ingot",
+  	"pattern" : [
+    	"###",
+    	"###",
+    	"###"
+  	],
+  	"key" : {
+    	"#" : {
+      		"item" : "two:lead_nugget"
+    	}
+  	},
+  	"result" : {
+    	"item" : "two:lead_ingot"
+  	}
+}

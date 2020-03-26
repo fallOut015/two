@@ -1,0 +1,7 @@
+{
+	"variants" : {
+    	"" : {
+			"model" : "two:block/light_gray_glazed_bricks"
+		}
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"parent" : "minecraft:recipes/root",
+  	"rewards" : {
+    	"recipes" : [
+      		"two:yellow_glazed_bricks"
+    	]
+  	},
+  	"criteria" : {
+    	"has_bricks" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"item" : "minecraft:bricks"
+          			}
+        		]
+      		}
+    	},
+    	"has_the_recipe" : {
+      		"trigger" : "minecraft:recipe_unlocked",
+      		"conditions" : {
+        		"recipe" : "two:yellow_glazed_bricks"
+      		}
+    	}
+  	},
+  	"requirements" : [
+    	[
+      		"has_bricks",
+      		"has_the_recipe"
+    	]
+  	]
+}

@@ -1,0 +1,38 @@
+{
+	"parent" : "minecraft:story/not_so_faux_fur",
+	"display" : {
+		"icon" : {
+      		"item" : "two:communism"
+    	},
+    	"title" : {
+      		"translate" : "advancements.story.comrade.title"
+    	},
+    	"description" : {
+      		"translate" : "advancements.story.comrade.description"
+    	},
+    	"frame" : "task",
+    	"show_toast" : true,
+    	"announce_to_chat" : true,
+    	"hidden" : false
+  	},
+  	"criteria" : {
+    	"iron_smithing_hammer_and_iron_sickle" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"item" : "two:iron_smithing_hammer"
+          			},
+					{
+						"item" : "two:iron_sickle"
+					}
+        		]
+      		}
+    	}
+  	},
+  	"requirements" : [
+    	[
+      		"iron_smithing_hammer_and_iron_sickle"
+    	]
+  	]
+}

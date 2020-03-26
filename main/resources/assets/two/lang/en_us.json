@@ -1,0 +1,470 @@
+{
+	"entity.two.chameleon" : "Chameleon",
+	
+	
+	
+	
+
+	"block.two.test_block" : "Test Block",
+	
+	
+	
+	"block.two.cedar_planks" : "Cedar Planks",
+	"block.two.redwood_planks" : "Redwood Planks",
+	"block.two.cherry_planks" : "Cherry Planks",
+	"block.two.aspen_planks" : "Aspen Planks",
+	"block.two.dragonblood_planks" : "Dragonblood Planks",
+	"block.two.eucalyptus_planks" : "Eucalyptus Planks",
+	"block.two.pine_planks" : "Pine Planks",
+	"block.two.balsa_planks" : "Balsa Planks",
+	"block.two.conifer_planks" : "Conifer Planks",
+	"block.two.maple_planks" : "Maple Planks",
+	
+	"block.two.white_stained_planks" : "White Stained Planks",
+	"block.two.orange_stained_planks" : "Orange Stained Planks",
+	"block.two.magenta_stained_planks" : "Magenta Stained Planks",
+	"block.two.light_blue_stained_planks" : "Light Blue Stained Planks",
+	"block.two.yellow_stained_planks" : "Yellow Stained Planks",
+	"block.two.lime_stained_planks" : "Lime Stained Planks",
+	"block.two.pink_stained_planks" : "Pink Stained Planks",
+	"block.two.gray_stained_planks" : "Gray Stained Planks",
+	"block.two.light_gray_stained_planks" : "Light Gray Stained Planks",
+	"block.two.cyan_stained_planks" : "Cyan Stained Planks",
+	"block.two.purple_stained_planks" : "Purple Stained Planks",
+	"block.two.blue_stained_planks" : "Blue Stained Planks",
+	"block.two.brown_stained_planks" : "Brown Stained Planks",
+	"block.two.green_stained_planks" : "Green Stained Planks",
+	"block.two.red_stained_planks" : "Red Stained Planks",
+	"block.two.black_stained_planks" : "Black Stained Planks",
+	
+	"block.two.cherry_log" : "Cherry Log",
+	"block.two.maple_log" : "Maple Log",
+	
+	"block.two.cherry_sapling" : "Cherry Sapling",
+	"block.two.maple_sapling" : "Maple Sapling",
+	
+	"block.two.potted_cherry_sapling" : "Potted Cherry Sapling",
+	"block.two.potted_maple_sapling" : "Potted Maple Sapling",
+	
+	"block.two.stripped_cherry_log" : "Stripped Cherry Log",
+	"block.two.stripped_maple_log" : "Stripped Maple Log",
+	
+	"block.two.stripped_cherry_wood" : "Stripped Cherry Wood",
+	"block.two.stripped_maple_wood" : "Stripped Maple Wood",
+	
+	"block.two.cherry_wood" : "Cherry Wood",
+	"block.two.maple_wood" : "Maple Wood",
+	
+	"block.two.cherry_leaves" : "Cherry Leaves",
+	"block.two.maple_leaves" : "Maple Leaves",
+	
+	"block.two.cherry_slab" : "Cherry Slab",
+	"block.two.maple_slab" : "Maple Slab",
+	
+	"block.two.cherry_pressure_plate" : "Cherry Pressure Plate",
+	"block.two.maple_pressure_plate" : "Maple Pressure Plate",
+	
+	"block.two.cherry_fence" : "Cherry Fence",
+	"block.two.maple_fence" : "Maple Fence",
+	
+	"block.two.cherry_trapdoor" : "Cherry Trapdoor",
+	"block.two.maple_trapdoor" : "Maple Trapdoor",
+	
+	"block.two.cherry_fence_gate" : "Cherry Fence Gate",
+	"block.two.maple_fence_gate" : "Maple Fence Gate",
+	
+	"block.two.cherry_stairs" : "Cherry Stairs",
+	"block.two.maple_stairs" : "Maple Stairs",
+	
+	"block.two.cherry_button" : "Cherry Button",
+	"block.two.maple_button" : "Maple Button",
+	
+	"block.two.cherry_door" : "Cherry Door",
+	"block.two.maple_door" : "Maple Door",
+	
+	"block.two.cherry_sign" : "Cherry Sign",
+	"block.two.maple_sign" : "Maple Sign",
+	
+	"block.two.cherry_wall_sign" : "Cherry Wall Sign",
+	"block.two.maple_wall_sign" : "Maple Wall Sign",
+	
+	"block.two.white_glazed_bricks" : "White Glazed Bricks",
+	"block.two.orange_glazed_bricks" : "Orange Glazed Bricks",
+	"block.two.magenta_glazed_bricks" : "Magenta Glazed Bricks",
+	"block.two.light_blue_glazed_bricks" : "Light Blue Glazed Bricks",
+	"block.two.yellow_glazed_bricks" : "Yellow Glazed Bricks",
+	"block.two.lime_glazed_bricks" : "Lime Glazed Bricks",
+	"block.two.pink_glazed_bricks" : "Pink Glazed Bricks",
+	"block.two.gray_glazed_bricks" : "Gray Glazed Bricks",
+	"block.two.light_gray_glazed_bricks" : "Light Gray Glazed Bricks",
+	"block.two.cyan_glazed_bricks" : "Cyan Glazed Bricks",
+	"block.two.purple_glazed_bricks" : "Purple Glazed Bricks",
+	"block.two.blue_glazed_bricks" : "Blue Glazed Bricks",
+	"block.two.brown_glazed_bricks" : "Brown Glazed Bricks",
+	"block.two.green_glazed_bricks" : "Green Glazed Bricks",
+	"block.two.red_glazed_bricks" : "Red Glazed Bricks",
+	"block.two.black_glazed_bricks" : "Black Glazed Bricks",
+	
+	"block.two.gault" : "Gault",
+	"block.two.nightstone" : "Nightstone",
+	"block.two.cloud" : "Cloud",
+
+
+
+	
+	
+	"item.two.test_item" : "Test Item",
+	
+	
+
+	"item.two.cherry_boat" : "Cherry Boat",
+	"item.two.maple_boat" : "Maple Boat",
+	
+	
+	
+	"item.two.cobalt" : "Cobalt",
+	"item.two.jade" : "Jade",
+	"item.two.opal" : "Opal",
+	"item.two.tanzanite" : "Tanzanite",
+	"item.two.garnet" : "Garnet",
+	"item.two.topaz" : "Topaz",
+	"item.two.sapphire" : "Sapphire",
+	"item.two.ruby" : "Ruby",
+	
+	"item.two.talc" : "Talc",
+	"item.two.lead_ingot" : "Lead Ingot",
+	"item.two.tin_ingot" : "Tin Ingot",
+	"item.two.aluminum_ingot" : "Aluminum Ingot",
+	"item.two.silver_ingot" : "Silver Ingot",
+	"item.two.copper_ingot" : "Copper Ingot",
+	"item.two.platinum_ingot" : "Platinum Ingot",
+	"item.two.titanium_ingot" : "Titanium Ingot",
+	"item.two.pyrite_ingot" : "Pyrite Ingot",
+	"item.two.steel_ingot" : "Steel Ingot",
+	"item.two.hardened_steel_ingot" : "Hardened Steel Ingot",
+	
+	"item.two.chainmail_horse_armor" : "Chainmail Horse Armor",
+	"item.two.emerald_horse_armor" : "Emerald Horse Armor",
+	"item.two.stone_horse_armor" : "Stone Horse Armor",
+	"item.two.oak_horse_armor" : "Oak Horse Armor",
+	"item.two.spruce_horse_armor" : "Spruce Horse Armor",
+	"item.two.birch_horse_armor" : "Birch Horse Armor",
+	"item.two.jungle_horse_armor" : "Jungle Horse Armor",
+	"item.two.acacia_horse_armor" : "Acacia Horse Armor",
+	"item.two.dark_oak_horse_armor" : "Dark Oak Horse Armor",
+	"item.two.cedar_horse_armor" : "Cedar Horse Armor",
+	"item.two.redwood_horse_armor" : "Redwood Horse Armor",
+	"item.two.cherry_horse_armor" : "Cherry Horse Armor",
+	"item.two.aspen_horse_armor" : "Aspen Horse Armor",
+	"item.two.dragonblood_horse_armor" : "Dragonblood Horse Armor",
+	"item.two.eucalyptus_horse_armor" : "Eucalyptus Horse Armor",
+	"item.two.pine_horse_armor" : "Pine Horse Armor",
+	"item.two.balsa_horse_armor" : "Balsa Horse Armor",
+	"item.two.conifer_horse_armor" : "Conifer Horse Armor",
+	"item.two.maple_horse_armor" : "Maple Horse Armor",
+	"item.two.white_stained_wooden_horse_armor" : "White Stained Wooden Horse Armor",
+	"item.two.orange_stained_wooden_horse_armor" : "Orange Stained Wooden Horse Armor",
+	"item.two.magenta_stained_wooden_horse_armor" : "Magenta Stained Wooden Horse Armor",
+	"item.two.light_blue_stained_wooden_horse_armor" : "Light Blue Stained Wooden Horse Armor",
+	"item.two.yellow_stained_wooden_horse_armor" : "Yellow Stained Wooden Horse Armor",
+	"item.two.lime_stained_wooden_horse_armor" : "Lime Stained Wooden Horse Armor",
+	"item.two.pink_stained_wooden_horse_armor" : "Pink Stained Wooden Horse Armor",
+	"item.two.gray_stained_wooden_horse_armor" : "Gray Stained Wooden Horse Armor",
+	"item.two.light_gray_stained_wooden_horse_armor" : "Light Gray Stained Wooden Horse Armor",
+	"item.two.cyan_stained_wooden_horse_armor" : "Cyan Stained Wooden Horse Armor",
+	"item.two.purple_stained_wooden_horse_armor" : "Purple Stained Wooden Horse Armor",
+	"item.two.blue_stained_wooden_horse_armor" : "Blue Stained Wooden Horse Armor",
+	"item.two.brown_stained_wooden_horse_armor" : "Brown Stained Wooden Horse Armor",
+	"item.two.green_stained_wooden_horse_armor" : "Green Stained Wooden Horse Armor",
+	"item.two.red_stained_wooden_horse_armor" : "Red Stained Wooden Horse Armor",
+	"item.two.black_stained_wooden_horse_armor" : "Black Stained Wooden Horse Armor",
+	"item.two.white_woolen_horse_armor" : "White Woolen Horse Armor",
+	"item.two.orange_woolen_horse_armor" : "Orange Woolen Horse Armor",
+	"item.two.magenta_woolen_horse_armor" : "Magenta Woolen Horse Armor",
+	"item.two.light_blue_woolen_horse_armor" : "Light Blue Woolen Horse Armor",
+	"item.two.yellow_woolen_horse_armor" : "Yellow Woolen Horse Armor",
+	"item.two.lime_woolen_horse_armor" : "Lime Woolen Horse Armor",
+	"item.two.pink_woolen_horse_armor" : "Pink Woolen Horse Armor",
+	"item.two.gray_woolen_horse_armor" : "Gray Woolen Horse Armor",
+	"item.two.light_gray_woolen_horse_armor" : "Light Gray Woolen Horse Armor",
+	"item.two.cyan_woolen_horse_armor" : "Cyan Woolen Horse Armor",
+	"item.two.purple_woolen_horse_armor" : "Purple Woolen Horse Armor",
+	"item.two.blue_woolen_horse_armor" : "Blue Woolen Horse Armor",
+	"item.two.brown_woolen_horse_armor" : "Brown Woolen Horse Armor",
+	"item.two.green_woolen_horse_armor" : "Green Woolen Horse Armor",
+	"item.two.red_woolen_horse_armor" : "Red Woolen Horse Armor",
+	"item.two.black_woolen_horse_armor" : "Black Woolen Horse Armor",
+	
+	"item.two.knapsack" : "Knapsack",
+	
+	"item.two.chameleon_spawn_egg" : "Chameleon Spawn Egg",
+	
+	
+	
+	"item.two.emerald_shovel" : "Emerald Shovel",
+	"item.two.emerald_pickaxe" : "Emerald Pickaxe",
+	"item.two.emerald_axe" : "Emerald Axe",
+	"item.two.emerald_hoe" : "Emerald Hoe",
+	
+	"item.two.iron_sickle" : "Iron Sickle",
+	"item.two.wooden_sickle" : "Wooden Sickle",
+	"item.two.stone_sickle" : "Stone Sickle",
+	"item.two.diamond_sickle" : "Diamond Sickle",
+	"item.two.golden_sickle" : "Golden Sickle",
+	"item.two.emerald_sickle" : "Emerald Sickle",
+	
+	
+	
+	"item.two.emerald_sword" : "Emerald Sword",
+	
+	"item.two.iron_battleaxe" : "Iron Battleaxe",
+	"item.two.wooden_battleaxe" : "Wooden Battleaxe",
+	"item.two.stone_battleaxe" : "Stone Battleaxe",
+	"item.two.diamond_battleaxe" : "Diamond Battleaxe",
+	"item.two.golden_battleaxe" : "Golden Battleaxe",
+	"item.two.emerald_battleaxe" : "Emerald Battleaxe",
+	
+	"item.two.blood_wither_blade" : "Blood Wither Blade",
+	"item.two.blood_flame_blade" : "Blood Flame Blade",
+	"item.two.blood_venom_blade" : "Blood Venom Blade",
+	"item.two.banisher" : "The Banisher",
+	
+	"item.two.emerald_helmet" : "Emerald Helmet",
+	"item.two.emerald_chestplate" : "Emerald Chestplate",
+	"item.two.emerald_leggings" : "Emerald Leggings",
+	"item.two.emerald_boots" : "Emerald Boots",
+	
+	"item.two.stone_helmet" : "Stone Helmet",
+	"item.two.stone_chestplate" : "Stone Chestplate",
+	"item.two.stone_leggings" : "Stone Leggings",
+	"item.two.stone_boots" : "Stone Boots",
+	
+	"item.two.oak_helmet" : "Oak Helmet",
+	"item.two.oak_chestplate" : "Oak Chestplate",
+	"item.two.oak_leggings" : "Oak Leggings",
+	"item.two.oak_boots" : "Oak Boots",
+	
+	"item.two.spruce_helmet" : "Spruce Helmet",
+	"item.two.spruce_chestplate" : "Spruce Chestplate",
+	"item.two.spruce_leggings" : "Spruce Leggings",
+	"item.two.spruce_boots" : "Spruce Boots",
+	
+	"item.two.birch_helmet" : "Birch Helmet",
+	"item.two.birch_chestplate" : "Birch Chestplate",
+	"item.two.birch_leggings" : "Birch Leggings",
+	"item.two.birch_boots" : "Birch Boots",
+	
+	"item.two.jungle_helmet" : "Jungle Helmet",
+	"item.two.jungle_chestplate" : "Jungle Chestplate",
+	"item.two.jungle_leggings" : "Jungle Leggings",
+	"item.two.jungle_boots" : "Jungle Boots",
+	
+	"item.two.acacia_helmet" : "Acacia Helmet",
+	"item.two.acacia_chestplate" : "Acacia Chestplate",
+	"item.two.acacia_leggings" : "Acacia Leggings",
+	"item.two.acacia_boots" : "Acacia Boots",
+	
+	"item.two.dark_oak_helmet" : "Dark Oak Helmet",
+	"item.two.dark_oak_chestplate" : "Dark Oak Chestplate",
+	"item.two.dark_oak_leggings" : "Dark Oak Leggings",
+	"item.two.dark_oak_boots" : "Dark Oak Boots",
+	
+	"item.two.maple_helmet" : "Maple Helmet",
+	"item.two.maple_chestplate" : "Maple Chestplate",
+	"item.two.maple_leggings" : "Maple Leggings",
+	"item.two.maple_boots" : "Maple Boots",
+	
+	"item.two.cherry_helmet" : "Cherry Helmet",
+	"item.two.cherry_chestplate" : "Cherry Chestplate",
+	"item.two.cherry_leggings" : "Cherry Leggings",
+	"item.two.cherry_boots" : "Cherry Boots",
+	
+	"item.two.white_stained_wooden_helmet" : "White Stained Wooden Helmet",
+	"item.two.white_stained_wooden_chestplate" : "White Stained Wooden Chestplate",
+	"item.two.white_stained_wooden_leggings" : "White Stained Wooden Leggings",
+	"item.two.white_stained_wooden_boots" : "White Stained Wooden Boots",
+
+	"item.two.orange_stained_wooden_helmet" : "Orange Stained Wooden Helmet",
+	"item.two.orange_stained_wooden_chestplate" : "Orange Stained Wooden Chestplate",
+	"item.two.orange_stained_wooden_leggings" : "Orange Stained Wooden Leggings",
+	"item.two.orange_stained_wooden_boots" : "Orange Stained Wooden Boots",
+
+	"item.two.magenta_stained_wooden_helmet" : "Magenta Stained Wooden Helmet",
+	"item.two.magenta_stained_wooden_chestplate" : "Magenta Stained Wooden Chestplate",
+	"item.two.magenta_stained_wooden_leggings" : "Magenta Stained Wooden Leggings",
+	"item.two.magenta_stained_wooden_boots" : "Magenta Stained Wooden Boots",
+
+	"item.two.light_blue_stained_wooden_helmet" : "Light Blue Stained Wooden Helmet",
+	"item.two.light_blue_stained_wooden_chestplate" : "Light Blue Stained Wooden Chestplate",
+	"item.two.light_blue_stained_wooden_leggings" : "Light Blue Stained Wooden Leggings",
+	"item.two.light_blue_stained_wooden_boots" : "Light Blue Stained Wooden Boots",
+
+	"item.two.yellow_stained_wooden_helmet" : "Yellow Stained Wooden Helmet",
+	"item.two.yellow_stained_wooden_chestplate" : "Yellow Stained Wooden Chestplate",
+	"item.two.yellow_stained_wooden_leggings" : "Yellow Stained Wooden Leggings",
+	"item.two.yellow_stained_wooden_boots" : "Yellow Stained Wooden Boots",
+
+	"item.two.lime_stained_wooden_helmet" : "Lime Stained Wooden Helmet",
+	"item.two.lime_stained_wooden_chestplate" : "Lime Stained Wooden Chestplate",
+	"item.two.lime_stained_wooden_leggings" : "Lime Stained Wooden Leggings",
+	"item.two.lime_stained_wooden_boots" : "Lime Stained Wooden Boots",
+
+	"item.two.pink_stained_wooden_helmet" : "Pink Stained Wooden Helmet",
+	"item.two.pink_stained_wooden_chestplate" : "Pink Stained Wooden Chestplate",
+	"item.two.pink_stained_wooden_leggings" : "Pink Stained Wooden Leggings",
+	"item.two.pink_stained_wooden_boots" : "Pink Stained Wooden Boots",
+
+	"item.two.gray_stained_wooden_helmet" : "Gray Stained Wooden Helmet",
+	"item.two.gray_stained_wooden_chestplate" : "Gray Stained Wooden Chestplate",
+	"item.two.gray_stained_wooden_leggings" : "Gray Stained Wooden Leggings",
+	"item.two.gray_stained_wooden_boots" : "Gray Stained Wooden Boots",
+
+	"item.two.light_gray_stained_wooden_helmet" : "Light Gray Stained Wooden Helmet",
+	"item.two.light_gray_stained_wooden_chestplate" : "Light Gray Stained Wooden Chestplate",
+	"item.two.light_gray_stained_wooden_leggings" : "Light Gray Stained Wooden Leggings",
+	"item.two.light_gray_stained_wooden_boots" : "Light Gray Stained Wooden Boots",
+
+	"item.two.cyan_stained_wooden_helmet" : "Cyan Stained Wooden Helmet",
+	"item.two.cyan_stained_wooden_chestplate" : "Cyan Stained Wooden Chestplate",
+	"item.two.cyan_stained_wooden_leggings" : "Cyan Stained Wooden Leggings",
+	"item.two.cyan_stained_wooden_boots" : "Cyan Stained Wooden Boots",
+
+	"item.two.purple_stained_wooden_helmet" : "Purple Stained Wooden Helmet",
+	"item.two.purple_stained_wooden_chestplate" : "Purple Stained Wooden Chestplate",
+	"item.two.purple_stained_wooden_leggings" : "Purple Stained Wooden Leggings",
+	"item.two.purple_stained_wooden_boots" : "Purple Stained Wooden Boots",
+
+	"item.two.blue_stained_wooden_helmet" : "Blue Stained Wooden Helmet",
+	"item.two.blue_stained_wooden_chestplate" : "Blue Stained Wooden Chestplate",
+	"item.two.blue_stained_wooden_leggings" : "Blue Stained Wooden Leggings",
+	"item.two.blue_stained_wooden_boots" : "Blue Stained Wooden Boots",
+
+	"item.two.brown_stained_wooden_helmet" : "Brown Stained Wooden Helmet",
+	"item.two.brown_stained_wooden_chestplate" : "Brown Stained Wooden Chestplate",
+	"item.two.brown_stained_wooden_leggings" : "Brown Stained Wooden Leggings",
+	"item.two.brown_stained_wooden_boots" : "Brown Stained Wooden Boots",
+
+	"item.two.green_stained_wooden_helmet" : "Green Stained Wooden Helmet",
+	"item.two.green_stained_wooden_chestplate" : "Green Stained Wooden Chestplate",
+	"item.two.green_stained_wooden_leggings" : "Green Stained Wooden Leggings",
+	"item.two.green_stained_wooden_boots" : "Green Stained Wooden Boots",
+
+	"item.two.red_stained_wooden_helmet" : "Red Stained Wooden Helmet",
+	"item.two.red_stained_wooden_chestplate" : "Red Stained Wooden Chestplate",
+	"item.two.red_stained_wooden_leggings" : "Red Stained Wooden Leggings",
+	"item.two.red_stained_wooden_boots" : "Red Stained Wooden Boots",
+
+	"item.two.black_stained_wooden_helmet" : "Black Stained Wooden Helmet",
+	"item.two.black_stained_wooden_chestplate" : "Black Stained Wooden Chestplate",
+	"item.two.black_stained_wooden_leggings" : "Black Stained Wooden Leggings",
+	"item.two.black_stained_wooden_boots" : "Black Stained Wooden Boots",
+	
+	"item.two.white_woolen_helmet" : "White Woolen Cap",
+	"item.two.white_woolen_chestplate" : "White Woolen Tunic",
+	"item.two.white_woolen_leggings" : "White Woolen Pants",
+	"item.two.white_woolen_boots" : "White Woolen Boots",
+	
+	"item.two.orange_woolen_helmet" : "Orange Woolen Cap",
+	"item.two.orange_woolen_chestplate" : "Orange Woolen Tunic",
+	"item.two.orange_woolen_leggings" : "Orange Woolen Pants",
+	"item.two.orange_woolen_boots" : "Orange Woolen Boots",
+	
+	"item.two.magenta_woolen_helmet" : "Magenta Woolen Cap",
+	"item.two.magenta_woolen_chestplate" : "Magenta Woolen Tunic",
+	"item.two.magenta_woolen_leggings" : "Magenta Woolen Pants",
+	"item.two.magenta_woolen_boots" : "Magenta Woolen Boots",
+	
+	"item.two.light_blue_woolen_helmet" : "Light Blue Woolen Cap",
+	"item.two.light_blue_woolen_chestplate" : "Light Blue Woolen Tunic",
+	"item.two.light_blue_woolen_leggings" : "Light Blue Woolen Pants",
+	"item.two.light_blue_woolen_boots" : "Light Blue Woolen Boots",
+	
+	"item.two.yellow_woolen_helmet" : "Yellow Woolen Cap",
+	"item.two.yellow_woolen_chestplate" : "Yellow Woolen Tunic",
+	"item.two.yellow_woolen_leggings" : "Yellow Woolen Pants",
+	"item.two.yellow_woolen_boots" : "Yellow Woolen Boots",
+	
+	"item.two.lime_woolen_helmet" : "Lime Woolen Cap",
+	"item.two.lime_woolen_chestplate" : "Lime Woolen Tunic",
+	"item.two.lime_woolen_leggings" : "Lime Woolen Pants",
+	"item.two.lime_woolen_boots" : "Lime Woolen Boots",
+	
+	"item.two.pink_woolen_helmet" : "Pink Woolen Cap",
+	"item.two.pink_woolen_chestplate" : "Pink Woolen Tunic",
+	"item.two.pink_woolen_leggings" : "Pink Woolen Pants",
+	"item.two.pink_woolen_boots" : "Pink Woolen Boots",
+	
+	"item.two.gray_woolen_helmet" : "Gray Woolen Cap",
+	"item.two.gray_woolen_chestplate" : "Gray Woolen Tunic",
+	"item.two.gray_woolen_leggings" : "Gray Woolen Pants",
+	"item.two.gray_woolen_boots" : "Gray Woolen Boots",
+	
+	"item.two.light_gray_woolen_helmet" : "Light Gray Woolen Cap",
+	"item.two.light_gray_woolen_chestplate" : "Light Gray Woolen Tunic",
+	"item.two.light_gray_woolen_leggings" : "Light Gray Woolen Pants",
+	"item.two.light_gray_woolen_boots" : "Light Gray Woolen Boots",
+	
+	"item.two.cyan_woolen_helmet" : "Cyan Woolen Cap",
+	"item.two.cyan_woolen_chestplate" : "Cyan Woolen Tunic",
+	"item.two.cyan_woolen_leggings" : "Cyan Woolen Pants",
+	"item.two.cyan_woolen_boots" : "Cyan Woolen Boots",
+	
+	"item.two.purple_woolen_helmet" : "Purple Woolen Cap",
+	"item.two.purple_woolen_chestplate" : "Purple Woolen Tunic",
+	"item.two.purple_woolen_leggings" : "Purple Woolen Pants",
+	"item.two.purple_woolen_boots" : "Purple Woolen Boots",
+	
+	"item.two.blue_woolen_helmet" : "Blue Woolen Cap",
+	"item.two.blue_woolen_chestplate" : "Blue Woolen Tunic",
+	"item.two.blue_woolen_leggings" : "Blue Woolen Pants",
+	"item.two.blue_woolen_boots" : "Blue Woolen Boots",
+	
+	"item.two.brown_woolen_helmet" : "Brown Woolen Cap",
+	"item.two.brown_woolen_chestplate" : "Brown Woolen Tunic",
+	"item.two.brown_woolen_leggings" : "Brown Woolen Pants",
+	"item.two.brown_woolen_boots" : "Brown Woolen Boots",
+	
+	"item.two.green_woolen_helmet" : "Green Woolen Cap",
+	"item.two.green_woolen_chestplate" : "Green Woolen Tunic",
+	"item.two.green_woolen_leggings" : "Green Woolen Pants",
+	"item.two.green_woolen_boots" : "Green Woolen Boots",
+	
+	"item.two.red_woolen_helmet" : "Red Woolen Cap",
+	"item.two.red_woolen_chestplate" : "Red Woolen Tunic",
+	"item.two.red_woolen_leggings" : "Red Woolen Pants",
+	"item.two.red_woolen_boots" : "Red Woolen Boots",
+	
+	"item.two.black_woolen_helmet" : "Black Woolen Cap",
+	"item.two.black_woolen_chestplate" : "Black Woolen Tunic",
+	"item.two.black_woolen_leggings" : "Black Woolen Pants",
+	"item.two.black_woolen_boots" : "Black Woolen Boots",
+	
+	"item.two.sponge_helmet" : "Sponge Helmet",
+	"item.two.sponge_chestplate" : "Sponge Chestplate",
+	"item.two.sponge_leggings" : "Sponge Leggings",
+	"item.two.sponge_boots" : "Sponge Boots",
+	
+	"item.two.glowstone_helmet" : "Glowstone Helmet",
+	"item.two.glowstone_chestplate" : "Glowstone Chestplate",
+	"item.two.glowstone_leggings" : "Glowstone Leggings",
+	"item.two.glowstone_boots" : "Glowstone Boots",
+	
+
+
+
+	
+	"advancements.story.best_of_both_worlds.title" : "Best of Both Worlds",
+	"advancements.story.best_of_both_worlds.description" : "Craft a Wooden Battleaxe",
+	"advancements.story.not_so_faux_fur.title" : "Not So Faux Fur",
+	"advancements.story.not_so_faux_fur.description" : "Don a White Woolen Tunic",
+	"advancements.story.comrade.title" : "Comrade",
+	"advancements.story.comrade.description" : "The death of one man is a tragedy, the death of millions is a statistic",
+	"advancements.story.bigger_on_the_inside.title" : "Bigger on the Inside",
+	"advancements.story.bigger_on_the_inside.description" : "Sew a leather Knapsack to hold your stuff",
+
+
+
+
+
+	"container.knapsack" : "Knapsack"
+}

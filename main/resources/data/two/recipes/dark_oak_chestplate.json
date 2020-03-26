@@ -1,0 +1,16 @@
+{
+	"type" : "minecraft:crafting_shaped",
+  	"pattern" : [
+    	"X X",
+    	"XXX",
+		"XXX"
+  	],
+  	"key" : {
+    	"X" : {
+      		"item" : "minecraft:dark_oak_planks"
+    	}
+  	},
+  	"result" : {
+    	"item" : "two:dark_oak_chestplate"
+  	}
+}

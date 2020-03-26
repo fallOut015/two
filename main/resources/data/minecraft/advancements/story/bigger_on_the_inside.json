@@ -1,0 +1,35 @@
+{
+	"parent" : "minecraft:story/not_so_faux_fur",
+	"display" : {
+		"icon" : {
+      		"item" : "two:knapsack"
+    	},
+    	"title" : {
+      		"translate" : "advancements.story.bigger_on_the_inside.title"
+    	},
+    	"description" : {
+      		"translate" : "advancements.story.bigger_on_the_inside.description"
+    	},
+    	"frame" : "task",
+    	"show_toast" : true,
+    	"announce_to_chat" : true,
+    	"hidden" : false
+  	},
+  	"criteria" : {
+    	"knapsack" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"item" : "two:knapsack"
+          			}
+        		]
+      		}
+    	}
+  	},
+  	"requirements" : [
+    	[
+      		"knapsack"
+    	]
+  	]
+}

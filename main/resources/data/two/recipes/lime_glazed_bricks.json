@@ -1,0 +1,21 @@
+{
+	"type": "minecraft:crafting_shaped",
+  	"group": "stained_bricks",
+  	"pattern": [
+    	"###",
+    	"#X#",
+    	"###"
+  	],
+  	"key": {
+    	"#": {
+      		"item": "minecraft:bricks"
+    	},
+    	"X": {
+      		"item": "minecraft:lime_dye"
+    	}
+  	},
+  	"result": {
+    	"item": "two:lime_glazed_bricks",
+    	"count": 8
+  	}
+}

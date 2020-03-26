@@ -1,0 +1,16 @@
+{
+	"type" : "minecraft:crafting_shaped",
+  	"pattern" : [
+    	"X X",
+    	"XXX",
+		"XXX"
+  	],
+  	"key" : {
+    	"X" : {
+      		"item" : "minecraft:birch_planks"
+    	}
+  	},
+  	"result" : {
+    	"item" : "two:birch_chestplate"
+  	}
+}

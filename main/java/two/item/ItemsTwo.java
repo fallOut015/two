@@ -1,0 +1,610 @@
+package two.item;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import net.minecraft.block.Block;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ArmorItem;
+import net.minecraft.item.AxeItem;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.HoeItem;
+import net.minecraft.item.HorseArmorItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTier;
+import net.minecraft.item.PickaxeItem;
+import net.minecraft.item.Rarity;
+import net.minecraft.item.ShovelItem;
+import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.SwordItem;
+import net.minecraft.particles.IParticleData;
+import net.minecraft.particles.ParticleTypes;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.world.World;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.registries.ObjectHolder;
+import two.block.BlocksTwo;
+import two.entity.EntitiesTwo;
+
+@ObjectHolder("two")
+public class ItemsTwo {
+	// Not in creative inventory
+	public static final Item TEST_BLOCK = register(BlocksTwo.TEST_BLOCK, new Item.Properties().rarity(Rarity.EPIC));
+	public static final Item TEST_ITEM = register("test_item", new Item(new Item.Properties().rarity(Rarity.EPIC)));
+	public static final Item COMMUNISM = register("communism", new Item(new Item.Properties().rarity(Rarity.EPIC)) {
+		@Override
+		public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+			tooltip.add(new StringTextComponent("OURcraft"));
+		}
+	});
+	
+	
+	
+	// Building blocks 
+	//public static final Item ADOBE = register(BlocksTwo.ADOBE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+
+	public static final Item CHERRY_PLANKS = register(BlocksTwo.CHERRY_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item MAPLE_PLANKS = register(BlocksTwo.MAPLE_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	public static final Item WHITE_STAINED_PLANKS = register(BlocksTwo.WHITE_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item ORANGE_STAINED_PLANKS = register(BlocksTwo.ORANGE_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item MAGENTA_STAINED_PLANKS = register(BlocksTwo.MAGENTA_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LIGHT_BLUE_STAINED_PLANKS = register(BlocksTwo.LIGHT_BLUE_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item YELLOW_STAINED_PLANKS = register(BlocksTwo.YELLOW_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LIME_STAINED_PLANKS = register(BlocksTwo.LIME_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item PINK_STAINED_PLANKS = register(BlocksTwo.PINK_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item GRAY_STAINED_PLANKS = register(BlocksTwo.GRAY_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LIGHT_GRAY_STAINED_PLANKS = register(BlocksTwo.LIGHT_GRAY_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item CYAN_STAINED_PLANKS = register(BlocksTwo.CYAN_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item PURPLE_STAINED_PLANKS = register(BlocksTwo.PURPLE_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BLUE_STAINED_PLANKS = register(BlocksTwo.BLUE_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BROWN_STAINED_PLANKS = register(BlocksTwo.BROWN_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item GREEN_STAINED_PLANKS = register(BlocksTwo.GREEN_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item RED_STAINED_PLANKS = register(BlocksTwo.RED_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BLACK_STAINED_PLANKS = register(BlocksTwo.BLACK_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	public static final Item CHERRY_LOG = register(BlocksTwo.CHERRY_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item MAPLE_LOG = register(BlocksTwo.MAPLE_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	public static final Item STRIPPED_CHERRY_LOG = register(BlocksTwo.STRIPPED_CHERRY_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item STRIPPED_MAPLE_LOG = register(BlocksTwo.STRIPPED_MAPLE_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	public static final Item CHERRY_WOOD = register(BlocksTwo.CHERRY_WOOD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item MAPLE_WOOD = register(BlocksTwo.MAPLE_WOOD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	public static final Item STRIPPED_CHERRY_WOOD = register(BlocksTwo.STRIPPED_CHERRY_WOOD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item STRIPPED_MAPLE_WOOD = register(BlocksTwo.STRIPPED_MAPLE_WOOD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	public static final Item CHERRY_SLAB = register(BlocksTwo.CHERRY_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item MAPLE_SLAB = register(BlocksTwo.MAPLE_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	public static final Item CHERRY_STAIRS = register(BlocksTwo.CHERRY_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item MAPLE_STAIRS = register(BlocksTwo.MAPLE_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	public static final Item WHITE_GLAZED_BRICKS = register(BlocksTwo.WHITE_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item ORANGE_GLAZED_BRICKS = register(BlocksTwo.ORANGE_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item MAGENTA_GLAZED_BRICKS = register(BlocksTwo.MAGENTA_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LIGHT_BLUE_GLAZED_BRICKS = register(BlocksTwo.LIGHT_BLUE_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item YELLOW_GLAZED_BRICKS = register(BlocksTwo.YELLOW_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LIME_GLAZED_BRICKS = register(BlocksTwo.LIME_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item PINK_GLAZED_BRICKS = register(BlocksTwo.PINK_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item GRAY_GLAZED_BRICKS = register(BlocksTwo.GRAY_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LIGHT_GRAY_GLAZED_BRICKS = register(BlocksTwo.LIGHT_GRAY_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item CYAN_GLAZED_BRICKS = register(BlocksTwo.CYAN_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item PURPLE_GLAZED_BRICKS = register(BlocksTwo.PURPLE_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BLUE_GLAZED_BRICKS = register(BlocksTwo.BLUE_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BROWN_GLAZED_BRICKS = register(BlocksTwo.BROWN_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item GREEN_GLAZED_BRICKS = register(BlocksTwo.GREEN_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item RED_GLAZED_BRICKS = register(BlocksTwo.RED_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BLACK_GLAZED_BRICKS = register(BlocksTwo.BLACK_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	public static final Item GAULT = register(BlocksTwo.GAULT, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item NIGHTSTONE = register(BlocksTwo.NIGHTSTONE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	public static final Item CLOUD = register(BlocksTwo.CLOUD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	// Decoration
+	public static final Item CHERY_SAPLING = register(BlocksTwo.CHERRY_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item MAPLE_SAPLING = register(BlocksTwo.MAPLE_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
+	public static final Item CHERRY_LEAVES = register(BlocksTwo.CHERRY_LEAVES, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item MAPLE_LEAVES = register(BlocksTwo.MAPLE_LEAVES, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
+	public static final Item CHERRY_FENCE = register(BlocksTwo.CHERRY_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item MAPLE_FENCE = register(BlocksTwo.MAPLE_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
+	public static final Item CHERRY_SIGN = register(BlocksTwo.CHERRY_SIGN, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item MAPLE_SIGN = register(BlocksTwo.MAPLE_SIGN, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
+	
+	
+	// Redstone
+	public static final Item CHERRY_PRESSURE_PLATE = register(BlocksTwo.CHERRY_PRESSURE_PLATE, new Item.Properties().group(ItemGroup.REDSTONE));
+	public static final Item MAPLE_PRESSURE_PLATE = register(BlocksTwo.MAPLE_PRESSURE_PLATE, new Item.Properties().group(ItemGroup.REDSTONE));
+	
+	public static final Item CHERRY_TRAPDOOR = register(BlocksTwo.CHERRY_TRAPDOOR, new Item.Properties().group(ItemGroup.REDSTONE));
+	public static final Item MAPLE_TRAPDOOR = register(BlocksTwo.MAPLE_TRAPDOOR, new Item.Properties().group(ItemGroup.REDSTONE));
+	
+	public static final Item CHERRY_FENCE_GATE = register(BlocksTwo.CHERRY_FENCE_GATE, new Item.Properties().group(ItemGroup.REDSTONE));
+	public static final Item MAPLE_FENCE_GATE = register(BlocksTwo.MAPLE_FENCE_GATE, new Item.Properties().group(ItemGroup.REDSTONE));
+	
+	public static final Item CHERRY_BUTTON = register(BlocksTwo.CHERRY_BUTTON, new Item.Properties().group(ItemGroup.REDSTONE));
+	public static final Item MAPLE_BUTTON = register(BlocksTwo.MAPLE_BUTTON, new Item.Properties().group(ItemGroup.REDSTONE));
+	
+	public static final Item CHERRY_DOOR = register(BlocksTwo.CHERRY_DOOR, new Item.Properties().group(ItemGroup.REDSTONE));
+	public static final Item MAPLE_DOOR = register(BlocksTwo.MAPLE_DOOR, new Item.Properties().group(ItemGroup.REDSTONE));
+	
+	
+	
+	// Transportation
+	//public static final Item MAPLE_BOAT = register("maple_boat", new BoatItem(BoatEntityTwo.Type.MAPLE, new Item.Properties().group(ItemGroup.TRANSPORTATION)));
+	
+	
+	
+	// Misc
+	public static final Item COBALT = register("cobalt", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item JADE = register("jade", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item OPAL = register("opal", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item TANZANITE = register("tanzanite", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item AMETHYST = register("amethyst", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item GARNET = register("garnet", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item TOPAZ = register("topaz", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item SAPPHIRE = register("sapphire", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item RUBY = register("ruby", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	
+	public static final Item TALC = register("talc", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item LEAD_INGOT = register("lead_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item TIN_INGOT = register("tin_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item ALUMINUM_INGOT = register("aluminum_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item SILVER_INGOT = register("silver_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item COPPER_INGOT = register("copper_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item PLATINUM_INGOT = register("platinum_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item TITANIUM_INGOT = register("titanium_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item PYRITE_INGOT = register("pyrite_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item STEEL_INGOT = register("steel_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item HARDENED_STEEL_INGOT = register("hardened_steel_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	
+    public static final Item CHAINMAIL_HORSE_ARMOR = register("chainmail_horse_armor", new HorseArmorItem(4, "chainmail", new Item.Properties().maxStackSize(1).group(ItemGroup.MISC)));
+	public static final Item EMERALD_HORSE_ARMOR = register("emerald_horse_armor", new HorseArmorItem(5, "emerald", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item STONE_HORSE_ARMOR = register("stone_horse_armor", new HorseArmorItem(4, "stone", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    
+    public static final Item OAK_HORSE_ARMOR = register("oak_horse_armor", new HorseArmorItem(2, "oak", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item SPRUCE_HORSE_ARMOR = register("spruce_horse_armor", new HorseArmorItem(2, "spruce", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item BIRCH_HORSE_ARMOR = register("birch_horse_armor", new HorseArmorItem(2, "birch", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item JUNGLE_HORSE_ARMOR = register("jungle_horse_armor", new HorseArmorItem(2, "jungle", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item ACACIA_HORSE_ARMOR = register("acacia_horse_armor", new HorseArmorItem(2, "acacia", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item DARK_OAK_HORSE_ARMOR = register("dark_oak_horse_armor", new HorseArmorItem(2, "dark_oak", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item CHERRY_HORSE_ARMOR = register("cherry_horse_armor", new HorseArmorItem(2, "cherry", new Item.Properties().maxStackSize(1).group(ItemGroup.MISC)));
+    public static final Item MAPLE_HORSE_ARMOR = register("maple_horse_armor", new HorseArmorItem(2, "maple", new Item.Properties().maxStackSize(1).group(ItemGroup.MISC)));
+    
+    public static final Item WHITE_STAINED_WOODEN_HORSE_ARMOR = register("white_stained_wooden_horse_armor", new HorseArmorItem(2, "white_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item ORANGE_STAINED_WOODEN_HORSE_ARMOR = register("orange_stained_wooden_horse_armor", new HorseArmorItem(2, "orange_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item MAGENTA_STAINED_WOODEN_HORSE_ARMOR = register("magenta_stained_wooden_horse_armor", new HorseArmorItem(2, "magenta_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item LIGHT_STAINED_BLUE_WOODEN_HORSE_ARMOR = register("light_blue_stained_wooden_horse_armor", new HorseArmorItem(2, "light_blue_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item YELLOW_STAINED_WOODEN_HORSE_ARMOR = register("yellow_stained_wooden_horse_armor", new HorseArmorItem(2, "yellow_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item LIME_STAINED_WOODEN_HORSE_ARMOR = register("lime_stained_wooden_horse_armor", new HorseArmorItem(2, "lime_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item PINK_STAINED_WOODEN_HORSE_ARMOR = register("pink_stained_wooden_horse_armor", new HorseArmorItem(2, "pink_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item GRAY_STAINED_WOODEN_HORSE_ARMOR = register("gray_stained_wooden_horse_armor", new HorseArmorItem(2, "gray_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item LIGHT_STAINED_GRAY_WOODEN_HORSE_ARMOR = register("light_gray_stained_wooden_horse_armor", new HorseArmorItem(2, "light_gray_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item CYAN_STAINED_WOODEN_HORSE_ARMOR = register("cyan_stained_wooden_horse_armor", new HorseArmorItem(2, "cyan_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item PURPLE_STAINED_WOODEN_HORSE_ARMOR = register("purple_stained_wooden_horse_armor", new HorseArmorItem(2, "purple_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item BLUE_STAINED_WOODEN_HORSE_ARMOR = register("blue_stained_wooden_horse_armor", new HorseArmorItem(2, "blue_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item BROWN_STAINED_WOODEN_HORSE_ARMOR = register("brown_stained_wooden_horse_armor", new HorseArmorItem(2, "brown_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item GREEN_STAINED_WOODEN_HORSE_ARMOR = register("green_stained_wooden_horse_armor", new HorseArmorItem(2, "green_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item RED_STAINED_WOODEN_HORSE_ARMOR = register("red_stained_wooden_horse_armor", new HorseArmorItem(2, "red_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item BLACK_STAINED_WOODEN_HORSE_ARMOR = register("black_stained_wooden_horse_armor", new HorseArmorItem(2, "black_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+
+    public static final Item WHITE_WOOLEN_HORSE_ARMOR = register("white_woolen_horse_armor", new HorseArmorItem(3, "white_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item ORANGE_WOOLEN_HORSE_ARMOR = register("orange_woolen_horse_armor", new HorseArmorItem(3, "orange_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item MAGENTA_WOOLEN_HORSE_ARMOR = register("magenta_woolen_horse_armor", new HorseArmorItem(3, "magenta_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item LIGHT_BLUE_WOOLEN_HORSE_ARMOR = register("light_blue_woolen_horse_armor", new HorseArmorItem(3, "light_blue_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item YELLOW_WOOLEN_HORSE_ARMOR = register("yellow_woolen_horse_armor", new HorseArmorItem(3, "yellow_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item LIME_WOOLEN_HORSE_ARMOR = register("lime_woolen_horse_armor", new HorseArmorItem(3, "lime_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item PINK_WOOLEN_HORSE_ARMOR = register("pink_woolen_horse_armor", new HorseArmorItem(3, "pink_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item GRAY_WOOLEN_HORSE_ARMOR = register("gray_woolen_horse_armor", new HorseArmorItem(3, "gray_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item LIGHT_GRAY_WOOLEN_HORSE_ARMOR = register("light_gray_woolen_horse_armor", new HorseArmorItem(3, "light_gray_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item CYAN_WOOLEN_HORSE_ARMOR = register("cyan_woolen_horse_armor", new HorseArmorItem(3, "cyan_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item PURPLE_WOOLEN_HORSE_ARMOR = register("purple_woolen_horse_armor", new HorseArmorItem(3, "purple_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item BLUE_WOOLEN_HORSE_ARMOR = register("blue_woolen_horse_armor", new HorseArmorItem(3, "blue_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item BROWN_WOOLEN_HORSE_ARMOR = register("brown_woolen_horse_armor", new HorseArmorItem(3, "brown_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item GREEN_WOOLEN_HORSE_ARMOR = register("green_woolen_horse_armor", new HorseArmorItem(3, "green_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item RED_WOOLEN_HORSE_ARMOR = register("red_woolen_horse_armor", new HorseArmorItem(3, "red_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item BLACK_WOOLEN_HORSE_ARMOR = register("black_woolen_horse_armor", new HorseArmorItem(3, "black_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    //sponge
+    //glowstone
+    
+    //public static final Item RUBY_HORSE_ARMOR = register("ruby_horse_armor", new HorseArmorItem(0, "ruby", new Item.Properties().group(ItemGroup.COMBAT)));
+    //public static final Item LEAD_HORSE_ARMOR = register("lead_horse_armor", new HorseArmorItem(0, "lead", new Item.Properties().group(ItemGroup.COMBAT)));
+
+    //public static final Item BACKPACK = register("backpack", new BackpackItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
+    //backpack -> wearable, another tab of items
+    //fanny pack -> wearable, displays extra row
+    public static final Item KNAPSACK = register("knapsack", new KnapsackItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
+    //potion sack -> displays extra potion slots
+    //quiver -> displays extra arrow slots
+    
+    public static final Item CHAMELEON_SPAWN_EGG = register("chameleon_spawn_egg", new SpawnEggItem(EntitiesTwo.CHAMELEON, 2162500, 14463743, new Item.Properties().group(ItemGroup.MISC)));
+    
+	
+	
+	//Tools
+    public static final Item EMERALD_SHOVEL = register("emerald_shovel", new ShovelItem(ItemTierTwo.EMERALD, 1.5f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item EMERALD_PICKAXE = register("emerald_pickaxe", new PickaxeItem(ItemTierTwo.EMERALD, 1, -2.8f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item EMERALD_AXE = register("emerald_axe", new AxeItem(ItemTierTwo.EMERALD, 6.0f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item EMERALD_HOE = register("emerald_hoe", new HoeItem(ItemTierTwo.EMERALD, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
+	
+	public static final Item IRON_SICKLE = register("iron_sickle", new SickleItem(ItemTier.IRON, -1.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item WOODEN_SICKLE = register("wooden_sickle", new SickleItem(ItemTier.WOOD, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item STONE_SICKLE = register("stone_sickle", new SickleItem(ItemTier.STONE, -2.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item DIAMOND_SICKLE = register("diamond_sickle", new SickleItem(ItemTier.DIAMOND, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item GOLDEN_SICKLE = register("golden_sickle", new SickleItem(ItemTier.GOLD, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item EMERALD_SICKLE = register("emerald_sickle", new SickleItem(ItemTierTwo.EMERALD, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	
+	//public static final Item RUBY_SHOVEL = register("ruby_shovel", new ShovelItem(ItemTierTwo.RUBY, 1.5f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	//public static final Item RUBY_PICKAXE = register("ruby_pickaxe", new PickaxeItem(ItemTierTwo.RUBY, 1, -2.8f, new Item.Properties().group(ItemGroup.TOOLS)));
+	//public static final Item RUBY_AXE = register("ruby_axe", new AxeItem(ItemTierTwo.RUBY, 0.0f, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	//public static final Item RUBY_HOE = register("ruby_hoe", new HoeItem(ItemTierTwo.RUBY, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	
+	//public static final Item LEAD_SHOVEL = register("lead_shovel", new ShovelItem(ItemTierTwo.LEAD, 1.5f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	//public static final Item LEAD_PICKAXE = register("lead_pickaxe", new PickaxeItem(ItemTierTwo.LEAD, 1, -2.8f, new Item.Properties().group(ItemGroup.TOOLS)));
+	//public static final Item LEAD_AXE = register("lead_axe", new AxeItem(ItemTierTwo.LEAD, 0.0f, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	//public static final Item LEAD_HOE = register("lead_hoe", new HoeItem(ItemTierTwo.LEAD, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
+		
+	
+	
+	//Combat
+	public static final Item EMERALD_SWORD = register("emerald_sword", new SwordItem(ItemTierTwo.EMERALD, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT)));
+	//public static final Item RUBY_SWORD = register("ruby_sword", new SwordItem(ItemTierTwo.RUBY, 0, 0.0f, new Item.Properties().group(ItemGroup.COMBAT)));
+	//public static final Item LEAD_SWORD = register("lead_sword", new SwordItem(ItemTierTwo.LEAD, 0, 0.0f, new Item.Properties().group(ItemGroup.COMBAT)));
+	
+    public static final Item IRON_BATTLEAXE = register("iron_battleaxe", new BattleaxeItem(ItemTier.IRON, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+	public static final Item WOODEN_BATTLEAXE = register("wooden_battleaxe", new BattleaxeItem(ItemTier.WOOD, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item STONE_BATTLEAXE = register("stone_battleaxe", new BattleaxeItem(ItemTier.STONE, 7, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item DIAMOND_BATTLEAXE = register("diamond_battleaxe", new BattleaxeItem(ItemTier.DIAMOND, 5, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GOLDEN_BATTLEAXE = register("golden_battleaxe", new BattleaxeItem(ItemTier.GOLD, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item EMERALD_BATTLEAXE = register("emerald_battleaxe", new BattleaxeItem(ItemTierTwo.EMERALD, 6, -2.4f, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    //public static final Item RUBY_BATTLEAXE = register("ruby_battleaxe", new BattleaxeItem(ItemTierTwo.RUBY, 0, -0.0F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    //public static final Item LEAD_BATTLEAXE = register("lead_battleaxe", new BattleaxeItem(ItemTierTwo.LEAD, 0, -0.0F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    
+    /*
+    public static final Item IRON_KNIFE = register("iron_battleaxe", new BattleaxeItem(ItemTier.IRON, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+	public static final Item WOODEN_KNIFE = register("wooden_battleaxe", new BattleaxeItem(ItemTier.WOOD, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item STONE_KNIFE = register("stone_battleaxe", new BattleaxeItem(ItemTier.STONE, 7, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item DIAMOND_KNIFE = register("diamond_battleaxe", new BattleaxeItem(ItemTier.DIAMOND, 5, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GOLD_KNIFE = register("gold_battleaxe", new BattleaxeItem(ItemTier.GOLD, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+	
+    public static final Item IRON_GLAIVE = register("iron_battleaxe", new BattleaxeItem(ItemTier.IRON, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item WOODEN_GLAIVE = register("wooden_battleaxe", new BattleaxeItem(ItemTier.WOOD, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item STONE_GLAIVE = register("stone_battleaxe", new BattleaxeItem(ItemTier.STONE, 7, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item DIAMOND_GLAIVE = register("diamond_battleaxe", new BattleaxeItem(ItemTier.DIAMOND, 5, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GOLD_GLAIVE = register("gold_battleaxe", new BattleaxeItem(ItemTier.GOLD, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    */
+
+    public static final Item BLOOD_WITHER_BLADE = register("blood_wither_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT)) {
+    	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    		target.addPotionEffect(new EffectInstance(Effects.WITHER, 10, 2, true, false));
+    		return true;
+    	}
+    });
+    public static final Item BLOOD_FLAME_BLADE = register("blood_flame_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT)) {
+    	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    		target.setFire(5);
+    		return true;
+    	}
+    });
+    public static final Item BLOOD_VENOM_BLADE = register("blood_venom_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT)) {
+    	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    		target.addPotionEffect(new EffectInstance(Effects.POISON, 10, 3, true, false));
+    		return true;
+    	}
+    });
+    public static final Item BANISHER = register("banisher", new Item(new Item.Properties()/*.group(ItemGroup.COMBAT)*/) {
+    	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    		target.knockBack(target, 10, -(target.prevPosX - attacker.prevPosX), -(target.prevPosZ - attacker.prevPosZ));
+			target.world.addParticle((IParticleData) ParticleTypes.DUST, target.prevPosX, target.prevPosY, target.prevPosZ, -(target.prevPosX - attacker.prevPosX), -0.1, -(target.prevPosZ - attacker.prevPosZ));
+			return true;
+    	};
+    });
+    
+    public static final Item EMERALD_HELMET = register("emerald_helmet", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item EMERALD_CHESTPLATE = register("emerald_chestplate", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item EMERALD_LEGGINGS = register("emerald_leggings", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item EMERALD_BOOTS = register("emerald_boots", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+    
+    public static final Item STONE_HELMET = register("stone_helmet", new ArmorItem(ArmorMaterialTwo.STONE, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item STONE_CHESTPLATE = register("stone_chestplate", new ArmorItem(ArmorMaterialTwo.STONE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item STONE_LEGGINGS = register("stone_leggings", new ArmorItem(ArmorMaterialTwo.STONE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item STONE_BOOTS = register("stone_boots", new ArmorItem(ArmorMaterialTwo.STONE, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item OAK_HELMET = register("oak_helmet", new ArmorItem(ArmorMaterialTwo.OAK, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item OAK_CHESTPLATE = register("oak_chestplate", new ArmorItem(ArmorMaterialTwo.OAK, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item OAK_LEGGINGS = register("oak_leggings", new ArmorItem(ArmorMaterialTwo.OAK, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item OAK_BOOTS = register("oak_boots", new ArmorItem(ArmorMaterialTwo.OAK, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item SPRUCE_HELMET = register("spruce_helmet", new ArmorItem(ArmorMaterialTwo.SPRUCE, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item SPRUCE_CHESTPLATE = register("spruce_chestplate", new ArmorItem(ArmorMaterialTwo.SPRUCE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item SPRUCE_LEGGINGS = register("spruce_leggings", new ArmorItem(ArmorMaterialTwo.SPRUCE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item SPRUCE_BOOTS = register("spruce_boots", new ArmorItem(ArmorMaterialTwo.SPRUCE, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item BIRCH_HELMET = register("birch_helmet", new ArmorItem(ArmorMaterialTwo.BIRCH, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BIRCH_CHESTPLATE = register("birch_chestplate", new ArmorItem(ArmorMaterialTwo.BIRCH, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BIRCH_LEGGINGS = register("birch_leggings", new ArmorItem(ArmorMaterialTwo.BIRCH, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BIRCH_BOOTS = register("birch_boots", new ArmorItem(ArmorMaterialTwo.BIRCH, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item JUNGLE_HELMET = register("jungle_helmet", new ArmorItem(ArmorMaterialTwo.JUNGLE, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item JUNGLE_CHESTPLATE = register("jungle_chestplate", new ArmorItem(ArmorMaterialTwo.JUNGLE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item JUNGLE_LEGGINGS = register("jungle_leggings", new ArmorItem(ArmorMaterialTwo.JUNGLE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item JUNGLE_BOOTS = register("jungle_boots", new ArmorItem(ArmorMaterialTwo.JUNGLE, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item ACACIA_HELMET = register("acacia_helmet", new ArmorItem(ArmorMaterialTwo.ACACIA, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item ACACIA_CHESTPLATE = register("acacia_chestplate", new ArmorItem(ArmorMaterialTwo.ACACIA, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item ACACIA_LEGGINGS = register("acacia_leggings", new ArmorItem(ArmorMaterialTwo.ACACIA, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item ACACIA_BOOTS = register("acacia_boots", new ArmorItem(ArmorMaterialTwo.ACACIA, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item DARK_OAK_HELMET = register("dark_oak_helmet", new ArmorItem(ArmorMaterialTwo.DARK_OAK, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item DARK_OAK_CHESTPLATE = register("dark_oak_chestplate", new ArmorItem(ArmorMaterialTwo.DARK_OAK, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item DARK_OAK_LEGGINGS = register("dark_oak_leggings", new ArmorItem(ArmorMaterialTwo.DARK_OAK, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item DARK_OAK_BOOTS = register("dark_oak_boots", new ArmorItem(ArmorMaterialTwo.DARK_OAK, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item MAPLE_HELMET = register("maple_helmet", new ArmorItem(ArmorMaterialTwo.MAPLE, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item MAPLE_CHESTPLATE = register("maple_chestplate", new ArmorItem(ArmorMaterialTwo.MAPLE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item MAPLE_LEGGINGS = register("maple_leggings", new ArmorItem(ArmorMaterialTwo.MAPLE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item MAPLE_BOOTS = register("maple_boots", new ArmorItem(ArmorMaterialTwo.MAPLE, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item CHERRY_HELMET = register("cherry_helmet", new ArmorItem(ArmorMaterialTwo.CHERRY, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item CHERRY_CHESTPLATE = register("cherry_chestplate", new ArmorItem(ArmorMaterialTwo.CHERRY, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item CHERRY_LEGGINGS = register("cherry_leggings", new ArmorItem(ArmorMaterialTwo.CHERRY, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item CHERRY_BOOTS = register("cherry_boots", new ArmorItem(ArmorMaterialTwo.CHERRY, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    
+    public static final Item WHITE_STAINED_WOODEN_HELMET = register("white_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.WHITE_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item WHITE_STAINED_WOODEN_CHESTPLATE = register("white_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.WHITE_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item WHITE_STAINED_WOODEN_LEGGINGS = register("white_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.WHITE_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item WHITE_STAINED_WOODEN_BOOTS = register("white_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.WHITE_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    
+    public static final Item ORANGE_STAINED_WOODEN_HELMET = register("orange_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.ORANGE_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item ORANGE_STAINED_WOODEN_CHESTPLATE = register("orange_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.ORANGE_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item ORANGE_STAINED_WOODEN_LEGGINGS = register("orange_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.ORANGE_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item ORANGE_STAINED_WOODEN_BOOTS = register("orange_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.ORANGE_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item MAGENTA_STAINED_WOODEN_HELMET = register("magenta_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.MAGENTA_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item MAGENTA_STAINED_WOODEN_CHESTPLATE = register("magenta_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.MAGENTA_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item MAGENTA_STAINED_WOODEN_LEGGINGS = register("magenta_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.MAGENTA_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item MAGENTA_STAINED_WOODEN_BOOTS = register("magenta_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.MAGENTA_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item LIGHT_BLUE_STAINED_WOODEN_HELMET = register("light_blue_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.LIGHT_BLUE_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIGHT_BLUE_STAINED_WOODEN_CHESTPLATE = register("light_blue_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.LIGHT_BLUE_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIGHT_BLUE_STAINED_WOODEN_LEGGINGS = register("light_blue_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.LIGHT_BLUE_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIGHT_BLUE_STAINED_WOODEN_BOOTS = register("light_blue_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.LIGHT_BLUE_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item YELLOW_STAINED_WOODEN_HELMET = register("yellow_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.YELLOW_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item YELLOW_STAINED_WOODEN_CHESTPLATE = register("yellow_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.YELLOW_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item YELLOW_STAINED_WOODEN_LEGGINGS = register("yellow_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.YELLOW_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item YELLOW_STAINED_WOODEN_BOOTS = register("yellow_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.YELLOW_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item LIME_STAINED_WOODEN_HELMET = register("lime_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.LIME_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIME_STAINED_WOODEN_CHESTPLATE = register("lime_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.LIME_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIME_STAINED_WOODEN_LEGGINGS = register("lime_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.LIME_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIME_STAINED_WOODEN_BOOTS = register("lime_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.LIME_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item PINK_STAINED_WOODEN_HELMET = register("pink_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.PINK_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item PINK_STAINED_WOODEN_CHESTPLATE = register("pink_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.PINK_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item PINK_STAINED_WOODEN_LEGGINGS = register("pink_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.PINK_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item PINK_STAINED_WOODEN_BOOTS = register("pink_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.PINK_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item GRAY_STAINED_WOODEN_HELMET = register("gray_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.GRAY_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GRAY_STAINED_WOODEN_CHESTPLATE = register("gray_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.GRAY_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GRAY_STAINED_WOODEN_LEGGINGS = register("gray_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.GRAY_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GRAY_STAINED_WOODEN_BOOTS = register("gray_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.GRAY_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item LIGHT_GRAY_STAINED_WOODEN_HELMET = register("light_gray_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.LIGHT_GRAY_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIGHT_GRAY_STAINED_WOODEN_CHESTPLATE = register("light_gray_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.LIGHT_GRAY_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIGHT_GRAY_STAINED_WOODEN_LEGGINGS = register("light_gray_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.LIGHT_GRAY_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIGHT_GRAY_STAINED_WOODEN_BOOTS = register("light_gray_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.LIGHT_GRAY_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item CYAN_STAINED_WOODEN_HELMET = register("cyan_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.CYAN_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item CYAN_STAINED_WOODEN_CHESTPLATE = register("cyan_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.CYAN_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item CYAN_STAINED_WOODEN_LEGGINGS = register("cyan_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.CYAN_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item CYAN_STAINED_WOODEN_BOOTS = register("cyan_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.CYAN_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item PURPLE_STAINED_WOODEN_HELMET = register("purple_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.PURPLE_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item PURPLE_STAINED_WOODEN_CHESTPLATE = register("purple_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.PURPLE_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item PURPLE_STAINED_WOODEN_LEGGINGS = register("purple_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.PURPLE_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item PURPLE_STAINED_WOODEN_BOOTS = register("purple_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.PURPLE_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item BLUE_STAINED_WOODEN_HELMET = register("blue_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.BLUE_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BLUE_STAINED_WOODEN_CHESTPLATE = register("blue_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.BLUE_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BLUE_STAINED_WOODEN_LEGGINGS = register("blue_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.BLUE_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BLUE_STAINED_WOODEN_BOOTS = register("blue_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.BLUE_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item BROWN_STAINED_WOODEN_HELMET = register("brown_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.BROWN_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BROWN_STAINED_WOODEN_CHESTPLATE = register("brown_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.BROWN_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BROWN_STAINED_WOODEN_LEGGINGS = register("brown_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.BROWN_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BROWN_STAINED_WOODEN_BOOTS = register("brown_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.BROWN_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item GREEN_STAINED_WOODEN_HELMET = register("green_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.WHITE_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GREEN_STAINED_WOODEN_CHESTPLATE = register("green_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.WHITE_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GREEN_STAINED_WOODEN_LEGGINGS = register("green_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.WHITE_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GREEN_STAINED_WOODEN_BOOTS = register("green_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.WHITE_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item RED_STAINED_WOODEN_HELMET = register("red_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.RED_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item RED_STAINED_WOODEN_CHESTPLATE = register("red_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.RED_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item RED_STAINED_WOODEN_LEGGINGS = register("red_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.RED_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item RED_STAINED_WOODEN_BOOTS = register("red_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.RED_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item BLACK_STAINED_WOODEN_HELMET = register("black_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.BLACK_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BLACK_STAINED_WOODEN_CHESTPLATE = register("black_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.BLACK_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BLACK_STAINED_WOODEN_LEGGINGS = register("black_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.BLACK_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BLACK_STAINED_WOODEN_BOOTS = register("black_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.BLACK_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    
+    public static final Item WHITE_WOOLEN_HELMET = register("white_woolen_helmet", new ArmorItem(ArmorMaterialTwo.WHITE_WOOL, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item WHITE_WOOLEN_CHESTPLATE = register("white_woolen_chestplate", new ArmorItem(ArmorMaterialTwo.WHITE_WOOL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item WHITE_WOOLEN_LEGGINGS = register("white_woolen_leggings", new ArmorItem(ArmorMaterialTwo.WHITE_WOOL, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item WHITE_WOOLEN_BOOTS = register("white_woolen_boots", new ArmorItem(ArmorMaterialTwo.WHITE_WOOL, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item ORANGE_WOOLEN_HELMET = register("orange_woolen_helmet", new ArmorItem(ArmorMaterialTwo.ORANGE_WOOL, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item ORANGE_WOOLEN_CHESTPLATE = register("orange_woolen_chestplate", new ArmorItem(ArmorMaterialTwo.ORANGE_WOOL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item ORANGE_WOOLEN_LEGGINGS = register("orange_woolen_leggings", new ArmorItem(ArmorMaterialTwo.ORANGE_WOOL, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item ORANGE_WOOLEN_BOOTS = register("orange_woolen_boots", new ArmorItem(ArmorMaterialTwo.ORANGE_WOOL, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item MAGENTA_WOOLEN_HELMET = register("magenta_woolen_helmet", new ArmorItem(ArmorMaterialTwo.MAGENTA_WOOL, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item MAGENTA_WOOLEN_CHESTPLATE = register("magenta_woolen_chestplate", new ArmorItem(ArmorMaterialTwo.MAGENTA_WOOL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item MAGENTA_WOOLEN_LEGGINGS = register("magenta_woolen_leggings", new ArmorItem(ArmorMaterialTwo.MAGENTA_WOOL, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item MAGENTA_WOOLEN_BOOTS = register("magenta_woolen_boots", new ArmorItem(ArmorMaterialTwo.MAGENTA_WOOL, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item LIGHT_BLUE_WOOLEN_HELMET = register("light_blue_woolen_helmet", new ArmorItem(ArmorMaterialTwo.LIGHT_BLUE_WOOL, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIGHT_BLUE_WOOLEN_CHESTPLATE = register("light_blue_woolen_chestplate", new ArmorItem(ArmorMaterialTwo.LIGHT_BLUE_WOOL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIGHT_BLUE_WOOLEN_LEGGINGS = register("light_blue_woolen_leggings", new ArmorItem(ArmorMaterialTwo.LIGHT_BLUE_WOOL, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIGHT_BLUE_WOOLEN_BOOTS = register("light_blue_woolen_boots", new ArmorItem(ArmorMaterialTwo.LIGHT_BLUE_WOOL, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item YELLOW_WOOLEN_HELMET = register("yellow_woolen_helmet", new ArmorItem(ArmorMaterialTwo.YELLOW_WOOL, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item YELLOW_WOOLEN_CHESTPLATE = register("yellow_woolen_chestplate", new ArmorItem(ArmorMaterialTwo.YELLOW_WOOL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item YELLOW_WOOLEN_LEGGINGS = register("yellow_woolen_leggings", new ArmorItem(ArmorMaterialTwo.YELLOW_WOOL, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item YELLOW_WOOLEN_BOOTS = register("yellow_woolen_boots", new ArmorItem(ArmorMaterialTwo.YELLOW_WOOL, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item LIME_WOOLEN_HELMET = register("lime_woolen_helmet", new ArmorItem(ArmorMaterialTwo.LIME_WOOL, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIME_WOOLEN_CHESTPLATE = register("lime_woolen_chestplate", new ArmorItem(ArmorMaterialTwo.LIME_WOOL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIME_WOOLEN_LEGGINGS = register("lime_woolen_leggings", new ArmorItem(ArmorMaterialTwo.LIME_WOOL, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIME_WOOLEN_BOOTS = register("lime_woolen_boots", new ArmorItem(ArmorMaterialTwo.LIME_WOOL, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item PINK_WOOLEN_HELMET = register("pink_woolen_helmet", new ArmorItem(ArmorMaterialTwo.PINK_WOOL, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item PINK_WOOLEN_CHESTPLATE = register("pink_woolen_chestplate", new ArmorItem(ArmorMaterialTwo.PINK_WOOL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item PINK_WOOLEN_LEGGINGS = register("pink_woolen_leggings", new ArmorItem(ArmorMaterialTwo.PINK_WOOL, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item PINK_WOOLEN_BOOTS = register("pink_woolen_boots", new ArmorItem(ArmorMaterialTwo.PINK_WOOL, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item GRAY_WOOLEN_HELMET = register("gray_woolen_helmet", new ArmorItem(ArmorMaterialTwo.GRAY_WOOL, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GRAY_WOOLEN_CHESTPLATE = register("gray_woolen_chestplate", new ArmorItem(ArmorMaterialTwo.GRAY_WOOL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GRAY_WOOLEN_LEGGINGS = register("gray_woolen_leggings", new ArmorItem(ArmorMaterialTwo.GRAY_WOOL, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GRAY_WOOLEN_BOOTS = register("gray_woolen_boots", new ArmorItem(ArmorMaterialTwo.GRAY_WOOL, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item LIGHT_GRAY_WOOLEN_HELMET = register("light_gray_woolen_helmet", new ArmorItem(ArmorMaterialTwo.LIGHT_GRAY_WOOL, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIGHT_GRAY_WOOLEN_CHESTPLATE = register("light_gray_woolen_chestplate", new ArmorItem(ArmorMaterialTwo.LIGHT_GRAY_WOOL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIGHT_GRAY_WOOLEN_LEGGINGS = register("light_gray_woolen_leggings", new ArmorItem(ArmorMaterialTwo.LIGHT_GRAY_WOOL, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LIGHT_GRAY_WOOLEN_BOOTS = register("light_gray_woolen_boots", new ArmorItem(ArmorMaterialTwo.LIGHT_GRAY_WOOL, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item CYAN_WOOLEN_HELMET = register("cyan_woolen_helmet", new ArmorItem(ArmorMaterialTwo.CYAN_WOOL, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item CYAN_WOOLEN_CHESTPLATE = register("cyan_woolen_chestplate", new ArmorItem(ArmorMaterialTwo.CYAN_WOOL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item CYAN_WOOLEN_LEGGINGS = register("cyan_woolen_leggings", new ArmorItem(ArmorMaterialTwo.CYAN_WOOL, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item CYAN_WOOLEN_BOOTS = register("cyan_woolen_boots", new ArmorItem(ArmorMaterialTwo.CYAN_WOOL, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item PURPLE_WOOLEN_HELMET = register("purple_woolen_helmet", new ArmorItem(ArmorMaterialTwo.PURPLE_WOOL, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item PURPLE_WOOLEN_CHESTPLATE = register("purple_woolen_chestplate", new ArmorItem(ArmorMaterialTwo.PURPLE_WOOL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item PURPLE_WOOLEN_LEGGINGS = register("purple_woolen_leggings", new ArmorItem(ArmorMaterialTwo.PURPLE_WOOL, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item PURPLE_WOOLEN_BOOTS = register("purple_woolen_boots", new ArmorItem(ArmorMaterialTwo.PURPLE_WOOL, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item BLUE_WOOLEN_HELMET = register("blue_woolen_helmet", new ArmorItem(ArmorMaterialTwo.BLUE_WOOL, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BLUE_WOOLEN_CHESTPLATE = register("blue_woolen_chestplate", new ArmorItem(ArmorMaterialTwo.BLUE_WOOL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BLUE_WOOLEN_LEGGINGS = register("blue_woolen_leggings", new ArmorItem(ArmorMaterialTwo.BLUE_WOOL, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BLUE_WOOLEN_BOOTS = register("blue_woolen_boots", new ArmorItem(ArmorMaterialTwo.BLUE_WOOL, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item BROWN_WOOLEN_HELMET = register("brown_woolen_helmet", new ArmorItem(ArmorMaterialTwo.BROWN_WOOL, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BROWN_WOOLEN_CHESTPLATE = register("brown_woolen_chestplate", new ArmorItem(ArmorMaterialTwo.BROWN_WOOL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BROWN_WOOLEN_LEGGINGS = register("brown_woolen_leggings", new ArmorItem(ArmorMaterialTwo.BROWN_WOOL, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BROWN_WOOLEN_BOOTS = register("brown_woolen_boots", new ArmorItem(ArmorMaterialTwo.BROWN_WOOL, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item GREEN_WOOLEN_HELMET = register("green_woolen_helmet", new ArmorItem(ArmorMaterialTwo.GREEN_WOOL, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GREEN_WOOLEN_CHESTPLATE = register("green_woolen_chestplate", new ArmorItem(ArmorMaterialTwo.GREEN_WOOL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GREEN_WOOLEN_LEGGINGS = register("green_woolen_leggings", new ArmorItem(ArmorMaterialTwo.GREEN_WOOL, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GREEN_WOOLEN_BOOTS = register("green_woolen_boots", new ArmorItem(ArmorMaterialTwo.GREEN_WOOL, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item RED_WOOLEN_HELMET = register("red_woolen_helmet", new ArmorItem(ArmorMaterialTwo.RED_WOOL, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item RED_WOOLEN_CHESTPLATE = register("red_woolen_chestplate", new ArmorItem(ArmorMaterialTwo.RED_WOOL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item RED_WOOLEN_LEGGINGS = register("red_woolen_leggings", new ArmorItem(ArmorMaterialTwo.RED_WOOL, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item RED_WOOLEN_BOOTS = register("red_woolen_boots", new ArmorItem(ArmorMaterialTwo.RED_WOOL, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item BLACK_WOOLEN_HELMET = register("black_woolen_helmet", new ArmorItem(ArmorMaterialTwo.BLACK_WOOL, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BLACK_WOOLEN_CHESTPLATE = register("black_woolen_chestplate", new ArmorItem(ArmorMaterialTwo.BLACK_WOOL, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BLACK_WOOLEN_LEGGINGS = register("black_woolen_leggings", new ArmorItem(ArmorMaterialTwo.BLACK_WOOL, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BLACK_WOOLEN_BOOTS = register("black_woolen_boots", new ArmorItem(ArmorMaterialTwo.BLACK_WOOL, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+    
+    public static final Item SPONGE_HELMET = register("sponge_helmet", new ArmorItem(ArmorMaterialTwo.SPONGE, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item SPONGE_CHESTPLATE = register("sponge_chestplate", new ArmorItem(ArmorMaterialTwo.SPONGE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item SPONGE_LEGGINGS = register("sponge_leggings", new ArmorItem(ArmorMaterialTwo.SPONGE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item SPONGE_BOOTS = register("sponge_boots", new ArmorItem(ArmorMaterialTwo.SPONGE, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+    
+    public static final Item GLOWSTONE_HELMET = register("glowstone_helmet", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GLOWSTONE_CHESTPLATE = register("glowstone_chestplate", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GLOWSTONE_LEGGINGS = register("glowstone_leggings", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GLOWSTONE_BOOTS = register("glowstone_boots", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+    
+    //public static final Item RUBY_HELMET = register("ruby_helmet", new ArmorItem(ArmorMaterialTwo.RUBY, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    //public static final Item RUBY_CHESTPLATE = register("ruby_chestplate", new ArmorItem(ArmorMaterialTwo.RUBY, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    //public static final Item RUBY_LEGGINGS = register("ruby_leggings", new ArmorItem(ArmorMaterialTwo.RUBY, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    //public static final Item RUBY_BOOTS = register("ruby_boots", new ArmorItem(ArmorMaterialTwo.RUBY, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    //public static final Item LEAD_HELMET = register("lead_helmet", new ArmorItem(ArmorMaterialTwo.LEAD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    //public static final Item LEAD_CHESTPLATE = register("lead_chestplate", new ArmorItem(ArmorMaterialTwo.LEAD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    //public static final Item LEAD_LEGGINGS = register("lead_leggings", new ArmorItem(ArmorMaterialTwo.LEAD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    //public static final Item LEAD_BOOTS = register("lead_boots", new ArmorItem(ArmorMaterialTwo.LEAD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+        
+    /*
+    
+    napsack
+    fanny pack
+    quiver
+    potion sack
+    mulch
+    dog food
+    dowsing rod
+    backfire curse
+    clumsiness curse
+    flimsiness curse
+    heaviness curse
+    disabler enchant
+    lightning
+    pyro
+    tornado
+    vines
+    nether
+    chill
+    blood wither blade
+    blood flame blade
+    blood venom blade
+    smoke bomb
+    flash bomb
+    confetti bomb
+    cutlass
+    ore capped-arrows
+    bolt (replaces current arrow)
+    ore maces
+    ore longbows
+    ore arbalests
+    ore mattocks
+    ore sickles
+    handsaw
+    ore smithing hammers
+    whetstone
+    jewelry
+    speedy wagon
+    spacious wagon
+    roomy wagon
+    stationary wagon
+    food scraps
+    necromancer's staff
+    quartz tools
+    
+    */
+    
+    
+    
+	public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
+    	itemRegistryEvent.getRegistry().registerAll(Holder.itemsTwo.toArray(new Item[] {}));
+    }
+	static Item register(Block block, Item.Properties properties) {
+		return register(block.getRegistryName().getPath(), new BlockItem(block, properties));
+	}
+	static Item register(String key, Item item) {
+		Holder.itemsTwo.add(item.setRegistryName(key));
+		
+	    return item;
+	}
+	static class Holder {
+		public static LinkedList<Item> itemsTwo = new LinkedList<Item>();
+	}
+}

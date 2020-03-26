@@ -1,0 +1,35 @@
+{
+	"parent" : "minecraft:story/best_of_both_worlds",
+	"display" : {
+		"icon" : {
+      		"item" : "two:white_woolen_chestplate"
+    	},
+    	"title" : {
+      		"translate" : "advancements.story.not_so_faux_fur.title"
+    	},
+    	"description" : {
+      		"translate" : "advancements.story.not_so_faux_fur.description"
+    	},
+    	"frame" : "task",
+    	"show_toast" : true,
+    	"announce_to_chat" : true,
+    	"hidden" : false
+  	},
+  	"criteria" : {
+    	"white_woolen_chestplate" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"item" : "two:white_woolen_chestplate"
+          			}
+        		]
+      		}
+    	}
+  	},
+  	"requirements" : [
+    	[
+      		"white_woolen_chestplate"
+    	]
+  	]
+}

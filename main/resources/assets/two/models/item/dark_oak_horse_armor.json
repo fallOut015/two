@@ -1,0 +1,6 @@
+{
+    "parent" : "minecraft:item/generated",
+    "textures" : {
+        "layer0" : "two:item/dark_oak_horse_armor"
+    }
+}

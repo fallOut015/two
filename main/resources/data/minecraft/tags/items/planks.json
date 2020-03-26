@@ -1,0 +1,8 @@
+{
+	"replace" : false,
+	"values" : [
+		"two:cherry_planks",
+		"two:maple_planks",
+		"#two:stained_planks"
+	]
+}
