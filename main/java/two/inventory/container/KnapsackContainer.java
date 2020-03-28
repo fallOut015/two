@@ -35,17 +35,16 @@ public class KnapsackContainer extends Container {
 	    for(int i1 = 0; i1 < 9; ++i1)
 	    	this.addSlot(new Slot(playerInventoryIn, i1, 8 + i1 * 18, 161 + i));*/
 	    
-	    int i = 2;
 	    //int j = 9;
 	    
-	    for(int k = 0; k < 3; ++k)
+	    for(int k = 0; k < 2; ++k)
 	    	for(int l = 0; l < 9; ++l)
 	    		this.addSlot(new Slot(knapsackInventory, l + k * 9, 8 + l * 18, 18 + k * 18));
 	    for(int i1 = 0; i1 < 3; ++i1)
 	    	for(int k1 = 0; k1 < 9; ++k1)
 	    		this.addSlot(new Slot(playerInventoryIn, k1 + i1 * 9 + 9, 8 + k1 * 18, 84 + i1 * 18));
 	    for(int j1 = 0; j1 < 9; ++j1)
-	    	this.addSlot(new Slot(playerInventoryIn, j1, 8 + j1 * 18, 161 + i));
+	    	this.addSlot(new Slot(playerInventoryIn, j1, 8 + j1 * 18, 163));
 	}
 	
 	@Override

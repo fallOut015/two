@@ -12,7 +12,7 @@ import two.inventory.container.KnapsackContainer;
 
 @OnlyIn(Dist.CLIENT)
 public class KnapsackScreen extends ContainerScreen<KnapsackContainer> {
-	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("minecraft", "textures/gui/container/shulker_box.png");
+	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("minecraft", "textures/gui/container/generic_54.png");
 
 	public KnapsackScreen(KnapsackContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
 		super(screenContainer, inv, titleIn);
