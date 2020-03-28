@@ -7,29 +7,25 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import two.Two;
 import two.inventory.KnapsackContainerProvider;
 
 public class KnapsackContainer extends Container {
 	private final IInventory knapsackInventory;
-	private final int numRows;
 	public CompoundNBT compoundNBT;
 	
 	public KnapsackContainer(int windowId, PlayerInventory player) {
-		this(windowId, player, new KnapsackContainerProvider(player.player, ItemStack.EMPTY), 2);
+		this(windowId, player, new KnapsackContainerProvider(player.player, ItemStack.EMPTY));
 	}
-	public KnapsackContainer(int id, PlayerInventory playerInventoryIn, IInventory knapsackInventory, int rows) {
+	public KnapsackContainer(int id, PlayerInventory playerInventoryIn, IInventory knapsackInventory) {
 		super(ContainerTypeTwo.KNAPSACK, id);
-		assertInventorySize(knapsackInventory, rows * 9);
+		assertInventorySize(knapsackInventory, 18);
 	    this.knapsackInventory = knapsackInventory;
-	    this.numRows = rows;
 	    this.compoundNBT = new CompoundNBT();
 	    Two.LOGGER.info("Created a new CompoundNBT (and a new container!)");
 	    knapsackInventory.openInventory(playerInventoryIn.player);
 	    
-	    int i = (this.numRows - 4) * 18;
+	    /*int i = (this.numRows - 4) * 18;
 	    for(int j = 0; j < this.numRows; ++j)
 	    	for(int k = 0; k < 9; ++k)
 	    		this.addSlot(new Slot(knapsackInventory, k + j * 9, 8 + k * 18, 18 + j * 18));
@@ -37,12 +33,23 @@ public class KnapsackContainer extends Container {
 	    	for(int j1 = 0; j1 < 9; ++j1)
 	    		this.addSlot(new Slot(playerInventoryIn, j1 + l * 9 + 9, 8 + j1 * 18, 103 + l * 18 + i));
 	    for(int i1 = 0; i1 < 9; ++i1)
-	    	this.addSlot(new Slot(playerInventoryIn, i1, 8 + i1 * 18, 161 + i));
+	    	this.addSlot(new Slot(playerInventoryIn, i1, 8 + i1 * 18, 161 + i));*/
+	    
+	    int i = 2;
+	    //int j = 9;
+	    
+	    for(int k = 0; k < 3; ++k)
+	    	for(int l = 0; l < 9; ++l)
+	    		this.addSlot(new Slot(knapsackInventory, l + k * 9, 8 + l * 18, 18 + k * 18));
+	    for(int i1 = 0; i1 < 3; ++i1)
+	    	for(int k1 = 0; k1 < 9; ++k1)
+	    		this.addSlot(new Slot(playerInventoryIn, k1 + i1 * 9 + 9, 8 + k1 * 18, 84 + i1 * 18));
+	    for(int j1 = 0; j1 < 9; ++j1)
+	    	this.addSlot(new Slot(playerInventoryIn, j1, 8 + j1 * 18, 161 + i));
 	}
 	
 	@Override
 	public boolean canInteractWith(PlayerEntity playerIn) {
-		Two.LOGGER.info("player can " + (this.knapsackInventory.isUsableByPlayer(playerIn) ? "" : "NOT ") + "interact with the knapsack.");
 		return this.knapsackInventory.isUsableByPlayer(playerIn);
 	}
 	
@@ -77,9 +84,5 @@ public class KnapsackContainer extends Container {
 	}
 	public IInventory getKnapsackInventory() {
 		return this.knapsackInventory;
-	}
-	@OnlyIn(Dist.CLIENT)
-	public int getNumRows() {
-		return this.numRows;
 	}
 }

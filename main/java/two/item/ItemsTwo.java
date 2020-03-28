@@ -31,7 +31,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
 import two.block.BlocksTwo;
-import two.entity.EntitiesTwo;
+import two.entity.EntityTypeTwo;
 
 @ObjectHolder("two")
 public class ItemsTwo {
@@ -230,7 +230,7 @@ public class ItemsTwo {
     //potion sack -> displays extra potion slots
     //quiver -> displays extra arrow slots
     
-    public static final Item CHAMELEON_SPAWN_EGG = register("chameleon_spawn_egg", new SpawnEggItem(EntitiesTwo.CHAMELEON, 2162500, 14463743, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item CHAMELEON_SPAWN_EGG = register("chameleon_spawn_egg", new SpawnEggItem(EntityTypeTwo.CHAMELEON, 2162500, 14463743, new Item.Properties().group(ItemGroup.MISC)));
     
 	
 	

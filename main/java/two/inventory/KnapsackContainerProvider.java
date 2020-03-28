@@ -58,7 +58,7 @@ public class KnapsackContainerProvider implements INamedContainerProvider, IInve
 	public Container createMenu(int id, PlayerInventory playerInventory, PlayerEntity playerEntity) {
 		if(this.itemStack.hasTag())
 			read(this.itemStack.getTag());
-		return new KnapsackContainer(id, playerInventory, this, 2);
+		return new KnapsackContainer(id, playerInventory, this);
 	}
 	@Override
 	public ITextComponent getDisplayName() {

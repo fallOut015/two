@@ -1,12 +1,12 @@
-modLoader="javafml" #mandatory
-loaderVersion="[31,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+modLoader="javafml"
+loaderVersion="[31,)"
 issueTrackerURL="http://my.issue.tracker/" #optional
-[[mods]] #mandatory
-modId="two" #mandatory
-version="${file.jarVersion}" #mandatory
-displayName="NEW Minecraft v2" #mandatory
+[[mods]]
+modId="two"
+version="${file.jarVersion}"
+displayName="NEW Minecraft v2"
 updateJSONURL="http://myurl.me/" #optional
-displayURL="http://example.com/" #optional
+displayURL="https://www.curseforge.com/minecraft/mc-mods/minecraft-v2" #optional
 logoFile="two.png" #optional
 credits="Well, me, HarryTalks, other tutorial youtubers, Forge guys, Notch, Jeb, Derek, Karsten, Pam, my friends, among others." #optional
 authors="fallOut015" #optional
@@ -27,14 +27,15 @@ Changelog:
 	Added cherry wood.
 	Added maple wood.
 	Added backpacks.
+	Added new splashes.
 '''
-[[dependencies.examplemod]] #optional
-    modId="forge" #mandatory
-    mandatory=true #mandatory
-    versionRange="[31,)" #mandatory
+[[dependencies.two]] #optional
+    modId="forge"
+    mandatory=true
+    versionRange="[31,)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.examplemod]]
+[[dependencies.two]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.15.2]"

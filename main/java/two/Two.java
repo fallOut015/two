@@ -21,7 +21,7 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import two.block.BlocksTwo;
 import two.client.renderer.entity.ChameleonRenderer;
-import two.entity.EntitiesTwo;
+import two.entity.EntityTypeTwo;
 import two.inventory.container.ContainerTypeTwo;
 import two.item.ItemsTwo;
 import two.item.SoundEventsTwo;
@@ -41,7 +41,7 @@ public class Two {
 
     private void setup(final FMLCommonSetupEvent event) {}
     private void doClientStuff(final FMLClientSetupEvent event) {
-    	RenderingRegistry.registerEntityRenderingHandler(EntitiesTwo.CHAMELEON, ChameleonRenderer::new);
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CHAMELEON, ChameleonRenderer::new);
     }
     private void enqueueIMC(final InterModEnqueueEvent event) {}
     private void processIMC(final InterModProcessEvent event) {}
@@ -65,7 +65,7 @@ public class Two {
         }
     	@SubscribeEvent
     	public static void onEntityTypesRegistry(final RegistryEvent.Register<EntityType<?>> entityTypeRegistryEvent) {
-    		EntitiesTwo.onEntityTypesRegistry(entityTypeRegistryEvent);
+    		EntityTypeTwo.onEntityTypesRegistry(entityTypeRegistryEvent);
     	}
     	@SubscribeEvent
     	public static void onContainerTypesRegistry(final RegistryEvent.Register<ContainerType<?>> containerTypeRegistryEvent) {

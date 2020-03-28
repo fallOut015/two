@@ -10,7 +10,7 @@ import two.entity.passive.ChameleonEntity;
 
 @ObjectHolder("two")
 @SuppressWarnings("unchecked")
-public class EntitiesTwo {
+public class EntityTypeTwo {
 	public static EntityType<ChameleonEntity> CHAMELEON = (EntityType<ChameleonEntity>) register("chameleon", EntityType.Builder.create(ChameleonEntity::new, EntityClassification.CREATURE).size(0.25f, 0.25f).build("chameleon"));
 
 	public static void onEntityTypesRegistry(final RegistryEvent.Register<EntityType<?>> entityTypeRegistryEvent) {
