@@ -124,6 +124,14 @@ public class ItemsTwo {
 	
 	public static final Item CLOUD = register(BlocksTwo.CLOUD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
+	public static final Item RUBY_ORE = register(BlocksTwo.RUBY_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	public static final Item RUBY_BLOCK = register(BlocksTwo.RUBY_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	public static final Item LEAD_ORE = register(BlocksTwo.LEAD_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	public static final Item LEAD_BLOCK = register(BlocksTwo.LEAD_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
 	// Decoration
 	public static final Item CHERY_SAPLING = register(BlocksTwo.CHERRY_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item MAPLE_SAPLING = register(BlocksTwo.MAPLE_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
@@ -205,7 +213,9 @@ public class ItemsTwo {
 	
     public static final Item CHAINMAIL_HORSE_ARMOR = register("chainmail_horse_armor", new HorseArmorItem(4, "chainmail", new Item.Properties().maxStackSize(1).group(ItemGroup.MISC)));
 	public static final Item EMERALD_HORSE_ARMOR = register("emerald_horse_armor", new HorseArmorItem(5, "emerald", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
-    public static final Item STONE_HORSE_ARMOR = register("stone_horse_armor", new HorseArmorItem(4, "stone", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+	public static final Item RUBY_HORSE_ARMOR = register("ruby_horse_armor", new HorseArmorItem(0, "ruby", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+	public static final Item LEAD_HORSE_ARMOR = register("lead_horse_armor", new HorseArmorItem(0, "lead", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+	public static final Item STONE_HORSE_ARMOR = register("stone_horse_armor", new HorseArmorItem(4, "stone", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
     
     public static final Item OAK_HORSE_ARMOR = register("oak_horse_armor", new HorseArmorItem(2, "oak", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
     public static final Item SPRUCE_HORSE_ARMOR = register("spruce_horse_armor", new HorseArmorItem(2, "spruce", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
@@ -273,30 +283,32 @@ public class ItemsTwo {
 	public static final Item EMERALD_PICKAXE = register("emerald_pickaxe", new PickaxeItem(ItemTierTwo.EMERALD, 1, -2.8f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item EMERALD_AXE = register("emerald_axe", new AxeItem(ItemTierTwo.EMERALD, 6.0f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item EMERALD_HOE = register("emerald_hoe", new HoeItem(ItemTierTwo.EMERALD, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
-	
+
+    public static final Item RUBY_SHOVEL = register("ruby_shovel", new ShovelItem(ItemTierTwo.RUBY, 0.0f, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item RUBY_PICKAXE = register("ruby_pickaxe", new PickaxeItem(ItemTierTwo.RUBY, 0, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item RUBY_AXE = register("ruby_axe", new AxeItem(ItemTierTwo.RUBY, 0.0f, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item RUBY_HOE = register("ruby_hoe", new HoeItem(ItemTierTwo.RUBY, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
+
+    public static final Item LEAD_SHOVEL = register("lead_shovel", new ShovelItem(ItemTierTwo.LEAD, 0.0f, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item LEAD_PICKAXE = register("lead_pickaxe", new PickaxeItem(ItemTierTwo.LEAD, 0, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item LEAD_AXE = register("lead_axe", new AxeItem(ItemTierTwo.LEAD, 0.0f, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item LEAD_HOE = register("lead_hoe", new HoeItem(ItemTierTwo.LEAD, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
+
 	public static final Item IRON_SICKLE = register("iron_sickle", new SickleItem(ItemTier.IRON, -1.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item WOODEN_SICKLE = register("wooden_sickle", new SickleItem(ItemTier.WOOD, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item STONE_SICKLE = register("stone_sickle", new SickleItem(ItemTier.STONE, -2.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item DIAMOND_SICKLE = register("diamond_sickle", new SickleItem(ItemTier.DIAMOND, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item GOLDEN_SICKLE = register("golden_sickle", new SickleItem(ItemTier.GOLD, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item EMERALD_SICKLE = register("emerald_sickle", new SickleItem(ItemTierTwo.EMERALD, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item RUBY_SICKLE = register("ruby_sickle", new SickleItem(ItemTierTwo.RUBY, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item LEAD_SICKLE = register("lead_sickle", new SickleItem(ItemTierTwo.LEAD, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	
-	//public static final Item RUBY_SHOVEL = register("ruby_shovel", new ShovelItem(ItemTierTwo.RUBY, 1.5f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	//public static final Item RUBY_PICKAXE = register("ruby_pickaxe", new PickaxeItem(ItemTierTwo.RUBY, 1, -2.8f, new Item.Properties().group(ItemGroup.TOOLS)));
-	//public static final Item RUBY_AXE = register("ruby_axe", new AxeItem(ItemTierTwo.RUBY, 0.0f, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	//public static final Item RUBY_HOE = register("ruby_hoe", new HoeItem(ItemTierTwo.RUBY, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	
-	//public static final Item LEAD_SHOVEL = register("lead_shovel", new ShovelItem(ItemTierTwo.LEAD, 1.5f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	//public static final Item LEAD_PICKAXE = register("lead_pickaxe", new PickaxeItem(ItemTierTwo.LEAD, 1, -2.8f, new Item.Properties().group(ItemGroup.TOOLS)));
-	//public static final Item LEAD_AXE = register("lead_axe", new AxeItem(ItemTierTwo.LEAD, 0.0f, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	//public static final Item LEAD_HOE = register("lead_hoe", new HoeItem(ItemTierTwo.LEAD, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
-		
-	
+
 	
 	//Combat
 	public static final Item EMERALD_SWORD = register("emerald_sword", new SwordItem(ItemTierTwo.EMERALD, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT)));
-	//public static final Item RUBY_SWORD = register("ruby_sword", new SwordItem(ItemTierTwo.RUBY, 0, 0.0f, new Item.Properties().group(ItemGroup.COMBAT)));
-	//public static final Item LEAD_SWORD = register("lead_sword", new SwordItem(ItemTierTwo.LEAD, 0, 0.0f, new Item.Properties().group(ItemGroup.COMBAT)));
+	public static final Item RUBY_SWORD = register("ruby_sword", new SwordItem(ItemTierTwo.RUBY, 0, 0.0f, new Item.Properties().group(ItemGroup.COMBAT)));
+	public static final Item LEAD_SWORD = register("lead_sword", new SwordItem(ItemTierTwo.LEAD, 0, 0.0f, new Item.Properties().group(ItemGroup.COMBAT)));
 	
     public static final Item IRON_BATTLEAXE = register("iron_battleaxe", new BattleaxeItem(ItemTier.IRON, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
 	public static final Item WOODEN_BATTLEAXE = register("wooden_battleaxe", new BattleaxeItem(ItemTier.WOOD, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
@@ -304,23 +316,18 @@ public class ItemsTwo {
     public static final Item DIAMOND_BATTLEAXE = register("diamond_battleaxe", new BattleaxeItem(ItemTier.DIAMOND, 5, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item GOLDEN_BATTLEAXE = register("golden_battleaxe", new BattleaxeItem(ItemTier.GOLD, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item EMERALD_BATTLEAXE = register("emerald_battleaxe", new BattleaxeItem(ItemTierTwo.EMERALD, 6, -2.4f, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    //public static final Item RUBY_BATTLEAXE = register("ruby_battleaxe", new BattleaxeItem(ItemTierTwo.RUBY, 0, -0.0F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    //public static final Item LEAD_BATTLEAXE = register("lead_battleaxe", new BattleaxeItem(ItemTierTwo.LEAD, 0, -0.0F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item RUBY_BATTLEAXE = register("ruby_battleaxe", new BattleaxeItem(ItemTierTwo.RUBY, 0, -0.0F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LEAD_BATTLEAXE = register("lead_battleaxe", new BattleaxeItem(ItemTierTwo.LEAD, 0, -0.0F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     
-    /*
-    public static final Item IRON_KNIFE = register("iron_battleaxe", new BattleaxeItem(ItemTier.IRON, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-	public static final Item WOODEN_KNIFE = register("wooden_battleaxe", new BattleaxeItem(ItemTier.WOOD, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item STONE_KNIFE = register("stone_battleaxe", new BattleaxeItem(ItemTier.STONE, 7, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item DIAMOND_KNIFE = register("diamond_battleaxe", new BattleaxeItem(ItemTier.DIAMOND, 5, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item GOLD_KNIFE = register("gold_battleaxe", new BattleaxeItem(ItemTier.GOLD, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item IRON_DAGGER = register("iron_dagger", new DaggerItem(ItemTier.IRON, 3, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+	public static final Item WOODEN_DAGGER = register("wooden_dagger", new DaggerItem(ItemTier.WOOD, 3, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item STONE_DAGGER = register("stone_dagger", new DaggerItem(ItemTier.STONE, 4, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item DIAMOND_DAGGER = register("diamond_dagger", new DaggerItem(ItemTier.DIAMOND, 2, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GOLDEN_DAGGER = register("golden_dagger", new DaggerItem(ItemTier.GOLD, 3, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item EMERALD_DAGGER = register("emerald_dagger", new DaggerItem(ItemTierTwo.EMERALD, 3, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item RUBY_DAGGER = register("ruby_dagger", new DaggerItem(ItemTierTwo.RUBY, 0, 0.0F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LEAD_DAGGER = register("lead_dagger", new DaggerItem(ItemTierTwo.LEAD, 0, 0.0F, (new Item.Properties()).group(ItemGroup.COMBAT)));
 	
-    public static final Item IRON_GLAIVE = register("iron_battleaxe", new BattleaxeItem(ItemTier.IRON, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item WOODEN_GLAIVE = register("wooden_battleaxe", new BattleaxeItem(ItemTier.WOOD, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item STONE_GLAIVE = register("stone_battleaxe", new BattleaxeItem(ItemTier.STONE, 7, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item DIAMOND_GLAIVE = register("diamond_battleaxe", new BattleaxeItem(ItemTier.DIAMOND, 5, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item GOLD_GLAIVE = register("gold_battleaxe", new BattleaxeItem(ItemTier.GOLD, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    */
-
     public static final Item BLOOD_WITHER_BLADE = register("blood_wither_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.addPotionEffect(new EffectInstance(Effects.WITHER, 10, 2, true, false));
@@ -351,7 +358,17 @@ public class ItemsTwo {
     public static final Item EMERALD_CHESTPLATE = register("emerald_chestplate", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item EMERALD_LEGGINGS = register("emerald_leggings", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item EMERALD_BOOTS = register("emerald_boots", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
-    
+
+    public static final Item RUBY_HELMET = register("ruby_helmet", new ArmorItem(ArmorMaterialTwo.RUBY, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item RUBY_CHESTPLATE = register("ruby_chestplate", new ArmorItem(ArmorMaterialTwo.RUBY, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item RUBY_LEGGINGS = register("ruby_leggings", new ArmorItem(ArmorMaterialTwo.RUBY, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item RUBY_BOOTS = register("ruby_boots", new ArmorItem(ArmorMaterialTwo.RUBY, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item LEAD_HELMET = register("lead_helmet", new ArmorItem(ArmorMaterialTwo.LEAD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LEAD_CHESTPLATE = register("lead_chestplate", new ArmorItem(ArmorMaterialTwo.LEAD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LEAD_LEGGINGS = register("lead_leggings", new ArmorItem(ArmorMaterialTwo.LEAD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LEAD_BOOTS = register("lead_boots", new ArmorItem(ArmorMaterialTwo.LEAD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
     public static final Item STONE_HELMET = register("stone_helmet", new ArmorItem(ArmorMaterialTwo.STONE, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item STONE_CHESTPLATE = register("stone_chestplate", new ArmorItem(ArmorMaterialTwo.STONE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item STONE_LEGGINGS = register("stone_leggings", new ArmorItem(ArmorMaterialTwo.STONE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
@@ -577,16 +594,8 @@ public class ItemsTwo {
     public static final Item GLOWSTONE_LEGGINGS = register("glowstone_leggings", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item GLOWSTONE_BOOTS = register("glowstone_boots", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
     
-    //public static final Item RUBY_HELMET = register("ruby_helmet", new ArmorItem(ArmorMaterialTwo.RUBY, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    //public static final Item RUBY_CHESTPLATE = register("ruby_chestplate", new ArmorItem(ArmorMaterialTwo.RUBY, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    //public static final Item RUBY_LEGGINGS = register("ruby_leggings", new ArmorItem(ArmorMaterialTwo.RUBY, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    //public static final Item RUBY_BOOTS = register("ruby_boots", new ArmorItem(ArmorMaterialTwo.RUBY, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
 
-    //public static final Item LEAD_HELMET = register("lead_helmet", new ArmorItem(ArmorMaterialTwo.LEAD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    //public static final Item LEAD_CHESTPLATE = register("lead_chestplate", new ArmorItem(ArmorMaterialTwo.LEAD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    //public static final Item LEAD_LEGGINGS = register("lead_leggings", new ArmorItem(ArmorMaterialTwo.LEAD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    //public static final Item LEAD_BOOTS = register("lead_boots", new ArmorItem(ArmorMaterialTwo.LEAD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
-        
+    
     /*
     
     fanny pack

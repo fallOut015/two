@@ -1,0 +1,16 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	"pattern" : [
+		"X X",
+    	"XXX",
+    	"X X"
+	],
+	"key" : {
+		"X" : {
+    		"tag" : "forge:gems/ruby"
+    	}
+  	},
+  	"result" : {
+    	"item" : "two:ruby_horse_armor"
+  	}
+}

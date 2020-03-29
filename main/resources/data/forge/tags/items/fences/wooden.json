@@ -1,0 +1,9 @@
+{
+  	"replace" : false,
+  	"values" : [
+    	"two:cherry_fence",
+    	"two:maple_fence",
+    	"two:ghostwood_fence",
+    	"two:cloudwood_fence"
+  	]
+}

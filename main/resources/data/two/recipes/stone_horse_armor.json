@@ -7,8 +7,8 @@
 	],
 	"key" : {
 		"X" : {
-			"item" : "minecraft:cobblestone"
-		}
+    		"tag" : "forge:cobblestone"
+    	}
   	},
   	"result" : {
     	"item" : "two:stone_horse_armor"

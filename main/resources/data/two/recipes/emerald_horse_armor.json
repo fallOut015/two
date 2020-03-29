@@ -7,8 +7,8 @@
 	],
 	"key" : {
 		"X" : {
-			"item" : "minecraft:emerald"
-		}
+    		"tag" : "forge:gems/emerald"
+    	}
   	},
   	"result" : {
     	"item" : "two:emerald_horse_armor"

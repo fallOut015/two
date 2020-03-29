@@ -7,7 +7,6 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import two.Two;
 import two.inventory.KnapsackInventory;
 
 public class KnapsackContainer extends Container {
@@ -22,7 +21,6 @@ public class KnapsackContainer extends Container {
 		assertInventorySize(knapsackInventory, 18);
 	    this.knapsackInventory = knapsackInventory;
 	    this.compoundNBT = new CompoundNBT();
-	    Two.LOGGER.info("Created a new CompoundNBT (and a new container!)");
 	    knapsackInventory.openInventory(playerInventoryIn.player);
 	    
 	    for(int j = 0; j < 2; ++j)
@@ -64,8 +62,6 @@ public class KnapsackContainer extends Container {
 	}
 	public void onContainerClosed(PlayerEntity playerIn) {
 		super.onContainerClosed(playerIn);
-		
-	    Two.LOGGER.info("closing container.");
 		
 		this.compoundNBT = ((KnapsackInventory) this.knapsackInventory).write(this.compoundNBT);
 		((KnapsackInventory) this.knapsackInventory).itemStack.setTag(this.compoundNBT);

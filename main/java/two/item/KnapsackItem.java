@@ -2,6 +2,7 @@ package two.item;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
@@ -9,7 +10,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import two.inventory.KnapsackInventory;
 
-public class KnapsackItem extends AbstractContainerItem {
+public class KnapsackItem extends Item {
 	public KnapsackItem(Properties properties) {
 		super(properties);
 	}

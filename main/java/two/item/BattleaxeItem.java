@@ -28,17 +28,17 @@ public class BattleaxeItem extends TieredItem {
 	public float getAttackDamage() {
 	    return this.attackDamage;
 	}
-
 	public boolean canPlayerBreakBlockWhileHolding(BlockState state, World worldIn, BlockPos pos, PlayerEntity player) {
 		return !player.isCreative();
 	}
 	
 	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-	      stack.damageItem(1, attacker, (p_220045_0_) -> {
-	         p_220045_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);
-	      });
-	      return true;
-	   }
+		stack.damageItem(1, attacker, (p_220045_0_) -> {
+			p_220045_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);
+	    });
+		
+	    return true;
+	}
 
 	public boolean onBlockDestroyed(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
 		if (state.getBlockHardness(worldIn, pos) != 0.0F) {

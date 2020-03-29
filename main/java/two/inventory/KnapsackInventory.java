@@ -15,7 +15,6 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import two.Two;
 import two.inventory.container.KnapsackContainer;
 
 public class KnapsackInventory implements INamedContainerProvider, IInventory {
@@ -35,22 +34,12 @@ public class KnapsackInventory implements INamedContainerProvider, IInventory {
 	    return this.saveToNbt(compound);
 	}
 	public void loadFromNbt(CompoundNBT compound) {
-//		Two.LOGGER.info("Loading...");
 		this.knapsackContents = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
-//		Two.LOGGER.info("Compound: " + compound.getList("Items", 10));
-		if (!compound.getList("Items", 10).isEmpty()) {
-//	    	Two.LOGGER.info("Copying compound to Napsack Contents...");
+		if (!compound.getList("Items", 10).isEmpty())
 	    	ItemStackHelper.loadAllItems(compound, this.knapsackContents);
-//	    	Two.LOGGER.info("Napsack Contents: " + this.napsackContents);
-	    }
-//	    Two.LOGGER.info("Loaded");
 	}
 	public CompoundNBT saveToNbt(CompoundNBT compound) {
-//		Two.LOGGER.info("Saving...");
-//		Two.LOGGER.info("Copying Napsack Contents to compound...");
 		ItemStackHelper.saveAllItems(compound, this.knapsackContents, false);
-//		Two.LOGGER.info("Compound: " + compound.getList("Items", 10));
-//		Two.LOGGER.info("Saved");
 	    return compound;
 	}
 	
@@ -117,7 +106,6 @@ public class KnapsackInventory implements INamedContainerProvider, IInventory {
 	}
 	@Override
 	public boolean isUsableByPlayer(PlayerEntity player) {
-		Two.LOGGER.info(!player.world.isRemote + ": isUsableByPlayer (if this function is being fired that means that the KnapsackContainer is still open!)");
 		return !player.world.isRemote;
 	}
 	

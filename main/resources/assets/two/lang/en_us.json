@@ -164,6 +164,7 @@
 	"item.two.jade" : "Jade",
 	"item.two.opal" : "Opal",
 	"item.two.tanzanite" : "Tanzanite",
+	"item.two.amethyst" : "Amethyst",
 	"item.two.garnet" : "Garnet",
 	"item.two.topaz" : "Topaz",
 	"item.two.sapphire" : "Sapphire",
@@ -182,8 +183,13 @@
 	"item.two.hardened_steel_ingot" : "Hardened Steel Ingot",
 	
 	"item.two.chainmail_horse_armor" : "Chainmail Horse Armor",
+	
 	"item.two.emerald_horse_armor" : "Emerald Horse Armor",
+	"item.two.ruby_horse_armor" : "Ruby Horse Armor",
+	"item.two.lead_horse_armor" : "Lead Horse Armor",
+	
 	"item.two.stone_horse_armor" : "Stone Horse Armor",
+	
 	"item.two.oak_horse_armor" : "Oak Horse Armor",
 	"item.two.spruce_horse_armor" : "Spruce Horse Armor",
 	"item.two.birch_horse_armor" : "Birch Horse Armor",
@@ -202,6 +208,7 @@
 	"item.two.maple_horse_armor" : "Maple Horse Armor",
 	"item.two.ghostwood_horse_armor" : "Ghostwood Horse Armor",
 	"item.two.cloudwood_horse_armor" : "Cloudwood Horse Armor",
+	
 	"item.two.white_stained_wooden_horse_armor" : "White Stained Wooden Horse Armor",
 	"item.two.orange_stained_wooden_horse_armor" : "Orange Stained Wooden Horse Armor",
 	"item.two.magenta_stained_wooden_horse_armor" : "Magenta Stained Wooden Horse Armor",
@@ -218,6 +225,7 @@
 	"item.two.green_stained_wooden_horse_armor" : "Green Stained Wooden Horse Armor",
 	"item.two.red_stained_wooden_horse_armor" : "Red Stained Wooden Horse Armor",
 	"item.two.black_stained_wooden_horse_armor" : "Black Stained Wooden Horse Armor",
+	
 	"item.two.white_woolen_horse_armor" : "White Woolen Horse Armor",
 	"item.two.orange_woolen_horse_armor" : "Orange Woolen Horse Armor",
 	"item.two.magenta_woolen_horse_armor" : "Magenta Woolen Horse Armor",
@@ -248,16 +256,30 @@
 	"item.two.emerald_axe" : "Emerald Axe",
 	"item.two.emerald_hoe" : "Emerald Hoe",
 	
+	"item.two.ruby_shovel" : "Ruby Shovel",
+	"item.two.ruby_pickaxe" : "Ruby Pickaxe",
+	"item.two.ruby_axe" : "Ruby Axe",
+	"item.two.ruby_hoe" : "Ruby Hoe",
+	
+	"item.two.lead_shovel" : "Lead Shovel",
+	"item.two.lead_pickaxe" : "Lead Pickaxe",
+	"item.two.lead_axe" : "Lead Axe",
+	"item.two.lead_hoe" : "Lead Hoe",
+	
 	"item.two.iron_sickle" : "Iron Sickle",
 	"item.two.wooden_sickle" : "Wooden Sickle",
 	"item.two.stone_sickle" : "Stone Sickle",
 	"item.two.diamond_sickle" : "Diamond Sickle",
 	"item.two.golden_sickle" : "Golden Sickle",
 	"item.two.emerald_sickle" : "Emerald Sickle",
+	"item.two.ruby_sickle" : "Ruby Sickle",
+	"item.two.lead_sickle" : "Lead Sickle",
 	
 	
 	
 	"item.two.emerald_sword" : "Emerald Sword",
+	"item.two.ruby_sword" : "Ruby Sword",
+	"item.two.lead_sword" : "Lead Sword",
 	
 	"item.two.iron_battleaxe" : "Iron Battleaxe",
 	"item.two.wooden_battleaxe" : "Wooden Battleaxe",
@@ -265,6 +287,8 @@
 	"item.two.diamond_battleaxe" : "Diamond Battleaxe",
 	"item.two.golden_battleaxe" : "Golden Battleaxe",
 	"item.two.emerald_battleaxe" : "Emerald Battleaxe",
+	"item.two.ruby_battleaxe" : "Ruby Battleaxe",
+	"item.two.lead_battleaxe" : "Lead Battleaxe",
 	
 	"item.two.blood_wither_blade" : "Blood Wither Blade",
 	"item.two.blood_flame_blade" : "Blood Flame Blade",
@@ -275,6 +299,16 @@
 	"item.two.emerald_chestplate" : "Emerald Chestplate",
 	"item.two.emerald_leggings" : "Emerald Leggings",
 	"item.two.emerald_boots" : "Emerald Boots",
+	
+	"item.two.ruby_helmet" : "Ruby Helmet",
+	"item.two.ruby_chestplate" : "Ruby Chestplate",
+	"item.two.ruby_leggings" : "Ruby Leggings",
+	"item.two.ruby_boots" : "Ruby Boots",
+	
+	"item.two.lead_helmet" : "Lead Helmet",
+	"item.two.lead_chestplate" : "Lead Chestplate",
+	"item.two.lead_leggings" : "Lead Leggings",
+	"item.two.lead_boots" : "Lead Boots",
 	
 	"item.two.stone_helmet" : "Stone Helmet",
 	"item.two.stone_chestplate" : "Stone Chestplate",

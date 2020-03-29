@@ -2,18 +2,18 @@
 	"type" : "minecraft:crafting_shaped",
 	"pattern" : [
 		"X",
-    	"#",
+    	"X",
     	"#"
 	],
 	"key" : {
     	"#" : {
-      		"item" : "minecraft:stick"
+      		"tag" : "forge/rods/wooden"
     	},
     	"X" : {
-    		"item" : "minecraft:emerald"
+    		"tag" : "forge:gems/emerald"
     	}
   	},
   	"result" : {
-    	"item" : "two:emerald_shovel"
+    	"item" : "two:emerald_sword"
   	}
 }

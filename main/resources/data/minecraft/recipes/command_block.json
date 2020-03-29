@@ -7,10 +7,10 @@
 	],
 	"key" : {
     	"#" : {
-    		"item": "minecraft:redstone"
+    		"tag": "forge:dusts/redstone"
     	},
 		"X" : {
-			"item" : "minecraft:gold_ingot"
+			"tag" : "forge:ingots/gold"
 		}
   	},
   	"result" : {

@@ -26,8 +26,12 @@ Changelog:
 	Added artifact weapons.
 	Added cherry wood.
 	Added maple wood.
+	Added ghostwood.
+	Added cloudwood.
 	Added backpacks.
 	Added new splashes.
+	Added ruby.
+	Added nether lead.
 '''
 [[dependencies.two]] #optional
     modId="forge"
