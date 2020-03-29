@@ -19,6 +19,8 @@
 	"block.two.balsa_planks" : "Balsa Planks",
 	"block.two.conifer_planks" : "Conifer Planks",
 	"block.two.maple_planks" : "Maple Planks",
+	"block.two.ghostwood_planks" : "Ghostwood Planks",
+	"block.two.cloudwood_planks" : "Cloudwood Planks",
 	
 	"block.two.white_stained_planks" : "White Stained Planks",
 	"block.two.orange_stained_planks" : "Orange Stained Planks",
@@ -39,54 +41,88 @@
 	
 	"block.two.cherry_log" : "Cherry Log",
 	"block.two.maple_log" : "Maple Log",
+	"block.two.ghostwood_log" : "Ghostwood Log",
+	"block.two.cloudwood_log" : "Cloudwood Log",
 	
 	"block.two.cherry_sapling" : "Cherry Sapling",
 	"block.two.maple_sapling" : "Maple Sapling",
+	"block.two.ghostwood_sapling" : "Ghostwood Sapling",
+	"block.two.cloudwood_sapling" : "Cloudwood Sapling",
 	
 	"block.two.potted_cherry_sapling" : "Potted Cherry Sapling",
 	"block.two.potted_maple_sapling" : "Potted Maple Sapling",
+	"block.two.potted_ghostwood_sapling" : "Potted Ghostwood Sapling",
+	"block.two.potted_cloudwood_sapling" : "Potted Cloudwood Sapling",
 	
 	"block.two.stripped_cherry_log" : "Stripped Cherry Log",
 	"block.two.stripped_maple_log" : "Stripped Maple Log",
+	"block.two.stripped_ghostwood_log" : "Stripped Ghostwood Log",
+	"block.two.stripped_cloudwood_log" : "Stripped Cloudwood Log",
 	
 	"block.two.stripped_cherry_wood" : "Stripped Cherry Wood",
 	"block.two.stripped_maple_wood" : "Stripped Maple Wood",
+	"block.two.stripped_ghostwood_wood" : "Stripped Ghostwood Wood",
+	"block.two.stripped_cloudwood_wood" : "Stripped Cloudwood Wood",
 	
 	"block.two.cherry_wood" : "Cherry Wood",
 	"block.two.maple_wood" : "Maple Wood",
+	"block.two.ghostwood_wood" : "Ghostwood Wood",
+	"block.two.cloudwood_wood" : "Cloudwood Wood",
 	
 	"block.two.cherry_leaves" : "Cherry Leaves",
 	"block.two.maple_leaves" : "Maple Leaves",
+	"block.two.ghostwood_leaves" : "Ghostwood Leaves",
+	"block.two.cloudwood_leaves" : "Cloudwood Leaves",
 	
 	"block.two.cherry_slab" : "Cherry Slab",
 	"block.two.maple_slab" : "Maple Slab",
+	"block.two.ghostwood_slab" : "Ghostwood Slab",
+	"block.two.cloudwood_slab" : "Cloudwood Slab",
 	
 	"block.two.cherry_pressure_plate" : "Cherry Pressure Plate",
 	"block.two.maple_pressure_plate" : "Maple Pressure Plate",
+	"block.two.ghostwood_pressure_plate" : "Ghostwood Pressure Plate",
+	"block.two.cloudwood_pressure_plate" : "Cloudwood Pressure Plate",
 	
 	"block.two.cherry_fence" : "Cherry Fence",
 	"block.two.maple_fence" : "Maple Fence",
+	"block.two.ghostwood_fence" : "Ghostwood Fence",
+	"block.two.cloudwood_fence" : "Cloudwood Fence",
 	
 	"block.two.cherry_trapdoor" : "Cherry Trapdoor",
 	"block.two.maple_trapdoor" : "Maple Trapdoor",
+	"block.two.ghostwood_trapdoor" : "Ghostwood Trapdoor",
+	"block.two.cloudwood_trapdoor" : "Cloudwood Trapdoor",
 	
 	"block.two.cherry_fence_gate" : "Cherry Fence Gate",
 	"block.two.maple_fence_gate" : "Maple Fence Gate",
+	"block.two.ghostwood_fence_gate" : "Ghostwood Fence Gate",
+	"block.two.cloudwood_fence_gate" : "Cloudwood Fence Gate",
 	
 	"block.two.cherry_stairs" : "Cherry Stairs",
 	"block.two.maple_stairs" : "Maple Stairs",
+	"block.two.ghostwood_stairs" : "Ghostwood Stairs",
+	"block.two.cloudwood_stairs" : "Cloudwood Stairs",
 	
 	"block.two.cherry_button" : "Cherry Button",
 	"block.two.maple_button" : "Maple Button",
+	"block.two.ghostwood_button" : "Ghostwood Button",
+	"block.two.cloudwood_button" : "Cloudwood Button",
 	
 	"block.two.cherry_door" : "Cherry Door",
 	"block.two.maple_door" : "Maple Door",
+	"block.two.ghostwood_door" : "Ghostwood Door",
+	"block.two.cloudwood_door" : "Cloudwood Door",
 	
 	"block.two.cherry_sign" : "Cherry Sign",
 	"block.two.maple_sign" : "Maple Sign",
+	"block.two.ghostwood_sign" : "Ghostwood Sign",
+	"block.two.cloudwood_sign" : "Cloudwood Sign",
 	
 	"block.two.cherry_wall_sign" : "Cherry Wall Sign",
 	"block.two.maple_wall_sign" : "Maple Wall Sign",
+	"block.two.ghostwood_wall_sign" : "Ghostwood Wall Sign",
+	"block.two.cloudwood_wall_sign" : "Cloudwood Wall Sign",
 	
 	"block.two.white_glazed_bricks" : "White Glazed Bricks",
 	"block.two.orange_glazed_bricks" : "Orange Glazed Bricks",
@@ -119,6 +155,8 @@
 
 	"item.two.cherry_boat" : "Cherry Boat",
 	"item.two.maple_boat" : "Maple Boat",
+	"item.two.ghostwood_boat" : "Ghostwood Boat",
+	"item.two.cloudwood_boat" : "Cloudwood Boat",
 	
 	
 	
@@ -162,6 +200,8 @@
 	"item.two.balsa_horse_armor" : "Balsa Horse Armor",
 	"item.two.conifer_horse_armor" : "Conifer Horse Armor",
 	"item.two.maple_horse_armor" : "Maple Horse Armor",
+	"item.two.ghostwood_horse_armor" : "Ghostwood Horse Armor",
+	"item.two.cloudwood_horse_armor" : "Cloudwood Horse Armor",
 	"item.two.white_stained_wooden_horse_armor" : "White Stained Wooden Horse Armor",
 	"item.two.orange_stained_wooden_horse_armor" : "Orange Stained Wooden Horse Armor",
 	"item.two.magenta_stained_wooden_horse_armor" : "Magenta Stained Wooden Horse Armor",
@@ -280,6 +320,16 @@
 	"item.two.cherry_chestplate" : "Cherry Chestplate",
 	"item.two.cherry_leggings" : "Cherry Leggings",
 	"item.two.cherry_boots" : "Cherry Boots",
+	
+	"item.two.ghostwood_helmet" : "Ghostwood Helmet",
+	"item.two.ghostwood_chestplate" : "Ghostwood Chestplate",
+	"item.two.ghostwood_leggings" : "Ghostwood Leggings",
+	"item.two.ghostwood_boots" : "Ghostwood Boots",
+	
+	"item.two.cloudwood_helmet" : "Cloudwood Helmet",
+	"item.two.cloudwood_chestplate" : "Cloudwood Chestplate",
+	"item.two.cloudwood_leggings" : "Cloudwood Leggings",
+	"item.two.cloudwood_boots" : "Cloudwood Boots",
 	
 	"item.two.white_stained_wooden_helmet" : "White Stained Wooden Helmet",
 	"item.two.white_stained_wooden_chestplate" : "White Stained Wooden Chestplate",

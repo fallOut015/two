@@ -1,0 +1,7 @@
+{
+    "variants" : {
+        "type=bottom" : { "model" : "two:block/cloudwood_slab" },
+        "type=top" : { "model" : "two:block/cloudwood_slab_top" },
+        "type=double" : { "model" : "two:block/cloudwood_planks" }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "parent": "minecraft:block/outer_stairs",
+    "textures": {
+        "bottom": "two:block/cloudwood_planks",
+        "top": "two:block/cloudwood_planks",
+        "side": "two:block/cloudwood_planks"
+    }
+}

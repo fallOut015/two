@@ -2,6 +2,8 @@
   	"replace": false,
   	"values": [
 		"two:cherry_leaves",
-    	"two:maple_leaves"
+    	"two:maple_leaves",
+		"two:ghostwood_leaves",
+    	"two:cloudwood_leaves"
   	]
 }

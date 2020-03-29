@@ -2,6 +2,8 @@
   	"replace": false,
   	"values": [
 		"two:cherry_wall_sign",
-    	"two:maple_wall_sign"
+    	"two:maple_wall_sign",
+		"two:ghostwood_wall_sign",
+    	"two:cloudwood_wall_sign"
 	]
 }

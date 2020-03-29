@@ -2,6 +2,8 @@
   	"replace": false,
   	"values": [
 		"two:cherry_sapling",
-    	"two:maple_sapling"
+    	"two:maple_sapling",
+		"two:ghostwood_sapling",
+    	"two:cloudwood_sapling"
   	]
 }

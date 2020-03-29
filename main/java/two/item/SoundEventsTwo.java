@@ -23,11 +23,11 @@ public class SoundEventsTwo {
 	}
 	static SoundEvent register(String key) {
 		SoundEvent soundEvent = new SoundEvent(new ResourceLocation("two", key));
-		Holder.soundEventsTwo.add(soundEvent);
+		Holder.SOUNDEVENTSTWO.add(soundEvent);
 		
 		return soundEvent;
 	}
 	static class Holder {
-		public static LinkedList<SoundEvent> soundEventsTwo = new LinkedList<SoundEvent>();
+		public static final LinkedList<SoundEvent> SOUNDEVENTSTWO = new LinkedList<SoundEvent>();
 	}
 }

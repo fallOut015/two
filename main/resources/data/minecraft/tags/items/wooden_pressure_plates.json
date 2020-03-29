@@ -2,6 +2,8 @@
 	"replace": false,
   	"values": [
 		"two:cherry_pressure_plate",
-    	"two:maple_pressure_plate"
+    	"two:maple_pressure_plate",
+		"two:ghostwood_pressure_plate",
+    	"two:cloudwood_pressure_plate"
   	]
 }

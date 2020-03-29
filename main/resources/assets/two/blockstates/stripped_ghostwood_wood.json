@@ -1,0 +1,7 @@
+{
+    "variants" : {
+        "axis=y" : { "model" : "two:block/stripped_ghostwood_wood" },
+        "axis=z" : { "model" : "two:block/stripped_ghostwood_wood", "x" : 90 },
+        "axis=x" : { "model" : "two:block/stripped_ghostwood_wood", "x" : 90, "y" : 90 }
+    }
+}

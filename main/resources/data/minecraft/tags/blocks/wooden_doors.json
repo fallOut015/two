@@ -2,6 +2,8 @@
   	"replace": false,
   	"values": [
 		"two:cherry_door",
-    	"two:maple_door"
+    	"two:maple_door",
+		"two:ghostwood_door",
+    	"two:cloudwood_door"
   	]
 }

@@ -1,0 +1,9 @@
+{
+	"replace" : false,
+  	"values" : [
+    	"two:cloudwood_log",
+    	"two:cloudwood_wood",
+    	"two:stripped_cloudwood_log",
+    	"two:stripped_cloudwood_wood"
+  	]
+}

@@ -2,6 +2,8 @@
 	"replace" : false,
 	"values" : [
 		"two:cherry_slab",
-		"two:maple_slab"
+		"two:maple_slab",
+		"two:ghostwood_slab",
+		"two:cloudwood_slab"
 	]
 }

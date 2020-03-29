@@ -14,14 +14,14 @@ public class EntityTypeTwo {
 	public static EntityType<ChameleonEntity> CHAMELEON = (EntityType<ChameleonEntity>) register("chameleon", EntityType.Builder.create(ChameleonEntity::new, EntityClassification.CREATURE).size(0.25f, 0.25f).build("chameleon"));
 
 	public static void onEntityTypesRegistry(final RegistryEvent.Register<EntityType<?>> entityTypeRegistryEvent) {
-		entityTypeRegistryEvent.getRegistry().registerAll(Holder.entityTypesTwo.toArray(new EntityType<?> [] {}));
+		entityTypeRegistryEvent.getRegistry().registerAll(Holder.ENTITYTYPESTWO.toArray(new EntityType<?> [] {}));
 	}
 	private static EntityType<?> register(String key, EntityType<?> entityType) {
 		entityType.setRegistryName(key);
-		Holder.entityTypesTwo.add(entityType);
+		Holder.ENTITYTYPESTWO.add(entityType);
 		return entityType;
 	}
 	static class Holder {
-		public static LinkedList<EntityType<?>> entityTypesTwo = new LinkedList<EntityType<?>>();
+		public static final LinkedList<EntityType<?>> ENTITYTYPESTWO = new LinkedList<EntityType<?>>();
 	}
 }

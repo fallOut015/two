@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:ghostwood_sign"
+    ]
+  },
+  "criteria": {
+    "has_ghostwood_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:ghostwood_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:ghostwood_sign"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ghostwood_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -2,6 +2,8 @@
 	"replace" : false,
 	"values" : [
 		"#two:cherry_logs",
-    	"#two:maple_logs"
+    	"#two:maple_logs",
+		"#two:ghostwood_logs",
+    	"#two:cloudwood_logs"
 	]
 }

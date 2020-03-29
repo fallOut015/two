@@ -50,6 +50,12 @@ public enum ArmorMaterialTwo implements IArmorMaterial {
 	MAPLE("maple", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
 		return Ingredient.fromItems(ItemsTwo.MAPLE_PLANKS);
 	}),
+	GHOSTWOOD("ghostwood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
+		return Ingredient.fromItems(ItemsTwo.GHOSTWOOD_PLANKS);
+	}),
+	CLOUDWOOD("cloudwood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
+		return Ingredient.fromItems(ItemsTwo.CLOUDWOOD_PLANKS);
+	}),
 	
 	WHITE_STAINED_WOOD("white_stained_wood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
 		return Ingredient.fromItems(ItemsTwo.WHITE_STAINED_PLANKS);

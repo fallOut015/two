@@ -7,7 +7,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-import two.inventory.KnapsackContainerProvider;
+import two.inventory.KnapsackInventory;
 
 public class KnapsackItem extends AbstractContainerItem {
 	public KnapsackItem(Properties properties) {
@@ -17,7 +17,7 @@ public class KnapsackItem extends AbstractContainerItem {
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		ItemStack itemStack = playerIn.getHeldItem(handIn);
 		
-		INamedContainerProvider knapsackContainer = new KnapsackContainerProvider(playerIn, itemStack);
+		INamedContainerProvider knapsackContainer = new KnapsackInventory(playerIn, itemStack);
 		playerIn.openContainer(knapsackContainer);
 		playerIn.addStat(Stats.ITEM_USED.get(this));
 		

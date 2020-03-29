@@ -1,0 +1,17 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	"group" : "minecraft:bark",
+  	"pattern" : [
+    	"##",
+    	"##"
+  	],
+  	"key" : {
+    	"#" : {
+      		"item" : "two:ghostwood_log"
+    	}
+  	},
+  	"result" : {
+    	"item" : "two:ghostwood_wood",
+    	"count" : 3
+  	}
+}

@@ -2,6 +2,8 @@
 	"replace" : false,
 	"values" : [
 		"two:cherry_boat",
-		"two:maple_boat"
+		"two:maple_boat",
+		"two:ghostwood_boat",
+		"two:cloudwood_boat"
 	]
 }

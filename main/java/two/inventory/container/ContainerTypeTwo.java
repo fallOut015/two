@@ -14,7 +14,7 @@ public class ContainerTypeTwo {
 	public static final ContainerType<KnapsackContainer> KNAPSACK = register("knapsack", KnapsackContainer::new);
 	
 	public static void onContainerTypesRegistry(final RegistryEvent.Register<ContainerType<?>> containerTypeRegistryEvent) {
-		containerTypeRegistryEvent.getRegistry().registerAll(Holder.containerTypesTwo.toArray(new ContainerType<?> [] {}));
+		containerTypeRegistryEvent.getRegistry().registerAll(Holder.CONTAINERTYPESTWO.toArray(new ContainerType<?> [] {}));
 
 		ScreenManager.registerFactory(KNAPSACK, KnapsackScreen::new);
 	}
@@ -22,11 +22,11 @@ public class ContainerTypeTwo {
 		@SuppressWarnings("unchecked")
 		ContainerType<T> containerType = (ContainerType<T>) new ContainerType<T>(factory).setRegistryName(key);
 		
-		Holder.containerTypesTwo.add(containerType);
+		Holder.CONTAINERTYPESTWO.add(containerType);
 		
 		return containerType;
 	}
 	static class Holder {
-		public static LinkedList<ContainerType<?>> containerTypesTwo = new LinkedList<ContainerType<?>>();
+		public static final LinkedList<ContainerType<?>> CONTAINERTYPESTWO = new LinkedList<ContainerType<?>>();
 	}
 }

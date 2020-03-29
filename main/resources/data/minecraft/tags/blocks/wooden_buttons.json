@@ -2,6 +2,8 @@
   	"replace": false,
   	"values": [
 		"two:cherry_button",
-    	"two:maple_button"
+    	"two:maple_button",
+		"two:ghostwood_button",
+    	"two:cloudwood_button"
   	]
 }

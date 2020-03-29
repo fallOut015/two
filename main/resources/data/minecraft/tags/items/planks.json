@@ -3,6 +3,8 @@
 	"values" : [
 		"two:cherry_planks",
 		"two:maple_planks",
+		"two:ghostwood_planks",
+		"two:cloudwood_planks",
 		"#two:stained_planks"
 	]
 }

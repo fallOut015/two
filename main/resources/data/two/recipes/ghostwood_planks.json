@@ -1,0 +1,13 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+  	"group" : "minecraft:planks",
+  	"ingredients" : [
+    	{
+      		"tag" : "two:ghostwood_logs"
+    	}
+  	],
+  	"result" : {
+    	"item" : "two:ghostwood_planks",
+    	"count" : 4
+  	}
+}

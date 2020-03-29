@@ -18,13 +18,13 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import two.Two;
 import two.inventory.container.KnapsackContainer;
 
-public class KnapsackContainerProvider implements INamedContainerProvider, IInventory {
+public class KnapsackInventory implements INamedContainerProvider, IInventory {
 	private NonNullList<ItemStack> knapsackContents = NonNullList.withSize(18, ItemStack.EMPTY);
 	private int timesChanged;
 	public ItemStack itemStack;
 
 	
-	public KnapsackContainerProvider(PlayerEntity player, ItemStack itemStack) {
+	public KnapsackInventory(PlayerEntity player, ItemStack itemStack) {
 		this.itemStack = itemStack;
 	}
 	

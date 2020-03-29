@@ -1,0 +1,7 @@
+{
+    "variants" : {
+        "type=bottom" : { "model" : "two:block/ghostwood_slab" },
+        "type=top" : { "model" : "two:block/ghostwood_slab_top" },
+        "type=double" : { "model" : "two:block/ghostwood_planks" }
+    }
+}

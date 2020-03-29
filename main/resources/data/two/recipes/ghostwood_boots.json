@@ -1,0 +1,15 @@
+{
+	"type" : "minecraft:crafting_shaped",
+  	"pattern" : [
+    	"X X",
+    	"X X"
+  	],
+  	"key" : {
+    	"X" : {
+      		"item" : "two:ghostwood_planks"
+    	}
+  	},
+  	"result" : {
+    	"item" : "two:ghostwood_boots"
+  	}
+}

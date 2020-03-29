@@ -1,0 +1,13 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+  	"group" : "minecraft:planks",
+  	"ingredients" : [
+    	{
+      		"tag" : "two:cloudwood_logs"
+    	}
+  	],
+  	"result" : {
+    	"item" : "two:cloudwood_planks",
+    	"count" : 4
+  	}
+}
