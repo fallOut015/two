@@ -1,0 +1,6 @@
+{
+    "parent" : "minecraft:item/generated",
+    "textures" : {
+        "layer0" : "two:item/red_stained_wooden_boots"
+    }
+}

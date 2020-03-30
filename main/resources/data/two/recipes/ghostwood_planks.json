@@ -1,6 +1,6 @@
 {
 	"type" : "minecraft:crafting_shapeless",
-  	"group" : "minecraft:planks",
+  	"group" : "planks",
   	"ingredients" : [
     	{
       		"tag" : "two:ghostwood_logs"

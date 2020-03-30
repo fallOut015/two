@@ -1,0 +1,7 @@
+{
+	"variants" : {
+    	"" : {
+			"model" : "two:block/cobalt_ore"
+		}
+	}
+}

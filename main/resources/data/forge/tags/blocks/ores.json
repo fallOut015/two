@@ -1,7 +1,24 @@
 {
 	"replace" : false,
   	"values" : [
+		"#forge:ores/cobalt",
+		"#forge:ores/jade",
+		"#forge:ores/opal",
+		"#forge:ores/tanzanite",
+		"#forge:ores/amethyst",
+		"#forge:ores/garnet",
+		"#forge:ores/topaz",
+		"#forge:ores/sapphire",
     	"#forge:ores/ruby",
-    	"#forge:ores/lead"
+
+		"#forge:ores/talc",
+    	"#forge:ores/lead",
+		"#forge:ores/tin",
+    	"#forge:ores/aluminum",
+		"#forge:ores/silver",
+    	"#forge:ores/copper",
+		"#forge:ores/platinum",
+    	"#forge:ores/titanium",
+		"#forge:ores/pyrite"
   	]
 }

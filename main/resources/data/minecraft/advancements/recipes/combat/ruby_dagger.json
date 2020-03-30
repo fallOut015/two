@@ -1,0 +1,32 @@
+{
+	"parent": "minecraft:recipes/root",
+  	"rewards": {
+    	"recipes": [
+      		"two:ruby_dagger"
+    	]
+  	},
+  	"criteria": {
+    	"has_ruby": {
+      		"trigger": "minecraft:inventory_changed",
+      		"conditions": {
+        		"items": [
+          			{
+            			"item": "two:ruby"
+          			}
+        		]
+      		}
+    	},
+    	"has_the_recipe": {
+      		"trigger": "minecraft:recipe_unlocked",
+      		"conditions": {
+        		"recipe": "two:ruby_dagger"
+      		}
+    	}
+  	},
+  	"requirements": [
+    	[
+      		"has_ruby",
+      		"has_the_recipe"
+    	]
+  	]
+}

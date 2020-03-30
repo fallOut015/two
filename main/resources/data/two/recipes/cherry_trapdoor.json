@@ -1,6 +1,6 @@
 {
   	"type": "minecraft:crafting_shaped",
-  	"group": "minecraft:wooden_trapdoor",
+  	"group": "wooden_trapdoor",
   	"pattern": [
     	"###",
     	"###"

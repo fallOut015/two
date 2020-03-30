@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "minecraft:wooden_fence",
+  "group": "wooden_fence",
   "pattern": [
     "W#W",
     "W#W"
