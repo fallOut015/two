@@ -1,11 +1,13 @@
 package two;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import com.google.common.eventbus.Subscribe;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -17,6 +19,10 @@ import net.minecraft.item.ItemTier;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
@@ -38,6 +44,9 @@ import two.inventory.container.ContainerTypeTwo;
 import two.item.ItemTierTwo;
 import two.item.ItemsTwo;
 import two.item.SoundEventsTwo;
+import two.world.biome.BiomesTwo;
+import two.world.dimension.DimensionTypeTwo;
+import two.world.gen.surfacebuilders.SurfaceBuilders;
 
 @Mod("two")
 public class Two {
@@ -84,7 +93,22 @@ public class Two {
     	public static void onContainerTypesRegistry(final RegistryEvent.Register<ContainerType<?>> containerTypeRegistryEvent) {
     		ContainerTypeTwo.onContainerTypesRegistry(containerTypeRegistryEvent);
     	}
-    	
+    	@SubscribeEvent
+    	public static void onDimensionTypesRegistry(final RegistryEvent.Register<DimensionType> dimensionTypeRegistryEvent) {
+    		DimensionTypeTwo.onDimensionTypesRegistry(dimensionTypeRegistryEvent);
+    	}
+    	@Subscribe
+    	public static void onBiomesRegistry(final RegistryEvent.Register<Biome> biomeRegistryEvent) {
+    		BiomesTwo.onBiomesRegistry(biomeRegistryEvent);
+    	}
+    	@Subscribe
+    	public static void onSurfaceBuildersRegistry(final RegistryEvent.Register<SurfaceBuilder<?>> surfaceBuilderRegistryEvent) {
+    		SurfaceBuilders.onSurfaceBuildersRegistry(surfaceBuilderRegistryEvent);
+    	}
+    }
+    
+    @Mod.EventBusSubscriber
+    public static class Events {
     	@SubscribeEvent
     	public static void onPlayerWakeUp(final PlayerWakeUpEvent playerWakeUpEvent) {
     		LOGGER.info(playerWakeUpEvent.getPlayer().getName().getFormattedText() + " woke up!");
@@ -105,21 +129,23 @@ public class Two {
     	public static void onItemTooltip(final ItemTooltipEvent itemToolTipEvent) {
     		// Pickaxes show all of the ores they can mine. 
     		if(itemToolTipEvent.getItemStack().getItem() instanceof PickaxeItem) {
-    			List<IItemTier> itemTiers = new ArrayList<IItemTier>();
-    			for(IItemTier itemTier : ItemTier.values()) {
-    				if(((PickaxeItem) itemToolTipEvent.getItemStack().getItem()).getTier().getHarvestLevel() > itemTier.getHarvestLevel() - 1) {
-    					itemTiers.add(itemTier);
-    				}
+    			if(((PickaxeItem) itemToolTipEvent.getItemStack().getItem()).getTier().getHarvestLevel() == 6)
+    				itemToolTipEvent.getToolTip().add(new StringTextComponent("Can mine everything."));
+    			else {
+    				List<IItemTier> itemTiers = new LinkedList<IItemTier>();
+    				
+        			for(IItemTier itemTier : ItemTier.values())
+        				if(itemTier != ItemTier.WOOD && ((PickaxeItem) itemToolTipEvent.getItemStack().getItem()).getTier().getHarvestLevel() >= itemTier.getHarvestLevel() - 1)
+        					itemTiers.add(itemTier);
+        			for(IItemTier itemTier : ItemTierTwo.values())
+        				if(itemTier != ItemTierTwo.BLOOD_BLADE && ((PickaxeItem) itemToolTipEvent.getItemStack().getItem()).getTier().getHarvestLevel() >= itemTier.getHarvestLevel() - 1)
+        					itemTiers.add(itemTier);
+        			
+        			Collections.sort((List<IItemTier>) itemTiers, (itemTier1, itemTier2) -> itemTier1.getHarvestLevel() - itemTier2.getHarvestLevel());
+        			
+        			itemToolTipEvent.getToolTip().add(new StringTextComponent("Can mine...").applyTextStyle(TextFormatting.GRAY));        			
+        			itemToolTipEvent.getToolTip().add(new StringTextComponent(itemTiers.toString().toLowerCase()/*.replaceAll("[", "").replaceAll("]", "")*/).applyTextStyle(TextFormatting.GRAY));
     			}
-    			for(IItemTier itemTier : ItemTierTwo.values()) {
-    				if(((PickaxeItem) itemToolTipEvent.getItemStack().getItem()).getTier().getHarvestLevel() > itemTier.getHarvestLevel() - 1) {
-    					itemTiers.add(itemTier);
-    				}
-    			}
-    			Collections.sort((List<IItemTier>) itemTiers, (itemTier1, itemTier2) -> {
-    				return itemTier1.getHarvestLevel() - itemTier2.getHarvestLevel();
-    			});
-    			itemToolTipEvent.getToolTip().add(new StringTextComponent(itemTiers.toString()));
     		}
     	}
     }

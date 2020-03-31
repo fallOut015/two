@@ -1,0 +1,8 @@
+{
+	"variants" : {
+    	"facing=north" : { "model": "two:block/dreamcatcher_loot" },
+        "facing=east" :  { "model": "two:block/dreamcatcher_loot", "y": 90 },
+        "facing=south" : { "model": "two:block/dreamcatcher_loot", "y": 180 },
+        "facing=west" :  { "model": "two:block/dreamcatcher_loot", "y": 270 }
+    }
+}

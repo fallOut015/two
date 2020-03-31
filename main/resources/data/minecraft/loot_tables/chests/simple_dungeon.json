@@ -63,6 +63,21 @@
           "weight": 3,
           "name": "two:blood_flame_blade"
         },
+		{
+          "type": "minecraft:item",
+          "weight": 8,
+          "name": "two:dreamcatcher_healing"
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 6,
+          "name": "two:dreamcatcher_loot"
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 20,
+          "name": "two:dreamcatcher_nightmare"
+        },
         {
           "type": "minecraft:item",
           "weight": 10,

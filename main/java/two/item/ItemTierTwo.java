@@ -75,7 +75,7 @@ public enum ItemTierTwo implements IItemTier {
 	}),
 	
 	BLOOD_BLADE(0, 2048, 0.0f, 4.0f, 10, () -> {
-		return Ingredient.fromItems(Items.WITHER_SKELETON_SKULL); // Blood
+		return Ingredient.fromItems(Items.BONE); // Blood
 	});
 	
 	private final int harvestLevel;
