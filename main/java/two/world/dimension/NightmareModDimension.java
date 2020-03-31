@@ -29,7 +29,7 @@ public class NightmareModDimension extends ModDimension {
 			    OverworldGenSettings nightmaregensettings = ChunkGeneratorType.SURFACE.createSettings();
 			    nightmaregensettings.setDefaultBlock(BlocksTwo.GAULT.getDefaultState());
 			    nightmaregensettings.setDefaultFluid(Blocks.WATER.getDefaultState());
-			    return ChunkGeneratorType.SURFACE.create(this.world, BiomeProviderType.FIXED.create(BiomeProviderType.FIXED.func_226840_a_(this.world.getWorldInfo()).setBiome(BiomesTwo.NIGHTMARE_HIGHLANDS)), nightmaregensettings);
+			    return ChunkGeneratorType.SURFACE.create(this.world, BiomeProviderType.FIXED.create(BiomeProviderType.FIXED.func_226840_a_(this.world.getWorldInfo()).setBiome(BiomesTwo.NIGHTMARE)), nightmaregensettings);
 			}
 			@Override
 			public BlockPos findSpawn(ChunkPos chunkPosIn, boolean checkValid) {

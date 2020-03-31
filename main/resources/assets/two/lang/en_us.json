@@ -608,5 +608,15 @@
 
 
 
-	"container.knapsack" : "Knapsack"
+	"container.knapsack" : "Knapsack",
+	
+	
+	
+	
+	
+	"biome.two.nightmare" : "Nightmare",
+	"biome.two.nightmare_highlands" : "Nightmare Highlands",
+	
+	"item.minecraft.stick" : "STICK OVERRIDE"
+	
 }

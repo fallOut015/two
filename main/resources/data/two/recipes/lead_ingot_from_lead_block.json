@@ -2,11 +2,11 @@
 	"type" : "minecraft:crafting_shapeless",
   	"ingredients" : [
     	{
-      		"item" : "two:lead_ingot"
+      		"item" : "two:lead_block"
     	}
   	],
   	"result" : {
-    	"item" : "two:lead_nugget",
+    	"item" : "two:lead_ingot",
     	"count" : 9
   	}
 }

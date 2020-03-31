@@ -18,7 +18,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
-import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
+import net.minecraftforge.event.entity.player.PlayerSetSpawnEvent;
 
 public abstract class DreamcatcherBlock extends Block {
 	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
@@ -88,5 +88,5 @@ public abstract class DreamcatcherBlock extends Block {
 		builder.add(FACING);
 	}
 	
-	public abstract void onPlayerWakeUp(final PlayerWakeUpEvent playerWakeUpEvent);
+	public abstract void onPlayerSetSpawn(final PlayerSetSpawnEvent playerSetSpawnEvent);
 }

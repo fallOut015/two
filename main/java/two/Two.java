@@ -7,8 +7,6 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.google.common.eventbus.Subscribe;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
@@ -26,7 +24,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
+import net.minecraftforge.event.entity.player.PlayerSetSpawnEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -54,9 +52,9 @@ public class Two {
     
     public Two() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -97,11 +95,11 @@ public class Two {
     	public static void onDimensionTypesRegistry(final RegistryEvent.Register<DimensionType> dimensionTypeRegistryEvent) {
     		DimensionTypeTwo.onDimensionTypesRegistry(dimensionTypeRegistryEvent);
     	}
-    	@Subscribe
+    	@SubscribeEvent
     	public static void onBiomesRegistry(final RegistryEvent.Register<Biome> biomeRegistryEvent) {
     		BiomesTwo.onBiomesRegistry(biomeRegistryEvent);
     	}
-    	@Subscribe
+    	@SubscribeEvent
     	public static void onSurfaceBuildersRegistry(final RegistryEvent.Register<SurfaceBuilder<?>> surfaceBuilderRegistryEvent) {
     		SurfaceBuilders.onSurfaceBuildersRegistry(surfaceBuilderRegistryEvent);
     	}
@@ -110,19 +108,12 @@ public class Two {
     @Mod.EventBusSubscriber
     public static class Events {
     	@SubscribeEvent
-    	public static void onPlayerWakeUp(final PlayerWakeUpEvent playerWakeUpEvent) {
-    		LOGGER.info(playerWakeUpEvent.getPlayer().getName().getFormattedText() + " woke up!");
-    		if(playerWakeUpEvent.wakeImmediately())
-    			LOGGER.info("Player got up ubruptly.");
-    		else
-    			LOGGER.info("Player woke up naturally. Testing dreamcatcher conditions...");
-    		
-    		if(!playerWakeUpEvent.wakeImmediately()) {
-    			BlockState blockUp = playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getPosition().up());
-    			if(blockUp.getBlock() instanceof DreamcatcherBlock) {
-    				LOGGER.info("Found a dreamcatcher above the player's head!");
-    				((DreamcatcherBlock) blockUp.getBlock()).onPlayerWakeUp(playerWakeUpEvent);
-    			}
+    	public static void onPlayerSetSpawn(final PlayerSetSpawnEvent playerSetSpawnEvent) {
+    		LOGGER.info("onPlayerSetSpawn(" + playerSetSpawnEvent + ")");
+    		BlockState blockUp = playerSetSpawnEvent.getPlayer().getEntityWorld().getBlockState(playerSetSpawnEvent.getPlayer().getPosition().up());
+    		if(blockUp.getBlock() instanceof DreamcatcherBlock) {
+    			LOGGER.info("Found a dreamcatcher above the player's head!");
+    			((DreamcatcherBlock) blockUp.getBlock()).onPlayerSetSpawn(playerSetSpawnEvent);
     		}
     	}
     	@SubscribeEvent
