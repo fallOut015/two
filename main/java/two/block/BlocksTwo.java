@@ -17,8 +17,12 @@ import net.minecraft.block.StandingSignBlock;
 import net.minecraft.block.WallSignBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.DyeColor;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.registries.ObjectHolder;
 import two.block.material.MaterialTwo;
 import two.block.trees.CherryTree;
@@ -213,6 +217,33 @@ public class BlocksTwo {
 	public static final Block PYRITE_BLOCK = register("pyrite_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GOLD).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block STEEL_BLOCK = register("steel_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GRAY).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block HARDENED_STEEL_BLOCK = register("hardened_steel_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.STONE).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
+	
+	public static final Block DREAMCATCHER_HEALING = register("dreamcatcher_healing", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.PINK)) {
+		@Override
+		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
+			playerWakeUpEvent.getPlayer().setHealth(20);
+			// Other effects like healing will be applied later.
+		}
+	});
+	public static final Block DREAMCATCHER_LOOT = register("dreamcatcher_loot", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.YELLOW)) {
+		@Override
+		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
+			playerWakeUpEvent.getPlayer().world.addEntity(new ItemEntity(playerWakeUpEvent.getPlayer().getEntityWorld(), playerWakeUpEvent.getPlayer().prevPosX, playerWakeUpEvent.getPlayer().prevPosY + 0.5, playerWakeUpEvent.getPlayer().prevPosZ, new ItemStack(Items.DIAMOND)));
+			// Pick from a loot table. 
+		}
+	});
+	public static final Block DREAMCATCHER_LUCKY = register("dreamcatcher_lucky", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.PINK)) {
+		@Override
+		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
+			// Luck stuff. 
+		}
+	});
+	public static final Block DREAMCATCHER_NIGHTMARE = register("dreamcatcher_nightmare", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.PINK)) {
+		@Override
+		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
+			//playerWakeUpEvent.getPlayer().changeDimension(DimensionTypeTwo.NIGHTMARE);
+		}
+	});
 	
 	
 	

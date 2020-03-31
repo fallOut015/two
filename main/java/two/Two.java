@@ -1,15 +1,26 @@
 package two;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.container.ContainerType;
+import net.minecraft.item.IItemTier;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemTier;
+import net.minecraft.item.PickaxeItem;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -20,9 +31,11 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import two.block.BlocksTwo;
+import two.block.DreamcatcherBlock;
 import two.client.renderer.entity.ChameleonRenderer;
 import two.entity.EntityTypeTwo;
 import two.inventory.container.ContainerTypeTwo;
+import two.item.ItemTierTwo;
 import two.item.ItemsTwo;
 import two.item.SoundEventsTwo;
 
@@ -70,6 +83,44 @@ public class Two {
     	@SubscribeEvent
     	public static void onContainerTypesRegistry(final RegistryEvent.Register<ContainerType<?>> containerTypeRegistryEvent) {
     		ContainerTypeTwo.onContainerTypesRegistry(containerTypeRegistryEvent);
+    	}
+    	
+    	@SubscribeEvent
+    	public static void onPlayerWakeUp(final PlayerWakeUpEvent playerWakeUpEvent) {
+    		LOGGER.info(playerWakeUpEvent.getPlayer().getName().getFormattedText() + " woke up!");
+    		if(playerWakeUpEvent.wakeImmediately())
+    			LOGGER.info("Player got up ubruptly.");
+    		else
+    			LOGGER.info("Player woke up naturally. Testing dreamcatcher conditions...");
+    		
+    		if(!playerWakeUpEvent.wakeImmediately()) {
+    			BlockState blockUp = playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getPosition().up());
+    			if(blockUp.getBlock() instanceof DreamcatcherBlock) {
+    				LOGGER.info("Found a dreamcatcher above the player's head!");
+    				((DreamcatcherBlock) blockUp.getBlock()).onPlayerWakeUp(playerWakeUpEvent);
+    			}
+    		}
+    	}
+    	@SubscribeEvent
+    	public static void onItemTooltip(final ItemTooltipEvent itemToolTipEvent) {
+    		// Pickaxes show all of the ores they can mine. 
+    		if(itemToolTipEvent.getItemStack().getItem() instanceof PickaxeItem) {
+    			List<IItemTier> itemTiers = new ArrayList<IItemTier>();
+    			for(IItemTier itemTier : ItemTier.values()) {
+    				if(((PickaxeItem) itemToolTipEvent.getItemStack().getItem()).getTier().getHarvestLevel() > itemTier.getHarvestLevel() - 1) {
+    					itemTiers.add(itemTier);
+    				}
+    			}
+    			for(IItemTier itemTier : ItemTierTwo.values()) {
+    				if(((PickaxeItem) itemToolTipEvent.getItemStack().getItem()).getTier().getHarvestLevel() > itemTier.getHarvestLevel() - 1) {
+    					itemTiers.add(itemTier);
+    				}
+    			}
+    			Collections.sort((List<IItemTier>) itemTiers, (itemTier1, itemTier2) -> {
+    				return itemTier1.getHarvestLevel() - itemTier2.getHarvestLevel();
+    			});
+    			itemToolTipEvent.getToolTip().add(new StringTextComponent(itemTiers.toString()));
+    		}
     	}
     }
 }

@@ -187,6 +187,8 @@ public class ItemsTwo {
 	public static final Item GHOSTWOOD_SIGN = register(BlocksTwo.GHOSTWOOD_SIGN, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item CLOUDWOOD_SIGN = register(BlocksTwo.CLOUDWOOD_SIGN, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
+	public static final Item DREAMCATCHER_HEALING = register(BlocksTwo.DREAMCATCHER_HEALING, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
 	
 	
 	// Redstone
