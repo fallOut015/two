@@ -249,7 +249,7 @@ public class BlocksTwo {
 			// Luck stuff. 
 		}
 	});
-	public static final Block DREAMCATCHER_NIGHTMARE = register("dreamcatcher_nightmare", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.STONE).hardnessAndResistance(0.4F).func_226896_b_()) {
+	public static final Block DREAMCATCHER_NIGHTMARE = register("dreamcatcher_nightmare", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.STONE).hardnessAndResistance(0.4F)/*.func_226896_b_()*/) {
 		@Override
 		public void onPlayerSetSpawn(PlayerSetSpawnEvent playerSetSpawnEvent) {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_nightmare");

@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "two:lead_ingot"
+      "two:lead_ingot_from_lead_block"
     ]
   },
   "criteria": {
-    "has_lead_ore": {
+    "has_lead_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "two:lead_ore"
+            "item": "two:lead_block"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "two:lead_ingot"
+        "recipe": "two:lead_ingot_from_lead_block"
       }
     }
   },
   "requirements": [
     [
-      "has_lead_ore",
+      "has_lead_block",
       "has_the_recipe"
     ]
   ]
