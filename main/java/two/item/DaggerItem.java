@@ -32,17 +32,20 @@ public class DaggerItem extends TieredItem {
 		return !player.isCreative();
 	}
 	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		stack.damageItem(1, attacker, (p_220045_0_) -> {
-			p_220045_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);
-	    });
+		if(attacker.isCrouching())
+			target.setHealth(target.getHealth() - 2);
+		
+		stack.damageItem(1, attacker, player ->
+			player.sendBreakAnimation(EquipmentSlotType.MAINHAND)
+	    );
 		
 	    return true;
 	}
 	public boolean onBlockDestroyed(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
 		if (state.getBlockHardness(worldIn, pos) != 0.0F) {
-			stack.damageItem(2, entityLiving, (p_220044_0_) -> {
-				p_220044_0_.sendBreakAnimation(EquipmentSlotType.MAINHAND);
-			});
+			stack.damageItem(2, entityLiving, player ->
+				player.sendBreakAnimation(EquipmentSlotType.MAINHAND)
+			);
 		}
 
 	    return true;
