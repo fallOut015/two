@@ -200,16 +200,25 @@
 
 
 
+
+	
+	"item.minecraft.oak_boat" : "Oak Rowboat",
+	"item.minecraft.spruce_boat" : "Spruce Rowboat",
+	"item.minecraft.birch_boat" : "Birch Rowboat",
+	"item.minecraft.jungle_boat" : "Jungle Rowboat",
+	"item.minecraft.acacia_boat" : "Acacia Rowboat",
+	"item.minecraft.dark_oak_boat" : "Dark Oak Rowboat",
+	
 	
 	
 	"item.two.test_item" : "Test Item",
 	
 	
 
-	"item.two.cherry_boat" : "Cherry Boat",
-	"item.two.maple_boat" : "Maple Boat",
-	"item.two.ghostwood_boat" : "Ghostwood Boat",
-	"item.two.cloudwood_boat" : "Cloudwood Boat",
+	"item.two.cherry_boat" : "Cherry Rowboat",
+	"item.two.maple_boat" : "Maple Rowboat",
+	"item.two.ghostwood_boat" : "Ghostwood Rowboat",
+	"item.two.cloudwood_boat" : "Cloudwood Rowboat",
 	
 	
 	
