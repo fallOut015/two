@@ -21,6 +21,7 @@ import net.minecraft.item.Rarity;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.SwordItem;
+import net.minecraft.item.Item.Properties;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
@@ -166,6 +167,16 @@ public class ItemsTwo {
 	public static final Item STEEL_BLOCK = register(BlocksTwo.STEEL_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item HARDENED_STEEL_BLOCK = register(BlocksTwo.HARDENED_STEEL_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
+	public static final Item CHISELED_IRON_BLOCK = register(BlocksTwo.CHISELED_IRON_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item IRON_PILLAR = register(BlocksTwo.IRON_PILLAR, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item IRON_STAIRS = register(BlocksTwo.IRON_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item IRONS_SLAB = register(BlocksTwo.IRON_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_IRON = register(BlocksTwo.SMOOTH_IRON, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_IRON_STAIRS = register(BlocksTwo.SMOOTH_IRON_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_IRON_SLAB = register(BlocksTwo.SMOOTH_IRON_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	
+	
 	// Decoration
 	public static final Item CHERY_SAPLING = register(BlocksTwo.CHERRY_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item MAPLE_SAPLING = register(BlocksTwo.MAPLE_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
@@ -191,6 +202,10 @@ public class ItemsTwo {
 	public static final Item DREAMCATCHER_LOOT = register(BlocksTwo.DREAMCATCHER_LOOT, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item DREAMCATCHER_LUCKY = register(BlocksTwo.DREAMCATCHER_LUCKY, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item DREAMCATCHER_NIGHTMARE = register(BlocksTwo.DREAMCATCHER_NIGHTMARE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item DREAMCATCHER_CHAOS = register(BlocksTwo.DREAMCATCHER_CHAOS, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item DREAMCATCHER_RANDOM = register(BlocksTwo.DREAMCATCHER_RANDOM, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item DREAMCATCHER_CLOUD = register(BlocksTwo.DREAMCATCHER_CLOUD, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item DREAMCATCHER_RAINBOW = register(BlocksTwo.DREAMCATCHER_RAINBOW, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
 	
 	

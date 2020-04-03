@@ -189,6 +189,14 @@
 	"block.two.steel_block" : "Block of Steel",
 	"block.two.hardened_steel_block" : "Block of Hardened Steel",
 	
+	"block.two.chiseled_iron_block" : "Chiseled Iron Block",
+	"block.two.iron_pillar" : "Iron Pillar",
+	"block.two.iron_stairs" : "Iron Stairs",
+	"block.two.iron_slab" : "Iron Slab",
+	"block.two.smooth_iron" : "Smooth Iron",
+	"block.two.smooth_iron_stairs" : "Smooth Iron Stairs",
+	"block.two.smooth_iron_slab" : "Smooth Iron Slab",
+	
 	"block.two.dreamcatcher_healing" : "Rejuvenating Dreamcatcher",
 	"block.two.dreamcatcher_loot" : "Fortune Dreamcatcher",
 	"block.two.dreamcatcher_lucky" : "Lucky Dreamcatcher",

@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.FenceBlock;
 import net.minecraft.block.FenceGateBlock;
 import net.minecraft.block.FlowerPotBlock;
@@ -26,7 +27,6 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.LootParameterSets;
 import net.minecraft.world.storage.loot.LootTable;
-import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.PlayerSetSpawnEvent;
 import net.minecraftforge.registries.ObjectHolder;
@@ -36,7 +36,6 @@ import two.block.trees.CherryTree;
 import two.block.trees.CloudwoodTree;
 import two.block.trees.GhostwoodTree;
 import two.block.trees.MapleTree;
-import two.world.dimension.NightmareModDimension;
 
 @ObjectHolder("two")
 public class BlocksTwo {
@@ -225,6 +224,14 @@ public class BlocksTwo {
 	public static final Block PYRITE_BLOCK = register("pyrite_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GOLD).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block STEEL_BLOCK = register("steel_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GRAY).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block HARDENED_STEEL_BLOCK = register("hardened_steel_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.STONE).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
+	
+	public static final Block CHISELED_IRON_BLOCK = register("chiseled_iron_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(0.8F)));
+	public static final Block IRON_PILLAR = register("iron_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(0.8F)));
+	public static final Block IRON_STAIRS = register("iron_stairs", new StairsBlockTwo(Blocks.IRON_BLOCK.getDefaultState(), Block.Properties.from(Blocks.IRON_BLOCK)));
+	public static final Block IRON_SLAB = register("iron_slab", new SlabBlock(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(2.0F, 6.0F)));
+	public static final Block SMOOTH_IRON = register("smooth_iron", new Block(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(2.0F, 6.0F)));
+	public static final Block SMOOTH_IRON_STAIRS = register("smooth_iron_stairs", new StairsBlockTwo(SMOOTH_IRON.getDefaultState(), Block.Properties.from(SMOOTH_IRON)));
+	public static final Block SMOOTH_IRON_SLAB = register("smooth_iron_slab", new SlabBlock(Block.Properties.from(SMOOTH_IRON)));
 	
 	public static final Block DREAMCATCHER_HEALING = register("dreamcatcher_healing", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.PINK).hardnessAndResistance(0.4F)) {
 		@Override
