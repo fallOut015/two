@@ -78,6 +78,11 @@
           "weight": 20,
           "name": "two:dreamcatcher_nightmare"
         },
+		{
+          "type": "minecraft:item",
+          "weight": 8,
+          "name": "two:dreamcatcher_cloud"
+        },
         {
           "type": "minecraft:item",
           "weight": 10,

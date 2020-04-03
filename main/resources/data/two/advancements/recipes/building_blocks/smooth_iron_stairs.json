@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:smooth_iron_stairs"
+    ]
+  },
+  "criteria": {
+    "has_smooth_iron": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:smooth_iron"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:smooth_iron_stairs"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_smooth_iron",
+      "has_the_recipe"
+    ]
+  ]
+}

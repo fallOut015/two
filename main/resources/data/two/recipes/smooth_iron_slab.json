@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "two:smooth_iron"
+    }
+  },
+  "result": {
+    "item": "two:smooth_iron_slab",
+    "count": 6
+  }
+}

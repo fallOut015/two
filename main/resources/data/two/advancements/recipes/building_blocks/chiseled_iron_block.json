@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:chiseled_iron_block"
+    ]
+  },
+  "criteria": {
+    "has_chiseled_iron_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:chiseled_iron_block"
+          }
+        ]
+      }
+    },
+    "has_iron_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:iron_block"
+          }
+        ]
+      }
+    },
+    "has_iron_pillar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:iron_pillar"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:chiseled_iron_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_iron_quartz_block",
+      "has_iron_block",
+      "has_iron_pillar",
+      "has_the_recipe"
+    ]
+  ]
+}
