@@ -20,6 +20,7 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -44,7 +45,8 @@ import two.item.ItemsTwo;
 import two.item.SoundEventsTwo;
 import two.world.biome.BiomesTwo;
 import two.world.dimension.DimensionTypeTwo;
-import two.world.gen.surfacebuilders.SurfaceBuilders;
+import two.world.gen.feature.FeatureTwo;
+import two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 
 @Mod("two")
 public class Two {
@@ -101,7 +103,11 @@ public class Two {
     	}
     	@SubscribeEvent
     	public static void onSurfaceBuildersRegistry(final RegistryEvent.Register<SurfaceBuilder<?>> surfaceBuilderRegistryEvent) {
-    		SurfaceBuilders.onSurfaceBuildersRegistry(surfaceBuilderRegistryEvent);
+    		SurfaceBuilderTwo.onSurfaceBuildersRegistry(surfaceBuilderRegistryEvent);
+    	}
+    	@SubscribeEvent
+    	public static void onFeaturesRegistry(final RegistryEvent.Register<Feature<?>> featureRegistryEvent) {
+    		FeatureTwo.onFeaturesRegistry(featureRegistryEvent);
     	}
     }
     

@@ -19,6 +19,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraftforge.event.entity.player.PlayerSetSpawnEvent;
+import two.Two;
 
 public abstract class DreamcatcherBlock extends Block {
 	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
@@ -47,10 +48,12 @@ public abstract class DreamcatcherBlock extends Block {
 	}
 	private boolean canAttachTo(IBlockReader blockReader, BlockPos blockPos, Direction direction) {
 		BlockState blockstate = blockReader.getBlockState(blockPos);
+		Two.LOGGER.info("Can attach? " + (!blockstate.canProvidePower() && blockstate.func_224755_d(blockReader, blockPos, direction)) + ".");
 	    return !blockstate.canProvidePower() && blockstate.func_224755_d(blockReader, blockPos, direction);
 	}
 	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
 		Direction direction = state.get(FACING);
+		Two.LOGGER.info("Is valid? " + this.canAttachTo(worldIn, pos.offset(direction.getOpposite()), direction) + ".");
 	    return this.canAttachTo(worldIn, pos.offset(direction.getOpposite()), direction);
 	}
 	@SuppressWarnings("deprecation")

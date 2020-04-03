@@ -10,6 +10,8 @@ import net.minecraftforge.registries.ObjectHolder;
 public class BiomesTwo {
 	public static final Biome NIGHTMARE = register("nightmare", new NightmareBiome());
 	public static final Biome NIGHTMARE_HIGHLANDS = register("nightmare_highlands", new NightmareHighlandsBiome());
+	
+	public static final Biome SKY = register("sky", new SkyBiome());
 	/*public static final Biome MAGNIFIED_FOREST;
 	public static final Biome CATLANDS;
 	public static final Biome SPOOKY_FOREST;
@@ -22,7 +24,6 @@ public class BiomesTwo {
 	public static final Biome MEDITERANNEAN_SAVANNA;
 	public static final Biome MONTANE_SAVANNA;
 	public static final Biome EUCALYPTUS_FOREST;
-	public static final Biome SKY
 	public static final Biome DARK_FOREST
 	public static final Biome DARK_DESERT
 	public static final Biome DARK_JUNGLE

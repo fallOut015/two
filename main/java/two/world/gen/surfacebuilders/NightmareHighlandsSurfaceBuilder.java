@@ -21,8 +21,8 @@ public class NightmareHighlandsSurfaceBuilder extends SurfaceBuilder<SurfaceBuil
 	@SuppressWarnings("deprecation")
 	@Override
 	public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
-		BlockState blockstate = SurfaceBuilders.GAULT;
-	    BlockState blockstate1 = SurfaceBuilders.NIGHTSTONE;
+		BlockState blockstate = SurfaceBuilderTwo.GAULT;
+	    BlockState blockstate1 = SurfaceBuilderTwo.NIGHTSTONE;
 	    BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
 	    int i = -1;
 	    int j = (int)(noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
@@ -41,8 +41,8 @@ public class NightmareHighlandsSurfaceBuilder extends SurfaceBuilder<SurfaceBuil
 	            		blockstate = Blocks.AIR.getDefaultState();
 	            		blockstate1 = defaultBlock;
 	            	} else if (i1 >= sealevel - 4 && i1 <= sealevel + 1) {
-	            		blockstate = SurfaceBuilders.GAULT;
-	            		blockstate1 = SurfaceBuilders.NIGHTSTONE;
+	            		blockstate = SurfaceBuilderTwo.GAULT;
+	            		blockstate1 = SurfaceBuilderTwo.NIGHTSTONE;
 	            	}
 
 	            	if (i1 < sealevel && (blockstate == null || blockstate.isAir())) {
@@ -61,7 +61,7 @@ public class NightmareHighlandsSurfaceBuilder extends SurfaceBuilder<SurfaceBuil
 	            	} else if (i1 < sealevel - 7 - j) {
 	            		blockstate = Blocks.AIR.getDefaultState();
 	            		blockstate1 = defaultBlock;
-	            		chunkIn.setBlockState(blockpos$mutable, SurfaceBuilders.NIGHTSTONE, false);
+	            		chunkIn.setBlockState(blockpos$mutable, SurfaceBuilderTwo.NIGHTSTONE, false);
 	            	} else {
 	            		chunkIn.setBlockState(blockpos$mutable, blockstate1, false);
 	            	}

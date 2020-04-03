@@ -8,7 +8,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraftforge.event.RegistryEvent;
 import two.block.BlocksTwo;
 
-public class SurfaceBuilders {
+public class SurfaceBuilderTwo {
 	public static final BlockState GAULT = BlocksTwo.GAULT.getDefaultState();
 	public static final BlockState NIGHTSTONE = BlocksTwo.NIGHTSTONE.getDefaultState();
 	public static final BlockState CLOUD = BlocksTwo.CLOUD.getDefaultState();

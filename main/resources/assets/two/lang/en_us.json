@@ -193,6 +193,10 @@
 	"block.two.dreamcatcher_loot" : "Fortune Dreamcatcher",
 	"block.two.dreamcatcher_lucky" : "Lucky Dreamcatcher",
 	"block.two.dreamcatcher_nightmare" : "Nightmare Dreamcatcher",
+	"block.two.dreamcatcher_chaos" : "Chaotic Dreamcatcher",
+	"block.two.dreamcatcher_random" : "Mischeivous Dreamcatcher",
+	"block.two.dreamcatcher_cloud" : "Cloud Dreamcatcher",
+	"block.two.dreamcatcher_rainbow" : "Colorful Dreamcatcher",
 
 
 
@@ -617,5 +621,7 @@
 	
 	
 	"biome.two.nightmare" : "Nightmare",
-	"biome.two.nightmare_highlands" : "Nightmare Highlands"
+	"biome.two.nightmare_highlands" : "Nightmare Highlands",
+	
+	"biome.two.sky" : "Sky"
 }
