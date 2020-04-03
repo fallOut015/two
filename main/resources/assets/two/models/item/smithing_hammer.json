@@ -1,6 +1,6 @@
 {
     "parent" : "minecraft:item/handheld",
     "textures" : {
-        "layer0" : "two:item/communism"
+        "layer0" : "two:item/smithing_hammer"
     }
 }

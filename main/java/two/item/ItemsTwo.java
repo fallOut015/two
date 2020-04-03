@@ -388,25 +388,27 @@ public class ItemsTwo {
     public static final Item RUBY_DAGGER = register("ruby_dagger", new DaggerItem(ItemTierTwo.RUBY, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item LEAD_DAGGER = register("lead_dagger", new DaggerItem(ItemTierTwo.LEAD, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
 	
-    public static final Item BLOOD_WITHER_BLADE = register("blood_wither_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT)) {
+    public static final Item CUTLASS = register("cutlass", new SwordItem(ItemTier.IRON, 3, -3.5f, new Item.Properties()/*.group(ItemGroup.COMBAT)*/));
+
+    public static final Item BLOOD_WITHER_BLADE = register("blood_wither_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.addPotionEffect(new EffectInstance(Effects.WITHER, 10, 2, true, false));
     		return true;
     	}
     });
-    public static final Item BLOOD_FLAME_BLADE = register("blood_flame_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT)) {
+    public static final Item BLOOD_FLAME_BLADE = register("blood_flame_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.setFire(5);
     		return true;
     	}
     });
-    public static final Item BLOOD_VENOM_BLADE = register("blood_venom_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT)) {
+    public static final Item BLOOD_VENOM_BLADE = register("blood_venom_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.addPotionEffect(new EffectInstance(Effects.POISON, 10, 3, true, false));
     		return true;
     	}
     });
-    public static final Item BANISHER = register("banisher", new Item(new Item.Properties()/*.group(ItemGroup.COMBAT)*/) {
+    public static final Item BANISHER = register("banisher", new Item(new Item.Properties().group(ItemGroup.COMBAT)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.knockBack(target, 10, -(target.prevPosX - attacker.prevPosX), -(target.prevPosZ - attacker.prevPosZ));
 			target.world.addParticle((IParticleData) ParticleTypes.DUST, target.prevPosX, target.prevPosY, target.prevPosZ, -(target.prevPosX - attacker.prevPosX), -0.1, -(target.prevPosZ - attacker.prevPosZ));

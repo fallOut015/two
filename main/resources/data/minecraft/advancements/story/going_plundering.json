@@ -1,0 +1,35 @@
+{
+	"parent" : "minecraft:story/bigger_on_the_inside",
+	"display" : {
+		"icon" : {
+      		"item" : "two:cutlass"
+    	},
+    	"title" : {
+      		"translate" : "advancements.story.cutlass.title"
+    	},
+    	"description" : {
+      		"translate" : "advancements.story.cutlass.description"
+    	},
+    	"frame" : "task",
+    	"show_toast" : true,
+    	"announce_to_chat" : true,
+    	"hidden" : false
+  	},
+  	"criteria" : {
+    	"cutlass" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"item" : "two:cutlass"
+          			}
+        		]
+      		}
+    	}
+  	},
+  	"requirements" : [
+    	[
+      		"cutlass"
+    	]
+  	]
+}

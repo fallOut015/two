@@ -32,6 +32,9 @@ Changelog:
 	Added new splashes.
 	Added ruby.
 	Added nether lead.
+	Added dreamcatchers.
+	Added the Nightmare Dimension.
+	Added decorative iron blocks.
 '''
 [[dependencies.two]] #optional
     modId="forge"

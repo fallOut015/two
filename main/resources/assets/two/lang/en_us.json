@@ -345,6 +345,8 @@
 	"item.two.ruby_sickle" : "Ruby Sickle",
 	"item.two.lead_sickle" : "Lead Sickle",
 	
+	"item.two.smithing_hammer" : "Smithing Hammer",
+	
 	
 	
 	"item.two.emerald_sword" : "Emerald Sword",
@@ -368,6 +370,8 @@
 	"item.two.emerald_dagger" : "Emerald Dagger",
 	"item.two.ruby_dagger" : "Ruby Dagger",
 	"item.two.lead_dagger" : "Lead Dagger",
+	
+	"item.two.cutlass" : "Cutlass",
 	
 	"item.two.blood_wither_blade" : "Blood Wither Blade",
 	"item.two.blood_flame_blade" : "Blood Flame Blade",
