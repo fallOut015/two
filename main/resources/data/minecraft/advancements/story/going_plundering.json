@@ -5,10 +5,10 @@
       		"item" : "two:cutlass"
     	},
     	"title" : {
-      		"translate" : "advancements.story.cutlass.title"
+      		"translate" : "advancements.story.going_plundering.title"
     	},
     	"description" : {
-      		"translate" : "advancements.story.cutlass.description"
+      		"translate" : "advancements.story.going_plundering.description"
     	},
     	"frame" : "task",
     	"show_toast" : true,

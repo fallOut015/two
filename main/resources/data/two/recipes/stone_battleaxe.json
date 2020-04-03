@@ -7,10 +7,10 @@
 	],
 	"key" : {
     	"#" : {
-      		"tag" : "forge:tags/wooden"
+      		"tag" : "forge:rods/wooden"
     	},
     	"X" : {
-    		"tag" : "forge:cobblestone"
+    		"tag" : "minecraft:cobblestone"
     	}
   	},
   	"result" : {

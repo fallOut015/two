@@ -177,7 +177,7 @@ public class ItemsTwo {
 	
 	
 	// Decoration
-	public static final Item CHERY_SAPLING = register(BlocksTwo.CHERRY_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item CHERRY_SAPLING = register(BlocksTwo.CHERRY_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item MAPLE_SAPLING = register(BlocksTwo.MAPLE_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item GHOSTWOOD_SAPLING = register(BlocksTwo.GHOSTWOOD_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item CLOUDWOOD_SAPLING = register(BlocksTwo.CLOUDWOOD_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
