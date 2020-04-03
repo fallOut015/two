@@ -253,7 +253,8 @@ public class BlocksTwo {
 		@Override
 		public void onPlayerSetSpawn(PlayerSetSpawnEvent playerSetSpawnEvent) {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_nightmare");
-			playerSetSpawnEvent.getPlayer().changeDimension(DimensionManager.registerOrGetDimension(new ResourceLocation("two", "nightmare"), new NightmareModDimension(), null, false));
+			//playerSetSpawnEvent.getPlayer().changeDimension(DimensionManager.registerOrGetDimension(new ResourceLocation("two", "nightmare"), new NightmareModDimension(), null, false));
+			playerSetSpawnEvent.getPlayer().getEntityWorld().setDayTime(18000);
 		}
 	});
 	

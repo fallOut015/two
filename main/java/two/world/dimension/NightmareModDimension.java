@@ -8,6 +8,7 @@ import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProviderType;
 import net.minecraft.world.dimension.Dimension;
 import net.minecraft.world.dimension.DimensionType;
@@ -15,8 +16,8 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.ChunkGeneratorType;
 import net.minecraft.world.gen.OverworldGenSettings;
 import net.minecraftforge.common.ModDimension;
-import two.block.BlocksTwo;
 import two.world.biome.BiomesTwo;
+import two.world.gen.surfacebuilders.SurfaceBuilders;
 
 public class NightmareModDimension extends ModDimension {
 	private static final Vec3d fogColor = new Vec3d((double)0.2F, (double)0.03F, (double)0.03F);
@@ -27,9 +28,9 @@ public class NightmareModDimension extends ModDimension {
 			@Override
 			public ChunkGenerator<?> createChunkGenerator() {
 			    OverworldGenSettings nightmaregensettings = ChunkGeneratorType.SURFACE.createSettings();
-			    nightmaregensettings.setDefaultBlock(BlocksTwo.GAULT.getDefaultState());
+			    nightmaregensettings.setDefaultBlock(SurfaceBuilders.GAULT);
 			    nightmaregensettings.setDefaultFluid(Blocks.WATER.getDefaultState());
-			    return ChunkGeneratorType.SURFACE.create(this.world, BiomeProviderType.FIXED.create(BiomeProviderType.FIXED.func_226840_a_(this.world.getWorldInfo()).setBiome(BiomesTwo.NIGHTMARE)), nightmaregensettings);
+			    return ChunkGeneratorType.SURFACE.create(this.world, BiomeProviderType.CHECKERBOARD.create(BiomeProviderType.CHECKERBOARD.func_226840_a_(this.world.getWorldInfo()).setBiomes(new Biome [] { BiomesTwo.NIGHTMARE, BiomesTwo.NIGHTMARE_HIGHLANDS })), nightmaregensettings);
 			}
 			@Override
 			public BlockPos findSpawn(ChunkPos chunkPosIn, boolean checkValid) {

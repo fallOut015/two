@@ -17,6 +17,7 @@ public class SurfaceBuilders {
 	public static final SurfaceBuilderConfig CLOUD_CONFIG = new SurfaceBuilderConfig(CLOUD, CLOUD, CLOUD);
 	
 	public static final SurfaceBuilder<SurfaceBuilderConfig> NIGHTMARE = register("nightmare", new NightmareSurfaceBuilder(SurfaceBuilderConfig::deserialize));
+	public static final SurfaceBuilder<SurfaceBuilderConfig> NIGHTMARE_HIGHLANDS = register("nightmare_highlands", new NightmareHighlandsSurfaceBuilder(SurfaceBuilderConfig::deserialize));
 	public static final SurfaceBuilder<SurfaceBuilderConfig> SKY = register("sky", new SkySurfaceBuilder(SurfaceBuilderConfig::deserialize));
 	
 	public static void onSurfaceBuildersRegistry(final RegistryEvent.Register<SurfaceBuilder<?>> surfaceBuilderRegistryEvent) {
