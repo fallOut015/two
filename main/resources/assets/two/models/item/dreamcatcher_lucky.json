@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:item/generated",
     "textures": {
-        "layer0": "two:block/dreamcatcher_lucky"
+        "layer0": "two:item/dreamcatcher_lucky"
     }
 }
