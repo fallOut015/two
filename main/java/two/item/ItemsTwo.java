@@ -203,7 +203,7 @@ public class ItemsTwo {
 	public static final Item DREAMCATCHER_NIGHTMARE = register(BlocksTwo.DREAMCATCHER_NIGHTMARE, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item DREAMCATCHER_CHAOS = register(BlocksTwo.DREAMCATCHER_CHAOS, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item DREAMCATCHER_RANDOM = register(BlocksTwo.DREAMCATCHER_RANDOM, new Item.Properties().group(ItemGroup.DECORATIONS));
-	public static final Item DREAMCATCHER_CLOUD = register(BlocksTwo.DREAMCATCHER_CLOUD, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item DREAMCATCHER_SKY = register(BlocksTwo.DREAMCATCHER_SKY, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item DREAMCATCHER_RAINBOW = register(BlocksTwo.DREAMCATCHER_RAINBOW, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
 	
@@ -359,6 +359,8 @@ public class ItemsTwo {
 	public static final Item EMERALD_SICKLE = register("emerald_sickle", new SickleItem(ItemTierTwo.EMERALD, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item RUBY_SICKLE = register("ruby_sickle", new SickleItem(ItemTierTwo.RUBY, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item LEAD_SICKLE = register("lead_sickle", new SickleItem(ItemTierTwo.LEAD, -2.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+
+	public static final Item SMITHING_HAMMER = register("smithing_hammer", new Item(new Item.Properties().group(ItemGroup.TOOLS)));
 	
 	
 

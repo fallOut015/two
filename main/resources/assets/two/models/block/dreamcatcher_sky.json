@@ -1,8 +1,8 @@
 {
     "ambientocclusion" : false,
     "textures" : {
-        "particle" : "two:block/dreamcatcher_cloud",
-        "texture" : "two:block/dreamcatcher_cloud"
+        "particle" : "two:block/dreamcatcher_sky",
+        "texture" : "two:block/dreamcatcher_sky"
     },
     "elements" : [
         {   "from" : [ 0, 0, 15.2 ],

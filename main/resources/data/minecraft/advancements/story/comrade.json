@@ -21,7 +21,7 @@
       		"conditions" : {
         		"items" : [
           			{
-            			"item" : "two:iron_smithing_hammer"
+            			"item" : "two:smithing_hammer"
           			},
 					{
 						"item" : "two:iron_sickle"

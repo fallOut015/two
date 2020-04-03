@@ -1,0 +1,8 @@
+{
+	"variants" : {
+    	"facing=north" : { "model": "two:block/dreamcatcher_sky" },
+        "facing=east" :  { "model": "two:block/dreamcatcher_sky", "y": 90 },
+        "facing=south" : { "model": "two:block/dreamcatcher_sky", "y": 180 },
+        "facing=west" :  { "model": "two:block/dreamcatcher_sky", "y": 270 }
+    }
+}

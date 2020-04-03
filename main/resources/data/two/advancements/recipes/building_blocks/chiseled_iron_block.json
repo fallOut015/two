@@ -45,7 +45,7 @@
   },
   "requirements": [
     [
-      "has_iron_quartz_block",
+      "has_chiseled_iron_block",
       "has_iron_block",
       "has_iron_pillar",
       "has_the_recipe"

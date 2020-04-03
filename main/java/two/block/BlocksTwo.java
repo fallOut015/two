@@ -276,10 +276,10 @@ public class BlocksTwo {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_random");
 		};
 	});
-	public static final Block DREAMCATCHER_CLOUD = register("dreamcatcher_cloud", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.SNOW)) {
+	public static final Block DREAMCATCHER_SKY = register("dreamcatcher_sky", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.SNOW)) {
 		@Override
 		public void onPlayerSetSpawn(PlayerSetSpawnEvent playerSetSpawnEvent) {
-			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_cloud");
+			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_sky");
 		};
 	});
 	public static final Block DREAMCATCHER_RAINBOW = register("dreamcatcher_rainbow", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.CYAN)) {
