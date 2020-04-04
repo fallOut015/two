@@ -18,6 +18,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.MinecraftForge;
@@ -116,7 +117,7 @@ public class Two {
 		@SubscribeEvent
     	public static void onPlayerWakeUp(final PlayerWakeUpEvent playerWakeUpEvent) {
 			if(playerWakeUpEvent.getPlayer().getEntityWorld().getDayTime() == 24000) {
-    			if(playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation().up()).getBlock() instanceof DreamcatcherBlock) {
+    			if(playerWakeUpEvent.getPlayer().dimension == DimensionType.OVERWORLD && playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation().up()).getBlock() instanceof DreamcatcherBlock) {
     				((DreamcatcherBlock) playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation().up()).getBlock()).onPlayerWakeUp(playerWakeUpEvent);
     			}
     		}

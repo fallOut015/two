@@ -197,14 +197,17 @@
 	"block.two.smooth_iron_stairs" : "Smooth Iron Stairs",
 	"block.two.smooth_iron_slab" : "Smooth Iron Slab",
 	
+	"block.two.dreamcatcher_chaos" : "Chaotic Dreamcatcher",
 	"block.two.dreamcatcher_healing" : "Rejuvenating Dreamcatcher",
 	"block.two.dreamcatcher_loot" : "Fortunous Dreamcatcher",
 	"block.two.dreamcatcher_lucky" : "Lucky Dreamcatcher",
 	"block.two.dreamcatcher_nightmare" : "Nightmare Dreamcatcher",
-	"block.two.dreamcatcher_chaos" : "Chaotic Dreamcatcher",
-	"block.two.dreamcatcher_random" : "Mischeivous Dreamcatcher",
-	"block.two.dreamcatcher_sky" : "Cloudy Dreamcatcher",
 	"block.two.dreamcatcher_rainbow" : "Colorful Dreamcatcher",
+	"block.two.dreamcatcher_random" : "Mischievous Dreamcatcher",
+	"block.two.dreamcatcher_sky" : "Cloudy Dreamcatcher",
+	
+	
+	"block.minecraft.bed.nightmare" : "You shudder in your sleep, you want to wake up. Perhaps going back to bed would be a good idea for the unready.",
 
 
 
@@ -669,5 +672,5 @@
 	"knapsack.traveller" : "Traveller's Knapsack",
 	"knapsack.explorer" : "Explorer's Knapsack",
 	"knapsack.adventurer" : "Adventurer's Knapsack",
-	"knapsack.hero" : "Hero's Knapsack",
+	"knapsack.hero" : "Hero's Knapsack"
 }

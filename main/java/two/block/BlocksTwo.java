@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.function.Function;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FenceBlock;
 import net.minecraft.block.FenceGateBlock;
@@ -25,6 +26,7 @@ import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.storage.loot.LootContext;
@@ -272,12 +274,17 @@ public class BlocksTwo {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_nightmare");
+			BlockState bedstate = playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedPosition().get());
 			DimensionType nightmare = DimensionManager.registerOrGetDimension(new ResourceLocation("two", "nightmare"), ModDimensionTwo.NIGHTMARE, null, false);
 			playerWakeUpEvent.getPlayer().changeDimension(nightmare, new ITeleporter() {
-				Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
+				public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
 					return repositionEntity.apply(false);
 				}
 			});
+			playerWakeUpEvent.getPlayer().sendStatusMessage(new TranslationTextComponent("block.minecraft.bed.nightmare"), true);
+			// Somewhere I need to make a manager for the inventories, probably in the ModDimension classes. 
+			// I also need to spawn a bed in the dimension that lets you wake back up. 
+			playerWakeUpEvent.getPlayer().getEntityWorld().setBlockState(playerWakeUpEvent.getPlayer().getPosition(), bedstate);
 			playerWakeUpEvent.getPlayer().getEntityWorld().setDayTime(13000);
 		}
 	});
