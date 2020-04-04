@@ -10,7 +10,7 @@
       		"tag" : "forge:rods/wooden"
     	},
     	"X" : {
-    		"tag" : "minecraft:cobblestone"
+    		"tag" : "forge:cobblestone"
     	}
   	},
   	"result" : {

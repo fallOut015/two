@@ -18,7 +18,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
-import net.minecraftforge.event.entity.player.PlayerSetSpawnEvent;
+import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import two.Two;
 
 public abstract class DreamcatcherBlock extends Block {
@@ -91,5 +91,5 @@ public abstract class DreamcatcherBlock extends Block {
 		builder.add(FACING);
 	}
 	
-	public abstract void onPlayerSetSpawn(final PlayerSetSpawnEvent playerSetSpawnEvent);
+	public abstract void onPlayerWakeUp(final PlayerWakeUpEvent playerWakeUpEvent);
 }

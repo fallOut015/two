@@ -28,7 +28,7 @@ import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.LootParameterSets;
 import net.minecraft.world.storage.loot.LootTable;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.event.entity.player.PlayerSetSpawnEvent;
+import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.registries.ObjectHolder;
 import two.Two;
 import two.block.material.MaterialTwo;
@@ -235,56 +235,56 @@ public class BlocksTwo {
 	
 	public static final Block DREAMCATCHER_HEALING = register("dreamcatcher_healing", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.PINK).hardnessAndResistance(0.4F)) {
 		@Override
-		public void onPlayerSetSpawn(PlayerSetSpawnEvent playerSetSpawnEvent) {
-			playerSetSpawnEvent.getPlayer().setHealth(20);
+		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
+			playerWakeUpEvent.getPlayer().setHealth(20);
 			// Other effects like healing will be applied later.
 		}
 	});
 	public static final Block DREAMCATCHER_LOOT = register("dreamcatcher_loot", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.YELLOW).hardnessAndResistance(0.4F)) {
 		@Override
-		public void onPlayerSetSpawn(PlayerSetSpawnEvent playerSetSpawnEvent) {
-            LootContext.Builder lootcontext$builder = (new LootContext.Builder((ServerWorld) playerSetSpawnEvent.getPlayer().getEntityWorld())).withRandom(playerSetSpawnEvent.getPlayer().getEntityWorld().getRandom()).withLuck(1);
-            LootTable loottable = playerSetSpawnEvent.getPlayer().getEntityWorld().getServer().getLootTableManager().getLootTableFromLocation(new ResourceLocation("two", "gameplay/dreamcatcher_loot"));
+		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
+            LootContext.Builder lootcontext$builder = (new LootContext.Builder((ServerWorld) playerWakeUpEvent.getPlayer().getEntityWorld())).withRandom(playerWakeUpEvent.getPlayer().getEntityWorld().getRandom()).withLuck(1);
+            LootTable loottable = playerWakeUpEvent.getPlayer().getEntityWorld().getServer().getLootTableManager().getLootTableFromLocation(new ResourceLocation("two", "gameplay/dreamcatcher_loot"));
             List<ItemStack> list = loottable.generate(lootcontext$builder.build(LootParameterSets.GIFT));
 
-            playerSetSpawnEvent.getPlayer().world.addEntity(new ItemEntity(playerSetSpawnEvent.getPlayer().getEntityWorld(), playerSetSpawnEvent.getPlayer().prevPosX, playerSetSpawnEvent.getPlayer().prevPosY + 0.5, playerSetSpawnEvent.getPlayer().prevPosZ, list.get(playerSetSpawnEvent.getPlayer().getEntityWorld().getRandom().nextInt(list.size()))));
+            playerWakeUpEvent.getPlayer().world.addEntity(new ItemEntity(playerWakeUpEvent.getPlayer().getEntityWorld(), playerWakeUpEvent.getPlayer().prevPosX, playerWakeUpEvent.getPlayer().prevPosY + 0.5, playerWakeUpEvent.getPlayer().prevPosZ, list.get(playerWakeUpEvent.getPlayer().getEntityWorld().getRandom().nextInt(list.size()))));
 		}
 	});
 	public static final Block DREAMCATCHER_LUCKY = register("dreamcatcher_lucky", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.GREEN_TERRACOTTA).hardnessAndResistance(0.4F)) {
 		@Override
-		public void onPlayerSetSpawn(PlayerSetSpawnEvent playerSetSpawnEvent) {
+		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			// Luck stuff. 
 		}
 	});
 	public static final Block DREAMCATCHER_NIGHTMARE = register("dreamcatcher_nightmare", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.STONE).hardnessAndResistance(0.4F)) {
 		@Override
-		public void onPlayerSetSpawn(PlayerSetSpawnEvent playerSetSpawnEvent) {
+		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_nightmare");
 			//playerSetSpawnEvent.getPlayer().changeDimension(DimensionManager.registerOrGetDimension(new ResourceLocation("two", "nightmare"), new NightmareModDimension(), null, false));
-			playerSetSpawnEvent.getPlayer().getEntityWorld().setDayTime(18000);
+			playerWakeUpEvent.getPlayer().getEntityWorld().setDayTime(18000);
 		}
 	});
 	public static final Block DREAMCATCHER_CHAOS = register("dreamcatcher_chaos", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.RED)) {
 		@Override
-		public void onPlayerSetSpawn(PlayerSetSpawnEvent playerSetSpawnEvent) {
+		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_chaos");
 		};
 	});
 	public static final Block DREAMCATCHER_RANDOM = register("dreamcatcher_random", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.BLACK)) {
 		@Override
-		public void onPlayerSetSpawn(PlayerSetSpawnEvent playerSetSpawnEvent) {
+		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_random");
 		};
 	});
 	public static final Block DREAMCATCHER_SKY = register("dreamcatcher_sky", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.SNOW)) {
 		@Override
-		public void onPlayerSetSpawn(PlayerSetSpawnEvent playerSetSpawnEvent) {
+		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_sky");
 		};
 	});
 	public static final Block DREAMCATCHER_RAINBOW = register("dreamcatcher_rainbow", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.CYAN)) {
 		@Override
-		public void onPlayerSetSpawn(PlayerSetSpawnEvent playerSetSpawnEvent) {
+		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_rainbow");
 		};
 	});

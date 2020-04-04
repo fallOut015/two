@@ -8,7 +8,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.IItemTier;
@@ -25,7 +24,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.event.entity.player.PlayerSetSpawnEvent;
+import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -113,13 +112,16 @@ public class Two {
     
     @Mod.EventBusSubscriber
     public static class Events {
-    	@SubscribeEvent
-    	public static void onPlayerSetSpawn(final PlayerSetSpawnEvent playerSetSpawnEvent) {
-    		LOGGER.info("onPlayerSetSpawn(" + playerSetSpawnEvent + ")");
-    		BlockState blockUp = playerSetSpawnEvent.getPlayer().getEntityWorld().getBlockState(playerSetSpawnEvent.getPlayer().getPosition().up());
-    		if(blockUp.getBlock() instanceof DreamcatcherBlock) {
-    			LOGGER.info("Found a dreamcatcher above the player's head!");
-    			((DreamcatcherBlock) blockUp.getBlock()).onPlayerSetSpawn(playerSetSpawnEvent);
+    	@SuppressWarnings("deprecation")
+		@SubscribeEvent
+    	public static void onPlayerWakeUp(final PlayerWakeUpEvent playerWakeUpEvent) {
+			LOGGER.info("onplayerwakeupfired");
+			LOGGER.info("time: " + playerWakeUpEvent.getPlayer().getEntityWorld().getDayTime());
+			if(playerWakeUpEvent.getPlayer().getEntityWorld().getDayTime() < 13000) {
+    			LOGGER.info("a player woke up correctly");
+    			if(playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation().up()).getBlock() instanceof DreamcatcherBlock) {
+    				((DreamcatcherBlock) playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation().up()).getBlock()).onPlayerWakeUp(playerWakeUpEvent);
+    			}
     		}
     	}
     	@SubscribeEvent
