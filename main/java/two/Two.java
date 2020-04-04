@@ -18,10 +18,10 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.ModDimension;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
@@ -43,7 +43,7 @@ import two.item.ItemTierTwo;
 import two.item.ItemsTwo;
 import two.item.SoundEventsTwo;
 import two.world.biome.BiomesTwo;
-import two.world.dimension.DimensionTypeTwo;
+import two.world.dimension.ModDimensionTwo;
 import two.world.gen.feature.FeatureTwo;
 import two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 
@@ -81,32 +81,32 @@ public class Two {
         	ItemsTwo.onItemsRegistry(itemRegistryEvent);
         }
     	@SubscribeEvent
-        public static void onSoundEventsRegistry(final RegistryEvent.Register<SoundEvent> soundEventRegistryEvent) {
-        	SoundEventsTwo.onSoundEventsRegistry(soundEventRegistryEvent);
-        }
-    	@SubscribeEvent
-    	public static void onEntityTypesRegistry(final RegistryEvent.Register<EntityType<?>> entityTypeRegistryEvent) {
-    		EntityTypeTwo.onEntityTypesRegistry(entityTypeRegistryEvent);
+    	public static void onBiomesRegistry(final RegistryEvent.Register<Biome> biomeRegistryEvent) {
+    		BiomesTwo.onBiomesRegistry(biomeRegistryEvent);
     	}
     	@SubscribeEvent
     	public static void onContainerTypesRegistry(final RegistryEvent.Register<ContainerType<?>> containerTypeRegistryEvent) {
     		ContainerTypeTwo.onContainerTypesRegistry(containerTypeRegistryEvent);
     	}
     	@SubscribeEvent
-    	public static void onDimensionTypesRegistry(final RegistryEvent.Register<DimensionType> dimensionTypeRegistryEvent) {
-    		DimensionTypeTwo.onDimensionTypesRegistry(dimensionTypeRegistryEvent);
-    	}
-    	@SubscribeEvent
-    	public static void onBiomesRegistry(final RegistryEvent.Register<Biome> biomeRegistryEvent) {
-    		BiomesTwo.onBiomesRegistry(biomeRegistryEvent);
-    	}
-    	@SubscribeEvent
-    	public static void onSurfaceBuildersRegistry(final RegistryEvent.Register<SurfaceBuilder<?>> surfaceBuilderRegistryEvent) {
-    		SurfaceBuilderTwo.onSurfaceBuildersRegistry(surfaceBuilderRegistryEvent);
+    	public static void onEntityTypesRegistry(final RegistryEvent.Register<EntityType<?>> entityTypeRegistryEvent) {
+    		EntityTypeTwo.onEntityTypesRegistry(entityTypeRegistryEvent);
     	}
     	@SubscribeEvent
     	public static void onFeaturesRegistry(final RegistryEvent.Register<Feature<?>> featureRegistryEvent) {
     		FeatureTwo.onFeaturesRegistry(featureRegistryEvent);
+    	}
+    	@SubscribeEvent
+    	public static void onModDimensionsRegistry(final RegistryEvent.Register<ModDimension> modDimensionRegistryEvent) {
+    		ModDimensionTwo.onModDimensionsRegistry(modDimensionRegistryEvent);
+    	}
+    	@SubscribeEvent
+        public static void onSoundEventsRegistry(final RegistryEvent.Register<SoundEvent> soundEventRegistryEvent) {
+        	SoundEventsTwo.onSoundEventsRegistry(soundEventRegistryEvent);
+        }
+    	@SubscribeEvent
+    	public static void onSurfaceBuildersRegistry(final RegistryEvent.Register<SurfaceBuilder<?>> surfaceBuilderRegistryEvent) {
+    		SurfaceBuilderTwo.onSurfaceBuildersRegistry(surfaceBuilderRegistryEvent);
     	}
     }
     
@@ -115,10 +115,7 @@ public class Two {
     	@SuppressWarnings("deprecation")
 		@SubscribeEvent
     	public static void onPlayerWakeUp(final PlayerWakeUpEvent playerWakeUpEvent) {
-			LOGGER.info("onplayerwakeupfired");
-			LOGGER.info("time: " + playerWakeUpEvent.getPlayer().getEntityWorld().getDayTime());
-			if(playerWakeUpEvent.getPlayer().getEntityWorld().getDayTime() < 13000) {
-    			LOGGER.info("a player woke up correctly");
+			if(playerWakeUpEvent.getPlayer().getEntityWorld().getDayTime() == 24000) {
     			if(playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation().up()).getBlock() instanceof DreamcatcherBlock) {
     				((DreamcatcherBlock) playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation().up()).getBlock()).onPlayerWakeUp(playerWakeUpEvent);
     			}

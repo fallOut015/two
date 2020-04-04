@@ -197,14 +197,14 @@ public class ItemsTwo {
 	public static final Item GHOSTWOOD_SIGN = register(BlocksTwo.GHOSTWOOD_SIGN, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item CLOUDWOOD_SIGN = register(BlocksTwo.CLOUDWOOD_SIGN, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
+	public static final Item DREAMCATCHER_CHAOS = register(BlocksTwo.DREAMCATCHER_CHAOS, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item DREAMCATCHER_HEALING = register(BlocksTwo.DREAMCATCHER_HEALING, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item DREAMCATCHER_LOOT = register(BlocksTwo.DREAMCATCHER_LOOT, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item DREAMCATCHER_LUCKY = register(BlocksTwo.DREAMCATCHER_LUCKY, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item DREAMCATCHER_NIGHTMARE = register(BlocksTwo.DREAMCATCHER_NIGHTMARE, new Item.Properties().group(ItemGroup.DECORATIONS));
-	public static final Item DREAMCATCHER_CHAOS = register(BlocksTwo.DREAMCATCHER_CHAOS, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item DREAMCATCHER_RAINBOW = register(BlocksTwo.DREAMCATCHER_RAINBOW, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item DREAMCATCHER_RANDOM = register(BlocksTwo.DREAMCATCHER_RANDOM, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item DREAMCATCHER_SKY = register(BlocksTwo.DREAMCATCHER_SKY, new Item.Properties().group(ItemGroup.DECORATIONS));
-	public static final Item DREAMCATCHER_RAINBOW = register(BlocksTwo.DREAMCATCHER_RAINBOW, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
 	
 	
@@ -361,7 +361,7 @@ public class ItemsTwo {
 	public static final Item LEAD_SICKLE = register("lead_sickle", new SickleItem(ItemTierTwo.LEAD, -2.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 
 	public static final Item SMITHING_HAMMER = register("smithing_hammer", new Item(new Item.Properties().group(ItemGroup.TOOLS)));
-	
+	public static final Item HANDSAW = register("handsaw", new Item(new Item.Properties().group(ItemGroup.TOOLS)));
 	
 
 	
@@ -388,7 +388,7 @@ public class ItemsTwo {
     public static final Item RUBY_DAGGER = register("ruby_dagger", new DaggerItem(ItemTierTwo.RUBY, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item LEAD_DAGGER = register("lead_dagger", new DaggerItem(ItemTierTwo.LEAD, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
 	
-    public static final Item CUTLASS = register("cutlass", new SwordItem(ItemTier.IRON, 3, -3.5f, new Item.Properties()/*.group(ItemGroup.COMBAT)*/));
+    public static final Item CUTLASS = register("cutlass", new SwordItem(ItemTier.IRON, 3, -2.8f, new Item.Properties()/*.group(ItemGroup.COMBAT)*/));
 
     public static final Item BLOOD_WITHER_BLADE = register("blood_wither_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
@@ -408,7 +408,7 @@ public class ItemsTwo {
     		return true;
     	}
     });
-    public static final Item BANISHER = register("banisher", new Item(new Item.Properties().group(ItemGroup.COMBAT)) {
+    public static final Item BANISHER = register("banisher", new Item(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.UNCOMMON)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.knockBack(target, 10, -(target.prevPosX - attacker.prevPosX), -(target.prevPosZ - attacker.prevPosZ));
 			target.world.addParticle((IParticleData) ParticleTypes.DUST, target.prevPosX, target.prevPosY, target.prevPosZ, -(target.prevPosX - attacker.prevPosX), -0.1, -(target.prevPosZ - attacker.prevPosZ));

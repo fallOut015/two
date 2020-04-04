@@ -5,7 +5,6 @@ issueTrackerURL="http://my.issue.tracker/" #optional
 modId="two"
 version="${file.jarVersion}"
 displayName="NEW Minecraft v2"
-updateJSONURL="http://myurl.me/" #optional
 displayURL="https://www.curseforge.com/minecraft/mc-mods/minecraft-v2" #optional
 logoFile="two.png" #optional
 credits="Well, me, HarryTalks, other tutorial youtubers, Forge guys, Notch, Jeb, Derek, Karsten, Pam, my friends, among others." #optional

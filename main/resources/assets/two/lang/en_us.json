@@ -346,6 +346,7 @@
 	"item.two.lead_sickle" : "Lead Sickle",
 	
 	"item.two.smithing_hammer" : "Smithing Hammer",
+	"item.two.handsaw" : "Handsaw",
 	
 	
 	
@@ -624,12 +625,26 @@
 	
 	"advancements.story.best_of_both_worlds.title" : "Best of Both Worlds",
 	"advancements.story.best_of_both_worlds.description" : "Craft a Wooden Battleaxe",
+	
 	"advancements.story.not_so_faux_fur.title" : "Not So Faux Fur",
 	"advancements.story.not_so_faux_fur.description" : "Don a White Woolen Tunic",
+	
 	"advancements.story.comrade.title" : "Comrade",
 	"advancements.story.comrade.description" : "The death of one man is a tragedy, the death of millions is a statistic",
+	
 	"advancements.story.bigger_on_the_inside.title" : "Bigger on the Inside",
 	"advancements.story.bigger_on_the_inside.description" : "Sew a leather Knapsack to hold your stuff",
+	
+	"advancements.story.going_plundering.title" : "Going Plundering",
+	"advancements.story.going_plundering.description" : "Wield an iron Cutlass",
+
+
+
+	"advancements.adventure.sweeter_dreams.title" : "Sweeter Dreams",
+	"advancements.adventure.sweeter_dreams.description" : "You're gonna love this night's rest. It feels like Tempur-pedic, or something",
+
+	"advancements.adventure.bad_dreams.title" : "Bad Dreams",
+	"advancements.adventure.bad_dreams.description" : "Use a dreamcatcher, fall asleep, and enter the Nightmare dimension",
 
 
 
@@ -643,6 +658,16 @@
 	
 	"biome.two.nightmare" : "Nightmare",
 	"biome.two.nightmare_highlands" : "Nightmare Highlands",
+	"biome.two.the_forest" : "The Forest",
 	
-	"biome.two.sky" : "Sky"
+	"biome.two.sky" : "Sky",
+	
+	
+	
+	
+	
+	"knapsack.traveller" : "Traveller's Knapsack",
+	"knapsack.explorer" : "Explorer's Knapsack",
+	"knapsack.adventurer" : "Adventurer's Knapsack",
+	"knapsack.hero" : "Hero's Knapsack",
 }

@@ -10,9 +10,11 @@ import net.minecraftforge.registries.ObjectHolder;
 public class BiomesTwo {
 	public static final Biome NIGHTMARE = register("nightmare", new NightmareBiome());
 	public static final Biome NIGHTMARE_HIGHLANDS = register("nightmare_highlands", new NightmareHighlandsBiome());
+	public static final Biome THE_FOREST = register("the_forest", new TheForestBiome());
 	
 	public static final Biome SKY = register("sky", new SkyBiome());
-	/*public static final Biome MAGNIFIED_FOREST;
+	/*
+	public static final Biome MAGNIFIED_FOREST;
 	public static final Biome CATLANDS;
 	public static final Biome SPOOKY_FOREST;
 	public static final Biome MAGICAL_WOODS;
@@ -27,7 +29,11 @@ public class BiomesTwo {
 	public static final Biome DARK_FOREST
 	public static final Biome DARK_DESERT
 	public static final Biome DARK_JUNGLE
-	public static final Biome DARK_TUNDRA*/
+	public static final Biome DARK_TUNDRA
+	public static final Biome DARK_BEACH
+	public static final Biome DARK_OCEAN
+	public static final Biome DARK_MESA
+	*/
 	
 	public static void onBiomesRegistry(final RegistryEvent.Register<Biome> biomeRegistryEvent) {
 		biomeRegistryEvent.getRegistry().registerAll(Holder.BIOMESTWO.toArray(new Biome [] {}));

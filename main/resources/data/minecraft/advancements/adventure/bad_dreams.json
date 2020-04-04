@@ -1,0 +1,31 @@
+{
+	"parent" : "minecraft:adventure/sweeter_dreams",
+	"display" : {
+		"icon" : {
+      		"item" : "minecraft:black_bed"
+    	},
+    	"title" : {
+      		"translate" : "advancements.adventure.bad_dreams.title"
+    	},
+    	"description" : {
+      		"translate" : "advancements.adventure.bad_dreams.description"
+    	},
+    	"frame" : "task",
+    	"show_toast" : true,
+    	"announce_to_chat" : true,
+    	"hidden" : false
+  	},
+  	"criteria" : {
+    	"entered_nightmare": {
+      		"trigger": "minecraft:changed_dimension",
+      		"conditions": {
+        		"to": "two:nightmare"
+      		}
+    	}
+  	},
+  	"requirements" : [
+    	[
+      		"entered_nightmare"
+    	]
+  	]
+}

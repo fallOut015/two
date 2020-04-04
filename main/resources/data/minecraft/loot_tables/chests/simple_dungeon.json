@@ -83,6 +83,32 @@
           "weight": 8,
           "name": "two:dreamcatcher_sky"
         },
+		/*{
+          "type": "minecraft:item",
+          "weight": 1,
+		  "functions" : [
+			 {
+				"function" : "minecraft:name",
+				"value" : "knapsack.hero"
+			 }
+		  ],
+          "name": "two:knapsack" // Hero's knapsack: random high tier stuff
+        },*/
+		{
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "two:knapsack" // Adventurer's knapsack: random mid tier stuff
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 4,
+          "name": "two:knapsack" // Explorer's knapsack: random biome stuff
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 8,
+          "name": "two:knapsack" // Traveller's knapsack: random early survival stuff
+        },
         {
           "type": "minecraft:item",
           "weight": 10,

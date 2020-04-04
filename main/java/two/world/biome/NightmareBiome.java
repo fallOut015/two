@@ -13,8 +13,8 @@ public class NightmareBiome extends Biome {
 			.scale(1.0f)
 			.temperature(0.8f)
 			.downfall(0.8f)
-			.waterColor(4159204)
-			.waterFogColor(329011)
+			.waterColor(16711680)
+			.waterFogColor(16711680)
 			.parent(null)
 		);
 	}

@@ -1,0 +1,35 @@
+{
+	"parent" : "minecraft:adventure/sleep_in_bed",
+	"display" : {
+		"icon" : {
+      		"item" : "minecraft:pink_bed"
+    	},
+    	"title" : {
+      		"translate" : "advancements.adventure.sweeter_dreams.title"
+    	},
+    	"description" : {
+      		"translate" : "advancements.adventure.sweeter_dreams.description"
+    	},
+    	"frame" : "task",
+    	"show_toast" : true,
+    	"announce_to_chat" : true,
+    	"hidden" : false
+  	},
+  	"criteria" : {
+    	"rejuvenating_dreamcatcher" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"item" : "two:rejuvenating_dreamcatcher"
+          			}
+        		]
+      		}
+    	}
+  	},
+  	"requirements" : [
+    	[
+      		"rejuvenating_dreamcatcher"
+    	]
+  	]
+}

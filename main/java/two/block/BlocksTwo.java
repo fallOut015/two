@@ -2,6 +2,7 @@ package two.block;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Function;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -19,14 +20,18 @@ import net.minecraft.block.StandingSignBlock;
 import net.minecraft.block.WallSignBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.LootParameterSets;
 import net.minecraft.world.storage.loot.LootTable;
+import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.registries.ObjectHolder;
@@ -36,6 +41,7 @@ import two.block.trees.CherryTree;
 import two.block.trees.CloudwoodTree;
 import two.block.trees.GhostwoodTree;
 import two.block.trees.MapleTree;
+import two.world.dimension.ModDimensionTwo;
 
 @ObjectHolder("two")
 public class BlocksTwo {
@@ -233,6 +239,12 @@ public class BlocksTwo {
 	public static final Block SMOOTH_IRON_STAIRS = register("smooth_iron_stairs", new StairsBlockTwo(SMOOTH_IRON.getDefaultState(), Block.Properties.from(SMOOTH_IRON)));
 	public static final Block SMOOTH_IRON_SLAB = register("smooth_iron_slab", new SlabBlock(Block.Properties.from(SMOOTH_IRON)));
 	
+	public static final Block DREAMCATCHER_CHAOS = register("dreamcatcher_chaos", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.RED)) {
+		@Override
+		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
+			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_chaos");
+		};
+	});
 	public static final Block DREAMCATCHER_HEALING = register("dreamcatcher_healing", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.PINK).hardnessAndResistance(0.4F)) {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
@@ -260,27 +272,14 @@ public class BlocksTwo {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_nightmare");
-			//playerSetSpawnEvent.getPlayer().changeDimension(DimensionManager.registerOrGetDimension(new ResourceLocation("two", "nightmare"), new NightmareModDimension(), null, false));
-			playerWakeUpEvent.getPlayer().getEntityWorld().setDayTime(18000);
+			DimensionType nightmare = DimensionManager.registerOrGetDimension(new ResourceLocation("two", "nightmare"), ModDimensionTwo.NIGHTMARE, null, false);
+			playerWakeUpEvent.getPlayer().changeDimension(nightmare, new ITeleporter() {
+				Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
+					return repositionEntity.apply(false);
+				}
+			});
+			playerWakeUpEvent.getPlayer().getEntityWorld().setDayTime(13000);
 		}
-	});
-	public static final Block DREAMCATCHER_CHAOS = register("dreamcatcher_chaos", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.RED)) {
-		@Override
-		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
-			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_chaos");
-		};
-	});
-	public static final Block DREAMCATCHER_RANDOM = register("dreamcatcher_random", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.BLACK)) {
-		@Override
-		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
-			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_random");
-		};
-	});
-	public static final Block DREAMCATCHER_SKY = register("dreamcatcher_sky", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.SNOW)) {
-		@Override
-		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
-			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_sky");
-		};
 	});
 	public static final Block DREAMCATCHER_RAINBOW = register("dreamcatcher_rainbow", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.CYAN)) {
 		@Override
@@ -288,6 +287,30 @@ public class BlocksTwo {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_rainbow");
 		};
 	});
+	public static final Block DREAMCATCHER_RANDOM = register("dreamcatcher_random", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.BLACK)) {
+		@Override
+		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
+			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_random");
+			int roll = playerWakeUpEvent.getPlayer().getEntityWorld().getRandom().nextInt(10);
+			switch(roll) {
+				case 0:
+					Two.LOGGER.info("Something good!");
+					break;
+				default:
+					Two.LOGGER.info("Something else!");
+			}
+		};
+	});
+	public static final Block DREAMCATCHER_SKY = register("dreamcatcher_sky", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.SNOW)) {
+		@Override
+		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
+			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_sky");
+			DimensionType sky = DimensionManager.registerOrGetDimension(new ResourceLocation("two", "sky"), ModDimensionTwo.SKY, null, true);
+			playerWakeUpEvent.getPlayer().changeDimension(sky);
+			playerWakeUpEvent.getPlayer().getEntityWorld().setDayTime(13000);
+		};
+	});
+	
 	
 	
 	

@@ -53,7 +53,6 @@ public abstract class DreamcatcherBlock extends Block {
 	}
 	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
 		Direction direction = state.get(FACING);
-		Two.LOGGER.info("Is valid? " + this.canAttachTo(worldIn, pos.offset(direction.getOpposite()), direction) + ".");
 	    return this.canAttachTo(worldIn, pos.offset(direction.getOpposite()), direction);
 	}
 	@SuppressWarnings("deprecation")
@@ -68,16 +67,16 @@ public abstract class DreamcatcherBlock extends Block {
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
 		if (!context.replacingClickedOnBlock()) {
 			BlockState blockstate = context.getWorld().getBlockState(context.getPos().offset(context.getFace().getOpposite()));
-	        if (blockstate.getBlock() == this && blockstate.get(FACING) == context.getFace()) {
+	        if (blockstate.getBlock() == this && blockstate.get(FACING) == context.getFace())
 	        	return null;
-	        }
 	    }
 
 	    BlockState blockstate1 = this.getDefaultState();
 
 	    for(Direction direction : context.getNearestLookingDirections())
 	    	if (direction.getAxis().isHorizontal())
-	    		blockstate1 = blockstate1.with(FACING, direction.getOpposite());
+	    		if((blockstate1 = blockstate1.with(FACING, direction.getOpposite())).isValidPosition(context.getWorld(), context.getPos()))
+	    			return blockstate1;
 
 	    return null;
 	}
