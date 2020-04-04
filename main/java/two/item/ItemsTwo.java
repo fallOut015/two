@@ -169,7 +169,7 @@ public class ItemsTwo {
 	public static final Item CHISELED_IRON_BLOCK = register(BlocksTwo.CHISELED_IRON_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item IRON_PILLAR = register(BlocksTwo.IRON_PILLAR, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item IRON_STAIRS = register(BlocksTwo.IRON_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-	public static final Item IRONS_SLAB = register(BlocksTwo.IRON_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item IRON_SLAB = register(BlocksTwo.IRON_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item SMOOTH_IRON = register(BlocksTwo.SMOOTH_IRON, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item SMOOTH_IRON_STAIRS = register(BlocksTwo.SMOOTH_IRON_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item SMOOTH_IRON_SLAB = register(BlocksTwo.SMOOTH_IRON_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));

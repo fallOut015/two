@@ -312,8 +312,17 @@ public class BlocksTwo {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_sky");
+			BlockState bedstate = playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedPosition().get());
 			DimensionType sky = DimensionManager.registerOrGetDimension(new ResourceLocation("two", "sky"), ModDimensionTwo.SKY, null, true);
-			playerWakeUpEvent.getPlayer().changeDimension(sky);
+			playerWakeUpEvent.getPlayer().changeDimension(sky, new ITeleporter() {
+				public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
+					return repositionEntity.apply(false);
+				}
+			});
+			playerWakeUpEvent.getPlayer().sendStatusMessage(new TranslationTextComponent("block.minecraft.bed.sky"), true);
+			// Somewhere I need to make a manager for the inventories, probably in the ModDimension classes. 
+			// I also need to spawn a bed in the dimension that lets you wake back up. 
+			playerWakeUpEvent.getPlayer().getEntityWorld().setBlockState(playerWakeUpEvent.getPlayer().getPosition(), bedstate);
 			playerWakeUpEvent.getPlayer().getEntityWorld().setDayTime(13000);
 		};
 	});

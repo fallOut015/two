@@ -83,17 +83,11 @@
           "weight": 8,
           "name": "two:dreamcatcher_sky"
         },
-		/*{
+		{
           "type": "minecraft:item",
           "weight": 1,
-		  "functions" : [
-			 {
-				"function" : "minecraft:name",
-				"value" : "knapsack.hero"
-			 }
-		  ],
           "name": "two:knapsack" // Hero's knapsack: random high tier stuff
-        },*/
+        },
 		{
           "type": "minecraft:item",
           "weight": 2,

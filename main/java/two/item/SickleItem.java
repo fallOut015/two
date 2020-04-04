@@ -19,6 +19,7 @@ import net.minecraft.item.ItemUseContext;
 import net.minecraft.item.TieredItem;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockPos;
 
 public class SickleItem extends TieredItem {
 	private final float speed;
@@ -41,93 +42,17 @@ public class SickleItem extends TieredItem {
 					playerEntity.sendBreakAnimation(context.getHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND)
 				);
 				
-				if(CROPS.contains(context.getWorld().getBlockState(context.getPos().north()).getBlock())) {
-					crop = context.getWorld().getBlockState(context.getPos().north());
-					if(((CropsBlock) (crop.getBlock())).isMaxAge(crop)) {
-						context.getWorld().destroyBlock(context.getPos().north(), true);
-						context.getWorld().setBlockState(context.getPos().north(), crop.with(CropsBlock.AGE, 0));
+				for(BlockPos blockPos : BlockPos.getAllInBoxMutable(context.getPos().north().west(), context.getPos().south().east())) {
+					if(CROPS.contains(context.getWorld().getBlockState(blockPos).getBlock())) {
+						crop = context.getWorld().getBlockState(blockPos);
+						if(((CropsBlock) (crop.getBlock())).isMaxAge(crop)) {
+							context.getWorld().destroyBlock(blockPos, true);
+							context.getWorld().setBlockState(blockPos, crop.with(CropsBlock.AGE, 0));
 
-						context.getItem().damageItem(1, context.getPlayer(), playerEntity ->
-							playerEntity.sendBreakAnimation(context.getHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND)
-						);
-					}
-				}
-				if(CROPS.contains(context.getWorld().getBlockState(context.getPos().east()).getBlock())) {
-					crop = context.getWorld().getBlockState(context.getPos().east());
-					if(((CropsBlock) (crop.getBlock())).isMaxAge(crop)) {
-						context.getWorld().destroyBlock(context.getPos().east(), true);
-						context.getWorld().setBlockState(context.getPos().east(), crop.with(CropsBlock.AGE, 0));
-
-						context.getItem().damageItem(1, context.getPlayer(), playerEntity ->
-							playerEntity.sendBreakAnimation(context.getHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND)
-						);
-					}
-				}
-				if(CROPS.contains(context.getWorld().getBlockState(context.getPos().south()).getBlock())) {
-					crop = context.getWorld().getBlockState(context.getPos().south());
-					if(((CropsBlock) (crop.getBlock())).isMaxAge(crop)) {
-						context.getWorld().destroyBlock(context.getPos().south(), true);
-						context.getWorld().setBlockState(context.getPos().south(), crop.with(CropsBlock.AGE, 0));
-
-						context.getItem().damageItem(1, context.getPlayer(), playerEntity ->
-							playerEntity.sendBreakAnimation(context.getHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND)
-						);
-					}
-				}
-				if(CROPS.contains(context.getWorld().getBlockState(context.getPos().west()).getBlock())) {
-					crop = context.getWorld().getBlockState(context.getPos().west());
-					if(((CropsBlock) (crop.getBlock())).isMaxAge(crop)) {
-						context.getWorld().destroyBlock(context.getPos().west(), true);
-						context.getWorld().setBlockState(context.getPos().west(), crop.with(CropsBlock.AGE, 0));
-
-						context.getItem().damageItem(1, context.getPlayer(), playerEntity ->
-							playerEntity.sendBreakAnimation(context.getHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND)
-						);
-					}
-				}
-				
-				if(CROPS.contains(context.getWorld().getBlockState(context.getPos().north().east()).getBlock())) {
-					crop = context.getWorld().getBlockState(context.getPos().north().east());
-					if(((CropsBlock) (crop.getBlock())).isMaxAge(crop)) {
-						context.getWorld().destroyBlock(context.getPos().north().east(), true);
-						context.getWorld().setBlockState(context.getPos().north().east(), crop.with(CropsBlock.AGE, 0));
-
-						context.getItem().damageItem(1, context.getPlayer(), playerEntity ->
-							playerEntity.sendBreakAnimation(context.getHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND)
-						);
-					}
-				}
-				if(CROPS.contains(context.getWorld().getBlockState(context.getPos().east().south()).getBlock())) {
-					crop = context.getWorld().getBlockState(context.getPos().east().south());
-					if(((CropsBlock) (crop.getBlock())).isMaxAge(crop)) {
-						context.getWorld().destroyBlock(context.getPos().east().south(), true);
-						context.getWorld().setBlockState(context.getPos().east().south(), crop.with(CropsBlock.AGE, 0));
-
-						context.getItem().damageItem(1, context.getPlayer(), playerEntity ->
-							playerEntity.sendBreakAnimation(context.getHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND)
-						);
-					}
-				}
-				if(CROPS.contains(context.getWorld().getBlockState(context.getPos().south().west()).getBlock())) {
-					crop = context.getWorld().getBlockState(context.getPos().south().west());
-					if(((CropsBlock) (crop.getBlock())).isMaxAge(crop)) {
-						context.getWorld().destroyBlock(context.getPos().south().west(), true);
-						context.getWorld().setBlockState(context.getPos().south().west(), crop.with(CropsBlock.AGE, 0));
-
-						context.getItem().damageItem(1, context.getPlayer(), playerEntity ->
-							playerEntity.sendBreakAnimation(context.getHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND)
-						);
-					}
-				}
-				if(CROPS.contains(context.getWorld().getBlockState(context.getPos().west().north()).getBlock())) {
-					crop = context.getWorld().getBlockState(context.getPos().west().north());
-					if(((CropsBlock) (crop.getBlock())).isMaxAge(crop)) {
-						context.getWorld().destroyBlock(context.getPos().west().north(), true);
-						context.getWorld().setBlockState(context.getPos().west().north(), crop.with(CropsBlock.AGE, 0));
-
-						context.getItem().damageItem(1, context.getPlayer(), playerEntity ->
-							playerEntity.sendBreakAnimation(context.getHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND)
-						);
+							context.getItem().damageItem(1, context.getPlayer(), playerEntity ->
+								playerEntity.sendBreakAnimation(context.getHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND)
+							);
+						}
 					}
 				}
 			}

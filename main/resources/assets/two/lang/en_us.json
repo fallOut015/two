@@ -208,6 +208,8 @@
 	
 	
 	"block.minecraft.bed.nightmare" : "You shudder in your sleep, you want to wake up. Perhaps going back to bed would be a good idea for the unready.",
+	"block.minecraft.bed.rainbow" : "You dream of vibrant colors, and not a thing in the world can hurt you.",
+	"block.minecraft.bed.sky" : "Your comfy bed feels like lying on clouds... and suddenly, you are.",
 
 
 
@@ -644,7 +646,7 @@
 
 
 	"advancements.adventure.sweeter_dreams.title" : "Sweeter Dreams",
-	"advancements.adventure.sweeter_dreams.description" : "You're gonna love this night's rest. It feels like Tempur-pedic, or something",
+	"advancements.adventure.sweeter_dreams.description" : "You will gonna love this rest. It feels like Tempur-pedic, or something",
 
 	"advancements.adventure.bad_dreams.title" : "Bad Dreams",
 	"advancements.adventure.bad_dreams.description" : "Use a dreamcatcher, fall asleep, and enter the Nightmare dimension",
