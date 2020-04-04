@@ -320,8 +320,6 @@ public class BlocksTwo {
 				}
 			});
 			playerWakeUpEvent.getPlayer().sendStatusMessage(new TranslationTextComponent("block.minecraft.bed.sky"), true);
-			// Somewhere I need to make a manager for the inventories, probably in the ModDimension classes. 
-			// I also need to spawn a bed in the dimension that lets you wake back up. 
 			playerWakeUpEvent.getPlayer().getEntityWorld().setBlockState(playerWakeUpEvent.getPlayer().getPosition(), bedstate);
 			playerWakeUpEvent.getPlayer().getEntityWorld().setDayTime(13000);
 		};
