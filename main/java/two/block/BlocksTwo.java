@@ -325,6 +325,9 @@ public class BlocksTwo {
 		};
 	});
 	
+	public static final Block MAPLE_TAP = register("maple_tap", new MapleTapBlock(Block.Properties.create(Material.IRON)));
+	
+	
 	
 	
 	
