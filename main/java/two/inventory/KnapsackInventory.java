@@ -16,6 +16,7 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import two.inventory.container.KnapsackContainer;
+import two.item.KnapsackItem;
 
 public class KnapsackInventory implements INamedContainerProvider, IInventory {
 	private NonNullList<ItemStack> knapsackContents = NonNullList.withSize(18, ItemStack.EMPTY);
@@ -47,6 +48,8 @@ public class KnapsackInventory implements INamedContainerProvider, IInventory {
 	public Container createMenu(int id, PlayerInventory playerInventory, PlayerEntity playerEntity) {
 		if(this.itemStack.hasTag())
 			read(this.itemStack.getTag());
+		if(this.itemStack.getItem() instanceof KnapsackItem)
+			((KnapsackItem) this.itemStack.getItem()).setOpen();
 		return new KnapsackContainer(id, playerInventory, this);
 	}
 	@Override

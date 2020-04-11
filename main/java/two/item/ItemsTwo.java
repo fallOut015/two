@@ -16,6 +16,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTier;
+import net.minecraft.item.ItemUseContext;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.Rarity;
 import net.minecraft.item.ShovelItem;
@@ -25,6 +26,9 @@ import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
@@ -44,6 +48,8 @@ public class ItemsTwo {
 			tooltip.add(new StringTextComponent("OURcraft"));
 		}
 	});
+	
+	public static final Item ANVIL = register(BlocksTwo.ANVIL, new Item.Properties().group(ItemGroup.DECORATIONS).rarity(Rarity.EPIC));
 	
 	
 	
@@ -335,6 +341,8 @@ public class ItemsTwo {
     
     public static final Item CHAMELEON_SPAWN_EGG = register("chameleon_spawn_egg", new SpawnEggItem(EntityTypeTwo.CHAMELEON, 2162500, 14463743, new Item.Properties().group(ItemGroup.MISC)));
     
+    public static final Item SNOWGLOBE = register("snowglobe", new SnowglobeItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
+    
 	
 	
 	//Tools
@@ -364,6 +372,13 @@ public class ItemsTwo {
 
 	public static final Item SMITHING_HAMMER = register("smithing_hammer", new Item(new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item HANDSAW = register("handsaw", new Item(new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item WRENCH = register("wrench", new Item(new Item.Properties().group(ItemGroup.TOOLS)) {
+		public ActionResultType onItemUse(ItemUseContext context) {
+			context.getWorld().setBlockState(context.getPos(), context.getWorld().getBlockState(context.getPos()).rotate(Rotation.CLOCKWISE_90));
+			
+			return ActionResultType.SUCCESS;
+		};
+	});
 	
 
 	
@@ -707,7 +722,9 @@ public class ItemsTwo {
     
     
 	public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
-    	itemRegistryEvent.getRegistry().registerAll(Holder.ITEMSTWO.toArray(new Item[] {}));
+//    	itemRegistryEvent.getRegistry().getValue(new ResourceLocation("minecraft", "command_block"))
+		
+		itemRegistryEvent.getRegistry().registerAll(Holder.ITEMSTWO.toArray(new Item[] {}));
     }
 	static Item register(Block block, Item.Properties properties) {
 		return register(block.getRegistryName().getPath(), new BlockItem(block, properties));

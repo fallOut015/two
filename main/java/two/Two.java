@@ -82,7 +82,7 @@ public class Two {
     public static class RegistryEvents {
     	@SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
-        	BlocksTwo.onBlocksRegistry(blockRegistryEvent);
+    		BlocksTwo.onBlocksRegistry(blockRegistryEvent);
         }
     	@SubscribeEvent
         public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
@@ -137,8 +137,8 @@ public class Two {
     					return repositionEntity.apply(false);
     				}
     			});
+    			playerSleepInBedEvent.getPlayer().getEntityWorld().setDayTime(24000);
     		}
-    		playerSleepInBedEvent.getPlayer().getEntityWorld().setDayTime(24000);
     	}
     	@SubscribeEvent
     	public static void onItemTooltip(final ItemTooltipEvent itemToolTipEvent) {

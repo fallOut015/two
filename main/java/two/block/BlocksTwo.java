@@ -26,11 +26,14 @@ import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.LootParameterSets;
+import net.minecraft.world.storage.loot.LootParameters;
 import net.minecraft.world.storage.loot.LootTable;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.util.ITeleporter;
@@ -49,6 +52,9 @@ import two.world.dimension.ModDimensionTwo;
 public class BlocksTwo {
 	public static final Block TEST_BLOCK = register("test_block", new Block(Block.Properties.create(Material.MISCELLANEOUS).lightValue(1)));
     
+	@ObjectHolder("minecraft:anvil")
+	public static final Block ANVIL = register("anvil", new AnvilBlockTwo(Block.Properties.create(Material.ANVIL)));
+	
 	//public static final Block ADOBE = register("adobe", new AdobeBlock());
 	
 	//public static final Block CEDAR_PLANKS = register("cedar_planks", new Block(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
@@ -257,7 +263,7 @@ public class BlocksTwo {
 	public static final Block DREAMCATCHER_LOOT = register("dreamcatcher_loot", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.YELLOW).hardnessAndResistance(0.4F)) {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
-            LootContext.Builder lootcontext$builder = (new LootContext.Builder((ServerWorld) playerWakeUpEvent.getPlayer().getEntityWorld())).withRandom(playerWakeUpEvent.getPlayer().getEntityWorld().getRandom()).withLuck(1);
+            LootContext.Builder lootcontext$builder = (new LootContext.Builder((ServerWorld) playerWakeUpEvent.getPlayer().getEntityWorld())).withRandom(playerWakeUpEvent.getPlayer().getEntityWorld().getRandom()).withLuck(1).withParameter(LootParameters.POSITION, playerWakeUpEvent.getPlayer().getPosition()).withParameter(LootParameters.THIS_ENTITY, playerWakeUpEvent.getEntity());
             LootTable loottable = playerWakeUpEvent.getPlayer().getEntityWorld().getServer().getLootTableManager().getLootTableFromLocation(new ResourceLocation("two", "gameplay/dreamcatcher_loot"));
             List<ItemStack> list = loottable.generate(lootcontext$builder.build(LootParameterSets.GIFT));
 
@@ -275,12 +281,15 @@ public class BlocksTwo {
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_nightmare");
 			BlockState bedstate = playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedPosition().get());
+			IWorldReader worldreader = playerWakeUpEvent.getPlayer().getEntityWorld();
+			BlockPos blockpos = playerWakeUpEvent.getPlayer().getBedPosition().get();
 			DimensionType nightmare = DimensionManager.registerOrGetDimension(new ResourceLocation("two", "nightmare"), ModDimensionTwo.NIGHTMARE, null, false);
 			playerWakeUpEvent.getPlayer().changeDimension(nightmare, new ITeleporter() {
 				public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
 					return repositionEntity.apply(false);
 				}
 			});
+			bedstate.getBlock().setBedOccupied(bedstate, worldreader, blockpos, playerWakeUpEvent.getEntityLiving(), false);
 			playerWakeUpEvent.getPlayer().sendStatusMessage(new TranslationTextComponent("block.minecraft.bed.nightmare"), true);
 			// Somewhere I need to make a manager for the inventories, probably in the ModDimension classes. 
 			// I also need to spawn a bed in the dimension that lets you wake back up. 

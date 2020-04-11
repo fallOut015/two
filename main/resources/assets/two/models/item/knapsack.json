@@ -2,5 +2,13 @@
     "parent" : "minecraft:item/generated",
     "textures" : {
         "layer0" : "two:item/knapsack"
-    }
+    },
+	"overrides" : [
+		{
+            "predicate" : {
+                "open" : 1
+            },
+            "model" : "two:item/knapsack_open"
+        }
+	]
 }

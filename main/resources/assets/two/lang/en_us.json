@@ -226,6 +226,8 @@
 	"item.minecraft.acacia_boat" : "Acacia Rowboat",
 	"item.minecraft.dark_oak_boat" : "Dark Oak Rowboat",
 	
+	"item.minecraft.redstone" : "Redstone Dust",
+	
 	
 	
 	"item.two.test_item" : "Test Item",
@@ -328,6 +330,8 @@
 	
 	"item.two.chameleon_spawn_egg" : "Chameleon Spawn Egg",
 	
+	"item.two.snowglobe" : "Snowglobe",
+	
 	
 	
 	"item.two.emerald_shovel" : "Emerald Shovel",
@@ -356,6 +360,7 @@
 	
 	"item.two.smithing_hammer" : "Smithing Hammer",
 	"item.two.handsaw" : "Handsaw",
+	"item.two.wrench" : "Rotating Wrench",
 	
 	
 	

@@ -7,12 +7,22 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import two.inventory.KnapsackInventory;
 
 public class KnapsackItem extends Item {
+	private boolean open;
 	public KnapsackItem(Properties properties) {
 		super(properties);
+		this.open = false;
+		this.addPropertyOverride(new ResourceLocation("open"), (itemStack, world, livingEntity) -> {
+			if(livingEntity == null) return 0.0f;
+			if(livingEntity.getActiveItemStack().getItem() instanceof KnapsackItem)
+				if(((KnapsackItem) itemStack.getItem()).isOpen())
+					return 1.0f;
+			return 0.0f;
+		});
 	}
 	
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
@@ -23,5 +33,14 @@ public class KnapsackItem extends Item {
 		playerIn.addStat(Stats.ITEM_USED.get(this));
 		
 		return ActionResult.func_226248_a_(itemStack);
+	}
+	public void setOpen() {
+		this.open = true;
+	}
+	public void setClosed() {
+		this.open = false;
+	}
+	public boolean isOpen() {
+		return this.open;
 	}
 }

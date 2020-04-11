@@ -8,6 +8,7 @@ import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import two.inventory.KnapsackInventory;
+import two.item.KnapsackItem;
 
 public class KnapsackContainer extends Container {
 	private final IInventory knapsackInventory;
@@ -33,6 +34,8 @@ public class KnapsackContainer extends Container {
 
 	    for(int i1 = 0; i1 < 9; ++i1)
 	    	this.addSlot(new Slot(playerInventoryIn, i1, 8 + i1 * 18, 125));
+	    
+	    // Slot that holds knapsack is greyed out and red when hovered over.
 	}
 	
 	@Override
@@ -65,6 +68,10 @@ public class KnapsackContainer extends Container {
 		
 		this.compoundNBT = ((KnapsackInventory) this.knapsackInventory).write(this.compoundNBT);
 		((KnapsackInventory) this.knapsackInventory).itemStack.setTag(this.compoundNBT);
+		
+		if(this.knapsackInventory instanceof KnapsackInventory)
+			if(((KnapsackInventory) this.knapsackInventory ).itemStack.getItem() instanceof KnapsackItem)
+				((KnapsackItem) ((KnapsackInventory) this.knapsackInventory).itemStack.getItem()).setClosed();
 		
 	    this.knapsackInventory.closeInventory(playerIn);
 	}

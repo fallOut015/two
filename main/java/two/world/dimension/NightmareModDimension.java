@@ -24,7 +24,7 @@ public class NightmareModDimension extends ModDimension/* implements IInventoryD
 
 	@Override
 	public BiFunction<World, DimensionType, ? extends Dimension> getFactory() {
-		return (world, dimensionType) -> new Dimension(world, dimensionType, 0) {
+		return (world, dimensionType) -> new Dimension(world, dimensionType, 0.1f) {
 //			private IInventory inventory;
 			
 			@Override
