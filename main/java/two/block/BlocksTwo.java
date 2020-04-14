@@ -281,6 +281,7 @@ public class BlocksTwo {
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_nightmare");
 			BlockState bedstate = playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedPosition().get());
+			//Block bed = bedstate.getBlock();
 			IWorldReader worldreader = playerWakeUpEvent.getPlayer().getEntityWorld();
 			BlockPos blockpos = playerWakeUpEvent.getPlayer().getBedPosition().get();
 			DimensionType nightmare = DimensionManager.registerOrGetDimension(new ResourceLocation("two", "nightmare"), ModDimensionTwo.NIGHTMARE, null, false);
@@ -294,6 +295,7 @@ public class BlocksTwo {
 			// Somewhere I need to make a manager for the inventories, probably in the ModDimension classes. 
 			// I also need to spawn a bed in the dimension that lets you wake back up. 
 			playerWakeUpEvent.getPlayer().getEntityWorld().setBlockState(playerWakeUpEvent.getPlayer().getPosition(), bedstate);
+			// foot of bed
 			playerWakeUpEvent.getPlayer().getEntityWorld().setDayTime(13000);
 		}
 	});

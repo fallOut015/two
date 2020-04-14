@@ -10,6 +10,7 @@ import net.minecraft.util.LazyValue;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import two.util.SoundEventsTwo;
 
 public enum ArmorMaterialTwo implements IArmorMaterial {
 	EMERALD("emerald", 10, new int[] {2, 5, 6, 2}, 25, SoundEventsTwo.ITEM_ARMOR_EQUIP_EMERALD, 1.0f, () -> {

@@ -332,6 +332,36 @@
 	
 	"item.two.snowglobe" : "Snowglobe",
 	
+	"item.two.music_disc_bad_dreams" : "Music Disc",
+	"item.two.music_disc_bad_dreams.desc" : "Bad Dreams",
+	
+	"item.two.letter_a" : "A",
+	"item.two.letter_b" : "B",
+	"item.two.letter_c" : "C",
+	"item.two.letter_d" : "D",
+	"item.two.letter_e" : "E",
+	"item.two.letter_f" : "F",
+	"item.two.letter_g" : "G",
+	"item.two.letter_h" : "H",
+	"item.two.letter_i" : "I",
+	"item.two.letter_j" : "J",
+	"item.two.letter_k" : "K",
+	"item.two.letter_l" : "L",
+	"item.two.letter_m" : "M",
+	"item.two.letter_n" : "N",
+	"item.two.letter_o" : "O",
+	"item.two.letter_p" : "P",
+	"item.two.letter_q" : "Q",
+	"item.two.letter_r" : "R",
+	"item.two.letter_s" : "S",
+	"item.two.letter_t" : "T",
+	"item.two.letter_u" : "U",
+	"item.two.letter_v" : "V",
+	"item.two.letter_w" : "W",
+	"item.two.letter_x" : "X",
+	"item.two.letter_y" : "Y",
+	"item.two.letter_z" : "Z",
+	
 	
 	
 	"item.two.emerald_shovel" : "Emerald Shovel",
@@ -361,6 +391,8 @@
 	"item.two.smithing_hammer" : "Smithing Hammer",
 	"item.two.handsaw" : "Handsaw",
 	"item.two.wrench" : "Rotating Wrench",
+	
+	"item.two.crafting_book" : "Crafting Book",
 	
 	
 	
@@ -633,6 +665,8 @@
 	"item.two.glowstone_leggings" : "Glowstone Leggings",
 	"item.two.glowstone_boots" : "Glowstone Boots",
 	
+	"item.two.top_hat" : "Top Hat",
+	
 
 
 
@@ -683,5 +717,18 @@
 	"knapsack.traveller" : "Traveller's Knapsack",
 	"knapsack.explorer" : "Explorer's Knapsack",
 	"knapsack.adventurer" : "Adventurer's Knapsack",
-	"knapsack.hero" : "Hero's Knapsack"
+	"knapsack.hero" : "Hero's Knapsack",
+	
+	
+	
+	
+	
+	"subtitles.item.armor.equip_emerald" : "Emerald armor blings",
+	"subtitles.item.armor.equip_ruby" : "Ruby armor blangs",
+	"subtitles.item.armor.equip_lead" : "Lead armor scuffs",
+	"subtitles.item.armor.equip_stone" : "Stone armor scrapes",
+	"subtitles.item.armor.equip_wood" : "Wooden armor plats",
+	"subtitles.item.armor.equip_wool" : "Woolen armor plofs",
+	"subtitles.item.armor.equip_sponge" : "Sponge armor squishes",
+	"subtitles.item.armor.equip_glowstone" : "Glowstone armor shines"
 }

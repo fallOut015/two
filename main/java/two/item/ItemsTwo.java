@@ -27,7 +27,6 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.ActionResultType;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
@@ -36,6 +35,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
 import two.block.BlocksTwo;
 import two.entity.EntityTypeTwo;
+import two.util.SoundEventsTwo;
 
 @ObjectHolder("two")
 public class ItemsTwo {
@@ -343,7 +343,12 @@ public class ItemsTwo {
     
     public static final Item SNOWGLOBE = register("snowglobe", new SnowglobeItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
     
+    public static final Item MUSIC_DISC_BAD_DREAMS = register("music_disc_bad_dreams", new MusicDiscItemTwo(13, SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
 	
+    public static final Item LETTER_O = register("letter_o", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_X = register("letter_x", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    
+    
 	
 	//Tools
     public static final Item EMERALD_SHOVEL = register("emerald_shovel", new ShovelItem(ItemTierTwo.EMERALD, 1.5f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
@@ -379,6 +384,10 @@ public class ItemsTwo {
 			return ActionResultType.SUCCESS;
 		};
 	});
+	// drill? or maybe the hammer will also serve this functionality.
+	// add knockback to hammer and indicator.
+	
+	public static final Item CRAFTING_BOOK = register("crafting_book", new CraftingBookItem(new Item.Properties().group(ItemGroup.TOOLS)));
 	
 
 	
@@ -672,6 +681,8 @@ public class ItemsTwo {
     public static final Item GLOWSTONE_CHESTPLATE = register("glowstone_chestplate", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item GLOWSTONE_LEGGINGS = register("glowstone_leggings", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item GLOWSTONE_BOOTS = register("glowstone_boots", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+    
+    public static final Item TOP_HAT = register("top_hat", new TopHatItem(new Item.Properties().group(ItemGroup.COMBAT)));
     
 
     

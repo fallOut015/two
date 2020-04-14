@@ -1,0 +1,65 @@
+{
+	"item.armor.equip_emerald" : {
+		"category" : "item",
+		"subtitle" : "subtitles.item.armor.equip_emerald",
+		"sounds" : [
+			"two:item/armor/equip_emerald"
+		]
+	},
+	"item.armor.equip_ruby" : {
+		"category" : "item",
+		"subtitle" : "subtitles.item.armor.equip_ruby",
+		"sounds" : [
+			"two:item/armor/equip_ruby"
+		]
+	},
+	"item.armor.equip_lead" : {
+		"category" : "item",
+		"subtitle" : "subtitles.item.armor.equip_lead",
+		"sounds" : [
+			"two:item/armor/equip_lead"
+		]
+	},
+	"item.armor.equip_stone" : {
+		"category" : "item",
+		"subtitle" : "subtitles.item.armor.equip_stone",
+		"sounds" : [
+			"two:item/armor/equip_stone"
+		]
+	},
+	"item.armor.equip_wood" : {
+		"category" : "item",
+		"subtitle" : "subtitles.item.armor.equip_wood",
+		"sounds" : [
+			"two:item/armor/equip_wood"
+		]
+	},
+	"item.armor.equip_wool" : {
+		"category" : "item",
+		"subtitle" : "subtitles.item.armor.equip_wool",
+		"sounds" : [
+			"two:item/armor/equip_wool"
+		]
+	},
+	"item.armor.equip_sponge" : {
+		"category" : "item",
+		"subtitle" : "subtitles.item.armor.equip_sponge",
+		"sounds" : [
+			"two:item/armor/equip_sponge"
+		]
+	},
+	"item.armor.equip_glowstone" : {
+		"category" : "item",
+		"subtitle" : "subtitles.item.armor.equip_glowstone",
+		"sounds" : [
+			"two:item/armor/equip_glowstone"
+		]
+	},
+	
+	"music.nightmare" : {
+		"category" : "music",
+		"sounds" : [
+			"two:music/nightmare"
+		]
+	}
+}

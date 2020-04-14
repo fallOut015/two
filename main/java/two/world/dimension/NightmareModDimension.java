@@ -3,6 +3,8 @@ package two.world.dimension;
 import java.util.function.BiFunction;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.client.audio.MusicTicker.MusicType;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
@@ -16,6 +18,7 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.ChunkGeneratorType;
 import net.minecraft.world.gen.OverworldGenSettings;
 import net.minecraftforge.common.ModDimension;
+import two.util.SoundEventsTwo;
 import two.world.biome.BiomesTwo;
 import two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 
@@ -63,6 +66,18 @@ public class NightmareModDimension extends ModDimension/* implements IInventoryD
 			@Override
 			public boolean doesXZShowFog(int x, int z) {
 				return true;
+			}
+			
+			@Override
+			public SleepResult canSleepAt(PlayerEntity player, BlockPos pos) {
+				return SleepResult.ALLOW;
+				// checking for if bed is origin bed.
+			}
+			@Override
+			public MusicType getMusicType() {
+				//return new MusicType(SoundEventsTwo.MUSIC_NIGHTMARE, 1200, 12000);
+				return MusicType.NETHER;
+				// TODO XXX
 			}
 		};
 	}

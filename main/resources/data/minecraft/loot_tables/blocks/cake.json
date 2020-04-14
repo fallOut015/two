@@ -6,7 +6,7 @@
       		"entries" : [
         		{
           			"type" : "minecraft:item",
-          			"name" : "two:cake"
+          			"name" : "minecraft:cake"
         		}
       		],
       		"conditions" : [
@@ -15,7 +15,10 @@
         		},
 				{
 					"condition" : "minecraft:block_state_property",
-					"block" : "minecraft:cake"
+					"block" : "minecraft:cake",
+					"properties" : {
+						"bites" : "0"
+					}
 				}
       		]
     	}

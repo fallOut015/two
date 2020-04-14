@@ -1,4 +1,4 @@
-package two.item;
+package two.util;
 
 import java.util.LinkedList;
 
@@ -18,12 +18,14 @@ public class SoundEventsTwo {
 	public static final SoundEvent ITEM_ARMOR_EQUIP_SPONGE = register("item.armor.equip_sponge");
 	public static final SoundEvent ITEM_ARMOR_EQUIP_GLOWSTONE = register("item.armor.equip_glowstone");
 	
+	public static final SoundEvent MUSIC_NIGHTMARE = register("music.nightmare");
+	
 	public static void onSoundEventsRegistry(final RegistryEvent.Register<SoundEvent> soundEventRegistryEvent) {
-    	//soundEventRegistryEvent.getRegistry().registerAll(Holder.soundEventsTwo.toArray(new SoundEvent[] {}));
+    	soundEventRegistryEvent.getRegistry().registerAll(Holder.SOUNDEVENTSTWO.toArray(new SoundEvent[] {}));
 	}
 	static SoundEvent register(String key) {
-		SoundEvent soundEvent = new SoundEvent(new ResourceLocation("two", key));
-		Holder.SOUNDEVENTSTWO.add(soundEvent);
+		SoundEvent soundEvent = new SoundEvent(new ResourceLocation(key));
+		Holder.SOUNDEVENTSTWO.add(soundEvent.setRegistryName(key));
 		
 		return soundEvent;
 	}

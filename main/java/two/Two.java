@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.container.ContainerType;
@@ -45,11 +46,12 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import two.block.BlocksTwo;
 import two.block.DreamcatcherBlock;
 import two.client.renderer.entity.ChameleonRenderer;
+import two.client.renderer.entity.layers.TopHatLayer;
 import two.entity.EntityTypeTwo;
 import two.inventory.container.ContainerTypeTwo;
 import two.item.ItemTierTwo;
 import two.item.ItemsTwo;
-import two.item.SoundEventsTwo;
+import two.util.SoundEventsTwo;
 import two.world.biome.BiomesTwo;
 import two.world.dimension.ModDimensionTwo;
 import two.world.gen.feature.FeatureTwo;
@@ -71,6 +73,8 @@ public class Two {
     private void setup(final FMLCommonSetupEvent event) {}
     private void doClientStuff(final FMLClientSetupEvent event) {
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CHAMELEON, ChameleonRenderer::new);
+    	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
+    	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
     }
     private void enqueueIMC(final InterModEnqueueEvent event) {}
     private void processIMC(final InterModProcessEvent event) {}
