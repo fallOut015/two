@@ -45,6 +45,8 @@
 	"block.two.maple_log" : "Maple Log",
 	"block.two.ghostwood_log" : "Ghostwood Log",
 	"block.two.cloudwood_log" : "Cloudwood Log",
+	"block.two.blackbark_log" : "Blackbark Log",
+	"block.two.frostbark_log" : "Frostbark Log",
 	
 	"block.two.cherry_sapling" : "Cherry Sapling",
 	"block.two.maple_sapling" : "Maple Sapling",
@@ -75,6 +77,8 @@
 	"block.two.maple_leaves" : "Maple Leaves",
 	"block.two.ghostwood_leaves" : "Ghostwood Leaves",
 	"block.two.cloudwood_leaves" : "Cloudwood Leaves",
+	"block.two.blackbark_leaves" : "Blackbark Leaves",
+	"block.two.frostbark_leaves" : "Frostbark Leaves",
 	
 	"block.two.cherry_slab" : "Cherry Slab",
 	"block.two.maple_slab" : "Maple Slab",

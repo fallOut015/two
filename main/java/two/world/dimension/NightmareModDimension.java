@@ -18,7 +18,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.ChunkGeneratorType;
 import net.minecraft.world.gen.OverworldGenSettings;
 import net.minecraftforge.common.ModDimension;
-import two.util.SoundEventsTwo;
 import two.world.biome.BiomesTwo;
 import two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 

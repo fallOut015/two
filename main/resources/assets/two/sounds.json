@@ -59,7 +59,8 @@
 	"music.nightmare" : {
 		"category" : "music",
 		"sounds" : [
-			"two:music/nightmare"
+			"name" : "two:music/nightmare",
+			"stream" : "true"
 		]
 	}
 }

@@ -82,6 +82,8 @@ public class ItemsTwo {
 	public static final Item MAPLE_LOG = register(BlocksTwo.MAPLE_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item GHOSTWOOD_LOG = register(BlocksTwo.GHOSTWOOD_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item CLOUDWOOD_LOG = register(BlocksTwo.CLOUDWOOD_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BLACKBARK_LOG = register(BlocksTwo.BLACKBARK_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item FROSTBARK_LOG = register(BlocksTwo.FROSTBARK_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	public static final Item STRIPPED_CHERRY_LOG = register(BlocksTwo.STRIPPED_CHERRY_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item STRIPPED_MAPLE_LOG = register(BlocksTwo.STRIPPED_MAPLE_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -192,7 +194,9 @@ public class ItemsTwo {
 	public static final Item MAPLE_LEAVES = register(BlocksTwo.MAPLE_LEAVES, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item GHOSTWOOD_LEAVES = register(BlocksTwo.GHOSTWOOD_LEAVES, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item CLOUDWOOD_LEAVES = register(BlocksTwo.CLOUDWOOD_LEAVES, new Item.Properties().group(ItemGroup.DECORATIONS));
-	
+	public static final Item BLACKBARK_LEAVES = register(BlocksTwo.BLACKBARK_LEAVES, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item FROSTBARK_LEAVES = register(BlocksTwo.FROSTBARK_LEAVES, new Item.Properties().group(ItemGroup.DECORATIONS));
+
 	public static final Item CHERRY_FENCE = register(BlocksTwo.CHERRY_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item MAPLE_FENCE = register(BlocksTwo.MAPLE_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item GHOSTWOOD_FENCE = register(BlocksTwo.GHOSTWOOD_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
@@ -434,7 +438,7 @@ public class ItemsTwo {
     		return true;
     	}
     });
-    public static final Item BANISHER = register("banisher", new Item(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.UNCOMMON)) {
+    public static final Item BANISHER = register("banisher", new Item(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.knockBack(target, 10, -(target.prevPosX - attacker.prevPosX), -(target.prevPosZ - attacker.prevPosZ));
 			target.world.addParticle((IParticleData) ParticleTypes.DUST, target.prevPosX, target.prevPosY, target.prevPosZ, -(target.prevPosX - attacker.prevPosX), -0.1, -(target.prevPosZ - attacker.prevPosZ));
