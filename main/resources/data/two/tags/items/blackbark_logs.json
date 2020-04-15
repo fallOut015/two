@@ -1,9 +1,9 @@
 {
 	"replace" : false,
   	"values" : [
-    	"two:blackwood_log",
-    	"two:blackwood_wood",
-    	"two:stripped_blackwood_log",
-    	"two:stripped_blackwood_wood"
+    	"two:blackbark_log",
+    	"two:blackbark_wood",
+    	"two:stripped_blackbark_log",
+    	"two:stripped_blackbark_wood"
   	]
 }

@@ -26,13 +26,16 @@ import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Rotation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
+import two.Two;
 import two.block.BlocksTwo;
 import two.entity.EntityTypeTwo;
 import two.util.SoundEventsTwo;
@@ -472,11 +475,18 @@ public class ItemsTwo {
     public static final Item RUBY_DAGGER = register("ruby_dagger", new DaggerItem(ItemTierTwo.RUBY, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item LEAD_DAGGER = register("lead_dagger", new DaggerItem(ItemTierTwo.LEAD, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
 	
-    public static final Item CUTLASS = register("cutlass", new SwordItem(ItemTier.IRON, 3, -2.8f, new Item.Properties()/*.group(ItemGroup.COMBAT)*/));
+    public static final Item CUTLASS = register("cutlass", new SwordItem(ItemTier.IRON, 3, -2.8f, new Item.Properties()/*.group(ItemGroup.COMBAT)*/) {
+    	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World worldIn, net.minecraft.entity.player.PlayerEntity playerIn, net.minecraft.util.Hand handIn) {
+    		worldIn.playSound(playerIn, playerIn.getPosition(), SoundEventsTwo.MUSIC_NIGHTMARE, SoundCategory.MUSIC, 100.0f, 1.0f);
+    		worldIn.playSound(playerIn, playerIn.getPosition(), SoundEventsTwo.ITEM_ARMOR_EQUIP_EMERALD, SoundCategory.NEUTRAL, 100.0f, 1.0f);
+    		return ActionResult.func_226248_a_(playerIn.getActiveItemStack());
+    	};
+    });
 
     public static final Item BLOOD_WITHER_BLADE = register("blood_wither_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-    		target.addPotionEffect(new EffectInstance(Effects.WITHER, 10, 2, true, false));
+    		target.addPotionEffect(new EffectInstance(Effects.WITHER, 10, 2, false, true));
+    		Two.LOGGER.info(target.getActivePotionEffects());
     		return true;
     	}
     });
@@ -488,7 +498,8 @@ public class ItemsTwo {
     });
     public static final Item BLOOD_VENOM_BLADE = register("blood_venom_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-    		target.addPotionEffect(new EffectInstance(Effects.POISON, 10, 3, true, false));
+    		target.addPotionEffect(new EffectInstance(Effects.POISON, 10, 3, false, true));
+    		Two.LOGGER.info(target.getActivePotionEffects());
     		return true;
     	}
     });

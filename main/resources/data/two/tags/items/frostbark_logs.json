@@ -1,9 +1,9 @@
 {
 	"replace" : false,
   	"values" : [
-    	"two:frostwood_log",
-    	"two:frostwood_wood",
-    	"two:stripped_frostwood_log",
-    	"two:stripped_frostwood_wood"
+    	"two:frostbark_log",
+    	"two:frostbark_wood",
+    	"two:stripped_frostbark_log",
+    	"two:stripped_frostbark_wood"
   	]
 }
