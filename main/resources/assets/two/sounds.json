@@ -1,5 +1,5 @@
 {
-	"item/armor/equip_emerald" : {
+	"item.armor.equip_emerald" : {
 		"category" : "item",
 		"subtitle" : "subtitles.item.armor.equip_emerald",
 		"sounds" : [
