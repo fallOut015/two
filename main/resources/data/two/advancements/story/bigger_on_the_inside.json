@@ -1,5 +1,5 @@
 {
-	"parent" : "minecraft:story/not_so_faux_fur",
+	"parent" : "two:story/not_so_faux_fur",
 	"display" : {
 		"icon" : {
       		"item" : "two:knapsack"

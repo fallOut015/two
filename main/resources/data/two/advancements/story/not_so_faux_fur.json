@@ -1,5 +1,5 @@
 {
-	"parent" : "minecraft:story/best_of_both_worlds",
+	"parent" : "two:story/best_of_both_worlds",
 	"display" : {
 		"icon" : {
       		"item" : "two:white_woolen_chestplate"

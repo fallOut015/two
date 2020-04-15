@@ -1,5 +1,5 @@
 {
-	"parent" : "minecraft:story/going_plundering",
+	"parent" : "two:story/going_plundering",
 	"display" : {
 		"icon" : {
       		"item" : "minecraft:sponge"

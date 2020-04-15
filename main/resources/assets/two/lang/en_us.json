@@ -745,6 +745,9 @@
 	
 	"advancements.story.going_plundering.title" : "Going Plundering",
 	"advancements.story.going_plundering.description" : "Wield an iron Cutlass",
+	
+	"advancements.adventure.staying_dry.title" : "Staying Dry",
+	"advancements.adventure.staying_dry.description" : "Create a sponge armor piece and stay dry when roaming the ocean",
 
 
 
@@ -754,8 +757,10 @@
 	"advancements.adventure.bad_dreams.title" : "Bad Dreams",
 	"advancements.adventure.bad_dreams.description" : "Use a dreamcatcher, fall asleep, and enter the Nightmare dimension",
 
-	"advancements.adventure.staying_dry.title" : "Staying Dry",
-	"advancements.adventure.staying_dry.description" : "Create a sponge armor piece and stay dry when roaming the ocean",
+
+
+	"advancements.dreams.root.title" : "Dreams",
+	"advancements.dreams.root.description" : "Your one portal to anything... which includes nightmares",
 
 
 

@@ -1,5 +1,5 @@
 {
-	"parent" : "minecraft:adventure/sweeter_dreams",
+	"parent" : "two:adventure/sweeter_dreams",
 	"display" : {
 		"icon" : {
       		"item" : "minecraft:black_bed"

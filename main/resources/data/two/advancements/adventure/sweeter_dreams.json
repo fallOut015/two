@@ -1,5 +1,5 @@
 {
-	"parent" : "minecraft:adventure/sleep_in_bed",
+	"parent" : "two:adventure/sleep_in_bed",
 	"display" : {
 		"icon" : {
       		"item" : "minecraft:pink_bed"
