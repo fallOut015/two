@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:frostbark_sign"
+    ]
+  },
+  "criteria": {
+    "has_frostbark_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:frostbark_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:frostbark_sign"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_frostbark_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

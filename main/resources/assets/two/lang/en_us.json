@@ -23,6 +23,8 @@
 	"block.two.maple_planks" : "Maple Planks",
 	"block.two.ghostwood_planks" : "Ghostwood Planks",
 	"block.two.cloudwood_planks" : "Cloudwood Planks",
+	"block.two.blackbark_planks" : "Blackbark Planks",
+	"block.two.frostbark_planks" : "Frostbark Planks",
 	
 	"block.two.white_stained_planks" : "White Stained Planks",
 	"block.two.orange_stained_planks" : "Orange Stained Planks",
@@ -52,26 +54,36 @@
 	"block.two.maple_sapling" : "Maple Sapling",
 	"block.two.ghostwood_sapling" : "Ghostwood Sapling",
 	"block.two.cloudwood_sapling" : "Cloudwood Sapling",
+	"block.two.blackbark_sapling" : "Blackbark Sapling",
+	"block.two.frostbark_sapling" : "Frostbark Sapling",
 	
 	"block.two.potted_cherry_sapling" : "Potted Cherry Sapling",
 	"block.two.potted_maple_sapling" : "Potted Maple Sapling",
 	"block.two.potted_ghostwood_sapling" : "Potted Ghostwood Sapling",
 	"block.two.potted_cloudwood_sapling" : "Potted Cloudwood Sapling",
+	"block.two.potted_blackbark_sapling" : "Potted Blackbark Sapling",
+	"block.two.potted_frostbark_sapling" : "Potted Frostbark Sapling",
 	
 	"block.two.stripped_cherry_log" : "Stripped Cherry Log",
 	"block.two.stripped_maple_log" : "Stripped Maple Log",
 	"block.two.stripped_ghostwood_log" : "Stripped Ghostwood Log",
 	"block.two.stripped_cloudwood_log" : "Stripped Cloudwood Log",
+	"block.two.stripped_blackbark_log" : "Stripped Blackbark Log",
+	"block.two.stripped_frostbark_log" : "Stripped Frostbark Log",
 	
 	"block.two.stripped_cherry_wood" : "Stripped Cherry Wood",
 	"block.two.stripped_maple_wood" : "Stripped Maple Wood",
 	"block.two.stripped_ghostwood_wood" : "Stripped Ghostwood Wood",
 	"block.two.stripped_cloudwood_wood" : "Stripped Cloudwood Wood",
+	"block.two.stripped_blackbark_wood" : "Stripped Blackbark Wood",
+	"block.two.stripped_frostbark_wood" : "Stripped Frostbark Wood",
 	
 	"block.two.cherry_wood" : "Cherry Wood",
 	"block.two.maple_wood" : "Maple Wood",
 	"block.two.ghostwood_wood" : "Ghostwood Wood",
 	"block.two.cloudwood_wood" : "Cloudwood Wood",
+	"block.two.blackbark_wood" : "Blackbark Wood",
+	"block.two.frostbark_wood" : "Frostbark Wood",
 	
 	"block.two.cherry_leaves" : "Cherry Leaves",
 	"block.two.maple_leaves" : "Maple Leaves",
@@ -84,51 +96,71 @@
 	"block.two.maple_slab" : "Maple Slab",
 	"block.two.ghostwood_slab" : "Ghostwood Slab",
 	"block.two.cloudwood_slab" : "Cloudwood Slab",
+	"block.two.blackbark_slab" : "Blackbark Slab",
+	"block.two.frostbark_slab" : "Frostbark Slab",
 	
 	"block.two.cherry_pressure_plate" : "Cherry Pressure Plate",
 	"block.two.maple_pressure_plate" : "Maple Pressure Plate",
 	"block.two.ghostwood_pressure_plate" : "Ghostwood Pressure Plate",
 	"block.two.cloudwood_pressure_plate" : "Cloudwood Pressure Plate",
+	"block.two.blackbark_pressure_plate" : "Blackbark Pressure Plate",
+	"block.two.frostbark_pressure_plate" : "Frostbark Pressure Plate",
 	
 	"block.two.cherry_fence" : "Cherry Fence",
 	"block.two.maple_fence" : "Maple Fence",
 	"block.two.ghostwood_fence" : "Ghostwood Fence",
 	"block.two.cloudwood_fence" : "Cloudwood Fence",
+	"block.two.blackbark_fence" : "Blackbark Fence",
+	"block.two.frostbark_fence" : "Frostbark Fence",
 	
 	"block.two.cherry_trapdoor" : "Cherry Trapdoor",
 	"block.two.maple_trapdoor" : "Maple Trapdoor",
 	"block.two.ghostwood_trapdoor" : "Ghostwood Trapdoor",
 	"block.two.cloudwood_trapdoor" : "Cloudwood Trapdoor",
+	"block.two.blackbark_trapdoor" : "Blackbark Trapdoor",
+	"block.two.frostbark_trapdoor" : "Frstobark Trapdoor",
 	
 	"block.two.cherry_fence_gate" : "Cherry Fence Gate",
 	"block.two.maple_fence_gate" : "Maple Fence Gate",
 	"block.two.ghostwood_fence_gate" : "Ghostwood Fence Gate",
 	"block.two.cloudwood_fence_gate" : "Cloudwood Fence Gate",
+	"block.two.blackbark_fence_gate" : "Blackbark Fence Gate",
+	"block.two.frostbark_fence_gate" : "Frostbark Fence Gate",
 	
 	"block.two.cherry_stairs" : "Cherry Stairs",
 	"block.two.maple_stairs" : "Maple Stairs",
 	"block.two.ghostwood_stairs" : "Ghostwood Stairs",
 	"block.two.cloudwood_stairs" : "Cloudwood Stairs",
+	"block.two.blackbark_stairs" : "Blackbark Stairs",
+	"block.two.frostbark_stairs" : "Frostbark Stairs",
 	
 	"block.two.cherry_button" : "Cherry Button",
 	"block.two.maple_button" : "Maple Button",
 	"block.two.ghostwood_button" : "Ghostwood Button",
 	"block.two.cloudwood_button" : "Cloudwood Button",
+	"block.two.blackbark_button" : "Blackbark Button",
+	"block.two.frostbark_button" : "Frostbark Button",
 	
 	"block.two.cherry_door" : "Cherry Door",
 	"block.two.maple_door" : "Maple Door",
 	"block.two.ghostwood_door" : "Ghostwood Door",
 	"block.two.cloudwood_door" : "Cloudwood Door",
+	"block.two.blackbark_door" : "Blackbark Door",
+	"block.two.frostbark_door" : "Frostbark Door",
 	
 	"block.two.cherry_sign" : "Cherry Sign",
 	"block.two.maple_sign" : "Maple Sign",
 	"block.two.ghostwood_sign" : "Ghostwood Sign",
 	"block.two.cloudwood_sign" : "Cloudwood Sign",
+	"block.two.blackbark_sign" : "Blackbark Sign",
+	"block.two.frostbark_sign" : "Frostbark Sign",
 	
 	"block.two.cherry_wall_sign" : "Cherry Wall Sign",
 	"block.two.maple_wall_sign" : "Maple Wall Sign",
 	"block.two.ghostwood_wall_sign" : "Ghostwood Wall Sign",
 	"block.two.cloudwood_wall_sign" : "Cloudwood Wall Sign",
+	"block.two.blackbark_wall_sign" : "Blackbark Wall Sign",
+	"block.two.frostbark_wall_sign" : "Frostbark Wall Sign",
 	
 	"block.two.white_glazed_bricks" : "White Glazed Bricks",
 	"block.two.orange_glazed_bricks" : "Orange Glazed Bricks",
@@ -214,7 +246,6 @@
 
 	
 	
-	
 	"block.minecraft.bed.nightmare" : "You shudder in your sleep, you want to wake up. Perhaps going back to bed would be a good idea for the unready.",
 	"block.minecraft.bed.rainbow" : "You dream of vibrant colors, and not a thing in the world can hurt you.",
 	"block.minecraft.bed.sky" : "Your comfy bed feels like lying on clouds... and suddenly, you are.",
@@ -242,6 +273,8 @@
 	"item.two.maple_boat" : "Maple Rowboat",
 	"item.two.ghostwood_boat" : "Ghostwood Rowboat",
 	"item.two.cloudwood_boat" : "Cloudwood Rowboat",
+	"item.two.blackbark_boat" : "Blackbark Rowboat",
+	"item.two.frostbark_boat" : "Frostbark Rowboat",
 	
 	
 	
@@ -293,6 +326,8 @@
 	"item.two.maple_horse_armor" : "Maple Horse Armor",
 	"item.two.ghostwood_horse_armor" : "Ghostwood Horse Armor",
 	"item.two.cloudwood_horse_armor" : "Cloudwood Horse Armor",
+	"item.two.blackbark_horse_armor" : "Blackbark Horse Armor",
+	"item.two.frostbark_horse_armor" : "Frostbark Horse Armor",
 	
 	"item.two.white_stained_wooden_horse_armor" : "White Stained Wooden Horse Armor",
 	"item.two.orange_stained_wooden_horse_armor" : "Orange Stained Wooden Horse Armor",
@@ -498,6 +533,16 @@
 	"item.two.cloudwood_chestplate" : "Cloudwood Chestplate",
 	"item.two.cloudwood_leggings" : "Cloudwood Leggings",
 	"item.two.cloudwood_boots" : "Cloudwood Boots",
+	
+	"item.two.blackbark_helmet" : "Blackbark Helmet",
+	"item.two.blackbark_chestplate" : "Blackbark Chestplate",
+	"item.two.blackbark_leggings" : "Blackbark Leggings",
+	"item.two.blackbark_boots" : "Blackbark Boots",
+	
+	"item.two.frostbark_helmet" : "Frostbark Helmet",
+	"item.two.frostbark_chestplate" : "Frostbark Chestplate",
+	"item.two.frostbark_leggings" : "Frostbark Leggings",
+	"item.two.frostbark_boots" : "Frostbark Boots",
 	
 	"item.two.white_stained_wooden_helmet" : "White Stained Wooden Helmet",
 	"item.two.white_stained_wooden_chestplate" : "White Stained Wooden Chestplate",

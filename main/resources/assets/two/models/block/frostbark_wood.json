@@ -1,0 +1,7 @@
+{
+    "parent" : "minecraft:block/cube_column",
+    "textures" : {
+        "end" : "two:block/frostbark_log",
+        "side" : "two:block/frostbark_log"
+    }
+}

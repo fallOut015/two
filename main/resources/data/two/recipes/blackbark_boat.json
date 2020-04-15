@@ -1,0 +1,16 @@
+{
+  	"type": "minecraft:crafting_shaped",
+  	"group": "boat",
+  	"pattern": [
+    	"# #",
+    	"###"
+  	],
+  	"key": {
+    	"#": {
+      		"item": "two:blackbark_planks"
+    	}
+  	},
+  	"result": {
+    	"item": "two:blackbark_boat"
+  	}
+}

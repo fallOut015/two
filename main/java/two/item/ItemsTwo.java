@@ -60,6 +60,8 @@ public class ItemsTwo {
 	public static final Item MAPLE_PLANKS = register(BlocksTwo.MAPLE_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item GHOSTWOOD_PLANKS = register(BlocksTwo.GHOSTWOOD_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item CLOUDWOOD_PLANKS = register(BlocksTwo.CLOUDWOOD_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BLACKBARK_PLANKS = register(BlocksTwo.BLACKBARK_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item FROSTBARK_PLANKS = register(BlocksTwo.FROSTBARK_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	public static final Item WHITE_STAINED_PLANKS = register(BlocksTwo.WHITE_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item ORANGE_STAINED_PLANKS = register(BlocksTwo.ORANGE_STAINED_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -89,26 +91,36 @@ public class ItemsTwo {
 	public static final Item STRIPPED_MAPLE_LOG = register(BlocksTwo.STRIPPED_MAPLE_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item STRIPPED_GHOSTWOOD_LOG = register(BlocksTwo.STRIPPED_GHOSTWOOD_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item STRIPPED_CLOUDWOOD_LOG = register(BlocksTwo.STRIPPED_CLOUDWOOD_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item STRIPPED_BLACKBARK_LOG = register(BlocksTwo.STRIPPED_BLACKBARK_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item STRIPPED_FROSTBARK_LOG = register(BlocksTwo.STRIPPED_FROSTBARK_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	public static final Item CHERRY_WOOD = register(BlocksTwo.CHERRY_WOOD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item MAPLE_WOOD = register(BlocksTwo.MAPLE_WOOD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item GHOSTWOOD_WOOD = register(BlocksTwo.GHOSTWOOD_WOOD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item CLOUDWOOD_WOOD = register(BlocksTwo.CLOUDWOOD_WOOD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BLACKBARK_WOOD = register(BlocksTwo.BLACKBARK_WOOD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item FROSTBARK_WOOD = register(BlocksTwo.FROSTBARK_WOOD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	public static final Item STRIPPED_CHERRY_WOOD = register(BlocksTwo.STRIPPED_CHERRY_WOOD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item STRIPPED_MAPLE_WOOD = register(BlocksTwo.STRIPPED_MAPLE_WOOD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item STRIPPED_GHOSTWOOD_WOOD = register(BlocksTwo.STRIPPED_GHOSTWOOD_WOOD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item STRIPPED_CLOUDWOOD_WOOD = register(BlocksTwo.STRIPPED_CLOUDWOOD_WOOD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item STRIPPED_BLACKBARK_WOOD = register(BlocksTwo.STRIPPED_BLACKBARK_WOOD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item STRIPPED_FROSTBARK_WOOD = register(BlocksTwo.STRIPPED_FROSTBARK_WOOD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	public static final Item CHERRY_SLAB = register(BlocksTwo.CHERRY_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item MAPLE_SLAB = register(BlocksTwo.MAPLE_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item GHOSTWOOD_SLAB = register(BlocksTwo.GHOSTWOOD_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item CLOUDWOOD_SLAB = register(BlocksTwo.CLOUDWOOD_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BLACKBARK_SLAB = register(BlocksTwo.BLACKBARK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item FROSTBARK_SLAB = register(BlocksTwo.FROSTBARK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	public static final Item CHERRY_STAIRS = register(BlocksTwo.CHERRY_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item MAPLE_STAIRS = register(BlocksTwo.MAPLE_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item GHOSTWOOD_STAIRS = register(BlocksTwo.GHOSTWOOD_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item CLOUDWOOD_STAIRS = register(BlocksTwo.CLOUDWOOD_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BLACKBARK_STAIRS = register(BlocksTwo.BLACKBARK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item FROSTBARK_STAIRS = register(BlocksTwo.FROSTBARK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	public static final Item WHITE_GLAZED_BRICKS = register(BlocksTwo.WHITE_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item ORANGE_GLAZED_BRICKS = register(BlocksTwo.ORANGE_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -189,6 +201,8 @@ public class ItemsTwo {
 	public static final Item MAPLE_SAPLING = register(BlocksTwo.MAPLE_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item GHOSTWOOD_SAPLING = register(BlocksTwo.GHOSTWOOD_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item CLOUDWOOD_SAPLING = register(BlocksTwo.CLOUDWOOD_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item BLACKBARK_SAPLING = register(BlocksTwo.BLACKBARK_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item FROSTBARK_SAPLING = register(BlocksTwo.FROSTBARK_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
 	public static final Item CHERRY_LEAVES = register(BlocksTwo.CHERRY_LEAVES, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item MAPLE_LEAVES = register(BlocksTwo.MAPLE_LEAVES, new Item.Properties().group(ItemGroup.DECORATIONS));
@@ -201,12 +215,16 @@ public class ItemsTwo {
 	public static final Item MAPLE_FENCE = register(BlocksTwo.MAPLE_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item GHOSTWOOD_FENCE = register(BlocksTwo.GHOSTWOOD_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item CLOUDWOOD_FENCE = register(BlocksTwo.CLOUDWOOD_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
-	
+	public static final Item BLACKBARK_FENCE = register(BlocksTwo.BLACKBARK_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item FROSTBARK_FENCE = register(BlocksTwo.FROSTBARK_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+
 	public static final Item CHERRY_SIGN = register(BlocksTwo.CHERRY_SIGN, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item MAPLE_SIGN = register(BlocksTwo.MAPLE_SIGN, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item GHOSTWOOD_SIGN = register(BlocksTwo.GHOSTWOOD_SIGN, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item CLOUDWOOD_SIGN = register(BlocksTwo.CLOUDWOOD_SIGN, new Item.Properties().group(ItemGroup.DECORATIONS));
-	
+	public static final Item BLACKBARK_SIGN = register(BlocksTwo.BLACKBARK_SIGN, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item FROSTBARK_SIGN = register(BlocksTwo.FROSTBARK_SIGN, new Item.Properties().group(ItemGroup.DECORATIONS));
+
 	public static final Item DREAMCATCHER_CHAOS = register(BlocksTwo.DREAMCATCHER_CHAOS, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item DREAMCATCHER_HEALING = register(BlocksTwo.DREAMCATCHER_HEALING, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item DREAMCATCHER_LOOT = register(BlocksTwo.DREAMCATCHER_LOOT, new Item.Properties().group(ItemGroup.DECORATIONS));
@@ -225,26 +243,36 @@ public class ItemsTwo {
 	public static final Item MAPLE_PRESSURE_PLATE = register(BlocksTwo.MAPLE_PRESSURE_PLATE, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item GHOSTWOOD_PRESSURE_PLATE = register(BlocksTwo.GHOSTWOOD_PRESSURE_PLATE, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item CLOUDWOOD_PRESSURE_PLATE = register(BlocksTwo.CLOUDWOOD_PRESSURE_PLATE, new Item.Properties().group(ItemGroup.REDSTONE));
-	
+	public static final Item BLACKBARK_PRESSURE_PLATE = register(BlocksTwo.BLACKBARK_PRESSURE_PLATE, new Item.Properties().group(ItemGroup.REDSTONE));
+	public static final Item FROSTBARK_PRESSURE_PLATE = register(BlocksTwo.FROSTBARK_PRESSURE_PLATE, new Item.Properties().group(ItemGroup.REDSTONE));
+
 	public static final Item CHERRY_TRAPDOOR = register(BlocksTwo.CHERRY_TRAPDOOR, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item MAPLE_TRAPDOOR = register(BlocksTwo.MAPLE_TRAPDOOR, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item GHOSTWOOD_TRAPDOOR = register(BlocksTwo.GHOSTWOOD_TRAPDOOR, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item CLOUDWOOD_TRAPDOOR = register(BlocksTwo.CLOUDWOOD_TRAPDOOR, new Item.Properties().group(ItemGroup.REDSTONE));
-	
+	public static final Item BLACKBARK_TRAPDOOR = register(BlocksTwo.BLACKBARK_TRAPDOOR, new Item.Properties().group(ItemGroup.REDSTONE));
+	public static final Item FROSTBARK_TRAPDOOR = register(BlocksTwo.FROSTBARK_TRAPDOOR, new Item.Properties().group(ItemGroup.REDSTONE));
+
 	public static final Item CHERRY_FENCE_GATE = register(BlocksTwo.CHERRY_FENCE_GATE, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item MAPLE_FENCE_GATE = register(BlocksTwo.MAPLE_FENCE_GATE, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item GHOSTWOOD_FENCE_GATE = register(BlocksTwo.GHOSTWOOD_FENCE_GATE, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item CLOUDWOOD_FENCE_GATE = register(BlocksTwo.CLOUDWOOD_FENCE_GATE, new Item.Properties().group(ItemGroup.REDSTONE));
+	public static final Item BLACKBARK_FENCE_GATE = register(BlocksTwo.BLACKBARK_FENCE_GATE, new Item.Properties().group(ItemGroup.REDSTONE));
+	public static final Item FROSTBARK_FENCE_GATE = register(BlocksTwo.FROSTBARK_FENCE_GATE, new Item.Properties().group(ItemGroup.REDSTONE));
 	
 	public static final Item CHERRY_BUTTON = register(BlocksTwo.CHERRY_BUTTON, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item MAPLE_BUTTON = register(BlocksTwo.MAPLE_BUTTON, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item GHOSTWOOD_BUTTON = register(BlocksTwo.GHOSTWOOD_BUTTON, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item CLOUDWOOD_BUTTON = register(BlocksTwo.CLOUDWOOD_BUTTON, new Item.Properties().group(ItemGroup.REDSTONE));
+	public static final Item BLACKBARK_BUTTON = register(BlocksTwo.BLACKBARK_BUTTON, new Item.Properties().group(ItemGroup.REDSTONE));
+	public static final Item FROSTBARK_BUTTON = register(BlocksTwo.FROSTBARK_BUTTON, new Item.Properties().group(ItemGroup.REDSTONE));
 	
 	public static final Item CHERRY_DOOR = register(BlocksTwo.CHERRY_DOOR, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item MAPLE_DOOR = register(BlocksTwo.MAPLE_DOOR, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item GHOSTWOOD_DOOR = register(BlocksTwo.GHOSTWOOD_DOOR, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item CLOUDWOOD_DOOR = register(BlocksTwo.CLOUDWOOD_DOOR, new Item.Properties().group(ItemGroup.REDSTONE));
+	public static final Item BLACKBARK_DOOR = register(BlocksTwo.BLACKBARK_DOOR, new Item.Properties().group(ItemGroup.REDSTONE));
+	public static final Item FROSTBARK_DOOR = register(BlocksTwo.FROSTBARK_DOOR, new Item.Properties().group(ItemGroup.REDSTONE));
 	
 	
 	
@@ -254,6 +282,8 @@ public class ItemsTwo {
 	public static final Item CHERRY_BOAT = register("cherry_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
 	public static final Item GHOSTWOOD_BOAT = register("ghostwood_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
 	public static final Item CLOUDWOOD_BOAT = register("cloudwood_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
+	public static final Item BLACKBARK_BOAT = register("blackbark_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
+	public static final Item FROSTBARK_BOAT = register("frostbark_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
 	
 	
 	
@@ -296,7 +326,9 @@ public class ItemsTwo {
     public static final Item MAPLE_HORSE_ARMOR = register("maple_horse_armor", new HorseArmorItem(2, "maple", new Item.Properties().maxStackSize(1).group(ItemGroup.MISC)));
     public static final Item GHOSTWOOD_HORSE_ARMOR = register("ghostwood_horse_armor", new HorseArmorItem(2, "ghostwood", new Item.Properties().maxStackSize(1).group(ItemGroup.MISC)));
     public static final Item CLOUDWOOD_HORSE_ARMOR = register("cloudwood_horse_armor", new HorseArmorItem(2, "cloudwood", new Item.Properties().maxStackSize(1).group(ItemGroup.MISC)));
-    
+    public static final Item BLACKBARK_HORSE_ARMOR = register("blackbark_horse_armor", new HorseArmorItem(2, "blackbark", new Item.Properties().maxStackSize(1).group(ItemGroup.MISC)));
+    public static final Item FROSTBARK_HORSE_ARMOR = register("frostbark_horse_armor", new HorseArmorItem(2, "frostbark", new Item.Properties().maxStackSize(1).group(ItemGroup.MISC)));
+   
     public static final Item WHITE_STAINED_WOODEN_HORSE_ARMOR = register("white_stained_wooden_horse_armor", new HorseArmorItem(2, "white_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
     public static final Item ORANGE_STAINED_WOODEN_HORSE_ARMOR = register("orange_stained_wooden_horse_armor", new HorseArmorItem(2, "orange_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
     public static final Item MAGENTA_STAINED_WOODEN_HORSE_ARMOR = register("magenta_stained_wooden_horse_armor", new HorseArmorItem(2, "magenta_stained_wood", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
@@ -330,12 +362,10 @@ public class ItemsTwo {
     public static final Item GREEN_WOOLEN_HORSE_ARMOR = register("green_woolen_horse_armor", new HorseArmorItem(3, "green_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
     public static final Item RED_WOOLEN_HORSE_ARMOR = register("red_woolen_horse_armor", new HorseArmorItem(3, "red_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
     public static final Item BLACK_WOOLEN_HORSE_ARMOR = register("black_woolen_horse_armor", new HorseArmorItem(3, "black_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
-    //sponge
-    //glowstone
     
-    //public static final Item RUBY_HORSE_ARMOR = register("ruby_horse_armor", new HorseArmorItem(0, "ruby", new Item.Properties().group(ItemGroup.COMBAT)));
-    //public static final Item LEAD_HORSE_ARMOR = register("lead_horse_armor", new HorseArmorItem(0, "lead", new Item.Properties().group(ItemGroup.COMBAT)));
-
+    public static final Item SPONGE_HORSE_ARMOR = register("sponge_horse_armor", new HorseArmorItem(3, "sponge", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item GLOWSTONE_HORSE_ARMOR = register("glowstone_horse_armor", new HorseArmorItem(3, "glowstone", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    
     //public static final Item BACKPACK = register("backpack", new BackpackItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
     //backpack -> wearable, another tab of items
     //fanny pack -> wearable, displays extra row
@@ -349,9 +379,33 @@ public class ItemsTwo {
     
     public static final Item MUSIC_DISC_BAD_DREAMS = register("music_disc_bad_dreams", new MusicDiscItemTwo(13, SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
 	
+    public static final Item LETTER_A = register("letter_a", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_B = register("letter_b", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_C = register("letter_c", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_D = register("letter_d", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_E = register("letter_e", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_F = register("letter_f", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_G = register("letter_g", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_H = register("letter_h", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_I = register("letter_i", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_J = register("letter_j", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_K = register("letter_k", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_L = register("letter_l", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_M = register("letter_m", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_N = register("letter_n", new Item(new Item.Properties().group(ItemGroup.MISC)));
     public static final Item LETTER_O = register("letter_o", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_P = register("letter_p", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_Q = register("letter_q", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_R = register("letter_r", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_S = register("letter_s", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_T = register("letter_t", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_U = register("letter_u", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_V = register("letter_v", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_W = register("letter_w", new Item(new Item.Properties().group(ItemGroup.MISC)));
     public static final Item LETTER_X = register("letter_x", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    
+    public static final Item LETTER_Y = register("letter_y", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_Z = register("letter_z", new Item(new Item.Properties().group(ItemGroup.MISC)));
+
     
 	
 	//Tools
@@ -516,6 +570,16 @@ public class ItemsTwo {
     public static final Item CLOUDWOOD_LEGGINGS = register("cloudwood_leggings", new ArmorItem(ArmorMaterialTwo.CLOUDWOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item CLOUDWOOD_BOOTS = register("cloudwood_boots", new ArmorItem(ArmorMaterialTwo.CLOUDWOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
     
+    public static final Item BLACKBARK_HELMET = register("blackbark_helmet", new ArmorItem(ArmorMaterialTwo.BLACKBARK, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BLACKBARK_CHESTPLATE = register("blackbark_chestplate", new ArmorItem(ArmorMaterialTwo.BLACKBARK, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BLACKBARK_LEGGINGS = register("blackbark_leggings", new ArmorItem(ArmorMaterialTwo.BLACKBARK, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item BLACKBARK_BOOTS = register("blackbark_boots", new ArmorItem(ArmorMaterialTwo.BLACKBARK, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item FROSTBARK_HELMET = register("frostbark_helmet", new ArmorItem(ArmorMaterialTwo.FROSTBARK, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item FROSTBARK_CHESTPLATE = register("frostbark_chestplate", new ArmorItem(ArmorMaterialTwo.FROSTBARK, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item FROSTBARK_LEGGINGS = register("frostbark_leggings", new ArmorItem(ArmorMaterialTwo.FROSTBARK, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item FROSTBARK_BOOTS = register("frostbark_boots", new ArmorItem(ArmorMaterialTwo.FROSTBARK, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
     public static final Item WHITE_STAINED_WOODEN_HELMET = register("white_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.WHITE_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item WHITE_STAINED_WOODEN_CHESTPLATE = register("white_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.WHITE_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item WHITE_STAINED_WOODEN_LEGGINGS = register("white_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.WHITE_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));

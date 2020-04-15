@@ -1,0 +1,6 @@
+{
+    "variants" : {
+        "powered=false" : { "model" : "two:block/frostbark_pressure_plate" },
+        "powered=true" : { "model" : "two:block/frostbark_pressure_plate_down" }
+    }
+}

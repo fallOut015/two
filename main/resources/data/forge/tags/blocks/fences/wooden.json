@@ -4,6 +4,8 @@
     	"two:cherry_fence",
     	"two:maple_fence",
     	"two:ghostwood_fence",
-    	"two:cloudwood_fence"
+    	"two:cloudwood_fence",
+		"two:blackbark_fence",
+    	"two:frostbark_fence"
   	]
 }

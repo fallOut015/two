@@ -1,0 +1,17 @@
+{
+	"type" : "minecraft:crafting_shaped",
+  	"group" : "bark",
+  	"pattern" : [
+    	"##",
+    	"##"
+  	],
+  	"key" : {
+    	"#" : {
+      		"item" : "two:stripped_frostbark_log"
+    	}
+  	},
+  	"result" : {
+    	"item" : "two:stripped_frostbark_wood",
+    	"count" : 3
+  	}
+}

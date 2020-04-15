@@ -25,6 +25,8 @@ public class WoodTypeTwo extends WoodType {
 	public static final WoodType GHOSTWOOD = register(new WoodTypeTwo("ghostwood")); //Heavy, hard
 	public static final WoodType DEADWOOD = register(new WoodTypeTwo("deadwood")); //Heavy, hard
 	public static final WoodType CLOUDWOOD = register(new WoodTypeTwo("cloudwood")); //Lightweight, soft
+	public static final WoodType BLACKBARK = register(new WoodTypeTwo("blackbark")); 
+	public static final WoodType FROSTBARK = register(new WoodTypeTwo("frostbark")); 
 	
 	private final String ID;
 	

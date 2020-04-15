@@ -4,6 +4,8 @@
 		"two:cherry_button",
     	"two:maple_button",
 		"two:ghostwood_button",
-    	"two:cloudwood_button"
+    	"two:cloudwood_button",
+		"two:blackbark_button",
+    	"two:frostbark_button"
   	]
 }

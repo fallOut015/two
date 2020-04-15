@@ -1,0 +1,7 @@
+{
+    "parent": "minecraft:block/door_top",
+    "textures": {
+        "bottom": "two:block/frostbark_door_bottom",
+        "top": "two:block/frostbark_door_top"
+    }
+}

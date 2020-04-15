@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:blackbark_sign"
+    ]
+  },
+  "criteria": {
+    "has_blackbark_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:blackbark_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:blackbark_sign"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_blackbark_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,13 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+  	"group" : "planks",
+  	"ingredients" : [
+    	{
+      		"tag" : "two:frostbark_logs"
+    	}
+  	],
+  	"result" : {
+    	"item" : "two:frostbark_planks",
+    	"count" : 4
+  	}
+}

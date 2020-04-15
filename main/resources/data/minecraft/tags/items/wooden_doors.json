@@ -4,6 +4,8 @@
 		"two:cherry_door",
     	"two:maple_door",
 		"two:ghostwood_door",
-    	"two:cloudwood_door"
+    	"two:cloudwood_door",
+		"two:blackbark_door",
+    	"two:frostbark_door"
   	]
 }
