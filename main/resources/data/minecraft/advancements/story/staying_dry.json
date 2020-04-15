@@ -1,0 +1,35 @@
+{
+	"parent" : "minecraft:story/going_plundering",
+	"display" : {
+		"icon" : {
+      		"item" : "minecraft:sponge"
+    	},
+    	"title" : {
+      		"translate" : "advancements.story.staying_dry.title"
+    	},
+    	"description" : {
+      		"translate" : "advancements.story.staying_dry.description"
+    	},
+    	"frame" : "task",
+    	"show_toast" : true,
+    	"announce_to_chat" : true,
+    	"hidden" : false
+  	},
+  	"criteria" : {
+    	"sponge_helmet" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"item" : "two:sponge_helmet"
+          			}
+        		]
+      		}
+    	}
+  	},
+  	"requirements" : [
+    	[
+      		"sponge_helmet"
+    	]
+  	]
+}

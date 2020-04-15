@@ -1,6 +1,6 @@
 {
 	"item.armor.equip_emerald" : {
-		"category" : "item",
+		"category" : "master",
 		"subtitle" : "subtitles.item.armor.equip_emerald",
 		"sounds" : [
 			"two:item/armor/equip_emerald"

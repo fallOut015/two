@@ -10,6 +10,7 @@ import net.minecraftforge.registries.ObjectHolder;
 public class ModDimensionTwo {
 	public static final ModDimension NIGHTMARE = register("nightmare", new NightmareModDimension());
 	public static final ModDimension SKY = register("sky", new SkyModDimension());
+	public static final ModDimension FROSTBITE = register("frostbite", new FrostbiteModDimension());
 	
 	public static void onModDimensionsRegistry(final RegistryEvent.Register<ModDimension> modDimensionRegistryEvent) {
 		modDimensionRegistryEvent.getRegistry().registerAll(Holder.MODDIMENSIONS.toArray(new ModDimension [] {}));

@@ -5,7 +5,9 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.AxeItem;
@@ -52,7 +54,7 @@ public class ItemsTwo {
 		}
 	});
 	
-	public static final Item ANVIL = register(BlocksTwo.ANVIL, new Item.Properties().group(ItemGroup.DECORATIONS).rarity(Rarity.EPIC));
+//	public static final Item ANVIL = register(BlocksTwo.ANVIL, new Item.Properties().group(ItemGroup.DECORATIONS).rarity(Rarity.EPIC));
 	
 	
 	
@@ -239,6 +241,8 @@ public class ItemsTwo {
 	
 	public static final Item MAPLE_TAP = register(BlocksTwo.MAPLE_TAP, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
+	public static final Item BILLBOARD = register(BlocksTwo.BILLBOARD, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
 	
 	
 	// Redstone
@@ -287,6 +291,8 @@ public class ItemsTwo {
 	public static final Item CLOUDWOOD_BOAT = register("cloudwood_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
 	public static final Item BLACKBARK_BOAT = register("blackbark_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
 	public static final Item FROSTBARK_BOAT = register("frostbark_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
+	
+	public static final Item OBSIDIAN_BOAT = register("obsidian_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
 	
 	
 	
@@ -366,9 +372,10 @@ public class ItemsTwo {
     public static final Item RED_WOOLEN_HORSE_ARMOR = register("red_woolen_horse_armor", new HorseArmorItem(3, "red_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
     public static final Item BLACK_WOOLEN_HORSE_ARMOR = register("black_woolen_horse_armor", new HorseArmorItem(3, "black_wool", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
     
-    public static final Item SPONGE_HORSE_ARMOR = register("sponge_horse_armor", new HorseArmorItem(3, "sponge", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item SPONGE_HORSE_ARMOR = register("sponge_horse_armor", new SpongeHorseArmorItem(3, "sponge", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
     public static final Item GLOWSTONE_HORSE_ARMOR = register("glowstone_horse_armor", new HorseArmorItem(3, "glowstone", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
-    
+    public static final Item OBSIDIAN_HORSE_ARMOR = register("obsidian_horse_armor", new HorseArmorItem(10, "obsidian", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+
     //public static final Item BACKPACK = register("backpack", new BackpackItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
     //backpack -> wearable, another tab of items
     //fanny pack -> wearable, displays extra row
@@ -379,6 +386,15 @@ public class ItemsTwo {
     public static final Item CHAMELEON_SPAWN_EGG = register("chameleon_spawn_egg", new SpawnEggItem(EntityTypeTwo.CHAMELEON, 2162500, 14463743, new Item.Properties().group(ItemGroup.MISC)));
     
     public static final Item SNOWGLOBE = register("snowglobe", new SnowglobeItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
+    public static final Item BALLOON = register("balloon", new Item(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)) {
+    	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+    		if(entityIn instanceof PlayerEntity) {
+    			if(((PlayerEntity) entityIn).getActiveItemStack().getItem() == ItemsTwo.BALLOON) {
+    				((PlayerEntity) entityIn).setNoGravity(true);
+    			}
+    		}
+    	};
+    });
     
     public static final Item MUSIC_DISC_BAD_DREAMS = register("music_disc_bad_dreams", new MusicDiscItemTwo(13, SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
 	
@@ -409,6 +425,17 @@ public class ItemsTwo {
     public static final Item LETTER_Y = register("letter_y", new Item(new Item.Properties().group(ItemGroup.MISC)));
     public static final Item LETTER_Z = register("letter_z", new Item(new Item.Properties().group(ItemGroup.MISC)));
 
+    public static final Item NUMBER_1 = register("number_1", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item NUMBER_2 = register("number_2", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item NUMBER_3 = register("number_3", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item NUMBER_4 = register("number_4", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item NUMBER_5 = register("number_5", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item NUMBER_6 = register("number_6", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item NUMBER_7 = register("number_7", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item NUMBER_8 = register("number_8", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item NUMBER_9 = register("number_9", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item NUMBER_0 = register("number_0", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    
     
 	
 	//Tools
@@ -449,6 +476,7 @@ public class ItemsTwo {
 	// add knockback to hammer and indicator.
 	
 	public static final Item CRAFTING_BOOK = register("crafting_book", new CraftingBookItem(new Item.Properties().group(ItemGroup.TOOLS)));
+	// other books
 	
 
 	
@@ -485,7 +513,7 @@ public class ItemsTwo {
 
     public static final Item BLOOD_WITHER_BLADE = register("blood_wither_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-    		target.addPotionEffect(new EffectInstance(Effects.WITHER, 10, 2, false, true));
+    		target.addPotionEffect(new EffectInstance(Effects.WITHER, 50, 2, false, true));
     		Two.LOGGER.info(target.getActivePotionEffects());
     		return true;
     	}
@@ -498,7 +526,7 @@ public class ItemsTwo {
     });
     public static final Item BLOOD_VENOM_BLADE = register("blood_venom_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-    		target.addPotionEffect(new EffectInstance(Effects.POISON, 10, 3, false, true));
+    		target.addPotionEffect(new EffectInstance(Effects.POISON, 50, 3, false, true));
     		Two.LOGGER.info(target.getActivePotionEffects());
     		return true;
     	}
@@ -751,15 +779,31 @@ public class ItemsTwo {
     public static final Item BLACK_WOOLEN_LEGGINGS = register("black_woolen_leggings", new ArmorItem(ArmorMaterialTwo.BLACK_WOOL, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item BLACK_WOOLEN_BOOTS = register("black_woolen_boots", new ArmorItem(ArmorMaterialTwo.BLACK_WOOL, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
     
-    public static final Item SPONGE_HELMET = register("sponge_helmet", new ArmorItem(ArmorMaterialTwo.SPONGE, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item SPONGE_CHESTPLATE = register("sponge_chestplate", new ArmorItem(ArmorMaterialTwo.SPONGE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item SPONGE_LEGGINGS = register("sponge_leggings", new ArmorItem(ArmorMaterialTwo.SPONGE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item SPONGE_BOOTS = register("sponge_boots", new ArmorItem(ArmorMaterialTwo.SPONGE, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+    public static final Item SPONGE_HELMET = register("sponge_helmet", new SpongeArmorItem(ArmorMaterialTwo.SPONGE, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item SPONGE_CHESTPLATE = register("sponge_chestplate", new SpongeArmorItem(ArmorMaterialTwo.SPONGE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item SPONGE_LEGGINGS = register("sponge_leggings", new SpongeArmorItem(ArmorMaterialTwo.SPONGE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item SPONGE_BOOTS = register("sponge_boots", new SpongeArmorItem(ArmorMaterialTwo.SPONGE, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
     
-    public static final Item GLOWSTONE_HELMET = register("glowstone_helmet", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GLOWSTONE_HELMET = register("glowstone_helmet", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)) {
+    	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
+    		// Lightning whatnot
+    	}
+    });
     public static final Item GLOWSTONE_CHESTPLATE = register("glowstone_chestplate", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item GLOWSTONE_LEGGINGS = register("glowstone_leggings", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item GLOWSTONE_BOOTS = register("glowstone_boots", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+   
+    public static final Item OBSIDIAN_HELMET = register("obsidian_helmet", new ArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)) {
+    	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
+    		// Prevent the player from catching fire (or just put them out every tick that they are)
+    	}
+    });
+    public static final Item OBSIDIAN_CHESTPLATE = register("obsidian_chestplate", new ArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item OBSIDIAN_LEGGINGS = register("obsidian_leggings", new ArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item OBSIDIAN_BOOTS = register("obsidian_boots", new ArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    // add balloon for toying around with setNoGravity
+    // also setGlowing
     
     public static final Item TOP_HAT = register("top_hat", new TopHatItem(new Item.Properties().group(ItemGroup.COMBAT)));
     

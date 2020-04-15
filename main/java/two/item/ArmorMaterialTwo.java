@@ -167,6 +167,9 @@ public enum ArmorMaterialTwo implements IArmorMaterial {
 	}),
 	GLOWSTONE("glowstone", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_GLOWSTONE, 0.0f, () -> {
 		return Ingredient.fromItems(Items.GLOWSTONE);
+	}),
+	OBSIDIAN("obsidian", 30, new int[] {3, 6, 8, 3}, 1, SoundEventsTwo.ITEM_ARMOR_EQUIP_OBSIDIAN, 0.0f, () -> {
+		return Ingredient.fromItems(Items.OBSIDIAN);
 	});
 	
 	private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};

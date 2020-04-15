@@ -246,9 +246,9 @@
 
 	
 	
-	"block.minecraft.bed.nightmare" : "You shudder in your sleep, you want to wake up. Perhaps going back to bed would be a good idea for the unready.",
-	"block.minecraft.bed.rainbow" : "You dream of vibrant colors, and not a thing in the world can hurt you.",
-	"block.minecraft.bed.sky" : "Your comfy bed feels like lying on clouds... and suddenly, you are.",
+	"block.minecraft.bed.nightmare" : "You shudder in your sleep, you want to wake up",
+	"block.minecraft.bed.rainbow" : "You dream of vibrant colors, and not a thing in the world can hurt you",
+	"block.minecraft.bed.sky" : "Your comfy bed feels like lying on clouds... and suddenly, you are",
 
 
 
@@ -275,6 +275,8 @@
 	"item.two.cloudwood_boat" : "Cloudwood Rowboat",
 	"item.two.blackbark_boat" : "Blackbark Rowboat",
 	"item.two.frostbark_boat" : "Frostbark Rowboat",
+	
+	"item.two.obsidian_boat" : "Obsidian Rowboat",
 	
 	
 	
@@ -362,9 +364,11 @@
 	"item.two.green_woolen_horse_armor" : "Green Woolen Horse Armor",
 	"item.two.red_woolen_horse_armor" : "Red Woolen Horse Armor",
 	"item.two.black_woolen_horse_armor" : "Black Woolen Horse Armor",
+	
 	"item.two.sponge_horse_armor" : "Sponge Horse Armor",
 	"item.two.glowstone_horse_armor" : "Glowstone Horse Armor",
-	
+	"item.two.obsidian_horse_armor" : "Obsidian Horse Armor",
+
 	"item.two.knapsack" : "Knapsack",
 	
 	"item.two.chameleon_spawn_egg" : "Chameleon Spawn Egg",
@@ -714,6 +718,11 @@
 	"item.two.glowstone_leggings" : "Glowstone Leggings",
 	"item.two.glowstone_boots" : "Glowstone Boots",
 	
+	"item.two.obsidian_helmet" : "Obsidian Helmet",
+	"item.two.obsidian_chestplate" : "Obsidian Chestplate",
+	"item.two.obsidian_leggings" : "Obsidian Leggings",
+	"item.two.obsidian_boots" : "Obsidian Boots",
+
 	"item.two.top_hat" : "Top Hat",
 	
 
@@ -742,6 +751,9 @@
 
 	"advancements.adventure.bad_dreams.title" : "Bad Dreams",
 	"advancements.adventure.bad_dreams.description" : "Use a dreamcatcher, fall asleep, and enter the Nightmare dimension",
+
+	"advancements.adventure.staying_dry.title" : "Staying Dry",
+	"advancements.adventure.staying_dry.description" : "Create a sponge armor piece and stay dry when roaming the ocean",
 
 
 
@@ -779,5 +791,6 @@
 	"subtitles.item.armor.equip_wood" : "Wooden armor plats",
 	"subtitles.item.armor.equip_wool" : "Woolen armor plofs",
 	"subtitles.item.armor.equip_sponge" : "Sponge armor squishes",
-	"subtitles.item.armor.equip_glowstone" : "Glowstone armor shines"
+	"subtitles.item.armor.equip_glowstone" : "Glowstone armor shines",
+	"subtitles.item.armor.equip_obsidian" : "Obsidian armor scratches"
 }

@@ -12,11 +12,21 @@ public class SoundEventsTwo {
 	@ObjectHolder("item.armor.equip_emerald") public static final SoundEvent ITEM_ARMOR_EQUIP_EMERALD = register("item.armor.equip_emerald");
 	@ObjectHolder("item.armor.equip_ruby") public static final SoundEvent ITEM_ARMOR_EQUIP_RUBY = register("item.armor.equip_ruby");
 	@ObjectHolder("item.armor.equip_lead") public static final SoundEvent ITEM_ARMOR_EQUIP_LEAD = register("item.armor.equip_lead");
+	
 	@ObjectHolder("item.armor.equip_stone") public static final SoundEvent ITEM_ARMOR_EQUIP_STONE = register("item.armor.equip_stone");
+	
 	@ObjectHolder("item.armor.equip_wood") public static final SoundEvent ITEM_ARMOR_EQUIP_WOOD = register("item.armor.equip_wood");
+	
 	@ObjectHolder("item.armor.equip_wool") public static final SoundEvent ITEM_ARMOR_EQUIP_WOOL = register("item.armor.equip_wool");
+	
 	@ObjectHolder("item.armor.equip_sponge") public static final SoundEvent ITEM_ARMOR_EQUIP_SPONGE = register("item.armor.equip_sponge");
 	@ObjectHolder("item.armor.equip_glowstone") public static final SoundEvent ITEM_ARMOR_EQUIP_GLOWSTONE = register("item.armor.equip_glowstone");
+	@ObjectHolder("item.armor.equip_obsidian") public static final SoundEvent ITEM_ARMOR_EQUIP_OBSIDIAN = register("item.armor.equip_obsidian");
+	
+	
+	
+	
+	
 	
 	@ObjectHolder("music.nightmare") public static final SoundEvent MUSIC_NIGHTMARE = register("music.nightmare");
 	

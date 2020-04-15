@@ -57,8 +57,8 @@ import two.world.dimension.ModDimensionTwo;
 public class BlocksTwo {
 	public static final Block TEST_BLOCK = register("test_block", new Block(Block.Properties.create(Material.MISCELLANEOUS).lightValue(1)));
     
-	@ObjectHolder("minecraft:anvil")
-	public static final Block ANVIL = register("anvil", new AnvilBlockTwo(Block.Properties.create(Material.ANVIL)));
+//	@ObjectHolder("minecraft:anvil")
+//	public static final Block ANVIL = register("minecraft:anvil", new AnvilBlockTwo(Block.Properties.create(Material.ANVIL)).setRegistryName("minecraft", "anvil"));
 	
 	//public static final Block ADOBE = register("adobe", new AdobeBlock());
 	
@@ -220,8 +220,6 @@ public class BlocksTwo {
 	public static final Block CLOUDWOOD_WALL_SIGN = register("cloudwood_wall_sign", new WallSignBlock(Block.Properties.create(Material.WOOD, MaterialColor.CYAN_TERRACOTTA).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(CLOUDWOOD_SIGN), WoodTypeTwo.CLOUDWOOD));
 	public static final Block BLACKBARK_WALL_SIGN = register("blackbark_wall_sign", new WallSignBlock(Block.Properties.create(Material.WOOD, MaterialColor.BLACK).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(BLACKBARK_SIGN), WoodTypeTwo.BLACKBARK));
 	public static final Block FROSTBARK_WALL_SIGN = register("frostbark_wall_sign", new WallSignBlock(Block.Properties.create(Material.WOOD, MaterialColor.ICE).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(FROSTBARK_SIGN), WoodTypeTwo.FROSTBARK));
-	
-	
 	
 	public static final Block WHITE_GLAZED_BRICKS = register("white_glazed_bricks", new Block(Block.Properties.create(Material.ROCK, DyeColor.WHITE).hardnessAndResistance(2.0F, 6.0F)));
 	public static final Block ORANGE_GLAZED_BRICKS = register("orange_glazed_bricks", new Block(Block.Properties.create(Material.ROCK, DyeColor.ORANGE).hardnessAndResistance(2.0F, 6.0F)));
@@ -385,6 +383,8 @@ public class BlocksTwo {
 	});
 	
 	public static final Block MAPLE_TAP = register("maple_tap", new MapleTapBlock(Block.Properties.create(Material.IRON)));
+	
+	public static final Block BILLBOARD = register("billboard", new Block(Block.Properties.create(Material.IRON)));
 	
 	
 	
