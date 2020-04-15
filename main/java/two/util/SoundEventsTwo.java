@@ -9,7 +9,7 @@ import net.minecraftforge.registries.ObjectHolder;
 
 @ObjectHolder("two")
 public class SoundEventsTwo {
-	@ObjectHolder("item.armor.equip_emerald") public static final SoundEvent ITEM_ARMOR_EQUIP_EMERALD = register("item.armor.equip_emerald");
+	@ObjectHolder("item/armor/equip_emerald") public static final SoundEvent ITEM_ARMOR_EQUIP_EMERALD = register("item/armor/equip_emerald");
 	@ObjectHolder("item.armor.equip_ruby") public static final SoundEvent ITEM_ARMOR_EQUIP_RUBY = register("item.armor.equip_ruby");
 	@ObjectHolder("item.armor.equip_lead") public static final SoundEvent ITEM_ARMOR_EQUIP_LEAD = register("item.armor.equip_lead");
 	
