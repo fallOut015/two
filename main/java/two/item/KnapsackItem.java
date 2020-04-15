@@ -35,6 +35,8 @@ public class KnapsackItem extends Item {
 	}
 	
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
+		super.onItemRightClick(worldIn, playerIn, handIn);
+		
 		ItemStack itemStack = playerIn.getHeldItem(handIn);
 		
 		INamedContainerProvider knapsackContainerProvider = new KnapsackInventory(playerIn, itemStack);
