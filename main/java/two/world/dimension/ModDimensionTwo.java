@@ -9,8 +9,16 @@ import net.minecraftforge.registries.ObjectHolder;
 @ObjectHolder("two")
 public class ModDimensionTwo {
 	public static final ModDimension NIGHTMARE = register("nightmare", new NightmareModDimension());
+//	public static final ModDimension DEEP_DARK;
 	public static final ModDimension SKY = register("sky", new SkyModDimension());
+//	public static final ModDimension RAINBOW;
 	public static final ModDimension FROSTBITE = register("frostbite", new FrostbiteModDimension());
+//	public static final ModDimension BLOOD_AETHER;
+//	public static final ModDimension NIDAVELLIR;
+	// THE SOMETHING
+	// SOMETHING REALM
+	// THE VALLEY OF SPIRITS
+	// SOMETHING WITH PLANETS AND ALCHEMICAL SYMBOLS?
 	
 	public static void onModDimensionsRegistry(final RegistryEvent.Register<ModDimension> modDimensionRegistryEvent) {
 		modDimensionRegistryEvent.getRegistry().registerAll(Holder.MODDIMENSIONS.toArray(new ModDimension [] {}));

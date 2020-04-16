@@ -13,6 +13,11 @@ public class BiomesTwo {
 	public static final Biome THE_FOREST = register("the_forest", new TheForestBiome());
 	
 	public static final Biome SKY = register("sky", new SkyBiome());
+	
+	public static final Biome FROSTED_WOODS = register("frosted_woods", new FrostedWoodsBiome());
+	public static final Biome PETRIFIED_PLAINS = register("petrified_plains", new PetrifiedPlainsBiome());
+	public static final Biome TUNDRA_HILLS = register("tundra_hills", new TundraHillsBiome());
+	
 	/*
 	public static final Biome MAGNIFIED_FOREST;
 	public static final Biome CATLANDS;

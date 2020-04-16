@@ -3,6 +3,7 @@ package two.world.gen.surfacebuilders;
 import java.util.LinkedList;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraftforge.event.RegistryEvent;
@@ -12,13 +13,17 @@ public class SurfaceBuilderTwo {
 	public static final BlockState GAULT = BlocksTwo.GAULT.getDefaultState();
 	public static final BlockState NIGHTSTONE = BlocksTwo.NIGHTSTONE.getDefaultState();
 	public static final BlockState CLOUD = BlocksTwo.CLOUD.getDefaultState();
+	public static final BlockState ICE = Blocks.ICE.getDefaultState();
+	public static final BlockState PACKED_ICE = Blocks.PACKED_ICE.getDefaultState();
 	
 	public static final SurfaceBuilderConfig GAULT_CONFIG = new SurfaceBuilderConfig(GAULT, NIGHTSTONE, NIGHTSTONE);
 	public static final SurfaceBuilderConfig CLOUD_CONFIG = new SurfaceBuilderConfig(CLOUD, CLOUD, CLOUD);
+	public static final SurfaceBuilderConfig ICE_CONFIG = new SurfaceBuilderConfig(ICE, ICE, PACKED_ICE);
 	
 	public static final SurfaceBuilder<SurfaceBuilderConfig> NIGHTMARE = register("nightmare", new NightmareSurfaceBuilder(SurfaceBuilderConfig::deserialize));
 	public static final SurfaceBuilder<SurfaceBuilderConfig> NIGHTMARE_HIGHLANDS = register("nightmare_highlands", new NightmareHighlandsSurfaceBuilder(SurfaceBuilderConfig::deserialize));
 	public static final SurfaceBuilder<SurfaceBuilderConfig> SKY = register("sky", new SkySurfaceBuilder(SurfaceBuilderConfig::deserialize));
+	public static final SurfaceBuilder<SurfaceBuilderConfig> FROSTBITE = register("frostbite", new FrostbiteSurfaceBuilder(SurfaceBuilderConfig::deserialize));
 	
 	public static void onSurfaceBuildersRegistry(final RegistryEvent.Register<SurfaceBuilder<?>> surfaceBuilderRegistryEvent) {
 		surfaceBuilderRegistryEvent.getRegistry().registerAll(Holder.SURFACEBUILDERSTWO.toArray(new SurfaceBuilder<?> [] {}));

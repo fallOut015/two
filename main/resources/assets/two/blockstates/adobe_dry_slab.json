@@ -1,0 +1,7 @@
+{
+    "variants" : {
+        "type=bottom" : { "model" : "two:block/adobe_dry_slab" },
+        "type=top" : { "model" : "two:block/adobe_dry_slab_top" },
+        "type=double" : { "model" : "two:block/adobe_dry" }
+    }
+}

@@ -17,7 +17,7 @@ import two.world.biome.BiomesTwo;
 import two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 
 public class FrostbiteDimension extends Dimension {
-	private static final Vec3d fogColor = new Vec3d((double)0.2F, (double)0.03F, (double)0.03F); // white
+	private static final Vec3d fogColor = new Vec3d((double)1.0F, (double)1.0F, (double)1.0F); // white (maybe black)
 
 	public FrostbiteDimension(World world, DimensionType dimensionType, float lighting) {
 		super(world, dimensionType, lighting);
@@ -26,9 +26,9 @@ public class FrostbiteDimension extends Dimension {
 	@Override
 	public ChunkGenerator<?> createChunkGenerator() {
 	    OverworldGenSettings frostbitegensettings = ChunkGeneratorType.SURFACE.createSettings();
-	    frostbitegensettings.setDefaultBlock(SurfaceBuilderTwo.GAULT);
+	    frostbitegensettings.setDefaultBlock(SurfaceBuilderTwo.ICE);
 	    frostbitegensettings.setDefaultFluid(Blocks.WATER.getDefaultState());
-	    return ChunkGeneratorType.SURFACE.create(this.world, BiomeProviderType.CHECKERBOARD.create(BiomeProviderType.CHECKERBOARD.func_226840_a_(this.world.getWorldInfo()).setBiomes(new Biome [] { BiomesTwo.NIGHTMARE, BiomesTwo.NIGHTMARE_HIGHLANDS, BiomesTwo.THE_FOREST })), frostbitegensettings);
+	    return ChunkGeneratorType.SURFACE.create(this.world, BiomeProviderType.CHECKERBOARD.create(BiomeProviderType.CHECKERBOARD.func_226840_a_(this.world.getWorldInfo()).setBiomes(new Biome [] { BiomesTwo.FROSTED_WOODS, BiomesTwo.PETRIFIED_PLAINS, BiomesTwo.TUNDRA_HILLS })), frostbitegensettings);
 	}
 	@Override
 	public BlockPos findSpawn(ChunkPos chunkPosIn, boolean checkValid) {

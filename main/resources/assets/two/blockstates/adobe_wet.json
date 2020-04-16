@@ -1,0 +1,7 @@
+{
+	"variants" : {
+    	"" : {
+			"model" : "two:block/adobe_wet"
+		}
+	}
+}

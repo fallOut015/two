@@ -1,0 +1,32 @@
+{
+	"parent" : "minecraft:recipes/root",
+  	"rewards" : {
+    	"recipes" : [
+      		"two:adobe_dry_stairs"
+    	]
+  	},
+  	"criteria" : {
+    	"has_adobe_dry" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"item" : "two:adobe_dry"
+          			}
+        		]
+      		}
+    	},
+    	"has_the_recipe" : {
+      		"trigger" : "minecraft:recipe_unlocked",
+      		"conditions" : {
+        		"recipe" : "two:adobe_dry_stairs"
+      		}
+    	}
+  	},
+  	"requirements" : [
+    	[
+      		"has_adobe_dry",
+      		"has_the_recipe"
+    	]
+  	]
+}

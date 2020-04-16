@@ -10,6 +10,13 @@
 	"block.two.test_block" : "Test Block",
 	
 	
+	"block.two.adobe_wet" : "Wet Adobe",
+	"block.two.adobe_dry" : "Adobe Bricks",
+	"block.two.adobe_dry_slab" : "Adobe Brick Slab",
+	"block.two.adobe_dry_stairs" : "Adobe Brick Stairs",
+	"block.two.adobe_frozen" : "Frozen Adobe Bricks",
+	"block.two.adobe_frozen_slab" : "Frozen Adobe Brick Slab",
+	"block.two.adobe_frozen_stairs" : "Frozen Adobe Brick Stairs",
 	
 	"block.two.cedar_planks" : "Cedar Planks",
 	"block.two.redwood_planks" : "Redwood Planks",
@@ -470,6 +477,7 @@
 	"item.two.blood_flame_blade" : "Blood Flame Blade",
 	"item.two.blood_venom_blade" : "Blood Venom Blade",
 	"item.two.banisher" : "The Banisher",
+	"item.two.stormbreaker" : "Stormbreaker",
 	
 	"item.two.emerald_helmet" : "Emerald Helmet",
 	"item.two.emerald_chestplate" : "Emerald Chestplate",
@@ -747,8 +755,8 @@
 	"advancements.story.going_plundering.title" : "Going Plundering",
 	"advancements.story.going_plundering.description" : "Wield an iron Cutlass",
 	
-	"advancements.adventure.staying_dry.title" : "Staying Dry",
-	"advancements.adventure.staying_dry.description" : "Create a sponge armor piece and stay dry when roaming the ocean",
+	"advancements.story.staying_dry.title" : "Staying Dry",
+	"advancements.story.staying_dry.description" : "Create a sponge armor piece and stay dry when roaming the ocean",
 
 
 

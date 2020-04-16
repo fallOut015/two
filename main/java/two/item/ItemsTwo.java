@@ -24,8 +24,6 @@ import net.minecraft.item.Rarity;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.SwordItem;
-import net.minecraft.particles.IParticleData;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.ActionResult;
@@ -59,8 +57,14 @@ public class ItemsTwo {
 	
 	
 	// Building blocks 
-	//public static final Item ADOBE = register(BlocksTwo.ADOBE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-
+	public static final Item ADOBE_WET = register(BlocksTwo.ADOBE_WET, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item ADOBE_DRY = register(BlocksTwo.ADOBE_DRY, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item ADOBE_DRY_SLAB = register(BlocksTwo.ADOBE_DRY_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item ADOBE_DRY_STAIRS = register(BlocksTwo.ADOBE_DRY_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item ADOBE_FROZEN = register(BlocksTwo.ADOBE_FROZEN, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item ADOBE_FROZEN_SLAB = register(BlocksTwo.ADOBE_FROZEN_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item ADOBE_FROZEN_STAIRS = register(BlocksTwo.ADOBE_FROZEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
 	public static final Item CHERRY_PLANKS = register(BlocksTwo.CHERRY_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item MAPLE_PLANKS = register(BlocksTwo.MAPLE_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item GHOSTWOOD_PLANKS = register(BlocksTwo.GHOSTWOOD_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -425,6 +429,7 @@ public class ItemsTwo {
     public static final Item LETTER_Y = register("letter_y", new Item(new Item.Properties().group(ItemGroup.MISC)));
     public static final Item LETTER_Z = register("letter_z", new Item(new Item.Properties().group(ItemGroup.MISC)));
 
+    public static final Item NUMBER_0 = register("number_0", new Item(new Item.Properties().group(ItemGroup.MISC)));
     public static final Item NUMBER_1 = register("number_1", new Item(new Item.Properties().group(ItemGroup.MISC)));
     public static final Item NUMBER_2 = register("number_2", new Item(new Item.Properties().group(ItemGroup.MISC)));
     public static final Item NUMBER_3 = register("number_3", new Item(new Item.Properties().group(ItemGroup.MISC)));
@@ -434,7 +439,6 @@ public class ItemsTwo {
     public static final Item NUMBER_7 = register("number_7", new Item(new Item.Properties().group(ItemGroup.MISC)));
     public static final Item NUMBER_8 = register("number_8", new Item(new Item.Properties().group(ItemGroup.MISC)));
     public static final Item NUMBER_9 = register("number_9", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item NUMBER_0 = register("number_0", new Item(new Item.Properties().group(ItemGroup.MISC)));
     
     
 	
@@ -531,13 +535,8 @@ public class ItemsTwo {
     		return true;
     	}
     });
-    public static final Item BANISHER = register("banisher", new Item(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)) {
-    	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-    		target.knockBack(target, 10, -(target.prevPosX - attacker.prevPosX), -(target.prevPosZ - attacker.prevPosZ));
-			target.world.addParticle((IParticleData) ParticleTypes.DUST, target.prevPosX, target.prevPosY, target.prevPosZ, -(target.prevPosX - attacker.prevPosX), -0.1, -(target.prevPosZ - attacker.prevPosZ));
-			return true;
-    	};
-    });
+    public static final Item BANISHER = register("banisher", new BanisherItem(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)));
+    public static final Item STORMBREAKER = register("stormbreaker", new StormbreakerItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.EPIC)));
     
     public static final Item EMERALD_HELMET = register("emerald_helmet", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item EMERALD_CHESTPLATE = register("emerald_chestplate", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));

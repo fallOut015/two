@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "two:adobe_dry"
+    }
+  },
+  "result": {
+    "item": "two:adobe_dry_slab",
+    "count": 6
+  }
+}

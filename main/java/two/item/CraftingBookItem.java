@@ -29,6 +29,8 @@ public class CraftingBookItem extends Item {
 		}, CONTAINER_CRAFTING);
 		//IInventory craftingInventory = (new CraftingInventory(craftingContainer.createMenu(0, playerIn.inventory, playerIn), 3, 3));
 		
+		// TODO ADD FUNCTIONALITY
+		
 		playerIn.openContainer(craftingContainer);
 		playerIn.addStat(Stats.ITEM_USED.get(this));
 		

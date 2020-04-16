@@ -16,6 +16,7 @@ Changelog:
 	Added wooden armor.
 	Added stone armor.
 	Added woolen clothes.
+	Added sponge armor.
 	Added chainmail horse armor.
 	Added emerald tools and weapons.
 	Added sickles.
@@ -36,6 +37,8 @@ Changelog:
 	Added dreamcatchers.
 	Added the Nightmare Dimension.
 	Added decorative iron blocks.
+	Added the Billboard block.
+	Added Adobe blocks.
 '''
 [[dependencies.two]] #optional
     modId="forge"

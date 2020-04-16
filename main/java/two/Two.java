@@ -22,7 +22,9 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.server.ServerWorld;
@@ -59,6 +61,27 @@ import two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 
 @Mod("two")
 public class Two {
+	// TODO STAIRS AND SLAB FOR ADOBE AND GLAZED BRICKS
+	// TODO SLAB, PRESSURE PLATE, FENCE, STAIRS, BUTTON, SIGN, AND BOAT FOR STAINED PLANKS
+	
+	// GLAIVE
+	// DAGGER
+	// MACE
+	// LONGBOW
+	// ARBALEST
+	// CAPPED ARROWS
+	
+	// MATTOCK
+	
+	// PILLARS
+	// FURNITURE
+	// CURSED CHESTS
+	// FOOD SCRAPS
+	
+	// FIX TREES
+	// FIX SOUNDS
+	// FIX MODELS (LIKE DREAMCATCHERS AND SAPLINGS)
+	
     public static final Logger LOGGER = LogManager.getLogger();
     
     public Two() {
@@ -75,6 +98,8 @@ public class Two {
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CHAMELEON, ChameleonRenderer::new);
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
+    
+    	Biomes.JUNGLE.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.GHOSTWOOD_TREE.func_225566_b_(FeatureTwo.GHOSTWOOD));
     }
     private void enqueueIMC(final InterModEnqueueEvent event) {}
     private void processIMC(final InterModProcessEvent event) {}
@@ -124,12 +149,11 @@ public class Two {
     
     @Mod.EventBusSubscriber
     public static class Events {
-    	@SuppressWarnings("deprecation")
 		@SubscribeEvent
     	public static void onPlayerWakeUp(final PlayerWakeUpEvent playerWakeUpEvent) {
 			if(playerWakeUpEvent.getPlayer().getEntityWorld().getDayTime() == 24000) {
-    			if(playerWakeUpEvent.getPlayer().dimension == DimensionType.OVERWORLD && playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation().up()).getBlock() instanceof DreamcatcherBlock) {
-    				((DreamcatcherBlock) playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation().up()).getBlock()).onPlayerWakeUp(playerWakeUpEvent);
+    			if(playerWakeUpEvent.getPlayer().dimension == DimensionType.OVERWORLD && playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation(DimensionType.OVERWORLD).up()).getBlock() instanceof DreamcatcherBlock) {
+    				((DreamcatcherBlock) playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation(DimensionType.OVERWORLD).up()).getBlock()).onPlayerWakeUp(playerWakeUpEvent);
     			}
     		}
     	}

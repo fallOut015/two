@@ -1,0 +1,8 @@
+{
+    "parent": "minecraft:block/stairs",
+    "textures": {
+        "bottom": "two:block/adobe_frozen",
+        "top": "two:block/adobe_frozen",
+        "side": "two:block/adobe_frozen"
+    }
+}

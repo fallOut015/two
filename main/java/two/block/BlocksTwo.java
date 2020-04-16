@@ -60,7 +60,13 @@ public class BlocksTwo {
 //	@ObjectHolder("minecraft:anvil")
 //	public static final Block ANVIL = register("minecraft:anvil", new AnvilBlockTwo(Block.Properties.create(Material.ANVIL)).setRegistryName("minecraft", "anvil"));
 	
-	//public static final Block ADOBE = register("adobe", new AdobeBlock());
+	public static final Block ADOBE_WET = register("adobe_wet", new AdobeBlock(Block.Properties.create(Material.CLAY).tickRandomly().hardnessAndResistance(1.0f, 2.0f)));
+	public static final Block ADOBE_DRY = register("adobe_dry", new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f, 4.5f)));
+	public static final Block ADOBE_DRY_SLAB = register("adobe_dry_slab", new SlabBlock(Block.Properties.from(ADOBE_DRY)));
+	public static final Block ADOBE_DRY_STAIRS = register("adobe_dry_stairs", new StairsBlockTwo(ADOBE_DRY.getDefaultState(), Block.Properties.from(ADOBE_DRY)));
+	public static final Block ADOBE_FROZEN = register("adobe_frozen", new Block(Block.Properties.create(Material.ICE).slipperiness(0.9f).hardnessAndResistance(0.5f)));
+	public static final Block ADOBE_FROZEN_SLAB = register("adobe_frozen_slab", new SlabBlock(Block.Properties.from(ADOBE_FROZEN)));
+	public static final Block ADOBE_FROZEN_STAIRS = register("adobe_frozen_stairs", new StairsBlockTwo(ADOBE_FROZEN.getDefaultState(), Block.Properties.from(ADOBE_FROZEN)));
 	
 	//public static final Block CEDAR_PLANKS = register("cedar_planks", new Block(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	//public static final Block REDWOOD_PLANKS = register("redwood_planks", new Block(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
@@ -303,7 +309,6 @@ public class BlocksTwo {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			playerWakeUpEvent.getPlayer().setHealth(20);
-			// Other effects like healing will be applied later.
 		}
 	});
 	public static final Block DREAMCATCHER_LOOT = register("dreamcatcher_loot", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.YELLOW).hardnessAndResistance(0.4F)) {
@@ -384,7 +389,7 @@ public class BlocksTwo {
 	
 	public static final Block MAPLE_TAP = register("maple_tap", new MapleTapBlock(Block.Properties.create(Material.IRON)));
 	
-	public static final Block BILLBOARD = register("billboard", new Block(Block.Properties.create(Material.IRON)));
+	public static final Block BILLBOARD = register("billboard", new Block(Block.Properties.create(Material.GLASS).lightValue(5).hardnessAndResistance(0.2f).sound(SoundType.GLASS)));
 	
 	
 	
