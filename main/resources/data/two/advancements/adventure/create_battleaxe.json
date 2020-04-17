@@ -1,14 +1,14 @@
 {
-	"parent" : "two:story/bigger_on_the_inside",
+	"parent" : "minecraft:adventure/root",
 	"display" : {
 		"icon" : {
-      		"item" : "two:cutlass"
+      		"item" : "two:wooden_battleaxe"
     	},
     	"title" : {
-      		"translate" : "advancements.story.going_plundering.title"
+      		"translate" : "advancements.adventure.create_battleaxe.title"
     	},
     	"description" : {
-      		"translate" : "advancements.story.going_plundering.description"
+      		"translate" : "advancements.adventure.create_battleaxe.description"
     	},
     	"frame" : "task",
     	"show_toast" : true,
@@ -16,12 +16,12 @@
     	"hidden" : false
   	},
   	"criteria" : {
-    	"cutlass" : {
+    	"wooden_battleaxe" : {
       		"trigger" : "minecraft:inventory_changed",
       		"conditions" : {
         		"items" : [
           			{
-            			"item" : "two:cutlass"
+            			"item" : "two:wooden_battleaxe"
           			}
         		]
       		}
@@ -29,7 +29,7 @@
   	},
   	"requirements" : [
     	[
-      		"cutlass"
+      		"wooden_battleaxe"
     	]
   	]
 }

@@ -26,6 +26,7 @@ import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.DimensionManager;
@@ -83,10 +84,6 @@ public class Two {
 	// FIX SOUNDS
 	// FIX MODELS (LIKE DREAMCATCHERS AND SAPLINGS)
 	
-	// DECORATIVE ORE BLOCKS
-	// TWODO
-	// LAPIS, IRON, GOLD, DIAMOND, EMERALD, REDSTONE, (QUARTZ), COAL, (two:ores)
-	
     public static final Logger LOGGER = LogManager.getLogger();
     
     public Two() {
@@ -105,10 +102,17 @@ public class Two {
     	
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
-    
+    	
     	Biomes.JUNGLE.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.MAPLE_TREE.func_225566_b_(FeatureTwo.MAPLE));
     	Biomes.JUNGLE.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.CHERRY_TREE.func_225566_b_(FeatureTwo.MAPLE));
     	Biomes.JUNGLE.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.GHOSTWOOD_TREE.func_225566_b_(FeatureTwo.GHOSTWOOD));
+    	
+    	Biomes.BADLANDS.func_226711_a_(FeatureTwo.ADOBE_WELL.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG));
+    	Biomes.BADLANDS_PLATEAU.func_226711_a_(FeatureTwo.ADOBE_WELL.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG));
+    	Biomes.ERODED_BADLANDS.func_226711_a_(FeatureTwo.ADOBE_WELL.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG));
+    	Biomes.MODIFIED_BADLANDS_PLATEAU.func_226711_a_(FeatureTwo.ADOBE_WELL.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG));
+    	Biomes.MODIFIED_WOODED_BADLANDS_PLATEAU.func_226711_a_(FeatureTwo.ADOBE_WELL.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG));
+    	Biomes.WOODED_BADLANDS_PLATEAU.func_226711_a_(FeatureTwo.ADOBE_WELL.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG));
     }
     private void enqueueIMC(final InterModEnqueueEvent event) {}
     private void processIMC(final InterModProcessEvent event) {}

@@ -5,12 +5,15 @@ import java.util.LinkedList;
 import net.minecraft.block.BlockState;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.TreeFeature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
+import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.event.RegistryEvent;
 import two.block.BlocksTwo;
+import two.world.gen.feature.structure.AdobeWellStructure;
 
 @SuppressWarnings("unchecked")
 public class FeatureTwo {
@@ -41,6 +44,14 @@ public class FeatureTwo {
 	public static final TreeFeatureConfig CLOUDWOOD = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(CLOUDWOOD_LOG), new SimpleBlockStateProvider(CLOUDWOOD_LEAVES), new BlobFoliagePlacer(2, 0))).func_225569_d_(5).func_227354_b_(2).func_227360_i_(3).func_227352_a_().setSapling((IPlantable) BlocksTwo.CLOUDWOOD_SAPLING).func_225568_b_();
 	public static final TreeFeatureConfig BLACKBARK = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(BLACKBARK_LOG), new SimpleBlockStateProvider(BLACKBARK_LEAVES), new BlobFoliagePlacer(2, 0))).func_225569_d_(5).func_227354_b_(2).func_227360_i_(3).func_227352_a_().setSapling((IPlantable) BlocksTwo.BLACKBARK_SAPLING).func_225568_b_();
 	public static final TreeFeatureConfig FROSTBARK = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(FROSTBARK_LOG), new SimpleBlockStateProvider(FROSTBARK_LEAVES), new BlobFoliagePlacer(2, 0))).func_225569_d_(5).func_227354_b_(2).func_227360_i_(3).func_227352_a_().setSapling((IPlantable) BlocksTwo.FROSTBARK_SAPLING).func_225568_b_();
+	
+	
+	
+	public static final Structure<NoFeatureConfig> ADOBE_WELL = (Structure<NoFeatureConfig>) register("adobe_well", new AdobeWellStructure(NoFeatureConfig::deserialize));
+	
+	
+	
+	
 	
 	public static void onFeaturesRegistry(final RegistryEvent.Register<Feature<?>> featureRegistryEvent) {
 		featureRegistryEvent.getRegistry().registerAll(Holder.FEATURESTWO.toArray(new Feature<?> [] {}));

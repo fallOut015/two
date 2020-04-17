@@ -1,0 +1,68 @@
+{
+	"parent" : "two:story/obtain_woolen_armor",
+	"display" : {
+		"icon" : {
+      		"item" : "minecraft:sponge"
+    	},
+    	"title" : {
+      		"translate" : "advancements.story.obtain_sponge_armor.title"
+    	},
+    	"description" : {
+      		"translate" : "advancements.story.obtain_sponge_armor.description"
+    	},
+    	"frame" : "task",
+    	"show_toast" : true,
+    	"announce_to_chat" : true,
+    	"hidden" : false
+  	},
+  	"criteria" : {
+    	"sponge_helmet" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"item" : "two:sponge_helmet"
+          			}
+        		]
+      		}
+    	},
+		"sponge_chestplate" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"item" : "two:sponge_chestplate"
+          			}
+        		]
+      		}
+    	},
+		"sponge_leggings" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"item" : "two:sponge_leggings"
+          			}
+        		]
+      		}
+    	},
+		"sponge_boots" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"item" : "two:sponge_boots"
+          			}
+        		]
+      		}
+    	}
+  	},
+  	"requirements" : [
+    	[
+      		"sponge_helmet",
+			"sponge_chestplate",
+			"sponge_leggings",
+			"sponge_boots"
+    	]
+  	]
+}

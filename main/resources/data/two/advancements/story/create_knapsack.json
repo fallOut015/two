@@ -1,14 +1,14 @@
 {
-	"parent" : "two:story/not_so_faux_fur",
+	"parent" : "minecraft:story/root",
 	"display" : {
 		"icon" : {
       		"item" : "two:knapsack"
     	},
     	"title" : {
-      		"translate" : "advancements.story.bigger_on_the_inside.title"
+      		"translate" : "advancements.story.create_knapsack.title"
     	},
     	"description" : {
-      		"translate" : "advancements.story.bigger_on_the_inside.description"
+      		"translate" : "advancements.story.create_knapsack.description"
     	},
     	"frame" : "task",
     	"show_toast" : true,

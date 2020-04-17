@@ -1,16 +1,16 @@
 {
-	"parent" : "two:adventure/sweeter_dreams",
+	"parent" : "two:adventure/get_dreamcatcher_healing",
 	"display" : {
 		"icon" : {
       		"item" : "minecraft:black_bed"
     	},
     	"title" : {
-      		"translate" : "advancements.adventure.bad_dreams.title"
+      		"translate" : "advancements.adventure.enter_nightmare.title"
     	},
     	"description" : {
-      		"translate" : "advancements.adventure.bad_dreams.description"
+      		"translate" : "advancements.adventure.enter_nightmare.description"
     	},
-    	"frame" : "task",
+    	"frame" : "goal",
     	"show_toast" : true,
     	"announce_to_chat" : true,
     	"hidden" : false

@@ -16,7 +16,7 @@ public class AdobeBlock extends Block {
 	public void func_225534_a_(BlockState blockState, ServerWorld serverWorld, BlockPos pos, Random random) {
 		if(!serverWorld.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
 	    Stream<BlockPos> lightSpaces = BlockPos.getAllInBox(pos.north().west(), pos.south().east().up());
-	    if(lightSpaces.anyMatch(blockPos -> random.nextInt(serverWorld.getMaxLightLevel()) <= serverWorld.getLight(blockPos))) {
+	    if(lightSpaces.anyMatch(blockPos -> random.nextInt(serverWorld.getMaxLightLevel() - 1) + 1 <= serverWorld.getLight(blockPos))) {
 	    	serverWorld.setBlockState(pos, BlocksTwo.ADOBE_DRY.getDefaultState());
 	    	return;
 	    }

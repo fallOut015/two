@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": [
+      {
+        "item": "two:chiseled_lapis_block"
+      },
+      {
+        "item": "minecraft:lapis_block"
+      },
+      {
+        "item": "two:lapis_pillar"
+      }
+    ]
+  },
+  "result": {
+    "item": "two:lapis_stairs",
+    "count": 4
+  }
+}

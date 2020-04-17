@@ -2,26 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "two:wooden_capped_arrow"
+      "two:smooth_lapis"
     ]
   },
   "criteria": {
-    "has_feather": {
+    "has_lapis_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:feather"
-          }
-        ]
-      }
-    },
-    "has_stick": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "minecraft:stick"
+            "item": "minecraft:lapis_block"
           }
         ]
       }
@@ -29,14 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "two:wooden_capped_arrow"
+        "recipe": "two:smooth_lapis"
       }
     }
   },
   "requirements": [
     [
-      "has_feather",
-      "has_stick",
+      "has_lapis_block",
       "has_the_recipe"
     ]
   ]

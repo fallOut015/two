@@ -6,6 +6,12 @@
 		"two:ghostwood_stairs",
 		"two:cloudwood_stairs",
 		"two:blackbark_stairs",
-		"two:frostbark_stairs"
+		"two:frostbark_stairs",
+		
+		"#two:adobe_stairs",
+		
+		"two:lapis_stairs",
+		"two:iron_stairs",
+		"two:gold_stairs"
 	]
 }

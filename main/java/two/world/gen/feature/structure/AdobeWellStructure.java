@@ -13,8 +13,8 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
-public class PillarsStructure extends ScatteredStructure<NoFeatureConfig> {
-	public PillarsStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> function) {
+public class AdobeWellStructure extends ScatteredStructure<NoFeatureConfig> {
+	public AdobeWellStructure(Function<Dynamic<?>, ? extends NoFeatureConfig> function) {
 		super(function);
 	}
 
@@ -24,11 +24,11 @@ public class PillarsStructure extends ScatteredStructure<NoFeatureConfig> {
 	}
 	@Override
 	public IStartFactory getStartFactory() {
-		return PillarsStructure.Start::new;
+		return AdobeWellStructure.Start::new;
 	}
 	@Override
 	public String getStructureName() {
-		return "Pillars";
+		return "Adobe_Well";
 	}
 	@Override
 	public int getSize() {
@@ -42,8 +42,8 @@ public class PillarsStructure extends ScatteredStructure<NoFeatureConfig> {
 
 		@Override
 		public void init(ChunkGenerator<?> generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn) {
-			PillarsPiece pillarspiece = new PillarsPiece(this.rand, chunkX * 16, chunkZ * 16);
-			this.components.add(pillarspiece);
+			AdobeWellPiece adobewellpiece = new AdobeWellPiece(this.rand, chunkX * 16, chunkZ * 16);
+			this.components.add(adobewellpiece);
 			this.recalculateStructureSize();
 		}
 	}

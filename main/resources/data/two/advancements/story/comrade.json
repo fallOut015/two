@@ -1,5 +1,5 @@
 {
-	"parent" : "two:story/not_so_faux_fur",
+	"parent" : "minecraft:story/root",
 	"display" : {
 		"icon" : {
       		"item" : "two:communism"
@@ -10,10 +10,13 @@
     	"description" : {
       		"translate" : "advancements.story.comrade.description"
     	},
-    	"frame" : "task",
+    	"frame" : "challenge",
     	"show_toast" : true,
     	"announce_to_chat" : true,
-    	"hidden" : false
+    	"hidden" : true
+  	},
+	"rewards": {
+    	"experience": 1000
   	},
   	"criteria" : {
     	"smithing_hammer_and_iron_sickle" : {

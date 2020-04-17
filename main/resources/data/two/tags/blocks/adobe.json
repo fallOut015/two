@@ -1,0 +1,9 @@
+{
+	"replace" : false,
+  	"values" : [
+		"two:adobe_wet",
+    	"#two:adobe_bricks",
+    	"#two:adobe_slabs",
+    	"#two:adobe_stairs"
+  	]
+}

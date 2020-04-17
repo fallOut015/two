@@ -1,13 +1,13 @@
 {
 	"display": {
     	"icon": {
-      		"item": "minecraft:white_bed"
+      		"item": "minecraft:ice"
     	},
     	"title": {
-      		"translate": "advancements.dreams.root.title"
+      		"translate": "advancements.frostbite.root.title"
     	},
     	"description": {
-      		"translate": "advancements.dreams.root.description"
+      		"translate": "advancements.frostbite.root.description"
     	},
     	"frame": "task",
     	"show_toast": false,
@@ -16,23 +16,16 @@
     	"background": "minecraft:textures/gui/advancements/backgrounds/end.png"
   	},
   	"criteria": {
-    	"entered_nightmare": {
+    	"entered_frostbite": {
       		"trigger": "minecraft:changed_dimension",
       		"conditions": {
-        		"to": "two:nightmare"
-      		}
-    	},
-		"entered_sky": {
-      		"trigger": "minecraft:changed_dimension",
-      		"conditions": {
-        		"to": "two:sky"
+        		"to": "two:frostbite"
       		}
     	}
   	},
   	"requirements": [
     	[
-      		"entered_nightmare",
-			"entered_sky"
+      		"entered_frostbite"
     	]
   	]
 }

@@ -35,7 +35,6 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
-import two.Two;
 import two.block.BlocksTwo;
 import two.entity.EntityTypeTwo;
 import two.util.SoundEventsTwo;
@@ -58,9 +57,11 @@ public class ItemsTwo {
 	
 	// Building blocks 
 	public static final Item ADOBE_WET = register(BlocksTwo.ADOBE_WET, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
 	public static final Item ADOBE_DRY = register(BlocksTwo.ADOBE_DRY, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item ADOBE_DRY_SLAB = register(BlocksTwo.ADOBE_DRY_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item ADOBE_DRY_STAIRS = register(BlocksTwo.ADOBE_DRY_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
 	public static final Item ADOBE_FROZEN = register(BlocksTwo.ADOBE_FROZEN, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item ADOBE_FROZEN_SLAB = register(BlocksTwo.ADOBE_FROZEN_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item ADOBE_FROZEN_STAIRS = register(BlocksTwo.ADOBE_FROZEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -194,7 +195,15 @@ public class ItemsTwo {
 	public static final Item PYRITE_BLOCK = register(BlocksTwo.PYRITE_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item STEEL_BLOCK = register(BlocksTwo.STEEL_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item HARDENED_STEEL_BLOCK = register(BlocksTwo.HARDENED_STEEL_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-	
+
+	public static final Item CHISELED_LAPIS_BLOCK = register(BlocksTwo.CHISELED_LAPIS_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LAPIS_PILLAR = register(BlocksTwo.LAPIS_PILLAR, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LAPIS_STAIRS = register(BlocksTwo.LAPIS_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LAPIS_SLAB = register(BlocksTwo.LAPIS_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_LAPIS = register(BlocksTwo.SMOOTH_LAPIS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_LAPIS_STAIRS = register(BlocksTwo.SMOOTH_LAPIS_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_LAPIS_SLAB = register(BlocksTwo.SMOOTH_LAPIS_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+
 	public static final Item CHISELED_IRON_BLOCK = register(BlocksTwo.CHISELED_IRON_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item IRON_PILLAR = register(BlocksTwo.IRON_PILLAR, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item IRON_STAIRS = register(BlocksTwo.IRON_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -527,7 +536,6 @@ public class ItemsTwo {
     public static final Item BLOOD_WITHER_BLADE = register("blood_wither_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.addPotionEffect(new EffectInstance(Effects.WITHER, 50, 2, false, true));
-    		Two.LOGGER.info(target.getActivePotionEffects());
     		return true;
     	}
     });
@@ -540,7 +548,6 @@ public class ItemsTwo {
     public static final Item BLOOD_VENOM_BLADE = register("blood_venom_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.addPotionEffect(new EffectInstance(Effects.POISON, 50, 3, false, true));
-    		Two.LOGGER.info(target.getActivePotionEffects());
     		return true;
     	}
     });

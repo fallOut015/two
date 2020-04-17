@@ -1,14 +1,14 @@
 {
-	"parent" : "two:story/best_of_both_worlds",
+	"parent" : "minecraft:story/obtain_armor",
 	"display" : {
 		"icon" : {
       		"item" : "two:white_woolen_chestplate"
     	},
     	"title" : {
-      		"translate" : "advancements.story.not_so_faux_fur.title"
+      		"translate" : "advancements.story.obtain_woolen_armor.title"
     	},
     	"description" : {
-      		"translate" : "advancements.story.not_so_faux_fur.description"
+      		"translate" : "advancements.story.obtain_woolen_armor.description"
     	},
     	"frame" : "task",
     	"show_toast" : true,

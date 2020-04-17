@@ -60,14 +60,6 @@ public class BlocksTwo {
 //	@ObjectHolder("minecraft:anvil")
 //	public static final Block ANVIL = register("minecraft:anvil", new AnvilBlockTwo(Block.Properties.create(Material.ANVIL)).setRegistryName("minecraft", "anvil"));
 	
-	public static final Block ADOBE_WET = register("adobe_wet", new AdobeBlock(Block.Properties.create(Material.CLAY).tickRandomly().hardnessAndResistance(1.0f, 2.0f)));
-	public static final Block ADOBE_DRY = register("adobe_dry", new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f, 4.5f)));
-	public static final Block ADOBE_DRY_SLAB = register("adobe_dry_slab", new SlabBlock(Block.Properties.from(ADOBE_DRY)));
-	public static final Block ADOBE_DRY_STAIRS = register("adobe_dry_stairs", new StairsBlockTwo(ADOBE_DRY.getDefaultState(), Block.Properties.from(ADOBE_DRY)));
-	public static final Block ADOBE_FROZEN = register("adobe_frozen", new Block(Block.Properties.create(Material.ICE).slipperiness(0.9f).hardnessAndResistance(0.5f)));
-	public static final Block ADOBE_FROZEN_SLAB = register("adobe_frozen_slab", new SlabBlock(Block.Properties.from(ADOBE_FROZEN)));
-	public static final Block ADOBE_FROZEN_STAIRS = register("adobe_frozen_stairs", new StairsBlockTwo(ADOBE_FROZEN.getDefaultState(), Block.Properties.from(ADOBE_FROZEN)));
-	
 	//public static final Block CEDAR_PLANKS = register("cedar_planks", new Block(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	//public static final Block REDWOOD_PLANKS = register("redwood_planks", new Block(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Block CHERRY_PLANKS = register("cherry_planks", new Block(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
@@ -100,7 +92,7 @@ public class BlocksTwo {
 	public static final Block GREEN_STAINED_PLANKS = register("green_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.GREEN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Block RED_STAINED_PLANKS = register("red_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.RED).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Block BLACK_STAINED_PLANKS = register("black_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.BLACK).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
-		
+	
 	public static final Block CHERRY_SAPLING = register("cherry_sapling", new SaplingBlockTwo(new CherryTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT)));
 	public static final Block MAPLE_SAPLING = register("maple_sapling", new SaplingBlockTwo(new MapleTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT)));
 	public static final Block GHOSTWOOD_SAPLING = register("ghostwood_sapling", new SaplingBlockTwo(new GhostwoodTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT)));
@@ -118,7 +110,9 @@ public class BlocksTwo {
 	public static final Block CHERRY_LOG = register("cherry_log", new LogBlock(MaterialColor.STONE, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block MAPLE_LOG = register("maple_log", new LogBlock(MaterialColor.BROWN_TERRACOTTA, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
 	public static final Block GHOSTWOOD_LOG = register("ghostwood_log", new LogBlock(MaterialColor.SNOW, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
-	public static final Block CLOUDWOOD_LOG = register("cloudwood_log", new LogBlock(MaterialColor.CYAN, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD).tickRandomly()) {
+	public static final Block CLOUDWOOD_LOG = register("cloudwood_log", new LogBlock(MaterialColor.CYAN, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
+	public static final Block BLACKBARK_LOG = register("blackbark_log", new LogBlock(MaterialColor.BLACK, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
+	public static final Block FROSTBARK_LOG = register("frostbark_log", new LogBlock(MaterialColor.ICE, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD).tickRandomly()) {
 		@OnlyIn(Dist.CLIENT)
 		public void animateTick(BlockState stateIn, net.minecraft.world.World worldIn, BlockPos pos, java.util.Random rand) {
 		      super.animateTick(stateIn, worldIn, pos, rand);
@@ -126,8 +120,6 @@ public class BlocksTwo {
 		         worldIn.addParticle(ParticleTypes.ITEM_SNOWBALL, (double)pos.getX() + (double)rand.nextFloat(), (double)pos.getY() + 1.1D, (double)pos.getZ() + (double)rand.nextFloat(), 0.0D, 0.0D, 0.0D);
 		};
 	});
-	public static final Block BLACKBARK_LOG = register("blackbark_log", new LogBlock(MaterialColor.BLACK, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
-	public static final Block FROSTBARK_LOG = register("frostbark_log", new LogBlock(MaterialColor.ICE, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	
 	public static final Block STRIPPED_CHERRY_LOG = register("stripped_cherry_log", new LogBlock(MaterialColor.RED, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block STRIPPED_MAPLE_LOG = register("stripped_maple_log", new LogBlock(MaterialColor.SAND, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
@@ -244,6 +236,16 @@ public class BlocksTwo {
 	public static final Block RED_GLAZED_BRICKS = register("red_glazed_bricks", new Block(Block.Properties.create(Material.ROCK, DyeColor.RED).hardnessAndResistance(2.0F, 6.0F)));
 	public static final Block BLACK_GLAZED_BRICKS = register("black_glazed_bricks", new Block(Block.Properties.create(Material.ROCK, DyeColor.BLACK).hardnessAndResistance(2.0F, 6.0F)));
 	
+	public static final Block ADOBE_WET = register("adobe_wet", new AdobeBlock(Block.Properties.create(Material.CLAY).tickRandomly().hardnessAndResistance(1.0f, 2.0f)));
+	
+	public static final Block ADOBE_DRY = register("adobe_dry", new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f, 4.5f)));
+	public static final Block ADOBE_DRY_SLAB = register("adobe_dry_slab", new SlabBlock(Block.Properties.from(ADOBE_DRY)));
+	public static final Block ADOBE_DRY_STAIRS = register("adobe_dry_stairs", new StairsBlockTwo(ADOBE_DRY.getDefaultState(), Block.Properties.from(ADOBE_DRY)));
+	
+	public static final Block ADOBE_FROZEN = register("adobe_frozen", new Block(Block.Properties.create(Material.ICE).slipperiness(0.9f).hardnessAndResistance(0.5f)));
+	public static final Block ADOBE_FROZEN_SLAB = register("adobe_frozen_slab", new SlabBlock(Block.Properties.from(ADOBE_FROZEN)));
+	public static final Block ADOBE_FROZEN_STAIRS = register("adobe_frozen_stairs", new StairsBlockTwo(ADOBE_FROZEN.getDefaultState(), Block.Properties.from(ADOBE_FROZEN)));
+	
 	public static final Block GAULT = register("gault", new Block(Block.Properties.create(MaterialTwo.GAULT).hardnessAndResistance(2.0f)));
 	public static final Block NIGHTSTONE = register("nightstone", new Block(Block.Properties.create(MaterialTwo.NIGHSTONE).hardnessAndResistance(7.0f)));
 
@@ -291,6 +293,14 @@ public class BlocksTwo {
 	public static final Block STEEL_BLOCK = register("steel_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GRAY).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block HARDENED_STEEL_BLOCK = register("hardened_steel_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.STONE).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	
+	public static final Block CHISELED_LAPIS_BLOCK = register("chiseled_lapis_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LAPIS).hardnessAndResistance(0.8F)));
+	public static final Block LAPIS_PILLAR = register("lapis_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.LAPIS).hardnessAndResistance(0.8F)));
+	public static final Block LAPIS_STAIRS = register("lapis_stairs", new StairsBlockTwo(Blocks.LAPIS_BLOCK.getDefaultState(), Block.Properties.from(Blocks.LAPIS_BLOCK)));
+	public static final Block LAPIS_SLAB = register("lapis_slab", new SlabBlock(Block.Properties.create(Material.IRON, MaterialColor.LAPIS).hardnessAndResistance(2.0F, 6.0F)));
+	public static final Block SMOOTH_LAPIS = register("smooth_lapis", new Block(Block.Properties.create(Material.IRON, MaterialColor.LAPIS).hardnessAndResistance(2.0F, 6.0F)));
+	public static final Block SMOOTH_LAPIS_STAIRS = register("smooth_lapis_stairs", new StairsBlockTwo(SMOOTH_LAPIS.getDefaultState(), Block.Properties.from(SMOOTH_LAPIS)));
+	public static final Block SMOOTH_LAPIS_SLAB = register("smooth_lapis_slab", new SlabBlock(Block.Properties.from(SMOOTH_LAPIS)));
+	
 	public static final Block CHISELED_IRON_BLOCK = register("chiseled_iron_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(0.8F)));
 	public static final Block IRON_PILLAR = register("iron_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(0.8F)));
 	public static final Block IRON_STAIRS = register("iron_stairs", new StairsBlockTwo(Blocks.IRON_BLOCK.getDefaultState(), Block.Properties.from(Blocks.IRON_BLOCK)));
@@ -299,11 +309,11 @@ public class BlocksTwo {
 	public static final Block SMOOTH_IRON_STAIRS = register("smooth_iron_stairs", new StairsBlockTwo(SMOOTH_IRON.getDefaultState(), Block.Properties.from(SMOOTH_IRON)));
 	public static final Block SMOOTH_IRON_SLAB = register("smooth_iron_slab", new SlabBlock(Block.Properties.from(SMOOTH_IRON)));
 
-	public static final Block CHISELED_GOLD_BLOCK = register("chiseled_gold_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(0.8F)));
-	public static final Block GOLD_PILLAR = register("gold_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(0.8F)));
+	public static final Block CHISELED_GOLD_BLOCK = register("chiseled_gold_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GOLD).hardnessAndResistance(0.8F)));
+	public static final Block GOLD_PILLAR = register("gold_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.GOLD).hardnessAndResistance(0.8F)));
 	public static final Block GOLD_STAIRS = register("gold_stairs", new StairsBlockTwo(Blocks.GOLD_BLOCK.getDefaultState(), Block.Properties.from(Blocks.GOLD_BLOCK)));
-	public static final Block GOLD_SLAB = register("gold_slab", new SlabBlock(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(2.0F, 6.0F)));
-	public static final Block SMOOTH_GOLD = register("smooth_gold", new Block(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(2.0F, 6.0F)));
+	public static final Block GOLD_SLAB = register("gold_slab", new SlabBlock(Block.Properties.create(Material.IRON, MaterialColor.GOLD).hardnessAndResistance(2.0F, 6.0F)));
+	public static final Block SMOOTH_GOLD = register("smooth_gold", new Block(Block.Properties.create(Material.IRON, MaterialColor.GOLD).hardnessAndResistance(2.0F, 6.0F)));
 	public static final Block SMOOTH_GOLD_STAIRS = register("smooth_gold_stairs", new StairsBlockTwo(SMOOTH_GOLD.getDefaultState(), Block.Properties.from(SMOOTH_GOLD)));
 	public static final Block SMOOTH_GOLD_SLAB = register("smooth_gold_slab", new SlabBlock(Block.Properties.from(SMOOTH_GOLD)));
 	
@@ -332,13 +342,12 @@ public class BlocksTwo {
 	public static final Block DREAMCATCHER_LUCKY = register("dreamcatcher_lucky", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.GREEN_TERRACOTTA).hardnessAndResistance(0.4F)) {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
-			// Luck stuff. 
+			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_lucky");
 		}
 	});
 	public static final Block DREAMCATCHER_NIGHTMARE = register("dreamcatcher_nightmare", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.STONE).hardnessAndResistance(0.4F)) {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
-			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_nightmare");
 			BlockState bedstate = playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedPosition().get());
 			//Block bed = bedstate.getBlock();
 			IWorldReader worldreader = playerWakeUpEvent.getPlayer().getEntityWorld();
@@ -367,7 +376,6 @@ public class BlocksTwo {
 	public static final Block DREAMCATCHER_RANDOM = register("dreamcatcher_random", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.BLACK)) {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
-			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_random");
 			int roll = playerWakeUpEvent.getPlayer().getEntityWorld().getRandom().nextInt(10);
 			switch(roll) {
 				case 0:
@@ -381,7 +389,6 @@ public class BlocksTwo {
 	public static final Block DREAMCATCHER_SKY = register("dreamcatcher_sky", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.SNOW)) {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
-			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_sky");
 			BlockState bedstate = playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedPosition().get());
 			DimensionType sky = DimensionManager.registerOrGetDimension(new ResourceLocation("two", "sky"), ModDimensionTwo.SKY, null, true);
 			playerWakeUpEvent.getPlayer().changeDimension(sky, new ITeleporter() {

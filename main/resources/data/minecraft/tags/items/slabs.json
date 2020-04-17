@@ -6,6 +6,12 @@
 		"two:ghostwood_slab",
 		"two:cloudwood_slab",
 		"two:blackbark_slab",
-		"two:frostbark_slab"
+		"two:frostbark_slab",
+		
+		"#two:adobe_slabs",
+		
+		"two:lapis_slab",
+		"two:iron_slab",
+		"two:gold_slab"
 	]
 }

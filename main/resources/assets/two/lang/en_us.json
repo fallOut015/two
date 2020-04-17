@@ -232,6 +232,14 @@
 	"block.two.steel_block" : "Block of Steel",
 	"block.two.hardened_steel_block" : "Block of Hardened Steel",
 	
+	"block.two.chiseled_lapis_block" : "Chiseled Lapis Lazuli Block",
+	"block.two.lapis_pillar" : "Lapis Lazuli Pillar",
+	"block.two.lapis_stairs" : "Lapis Lazuli Stairs",
+	"block.two.lapis_slab" : "Lapis Lazuli Slab",
+	"block.two.smooth_lapis" : "Smooth Lapis Lazuli",
+	"block.two.smooth_lapis_stairs" : "Smooth Lapis Lazuli Stairs",
+	"block.two.smooth_lapis_slab" : "Smooth Lapis Lazuli Slab",
+	
 	"block.two.chiseled_iron_block" : "Chiseled Iron Block",
 	"block.two.iron_pillar" : "Iron Pillar",
 	"block.two.iron_stairs" : "Iron Stairs",
@@ -247,8 +255,39 @@
 	"block.two.smooth_gold" : "Smooth Gold",
 	"block.two.smooth_gold_stairs" : "Smooth Gold Stairs",
 	"block.two.smooth_gold_slab" : "Smooth Gold Slab",
-
 	
+	"block.two.chiseled_diamond_block" : "Chiseled Diamond Block",
+	"block.two.diamond_pillar" : "Diamond Pillar",
+	"block.two.diamond_stairs" : "Diamond Stairs",
+	"block.two.diamond_slab" : "Diamond Slab",
+	"block.two.smooth_diamond" : "Smooth Diamond",
+	"block.two.smooth_diamond_stairs" : "Smooth Diamond Stairs",
+	"block.two.smooth_diamond_slab" : "Smooth Diamond Slab",
+	
+	"block.two.chiseled_emerald_block" : "Chiseled Emerald Block",
+	"block.two.emerald_pillar" : "Emerald Pillar",
+	"block.two.emerald_stairs" : "Emerald Stairs",
+	"block.two.emerald_slab" : "Emerald Slab",
+	"block.two.smooth_emerald" : "Smooth Emerald",
+	"block.two.smooth_emerald_stairs" : "Smooth Emerald Stairs",
+	"block.two.smooth_emerald_slab" : "Smooth Emerald Slab",
+	
+	"block.two.chiseled_redstone_block" : "Chiseled Redstone Block",
+	"block.two.redstone_pillar" : "Redstone Pillar",
+	"block.two.redstone_stairs" : "Redstone Stairs",
+	"block.two.redstone_slab" : "Redstone Slab",
+	"block.two.smooth_redstone" : "Smooth Redstone",
+	"block.two.smooth_redstone_stairs" : "Smooth Redstone Stairs",
+	"block.two.smooth_redstone_slab" : "Smooth Redstone Slab",
+	
+	"block.two.chiseled_coal_block" : "Chiseled Coal Block",
+	"block.two.coal_pillar" : "Coal Pillar",
+	"block.two.coal_stairs" : "Coal Stairs",
+	"block.two.coal_slab" : "Coal Slab",
+	"block.two.smooth_coal" : "Smooth Coal",
+	"block.two.smooth_coal_stairs" : "Smooth Coal Stairs",
+	"block.two.smooth_coal_slab" : "Smooth Coal Slab",
+
 	"block.two.dreamcatcher_chaos" : "Chaotic Dreamcatcher",
 	"block.two.dreamcatcher_healing" : "Rejuvenating Dreamcatcher",
 	"block.two.dreamcatcher_loot" : "Fortunous Dreamcatcher",
@@ -424,6 +463,17 @@
 	"item.two.letter_x" : "X",
 	"item.two.letter_y" : "Y",
 	"item.two.letter_z" : "Z",
+	
+	"item.two.number_0" : "0",
+	"item.two.number_1" : "1",
+	"item.two.number_2" : "2",
+	"item.two.number_3" : "3",
+	"item.two.number_4" : "4",
+	"item.two.number_5" : "5",
+	"item.two.number_6" : "6",
+	"item.two.number_7" : "7",
+	"item.two.number_8" : "8",
+	"item.two.number_9" : "9",
 	
 	
 	
@@ -759,37 +809,42 @@
 
 
 	
-	"advancements.story.best_of_both_worlds.title" : "Best of Both Worlds",
-	"advancements.story.best_of_both_worlds.description" : "Craft a Wooden Battleaxe",
-	
-	"advancements.story.not_so_faux_fur.title" : "Not So Faux Fur",
-	"advancements.story.not_so_faux_fur.description" : "Don a White Woolen Tunic",
-	
-	"advancements.story.comrade.title" : "Comrade",
-	"advancements.story.comrade.description" : "The death of one man is a tragedy, the death of millions is a statistic",
-	
-	"advancements.story.bigger_on_the_inside.title" : "Bigger on the Inside",
-	"advancements.story.bigger_on_the_inside.description" : "Sew a leather Knapsack to hold your stuff",
-	
-	"advancements.story.going_plundering.title" : "Going Plundering",
-	"advancements.story.going_plundering.description" : "Wield an iron Cutlass",
-	
-	"advancements.story.staying_dry.title" : "Staying Dry",
-	"advancements.story.staying_dry.description" : "Create a sponge armor piece and stay dry when roaming the ocean",
+	"advancements.adventure.create_battleaxe.title" : "Best of Both Worlds",
+	"advancements.adventure.create_battleaxe.description" : "Craft a Wooden Battleaxe",
 
+	"advancements.adventure.enter_nightmare.title" : "Bad Dreams",
+	"advancements.adventure.enter_nightmare.description" : "Use a dreamcatcher, fall asleep, and enter the Nightmare dimension",
 
+	"advancements.adventure.get_cutlass.title" : "Going Plundering",
+	"advancements.adventure.get_cutlass.description" : "Wield an iron Cutlass",
 
-	"advancements.adventure.sweeter_dreams.title" : "Sweeter Dreams",
-	"advancements.adventure.sweeter_dreams.description" : "You will gonna love this rest. It feels like Tempur-pedic, or something",
-
-	"advancements.adventure.bad_dreams.title" : "Bad Dreams",
-	"advancements.adventure.bad_dreams.description" : "Use a dreamcatcher, fall asleep, and enter the Nightmare dimension",
+	"advancements.adventure.get_dreamcatcher_healing.title" : "Sweeter Dreams",
+	"advancements.adventure.get_dreamcatcher_healing.description" : "You will gonna love this rest. It feels like Tempur-pedic, or something",
 
 
 
 	"advancements.dreams.root.title" : "Dreams",
-	"advancements.dreams.root.description" : "Your one portal to anything... which includes nightmares",
+	"advancements.dreams.root.description" : "Your one portal to anything... including nightmares",
 
+
+	
+	"advancements.frostbite.root.title" : "Frostbite",
+	"advancements.frostbite.root.description" : "It's chilly, better bring a jacket",
+
+
+	
+	"advancements.story.comrade.title" : "Comrade",
+	"advancements.story.comrade.description" : "The death of one man is a tragedy, the death of millions is a statistic",
+
+	"advancements.story.create_knapsack.title" : "Bigger on the Inside",
+	"advancements.story.create_knapsack.description" : "Sew a leather Knapsack to hold your stuff",
+
+	"advancements.story.obtain_sponge_armor.title" : "Staying Dry",
+	"advancements.story.obtain_sponge_armor.description" : "Create a sponge armor piece and stay dry when roaming the ocean",
+
+	"advancements.story.obtain_woolen_armor.title" : "Not So Faux Fur",
+	"advancements.story.obtain_woolen_armor.description" : "Don a White Woolen Tunic",
+	
 
 
 

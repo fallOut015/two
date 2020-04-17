@@ -1,27 +1,27 @@
 {
-	"parent" : "two:story/going_plundering",
+	"parent" : "minecraft:adventure/root",
 	"display" : {
 		"icon" : {
-      		"item" : "minecraft:sponge"
+      		"item" : "two:cutlass"
     	},
     	"title" : {
-      		"translate" : "advancements.story.staying_dry.title"
+      		"translate" : "advancements.adventure.get_cutlass.title"
     	},
     	"description" : {
-      		"translate" : "advancements.story.staying_dry.description"
+      		"translate" : "advancements.adventure.get_cutlass.description"
     	},
     	"frame" : "task",
     	"show_toast" : true,
     	"announce_to_chat" : true,
-    	"hidden" : false
+    	"hidden" : true
   	},
   	"criteria" : {
-    	"sponge_helmet" : {
+    	"cutlass" : {
       		"trigger" : "minecraft:inventory_changed",
       		"conditions" : {
         		"items" : [
           			{
-            			"item" : "two:sponge_helmet"
+            			"item" : "two:cutlass"
           			}
         		]
       		}
@@ -29,7 +29,7 @@
   	},
   	"requirements" : [
     	[
-      		"sponge_helmet"
+      		"cutlass"
     	]
   	]
 }

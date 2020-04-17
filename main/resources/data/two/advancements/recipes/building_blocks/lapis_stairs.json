@@ -2,26 +2,36 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "two:wooden_capped_arrow"
+      "two:lapis_stairs"
     ]
   },
   "criteria": {
-    "has_feather": {
+    "has_chiseled_lapis_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:feather"
+            "item": "two:chiseled_lapis_block"
           }
         ]
       }
     },
-    "has_stick": {
+    "has_lapis_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:stick"
+            "item": "minecraft:lapis_block"
+          }
+        ]
+      }
+    },
+    "has_lapis_pillar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:lapis_pillar"
           }
         ]
       }
@@ -29,14 +39,15 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "two:wooden_capped_arrow"
+        "recipe": "two:lapis_stairs"
       }
     }
   },
   "requirements": [
     [
-      "has_feather",
-      "has_stick",
+      "has_chiseled_lapis_block",
+      "has_lapis_block",
+      "has_lapis_pillar",
       "has_the_recipe"
     ]
   ]
