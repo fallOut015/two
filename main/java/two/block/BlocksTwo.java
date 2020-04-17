@@ -298,6 +298,14 @@ public class BlocksTwo {
 	public static final Block SMOOTH_IRON = register("smooth_iron", new Block(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(2.0F, 6.0F)));
 	public static final Block SMOOTH_IRON_STAIRS = register("smooth_iron_stairs", new StairsBlockTwo(SMOOTH_IRON.getDefaultState(), Block.Properties.from(SMOOTH_IRON)));
 	public static final Block SMOOTH_IRON_SLAB = register("smooth_iron_slab", new SlabBlock(Block.Properties.from(SMOOTH_IRON)));
+
+	public static final Block CHISELED_GOLD_BLOCK = register("chiseled_gold_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(0.8F)));
+	public static final Block GOLD_PILLAR = register("gold_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(0.8F)));
+	public static final Block GOLD_STAIRS = register("gold_stairs", new StairsBlockTwo(Blocks.GOLD_BLOCK.getDefaultState(), Block.Properties.from(Blocks.GOLD_BLOCK)));
+	public static final Block GOLD_SLAB = register("gold_slab", new SlabBlock(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(2.0F, 6.0F)));
+	public static final Block SMOOTH_GOLD = register("smooth_gold", new Block(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(2.0F, 6.0F)));
+	public static final Block SMOOTH_GOLD_STAIRS = register("smooth_gold_stairs", new StairsBlockTwo(SMOOTH_GOLD.getDefaultState(), Block.Properties.from(SMOOTH_GOLD)));
+	public static final Block SMOOTH_GOLD_SLAB = register("smooth_gold_slab", new SlabBlock(Block.Properties.from(SMOOTH_GOLD)));
 	
 	public static final Block DREAMCATCHER_CHAOS = register("dreamcatcher_chaos", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.RED)) {
 		@Override
@@ -390,6 +398,7 @@ public class BlocksTwo {
 	public static final Block MAPLE_TAP = register("maple_tap", new MapleTapBlock(Block.Properties.create(Material.IRON)));
 	
 	public static final Block BILLBOARD = register("billboard", new Block(Block.Properties.create(Material.GLASS).lightValue(5).hardnessAndResistance(0.2f).sound(SoundType.GLASS)));
+	public static final Block CONVEYER = register("conveyer", new ConveyerBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(1.0f)));
 	
 	
 	

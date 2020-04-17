@@ -203,6 +203,14 @@ public class ItemsTwo {
 	public static final Item SMOOTH_IRON_STAIRS = register(BlocksTwo.SMOOTH_IRON_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item SMOOTH_IRON_SLAB = register(BlocksTwo.SMOOTH_IRON_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
+	public static final Item CHISELED_GOLD_BLOCK = register(BlocksTwo.CHISELED_GOLD_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item GOLD_PILLAR = register(BlocksTwo.GOLD_PILLAR, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item GOLD_STAIRS = register(BlocksTwo.GOLD_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item GOLD_SLAB = register(BlocksTwo.GOLD_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_GOLD = register(BlocksTwo.SMOOTH_GOLD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_GOLD_STAIRS = register(BlocksTwo.SMOOTH_GOLD_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_GOLD_SLAB = register(BlocksTwo.SMOOTH_GOLD_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+
 	
 	
 	// Decoration
@@ -246,6 +254,7 @@ public class ItemsTwo {
 	public static final Item MAPLE_TAP = register(BlocksTwo.MAPLE_TAP, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
 	public static final Item BILLBOARD = register(BlocksTwo.BILLBOARD, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item CONVEYER = register(BlocksTwo.CONVEYER, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
 	
 	
@@ -537,6 +546,15 @@ public class ItemsTwo {
     });
     public static final Item BANISHER = register("banisher", new BanisherItem(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)));
     public static final Item STORMBREAKER = register("stormbreaker", new StormbreakerItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.EPIC)));
+    
+    public static final Item IRON_CAPPED_ARROW = register("iron_capped_arrow", new CappedArrowItem(ItemTier.IRON, new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item WOODEN_CAPPED_ARROW = register("wooden_capped_arrow", new CappedArrowItem(ItemTier.WOOD, new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item STONE_CAPPED_ARROW = register("stone_capped_arrow", new CappedArrowItem(ItemTier.STONE, new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item GOLDEN_CAPPED_ARROW = register("golden_capped_arrow", new CappedArrowItem(ItemTier.GOLD, new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item DIAMOND_CAPPED_ARROW = register("diamond_capped_arrow", new CappedArrowItem(ItemTier.DIAMOND, new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item EMERALD_CAPPED_ARROW = register("emerald_capped_arrow", new CappedArrowItem(ItemTierTwo.EMERALD, new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item RUBY_CAPPED_ARROW = register("ruby_capped_arrow", new CappedArrowItem(ItemTierTwo.RUBY, new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item LEAD_CAPPED_ARROW = register("lead_capped_arrow", new CappedArrowItem(ItemTierTwo.LEAD, new Item.Properties().group(ItemGroup.COMBAT)));
     
     public static final Item EMERALD_HELMET = register("emerald_helmet", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item EMERALD_CHESTPLATE = register("emerald_chestplate", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));

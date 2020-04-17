@@ -240,6 +240,15 @@
 	"block.two.smooth_iron_stairs" : "Smooth Iron Stairs",
 	"block.two.smooth_iron_slab" : "Smooth Iron Slab",
 	
+	"block.two.chiseled_gold_block" : "Chiseled Gold Block",
+	"block.two.gold_pillar" : "Gold Pillar",
+	"block.two.gold_stairs" : "Gold Stairs",
+	"block.two.gold_slab" : "Gold Slab",
+	"block.two.smooth_gold" : "Smooth Gold",
+	"block.two.smooth_gold_stairs" : "Smooth Gold Stairs",
+	"block.two.smooth_gold_slab" : "Smooth Gold Slab",
+
+	
 	"block.two.dreamcatcher_chaos" : "Chaotic Dreamcatcher",
 	"block.two.dreamcatcher_healing" : "Rejuvenating Dreamcatcher",
 	"block.two.dreamcatcher_loot" : "Fortunous Dreamcatcher",
@@ -252,6 +261,7 @@
 	"block.two.maple_tap" : "Maple Tap",
 	
 	"block.two.billboard" : "Billboard",
+	"block.two.conveyer" : "Conveyer",
 
 	
 	
@@ -478,6 +488,15 @@
 	"item.two.blood_venom_blade" : "Blood Venom Blade",
 	"item.two.banisher" : "The Banisher",
 	"item.two.stormbreaker" : "Stormbreaker",
+	
+	"item.two.iron_capped_arrow" : "Iron Capped Arrow",
+	"item.two.wooden_capped_arrow" : "Wooden Capped Arrow",
+	"item.two.stone_capped_arrow" : "Stone Capped Arrow",
+	"item.two.golden_capped_arrow" : "Golden Capped Arrow",
+	"item.two.diamond_capped_arrow" : "Diamond Capped Arrow",
+	"item.two.emerald_capped_arrow" : "Emerald Capped Arrow",
+	"item.two.ruby_capped_arrow" : "Ruby Capped Arrow",
+	"item.two.lead_capped_arrow" : "Lead Capped Arrow",
 	
 	"item.two.emerald_helmet" : "Emerald Helmet",
 	"item.two.emerald_chestplate" : "Emerald Chestplate",
@@ -776,6 +795,7 @@
 
 
 	"container.knapsack" : "Knapsack",
+	"container.knapsack.more" : "...",
 	
 	
 	

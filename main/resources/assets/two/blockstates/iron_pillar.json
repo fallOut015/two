@@ -1,5 +1,5 @@
 {
     "variants": {
-        "": { "model": "two:block/chiseled_iron_block" }
+        "": { "model": "two:block/iron_pillar" }
     }
 }

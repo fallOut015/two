@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "two:iron_stairs_from_ron_block_stonecutting"
+      "two:iron_stairs_from_iron_block_stonecutting"
     ]
   },
   "criteria": {

@@ -54,4 +54,45 @@ public class KnapsackItem extends Item {
 	public boolean isOpen() {
 		return this.open;
 	}
+	
+	/*@Override
+	@OnlyIn(Dist.CLIENT)
+	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+		super.addInformation(stack, worldIn, tooltip, flagIn);
+
+		CompoundNBT compoundnbt = stack.getChildTag("BlockEntityTag");
+		if (compoundnbt != null) {
+			if (compoundnbt.contains("LootTable", 8)) {
+				tooltip.add(new StringTextComponent("???????"));
+			}
+
+			if (compoundnbt.contains("Items", 9)) {
+				NonNullList<ItemStack> nonnulllist = NonNullList.withSize(27, ItemStack.EMPTY);
+	            ItemStackHelper.loadAllItems(compoundnbt, nonnulllist);
+	            int i = 0;
+	            int j = 0;
+
+	            for(ItemStack itemstack : nonnulllist) {
+	            	if (!itemstack.isEmpty()) {
+	            		++j;
+	            		if (i <= 4) {
+	            			++i;
+	            			ITextComponent itextcomponent = itemstack.getDisplayName().deepCopy();
+	            			itextcomponent.appendText(" x").appendText(String.valueOf(itemstack.getCount()));
+	            			tooltip.add(itextcomponent);
+	            		}
+	            	}
+	            }
+
+	            if (j - i > 0) {
+	            	tooltip.add((new TranslationTextComponent("container.knapsack.more", j - i)).applyTextStyle(TextFormatting.ITALIC));
+	            }
+			}
+		}
+		
+		/// TODO
+		 * CUSTOM NAME STUFF AT SOME POINT
+		 * SHOWING WHAT IS IN A KNAPSACK
+		 * LOOTTABLE SUPPORT
+	}*/
 }

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": [
+      {
+        "item": "two:chiseled_gold_block"
+      },
+      {
+        "item": "minecraft:gold_block"
+      },
+      {
+        "item": "two:gold_pillar"
+      }
+    ]
+  },
+  "result": {
+    "item": "two:gold_slab",
+    "count": 6
+  }
+}

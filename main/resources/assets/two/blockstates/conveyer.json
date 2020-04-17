@@ -1,0 +1,7 @@
+{
+    "variants" : {
+        "axis=y" :  { "model" : "two:block/conveyer" },
+        "axis=z" :   { "model" : "two:block/conveyer", "x" : 90 },
+        "axis=x" :   { "model" : "two:block/conveyer", "x" : 90, "y" : 90 }
+    }
+}

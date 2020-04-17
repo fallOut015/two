@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:smooth_gold_slab"
+    ]
+  },
+  "criteria": {
+    "has_smooth_gold": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:smooth_gold"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:smooth_gold_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_smooth_gold",
+      "has_the_recipe"
+    ]
+  ]
+}

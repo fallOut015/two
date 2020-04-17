@@ -47,6 +47,7 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import two.block.BlocksTwo;
 import two.block.DreamcatcherBlock;
+import two.client.renderer.entity.CappedArrowRenderer;
 import two.client.renderer.entity.ChameleonRenderer;
 import two.client.renderer.entity.layers.TopHatLayer;
 import two.entity.EntityTypeTwo;
@@ -75,12 +76,16 @@ public class Two {
 	
 	// PILLARS
 	// FURNITURE
-	// CURSED CHESTS
+	// CURSED CHESTS?
 	// FOOD SCRAPS
 	
 	// FIX TREES
 	// FIX SOUNDS
 	// FIX MODELS (LIKE DREAMCATCHERS AND SAPLINGS)
+	
+	// DECORATIVE ORE BLOCKS
+	// TWODO
+	// LAPIS, IRON, GOLD, DIAMOND, EMERALD, REDSTONE, (QUARTZ), COAL, (two:ores)
 	
     public static final Logger LOGGER = LogManager.getLogger();
     
@@ -96,9 +101,13 @@ public class Two {
     private void setup(final FMLCommonSetupEvent event) {}
     private void doClientStuff(final FMLClientSetupEvent event) {
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CHAMELEON, ChameleonRenderer::new);
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CAPPED_ARROW, CappedArrowRenderer::new);
+    	
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
     
+    	Biomes.JUNGLE.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.MAPLE_TREE.func_225566_b_(FeatureTwo.MAPLE));
+    	Biomes.JUNGLE.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.CHERRY_TREE.func_225566_b_(FeatureTwo.MAPLE));
     	Biomes.JUNGLE.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.GHOSTWOOD_TREE.func_225566_b_(FeatureTwo.GHOSTWOOD));
     }
     private void enqueueIMC(final InterModEnqueueEvent event) {}

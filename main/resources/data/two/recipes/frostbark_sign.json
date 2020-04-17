@@ -10,7 +10,7 @@
       		"item": "two:frostbark_planks"
     	},
     	"X": {
-      		"item": "minecraft:stick"
+      		"tag": "forge:rods/wooden"
     	}
   	},
   	"result": {

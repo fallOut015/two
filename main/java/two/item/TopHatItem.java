@@ -26,4 +26,8 @@ public class TopHatItem extends Item {
 	    	return ActionResult.func_226251_d_(itemStack);
 	    }
 	}
+	@Override
+	public EquipmentSlotType getEquipmentSlot(ItemStack stack) {
+		return EquipmentSlotType.HEAD;
+	}
 }

@@ -1,0 +1,7 @@
+{
+    "parent" : "minecraft:block/cube_column",
+    "textures" : {
+        "end" : "two:block/conveyer_top",
+        "side" : "two:block/conveyer"
+	}
+}

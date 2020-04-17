@@ -1,0 +1,13 @@
+{
+	"replace" : false,
+	"values" : [
+		"two:iron_capped_arrow",
+		"two:wooden_capped_arrow",
+		"two:stone_capped_arrow",
+		"two:golden_capped_arrow",
+		"two:diamond_capped_arrow",
+		"two:emerald_capped_arrow",
+		"two:ruby_capped_arrow",
+		"two:lead_capped_arrow"
+	]
+}

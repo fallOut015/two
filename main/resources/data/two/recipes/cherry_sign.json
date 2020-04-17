@@ -10,7 +10,7 @@
       		"item": "two:cherry_planks"
     	},
     	"X": {
-      		"item": "minecraft:stick"
+      		"tag": "forge:rods/wooden"
     	}
   	},
   	"result": {

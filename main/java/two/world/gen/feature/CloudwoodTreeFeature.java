@@ -13,8 +13,8 @@ import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 
 public class CloudwoodTreeFeature extends AbstractTreeFeature<TreeFeatureConfig> {
-	public CloudwoodTreeFeature(Function<Dynamic<?>, ? extends TreeFeatureConfig> deserializer) {
-		super(deserializer);
+	public CloudwoodTreeFeature(Function<Dynamic<?>, ? extends TreeFeatureConfig> serializer) {
+		super(serializer);
 	}
 
 	@Override
