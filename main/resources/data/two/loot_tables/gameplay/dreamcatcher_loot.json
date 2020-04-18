@@ -6,15 +6,19 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:lily_pad"
+          "name": "minecraft:diamond"
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:name_tag"
+          "name": "minecraft:emerald"
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:saddle"
+          "name": "two:ruby"
+        },
+		{
+          "type": "minecraft:item",
+          "name": "two:sapphire"
         },
         {
           "type": "minecraft:item",
@@ -28,45 +32,38 @@
             },
             {
               "function": "minecraft:enchant_with_levels",
-              "levels": 30,
-              "treasure": true
+              "levels": 30
             }
           ],
           "name": "minecraft:bow"
         },
-        {
+		{
           "type": "minecraft:item",
           "functions": [
             {
               "function": "minecraft:set_damage",
               "damage": {
                 "min": 0.0,
-                "max": 0.25
+                "max": 0.5
               }
             },
             {
               "function": "minecraft:enchant_with_levels",
-              "levels": 30,
-              "treasure": true
+              "levels": 30
             }
           ],
-          "name": "minecraft:fishing_rod"
+          "name": "minecraft:diamond_sword"
         },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
-              "levels": 30,
-              "treasure": true
+              "levels": 30
             }
           ],
           "name": "minecraft:book"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:nautilus_shell"
-        }
+        
       ]
     }
   ]

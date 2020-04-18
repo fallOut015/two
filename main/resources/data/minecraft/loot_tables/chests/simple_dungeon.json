@@ -86,22 +86,22 @@
 		{
           "type": "minecraft:item",
           "weight": 1,
-          "name": "two:knapsack" // Hero's knapsack: random high tier stuff
+          "name": "two:knapsack"
         },
 		{
           "type": "minecraft:item",
           "weight": 2,
-          "name": "two:knapsack" // Adventurer's knapsack: random mid tier stuff
+          "name": "two:knapsack"
         },
 		{
           "type": "minecraft:item",
           "weight": 4,
-          "name": "two:knapsack" // Explorer's knapsack: random biome stuff
+          "name": "two:knapsack"
         },
 		{
           "type": "minecraft:item",
           "weight": 8,
-          "name": "two:knapsack" // Traveller's knapsack: random early survival stuff
+          "name": "two:knapsack"
         },
         {
           "type": "minecraft:item",
