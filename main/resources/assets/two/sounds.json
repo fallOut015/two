@@ -56,6 +56,21 @@
 		]
 	},
 	
+	"gui.upholstery_table.select_template" : {
+		"category" : "gui",
+		"subtitle" : "subtitles.gui.upholstery_table.select_template",
+		"sounds" : [
+			"two:gui/upholstery_table/select_template"
+		]
+	},
+	"gui.upholstery_table.take_result" : {
+		"category" : "gui",
+		"subtitle" : "subtitles.gui.upholstery_table.take_result",
+		"sounds" : [
+			"two:gui/upholstery_table/take_result"
+		]
+	},
+	
 	"music.nightmare" : {
 		"category" : "music",
 		"sounds" : [

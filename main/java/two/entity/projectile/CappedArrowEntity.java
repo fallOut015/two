@@ -3,6 +3,7 @@ package two.entity.projectile;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
@@ -10,6 +11,7 @@ import net.minecraft.item.IItemTier;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTier;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import two.entity.EntityTypeTwo;
 import two.item.ItemTierTwo;
@@ -41,10 +43,22 @@ public class CappedArrowEntity extends AbstractArrowEntity {
 	public IItemTier getItemTier() {
 		return this.tier;
 	}
+	public float getVelocityAddition() {
+		return this.tier.getEfficiency();
+	}
 	
 	@Override
 	public double getDamage() {
 		return this.tier.getAttackDamage();
+	}
+	@Override
+	public void shoot(Entity shooter, float pitch, float yaw, float p_184547_4_, float velocity, float inaccuracy) {
+		float f = -MathHelper.sin(yaw * ((float)Math.PI / 180F)) * MathHelper.cos(pitch * ((float)Math.PI / 180F));
+		float f1 = -MathHelper.sin(pitch * ((float)Math.PI / 180F));
+		float f2 = MathHelper.cos(yaw * ((float)Math.PI / 180F)) * MathHelper.cos(pitch * ((float)Math.PI / 180F));
+		velocity += this.getVelocityAddition();
+		this.shoot((double) f, (double) f1, (double) f2, velocity, inaccuracy);
+		this.setMotion(this.getMotion().add(shooter.getMotion().x, shooter.onGround ? 0.0D : shooter.getMotion().y, shooter.getMotion().z));
 	}
 	
 	static {

@@ -23,12 +23,12 @@ public class SoundEventsTwo {
 	@ObjectHolder("item.armor.equip_glowstone") public static final SoundEvent ITEM_ARMOR_EQUIP_GLOWSTONE = register("item.armor.equip_glowstone");
 	@ObjectHolder("item.armor.equip_obsidian") public static final SoundEvent ITEM_ARMOR_EQUIP_OBSIDIAN = register("item.armor.equip_obsidian");
 	
-	
-	
-	
-	
+	@ObjectHolder("gui.upholstery_table.select_template") public static final SoundEvent GUI_UPHOLSTERY_TABLE_SELECT_TEMPLATE = register("gui.upholstery_table.select_template");
+	@ObjectHolder("gui.upholstery_table.take_result") public static final SoundEvent GUI_UPHOLSTERY_TABLE_TAKE_RESULT = register("gui.upholstery_table.take_result");
 	
 	@ObjectHolder("music.nightmare") public static final SoundEvent MUSIC_NIGHTMARE = register("music.nightmare");
+	
+	
 	
 	public static void onSoundEventsRegistry(final RegistryEvent.Register<SoundEvent> soundEventRegistryEvent) {
     	soundEventRegistryEvent.getRegistry().registerAll(Holder.SOUNDEVENTSTWO.toArray(new SoundEvent[] {}));

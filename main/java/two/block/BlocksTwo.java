@@ -407,6 +407,14 @@ public class BlocksTwo {
 	public static final Block BILLBOARD = register("billboard", new Block(Block.Properties.create(Material.GLASS).lightValue(5).hardnessAndResistance(0.2f).sound(SoundType.GLASS)));
 	public static final Block CONVEYER = register("conveyer", new ConveyerBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(1.0f)));
 	
+	public static final Block UPHOLSTERY_TABLE = register("upholstery_table", new UpholsteryTableBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.5f).sound(SoundType.WOOD)));
+	
+	public static final Block CHAIR = register("chair", new ChairBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.5f).sound(SoundType.WOOD)));
+	public static final Block EDGE_TABLE = register("edge_table", new EdgeTableBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.5f).sound(SoundType.WOOD)));
+//	public static final Block STOOL;
+//	public static final Block CUPBOARD;
+//	public static final Block LAMP;
+	
 	
 	
 	

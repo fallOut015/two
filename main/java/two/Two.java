@@ -17,6 +17,7 @@ import net.minecraft.item.IItemTier;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemTier;
 import net.minecraft.item.PickaxeItem;
+import net.minecraft.stats.StatType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.StringTextComponent;
@@ -155,6 +156,10 @@ public class Two {
         	SoundEventsTwo.onSoundEventsRegistry(soundEventRegistryEvent);
         }
     	@SubscribeEvent
+    	public static void onStatTypesRegistry(final RegistryEvent.Register<StatType<?>> statTypeRegistry) {
+    		//StatsTwo.onStatTypesRegistry(statTypeRegistry);
+    	}
+    	@SubscribeEvent
     	public static void onSurfaceBuildersRegistry(final RegistryEvent.Register<SurfaceBuilder<?>> surfaceBuilderRegistryEvent) {
     		SurfaceBuilderTwo.onSurfaceBuildersRegistry(surfaceBuilderRegistryEvent);
     	}
@@ -202,6 +207,29 @@ public class Two {
         			itemToolTipEvent.getToolTip().add(new StringTextComponent("Can mine...").applyTextStyle(TextFormatting.GRAY));        			
         			itemToolTipEvent.getToolTip().add(new StringTextComponent(itemTiers.toString().toLowerCase()/*.replaceAll("[", "").replaceAll("]", "")*/).applyTextStyle(TextFormatting.GRAY));
     			}
+    		}
+    		if(itemToolTipEvent.getItemStack().getItem() == ItemsTwo.CHAIR) {
+    			String seat = "";
+    			try {
+        			seat = itemToolTipEvent.getItemStack().getTag().getString("top");
+    			} catch(Exception e) {
+    				Two.LOGGER.info(e);
+    			}
+    			String legs = "";
+    			try {
+    				legs = itemToolTipEvent.getItemStack().getTag().getString("middle");
+    			} catch(Exception e) {
+    				Two.LOGGER.info(e);
+    			}
+    			String back = "";
+    			try {
+    				back = itemToolTipEvent.getItemStack().getTag().getString("bottom");
+    			} catch(Exception e) {
+    				Two.LOGGER.info(e);
+    			}
+    			itemToolTipEvent.getToolTip().add(new StringTextComponent("Back: " + back));
+    			itemToolTipEvent.getToolTip().add(new StringTextComponent("Seat: " + seat));
+    			itemToolTipEvent.getToolTip().add(new StringTextComponent("Legs: " + legs));
     		}
     	}
     }

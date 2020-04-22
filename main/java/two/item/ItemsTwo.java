@@ -265,6 +265,19 @@ public class ItemsTwo {
 	public static final Item BILLBOARD = register(BlocksTwo.BILLBOARD, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item CONVEYER = register(BlocksTwo.CONVEYER, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
+	public static final Item UPHOLSTERY_TABLE = register(BlocksTwo.UPHOLSTERY_TABLE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
+	public static final Item CHAIR = register("chair", new ChairItem(BlocksTwo.CHAIR, new Item.Properties().group(ItemGroup.DECORATIONS)));
+	public static final Item EDGE_STOOL = register("edge_stool", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
+	public static final Item ROUND_STOOL = register("round_stool", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
+	public static final Item EDGE_TABLE = register("edge_table", new EdgeTableItem(BlocksTwo.EDGE_TABLE, new Item.Properties().group(ItemGroup.DECORATIONS)));
+	public static final Item ROUND_TABLE = register("round_table", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
+	public static final Item CUPBOARD = register("cupboard", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
+	public static final Item LAMP = register("lamp", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
+	public static final Item BED = register("bed", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
+	public static final Item COUCH = register("couch", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
+	public static final Item SHELF = register("shelf", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
+	
 	
 	
 	// Redstone

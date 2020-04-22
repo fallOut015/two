@@ -6,7 +6,7 @@
 	"overrides" : [
 		{
             "predicate" : {
-                "open" : 1
+                "two:open" : 1
             },
             "model" : "two:item/knapsack_open"
         }

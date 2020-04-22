@@ -301,6 +301,10 @@
 	
 	"block.two.billboard" : "Billboard",
 	"block.two.conveyer" : "Conveyer",
+	
+	"block.two.upholstery_table" : "Upholstery Table",
+	
+	"block.two.chair" : "Chair",
 
 	
 	
@@ -851,6 +855,7 @@
 
 	"container.knapsack" : "Knapsack",
 	"container.knapsack.more" : "...",
+	"container.upholstery_table" : "Craft some furniture",
 	
 	
 	
@@ -883,5 +888,14 @@
 	"subtitles.item.armor.equip_wool" : "Woolen armor plofs",
 	"subtitles.item.armor.equip_sponge" : "Sponge armor squishes",
 	"subtitles.item.armor.equip_glowstone" : "Glowstone armor shines",
-	"subtitles.item.armor.equip_obsidian" : "Obsidian armor scratches"
+	"subtitles.item.armor.equip_obsidian" : "Obsidian armor scratches",
+	
+	"subtitles.gui.upholstery_table.select_template" : "Stitches template",
+	"subtitles.gui.upholstery_table.take_result" : "Crafts furniture",
+	
+
+	
+	
+	
+	"attribute.name.generic.projectileVelocity": "Projectile Velocity"
 }

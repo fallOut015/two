@@ -2,7 +2,7 @@
     "parent": "minecraft:block/block",
     "ambientocclusion": false,
     "textures": {
-        "particle": "two:blocks/maple_tap"
+        "particle": "two:block/maple_tap"
     },
     "elements": [
         {   "__comment": "faucet",

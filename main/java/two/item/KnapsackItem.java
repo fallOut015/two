@@ -9,7 +9,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import two.Two;
 import two.inventory.KnapsackInventory;
 
 public class KnapsackItem extends Item {
@@ -18,18 +17,9 @@ public class KnapsackItem extends Item {
 		super(properties);
 		this.open = false;
 		this.addPropertyOverride(new ResourceLocation("open"), (itemStack, world, livingEntity) -> {
-			//Two.LOGGER.info("is livingEntity null? " + livingEntity == null);
-			if(livingEntity == null) {
-				Two.LOGGER.info("living entity is null");
-				return 0.0f;
-			}
-			if(livingEntity.getActiveItemStack().getItem() instanceof KnapsackItem) {
-				Two.LOGGER.info("living entity's itemstack is a knapsack item");
-				if(((KnapsackItem) itemStack.getItem()).isOpen()) {
-					Two.LOGGER.info("knapsack is open, returning true for 'open'");
+			if(livingEntity != null && livingEntity.getActiveItemStack().getItem() instanceof KnapsackItem)
+				if(((KnapsackItem) itemStack.getItem()).isOpen())
 					return 1.0f;
-				}
-			}
 			return 0.0f;
 		});
 	}
@@ -94,5 +84,6 @@ public class KnapsackItem extends Item {
 		 * CUSTOM NAME STUFF AT SOME POINT
 		 * SHOWING WHAT IS IN A KNAPSACK
 		 * LOOTTABLE SUPPORT
+		 * ANIMATION
 	}*/
 }

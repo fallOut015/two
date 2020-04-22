@@ -11,6 +11,7 @@ import net.minecraft.item.ArrowItem;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import two.entity.SharedMonsterAttributesTwo;
 import two.entity.projectile.CappedArrowEntity;
 
 public class CappedArrowItem extends ArrowItem {
@@ -32,6 +33,7 @@ public class CappedArrowItem extends ArrowItem {
 		Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(equipmentSlot);
 		if (equipmentSlot == EquipmentSlotType.MAINHAND) {
 			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.tier.getAttackDamage(), AttributeModifier.Operation.ADDITION));
+		    multimap.put(SharedMonsterAttributesTwo.PROJECTILE_VELOCITY.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)this.tier.getEfficiency(), AttributeModifier.Operation.ADDITION));
 		}
 
 		return multimap;
