@@ -42,7 +42,9 @@ Changelog:
 	Added new ores.
 	Added the upholstery table, for furniture.
 	Added chairs.
+	Added stools.
 	Added capped arrows.
+	Added the Staff of Evocation
 '''
 [[dependencies.two]] #optional
     modId="forge"
