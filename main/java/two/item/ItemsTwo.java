@@ -5,7 +5,6 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -18,7 +17,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTier;
-import net.minecraft.item.ItemUseContext;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.Rarity;
 import net.minecraft.item.ShovelItem;
@@ -26,10 +24,6 @@ import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
@@ -421,15 +415,6 @@ public class ItemsTwo {
     public static final Item CHAMELEON_SPAWN_EGG = register("chameleon_spawn_egg", new SpawnEggItem(EntityTypeTwo.CHAMELEON, 2162500, 14463743, new Item.Properties().group(ItemGroup.MISC)));
     
     public static final Item SNOWGLOBE = register("snowglobe", new SnowglobeItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
-    public static final Item BALLOON = register("balloon", new Item(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)) {
-    	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-    		if(entityIn instanceof PlayerEntity) {
-    			if(((PlayerEntity) entityIn).getActiveItemStack().getItem() == ItemsTwo.BALLOON) {
-    				((PlayerEntity) entityIn).setNoGravity(true);
-    			}
-    		}
-    	};
-    });
     
     public static final Item MUSIC_DISC_BAD_DREAMS = register("music_disc_bad_dreams", new MusicDiscItemTwo(13, SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
 	
@@ -498,23 +483,9 @@ public class ItemsTwo {
 	public static final Item RUBY_SICKLE = register("ruby_sickle", new SickleItem(ItemTierTwo.RUBY, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item LEAD_SICKLE = register("lead_sickle", new SickleItem(ItemTierTwo.LEAD, -2.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 
-	public static final Item SMITHING_HAMMER = register("smithing_hammer", new Item(new Item.Properties().group(ItemGroup.TOOLS).defaultMaxDamage(100)) {
-		public boolean hasContainerItem() {
-			return true;
-		};
-		public ItemStack getContainerItem(ItemStack itemStack) {
-			itemStack.setDamage(itemStack.getDamage() - 2);;
-			return itemStack;
-		};
-	});
+	public static final Item SMITHING_HAMMER = register("smithing_hammer", new SmithingHammerItem(new Item.Properties().group(ItemGroup.TOOLS).defaultMaxDamage(100)));
 	public static final Item HANDSAW = register("handsaw", new Item(new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item WRENCH = register("wrench", new Item(new Item.Properties().group(ItemGroup.TOOLS)) {
-		public ActionResultType onItemUse(ItemUseContext context) {
-			context.getWorld().setBlockState(context.getPos(), context.getWorld().getBlockState(context.getPos()).rotate(Rotation.CLOCKWISE_90));
-			
-			return ActionResultType.SUCCESS;
-		};
-	});
+	public static final Item ROTATING_WRENCH = register("rotating_wrench", new RotatingWrenchItem(new Item.Properties().group(ItemGroup.TOOLS)));
 	// drill? or maybe the hammer will also serve this functionality.
 	// add knockback to hammer and indicator.
 	
@@ -546,27 +517,21 @@ public class ItemsTwo {
     public static final Item RUBY_DAGGER = register("ruby_dagger", new DaggerItem(ItemTierTwo.RUBY, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item LEAD_DAGGER = register("lead_dagger", new DaggerItem(ItemTierTwo.LEAD, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
 	
-    public static final Item CUTLASS = register("cutlass", new SwordItem(ItemTier.IRON, 3, -2.8f, new Item.Properties()/*.group(ItemGroup.COMBAT)*/) {
-    	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World worldIn, net.minecraft.entity.player.PlayerEntity playerIn, net.minecraft.util.Hand handIn) {
-    		worldIn.playSound(playerIn, playerIn.getPosition(), SoundEventsTwo.MUSIC_NIGHTMARE, SoundCategory.MUSIC, 100.0f, 1.0f);
-    		worldIn.playSound(playerIn, playerIn.getPosition(), SoundEventsTwo.ITEM_ARMOR_EQUIP_EMERALD, SoundCategory.NEUTRAL, 100.0f, 1.0f);
-    		return ActionResult.func_226248_a_(playerIn.getActiveItemStack());
-    	};
-    });
+    public static final Item CUTLASS = register("cutlass", new CutlassItem(new Item.Properties()/*.group(ItemGroup.COMBAT)*/));
 
-    public static final Item BLOOD_WITHER_BLADE = register("blood_wither_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)) {
+    public static final Item BLOOD_WITHER_BLADE = register("blood_wither_blade", new BloodBladeItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.addPotionEffect(new EffectInstance(Effects.WITHER, 50, 2, false, true));
     		return true;
     	}
     });
-    public static final Item BLOOD_FLAME_BLADE = register("blood_flame_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)) {
+    public static final Item BLOOD_FLAME_BLADE = register("blood_flame_blade", new BloodBladeItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.setFire(5);
     		return true;
     	}
     });
-    public static final Item BLOOD_VENOM_BLADE = register("blood_venom_blade", new SwordItem(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)) {
+    public static final Item BLOOD_VENOM_BLADE = register("blood_venom_blade", new BloodBladeItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.addPotionEffect(new EffectInstance(Effects.POISON, 50, 3, false, true));
     		return true;
@@ -832,7 +797,7 @@ public class ItemsTwo {
     
     public static final Item GLOWSTONE_HELMET = register("glowstone_helmet", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)) {
     	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-    		// Lightning whatnot
+    		// Lighting whatnot
     	}
     });
     public static final Item GLOWSTONE_CHESTPLATE = register("glowstone_chestplate", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
@@ -848,9 +813,6 @@ public class ItemsTwo {
     public static final Item OBSIDIAN_LEGGINGS = register("obsidian_leggings", new ArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item OBSIDIAN_BOOTS = register("obsidian_boots", new ArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
 
-    // add balloon for toying around with setNoGravity
-    // also setGlowing
-    
     public static final Item TOP_HAT = register("top_hat", new TopHatItem(new Item.Properties().group(ItemGroup.COMBAT)));
     
 
