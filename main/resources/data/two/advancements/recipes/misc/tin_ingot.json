@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:tin_ingot"
+    ]
+  },
+  "criteria": {
+    "has_tin_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:tin_ore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:tin_ingot"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_tin_ore",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -38,9 +38,7 @@ public class SickleItem extends TieredItem {
 				context.getWorld().destroyBlock(context.getPos(), true);
 				context.getWorld().setBlockState(context.getPos(), crop.with(CropsBlock.AGE, 0));
 				
-				context.getItem().damageItem(1, context.getPlayer(), playerEntity ->
-					playerEntity.sendBreakAnimation(context.getHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND)
-				);
+				context.getItem().damageItem(1, context.getPlayer(), playerEntity -> playerEntity.sendBreakAnimation(context.getHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND));
 				
 				for(BlockPos blockPos : BlockPos.getAllInBoxMutable(context.getPos().north().west(), context.getPos().south().east())) {
 					if(CROPS.contains(context.getWorld().getBlockState(blockPos).getBlock())) {
@@ -49,9 +47,7 @@ public class SickleItem extends TieredItem {
 							context.getWorld().destroyBlock(blockPos, true);
 							context.getWorld().setBlockState(blockPos, crop.with(CropsBlock.AGE, 0));
 
-							context.getItem().damageItem(1, context.getPlayer(), playerEntity ->
-								playerEntity.sendBreakAnimation(context.getHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND)
-							);
+							context.getItem().damageItem(1, context.getPlayer(), playerEntity -> playerEntity.sendBreakAnimation(context.getHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND));
 						}
 					}
 				}

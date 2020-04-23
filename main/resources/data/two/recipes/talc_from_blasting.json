@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "two:talc_ore"
+  },
+  "result": "two:talc",
+  "experience": 0.7,
+  "cookingtime": 100
+}

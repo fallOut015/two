@@ -1,0 +1,15 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+  	"ingredients" : [
+    	{
+      		"item" : "minecraft:iron_block"
+    	},
+		{
+			"item" : "two:smithing_hammer"
+		}
+  	],
+  	"result" : {
+    	"item" : "two:steel_ingot",
+    	"count" : 1
+  	}
+}

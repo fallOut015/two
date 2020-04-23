@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:tanzanite_from_smelting"
+    ]
+  },
+  "criteria": {
+    "has_tanzanite_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:tanzanite_ore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:tanzanite_from_smelting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_tanzanite_ore",
+      "has_the_recipe"
+    ]
+  ]
+}

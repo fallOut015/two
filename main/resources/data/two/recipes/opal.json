@@ -1,0 +1,12 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+  	"ingredients" : [
+    	{
+      		"item" : "two:opal_block"
+    	}
+  	],
+  	"result" : {
+    	"item" : "two:opal",
+    	"count" : 9
+  	}
+}

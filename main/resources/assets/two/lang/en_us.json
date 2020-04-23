@@ -542,6 +542,7 @@
 	"item.two.blood_venom_blade" : "Blood Venom Blade",
 	"item.two.banisher" : "The Banisher",
 	"item.two.stormbreaker" : "Stormbreaker",
+	"item.two.evocation_staff" : "Staff of Evocation",
 	
 	"item.two.iron_capped_arrow" : "Iron Capped Arrow",
 	"item.two.wooden_capped_arrow" : "Wooden Capped Arrow",
@@ -855,6 +856,7 @@
 
 	"container.knapsack" : "Knapsack",
 	"container.knapsack.more" : "...",
+	
 	"container.upholstery_table" : "Craft some furniture",
 	
 	

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:jade"
+    ]
+  },
+  "criteria": {
+    "has_jade_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:jade_block"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:jade"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_jade_block",
+      "has_the_recipe"
+    ]
+  ]
+}

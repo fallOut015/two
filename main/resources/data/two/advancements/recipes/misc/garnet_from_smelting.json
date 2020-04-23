@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:garnet_from_smelting"
+    ]
+  },
+  "criteria": {
+    "has_garnet_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:garnet_ore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:garnet_from_smelting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_garnet_ore",
+      "has_the_recipe"
+    ]
+  ]
+}

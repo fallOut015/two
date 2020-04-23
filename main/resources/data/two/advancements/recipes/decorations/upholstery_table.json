@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_planks": {
+    "has_wool": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "minecraft:planks"
+            "tag": "minecraft:wool"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_planks",
+      "has_wool",
       "has_the_recipe"
     ]
   ]

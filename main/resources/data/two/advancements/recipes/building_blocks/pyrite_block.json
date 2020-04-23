@@ -1,0 +1,32 @@
+{
+	"parent" : "minecraft:recipes/root",
+  	"rewards" : {
+    	"recipes" : [
+      		"two:pyrite_block"
+    	]
+  	},
+  	"criteria" : {
+    	"has_pyrite_ingot" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"item" : "two:pyrite_ingot"
+          			}
+        		]
+      		}
+    	},
+    	"has_the_recipe" : {
+      		"trigger" : "minecraft:recipe_unlocked",
+      		"conditions" : {
+        		"recipe" : "two:pyrite_block"
+      		}
+    	}
+  	},
+  	"requirements" : [
+    	[
+      		"has_pyrite_ingot",
+      		"has_the_recipe"
+    	]
+  	]
+}

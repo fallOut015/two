@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:talc_from_talc_block"
+    ]
+  },
+  "criteria": {
+    "has_talc_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:talc_block"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:talc_from_talc_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_talc_block",
+      "has_the_recipe"
+    ]
+  ]
+}

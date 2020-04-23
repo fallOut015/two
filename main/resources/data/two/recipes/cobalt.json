@@ -1,0 +1,12 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+  	"ingredients" : [
+    	{
+      		"item" : "two:cobalt_block"
+    	}
+  	],
+  	"result" : {
+    	"item" : "two:cobalt",
+    	"count" : 9
+  	}
+}

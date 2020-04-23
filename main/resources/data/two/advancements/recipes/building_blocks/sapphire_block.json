@@ -1,0 +1,32 @@
+{
+	"parent" : "minecraft:recipes/root",
+  	"rewards" : {
+    	"recipes" : [
+      		"two:sapphire_block"
+    	]
+  	},
+  	"criteria" : {
+    	"has_sapphire" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"item" : "two:sapphire"
+          			}
+        		]
+      		}
+    	},
+    	"has_the_recipe" : {
+      		"trigger" : "minecraft:recipe_unlocked",
+      		"conditions" : {
+        		"recipe" : "two:sapphire_block"
+      		}
+    	}
+  	},
+  	"requirements" : [
+    	[
+      		"has_sapphire",
+      		"has_the_recipe"
+    	]
+  	]
+}

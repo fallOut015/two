@@ -1,0 +1,32 @@
+{
+	"parent" : "minecraft:recipes/root",
+  	"rewards" : {
+    	"recipes" : [
+      		"two:opal_block"
+    	]
+  	},
+  	"criteria" : {
+    	"has_opal" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"item" : "two:opal"
+          			}
+        		]
+      		}
+    	},
+    	"has_the_recipe" : {
+      		"trigger" : "minecraft:recipe_unlocked",
+      		"conditions" : {
+        		"recipe" : "two:opal_block"
+      		}
+    	}
+  	},
+  	"requirements" : [
+    	[
+      		"has_opal",
+      		"has_the_recipe"
+    	]
+  	]
+}

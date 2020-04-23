@@ -1,0 +1,9 @@
+{
+  	"type": "minecraft:smelting",
+  	"ingredient": {
+  	  "item": "two:tanzanite_ore"
+  	},
+  	"result": "two:tanzanite",
+  	"experience": 1.0,
+  	"cookingtime": 200
+}

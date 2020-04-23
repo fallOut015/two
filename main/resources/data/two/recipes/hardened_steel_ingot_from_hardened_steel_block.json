@@ -1,0 +1,12 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+  	"ingredients" : [
+    	{
+      		"item" : "two:hardened_steel_block"
+    	}
+  	],
+  	"result" : {
+    	"item" : "two:hardened_steel_ingot",
+    	"count" : 9
+  	}
+}

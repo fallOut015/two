@@ -39,6 +39,10 @@ Changelog:
 	Added decorative iron blocks.
 	Added the Billboard block.
 	Added Adobe blocks.
+	Added new ores.
+	Added the upholstery table, for furniture.
+	Added chairs.
+	Added capped arrows.
 '''
 [[dependencies.two]] #optional
     modId="forge"

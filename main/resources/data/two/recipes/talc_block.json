@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+  	"pattern": [
+    	"###",
+    	"###",
+    	"###"
+  	],
+  	"key": {
+    	"#": {
+      		"item": "two:talc"
+    	}
+  	},
+  	"result": {
+    	"item": "two:talc_block"
+  	}
+}

@@ -1,0 +1,9 @@
+{
+  	"type": "minecraft:blasting",
+  	"ingredient": {
+    	"item": "two:cobalt_ore"
+  	},
+  	"result": "two:cobalt",
+  	"experience": 1.0,
+  	"cookingtime": 100
+}
