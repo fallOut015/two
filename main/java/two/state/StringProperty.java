@@ -7,7 +7,7 @@ import java.util.Set;
 import net.minecraft.state.Property;
 
 public class StringProperty extends Property<String> {
-	private static final Set<String> values = Set.of();
+	private static final Set<String> VALUES = Set.of("oak_planks", "white_wool");
 	
 	protected StringProperty(String name, Class<String> valueClass) {
 		super(name, valueClass);
@@ -15,7 +15,7 @@ public class StringProperty extends Property<String> {
 
 	@Override
 	public Collection<String> getAllowedValues() {
-		return values;
+		return VALUES;
 	}
 	@Override
 	public Optional<String> parseValue(String value) {
@@ -27,7 +27,6 @@ public class StringProperty extends Property<String> {
 	}
 	
 	public static StringProperty create(String name) {
-		values.add(name);
 		return new StringProperty(name, String.class);
 	}
 }
