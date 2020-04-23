@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.registries.ObjectHolder;
 import two.block.BlocksTwo;
 import two.world.gen.feature.structure.AdobeWellStructure;
 
@@ -47,7 +48,7 @@ public class FeatureTwo {
 	
 	
 	
-	public static final Structure<NoFeatureConfig> ADOBE_WELL = (Structure<NoFeatureConfig>) register("adobe_well", new AdobeWellStructure(NoFeatureConfig::deserialize));
+	@ObjectHolder("two:adobe_well") public static final Structure<NoFeatureConfig> ADOBE_WELL = (Structure<NoFeatureConfig>) register("adobe_well", new AdobeWellStructure(NoFeatureConfig::deserialize));
 	
 	
 	

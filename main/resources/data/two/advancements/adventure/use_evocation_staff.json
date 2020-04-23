@@ -1,0 +1,41 @@
+{
+	"parent" : "minecraft:adventure/kill_a_mob",
+	"display" : {
+		"icon" : {
+      		"item" : "two:evocation_staff"
+    	},
+    	"title" : {
+      		"translate" : "advancements.adventure.use_evocation_staff.title"
+    	},
+    	"description" : {
+      		"translate" : "advancements.adventure.use_evocation_staff.description"
+    	},
+    	"frame" : "challenge",
+    	"show_toast" : true,
+    	"announce_to_chat" : true,
+    	"hidden" : false
+  	},
+	"rewards": {
+    	"experience": 100
+  	},
+  	"criteria" : {
+    	"kill_with_fangs" : {
+      		"trigger" : "minecraft:player_hurt_entity",
+      		"conditions": {
+       			"damage": {
+          			"type": {
+            			"is_projectile": false,
+            			"direct_entity": {
+              				"type": "minecraft:evoker_fangs"
+            			}
+          			}
+        		}
+      		}
+    	}
+  	},
+  	"requirements" : [
+    	[
+      		"kill_with_fangs"
+    	]
+  	]
+}
