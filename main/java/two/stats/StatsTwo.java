@@ -6,6 +6,7 @@ import net.minecraft.stats.IStatFormatter;
 import net.minecraft.stats.StatType;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
 import net.minecraftforge.event.RegistryEvent;
 
 public class StatsTwo {
@@ -15,10 +16,10 @@ public class StatsTwo {
 		statTypeRegistryEvent.getRegistry().registerAll(Holder.STATTYPES.toArray(new StatType<?> [] {}));
 	}
 	static ResourceLocation registerCustom(String key, IStatFormatter statFormatter) {
-		ResourceLocation resourceLocation = new ResourceLocation("two", key);
-		//Holder.STATTYPES.add(statType.setRegistryName(key));
-		Stats.CUSTOM.get(resourceLocation, statFormatter);
-		return resourceLocation;
+		ResourceLocation resourcelocation = new ResourceLocation("two", key);
+		Registry.register(Registry.CUSTOM_STAT, key, resourcelocation);
+		Stats.CUSTOM.get(resourcelocation, statFormatter);
+		return resourcelocation;
 	}
 	static class Holder {
 		public static final LinkedList<StatType<?>> STATTYPES = new LinkedList<StatType<?>>();

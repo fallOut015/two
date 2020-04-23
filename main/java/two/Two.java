@@ -64,6 +64,7 @@ import two.entity.EntityTypeTwo;
 import two.inventory.container.ContainerTypeTwo;
 import two.item.ItemTierTwo;
 import two.item.ItemsTwo;
+import two.stats.StatsTwo;
 import two.util.SoundEventsTwo;
 import two.world.biome.BiomesTwo;
 import two.world.dimension.ModDimensionTwo;
@@ -204,7 +205,7 @@ public class Two {
         }
     	@SubscribeEvent
     	public static void onStatTypesRegistry(final RegistryEvent.Register<StatType<?>> statTypeRegistry) {
-    		//StatsTwo.onStatTypesRegistry(statTypeRegistry);
+    		StatsTwo.onStatTypesRegistry(statTypeRegistry);
     	}
     	@SubscribeEvent
     	public static void onSurfaceBuildersRegistry(final RegistryEvent.Register<SurfaceBuilder<?>> surfaceBuilderRegistryEvent) {
