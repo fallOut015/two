@@ -7,7 +7,14 @@
 
 	"block.minecraft.lapis_block" : "Block of Lapis Lazuli",
 	
+	"block.minecraft.bed.nightmare" : "You shudder in your sleep, you want to wake up",
+	"block.minecraft.bed.rainbow" : "You dream of vibrant colors, and not a thing in the world can hurt you",
+	"block.minecraft.bed.sky" : "Your comfy bed feels like lying on clouds... and suddenly, you are",
+
+
+	
 	"block.two.test_block" : "Test Block",
+	
 	
 	
 	"block.two.adobe_wet" : "Wet Adobe",
@@ -305,15 +312,18 @@
 	"block.two.upholstery_table" : "Upholstery Table",
 	
 	"block.two.chair" : "Chair",
+	"block.two.edge_stool" : "Edge Stool",
+	"block.two.round_stool" : "Round Stool",
+	"block.two.edge_table" : "Edge Table",
+	"block.two.round_table" : "Round Table",
+	"block.two.cupboard" : "Cupboard",
+	"block.two.lamp" : "Lamp",
+	"block.two.bed" : "Bed",
+	"block.two.couch" : "Couch",
+	"block.two.shelf" : "Shelf",
 
 	
 	
-	"block.minecraft.bed.nightmare" : "You shudder in your sleep, you want to wake up",
-	"block.minecraft.bed.rainbow" : "You dream of vibrant colors, and not a thing in the world can hurt you",
-	"block.minecraft.bed.sky" : "Your comfy bed feels like lying on clouds... and suddenly, you are",
-
-
-
 
 	
 	"item.minecraft.oak_boat" : "Oak Rowboat",

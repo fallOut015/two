@@ -13,6 +13,7 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import two.inventory.container.UpholsteryTableContainer;
+import two.stats.StatsTwo;
 
 public class UpholsteryTableBlock extends Block {
    private static final TranslationTextComponent CONTAINER_UPHOLSTERY_TABLE = new TranslationTextComponent("container.upholstery_table");
@@ -26,7 +27,7 @@ public class UpholsteryTableBlock extends Block {
          return ActionResultType.SUCCESS;
       } else {
          playerIn.openContainer(state.getContainer(worldIn, pos));
-         //playerIn.addStat(StatsTwo.INTERACT_WITH_UPHOLSTERY_TABLE);
+         playerIn.addStat(StatsTwo.INTERACT_WITH_UPHOLSTERY_TABLE);
          return ActionResultType.SUCCESS;
       }
    }

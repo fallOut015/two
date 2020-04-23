@@ -9,7 +9,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
@@ -18,20 +17,18 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import two.item.ChairItem;
+import two.state.StringProperty;
 import two.state.properties.BlockStatePropertiesTwo;
-import two.state.properties.FurnitureProperties;
-import two.state.properties.FurnitureProperties.Planks;
-import two.state.properties.FurnitureProperties.PlanksWool;
 
 public class ChairBlock extends Block {
 	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-	public static final EnumProperty<PlanksWool> BACK = BlockStatePropertiesTwo.BACK;
-	public static final EnumProperty<PlanksWool> SEAT = BlockStatePropertiesTwo.SEAT;
-	public static final EnumProperty<Planks> LEGS = BlockStatePropertiesTwo.LEGS;
+	public static final StringProperty BACK = BlockStatePropertiesTwo.TOP;
+	public static final StringProperty SEAT = BlockStatePropertiesTwo.MIDDLE;
+	public static final StringProperty LEGS = BlockStatePropertiesTwo.BOTTOM;
 	
 	public ChairBlock(Properties properties) {
 		super(properties);
-		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(BACK, PlanksWool.OAK_PLANKS).with(SEAT, PlanksWool.WHITE_WOOL).with(LEGS, Planks.OAK_PLANKS));
+		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(BACK, "oak_planks").with(SEAT, "white_wool").with(LEGS, "oak_planks"));
 	}
 	
 	@Nullable
@@ -73,9 +70,9 @@ public class ChairBlock extends Block {
 	}
 	
 	public static BlockState from(ItemStack stack) {
-		PlanksWool back = FurnitureProperties.NAMETOPLANKSWOOL.get(stack.getTag().getString("top"));
-		PlanksWool seat = FurnitureProperties.NAMETOPLANKSWOOL.get(stack.getTag().getString("middle"));
-		Planks legs = FurnitureProperties.NAMETOPLANKS.get(stack.getTag().getString("bottom"));
+		String back = stack.getTag().getString("top");
+		String seat = stack.getTag().getString("middle");
+		String legs = stack.getTag().getString("bottom");
 		BlockState chair = BlocksTwo.CHAIR.getStateContainer().getBaseState().with(BACK, back).with(SEAT, seat).with(LEGS, legs);
 		return chair;
 	}

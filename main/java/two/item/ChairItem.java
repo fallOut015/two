@@ -9,9 +9,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
-import two.block.BlocksTwo;
 import two.block.ChairBlock;
-import two.state.properties.FurnitureProperties;
 
 public class ChairItem extends BlockItem {
 	public ChairItem(Block blockIn, Properties builder) {
@@ -19,7 +17,7 @@ public class ChairItem extends BlockItem {
 	}
 
 	public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
-		if(this.isInGroup(group)) {
+		/*if(this.isInGroup(group)) {
 			items.add(ChairItem.from(BlocksTwo.CHAIR.getStateContainer().getBaseState().with(ChairBlock.BACK, FurnitureProperties.PlanksWool.OAK_PLANKS).with(ChairBlock.SEAT, FurnitureProperties.PlanksWool.WHITE_WOOL).with(ChairBlock.LEGS, FurnitureProperties.Planks.OAK_PLANKS)));
 			items.add(ChairItem.from(BlocksTwo.CHAIR.getStateContainer().getBaseState().with(ChairBlock.BACK, FurnitureProperties.PlanksWool.OAK_PLANKS).with(ChairBlock.SEAT, FurnitureProperties.PlanksWool.ORANGE_WOOL).with(ChairBlock.LEGS, FurnitureProperties.Planks.OAK_PLANKS)));
 			items.add(ChairItem.from(BlocksTwo.CHAIR.getStateContainer().getBaseState().with(ChairBlock.BACK, FurnitureProperties.PlanksWool.OAK_PLANKS).with(ChairBlock.SEAT, FurnitureProperties.PlanksWool.MAGENTA_WOOL).with(ChairBlock.LEGS, FurnitureProperties.Planks.OAK_PLANKS)));
@@ -36,7 +34,7 @@ public class ChairItem extends BlockItem {
 			items.add(ChairItem.from(BlocksTwo.CHAIR.getStateContainer().getBaseState().with(ChairBlock.BACK, FurnitureProperties.PlanksWool.OAK_PLANKS).with(ChairBlock.SEAT, FurnitureProperties.PlanksWool.GREEN_WOOL).with(ChairBlock.LEGS, FurnitureProperties.Planks.OAK_PLANKS)));
 			items.add(ChairItem.from(BlocksTwo.CHAIR.getStateContainer().getBaseState().with(ChairBlock.BACK, FurnitureProperties.PlanksWool.OAK_PLANKS).with(ChairBlock.SEAT, FurnitureProperties.PlanksWool.RED_WOOL).with(ChairBlock.LEGS, FurnitureProperties.Planks.OAK_PLANKS)));
 			items.add(ChairItem.from(BlocksTwo.CHAIR.getStateContainer().getBaseState().with(ChairBlock.BACK, FurnitureProperties.PlanksWool.OAK_PLANKS).with(ChairBlock.SEAT, FurnitureProperties.PlanksWool.BLACK_WOOL).with(ChairBlock.LEGS, FurnitureProperties.Planks.OAK_PLANKS)));
-		}
+		}*/
 	}
 	
 	public static ItemStack from(BlockState state) {
@@ -54,6 +52,6 @@ public class ChairItem extends BlockItem {
 	@Override
 	public ITextComponent getDisplayName(ItemStack stack) {
 		// Screw readable code, preserve memory. 
-		return new TranslationTextComponent(FurnitureProperties.NAMETOPLANKS.get(stack.getTag().getString("bottom")).getItem().getTranslationKey()).appendText(" ").appendSibling(new TranslationTextComponent(this.getTranslationKey(stack)));
+		return new TranslationTextComponent(this.getTranslationKey(stack));
 	}
 }

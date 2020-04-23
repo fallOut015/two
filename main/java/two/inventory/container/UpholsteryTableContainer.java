@@ -213,14 +213,19 @@ public class UpholsteryTableContainer extends Container {
 	}
 
 	public void onContainerClosed(PlayerEntity playerIn) {
+		Two.LOGGER.info("container closed");
 		super.onContainerClosed(playerIn);
 		this.worldPos.consume((worldIn, pos) -> {
 			this.clearContainer(playerIn, playerIn.world, this.inputs);
 		});
 	}
-
+	
 	private void craft() {
 		Two.LOGGER.info("craft()");
+		
+		if(!this.slottop.isItemValid(this.slottop.getStack())) {
+			// placeItemBackInInventory
+		}
 		
 		ItemStack stack = ItemStack.EMPTY;
 		if(this.furniture != null && this.slottop.getHasStack() && this.slotmiddle.getHasStack() && this.slotbottom.getHasStack()) {
@@ -233,6 +238,8 @@ public class UpholsteryTableContainer extends Container {
 		}
 		
 		this.slotoutput.putStack(stack);
+		
+		// Add code for ejecting values that don't apply to the predicates when a new furniture is selected. 
 	}
 
 	@OnlyIn(Dist.CLIENT)

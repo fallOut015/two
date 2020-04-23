@@ -108,13 +108,15 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		this.renderBackground();
 		this.minecraft.getTextureManager().bindTexture(GUI_TEXTURE);
+		
 		int i = this.guiLeft;
 		int j = this.guiTop;
 		this.blit(i, j, 0, 0, this.xSize, this.ySize);
+		
 		Slot top = this.container.top();
 		Slot middle = this.container.middle();
 		Slot bottom = this.container.bottom();
-		//Slot slot3 = this.container.output();
+
 		if(selectedFurniture != null && !top.getHasStack())
 			this.blit(i + top.xPos, j + top.yPos, this.xSize, (selectedFurniture.ordinal()) * 16, 16, 16);
 		if(selectedFurniture != null && !middle.getHasStack())
@@ -208,6 +210,9 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 	            		default:
 	            			this.selectedFurniture = null;
 	            	}
+	            	if(this.container.enchantItem(this.minecraft.player, this.selectedFurniture)) {
+	                	this.minecraft.playerController.sendEnchantPacket(this.container.windowId, this.selectedFurniture == null ? 0 : this.selectedFurniture.getID());
+	        		}
 	            	Minecraft.getInstance().getSoundHandler().play(SimpleSound.master(SoundEventsTwo.GUI_UPHOLSTERY_TABLE_SELECT_TEMPLATE, 1.0F));
 	            	return true;
 	            }
@@ -218,15 +223,11 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 		}
 		return super.mouseClicked(mousex, mousey, mousez);
 	}
-	protected boolean hasClickedOutside(double p1, double p3, int p5, int p6, int p7) {
-		return p1 < (double) p5 || p3 < (double) p6 || p1 >= (double) (p5 + this.xSize) || p3 >= (double) (p6 + this.ySize);
+	protected boolean hasClickedOutside(double d1, double d3, int i5, int i6, int i7) {
+		return d1 < (double) i5 || d3 < (double) i6 || d1 >= (double) (i5 + this.xSize) || d3 >= (double) (i6 + this.ySize);
 	}
 	private void update() {
 		Two.LOGGER.info("update()");
-		
-		if(this.container.enchantItem(this.minecraft.player, this.selectedFurniture)) {
-        	this.minecraft.playerController.sendEnchantPacket((this.container).windowId, this.selectedFurniture == null ? 0 : this.selectedFurniture.getID());
-		}
 		
 //		this.stacktop = this.container.top().getStack();
 //		this.stackmiddle = this.container.middle().getStack();

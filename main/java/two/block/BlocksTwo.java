@@ -401,8 +401,9 @@ public class BlocksTwo {
 	public static final Block UPHOLSTERY_TABLE = register("upholstery_table", new UpholsteryTableBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.5f).sound(SoundType.WOOD)));
 	
 	public static final Block CHAIR = register("chair", new ChairBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.5f).sound(SoundType.WOOD)));
+	public static final Block EDGE_STOOL = register("edge_stool", new EdgeStoolBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.5f).sound(SoundType.WOOD)));
+
 	public static final Block EDGE_TABLE = register("edge_table", new EdgeTableBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.5f).sound(SoundType.WOOD)));
-//	public static final Block STOOL;
 //	public static final Block CUPBOARD;
 //	public static final Block LAMP;
 	
