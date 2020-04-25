@@ -27,6 +27,13 @@
 			"two:item/armor/equip_stone"
 		]
 	},
+	"item.armor.equip_myrkylite" : {
+		"category" : "item",
+		"subtitle" : "subtitles.item.armor.equip_myrkylite",
+		"sounds" : [
+			"two:item/armor/equip_myrkylite"
+		]
+	},
 	"item.armor.equip_wood" : {
 		"category" : "item",
 		"subtitle" : "subtitles.item.armor.equip_wood",
