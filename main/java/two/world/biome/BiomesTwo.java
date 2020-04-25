@@ -18,6 +18,11 @@ public class BiomesTwo {
 	public static final Biome PETRIFIED_PLAINS = register("petrified_plains", new PetrifiedPlainsBiome());
 	public static final Biome TUNDRA_HILLS = register("tundra_hills", new TundraHillsBiome());
 	
+	public static final Biome DARK_SIDE = register("dark_side", new DarkSideBiome());
+	public static final Biome LUNAR_PLAINS = register("lunar_plains", new LunarPlainsBiome());
+	public static final Biome SVARTALHILLS = register("svartalhills", new SvartalhillsBiome());
+	public static final Biome CELESTIAL_FOREST = register("celestial_forest", new CelestialForestBiome());
+	
 	/*
 	public static final Biome MAGNIFIED_FOREST;
 	public static final Biome CATLANDS;

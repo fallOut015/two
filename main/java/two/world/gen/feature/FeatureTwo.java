@@ -3,9 +3,12 @@ package two.world.gen.feature;
 import java.util.LinkedList;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.pattern.BlockMatcher;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.TreeFeature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
@@ -18,6 +21,11 @@ import two.world.gen.feature.structure.AdobeWellStructure;
 
 @SuppressWarnings("unchecked")
 public class FeatureTwo {
+	public static final OreFeatureConfig.FillerBlockType END_STONE = OreFeatureConfig.FillerBlockType.create("end_stone", "", BlockMatcher.forBlock(Blocks.END_STONE));
+//	OreFeatureConfig.FillerBlockType NIGHTSTONE = OreFeatureConfig.FillerBlockType.create("nightstone", "", BlockMatcher.forBlock(BlocksTwo.NIGHTSTONE));
+//	OreFeatureConfig.FillerBlockType PACKED_ICE = OreFeatureConfig.FillerBlockType.create("packed_ice", "", BlockMatcher.forBlock(Blocks.PACKED_ICE));
+	public static final OreFeatureConfig.FillerBlockType MYRKYLITE = OreFeatureConfig.FillerBlockType.create("myrkylite", "", BlockMatcher.forBlock(BlocksTwo.MYRKYLITE));
+
 	private static final BlockState CHERRY_LOG = BlocksTwo.CHERRY_LOG.getDefaultState();
 	private static final BlockState MAPLE_LOG = BlocksTwo.MAPLE_LOG.getDefaultState();
 	private static final BlockState GHOSTWOOD_LOG = BlocksTwo.GHOSTWOOD_LOG.getDefaultState();

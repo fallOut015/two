@@ -1,0 +1,12 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+  	"ingredients" : [
+    	{
+      		"item" : "two:uru_block"
+    	}
+  	],
+  	"result" : {
+    	"item" : "two:uru_ingot",
+    	"count" : 9
+  	}
+}

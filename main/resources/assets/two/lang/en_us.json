@@ -195,7 +195,24 @@
 	
 	"block.two.gault" : "Gault",
 	"block.two.nightstone" : "Nightstone",
+	
 	"block.two.cloud" : "Cloud",
+	
+	"block.two.regolith" : "Regolith",
+	"block.two.myrkylite" : "Myrkylite",
+	"block.two.myrkylite_slab" : "Myrkylite Slab",
+	"block.two.myrkylite_stairs" : "Myrkylite Stairs",
+	"block.two.myrkylite_wall" : "Myrkylite Wall",
+
+	"block.two.polished_myrkylite" : "Polished Myrkylite",
+	"block.two.polished_myrkylite_slab" : "Polished Myrkylite Slab",
+	"block.two.polished_myrkylite_stairs" : "Polished Myrkylite Stairs",
+	"block.two.polished_myrkylite_wall" : "Polished Myrkylite Wall",
+
+	"block.two.polished_myrkylite_bricks" : "Polished Myrkylite Bricks",
+	"block.two.polished_myrkylite_brick_slab" : "Polished Myrkylite Brick Slab",
+	"block.two.polished_myrkylite_brick_stairs" : "Polished Myrkylite Brick Stairs",
+	"block.two.polished_myrkylite_brick_wall" : "Polished Myrkylite Brick Wall",
 	
 	"block.two.cobalt_ore" : "Cobalt Ore",
 	"block.two.jade_ore" : "Jade Ore",
@@ -206,6 +223,7 @@
 	"block.two.topaz_ore" : "Topaz Ore",
 	"block.two.sapphire_ore" : "Sapphire Ore",
 	"block.two.ruby_ore" : "Ruby Ore",
+	"block.two.celestium_ore" : "Celestium Ore",
 	
 	"block.two.cobalt_block" : "Block of Cobalt",
 	"block.two.jade_block" : "Block of Jade",
@@ -216,6 +234,7 @@
 	"block.two.topaz_block" : "Block of Topaz",
 	"block.two.sapphire_block" : "Block of Sapphire",
 	"block.two.ruby_block" : "Block of Ruby",
+	"block.two.celestium_block" : "Block of Celestium",
 	
 	"block.two.talc_ore" : "Talc Ore",
 	"block.two.lead_ore" : "Lead Ore",
@@ -226,6 +245,8 @@
 	"block.two.platinum_ore" : "Platinum Ore",
 	"block.two.titanium_ore" : "Titanium Ore",
 	"block.two.pyrite_ore" : "Pyrite Ore",
+	"block.two.starstone_ore" : "Starstone Ore",
+	"block.two.uru_ore" : "Uru Ore",
 	
 	"block.two.talc_block" : "Block of Talc",
 	"block.two.lead_block" : "Block of Lead",
@@ -236,6 +257,8 @@
 	"block.two.platinum_block" : "Block of Platinum",
 	"block.two.titanium_block" : "Block of Titanium",
 	"block.two.pyrite_block" : "Block of Pyrite",
+	"block.two.starstone_block" : "Block of Starstone",
+	"block.two.uru_block" : "Block of Uru",
 	"block.two.steel_block" : "Block of Steel",
 	"block.two.hardened_steel_block" : "Block of Hardened Steel",
 	
@@ -361,6 +384,7 @@
 	"item.two.topaz" : "Topaz",
 	"item.two.sapphire" : "Sapphire",
 	"item.two.ruby" : "Ruby",
+	"item.two.celestium" : "Celestium",
 	
 	"item.two.talc" : "Talc",
 	"item.two.lead_ingot" : "Lead Ingot",
@@ -371,6 +395,8 @@
 	"item.two.platinum_ingot" : "Platinum Ingot",
 	"item.two.titanium_ingot" : "Titanium Ingot",
 	"item.two.pyrite_ingot" : "Pyrite Ingot",
+	"item.two.starstone" : "Starstone",
+	"item.two.uru_ingot" : "Uru Ingot",
 	"item.two.steel_ingot" : "Steel Ingot",
 	"item.two.hardened_steel_ingot" : "Hardened Steel Ingot",
 	
@@ -381,6 +407,7 @@
 	"item.two.lead_horse_armor" : "Lead Horse Armor",
 	
 	"item.two.stone_horse_armor" : "Stone Horse Armor",
+	"item.two.myrkylite_horse_armor" : "Myrkylite Horse Armor",
 	
 	"item.two.oak_horse_armor" : "Oak Horse Armor",
 	"item.two.spruce_horse_armor" : "Spruce Horse Armor",
@@ -446,10 +473,14 @@
 	"item.two.chameleon_spawn_egg" : "Chameleon Spawn Egg",
 	
 	"item.two.snowglobe" : "Snowglobe",
-	"item.two.balloon" : "Balloon",
+	
+	"item.two.regolith_dust" : "Regolith Dust",
 	
 	"item.two.music_disc_bad_dreams" : "Music Disc",
 	"item.two.music_disc_bad_dreams.desc" : "Bad Dreams",
+	
+	"item.two.music_disc_realm_nine" : "Music Disc",
+	"item.two.music_disc_realm_nine.desc" : "Realm Nine",
 	
 	"item.two.letter_a" : "A",
 	"item.two.letter_b" : "B",
@@ -506,6 +537,12 @@
 	"item.two.lead_axe" : "Lead Axe",
 	"item.two.lead_hoe" : "Lead Hoe",
 	
+	"item.two.myrkylite_shovel" : "Myrkylite Shovel",
+	"item.two.myrkylite_pickaxe" : "Myrkylite  Pickaxe",
+	"item.two.myrkylite_axe" : "Myrkylite Axe",
+	"item.two.myrkylite_hoe" : "Myrkylite Hoe",
+
+	
 	"item.two.iron_sickle" : "Iron Sickle",
 	"item.two.wooden_sickle" : "Wooden Sickle",
 	"item.two.stone_sickle" : "Stone Sickle",
@@ -514,6 +551,7 @@
 	"item.two.emerald_sickle" : "Emerald Sickle",
 	"item.two.ruby_sickle" : "Ruby Sickle",
 	"item.two.lead_sickle" : "Lead Sickle",
+	"item.two.myrkylite_sickle" : "Myrkylite Sickle",
 	
 	"item.two.smithing_hammer" : "Smithing Hammer",
 	"item.two.handsaw" : "Handsaw",
@@ -526,6 +564,7 @@
 	"item.two.emerald_sword" : "Emerald Sword",
 	"item.two.ruby_sword" : "Ruby Sword",
 	"item.two.lead_sword" : "Lead Sword",
+	"item.two.myrkylite_sword" : "Myrkylite Sword",
 	
 	"item.two.iron_battleaxe" : "Iron Battleaxe",
 	"item.two.wooden_battleaxe" : "Wooden Battleaxe",
@@ -535,6 +574,7 @@
 	"item.two.emerald_battleaxe" : "Emerald Battleaxe",
 	"item.two.ruby_battleaxe" : "Ruby Battleaxe",
 	"item.two.lead_battleaxe" : "Lead Battleaxe",
+	"item.two.myrkylite_battleaxe" : "Myrkylite Battleaxe",
 	
 	"item.two.iron_dagger" : "Iron Dagger",
 	"item.two.wooden_dagger" : "Wooden Dagger",
@@ -544,6 +584,7 @@
 	"item.two.emerald_dagger" : "Emerald Dagger",
 	"item.two.ruby_dagger" : "Ruby Dagger",
 	"item.two.lead_dagger" : "Lead Dagger",
+	"item.two.myrkylite_dagger" : "Myrkylite Dagger",
 	
 	"item.two.cutlass" : "Cutlass",
 	
@@ -562,6 +603,7 @@
 	"item.two.emerald_capped_arrow" : "Emerald Capped Arrow",
 	"item.two.ruby_capped_arrow" : "Ruby Capped Arrow",
 	"item.two.lead_capped_arrow" : "Lead Capped Arrow",
+	"item.two.myrkylite_capped_arrow" : "Myrkylite Capped Arrow",
 	
 	"item.two.emerald_helmet" : "Emerald Helmet",
 	"item.two.emerald_chestplate" : "Emerald Chestplate",
@@ -582,6 +624,11 @@
 	"item.two.stone_chestplate" : "Stone Chestplate",
 	"item.two.stone_leggings" : "Stone Leggings",
 	"item.two.stone_boots" : "Stone Boots",
+	
+	"item.two.myrkylite_helmet" : "Myrkylite Helmet",
+	"item.two.myrkylite_chestplate" : "Myrkylite Chestplate",
+	"item.two.myrkylite_leggings" : "Myrkylite Leggings",
+	"item.two.myrkylite_boots" : "Myrkylite Boots",
 	
 	"item.two.oak_helmet" : "Oak Helmet",
 	"item.two.oak_chestplate" : "Oak Chestplate",
@@ -848,6 +895,11 @@
 	
 	"advancements.frostbite.root.title" : "Frostbite",
 	"advancements.frostbite.root.description" : "It's chilly, better bring a jacket",
+
+
+
+	"advancements.nidavellir.root.title" : "Nidavellir",
+	"advancements.nidavellir.root.description" : "The darkness fields",
 
 
 	

@@ -1,0 +1,32 @@
+{
+	"parent" : "minecraft:recipes/root",
+  	"rewards" : {
+    	"recipes" : [
+      		"two:starstone_block"
+    	]
+  	},
+  	"criteria" : {
+    	"has_starstone" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"item" : "two:starstone"
+          			}
+        		]
+      		}
+    	},
+    	"has_the_recipe" : {
+      		"trigger" : "minecraft:recipe_unlocked",
+      		"conditions" : {
+        		"recipe" : "two:starstone_block"
+      		}
+    	}
+  	},
+  	"requirements" : [
+    	[
+      		"has_starstone",
+      		"has_the_recipe"
+    	]
+  	]
+}

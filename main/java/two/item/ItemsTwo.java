@@ -2,9 +2,11 @@ package two.item;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Function;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -24,14 +26,21 @@ import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
+import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
 import two.block.BlocksTwo;
 import two.entity.EntityTypeTwo;
 import two.util.SoundEventsTwo;
+import two.world.dimension.ModDimensionTwo;
 
 @ObjectHolder("two")
 public class ItemsTwo {
@@ -148,6 +157,19 @@ public class ItemsTwo {
 	
 	public static final Item CLOUD = register(BlocksTwo.CLOUD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
+	public static final Item REGOLITH = register(BlocksTwo.REGOLITH, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item MYRKYLITE = register(BlocksTwo.MYRKYLITE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item MYRKYLITE_SLAB = register(BlocksTwo.MYRKYLITE_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item MYRKYLITE_STAIRS = register(BlocksTwo.MYRKYLITE_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	public static final Item POLISHED_MYRKYLITE = register(BlocksTwo.POLISHED_MYRKYLITE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item POLISHED_MYRKYLITE_SLAB = register(BlocksTwo.POLISHED_MYRKYLITE_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item POLISHED_MYRKYLITE_STAIRS = register(BlocksTwo.POLISHED_MYRKYLITE_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	public static final Item POLISHED_MYRKYLITE_BRICKS = register(BlocksTwo.POLISHED_MYRKYLITE_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item POLISHED_MYRKYLITE_BRICK_SLAB = register(BlocksTwo.POLISHED_MYRKYLITE_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item POLISHED_MYRKYLITE_BRICK_STAIRS = register(BlocksTwo.POLISHED_MYRKYLITE_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+
 	public static final Item COBALT_ORE = register(BlocksTwo.COBALT_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item JADE_ORE = register(BlocksTwo.JADE_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item OPAL_ORE = register(BlocksTwo.OPAL_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -157,6 +179,7 @@ public class ItemsTwo {
 	public static final Item TOPAZ_ORE = register(BlocksTwo.TOPAZ_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item SAPPHIRE_ORE = register(BlocksTwo.SAPPHIRE_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item RUBY_ORE = register(BlocksTwo.RUBY_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item CELESTIUM_ORE = register(BlocksTwo.CELESTIUM_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	public static final Item COBALT_BLOCK = register(BlocksTwo.COBALT_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item JADE_BLOCK = register(BlocksTwo.JADE_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -167,6 +190,7 @@ public class ItemsTwo {
 	public static final Item TOPAZ_BLOCK = register(BlocksTwo.TOPAZ_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item SAPPHIRE_BLOCK = register(BlocksTwo.SAPPHIRE_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item RUBY_BLOCK = register(BlocksTwo.RUBY_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item CELESTIUM_BLOCK = register(BlocksTwo.CELESTIUM_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	public static final Item TALC_ORE = register(BlocksTwo.TALC_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item LEAD_ORE = register(BlocksTwo.LEAD_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -177,6 +201,8 @@ public class ItemsTwo {
 	public static final Item PLATINUM_ORE = register(BlocksTwo.PLATINUM_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item TITANIUM_ORE = register(BlocksTwo.TITANIUM_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item PYRITE_ORE = register(BlocksTwo.PYRITE_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item STARSTONE_ORE = register(BlocksTwo.STARSTONE_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item URU_ORE = register(BlocksTwo.URU_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	public static final Item TALC_BLOCK = register(BlocksTwo.TALC_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item LEAD_BLOCK = register(BlocksTwo.LEAD_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -187,6 +213,8 @@ public class ItemsTwo {
 	public static final Item PLATINUM_BLOCK = register(BlocksTwo.PLATINUM_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item TITANIUM_BLOCK = register(BlocksTwo.TITANIUM_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item PYRITE_BLOCK = register(BlocksTwo.PYRITE_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item STARSTONE_BLOCK = register(BlocksTwo.STARSTONE_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item URU_BLOCK = register(BlocksTwo.URU_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item STEEL_BLOCK = register(BlocksTwo.STEEL_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item HARDENED_STEEL_BLOCK = register(BlocksTwo.HARDENED_STEEL_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 
@@ -245,6 +273,10 @@ public class ItemsTwo {
 	public static final Item BLACKBARK_SIGN = register(BlocksTwo.BLACKBARK_SIGN, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item FROSTBARK_SIGN = register(BlocksTwo.FROSTBARK_SIGN, new Item.Properties().group(ItemGroup.DECORATIONS));
 
+	public static final Item MYRKYLITE_WALL = register(BlocksTwo.MYRKYLITE_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item POLISHED_MYRKYLITE_WALL = register(BlocksTwo.POLISHED_MYRKYLITE_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item POLISHED_MYRKYLITE_BRICK_WALL = register(BlocksTwo.POLISHED_MYRKYLITE_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
 	public static final Item DREAMCATCHER_CHAOS = register(BlocksTwo.DREAMCATCHER_CHAOS, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item DREAMCATCHER_HEALING = register(BlocksTwo.DREAMCATCHER_HEALING, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item DREAMCATCHER_LOOT = register(BlocksTwo.DREAMCATCHER_LOOT, new Item.Properties().group(ItemGroup.DECORATIONS));
@@ -335,6 +367,7 @@ public class ItemsTwo {
 	public static final Item TOPAZ = register("topaz", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	public static final Item SAPPHIRE = register("sapphire", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	public static final Item RUBY = register("ruby", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item CELESTIUM = register("celestium", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	
 	public static final Item TALC = register("talc", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	public static final Item LEAD_INGOT = register("lead_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
@@ -345,6 +378,8 @@ public class ItemsTwo {
 	public static final Item PLATINUM_INGOT = register("platinum_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	public static final Item TITANIUM_INGOT = register("titanium_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	public static final Item PYRITE_INGOT = register("pyrite_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item STARSTONE = register("starstone", new Item(new Item.Properties().group(ItemGroup.MISC)));
+	public static final Item URU_INGOT = register("uru_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	public static final Item STEEL_INGOT = register("steel_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	public static final Item HARDENED_STEEL_INGOT = register("hardened_steel_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	
@@ -353,6 +388,7 @@ public class ItemsTwo {
 	public static final Item RUBY_HORSE_ARMOR = register("ruby_horse_armor", new HorseArmorItem(11, "ruby", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
 	public static final Item LEAD_HORSE_ARMOR = register("lead_horse_armor", new HorseArmorItem(5, "lead", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
 	public static final Item STONE_HORSE_ARMOR = register("stone_horse_armor", new HorseArmorItem(4, "stone", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+	public static final Item MYRKYLITE_HORSE_ARMOR = register("myrkylite_horse_armor", new HorseArmorItem(4, "myrkylite", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
     
     public static final Item OAK_HORSE_ARMOR = register("oak_horse_armor", new HorseArmorItem(2, "oak", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
     public static final Item SPRUCE_HORSE_ARMOR = register("spruce_horse_armor", new HorseArmorItem(2, "spruce", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
@@ -416,6 +452,19 @@ public class ItemsTwo {
     
     public static final Item SNOWGLOBE = register("snowglobe", new SnowglobeItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
     
+    public static final Item REGOLITH_DUST = register("regolith_dust", new Item(new Item.Properties().group(ItemGroup.MISC)  ) {
+    	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, net.minecraft.util.Hand handIn) {
+			DimensionType nidavellir = DimensionManager.registerOrGetDimension(new ResourceLocation("two", "nidavellir"), ModDimensionTwo.NIDAVELLIR, null, false);
+			playerIn.changeDimension(nidavellir, new ITeleporter() {
+				public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
+					return repositionEntity.apply(false);
+				}
+			});
+
+    		return ActionResult.func_226248_a_(playerIn.getHeldItem(handIn));
+    	};
+    });
+    
     public static final Item MUSIC_DISC_BAD_DREAMS = register("music_disc_bad_dreams", new MusicDiscItemTwo(13, SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
 	
     public static final Item LETTER_A = register("letter_a", new Item(new Item.Properties().group(ItemGroup.MISC)));
@@ -474,6 +523,11 @@ public class ItemsTwo {
 	public static final Item LEAD_AXE = register("lead_axe", new AxeItem(ItemTierTwo.LEAD, 6.0f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item LEAD_HOE = register("lead_hoe", new HoeItem(ItemTierTwo.LEAD, -2.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
 
+    public static final Item MYRKYLITE_SHOVEL = register("myrkylite_shovel", new ShovelItem(ItemTierTwo.MYRKYLITE, 1.5f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item MYRKYLITE_PICKAXE = register("myrkylite_pickaxe", new PickaxeItem(ItemTierTwo.MYRKYLITE, 1, -2.8f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item MYRKYLITE_AXE = register("myrkylite_axe", new AxeItem(ItemTierTwo.MYRKYLITE, 6.0f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item MYRKYLITE_HOE = register("myrkylite_hoe", new HoeItem(ItemTierTwo.MYRKYLITE, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
+	
 	public static final Item IRON_SICKLE = register("iron_sickle", new SickleItem(ItemTier.IRON, -1.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item WOODEN_SICKLE = register("wooden_sickle", new SickleItem(ItemTier.WOOD, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item STONE_SICKLE = register("stone_sickle", new SickleItem(ItemTier.STONE, -2.0f, new Item.Properties().group(ItemGroup.TOOLS)));
@@ -482,12 +536,13 @@ public class ItemsTwo {
 	public static final Item EMERALD_SICKLE = register("emerald_sickle", new SickleItem(ItemTierTwo.EMERALD, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item RUBY_SICKLE = register("ruby_sickle", new SickleItem(ItemTierTwo.RUBY, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item LEAD_SICKLE = register("lead_sickle", new SickleItem(ItemTierTwo.LEAD, -2.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item MYRKYLITE_SICKLE = register("myrkylite_sickle", new SickleItem(ItemTierTwo.MYRKYLITE, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 
 	public static final Item SMITHING_HAMMER = register("smithing_hammer", new SmithingHammerItem(new Item.Properties().group(ItemGroup.TOOLS).defaultMaxDamage(100)));
 	public static final Item HANDSAW = register("handsaw", new Item(new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item ROTATING_WRENCH = register("rotating_wrench", new RotatingWrenchItem(new Item.Properties().group(ItemGroup.TOOLS)));
+	// mattock
 	// drill? or maybe the hammer will also serve this functionality.
-	// add knockback to hammer and indicator.
 	
 	public static final Item CRAFTING_BOOK = register("crafting_book", new CraftingBookItem(new Item.Properties().group(ItemGroup.TOOLS)));
 	// other books
@@ -498,7 +553,8 @@ public class ItemsTwo {
 	public static final Item EMERALD_SWORD = register("emerald_sword", new SwordItem(ItemTierTwo.EMERALD, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT)));
 	public static final Item RUBY_SWORD = register("ruby_sword", new SwordItem(ItemTierTwo.RUBY, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT)));
 	public static final Item LEAD_SWORD = register("lead_sword", new SwordItem(ItemTierTwo.LEAD, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT)));
-	
+	public static final Item MYRKYLITE_SWORD = register("myrkylite_sword", new SwordItem(ItemTierTwo.MYRKYLITE, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT)));
+
     public static final Item IRON_BATTLEAXE = register("iron_battleaxe", new BattleaxeItem(ItemTier.IRON, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
 	public static final Item WOODEN_BATTLEAXE = register("wooden_battleaxe", new BattleaxeItem(ItemTier.WOOD, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item STONE_BATTLEAXE = register("stone_battleaxe", new BattleaxeItem(ItemTier.STONE, 7, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
@@ -507,7 +563,8 @@ public class ItemsTwo {
     public static final Item EMERALD_BATTLEAXE = register("emerald_battleaxe", new BattleaxeItem(ItemTierTwo.EMERALD, 6, -2.4f, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item RUBY_BATTLEAXE = register("ruby_battleaxe", new BattleaxeItem(ItemTierTwo.RUBY, 0, -0.0F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item LEAD_BATTLEAXE = register("lead_battleaxe", new BattleaxeItem(ItemTierTwo.LEAD, 0, -0.0F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    
+    public static final Item MYRKYLITE_BATTLEAXE = register("myrkylite_battleaxe", new BattleaxeItem(ItemTierTwo.MYRKYLITE, 6, -2.4f, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
     public static final Item IRON_DAGGER = register("iron_dagger", new DaggerItem(ItemTier.IRON, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
 	public static final Item WOODEN_DAGGER = register("wooden_dagger", new DaggerItem(ItemTier.WOOD, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item STONE_DAGGER = register("stone_dagger", new DaggerItem(ItemTier.STONE, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
@@ -516,7 +573,8 @@ public class ItemsTwo {
     public static final Item EMERALD_DAGGER = register("emerald_dagger", new DaggerItem(ItemTierTwo.EMERALD, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item RUBY_DAGGER = register("ruby_dagger", new DaggerItem(ItemTierTwo.RUBY, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item LEAD_DAGGER = register("lead_dagger", new DaggerItem(ItemTierTwo.LEAD, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-	
+    public static final Item MYRKYLITE_DAGGER = register("myrkylite_dagger", new DaggerItem(ItemTierTwo.MYRKYLITE, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
     public static final Item CUTLASS = register("cutlass", new CutlassItem(new Item.Properties()/*.group(ItemGroup.COMBAT)*/));
 
     public static final Item BLOOD_WITHER_BLADE = register("blood_wither_blade", new BloodBladeItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)) {
@@ -549,7 +607,8 @@ public class ItemsTwo {
     public static final Item EMERALD_CAPPED_ARROW = register("emerald_capped_arrow", new CappedArrowItem(ItemTierTwo.EMERALD, new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item RUBY_CAPPED_ARROW = register("ruby_capped_arrow", new CappedArrowItem(ItemTierTwo.RUBY, new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item LEAD_CAPPED_ARROW = register("lead_capped_arrow", new CappedArrowItem(ItemTierTwo.LEAD, new Item.Properties().group(ItemGroup.COMBAT)));
-    
+    public static final Item MYRKYLITE_CAPPED_ARROW = register("myrkylite_capped_arrow", new CappedArrowItem(ItemTierTwo.MYRKYLITE, new Item.Properties().group(ItemGroup.COMBAT)));
+
     public static final Item EMERALD_HELMET = register("emerald_helmet", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item EMERALD_CHESTPLATE = register("emerald_chestplate", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item EMERALD_LEGGINGS = register("emerald_leggings", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
@@ -569,6 +628,11 @@ public class ItemsTwo {
     public static final Item STONE_CHESTPLATE = register("stone_chestplate", new ArmorItem(ArmorMaterialTwo.STONE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item STONE_LEGGINGS = register("stone_leggings", new ArmorItem(ArmorMaterialTwo.STONE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item STONE_BOOTS = register("stone_boots", new ArmorItem(ArmorMaterialTwo.STONE, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+
+    public static final Item MYRKYLITE_HELMET = register("myrkylite_helmet", new ArmorItem(ArmorMaterialTwo.MYRKYLITE, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item MYRKYLITE_CHESTPLATE = register("myrkylite_chestplate", new ArmorItem(ArmorMaterialTwo.MYRKYLITE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item MYRKYLITE_LEGGINGS = register("myrkylite_leggings", new ArmorItem(ArmorMaterialTwo.MYRKYLITE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item MYRKYLITE_BOOTS = register("myrkylite_boots", new ArmorItem(ArmorMaterialTwo.MYRKYLITE, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
 
     public static final Item OAK_HELMET = register("oak_helmet", new ArmorItem(ArmorMaterialTwo.OAK, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item OAK_CHESTPLATE = register("oak_chestplate", new ArmorItem(ArmorMaterialTwo.OAK, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));

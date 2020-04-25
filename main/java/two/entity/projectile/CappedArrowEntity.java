@@ -48,10 +48,6 @@ public class CappedArrowEntity extends AbstractArrowEntity {
 	}
 	
 	@Override
-	public double getDamage() {
-		return this.tier.getAttackDamage();
-	}
-	@Override
 	public void shoot(Entity shooter, float pitch, float yaw, float p_184547_4_, float velocity, float inaccuracy) {
 		float f = -MathHelper.sin(yaw * ((float)Math.PI / 180F)) * MathHelper.cos(pitch * ((float)Math.PI / 180F));
 		float f1 = -MathHelper.sin(pitch * ((float)Math.PI / 180F));
@@ -70,5 +66,6 @@ public class CappedArrowEntity extends AbstractArrowEntity {
 		ITEM_FOR_ARROW_TIER.put(ItemTierTwo.EMERALD, ItemsTwo.EMERALD_CAPPED_ARROW);
 		ITEM_FOR_ARROW_TIER.put(ItemTierTwo.RUBY, ItemsTwo.RUBY_CAPPED_ARROW);
 		ITEM_FOR_ARROW_TIER.put(ItemTierTwo.LEAD, ItemsTwo.LEAD_CAPPED_ARROW);
+		ITEM_FOR_ARROW_TIER.put(ItemTierTwo.MYRKYLITE, ItemsTwo.MYRKYLITE_CAPPED_ARROW);
 	}
 }

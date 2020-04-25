@@ -13,7 +13,7 @@
     	"show_toast": false,
     	"announce_to_chat": false,
     	"hidden": false,
-    	"background": "minecraft:textures/gui/advancements/backgrounds/end.png"
+    	"background": "two:textures/gui/advancements/backgrounds/dreams.png"
   	},
   	"criteria": {
     	"entered_nightmare": {

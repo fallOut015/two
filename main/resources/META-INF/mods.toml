@@ -24,16 +24,9 @@ Changelog:
 	Added glazed bricks.
 	Added chameleons.
 	Added artifact weapons.
-	Added cherry wood.
-	Added maple wood.
-	Added ghostwood.
-	Added cloudwood.
-	Added blackbark.
-	Added frostbark.
+	Added new wood.
 	Added backpacks.
 	Added new splashes.
-	Added ruby.
-	Added nether lead.
 	Added dreamcatchers.
 	Added the Nightmare Dimension.
 	Added decorative iron blocks.
@@ -44,7 +37,10 @@ Changelog:
 	Added chairs.
 	Added stools.
 	Added capped arrows.
-	Added the Staff of Evocation
+	Added the Staff of Evocation.
+	Added Nidavellir.
+	Added Regolith and Myrkylite.
+	Added letters and numbers.
 '''
 [[dependencies.two]] #optional
     modId="forge"

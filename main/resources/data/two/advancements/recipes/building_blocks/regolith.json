@@ -1,0 +1,32 @@
+{
+	"parent" : "minecraft:recipes/root",
+  	"rewards" : {
+    	"recipes" : [
+      		"two:regolith"
+    	]
+  	},
+  	"criteria" : {
+    	"has_regolith_dust" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"item" : "two:regolith_dust"
+          			}
+        		]
+      		}
+    	},
+    	"has_the_recipe" : {
+      		"trigger" : "minecraft:recipe_unlocked",
+      		"conditions" : {
+        		"recipe" : "two:adobe_wet"
+      		}
+    	}
+  	},
+  	"requirements" : [
+    	[
+      		"has_regolith_dust",
+      		"has_the_recipe"
+    	]
+  	]
+}

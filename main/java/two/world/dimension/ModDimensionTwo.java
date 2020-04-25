@@ -14,7 +14,7 @@ public class ModDimensionTwo {
 //	public static final ModDimension RAINBOW;
 	public static final ModDimension FROSTBITE = register("frostbite", new FrostbiteModDimension());
 //	public static final ModDimension BLOOD_AETHER;
-//	public static final ModDimension NIDAVELLIR;
+	public static final ModDimension NIDAVELLIR = register("nidavellir", new NidavellirModDimension());
 	// THE SOMETHING
 	// SOMETHING REALM
 	// THE VALLEY OF SPIRITS

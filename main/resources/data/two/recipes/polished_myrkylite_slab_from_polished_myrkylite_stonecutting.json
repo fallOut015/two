@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "two:polished_myrkylite"
+  },
+  "result": "two:polished_mrykylite_slab",
+  "count": 2
+}

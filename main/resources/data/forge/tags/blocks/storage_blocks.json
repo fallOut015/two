@@ -10,6 +10,7 @@
 		"#forge:storage_blocks/topaz",
 		"#forge:storage_blocks/sapphire",
     	"#forge:storage_blocks/ruby",
+		"#forge:storage_blocks/celestium",
 
 		"#forge:storage_blocks/talc",
     	"#forge:storage_blocks/lead",
@@ -19,6 +20,10 @@
     	"#forge:storage_blocks/copper",
 		"#forge:storage_blocks/platinum",
     	"#forge:storage_blocks/titanium",
-		"#forge:storage_blocks/pyrite"
+		"#forge:storage_blocks/pyrite",
+		"#forge:storage_blocks/starstone",
+		"#forge:storage_blocks/uru",
+		"#forge:storage_blocks/steel",
+		"#forge:storage_blocks/hardened_steel"
   	]
 }

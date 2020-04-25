@@ -1,0 +1,12 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+  	"ingredients" : [
+    	{
+      		"item" : "two:celestium_block"
+    	}
+  	],
+  	"result" : {
+    	"item" : "two:celestium",
+    	"count" : 9
+  	}
+}

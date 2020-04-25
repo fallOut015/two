@@ -3,7 +3,6 @@ package two.item;
 import com.google.common.collect.Multimap;
 
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -32,7 +31,6 @@ public class CappedArrowItem extends ArrowItem {
 		@SuppressWarnings("deprecation")
 		Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(equipmentSlot);
 		if (equipmentSlot == EquipmentSlotType.MAINHAND) {
-			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.tier.getAttackDamage(), AttributeModifier.Operation.ADDITION));
 		    multimap.put(SharedMonsterAttributesTwo.PROJECTILE_VELOCITY.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)this.tier.getEfficiency(), AttributeModifier.Operation.ADDITION));
 		}
 

@@ -1,0 +1,12 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+  	"ingredients" : [
+    	{
+      		"item" : "two:starstone_block"
+    	}
+  	],
+  	"result" : {
+    	"item" : "two:starstone",
+    	"count" : 9
+  	}
+}

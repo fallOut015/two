@@ -1,0 +1,8 @@
+{
+	"replace" : false,
+	"values" : [
+		"two:myrkylite_wall",
+		"two:polished_myrkylite_wall",
+		"two:polished_myrkylite_brick_wall"
+	]
+}

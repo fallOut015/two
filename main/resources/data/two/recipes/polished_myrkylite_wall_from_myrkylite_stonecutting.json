@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "two:myrkylite"
+  },
+  "result": "two:polished_myrkylite_wall",
+  "count": 1
+}

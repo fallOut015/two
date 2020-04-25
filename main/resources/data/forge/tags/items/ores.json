@@ -10,6 +10,7 @@
 		"#forge:ores/topaz",
 		"#forge:ores/sapphire",
     	"#forge:ores/ruby",
+		"#forge:ores/celestium",
 
 		"#forge:ores/talc",
     	"#forge:ores/lead",
@@ -19,6 +20,8 @@
     	"#forge:ores/copper",
 		"#forge:ores/platinum",
     	"#forge:ores/titanium",
-		"#forge:ores/pyrite"
+		"#forge:ores/pyrite",
+		"#forge:ores/starstone",
+		"#forge:ores/uru"
   	]
 }

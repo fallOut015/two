@@ -9,6 +9,7 @@
 		"#forge:gems/garnet",
 		"#forge:gems/topaz",
 		"#forge:gems/sapphire",
-		"#forge:gems/ruby"
+		"#forge:gems/ruby",
+		"#forge:gems/celestium"
   	]
 }

@@ -8,6 +8,9 @@ public final class MaterialTwo {
 	public static final Material GAULT = (new MaterialTwo.Builder(MaterialColor.OBSIDIAN)).flammable().requiresTool().pushDestroys().build();
 	public static final Material NIGHSTONE = (new MaterialTwo.Builder(MaterialColor.BLUE_TERRACOTTA)).requiresTool().pushBlocks().build();
 	
+	public static final Material REGOLITH = new MaterialTwo.Builder(MaterialColor.LIGHT_GRAY).build();
+	public static final Material MYRKYLITE = new MaterialTwo.Builder(MaterialColor.BLACK_TERRACOTTA).requiresTool().build();
+	
 	static class Builder extends Material.Builder {
 		private PushReaction pushReaction = PushReaction.NORMAL;
 	    private boolean blocksMovement = true;

@@ -1,0 +1,16 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	"pattern" : [
+		"XXX",
+    	"X X",
+		"X X"
+	],
+	"key" : {
+    	"X" : {
+    		"item" : "two:myrkylite"
+    	}
+  	},
+  	"result" : {
+    	"item" : "two:myrkylite_leggings"
+  	}
+}
