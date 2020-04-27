@@ -342,6 +342,8 @@ public class ItemsTwo {
 	public static final Item BLACKBARK_DOOR = register(BlocksTwo.BLACKBARK_DOOR, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item FROSTBARK_DOOR = register(BlocksTwo.FROSTBARK_DOOR, new Item.Properties().group(ItemGroup.REDSTONE));
 	
+	public static final Item STARSTONE_TORCH = register(BlocksTwo.STARSTONE_TORCH, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
 	
 	
 	// Transportation
@@ -449,6 +451,7 @@ public class ItemsTwo {
     //quiver -> displays extra arrow slots
     
     public static final Item CHAMELEON_SPAWN_EGG = register("chameleon_spawn_egg", new SpawnEggItem(EntityTypeTwo.CHAMELEON, 2162500, 14463743, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item DARK_DWARF_ARCHER_SPAWN_EGG = register("dark_dwarf_archer_spawn_egg", new SpawnEggItem(EntityTypeTwo.DARK_DWARF_ARCHER, 3617852, 7880467, new Item.Properties().group(ItemGroup.MISC)));
     
     public static final Item SNOWGLOBE = register("snowglobe", new SnowglobeItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
     
@@ -506,8 +509,18 @@ public class ItemsTwo {
     public static final Item NUMBER_9 = register("number_9", new Item(new Item.Properties().group(ItemGroup.MISC)));
     
     
+    
+    // Foodstuffs
+    public static final Item BLUEBERRY = register("blueberry", new Item(new Item.Properties().food(FoodsTwo.BLUEBERRY).group(ItemGroup.FOOD)));
+    public static final Item TOMATO = register("tomato", new Item(new Item.Properties().food(FoodsTwo.TOMATO).group(ItemGroup.FOOD)));
+    public static final Item BANANA_BUNCH = register("banana_bunch", new Item(new Item.Properties().food(FoodsTwo.BANANA_BUNCH).group(ItemGroup.FOOD)));
+    public static final Item CORN = register("corn", new Item(new Item.Properties().food(FoodsTwo.CORN).group(ItemGroup.FOOD)));
+    public static final Item APPLE_PIE = register("apple_pie", new Item(new Item.Properties().food(FoodsTwo.APPLE_PIE).group(ItemGroup.FOOD)));
+    public static final Item TOAST = register("toast", new Item(new Item.Properties().food(FoodsTwo.TOAST).group(ItemGroup.FOOD)));
+    
+    
 	
-	//Tools
+	// Tools
     public static final Item EMERALD_SHOVEL = register("emerald_shovel", new ShovelItem(ItemTierTwo.EMERALD, 1.5f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item EMERALD_PICKAXE = register("emerald_pickaxe", new PickaxeItem(ItemTierTwo.EMERALD, 1, -2.8f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item EMERALD_AXE = register("emerald_axe", new AxeItem(ItemTierTwo.EMERALD, 6.0f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
@@ -879,7 +892,9 @@ public class ItemsTwo {
 
     public static final Item TOP_HAT = register("top_hat", new TopHatItem(new Item.Properties().group(ItemGroup.COMBAT)));
     
-
+    public static final Item DOUBLE_JUMP_BOOTS = register("double_jump_boots", new ArmorItem(ArmorMaterialTwo.DOUBLE_JUMP_BOOTS, EquipmentSlotType.FEET, new Item.Properties().group(ItemGroup.COMBAT)));
+    
+    
     
     /*
     

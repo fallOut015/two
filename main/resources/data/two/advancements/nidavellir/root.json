@@ -1,7 +1,7 @@
 {
 	"display": {
     	"icon": {
-      		"item": "two:regolith"
+      		"item": "two:polished_myrkylite_bricks"
     	},
     	"title": {
       		"translate": "advancements.nidavellir.root.title"

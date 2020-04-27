@@ -16,9 +16,9 @@ public class EdgeStoolItem extends BlockItem {
 		ItemStack stack = ItemStack.EMPTY;
 		if(state.getBlock() instanceof EdgeStoolBlock) {
 			CompoundNBT nbt = new CompoundNBT();
-			nbt.putString("top", state.get(EdgeStoolBlock.SEAT).toString());
-			nbt.putString("middle", state.get(EdgeStoolBlock.REST).toString());
-			nbt.putString("bottom", state.get(EdgeStoolBlock.LEGS).toString());
+//			nbt.putString("top", state.get(EdgeStoolBlock.SEAT).toString());
+//			nbt.putString("middle", state.get(EdgeStoolBlock.REST).toString());
+//			nbt.putString("bottom", state.get(EdgeStoolBlock.LEGS).toString());
 			stack.setTag(nbt);
 		}
 		return stack;

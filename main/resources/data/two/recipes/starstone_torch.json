@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "two:starstone"
+    }
+  },
+  "result": {
+    "item": "two:starstone_torch",
+    "count": 4
+  }
+}

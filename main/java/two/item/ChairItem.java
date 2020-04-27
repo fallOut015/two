@@ -41,9 +41,9 @@ public class ChairItem extends BlockItem {
 		ItemStack stack = ItemStack.EMPTY;
 		if(state.getBlock() instanceof ChairBlock) {
 			CompoundNBT nbt = new CompoundNBT();
-			nbt.putString("top", state.get(ChairBlock.BACK).toString());
-			nbt.putString("middle", state.get(ChairBlock.SEAT).toString());
-			nbt.putString("bottom", state.get(ChairBlock.LEGS).toString());
+//			nbt.putString("top", state.get(ChairBlock.BACK).toString());
+//			nbt.putString("middle", state.get(ChairBlock.SEAT).toString());
+//			nbt.putString("bottom", state.get(ChairBlock.LEGS).toString());
 			stack.setTag(nbt);
 		}
 		return stack;

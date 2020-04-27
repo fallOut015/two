@@ -22,6 +22,8 @@ public class ChameleonRenderer extends MobRenderer<ChameleonEntity, ChameleonMod
 
 	@SuppressWarnings("deprecation")
 	public ResourceLocation getEntityTexture(ChameleonEntity entity) {
+		if(!ChameleonEntity.camoflouged(entity)) return TEXTURE;
+		
 		switch(entity.getStandingOn().getRegistryName().toString()) { //Had to convert to string for the switch statement. 
 			case "minecraft:air":
 			case "minecraft:cave_air":

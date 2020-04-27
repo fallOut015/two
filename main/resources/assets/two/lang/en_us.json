@@ -1,5 +1,6 @@
 {
 	"entity.two.chameleon" : "Chameleon",
+	"entity.two.dark_dwarf_archer" : "Dark Dwarven Archer",
 	
 	
 	
@@ -344,6 +345,9 @@
 	"block.two.bed" : "Bed",
 	"block.two.couch" : "Couch",
 	"block.two.shelf" : "Shelf",
+	
+	"block.starstone_torch" : "Starstone Torch",
+	"block.starstone_wall_torch" : "Starstone Wall Torch",
 
 	
 	
@@ -471,6 +475,7 @@
 	"item.two.knapsack" : "Knapsack",
 	
 	"item.two.chameleon_spawn_egg" : "Chameleon Spawn Egg",
+	"item.two.dark_dwarf_archer_spawn_egg" : "Dark Dwarven Archer Spawn Egg",
 	
 	"item.two.snowglobe" : "Snowglobe",
 	
@@ -519,6 +524,15 @@
 	"item.two.number_7" : "7",
 	"item.two.number_8" : "8",
 	"item.two.number_9" : "9",
+	
+	
+	
+	"item.two.blueberry" : "Blueberry",
+	"item.two.tomato" : "Tomato",
+	"item.two.banana_bunch" : "Banana Bunch",
+	"item.two.corn" : "Corn",
+	"item.two.apple_pie" : "Apple Pie",
+	"item.two.toast" : "Toast",
 	
 	
 	
@@ -867,6 +881,8 @@
 
 	"item.two.top_hat" : "Top Hat",
 	
+	"item.two.double_jump_boots" : "Double Jump Boots",
+	
 
 
 
@@ -957,6 +973,7 @@
 	"subtitles.item.armor.equip_sponge" : "Sponge armor squishes",
 	"subtitles.item.armor.equip_glowstone" : "Glowstone armor shines",
 	"subtitles.item.armor.equip_obsidian" : "Obsidian armor scratches",
+	"subtitles.item.armor.equip_double_jump_boots" : "Double Jump Boots flutter",
 	
 	"subtitles.gui.upholstery_table.select_template" : "Stitches template",
 	"subtitles.gui.upholstery_table.take_result" : "Crafts furniture",

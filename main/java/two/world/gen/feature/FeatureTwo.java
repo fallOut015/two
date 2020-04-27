@@ -18,6 +18,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
 import two.block.BlocksTwo;
 import two.world.gen.feature.structure.AdobeWellStructure;
+import two.world.gen.feature.structure.DwarvenKeepStructure;
 
 @SuppressWarnings("unchecked")
 public class FeatureTwo {
@@ -40,13 +41,6 @@ public class FeatureTwo {
 	private static final BlockState BLACKBARK_LEAVES = BlocksTwo.BLACKBARK_LEAVES.getDefaultState();
 	private static final BlockState FROSTBARK_LEAVES = BlocksTwo.FROSTBARK_LEAVES.getDefaultState();
 	
-	public static final Feature<TreeFeatureConfig> CHERRY_TREE = (Feature<TreeFeatureConfig>) register("cherry_tree", new TreeFeature(TreeFeatureConfig::func_227338_a_));
-	public static final Feature<TreeFeatureConfig> MAPLE_TREE = (Feature<TreeFeatureConfig>) register("maple_tree", new TreeFeature(TreeFeatureConfig::func_227338_a_));
-	public static final Feature<TreeFeatureConfig> GHOSTWOOD_TREE = (Feature<TreeFeatureConfig>) register("ghostwood_tree", new GhostwoodTreeFeature(TreeFeatureConfig::func_227338_a_));
-	public static final Feature<TreeFeatureConfig> CLOUDWOOD_TREE = (Feature<TreeFeatureConfig>) register("cloudwood_tree", new CloudwoodTreeFeature(TreeFeatureConfig::func_227338_a_));
-	public static final Feature<TreeFeatureConfig> BLACKBARK_TREE = (Feature<TreeFeatureConfig>) register("blackbark_tree", new BlackbarkTreeFeature(TreeFeatureConfig::func_227338_a_));
-	public static final Feature<TreeFeatureConfig> FROSTBARK_TREE = (Feature<TreeFeatureConfig>) register("frostbark_tree", new FrostbarkTreeFeature(TreeFeatureConfig::func_227338_a_));
-
 	public static final TreeFeatureConfig CHERRY = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(CHERRY_LOG), new SimpleBlockStateProvider(CHERRY_LEAVES), new BlobFoliagePlacer(2, 0))).func_225569_d_(5).func_227354_b_(2).func_227360_i_(3).func_227352_a_().setSapling((IPlantable) BlocksTwo.CHERRY_SAPLING).func_225568_b_();
 	public static final TreeFeatureConfig MAPLE = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(MAPLE_LOG), new SimpleBlockStateProvider(MAPLE_LEAVES), new BlobFoliagePlacer(2, 0))).func_225569_d_(5).func_227354_b_(2).func_227360_i_(3).func_227352_a_().setSapling((IPlantable) BlocksTwo.MAPLE_SAPLING).func_225568_b_();
 	public static final TreeFeatureConfig GHOSTWOOD = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(GHOSTWOOD_LOG), new SimpleBlockStateProvider(GHOSTWOOD_LEAVES), new BlobFoliagePlacer(2, 0))).func_225569_d_(5).func_227354_b_(2).func_227360_i_(3).func_227352_a_().setSapling((IPlantable) BlocksTwo.GHOSTWOOD_SAPLING).func_225568_b_();
@@ -56,7 +50,15 @@ public class FeatureTwo {
 	
 	
 	
+	@ObjectHolder("two:cherry_tree") public static final Feature<TreeFeatureConfig> CHERRY_TREE = (Feature<TreeFeatureConfig>) register("cherry_tree", new TreeFeature(TreeFeatureConfig::func_227338_a_));
+	@ObjectHolder("two:maple_tree") public static final Feature<TreeFeatureConfig> MAPLE_TREE = (Feature<TreeFeatureConfig>) register("maple_tree", new TreeFeature(TreeFeatureConfig::func_227338_a_));
+	@ObjectHolder("two:ghostwood_tree") public static final Feature<TreeFeatureConfig> GHOSTWOOD_TREE = (Feature<TreeFeatureConfig>) register("ghostwood_tree", new GhostwoodTreeFeature(TreeFeatureConfig::func_227338_a_));
+	@ObjectHolder("two:cloudwood_tree") public static final Feature<TreeFeatureConfig> CLOUDWOOD_TREE = (Feature<TreeFeatureConfig>) register("cloudwood_tree", new CloudwoodTreeFeature(TreeFeatureConfig::func_227338_a_));
+	@ObjectHolder("two:blackbark_tree") public static final Feature<TreeFeatureConfig> BLACKBARK_TREE = (Feature<TreeFeatureConfig>) register("blackbark_tree", new BlackbarkTreeFeature(TreeFeatureConfig::func_227338_a_));
+	@ObjectHolder("two:frostbark_tree") public static final Feature<TreeFeatureConfig> FROSTBARK_TREE = (Feature<TreeFeatureConfig>) register("frostbark_tree", new FrostbarkTreeFeature(TreeFeatureConfig::func_227338_a_));
+
 	@ObjectHolder("two:adobe_well") public static final Structure<NoFeatureConfig> ADOBE_WELL = (Structure<NoFeatureConfig>) register("adobe_well", new AdobeWellStructure(NoFeatureConfig::deserialize));
+	@ObjectHolder("two:dwarven_keep") public static final Structure<NoFeatureConfig> DWARVEN_KEEP = (Structure<NoFeatureConfig>) register("dwarven_keep", new DwarvenKeepStructure(NoFeatureConfig::deserialize));
 	
 	
 	
@@ -66,7 +68,7 @@ public class FeatureTwo {
 		featureRegistryEvent.getRegistry().registerAll(Holder.FEATURESTWO.toArray(new Feature<?> [] {}));
 	}
 	static Feature<?> register(String key, Feature<?> feature) {
-		Holder.FEATURESTWO.add(feature.setRegistryName(key));
+		Holder.FEATURESTWO.add(feature.setRegistryName("two", key));
 		
 		return feature;
 	}
