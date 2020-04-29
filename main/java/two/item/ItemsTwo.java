@@ -446,6 +446,7 @@ public class ItemsTwo {
     //public static final Item BACKPACK = register("backpack", new BackpackItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
     //backpack -> wearable, another tab of items
     //fanny pack -> wearable, displays extra row
+    public static final Item SMALL_BACKPACK = register("small_backpack", new BackpackItem(new Item.Properties().group(ItemGroup.MISC)));
     public static final Item KNAPSACK = register("knapsack", new KnapsackItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
     //potion sack -> displays extra potion slots
     //quiver -> displays extra arrow slots
@@ -469,6 +470,7 @@ public class ItemsTwo {
     });
     
     public static final Item MUSIC_DISC_BAD_DREAMS = register("music_disc_bad_dreams", new MusicDiscItemTwo(13, SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
+    public static final Item MUSIC_DISC_REALM_NINE = register("music_disc_realm_nine", new MusicDiscItemTwo(14, SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
 	
     public static final Item LETTER_A = register("letter_a", new Item(new Item.Properties().group(ItemGroup.MISC)));
     public static final Item LETTER_B = register("letter_b", new Item(new Item.Properties().group(ItemGroup.MISC)));
@@ -611,6 +613,7 @@ public class ItemsTwo {
     public static final Item BANISHER = register("banisher", new BanisherItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)));
     public static final Item STORMBREAKER = register("stormbreaker", new StormbreakerItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.EPIC)));
     public static final Item EVOCATION_STAFF = register("evocation_staff", new EvocationStaffItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.EPIC).defaultMaxDamage(1280)));
+    public static final Item CONJURATION_STAFF = register("conjuration_staff", new ConjurationStaffItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.EPIC).defaultMaxDamage(1280)));
     
     public static final Item IRON_CAPPED_ARROW = register("iron_capped_arrow", new CappedArrowItem(ItemTier.IRON, new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item WOODEN_CAPPED_ARROW = register("wooden_capped_arrow", new CappedArrowItem(ItemTier.WOOD, new Item.Properties().group(ItemGroup.COMBAT)));
