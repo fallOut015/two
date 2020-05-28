@@ -23,7 +23,9 @@ public class SoundEventsTwo {
 	@ObjectHolder("item.armor.equip_sponge") public static final SoundEvent ITEM_ARMOR_EQUIP_SPONGE = register("item.armor.equip_sponge");
 	@ObjectHolder("item.armor.equip_glowstone") public static final SoundEvent ITEM_ARMOR_EQUIP_GLOWSTONE = register("item.armor.equip_glowstone");
 	@ObjectHolder("item.armor.equip_obsidian") public static final SoundEvent ITEM_ARMOR_EQUIP_OBSIDIAN = register("item.armor.equip_obsidian");
+	
 	@ObjectHolder("item.armor.equip_double_jump_boots") public static final SoundEvent ITEM_ARMOR_EQUIP_DOUBLE_JUMP_BOOTS = register("item.armor.equip_double_jump_boots");
+	@ObjectHolder("item.armor.equip_hermes_helmet") public static final SoundEvent ITEM_ARMOR_EQUIP_HERMES_HELMET = register("item.armor.equip_hermes_helmet");
 	
 	
 	

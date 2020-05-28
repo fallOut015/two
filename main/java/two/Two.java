@@ -19,6 +19,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemTier;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.stats.StatType;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.StringTextComponent;
@@ -45,6 +46,7 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -60,11 +62,13 @@ import two.client.renderer.entity.CappedArrowRenderer;
 import two.client.renderer.entity.ChameleonRenderer;
 import two.client.renderer.entity.DarkDwarfArcherRenderer;
 import two.client.renderer.entity.layers.TopHatLayer;
+import two.client.renderer.tileentity.ChairTileEntityRenderer;
 import two.entity.EntityTypeTwo;
 import two.inventory.container.ContainerTypeTwo;
 import two.item.ItemTierTwo;
 import two.item.ItemsTwo;
 import two.stats.StatsTwo;
+import two.tileentity.TileEntityTypeTwo;
 import two.util.SoundEventsTwo;
 import two.world.biome.BiomesTwo;
 import two.world.dimension.ModDimensionTwo;
@@ -114,6 +118,8 @@ public class Two {
     	
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
+    	
+    	ClientRegistry.bindTileEntityRenderer(TileEntityTypeTwo.CHAIR, ChairTileEntityRenderer::new);
     	
     	Biomes.JUNGLE.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.MAPLE_TREE.func_225566_b_(FeatureTwo.MAPLE));
     	Biomes.JUNGLE.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.CHERRY_TREE.func_225566_b_(FeatureTwo.MAPLE));
@@ -220,6 +226,10 @@ public class Two {
     	@SubscribeEvent
     	public static void onSurfaceBuildersRegistry(final RegistryEvent.Register<SurfaceBuilder<?>> surfaceBuilderRegistryEvent) {
     		SurfaceBuilderTwo.onSurfaceBuildersRegistry(surfaceBuilderRegistryEvent);
+    	}
+    	@SubscribeEvent
+    	public static void onTileEntitiesRegistry(final RegistryEvent.Register<TileEntityType<?>> tileEntityRegistryEvent) {
+    		TileEntityTypeTwo.onTileEntitiesRegistry(tileEntityRegistryEvent);
     	}
     }
     

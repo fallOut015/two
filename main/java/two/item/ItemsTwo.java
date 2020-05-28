@@ -170,6 +170,10 @@ public class ItemsTwo {
 	public static final Item POLISHED_MYRKYLITE_BRICK_SLAB = register(BlocksTwo.POLISHED_MYRKYLITE_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item POLISHED_MYRKYLITE_BRICK_STAIRS = register(BlocksTwo.POLISHED_MYRKYLITE_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 
+	public static final Item SANGUINE = register(BlocksTwo.SANGUINE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item CRIMSON = register(BlocksTwo.CRIMSON, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item ABADDON = register(BlocksTwo.ABADDON, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
 	public static final Item COBALT_ORE = register(BlocksTwo.COBALT_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item JADE_ORE = register(BlocksTwo.JADE_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item OPAL_ORE = register(BlocksTwo.OPAL_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -895,7 +899,8 @@ public class ItemsTwo {
 
     public static final Item TOP_HAT = register("top_hat", new TopHatItem(new Item.Properties().group(ItemGroup.COMBAT)));
     
-    public static final Item DOUBLE_JUMP_BOOTS = register("double_jump_boots", new ArmorItem(ArmorMaterialTwo.DOUBLE_JUMP_BOOTS, EquipmentSlotType.FEET, new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item DOUBLE_JUMP_BOOTS = register("double_jump_boots", new DoubleJumpBootsItem(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)));
+    public static final Item HERMES_HELMET = register("hermes_helmet", new HermesHelmetItem(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)));
     
     
     

@@ -259,6 +259,10 @@ public class BlocksTwo {
 	public static final Block POLISHED_MYRKYLITE_BRICK_STAIRS = register("polished_myrkylite_brick_stairs", new StairsBlockTwo(POLISHED_MYRKYLITE_BRICKS.getDefaultState(), Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(4.0f)));
 	public static final Block POLISHED_MYRKYLITE_BRICK_WALL = register("polished_myrkylite_brick_wall", new WallBlock(Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(4.0f)));
 	
+	public static final Block SANGUINE = register("sanguine", new Block(Block.Properties.create(Material.SAND)));
+	public static final Block CRIMSON = register("crimson", new Block(Block.Properties.create(Material.IRON)));
+	public static final Block ABADDON = register("abaddon", new Block(Block.Properties.create(Material.ROCK)));
+	
 	public static final Block COBALT_ORE = register("cobalt_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
 	public static final Block JADE_ORE = register("jade_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
 	public static final Block OPAL_ORE = register("opal_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(1).harvestTool(ToolType.PICKAXE)));

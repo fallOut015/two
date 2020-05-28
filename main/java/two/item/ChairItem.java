@@ -41,7 +41,8 @@ public class ChairItem extends BlockItem {
 		ItemStack stack = ItemStack.EMPTY;
 		if(state.getBlock() instanceof ChairBlock) {
 			CompoundNBT nbt = new CompoundNBT();
-//			nbt.putString("top", state.get(ChairBlock.BACK).toString());
+			
+//			nbt.putString("top", state.pos);
 //			nbt.putString("middle", state.get(ChairBlock.SEAT).toString());
 //			nbt.putString("bottom", state.get(ChairBlock.LEGS).toString());
 			stack.setTag(nbt);
@@ -51,7 +52,6 @@ public class ChairItem extends BlockItem {
 	
 	@Override
 	public ITextComponent getDisplayName(ItemStack stack) {
-		// Screw readable code, preserve memory. 
 		return new TranslationTextComponent(this.getTranslationKey(stack));
 	}
 }

@@ -1,25 +1,36 @@
 package two.block;
 
+import javax.annotation.Nullable;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.state.DirectionProperty;
+import net.minecraft.state.StateContainer;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Direction;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import two.item.ChairItem;
+import two.tileentity.ChairTileEntity;
 
-public class ChairBlock extends Block {
-//	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-//	public static final StringProperty BACK = BlockStatePropertiesTwo.TOP;
-//	public static final StringProperty SEAT = BlockStatePropertiesTwo.MIDDLE;
-//	public static final StringProperty LEGS = BlockStatePropertiesTwo.BOTTOM;
+@SuppressWarnings("deprecation")
+public class ChairBlock extends Block implements ITileEntityProvider {
+	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 	
 	public ChairBlock(Properties properties) {
 		super(properties);
-//		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(BACK, "oak_planks").with(SEAT, "white_wool").with(LEGS, "oak_planks"));
+		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
 	}
-	/*
+	
 	@Nullable
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
 		if (!context.replacingClickedOnBlock()) {
@@ -36,16 +47,16 @@ public class ChairBlock extends Block {
 	    			return blockstate1;
 
 	    return null;
-	}*/
-//	public BlockState rotate(BlockState state, Rotation rot) {
-//		return state.with(FACING, rot.rotate(state.get(FACING)));
-//	}
-//	public BlockState mirror(BlockState state, Mirror mirrorIn) {
-//		return state.rotate(mirrorIn.toRotation(state.get(FACING)));
-//	}
-//	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-//		builder.add(FACING, BACK, SEAT, LEGS);
-//	}
+	}
+	public BlockState rotate(BlockState state, Rotation rot) {
+		return state.with(FACING, rot.rotate(state.get(FACING)));
+	}
+	public BlockState mirror(BlockState state, Mirror mirrorIn) {
+		return state.rotate(mirrorIn.toRotation(state.get(FACING)));
+	}
+	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+		builder.add(FACING);
+	}
 	
 	@Override
 	public void onBlockHarvested(World worldIn, BlockPos pos, BlockState state, PlayerEntity player) {
@@ -62,7 +73,24 @@ public class ChairBlock extends Block {
 //		String back = stack.getTag().getString("top");
 //		String seat = stack.getTag().getString("middle");
 //		String legs = stack.getTag().getString("bottom");
-//		BlockState chair = BlocksTwo.CHAIR.getStateContainer().getBaseState().with(BACK, back).with(SEAT, seat).with(LEGS, legs);
+//		BlockState chair = BlocksTwo.CHAIR.getStateContainer().getBaseState();
 		return null;
+	}
+	
+	@Override
+	public TileEntity createNewTileEntity(IBlockReader worldIn) {
+		return new ChairTileEntity();
+	}
+	@Override
+	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+		return this.createNewTileEntity(world);
+	}
+	@Override
+	public boolean hasTileEntity() {
+		return true;
+	}
+	@Override
+	public boolean hasTileEntity(BlockState state) {
+		return this.hasTileEntity();
 	}
 }
