@@ -45,6 +45,10 @@ public class ChairBlock extends Block implements ITileEntityProvider {
 	    	if (direction.getAxis().isHorizontal())
 	    		if((blockstate1 = blockstate1.with(FACING, direction.getOpposite())).isValidPosition(context.getWorld(), context.getPos()))
 	    			return blockstate1;
+	    
+	    if(context.getWorld().getTileEntity(context.getPos()) instanceof ChairTileEntity) {
+	    	context.getWorld().getTileEntity(context.getPos()).read(context.getItem().getTag());
+	    }
 
 	    return null;
 	}

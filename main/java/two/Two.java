@@ -62,7 +62,7 @@ import two.client.renderer.entity.CappedArrowRenderer;
 import two.client.renderer.entity.ChameleonRenderer;
 import two.client.renderer.entity.DarkDwarfArcherRenderer;
 import two.client.renderer.entity.layers.TopHatLayer;
-import two.client.renderer.tileentity.ChairTileEntityRenderer;
+import two.client.renderer.tileentity.ChairRenderer;
 import two.entity.EntityTypeTwo;
 import two.inventory.container.ContainerTypeTwo;
 import two.item.ItemTierTwo;
@@ -119,7 +119,7 @@ public class Two {
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
     	
-    	ClientRegistry.bindTileEntityRenderer(TileEntityTypeTwo.CHAIR, ChairTileEntityRenderer::new);
+    	ClientRegistry.bindTileEntityRenderer(TileEntityTypeTwo.CHAIR, ChairRenderer::new);
     	
     	Biomes.JUNGLE.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.MAPLE_TREE.func_225566_b_(FeatureTwo.MAPLE));
     	Biomes.JUNGLE.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.CHERRY_TREE.func_225566_b_(FeatureTwo.MAPLE));
