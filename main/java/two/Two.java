@@ -13,11 +13,17 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.inventory.container.ContainerType;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTier;
 import net.minecraft.item.PickaxeItem;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.stats.StatType;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
@@ -42,6 +48,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.ModDimension;
 import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
@@ -65,6 +72,7 @@ import two.client.renderer.entity.layers.TopHatLayer;
 import two.client.renderer.tileentity.ChairRenderer;
 import two.entity.EntityTypeTwo;
 import two.inventory.container.ContainerTypeTwo;
+import two.item.ArmorMaterialTwo;
 import two.item.ItemTierTwo;
 import two.item.ItemsTwo;
 import two.stats.StatsTwo;
@@ -235,6 +243,28 @@ public class Two {
     
     @Mod.EventBusSubscriber
     public static class Events {
+    	@SubscribeEvent
+    	public static void onLivingEquipmentChange(final LivingEquipmentChangeEvent livingEquipmentChangeEvent) {
+    		if(livingEquipmentChangeEvent.getEntityLiving() instanceof PlayerEntity) {
+    			if(livingEquipmentChangeEvent.getSlot().getSlotType().equals(EquipmentSlotType.Group.ARMOR)) {
+    				List<ItemStack> list = new LinkedList<ItemStack>();
+    				livingEquipmentChangeEvent.getEntityLiving().getArmorInventoryList().forEach(list::add);
+    				if(livingEquipmentChangeEvent.getFrom().getItem() instanceof ArmorItem) {
+    					try {
+    						if(list.stream().allMatch(itemstack -> ((ArmorItem) itemstack.getItem()).getArmorMaterial() == ((ArmorItem) livingEquipmentChangeEvent.getFrom().getItem()).getArmorMaterial())) {
+            					LOGGER.info("Apply set bonus!");
+            					if(((ArmorItem) livingEquipmentChangeEvent.getFrom().getItem()).getArmorMaterial() == ArmorMaterialTwo.OBSIDIAN) {
+            			    		 livingEquipmentChangeEvent.getEntityLiving().addPotionEffect(new EffectInstance(Effects.SLOW_FALLING, 50, 3, false, true));
+            					}
+            				}     						
+    					} catch(Exception e) {
+    						LOGGER.warn(e);
+    						LOGGER.warn(e.getClass());
+    					}
+    				}
+    			}
+    		}
+    	}
 		@SubscribeEvent
     	public static void onPlayerWakeUp(final PlayerWakeUpEvent playerWakeUpEvent) {
 			if(playerWakeUpEvent.getPlayer().getEntityWorld().getDayTime() == 24000) {
