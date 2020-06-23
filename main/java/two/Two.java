@@ -311,9 +311,6 @@ public class Two {
         				if(p.isAirBorne) {
         					LOGGER.info("Airborne!");
         					p.jump();
-//        					if(false) {
-//        						EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.BOUNDING, list.getFirst());
-//        					}
         					list.getFirst().getTag().putInt("jumps", list.getFirst().getTag().getInt("jumps") + 1);
         				}
         			}

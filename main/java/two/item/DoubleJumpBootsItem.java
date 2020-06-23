@@ -8,6 +8,8 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.world.World;
 
 public class DoubleJumpBootsItem extends ArmorItem {
+	private static final int EXTRA_JUMPS = 3;
+	
 	public DoubleJumpBootsItem(Properties builder) {
 		super(ArmorMaterialTwo.DOUBLE_JUMP_BOOTS, EquipmentSlotType.FEET, builder);
 	}
@@ -16,8 +18,14 @@ public class DoubleJumpBootsItem extends ArmorItem {
 	public void onCreated(ItemStack stack, World worldIn, PlayerEntity playerIn) {
 		super.onCreated(stack, worldIn, playerIn);
 		
+		int jumps = EXTRA_JUMPS;
+//		if(stack.getEnchantmentTagList().contains(EnchantmentsTwo.BOUNDING)) {
+//			jumps +=
+//		}
+		
 		CompoundNBT nbt = new CompoundNBT();
-		nbt.putInt("extrajumplimit", 3);
+		nbt.putInt("extrajumplimit", jumps);
 		nbt.putInt("jumps", 0);
+		stack.setTag(nbt);
 	}
 }
