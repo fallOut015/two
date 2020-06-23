@@ -78,6 +78,7 @@ import two.entity.EntityTypeTwo;
 import two.inventory.container.ContainerTypeTwo;
 import two.item.ArmorMaterialTwo;
 import two.item.BloodBladeItem;
+import two.item.DoubleJumpBootsItem;
 import two.item.ItemTierTwo;
 import two.item.ItemsTwo;
 import two.stats.StatsTwo;
@@ -303,6 +304,8 @@ public class Two {
         		LOGGER.info(list);
         		if(list.getFirst().getItem() == ItemsTwo.DOUBLE_JUMP_BOOTS) {
         			LOGGER.info("Boots!");
+        			LOGGER.info("Jumps: " + list.getFirst().getTag().getInt("jumps"));
+        			LOGGER.info("Extra Jump Limit: " + list.getFirst().getTag().getInt("extrajumplimit"));
         			if(list.getFirst().getTag().getInt("jumps") < list.getFirst().getTag().getInt("extrajumplimit")) {
         				LOGGER.info("Allowed jump limit!");
         				if(p.isAirBorne) {
@@ -396,6 +399,24 @@ public class Two {
     			
     			itemToolTipEvent.getToolTip().add(new StringTextComponent("XP: " + xp));
     			itemToolTipEvent.getToolTip().add(new StringTextComponent("Level: " + level));
+    		}
+    		if(itemToolTipEvent.getItemStack().getItem() instanceof DoubleJumpBootsItem) {
+    			float jumps = 0;
+    			int extrajumplimit = 0;
+    			
+    			try {
+    				jumps = itemToolTipEvent.getItemStack().getTag().getFloat("jumps");
+    			} catch(Exception e) {
+    				LOGGER.info(e);
+    			}
+    			try {
+    				extrajumplimit = itemToolTipEvent.getItemStack().getTag().getInt("extrajumplimit");
+    			} catch(Exception e) {
+    				LOGGER.info(e);
+    			}
+    			
+    			itemToolTipEvent.getToolTip().add(new StringTextComponent("Jumps: " + jumps));
+    			itemToolTipEvent.getToolTip().add(new StringTextComponent("Extra Jump Limit: " + extrajumplimit));
     		}
     	}
     }

@@ -986,5 +986,11 @@
 	
 	
 	
-	"attribute.name.generic.projectileVelocity": "Projectile Velocity"
+	"attribute.name.generic.projectileVelocity": "Projectile Velocity",
+	
+	
+	
+	
+	
+	"enchantment.two.bounding" : "Bounding"
 }
