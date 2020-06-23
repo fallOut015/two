@@ -38,7 +38,7 @@ public class ChairBlock extends Block implements ITileEntityProvider {
 	        if (blockstate.getBlock() == this && blockstate.get(FACING) == context.getFace())
 	        	return null;
 	    }
-
+		
 	    BlockState blockstate1 = ChairBlock.from(context.getItem());
 
 	    for(Direction direction : context.getNearestLookingDirections())

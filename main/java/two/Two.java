@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -49,6 +50,8 @@ import net.minecraftforge.common.ModDimension;
 import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
@@ -70,9 +73,11 @@ import two.client.renderer.entity.ChameleonRenderer;
 import two.client.renderer.entity.DarkDwarfArcherRenderer;
 import two.client.renderer.entity.layers.TopHatLayer;
 import two.client.renderer.tileentity.ChairRenderer;
+import two.enchantment.EnchantmentsTwo;
 import two.entity.EntityTypeTwo;
 import two.inventory.container.ContainerTypeTwo;
 import two.item.ArmorMaterialTwo;
+import two.item.BloodBladeItem;
 import two.item.ItemTierTwo;
 import two.item.ItemsTwo;
 import two.stats.StatsTwo;
@@ -239,6 +244,10 @@ public class Two {
     	public static void onTileEntitiesRegistry(final RegistryEvent.Register<TileEntityType<?>> tileEntityRegistryEvent) {
     		TileEntityTypeTwo.onTileEntitiesRegistry(tileEntityRegistryEvent);
     	}
+    	@SubscribeEvent
+    	public static void onEnchantmentsRegistry(final RegistryEvent.Register<Enchantment> enchantmentRegistryEvent) {
+    		EnchantmentsTwo.onEnchantmentsRegistry(enchantmentRegistryEvent);
+    	}
     }
     
     @Mod.EventBusSubscriber
@@ -285,6 +294,47 @@ public class Two {
     		}
     	}
     	@SubscribeEvent
+    	public static void onLivingJump(final LivingJumpEvent livingJumpEvent) {
+    		if(livingJumpEvent.getEntityLiving() instanceof PlayerEntity) {
+    			LOGGER.info("Player Jump!");
+    			PlayerEntity p = (PlayerEntity) livingJumpEvent.getEntityLiving();
+        		LinkedList<ItemStack> list = new LinkedList<ItemStack>();
+        		livingJumpEvent.getEntityLiving().getArmorInventoryList().forEach(list::add);
+        		LOGGER.info(list);
+        		if(list.getFirst().getItem() == ItemsTwo.DOUBLE_JUMP_BOOTS) {
+        			LOGGER.info("Boots!");
+        			if(list.getFirst().getTag().getInt("jumps") < list.getFirst().getTag().getInt("extrajumplimit")) {
+        				LOGGER.info("Allowed jump limit!");
+        				if(p.isAirBorne) {
+        					LOGGER.info("Airborne!");
+        					p.jump();
+//        					if(false) {
+//        						EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.BOUNDING, list.getFirst());
+//        					}
+        					list.getFirst().getTag().putInt("jumps", list.getFirst().getTag().getInt("jumps") + 1);
+        				}
+        			}
+        		}
+    		}
+    	}
+    	@SubscribeEvent
+    	public static void onLivingFall(final LivingFallEvent livingFallEvent) {
+    		if(livingFallEvent.getEntityLiving() instanceof PlayerEntity) {
+    			LOGGER.info("Player Fall!");
+    			PlayerEntity p = (PlayerEntity) livingFallEvent.getEntityLiving();
+        		LinkedList<ItemStack> list = new LinkedList<ItemStack>();
+        		livingFallEvent.getEntityLiving().getArmorInventoryList().forEach(list::add);
+        		LOGGER.info(list);
+        		if(list.getFirst().getItem() == ItemsTwo.DOUBLE_JUMP_BOOTS) {
+        			LOGGER.info("Boots!");
+        			if(p.onGround) {
+        				LOGGER.info("Grounded!");
+        				list.getFirst().getTag().putInt("jumps", 0);
+        			}
+        		}
+    		}
+    	}
+    	@SubscribeEvent
     	public static void onItemTooltip(final ItemTooltipEvent itemToolTipEvent) {
     		// Pickaxes show all of the ores they can mine. 
     		if(itemToolTipEvent.getItemStack().getItem() instanceof PickaxeItem) {
@@ -328,6 +378,24 @@ public class Two {
     			itemToolTipEvent.getToolTip().add(new StringTextComponent("Back: " + back));
     			itemToolTipEvent.getToolTip().add(new StringTextComponent("Seat: " + seat));
     			itemToolTipEvent.getToolTip().add(new StringTextComponent("Legs: " + legs));
+    		}
+    		if(itemToolTipEvent.getItemStack().getItem() instanceof BloodBladeItem) {
+    			float xp = 0;
+    			int level = 0;
+    			
+    			try {
+    				xp = itemToolTipEvent.getItemStack().getTag().getFloat("xp");
+    			} catch(Exception e) {
+    				LOGGER.info(e);
+    			}
+    			try {
+    				level = itemToolTipEvent.getItemStack().getTag().getInt("level");
+    			} catch(Exception e) {
+    				LOGGER.info(e);
+    			}
+    			
+    			itemToolTipEvent.getToolTip().add(new StringTextComponent("XP: " + xp));
+    			itemToolTipEvent.getToolTip().add(new StringTextComponent("Level: " + level));
     		}
     	}
     }

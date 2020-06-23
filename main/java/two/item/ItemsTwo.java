@@ -599,18 +599,39 @@ public class ItemsTwo {
     public static final Item BLOOD_WITHER_BLADE = register("blood_wither_blade", new BloodBladeItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.addPotionEffect(new EffectInstance(Effects.WITHER, 50, 2, false, true));
+
+    		stack.getTag().putFloat("xp", (float) (stack.getTag().getFloat("xp") + Math.sqrt(stack.getDamage())));
+    		if(stack.getTag().getFloat("xp") >= Math.pow(1.45, stack.getTag().getInt("level"))) {
+    			stack.getTag().putInt("level", stack.getTag().getInt("level") + 1);
+    			stack.getTag().putFloat("xp", 0);
+    		}
+    		
     		return true;
     	}
     });
     public static final Item BLOOD_FLAME_BLADE = register("blood_flame_blade", new BloodBladeItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.setFire(5);
+    		
+    		stack.getTag().putFloat("xp", (float) (stack.getTag().getFloat("xp") + Math.sqrt(stack.getDamage())));
+    		if(stack.getTag().getFloat("xp") >= Math.pow(1.45, stack.getTag().getInt("level"))) {
+    			stack.getTag().putInt("level", stack.getTag().getInt("level") + 1);
+    			stack.getTag().putFloat("xp", 0);
+    		}
+    		
     		return true;
     	}
     });
     public static final Item BLOOD_VENOM_BLADE = register("blood_venom_blade", new BloodBladeItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)) {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.addPotionEffect(new EffectInstance(Effects.POISON, 50, 3, false, true));
+    		
+    		stack.getTag().putFloat("xp", (float) (stack.getTag().getFloat("xp") + Math.sqrt(stack.getDamage())));
+    		if(stack.getTag().getFloat("xp") >= Math.pow(1.45, stack.getTag().getInt("level"))) {
+    			stack.getTag().putInt("level", stack.getTag().getInt("level") + 1);
+    			stack.getTag().putFloat("xp", 0);
+    		}
+    		
     		return true;
     	}
     });
