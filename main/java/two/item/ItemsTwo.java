@@ -152,6 +152,40 @@ public class ItemsTwo {
 	public static final Item RED_GLAZED_BRICKS = register(BlocksTwo.RED_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item BLACK_GLAZED_BRICKS = register(BlocksTwo.BLACK_GLAZED_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
+	public static final Item WHITE_GLAZED_BRICK_SLAB = register(BlocksTwo.WHITE_GLAZED_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item ORANGE_GLAZED_BRICK_SLAB = register(BlocksTwo.ORANGE_GLAZED_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item MAGENTA_GLAZED_BRICK_SLAB = register(BlocksTwo.MAGENTA_GLAZED_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LIGHT_BLUE_GLAZED_BRICK_SLAB = register(BlocksTwo.LIGHT_BLUE_GLAZED_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item YELLOW_GLAZED_BRICK_SLAB = register(BlocksTwo.YELLOW_GLAZED_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LIME_GLAZED_BRICK_SLAB = register(BlocksTwo.LIME_GLAZED_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item PINK_GLAZED_BRICK_SLAB = register(BlocksTwo.PINK_GLAZED_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item GRAY_GLAZED_BRICK_SLAB = register(BlocksTwo.GRAY_GLAZED_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LIGHT_GRAY_GLAZED_BRICK_SLAB = register(BlocksTwo.LIGHT_GRAY_GLAZED_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item CYAN_GLAZED_BRICK_SLAB = register(BlocksTwo.CYAN_GLAZED_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item PURPLE_GLAZED_BRICK_SLAB = register(BlocksTwo.PURPLE_GLAZED_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BLUE_GLAZED_BRICK_SLAB = register(BlocksTwo.BLUE_GLAZED_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BROWN_GLAZED_BRICK_SLAB = register(BlocksTwo.BROWN_GLAZED_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item GREEN_GLAZED_BRICK_SLAB = register(BlocksTwo.GREEN_GLAZED_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item RED_GLAZED_BRICK_SLAB = register(BlocksTwo.RED_GLAZED_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BLACK_GLAZED_BRICK_SLAB = register(BlocksTwo.BLACK_GLAZED_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+
+	public static final Item WHITE_GLAZED_BRICK_STAIRS = register(BlocksTwo.WHITE_GLAZED_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item ORANGE_GLAZED_BRICK_STAIRS = register(BlocksTwo.ORANGE_GLAZED_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item MAGENTA_GLAZED_BRICK_STAIRS = register(BlocksTwo.MAGENTA_GLAZED_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LIGHT_BLUE_GLAZED_BRICK_STAIRS = register(BlocksTwo.LIGHT_BLUE_GLAZED_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item YELLOW_GLAZED_BRICK_STAIRS = register(BlocksTwo.YELLOW_GLAZED_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LIME_GLAZED_BRICK_STAIRS = register(BlocksTwo.LIME_GLAZED_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item PINK_GLAZED_BRICK_STAIRS = register(BlocksTwo.PINK_GLAZED_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item GRAY_GLAZED_BRICK_STAIRS = register(BlocksTwo.GRAY_GLAZED_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LIGHT_GRAY_GLAZED_BRICK_STAIRS = register(BlocksTwo.LIGHT_GRAY_GLAZED_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item CYAN_GLAZED_BRICK_STAIRS = register(BlocksTwo.CYAN_GLAZED_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item PURPLE_GLAZED_BRICK_STAIRS = register(BlocksTwo.PURPLE_GLAZED_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BLUE_GLAZED_BRICK_STAIRS = register(BlocksTwo.BLUE_GLAZED_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BROWN_GLAZED_BRICK_STAIRS = register(BlocksTwo.BROWN_GLAZED_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item GREEN_GLAZED_BRICK_STAIRS = register(BlocksTwo.GREEN_GLAZED_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item RED_GLAZED_BRICK_STAIRS = register(BlocksTwo.RED_GLAZED_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BLACK_GLAZED_BRICK_STAIRS = register(BlocksTwo.BLACK_GLAZED_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+
 	public static final Item GAULT = register(BlocksTwo.GAULT, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item NIGHTSTONE = register(BlocksTwo.NIGHTSTONE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
@@ -277,6 +311,26 @@ public class ItemsTwo {
 	public static final Item BLACKBARK_SIGN = register(BlocksTwo.BLACKBARK_SIGN, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item FROSTBARK_SIGN = register(BlocksTwo.FROSTBARK_SIGN, new Item.Properties().group(ItemGroup.DECORATIONS));
 
+	public static final Item ADOBE_DRY_WALL = register(BlocksTwo.ADOBE_DRY_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item ADOBE_FROZEN_WALL = register(BlocksTwo.ADOBE_FROZEN_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
+	public static final Item WHITE_GLAZED_BRICK_WALL = register(BlocksTwo.WHITE_GLAZED_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item ORANGE_GLAZED_BRICK_WALL = register(BlocksTwo.ORANGE_GLAZED_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item MAGENTA_GLAZED_BRICK_WALL = register(BlocksTwo.MAGENTA_GLAZED_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item LIGHT_BLUE_GLAZED_BRICK_WALL = register(BlocksTwo.LIGHT_BLUE_GLAZED_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item YELLOW_GLAZED_BRICK_WALL = register(BlocksTwo.YELLOW_GLAZED_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item LIME_GLAZED_BRICK_WALL = register(BlocksTwo.LIME_GLAZED_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item PINK_GLAZED_BRICK_WALL = register(BlocksTwo.PINK_GLAZED_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item GRAY_GLAZED_BRICK_WALL = register(BlocksTwo.GRAY_GLAZED_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item LIGHT_GRAY_GLAZED_BRICK_WALL = register(BlocksTwo.LIGHT_GRAY_GLAZED_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item CYAN_GLAZED_BRICK_WALL = register(BlocksTwo.CYAN_GLAZED_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item PURPLE_GLAZED_BRICK_WALL = register(BlocksTwo.PURPLE_GLAZED_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item BLUE_GLAZED_BRICK_WALL = register(BlocksTwo.BLUE_GLAZED_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item BROWN_GLAZED_BRICK_WALL = register(BlocksTwo.BROWN_GLAZED_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item GREEN_GLAZED_BRICK_WALL = register(BlocksTwo.GREEN_GLAZED_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item RED_GLAZED_BRICK_WALL = register(BlocksTwo.RED_GLAZED_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item BLACK_GLAZED_BRICK_WALL = register(BlocksTwo.BLACK_GLAZED_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
 	public static final Item MYRKYLITE_WALL = register(BlocksTwo.MYRKYLITE_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item POLISHED_MYRKYLITE_WALL = register(BlocksTwo.POLISHED_MYRKYLITE_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item POLISHED_MYRKYLITE_BRICK_WALL = register(BlocksTwo.POLISHED_MYRKYLITE_BRICK_WALL, new Item.Properties().group(ItemGroup.DECORATIONS));
@@ -933,17 +987,6 @@ public class ItemsTwo {
     mulch
     dog food
     dowsing rod
-    backfire curse
-    clumsiness curse
-    flimsiness curse
-    heaviness curse
-    disabler enchant
-    lightning
-    pyro
-    tornado
-    vines
-    nether
-    chill
     smoke bomb
     flash bomb
     confetti bomb
@@ -966,6 +1009,12 @@ public class ItemsTwo {
     food scraps
     necromancer's staff
     quartz tools
+    
+    types of magic:
+    magic items (durability)
+    ability magic (mana)
+    magick (material)
+    wizard magic (various things)
     
     */
     

@@ -92,6 +92,17 @@ public class BlocksTwo {
 	public static final Block RED_STAINED_PLANKS = register("red_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.RED).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Block BLACK_STAINED_PLANKS = register("black_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.BLACK).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	
+	// stained boat
+	// stained sign
+	// stained fence
+	// stained door
+	// stained fence gate
+	// stained slab
+	// stained stairs
+	// stained button
+	// stained pressure plate
+	// stained trapdoor
+	
 	public static final Block CHERRY_SAPLING = register("cherry_sapling", new SaplingBlockTwo(new CherryTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT)));
 	public static final Block MAPLE_SAPLING = register("maple_sapling", new SaplingBlockTwo(new MapleTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT)));
 	public static final Block GHOSTWOOD_SAPLING = register("ghostwood_sapling", new SaplingBlockTwo(new GhostwoodTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT)));
@@ -228,15 +239,68 @@ public class BlocksTwo {
 	public static final Block RED_GLAZED_BRICKS = register("red_glazed_bricks", new Block(Block.Properties.create(Material.ROCK, DyeColor.RED).hardnessAndResistance(2.0F, 6.0F)));
 	public static final Block BLACK_GLAZED_BRICKS = register("black_glazed_bricks", new Block(Block.Properties.create(Material.ROCK, DyeColor.BLACK).hardnessAndResistance(2.0F, 6.0F)));
 	
+	public static final Block WHITE_GLAZED_BRICK_SLAB = register("white_glazed_brick_slab", new SlabBlock(Block.Properties.from(WHITE_GLAZED_BRICKS)));
+	public static final Block ORANGE_GLAZED_BRICK_SLAB = register("orange_glazed_brick_slab", new SlabBlock(Block.Properties.from(ORANGE_GLAZED_BRICKS)));
+	public static final Block MAGENTA_GLAZED_BRICK_SLAB = register("magenta_glazed_brick_slab", new SlabBlock(Block.Properties.from(MAGENTA_GLAZED_BRICKS)));
+	public static final Block LIGHT_BLUE_GLAZED_BRICK_SLAB = register("light_blue_glazed_brick_slab", new SlabBlock(Block.Properties.from(LIGHT_BLUE_GLAZED_BRICKS)));
+	public static final Block YELLOW_GLAZED_BRICK_SLAB = register("yellow_glazed_brick_slab", new SlabBlock(Block.Properties.from(YELLOW_GLAZED_BRICKS)));
+	public static final Block LIME_GLAZED_BRICK_SLAB = register("lime_glazed_brick_slab", new SlabBlock(Block.Properties.from(LIME_GLAZED_BRICKS)));
+	public static final Block PINK_GLAZED_BRICK_SLAB = register("pink_glazed_brick_slab", new SlabBlock(Block.Properties.from(PINK_GLAZED_BRICKS)));
+	public static final Block GRAY_GLAZED_BRICK_SLAB = register("gray_glazed_brick_slab", new SlabBlock(Block.Properties.from(GRAY_GLAZED_BRICKS)));
+	public static final Block LIGHT_GRAY_GLAZED_BRICK_SLAB = register("light_gray_glazed_brick_slab", new SlabBlock(Block.Properties.from(LIGHT_GRAY_GLAZED_BRICKS)));
+	public static final Block CYAN_GLAZED_BRICK_SLAB = register("cyan_glazed_brick_slab", new SlabBlock(Block.Properties.from(CYAN_GLAZED_BRICKS)));
+	public static final Block PURPLE_GLAZED_BRICK_SLAB = register("purple_glazed_brick_slab", new SlabBlock(Block.Properties.from(PURPLE_GLAZED_BRICKS)));
+	public static final Block BLUE_GLAZED_BRICK_SLAB = register("blue_glazed_brick_slab", new SlabBlock(Block.Properties.from(BLUE_GLAZED_BRICKS)));
+	public static final Block BROWN_GLAZED_BRICK_SLAB = register("brown_glazed_brick_slab", new SlabBlock(Block.Properties.from(BROWN_GLAZED_BRICKS)));
+	public static final Block GREEN_GLAZED_BRICK_SLAB = register("green_glazed_brick_slab", new SlabBlock(Block.Properties.from(GREEN_GLAZED_BRICKS)));
+	public static final Block RED_GLAZED_BRICK_SLAB = register("red_glazed_brick_slab", new SlabBlock(Block.Properties.from(RED_GLAZED_BRICKS)));
+	public static final Block BLACK_GLAZED_BRICK_SLAB = register("black_glazed_brick_slab", new SlabBlock(Block.Properties.from(BLACK_GLAZED_BRICKS)));
+
+	public static final Block WHITE_GLAZED_BRICK_STAIRS = register("white_glazed_brick_stairs", new StairsBlockTwo(WHITE_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(WHITE_GLAZED_BRICKS)));
+	public static final Block ORANGE_GLAZED_BRICK_STAIRS = register("orange_glazed_brick_stairs", new StairsBlockTwo(ORANGE_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(ORANGE_GLAZED_BRICKS)));
+	public static final Block MAGENTA_GLAZED_BRICK_STAIRS = register("magenta_glazed_brick_stairs", new StairsBlockTwo(MAGENTA_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(MAGENTA_GLAZED_BRICKS)));
+	public static final Block LIGHT_BLUE_GLAZED_BRICK_STAIRS = register("light_blue_glazed_brick_stairs", new StairsBlockTwo(LIGHT_BLUE_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(LIGHT_BLUE_GLAZED_BRICKS)));
+	public static final Block YELLOW_GLAZED_BRICK_STAIRS = register("yellow_glazed_brick_stairs", new StairsBlockTwo(YELLOW_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(YELLOW_GLAZED_BRICKS)));
+	public static final Block LIME_GLAZED_BRICK_STAIRS = register("lime_glazed_brick_stairs", new StairsBlockTwo(LIME_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(LIME_GLAZED_BRICKS)));
+	public static final Block PINK_GLAZED_BRICK_STAIRS = register("pink_glazed_brick_stairs", new StairsBlockTwo(PINK_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(PINK_GLAZED_BRICKS)));
+	public static final Block GRAY_GLAZED_BRICK_STAIRS = register("gray_glazed_brick_stairs", new StairsBlockTwo(GRAY_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(GRAY_GLAZED_BRICKS)));
+	public static final Block LIGHT_GRAY_GLAZED_BRICK_STAIRS = register("light_gray_glazed_brick_stairs", new StairsBlockTwo(LIGHT_GRAY_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(LIGHT_GRAY_GLAZED_BRICKS)));
+	public static final Block CYAN_GLAZED_BRICK_STAIRS = register("cyan_glazed_brick_stairs", new StairsBlockTwo(CYAN_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(CYAN_GLAZED_BRICKS)));
+	public static final Block PURPLE_GLAZED_BRICK_STAIRS = register("purple_glazed_brick_stairs", new StairsBlockTwo(PURPLE_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(PURPLE_GLAZED_BRICKS)));
+	public static final Block BLUE_GLAZED_BRICK_STAIRS = register("blue_glazed_brick_stairs", new StairsBlockTwo(BLUE_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(BLUE_GLAZED_BRICKS)));
+	public static final Block BROWN_GLAZED_BRICK_STAIRS = register("brown_glazed_brick_stairs", new StairsBlockTwo(BROWN_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(BROWN_GLAZED_BRICKS)));
+	public static final Block GREEN_GLAZED_BRICK_STAIRS = register("green_glazed_brick_stairs", new StairsBlockTwo(GREEN_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(GREEN_GLAZED_BRICKS)));
+	public static final Block RED_GLAZED_BRICK_STAIRS = register("red_glazed_brick_stairs", new StairsBlockTwo(RED_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(RED_GLAZED_BRICKS)));
+	public static final Block BLACK_GLAZED_BRICK_STAIRS = register("black_glazed_brick_stairs", new StairsBlockTwo(BLACK_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(BLACK_GLAZED_BRICKS)));
+
+	public static final Block WHITE_GLAZED_BRICK_WALL = register("white_glazed_brick_wall", new WallBlock(Block.Properties.from(WHITE_GLAZED_BRICKS)));
+	public static final Block ORANGE_GLAZED_BRICK_WALL = register("orange_glazed_brick_wall", new WallBlock(Block.Properties.from(ORANGE_GLAZED_BRICKS)));
+	public static final Block MAGENTA_GLAZED_BRICK_WALL = register("magenta_glazed_brick_wall", new WallBlock(Block.Properties.from(MAGENTA_GLAZED_BRICKS)));
+	public static final Block LIGHT_BLUE_GLAZED_BRICK_WALL = register("light_blue_glazed_brick_wall", new WallBlock(Block.Properties.from(LIGHT_BLUE_GLAZED_BRICKS)));
+	public static final Block YELLOW_GLAZED_BRICK_WALL = register("yellow_glazed_brick_wall", new WallBlock(Block.Properties.from(YELLOW_GLAZED_BRICKS)));
+	public static final Block LIME_GLAZED_BRICK_WALL = register("lime_glazed_brick_wall", new WallBlock(Block.Properties.from(LIME_GLAZED_BRICKS)));
+	public static final Block PINK_GLAZED_BRICK_WALL = register("pink_glazed_brick_wall", new WallBlock(Block.Properties.from(PINK_GLAZED_BRICKS)));
+	public static final Block GRAY_GLAZED_BRICK_WALL = register("gray_glazed_brick_wall", new WallBlock(Block.Properties.from(GRAY_GLAZED_BRICKS)));
+	public static final Block LIGHT_GRAY_GLAZED_BRICK_WALL = register("light_gray_glazed_brick_wall", new WallBlock(Block.Properties.from(LIGHT_GRAY_GLAZED_BRICKS)));
+	public static final Block CYAN_GLAZED_BRICK_WALL = register("cyan_glazed_brick_wall", new WallBlock(Block.Properties.from(CYAN_GLAZED_BRICKS)));
+	public static final Block PURPLE_GLAZED_BRICK_WALL = register("purple_glazed_brick_wall", new WallBlock(Block.Properties.from(PURPLE_GLAZED_BRICKS)));
+	public static final Block BLUE_GLAZED_BRICK_WALL = register("blue_glazed_brick_wall", new WallBlock(Block.Properties.from(BLUE_GLAZED_BRICKS)));
+	public static final Block BROWN_GLAZED_BRICK_WALL = register("brown_glazed_brick_wall", new WallBlock(Block.Properties.from(BROWN_GLAZED_BRICKS)));
+	public static final Block GREEN_GLAZED_BRICK_WALL = register("green_glazed_brick_wall", new WallBlock(Block.Properties.from(GREEN_GLAZED_BRICKS)));
+	public static final Block RED_GLAZED_BRICK_WALL = register("red_glazed_brick_wall", new WallBlock(Block.Properties.from(RED_GLAZED_BRICKS)));
+	public static final Block BLACK_GLAZED_BRICK_WALL = register("black_glazed_brick_wall", new WallBlock(Block.Properties.from(BLACK_GLAZED_BRICKS)));
+	
 	public static final Block ADOBE_WET = register("adobe_wet", new AdobeBlock(Block.Properties.create(Material.CLAY).tickRandomly().hardnessAndResistance(1.0f, 2.0f)));
 	
 	public static final Block ADOBE_DRY = register("adobe_dry", new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f, 4.5f)));
 	public static final Block ADOBE_DRY_SLAB = register("adobe_dry_slab", new SlabBlock(Block.Properties.from(ADOBE_DRY)));
 	public static final Block ADOBE_DRY_STAIRS = register("adobe_dry_stairs", new StairsBlockTwo(ADOBE_DRY.getDefaultState(), Block.Properties.from(ADOBE_DRY)));
+	public static final Block ADOBE_DRY_WALL = register("adobe_dry_wall", new WallBlock(Block.Properties.from(ADOBE_DRY)));
 	
 	public static final Block ADOBE_FROZEN = register("adobe_frozen", new Block(Block.Properties.create(Material.ICE).slipperiness(0.9f).hardnessAndResistance(0.5f)));
 	public static final Block ADOBE_FROZEN_SLAB = register("adobe_frozen_slab", new SlabBlock(Block.Properties.from(ADOBE_FROZEN)));
 	public static final Block ADOBE_FROZEN_STAIRS = register("adobe_frozen_stairs", new StairsBlockTwo(ADOBE_FROZEN.getDefaultState(), Block.Properties.from(ADOBE_FROZEN)));
+	public static final Block ADOBE_FROZEN_WALL = register("adobe_frozen_wall", new WallBlock(Block.Properties.from(ADOBE_FROZEN)));
 	
 	public static final Block GAULT = register("gault", new Block(Block.Properties.create(MaterialTwo.GAULT).hardnessAndResistance(2.0f)));
 	public static final Block NIGHTSTONE = register("nightstone", new Block(Block.Properties.create(MaterialTwo.NIGHSTONE).hardnessAndResistance(7.0f)));
@@ -244,6 +308,7 @@ public class BlocksTwo {
 	public static final Block CLOUD = register("cloud", new Block(Block.Properties.create(Material.WOOL).hardnessAndResistance(0.1f)));
 	
 	public static final Block REGOLITH = register("regolith", new Block(Block.Properties.create(MaterialTwo.REGOLITH).hardnessAndResistance(1.0f)));
+	
 	public static final Block MYRKYLITE = register("myrkylite", new Block(Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(2.0f).harvestTool(ToolType.PICKAXE).harvestLevel(5)));
 	public static final Block MYRKYLITE_SLAB = register("myrkylite_slab", new SlabBlock(Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(2.0f).harvestTool(ToolType.PICKAXE).harvestLevel(5)));
 	public static final Block MYRKYLITE_STAIRS = register("myrkylite_stairs", new StairsBlockTwo(MYRKYLITE.getDefaultState(), Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(2.0f).harvestTool(ToolType.PICKAXE).harvestLevel(5)));

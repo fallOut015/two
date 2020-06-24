@@ -1,0 +1,7 @@
+{
+    "variants" : {
+        "type=bottom" : { "model" : "two:block/gray_glazed_brick_slab" },
+        "type=top" : { "model" : "two:block/gray_glazed_brick_slab_top" },
+        "type=double" : { "model" : "two:block/gray_glazed_bricks" }
+    }
+}
