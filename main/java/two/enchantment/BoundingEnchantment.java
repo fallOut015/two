@@ -15,4 +15,8 @@ public class BoundingEnchantment extends Enchantment {
 	public boolean canApply(ItemStack stack) {
 		return stack.getItem() == ItemsTwo.DOUBLE_JUMP_BOOTS;
 	}
+	@Override
+	public int getMaxLevel() {
+		return 3;
+	}
 }

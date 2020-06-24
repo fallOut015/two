@@ -600,10 +600,10 @@ public class ItemsTwo {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.addPotionEffect(new EffectInstance(Effects.WITHER, 50, 2, false, true));
 
-    		stack.getTag().putFloat("xp", (float) (stack.getTag().getFloat("xp") + Math.sqrt(stack.getDamage())));
-    		if(stack.getTag().getFloat("xp") >= Math.pow(1.45, stack.getTag().getInt("level"))) {
-    			stack.getTag().putInt("level", stack.getTag().getInt("level") + 1);
-    			stack.getTag().putFloat("xp", 0);
+    		target.getActiveItemStack().getTag().putFloat("xp", (float) (target.getActiveItemStack().getTag().getFloat("xp") + Math.sqrt(target.getActiveItemStack().getDamage())));
+    		if(target.getActiveItemStack().getTag().getFloat("xp") >= Math.pow(1.45, target.getActiveItemStack().getTag().getInt("level"))) {
+    			target.getActiveItemStack().getTag().putInt("level", target.getActiveItemStack().getTag().getInt("level") + 1);
+    			target.getActiveItemStack().getTag().putFloat("xp", 0);
     		}
     		
     		return true;
@@ -613,10 +613,10 @@ public class ItemsTwo {
     	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.setFire(5);
     		
-    		stack.getTag().putFloat("xp", (float) (stack.getTag().getFloat("xp") + Math.sqrt(stack.getDamage())));
+    		target.getActiveItemStack().getTag().putFloat("xp", (float) (stack.getTag().getFloat("xp") + Math.sqrt(stack.getDamage())));
     		if(stack.getTag().getFloat("xp") >= Math.pow(1.45, stack.getTag().getInt("level"))) {
-    			stack.getTag().putInt("level", stack.getTag().getInt("level") + 1);
-    			stack.getTag().putFloat("xp", 0);
+    			target.getActiveItemStack().getTag().putInt("level", stack.getTag().getInt("level") + 1);
+    			target.getActiveItemStack().getTag().putFloat("xp", 0);
     		}
     		
     		return true;

@@ -1,11 +1,13 @@
 package two.item;
 
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.world.World;
+import two.enchantment.EnchantmentsTwo;
 
 public class DoubleJumpBootsItem extends ArmorItem {
 	private static final int EXTRA_JUMPS = 3;
@@ -16,16 +18,12 @@ public class DoubleJumpBootsItem extends ArmorItem {
 	
 	@Override
 	public void onCreated(ItemStack stack, World worldIn, PlayerEntity playerIn) {
-		super.onCreated(stack, worldIn, playerIn);
-		
 		int jumps = EXTRA_JUMPS;
-//		if(stack.getEnchantmentTagList().contains(EnchantmentsTwo.BOUNDING)) {
-//			jumps +=
-//		}
+		jumps += EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.BOUNDING, stack);
 		
 		CompoundNBT nbt = new CompoundNBT();
 		nbt.putInt("extrajumplimit", jumps);
 		nbt.putInt("jumps", 0);
-		stack.setTag(nbt);
+		playerIn.getArmorInventoryList().iterator().next().setTag(nbt);
 	}
 }

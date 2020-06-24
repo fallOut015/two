@@ -14,8 +14,6 @@ public abstract class BloodBladeItem extends SwordItem {
 	
 	@Override
 	public void onCreated(ItemStack stack, World worldIn, PlayerEntity playerIn) {
-		super.onCreated(stack, worldIn, playerIn);
-
 		CompoundNBT nbt = new CompoundNBT();
 		nbt.putFloat("xp", 0.1f);
 		nbt.putInt("level", 0);

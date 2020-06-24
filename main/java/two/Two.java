@@ -398,11 +398,11 @@ public class Two {
     			itemToolTipEvent.getToolTip().add(new StringTextComponent("Level: " + level));
     		}
     		if(itemToolTipEvent.getItemStack().getItem() instanceof DoubleJumpBootsItem) {
-    			float jumps = 0;
+    			int jumps = 0;
     			int extrajumplimit = 0;
     			
     			try {
-    				jumps = itemToolTipEvent.getItemStack().getTag().getFloat("jumps");
+    				jumps = itemToolTipEvent.getItemStack().getTag().getInt("jumps");
     			} catch(Exception e) {
     				LOGGER.info(e);
     			}
