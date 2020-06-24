@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "two:adobe_frozen"
+  },
+  "result": "two:adobe_frozen_slab",
+  "count": 2
+}

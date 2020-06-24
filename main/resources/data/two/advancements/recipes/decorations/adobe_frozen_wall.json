@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "two:adobe_frozen_stairs"
+      "two:adobe_frozen_wall"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "two:adobe_frozen_stairs"
+        "recipe": "two:adobe_frozen_wall"
       }
     }
   },

@@ -1,32 +1,32 @@
 {
-	"parent" : "minecraft:recipes/root",
-  	"rewards" : {
-    	"recipes" : [
-      		"two:adobe_frozen_slab"
-    	]
-  	},
-  	"criteria" : {
-    	"has_adobe_frozen" : {
-      		"trigger" : "minecraft:inventory_changed",
-      		"conditions" : {
-        		"items" : [
-          			{
-            			"item" : "two:adobe_frozen"
-          			}
-        		]
-      		}
-    	},
-    	"has_the_recipe" : {
-      		"trigger" : "minecraft:recipe_unlocked",
-      		"conditions" : {
-        		"recipe" : "two:adobe_frozen_slab"
-      		}
-    	}
-  	},
-  	"requirements" : [
-    	[
-      		"has_adobe_frozen",
-      		"has_the_recipe"
-    	]
-  	]
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:adobe_frozen_slab"
+    ]
+  },
+  "criteria": {
+    "has_adobe_frozen": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:adobe_frozen"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:adobe_frozen_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_adobe_frozen",
+      "has_the_recipe"
+    ]
+  ]
 }

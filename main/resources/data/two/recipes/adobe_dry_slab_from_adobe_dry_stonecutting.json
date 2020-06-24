@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "two:adobe_dry"
+  },
+  "result": "two:adobe_dry_slab",
+  "count": 2
+}
