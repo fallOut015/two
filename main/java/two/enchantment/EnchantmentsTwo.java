@@ -3,9 +3,12 @@ package two.enchantment;
 import java.util.LinkedList;
 
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentType;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
+import two.item.ItemsTwo;
+import two.item.SickleItem;
 
 @ObjectHolder("two")
 public class EnchantmentsTwo {
@@ -36,7 +39,10 @@ public class EnchantmentsTwo {
 		Holder.ENCHANTMENTSTWO.add(enchantment.setRegistryName(key));
 		return enchantment;
 	}
-	static class Holder {
+	public static class Holder {
 		public static final LinkedList<Enchantment> ENCHANTMENTSTWO = new LinkedList<Enchantment>();
+	
+		public static final EnchantmentType DOUBLE_JUMP_BOOTS = EnchantmentType.create("double_jump_boots", item -> item.asItem() == ItemsTwo.DOUBLE_JUMP_BOOTS);
+		public static final EnchantmentType SICKLE = EnchantmentType.create("sickle", item -> item.asItem() instanceof SickleItem);
 	}
 }
