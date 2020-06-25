@@ -77,7 +77,6 @@ import two.enchantment.EnchantmentsTwo;
 import two.entity.EntityTypeTwo;
 import two.inventory.container.ContainerTypeTwo;
 import two.item.ArmorMaterialTwo;
-import two.item.BloodBladeItem;
 import two.item.DoubleJumpBootsItem;
 import two.item.ItemTierTwo;
 import two.item.ItemsTwo;
@@ -379,38 +378,9 @@ public class Two {
     			itemToolTipEvent.getToolTip().add(new StringTextComponent("Seat: " + seat));
     			itemToolTipEvent.getToolTip().add(new StringTextComponent("Legs: " + legs));
     		}
-    		if(itemToolTipEvent.getItemStack().getItem() instanceof BloodBladeItem) {
-    			float xp = 0;
-    			int level = 0;
-    			
-    			try {
-    				xp = itemToolTipEvent.getItemStack().getTag().getFloat("xp");
-    			} catch(Exception e) {
-    				LOGGER.info(e);
-    			}
-    			try {
-    				level = itemToolTipEvent.getItemStack().getTag().getInt("level");
-    			} catch(Exception e) {
-    				LOGGER.info(e);
-    			}
-    			
-    			itemToolTipEvent.getToolTip().add(new StringTextComponent("XP: " + xp));
-    			itemToolTipEvent.getToolTip().add(new StringTextComponent("Level: " + level));
-    		}
     		if(itemToolTipEvent.getItemStack().getItem() instanceof DoubleJumpBootsItem) {
-    			int jumps = 0;
-    			int extrajumplimit = 0;
-    			
-    			try {
-    				jumps = itemToolTipEvent.getItemStack().getTag().getInt("jumps");
-    			} catch(Exception e) {
-    				LOGGER.info(e);
-    			}
-    			try {
-    				extrajumplimit = itemToolTipEvent.getItemStack().getTag().getInt("extrajumplimit");
-    			} catch(Exception e) {
-    				LOGGER.info(e);
-    			}
+    			int jumps = itemToolTipEvent.getItemStack().getTag().getInt("jumps");
+    			int extrajumplimit = itemToolTipEvent.getItemStack().getTag().getInt("extrajumplimit");
     			
     			itemToolTipEvent.getToolTip().add(new StringTextComponent("Jumps: " + jumps));
     			itemToolTipEvent.getToolTip().add(new StringTextComponent("Extra Jump Limit: " + extrajumplimit));

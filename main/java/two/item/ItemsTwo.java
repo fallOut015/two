@@ -653,42 +653,21 @@ public class ItemsTwo {
     public static final Item CUTLASS = register("cutlass", new CutlassItem(new Item.Properties()/*.group(ItemGroup.COMBAT)*/));
 
     public static final Item BLOOD_WITHER_BLADE = register("blood_wither_blade", new BloodBladeItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)) {
-    	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    	@Override
+    	public void bonusEffect(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.addPotionEffect(new EffectInstance(Effects.WITHER, 50, 2, false, true));
-
-    		target.getActiveItemStack().getTag().putFloat("xp", (float) (target.getActiveItemStack().getTag().getFloat("xp") + Math.sqrt(target.getActiveItemStack().getDamage())));
-    		if(target.getActiveItemStack().getTag().getFloat("xp") >= Math.pow(1.45, target.getActiveItemStack().getTag().getInt("level"))) {
-    			target.getActiveItemStack().getTag().putInt("level", target.getActiveItemStack().getTag().getInt("level") + 1);
-    			target.getActiveItemStack().getTag().putFloat("xp", 0);
-    		}
-    		
-    		return true;
     	}
     });
     public static final Item BLOOD_FLAME_BLADE = register("blood_flame_blade", new BloodBladeItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)) {
-    	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    	@Override
+    	public void bonusEffect(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.setFire(5);
-    		
-    		target.getActiveItemStack().getTag().putFloat("xp", (float) (stack.getTag().getFloat("xp") + Math.sqrt(stack.getDamage())));
-    		if(stack.getTag().getFloat("xp") >= Math.pow(1.45, stack.getTag().getInt("level"))) {
-    			target.getActiveItemStack().getTag().putInt("level", stack.getTag().getInt("level") + 1);
-    			target.getActiveItemStack().getTag().putFloat("xp", 0);
-    		}
-    		
-    		return true;
     	}
     });
     public static final Item BLOOD_VENOM_BLADE = register("blood_venom_blade", new BloodBladeItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)) {
-    	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    	@Override
+    	public void bonusEffect(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.addPotionEffect(new EffectInstance(Effects.POISON, 50, 3, false, true));
-    		
-    		stack.getTag().putFloat("xp", (float) (stack.getTag().getFloat("xp") + Math.sqrt(stack.getDamage())));
-    		if(stack.getTag().getFloat("xp") >= Math.pow(1.45, stack.getTag().getInt("level"))) {
-    			stack.getTag().putInt("level", stack.getTag().getInt("level") + 1);
-    			stack.getTag().putFloat("xp", 0);
-    		}
-    		
-    		return true;
     	}
     });
     public static final Item BANISHER = register("banisher", new BanisherItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)));
@@ -1024,7 +1003,7 @@ public class ItemsTwo {
     
 	public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
 //    	itemRegistryEvent.getRegistry().getValue(new ResourceLocation("minecraft", "command_block"))
-		ItemGroup.COMBAT.setRelevantEnchantmentTypes(new EnchantmentType[]{ EnchantmentType.ALL, EnchantmentType.ARMOR, EnchantmentType.ARMOR_FEET, EnchantmentType.ARMOR_HEAD, EnchantmentType.ARMOR_LEGS, EnchantmentType.ARMOR_CHEST, EnchantmentType.BOW, EnchantmentType.WEAPON, EnchantmentType.WEARABLE, EnchantmentType.BREAKABLE, EnchantmentType.TRIDENT, EnchantmentType.CROSSBOW, EnchantmentsTwo.Holder.DOUBLE_JUMP_BOOTS });
+		ItemGroup.COMBAT.setRelevantEnchantmentTypes(new EnchantmentType[]{ EnchantmentType.ALL, EnchantmentType.ARMOR, EnchantmentType.ARMOR_FEET, EnchantmentType.ARMOR_HEAD, EnchantmentType.ARMOR_LEGS, EnchantmentType.ARMOR_CHEST, EnchantmentType.BOW, EnchantmentType.WEAPON, EnchantmentType.WEARABLE, EnchantmentType.BREAKABLE, EnchantmentType.TRIDENT, EnchantmentType.CROSSBOW, EnchantmentsTwo.Holder.DOUBLE_JUMP_BOOTS, EnchantmentsTwo.Holder.BLOOD_BLADE });
 		ItemGroup.TOOLS.setRelevantEnchantmentTypes(new EnchantmentType[]{ EnchantmentType.ALL, EnchantmentType.DIGGER, EnchantmentType.FISHING_ROD, EnchantmentType.BREAKABLE, EnchantmentsTwo.Holder.SICKLE });
 		
 		itemRegistryEvent.getRegistry().registerAll(Holder.ITEMSTWO.toArray(new Item[] {}));
