@@ -10,6 +10,7 @@ import net.minecraftforge.registries.ObjectHolder;
 @ObjectHolder("two")
 public class EnchantmentsTwo {
 	public static final Enchantment BOUNDING = register("bounding", new BoundingEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.FEET));
+	public static final Enchantment SWIPING = register("swiping", new SwipingEnchantment(Enchantment.Rarity.UNCOMMON, EquipmentSlotType.MAINHAND));
 	// disabler
 	// backfire curse
 	// clumsiness curse

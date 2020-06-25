@@ -9,6 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CropsBlock;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -20,6 +21,7 @@ import net.minecraft.item.TieredItem;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
+import two.enchantment.EnchantmentsTwo;
 
 public class SickleItem extends TieredItem {
 	private final float speed;
@@ -40,7 +42,12 @@ public class SickleItem extends TieredItem {
 				
 				context.getItem().damageItem(1, context.getPlayer(), playerEntity -> playerEntity.sendBreakAnimation(context.getHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND));
 				
-				for(BlockPos blockPos : BlockPos.getAllInBoxMutable(context.getPos().north().west(), context.getPos().south().east())) {
+				int extrareach = (EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.SWIPING, context.getItem()));
+				
+				BlockPos topleft = new BlockPos(context.getPos().north().west().getX() - extrareach, context.getPos().north().west().getY(), context.getPos().north().west().getZ() - extrareach);
+				BlockPos bottomright = new BlockPos(context.getPos().south().east().getX() + extrareach, context.getPos().south().east().getY(), context.getPos().south().east().getZ() + extrareach);
+				
+				for(BlockPos blockPos : BlockPos.getAllInBoxMutable(topleft, bottomright)) {
 					if(CROPS.contains(context.getWorld().getBlockState(blockPos).getBlock())) {
 						crop = context.getWorld().getBlockState(blockPos);
 						if(((CropsBlock) (crop.getBlock())).isMaxAge(crop)) {

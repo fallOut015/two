@@ -322,6 +322,11 @@
           "weight": 1,
           "name": "two:evocation_staff"
         },
+		{
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "two:double_jump_boots"
+        },
         {
           "type": "minecraft:item",
           "weight": 10,
