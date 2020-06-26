@@ -28,7 +28,7 @@ public class FrostbiteDimension extends Dimension {
 	    OverworldGenSettings frostbitegensettings = ChunkGeneratorType.SURFACE.createSettings();
 	    frostbitegensettings.setDefaultBlock(SurfaceBuilderTwo.ICE);
 	    frostbitegensettings.setDefaultFluid(Blocks.WATER.getDefaultState());
-	    return ChunkGeneratorType.SURFACE.create(this.world, BiomeProviderType.CHECKERBOARD.create(BiomeProviderType.CHECKERBOARD.func_226840_a_(this.world.getWorldInfo()).setBiomes(new Biome [] { BiomesTwo.FROSTED_WOODS, BiomesTwo.PETRIFIED_PLAINS, BiomesTwo.TUNDRA_HILLS })), frostbitegensettings);
+	    return ChunkGeneratorType.SURFACE.create(this.world, BiomeProviderType.CHECKERBOARD.create(BiomeProviderType.CHECKERBOARD.createSettings(this.world.getWorldInfo()).setBiomes(new Biome [] { BiomesTwo.FROSTED_WOODS, BiomesTwo.PETRIFIED_PLAINS, BiomesTwo.TUNDRA_HILLS })), frostbitegensettings);
 	}
 	@Override
 	public BlockPos findSpawn(ChunkPos chunkPosIn, boolean checkValid) {

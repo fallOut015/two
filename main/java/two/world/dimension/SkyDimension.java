@@ -27,7 +27,7 @@ public class SkyDimension extends Dimension {
 		EndGenerationSettings skygensettings = ChunkGeneratorType.FLOATING_ISLANDS.createSettings();
 		skygensettings.setDefaultBlock(SurfaceBuilderTwo.CLOUD);
 		skygensettings.setDefaultFluid(Blocks.WATER.getDefaultState());
-		return ChunkGeneratorType.FLOATING_ISLANDS.create(this.world, BiomeProviderType.FIXED.create(BiomeProviderType.FIXED.func_226840_a_(this.world.getWorldInfo()).setBiome(BiomesTwo.SKY)), skygensettings);
+		return ChunkGeneratorType.FLOATING_ISLANDS.create(this.world, BiomeProviderType.FIXED.create(BiomeProviderType.FIXED.createSettings(this.world.getWorldInfo()).setBiome(BiomesTwo.SKY)), skygensettings);
 	}
 	@Override
 	public BlockPos findSpawn(ChunkPos chunkPosIn, boolean checkValid) {

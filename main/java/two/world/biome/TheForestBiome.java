@@ -22,6 +22,6 @@ public class TheForestBiome extends Biome {
 		);
 		
 		DefaultBiomeFeatures.addSprings(this);
-		this.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.GHOSTWOOD_TREE.func_225566_b_(FeatureTwo.GHOSTWOOD));
+		this.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.GHOSTWOOD_TREE.withConfiguration(FeatureTwo.GHOSTWOOD));
 	}
 }

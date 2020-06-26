@@ -12,7 +12,7 @@ import two.world.gen.feature.FeatureTwo;
 public class CloudwoodTree extends Tree {
 	@Nullable
 	@Override
-	protected ConfiguredFeature<TreeFeatureConfig, ?> func_225546_b_(Random random, boolean pick) {
-		return FeatureTwo.CLOUDWOOD_TREE.func_225566_b_(pick ? FeatureTwo.CLOUDWOOD : FeatureTwo.CLOUDWOOD);
+	protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random random, boolean pick) {
+		return FeatureTwo.CLOUDWOOD_TREE.withConfiguration(pick ? FeatureTwo.CLOUDWOOD : FeatureTwo.CLOUDWOOD);
 	}
 }

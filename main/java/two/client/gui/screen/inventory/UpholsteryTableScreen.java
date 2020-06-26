@@ -126,14 +126,14 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 
 		int k = (int)(41.0F * this.field_214126_x);
 		this.blit(i + 119, j + 13 + k, 232 + (this.showUsableIcons ? 0 : 12), 0, 12, 15);
-		RenderHelper.func_227783_c_();
-		IRenderTypeBuffer.Impl irendertypebuffer$impl = this.minecraft.func_228019_au_().func_228487_b_();
+		RenderHelper.setupGuiFlatDiffuseLighting();
+		IRenderTypeBuffer.Impl irendertypebuffer$impl = this.minecraft.getRenderTypeBuffers().getBufferSource();
 		MatrixStack matrixstack = new MatrixStack();
-		matrixstack.func_227861_a_((double)(i + 139), (double)(j + 52), 0.0D);
-		matrixstack.func_227862_a_(24.0F, -24.0F, 1.0F);
-		matrixstack.func_227861_a_(0.5D, 0.5D, 0.5D);
-		matrixstack.func_227862_a_(0.6666667F, -0.6666667F, -0.6666667F);
-		irendertypebuffer$impl.func_228461_a_();
+		matrixstack.translate((double)(i + 139), (double)(j + 52), 0.0D);
+		matrixstack.scale(24.0F, -24.0F, 1.0F);
+		matrixstack.translate(0.5D, 0.5D, 0.5D);
+		matrixstack.scale(0.6666667F, -0.6666667F, -0.6666667F);
+		irendertypebuffer$impl.finish();
 		if(this.showUsableIcons) {
 			int i2 = i + 60;
 			int k2 = j + 13;
@@ -151,19 +151,19 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 			}
 		}
 
-		RenderHelper.func_227784_d_();
+		RenderHelper.setupGui3DDiffuseLighting();
 	}
 	private void renderMatrix(int p_228190_1_, int p_228190_2_, int p_228190_3_) {
 		MatrixStack matrixstack = new MatrixStack();
-		matrixstack.func_227860_a_();
-		matrixstack.func_227861_a_((double)((float)p_228190_2_ + 0.5F), (double)(p_228190_3_ + 16), 0.0D);
-		matrixstack.func_227862_a_(6.0F, -6.0F, 1.0F);
-		matrixstack.func_227861_a_(0.5D, 0.5D, 0.0D);
-		matrixstack.func_227861_a_(0.5D, 0.5D, 0.5D);
-		matrixstack.func_227862_a_(0.6666667F, -0.6666667F, -0.6666667F);
-		IRenderTypeBuffer.Impl irendertypebuffer$impl = this.minecraft.func_228019_au_().func_228487_b_();
-		matrixstack.func_227865_b_();
-		irendertypebuffer$impl.func_228461_a_();
+		matrixstack.push();
+		matrixstack.translate((double)((float)p_228190_2_ + 0.5F), (double)(p_228190_3_ + 16), 0.0D);
+		matrixstack.scale(6.0F, -6.0F, 1.0F);
+		matrixstack.translate(0.5D, 0.5D, 0.0D);
+		matrixstack.translate(0.5D, 0.5D, 0.5D);
+		matrixstack.scale(0.6666667F, -0.6666667F, -0.6666667F);
+		IRenderTypeBuffer.Impl irendertypebuffer$impl = this.minecraft.getRenderTypeBuffers().getBufferSource();
+		matrixstack.pop();
+		irendertypebuffer$impl.finish();
 	}
 	public boolean mouseClicked(double mousex, double mousey, int mousez) {
 		if (this.showUsableIcons) {

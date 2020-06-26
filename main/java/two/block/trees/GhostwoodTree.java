@@ -12,7 +12,7 @@ import two.world.gen.feature.FeatureTwo;
 public class GhostwoodTree extends Tree {
 	@Nullable
 	@Override
-	protected ConfiguredFeature<TreeFeatureConfig, ?> func_225546_b_(Random random, boolean pick) {
-		return FeatureTwo.GHOSTWOOD_TREE.func_225566_b_(pick ? FeatureTwo.GHOSTWOOD : FeatureTwo.GHOSTWOOD);
+	protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random random, boolean pick) {
+		return FeatureTwo.GHOSTWOOD_TREE.withConfiguration(pick ? FeatureTwo.GHOSTWOOD : FeatureTwo.GHOSTWOOD);
 	}
 }

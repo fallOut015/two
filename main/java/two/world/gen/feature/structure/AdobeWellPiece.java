@@ -25,10 +25,10 @@ public class AdobeWellPiece extends ScatteredStructurePiece {
 	}
 	
 	@Override
-	public boolean func_225577_a_(IWorld world, ChunkGenerator<?> chunkGenerator, Random random, MutableBoundingBox mutableBoundingBox, ChunkPos chunkPos) {
+	public boolean create(IWorld worldIn, ChunkGenerator<?> chunkGeneratorIn, Random randomIn, MutableBoundingBox mutableBoundingBoxIn, ChunkPos chunkPosIn) {
 		List<StructurePiece> list$structurepiece = new ArrayList<StructurePiece>(1);
 		list$structurepiece.add(this);
-		this.buildComponent(this, list$structurepiece, random);
+		this.buildComponent(this, list$structurepiece, randomIn);
 		return true;
 	}
 }

@@ -18,6 +18,6 @@ public class CutlassItem extends SwordItem {
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		worldIn.playSound(playerIn, playerIn.getPosition(), SoundEventsTwo.MUSIC_NIGHTMARE, SoundCategory.MUSIC, 100.0f, 1.0f);
 		worldIn.playSound(playerIn, playerIn.getPosition(), SoundEventsTwo.ITEM_ARMOR_EQUIP_EMERALD, SoundCategory.NEUTRAL, 100.0f, 1.0f);
-		return ActionResult.func_226248_a_(playerIn.getActiveItemStack());
+		return ActionResult.resultSuccess(playerIn.getActiveItemStack());
 	};
 }

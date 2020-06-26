@@ -47,7 +47,7 @@ public abstract class DreamcatcherBlock extends Block {
 	}
 	private boolean canAttachTo(IBlockReader blockReader, BlockPos blockPos, Direction direction) {
 		BlockState blockstate = blockReader.getBlockState(blockPos);
-	    return !blockstate.canProvidePower() && blockstate.func_224755_d(blockReader, blockPos, direction);
+	    return !blockstate.canProvidePower() && blockstate.isSolidSide(blockReader, blockPos, direction);
 	}
 	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
 		Direction direction = state.get(FACING);

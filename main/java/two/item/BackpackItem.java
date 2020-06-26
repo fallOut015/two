@@ -32,9 +32,9 @@ public class BackpackItem extends Item {
 		if (stack.isEmpty()) {
 			playerIn.setItemStackToSlot(equipmentSlotType, itemStack.copy());
 	        itemStack.setCount(0);
-	        return ActionResult.func_226248_a_(itemStack);
+	        return ActionResult.resultSuccess(itemStack);
 	    } else {
-	    	return ActionResult.func_226251_d_(itemStack);
+	    	return ActionResult.resultFail(itemStack);
 	    }
 	}
 	@Override

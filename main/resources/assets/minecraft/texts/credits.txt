@@ -432,6 +432,7 @@
 §f          Terraria
 §f          Animal Crossing
 §f          DnD
+§f          Zelda
 
 §f          Pam
 §f          Donny
@@ -451,6 +452,11 @@
 §f          Some other YouTubers I'm probably forgetting
 
 §f          And YOU!
+
+[C]§f============
+[C]§ePatrons
+[C]§f============
+§f          PLACEHOLDER
 
 
 

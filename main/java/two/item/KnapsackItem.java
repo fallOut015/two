@@ -33,7 +33,7 @@ public class KnapsackItem extends Item {
 		playerIn.openContainer(knapsackContainerProvider);
 		playerIn.addStat(Stats.ITEM_USED.get(this));
 		
-		return ActionResult.func_226248_a_(itemStack);
+		return ActionResult.resultSuccess(itemStack);
 	}
 	public void setOpen() {
 		this.open = true;

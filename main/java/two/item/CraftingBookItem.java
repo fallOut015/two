@@ -34,6 +34,6 @@ public class CraftingBookItem extends Item {
 		playerIn.openContainer(craftingContainer);
 		playerIn.addStat(Stats.ITEM_USED.get(this));
 		
-		return ActionResult.func_226248_a_(itemStack);
+		return ActionResult.resultSuccess(itemStack);
 	}
 }

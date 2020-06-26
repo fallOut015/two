@@ -27,14 +27,14 @@ public class WolfRendererTwo extends MobRenderer<WolfEntity, WolfModel<WolfEntit
 		return livingBase.getTailRotation();
 	}
 
-	public void func_225623_a_(WolfEntity p_225623_1_, float p_225623_2_, float p_225623_3_, MatrixStack p_225623_4_, IRenderTypeBuffer p_225623_5_, int p_225623_6_) {
-		if (p_225623_1_.isWolfWet()) {
-			float f = p_225623_1_.getBrightness() * p_225623_1_.getShadingWhileWet(p_225623_3_);
-			this.entityModel.func_228253_a_(f, f, f);
+	public void render(WolfEntity entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn) {
+		if (entityIn.isWolfWet()) {
+			float f = entityIn.getBrightness() * entityIn.getShadingWhileWet(partialTicks);
+			this.entityModel.setTint(f, f, f);
 		}
-		super.func_225623_a_(p_225623_1_, p_225623_2_, p_225623_3_, p_225623_4_, p_225623_5_, p_225623_6_);
-		if (p_225623_1_.isWolfWet()) {
-			this.entityModel.func_228253_a_(1.0F, 1.0F, 1.0F);
+		super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
+		if (entityIn.isWolfWet()) {
+			this.entityModel.setTint(1.0F, 1.0F, 1.0F);
 		}
 	}
 	public ResourceLocation getEntityTexture(WolfEntity entity) {

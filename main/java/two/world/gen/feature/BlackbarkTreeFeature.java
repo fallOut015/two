@@ -18,7 +18,7 @@ public class BlackbarkTreeFeature extends AbstractTreeFeature<TreeFeatureConfig>
 	}
 
 	@Override
-	protected boolean func_225557_a_(IWorldGenerationReader worldGenerationReader, Random random, BlockPos blockPos, Set<BlockPos> set$blockPos1, Set<BlockPos> set$blockPos2, MutableBoundingBox mutableBoundingBox, TreeFeatureConfig treeFeatureConfig) {
+	protected boolean place(IWorldGenerationReader generationReader, Random rand, BlockPos positionIn, Set<BlockPos> p_225557_4_, Set<BlockPos> p_225557_5_, MutableBoundingBox boundingBoxIn, TreeFeatureConfig configIn) {
 		return false;
 	}
 }

@@ -34,6 +34,6 @@ public class SnowglobeItem extends Item {
 		});
 
 		playerIn.addStat(Stats.ITEM_USED.get(this));
-		return ActionResult.func_226248_a_(playerIn.getHeldItem(handIn));
+		return ActionResult.resultSuccess(playerIn.getHeldItem(handIn));
 	}
 }

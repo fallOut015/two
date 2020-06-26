@@ -38,7 +38,7 @@ public class ChameleonRenderer extends MobRenderer<ChameleonEntity, ChameleonMod
 				// TODO
 				String location;
 				try {
-					TextureAtlasSprite texture = Minecraft.getInstance().getBlockRendererDispatcher().getBlockModelShapes().getModel(state).getQuads(state, Direction.UP, entity.getRNG()).get(0).getSprite();
+					TextureAtlasSprite texture = Minecraft.getInstance().getBlockRendererDispatcher().getBlockModelShapes().getModel(state).getQuads(state, Direction.UP, entity.getRNG()).get(0).func_187508_a();
 					location = texture.getName().getNamespace().replaceFirst("minecraft:", "") + ":textures/" + texture.getName().getPath() + ".png";
 				} catch(IndexOutOfBoundsException exception) {
 					location = "two:textures/entity/chameleon.png";

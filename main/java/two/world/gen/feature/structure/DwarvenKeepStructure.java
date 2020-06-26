@@ -22,7 +22,7 @@ public class DwarvenKeepStructure extends Structure<NoFeatureConfig> {
 	}
 
 	@Override
-	public boolean func_225558_a_(BiomeManager p_225558_1_, ChunkGenerator<?> p_225558_2_, Random p_225558_3_, int p_225558_4_, int p_225558_5_, Biome p_225558_6_) {
+	public boolean canBeGenerated(BiomeManager biomeManagerIn, ChunkGenerator<?> generatorIn, Random randIn, int chunkX, int chunkZ, Biome biomeIn) {
 		return false;
 	}
 	@Override

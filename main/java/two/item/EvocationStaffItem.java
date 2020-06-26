@@ -40,32 +40,32 @@ public class EvocationStaffItem extends Item {
 //		if(playerIn.getCooledAttackStrength(0) == 0.0f) {
 			RayTraceResult result = rayTrace(worldIn, playerIn, FluidMode.ANY);
 			
-	        double d0 = Math.min(result.getHitVec().getY(), playerIn.func_226278_cu_());
-	        double d1 = Math.max(result.getHitVec().getY(), playerIn.func_226278_cu_()) + 1.0D;
-	        float f = (float)MathHelper.atan2(result.getHitVec().getZ() - playerIn.func_226281_cx_(), result.getHitVec().getX() - playerIn.func_226277_ct_());
+	        double d0 = Math.min(result.getHitVec().getY(), playerIn.getPosY());
+	        double d1 = Math.max(result.getHitVec().getY(), playerIn.getPosY()) + 1.0D;
+	        float f = (float)MathHelper.atan2(result.getHitVec().getZ() - playerIn.getPosZ(), result.getHitVec().getX() - playerIn.getPosX());
 
 	        if (playerIn.getDistanceSq(result.getHitVec()) < 9.0D) {
 	        	for(int i = 0; i < 5; ++i) {
 	        		float f1 = f + (float)i * (float)Math.PI * 0.4F;
-	        		this.spawnFangs(playerIn.func_226277_ct_() + (double)MathHelper.cos(f1) * 1.5D, playerIn.func_226281_cx_() + (double)MathHelper.sin(f1) * 1.5D, d0, d1, f1, 0, playerIn);
+	        		this.spawnFangs(playerIn.getPosX() + (double)MathHelper.cos(f1) * 1.5D, playerIn.getPosZ() + (double)MathHelper.sin(f1) * 1.5D, d0, d1, f1, 0, playerIn);
 	            }
 
 	            for(int k = 0; k < 8; ++k) {
 	            	float f2 = f + (float)k * (float)Math.PI * 2.0F / 8.0F + 1.2566371F;
-	            	this.spawnFangs(playerIn.func_226277_ct_() + (double)MathHelper.cos(f2) * 2.5D, playerIn.func_226281_cx_() + (double)MathHelper.sin(f2) * 2.5D, d0, d1, f2, 3, playerIn);
+	            	this.spawnFangs(playerIn.getPosX() + (double)MathHelper.cos(f2) * 2.5D, playerIn.getPosZ() + (double)MathHelper.sin(f2) * 2.5D, d0, d1, f2, 3, playerIn);
 	            }
 	        } else {
 	            for(int l = 0; l < 16; ++l) {
 	            	double d2 = 1.25D * (double)(l + 1);
 	            	int j = 1 * l;
-	            	this.spawnFangs(playerIn.func_226277_ct_() + (double)MathHelper.cos(f) * d2, playerIn.func_226281_cx_() + (double)MathHelper.sin(f) * d2, d0, d1, f, j, playerIn);
+	            	this.spawnFangs(playerIn.getPosX() + (double)MathHelper.cos(f) * d2, playerIn.getPosZ() + (double)MathHelper.sin(f) * d2, d0, d1, f, j, playerIn);
 	            }
 	        }
 	        
 	        playerIn.getHeldItem(handIn).damageItem(10, playerIn, playerEntity -> playerEntity.sendBreakAnimation(handIn == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND));
 //	        playerIn.getHeldItem(handIn).onEntitySwing(playerIn);
 	        
-			return ActionResult.func_226248_a_(playerIn.getHeldItem(handIn));
+			return ActionResult.resultSuccess(playerIn.getHeldItem(handIn));
 //		} else {
 //			return ActionResult.func_226251_d_(playerIn.getHeldItem(handIn));
 //		}
@@ -81,7 +81,7 @@ public class EvocationStaffItem extends Item {
         while(true) {
            BlockPos blockpos1 = blockpos.down();
            BlockState blockstate = playerIn.world.getBlockState(blockpos1);
-           if (blockstate.func_224755_d(playerIn.world, blockpos1, Direction.UP)) {
+           if (blockstate.isSolidSide(playerIn.world, blockpos1, Direction.UP)) {
               if (!playerIn.world.isAirBlock(blockpos)) {
                  BlockState blockstate1 = playerIn.world.getBlockState(blockpos);
                  VoxelShape voxelshape = blockstate1.getCollisionShape(playerIn.world, blockpos);

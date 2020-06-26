@@ -28,7 +28,7 @@ public class NidavellirDimension extends Dimension {
 	    OverworldGenSettings nidavellirsettings = ChunkGeneratorType.SURFACE.createSettings();
 	    nidavellirsettings.setDefaultBlock(SurfaceBuilderTwo.REGOLITH);
 	    nidavellirsettings.setDefaultFluid(Blocks.WATER.getDefaultState());
-	    return ChunkGeneratorType.SURFACE.create(this.world, BiomeProviderType.CHECKERBOARD.create(BiomeProviderType.CHECKERBOARD.func_226840_a_(this.world.getWorldInfo()).setBiomes(new Biome [] { BiomesTwo.DARK_SIDE, BiomesTwo.LUNAR_PLAINS, BiomesTwo.SVARTALHILLS, BiomesTwo.CELESTIAL_FOREST })), nidavellirsettings);
+	    return ChunkGeneratorType.SURFACE.create(this.world, BiomeProviderType.CHECKERBOARD.create(BiomeProviderType.CHECKERBOARD.createSettings(this.world.getWorldInfo()).setBiomes(new Biome [] { BiomesTwo.DARK_SIDE, BiomesTwo.LUNAR_PLAINS, BiomesTwo.SVARTALHILLS, BiomesTwo.CELESTIAL_FOREST })), nidavellirsettings);
 	}
 	@Override
 	public BlockPos findSpawn(ChunkPos chunkPosIn, boolean checkValid) {

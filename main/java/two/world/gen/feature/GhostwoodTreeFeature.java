@@ -1,13 +1,11 @@
 package two.world.gen.feature;
 
-import java.util.Optional;
 import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
 import com.mojang.datafixers.Dynamic;
 
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.gen.IWorldGenerationReader;
@@ -20,7 +18,8 @@ public class GhostwoodTreeFeature extends AbstractSmallTreeFeature<TreeFeatureCo
 	}
 
 	@Override
-	protected boolean func_225557_a_(IWorldGenerationReader worldGenerationReader, Random random, BlockPos blockPos, Set<BlockPos> set$BlockPos1, Set<BlockPos> set$BlockPos2, MutableBoundingBox mutableBoundingBox, TreeFeatureConfig treeFeatureConfig) {
+	protected boolean place(IWorldGenerationReader generationReader, Random rand, BlockPos positionIn, Set<BlockPos> p_225557_4_, Set<BlockPos> p_225557_5_, MutableBoundingBox boundingBoxIn, TreeFeatureConfig configIn) {
+		/*
 		int i = treeFeatureConfig.field_227371_p_ + random.nextInt(treeFeatureConfig.field_227328_b_ + 1) + random.nextInt(treeFeatureConfig.field_227329_c_ + 1);
 		int j = treeFeatureConfig.field_227330_d_ >= 0 ? treeFeatureConfig.field_227330_d_ + random.nextInt(treeFeatureConfig.field_227331_f_ + 1) : i - (treeFeatureConfig.field_227334_i_ + random.nextInt(treeFeatureConfig.field_227335_j_ + 1));
 		int k = treeFeatureConfig.field_227327_a_.func_225573_a_(random, j, i, treeFeatureConfig);
@@ -81,6 +80,8 @@ public class GhostwoodTreeFeature extends AbstractSmallTreeFeature<TreeFeatureCo
 			}
 
 			return true;
-		}
+		}*/
+		return false;
+		// TODO
 	}
 }

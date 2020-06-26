@@ -23,6 +23,6 @@ public class SkyBiome extends Biome {
 		
 		DefaultBiomeFeatures.addLakes(this);
 		DefaultBiomeFeatures.addSprings(this);
-		this.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.CLOUDWOOD_TREE.func_225566_b_(FeatureTwo.CLOUDWOOD));
+		this.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.CLOUDWOOD_TREE.withConfiguration(FeatureTwo.CLOUDWOOD));
 	}
 }

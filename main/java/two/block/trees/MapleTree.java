@@ -13,7 +13,7 @@ import net.minecraft.world.gen.feature.TreeFeatureConfig;
 public class MapleTree extends Tree {
 	@Nullable
 	@Override
-	protected ConfiguredFeature<TreeFeatureConfig, ?> func_225546_b_(Random random, boolean p_225546_2_) {
-		return Feature.NORMAL_TREE.func_225566_b_(DefaultBiomeFeatures.field_226739_a_);
+	protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random random, boolean p_225546_2_) {
+		return Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG);
 	}
 }

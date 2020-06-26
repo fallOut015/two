@@ -18,10 +18,10 @@ public class TopHatModel<T extends LivingEntity> extends AgeableModel<T> {
         this.textureHeight = 32;
         this.top = new ModelRenderer(this, 0, 13);
         this.top.setRotationPoint(0.0F, 0.0F, 0.0F);
-        this.top.func_228301_a_(-4.0F, -6.0F, -4.0F, 8, 6, 8, 0.0F);
+        this.top.addBox(-4.0F, -6.0F, -4.0F, 8, 6, 8, 0.0F);
         this.brim = new ModelRenderer(this, 0, 0);
         this.brim.setRotationPoint(0.0F, 23.0F, 0.0F);
-        this.brim.func_228301_a_(-6.0F, 0.0F, -6.0F, 12, 1, 12, 0.0F);
+        this.brim.addBox(-6.0F, 0.0F, -6.0F, 12, 1, 12, 0.0F);
         this.brim.addChild(this.top);
     }
 
@@ -32,17 +32,17 @@ public class TopHatModel<T extends LivingEntity> extends AgeableModel<T> {
     }
 
 	@Override
-	protected Iterable<ModelRenderer> func_225602_a_() {
+	protected Iterable<ModelRenderer> getBodyParts() {
 		return ImmutableList.of();
 	}
 
 	@Override
-	protected Iterable<ModelRenderer> func_225600_b_() {
+	protected Iterable<ModelRenderer> getHeadParts() {
 		return ImmutableList.of(this.brim);
 	}
 
 	@Override
-	public void func_225597_a_(T p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_, float p_225597_5_, float p_225597_6_) {
-		// void stuff for updating model rotations and whatnot.
+	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		// Rotations
 	}
 }

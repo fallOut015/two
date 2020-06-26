@@ -24,16 +24,17 @@ public class ChairRenderer extends TileEntityRenderer<ChairTileEntity> {
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public void func_225616_a_(ChairTileEntity chairTileEntity, float f2, MatrixStack matrixStack, IRenderTypeBuffer renderTypeBuffer, int i5, int i6) {
+	   public void render(ChairTileEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
 //		BlockState blockstate = chairTileEntity.getBlockState();
-		matrixStack.func_227860_a_();
+		
+		// TODO use the blockstate to get the direction property and rotate the chair model. 
+		
+		matrixStackIn.push();
+		matrixStackIn.translate(0.5D, 0.5D, 0.5D);
 
-		matrixStack.func_227861_a_(0.5D, 0.5D, 0.5D);
-
-
-		String back = chairTileEntity.getTop();
-		String seat = chairTileEntity.getMiddle();
-		String legs = chairTileEntity.getBottom();
+		String back = tileEntityIn.getTop();
+		String seat = tileEntityIn.getMiddle();
+		String legs = tileEntityIn.getBottom();
 		
 		this.model.leg_a.showModel = true;
 		this.model.leg_b.showModel = true;
@@ -43,26 +44,26 @@ public class ChairRenderer extends TileEntityRenderer<ChairTileEntity> {
 		this.model.back.showModel = true;
 		
 		Material materialback = new Material(AtlasTexture.LOCATION_BLOCKS_TEXTURE, new ResourceLocation("block/" + back));
-		IVertexBuilder vertexbuilderback = materialback.func_229311_a_(renderTypeBuffer, this.model::func_228282_a_);
-		this.model.back.func_228308_a_(matrixStack, vertexbuilderback, i5, i6);
+		IVertexBuilder vertexbuilderback = materialback.getBuffer(bufferIn, this.model::getRenderType);
+		this.model.back.render(matrixStackIn, vertexbuilderback, combinedLightIn, combinedOverlayIn);
 
 		Material materialseat = new Material(AtlasTexture.LOCATION_BLOCKS_TEXTURE, new ResourceLocation("block/" + seat));
-		IVertexBuilder vertexbuilderseat = materialseat.func_229311_a_(renderTypeBuffer, this.model::func_228282_a_);
-		this.model.seat.func_228308_a_(matrixStack, vertexbuilderseat, i5, i6);
+		IVertexBuilder vertexbuilderseat = materialseat.getBuffer(bufferIn, this.model::getRenderType);
+		this.model.seat.render(matrixStackIn, vertexbuilderseat, combinedLightIn, combinedOverlayIn);
 		
 		Material materiallegs = new Material(AtlasTexture.LOCATION_BLOCKS_TEXTURE, new ResourceLocation("block/" + legs));
-		IVertexBuilder vertexbuilderlegs = materiallegs.func_229311_a_(renderTypeBuffer, this.model::func_228282_a_);
-		this.model.leg_a.func_228308_a_(matrixStack, vertexbuilderlegs, i5, i6);
-		this.model.leg_b.func_228308_a_(matrixStack, vertexbuilderlegs, i5, i6);
-		this.model.leg_c.func_228308_a_(matrixStack, vertexbuilderlegs, i5, i6);
-		this.model.leg_d.func_228308_a_(matrixStack, vertexbuilderlegs, i5, i6);
+		IVertexBuilder vertexbuilderlegs = materiallegs.getBuffer(bufferIn, this.model::getRenderType);
+		this.model.leg_a.render(matrixStackIn, vertexbuilderlegs, combinedLightIn, combinedOverlayIn);
+		this.model.leg_b.render(matrixStackIn, vertexbuilderlegs, combinedLightIn, combinedOverlayIn);
+		this.model.leg_c.render(matrixStackIn, vertexbuilderlegs, combinedLightIn, combinedOverlayIn);
+		this.model.leg_d.render(matrixStackIn, vertexbuilderlegs, combinedLightIn, combinedOverlayIn);
 
-		matrixStack.func_227860_a_();
-		matrixStack.func_227862_a_(0.6666667F, -0.6666667F, -0.6666667F);
-		
-		matrixStack.func_227865_b_();
-		matrixStack.func_227861_a_(0.0D, (double)0.33333334F, (double)0.046666667F);
-		matrixStack.func_227862_a_(0.010416667F, -0.010416667F, 0.010416667F);
-		matrixStack.func_227865_b_();
+//		matrixStackIn.pop();
+//		matrixStackIn.func_227862_a_(0.6666667F, -0.6666667F, -0.6666667F);
+//		
+//		matrixStackIn.func_227865_b_();
+//		matrixStackIn.func_227861_a_(0.0D, (double)0.33333334F, (double)0.046666667F);
+//		matrixStackIn.func_227862_a_(0.010416667F, -0.010416667F, 0.010416667F);
+//		matrixStackIn.func_227865_b_();
 	}
 }

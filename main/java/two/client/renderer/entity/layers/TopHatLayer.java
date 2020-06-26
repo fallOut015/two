@@ -27,27 +27,27 @@ public class TopHatLayer<T extends LivingEntity, M extends EntityModel<T>> exten
 	public TopHatLayer(IEntityRenderer<T, M> entityRendererIn) {
 		super(entityRendererIn);
 	}
-
+	
 	@Override
-	public void func_225628_a_(MatrixStack matrixStack, IRenderTypeBuffer renderTypeBuffer, int p_225628_3_, T t, float p_225628_5_, float p_225628_6_, float p_225628_7_, float p_225628_8_, float p_225628_9_, float p_225628_10_) {
-		ItemStack itemStack = t.getItemStackFromSlot(EquipmentSlotType.HEAD);
+	public void render(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, T entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+		ItemStack itemStack = entitylivingbaseIn.getItemStackFromSlot(EquipmentSlotType.HEAD);
 		if(itemStack.getItem() == ItemsTwo.TOP_HAT) {
 			ResourceLocation resourceLocation = null;
-			if(t instanceof AbstractClientPlayerEntity) {
-				AbstractClientPlayerEntity abstractClientPlayerEntity = (AbstractClientPlayerEntity) t;
+			if(entitylivingbaseIn instanceof AbstractClientPlayerEntity) {
+				AbstractClientPlayerEntity abstractClientPlayerEntity = (AbstractClientPlayerEntity) entitylivingbaseIn;
 				if(abstractClientPlayerEntity.isPlayerInfoSet()) {
 					resourceLocation = TEXTURE_TOP_HAT;
 				}
 			} else {
 				resourceLocation = TEXTURE_TOP_HAT;
 			}
-			matrixStack.func_227860_a_();
-			matrixStack.func_227861_a_(0, 0, 0);
-			this.getEntityModel().setModelAttributes(this.modelTopHat);
-			this.modelTopHat.func_225597_a_(t, p_225628_5_, p_225628_6_, p_225628_8_, p_225628_9_, p_225628_10_);
-			IVertexBuilder vertexBuilder = ItemRenderer.func_229113_a_(renderTypeBuffer, this.modelTopHat.func_228282_a_(resourceLocation), false, itemStack.hasEffect());
-			this.modelTopHat.func_225598_a_(matrixStack, vertexBuilder, p_225628_3_, OverlayTexture.field_229196_a_, 1.0f, 1.0f, 1.0f, 1.0f);
-			matrixStack.func_227865_b_();
+			matrixStackIn.push();
+			matrixStackIn.translate(0, 0, 0);
+			this.getEntityModel().copyModelAttributesTo(this.modelTopHat);
+			this.modelTopHat.setRotationAngles(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+			IVertexBuilder vertexBuilder = ItemRenderer.getBuffer(bufferIn, this.modelTopHat.getRenderType(resourceLocation), false, itemStack.hasEffect());
+			this.modelTopHat.render(matrixStackIn, vertexBuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0f, 1.0f, 1.0f, 1.0f);
+			matrixStackIn.pop();
 		}
 	}
 }
