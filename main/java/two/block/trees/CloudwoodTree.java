@@ -13,6 +13,6 @@ public class CloudwoodTree extends Tree {
 	@Nullable
 	@Override
 	protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random random, boolean pick) {
-		return FeatureTwo.CLOUDWOOD_TREE.withConfiguration(pick ? FeatureTwo.CLOUDWOOD : FeatureTwo.CLOUDWOOD);
+		return FeatureTwo.CLOUDWOOD_TREE.withConfiguration(FeatureTwo.CLOUDWOOD);
 	}
 }

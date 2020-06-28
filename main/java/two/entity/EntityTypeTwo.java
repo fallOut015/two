@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
+import two.entity.effect.SigilEntity;
 import two.entity.monster.DarkDwarfArcherEntity;
 import two.entity.monster.ShadowEntity;
 import two.entity.monster.WandererEntity;
@@ -25,6 +26,8 @@ public class EntityTypeTwo {
 	// DARK_DWARF_PALADIN
 	
 	public static EntityType<CappedArrowEntity> CAPPED_ARROW = (EntityType<CappedArrowEntity>) register("capped_arrow", EntityType.Builder.<CappedArrowEntity>create(CappedArrowEntity::new, EntityClassification.MISC).size(0.5F, 0.5F).build("capped_arrow"));
+	
+	public static EntityType<SigilEntity> SIGIL = (EntityType<SigilEntity>) register("sigil", EntityType.Builder.create(SigilEntity::new, EntityClassification.MISC).size(4, 0.1f).disableSerialization().build("sigil"));
 	
 	
 	

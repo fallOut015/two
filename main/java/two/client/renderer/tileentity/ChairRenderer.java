@@ -24,7 +24,7 @@ public class ChairRenderer extends TileEntityRenderer<ChairTileEntity> {
 
 	@SuppressWarnings("deprecation")
 	@Override
-	   public void render(ChairTileEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
+	public void render(ChairTileEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
 //		BlockState blockstate = chairTileEntity.getBlockState();
 		
 		// TODO use the blockstate to get the direction property and rotate the chair model. 

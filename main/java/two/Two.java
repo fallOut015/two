@@ -5,12 +5,16 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Function;
 
+import javax.annotation.Nullable;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.lwjgl.glfw.GLFW;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -44,6 +48,7 @@ import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.client.event.InputEvent.MouseInputEvent;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.ModDimension;
@@ -54,6 +59,8 @@ import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -72,6 +79,7 @@ import two.block.DreamcatcherBlock;
 import two.client.renderer.entity.CappedArrowRenderer;
 import two.client.renderer.entity.ChameleonRenderer;
 import two.client.renderer.entity.DarkDwarfArcherRenderer;
+import two.client.renderer.entity.SigilRenderer;
 import two.client.renderer.entity.layers.TopHatLayer;
 import two.client.renderer.tileentity.ChairRenderer;
 import two.enchantment.EnchantmentsTwo;
@@ -113,6 +121,8 @@ public class Two {
 	// FIX MODELS (LIKE DREAMCATCHERS AND SAPLINGS)
 	
     public static final Logger LOGGER = LogManager.getLogger();
+    @Nullable
+    public static PlayerEntity theplayer;
     
     public Two() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -129,6 +139,7 @@ public class Two {
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CAPPED_ARROW, CappedArrowRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.DARK_DWARF_ARCHER, DarkDwarfArcherRenderer::new);
 //    	RenderingRegistry.registerEntityRenderingHandler(EntityType.WOLF, WolfRendererTwo::new);
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SIGIL, SigilRenderer::new);
     	
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
@@ -231,7 +242,8 @@ public class Two {
     	}
     	@SubscribeEvent
     	public static void onGlobalLootModifierSerializersRegistry(final RegistryEvent.Register<GlobalLootModifierSerializer<?>> globalLootModifierSerializerRegistryEvent) {
-    		// forge
+    		// loot stuff
+//    		LootTables.CHESTS_SIMPLE_DUNGEON.
     	}
     	@SubscribeEvent
     	public static void onModDimensionsRegistry(final RegistryEvent.Register<ModDimension> modDimensionRegistryEvent) {
@@ -257,6 +269,28 @@ public class Two {
     
     @Mod.EventBusSubscriber
     public static class Events {
+    	@SubscribeEvent
+    	public static void onPlayerLoggedIn(final PlayerLoggedInEvent playerLoggedInEvent) {
+    		if(theplayer == null) {
+    			theplayer = playerLoggedInEvent.getPlayer();
+    		}
+    	}
+    	@SubscribeEvent
+    	public static void onPlayerLoggedOut(final PlayerLoggedOutEvent playerLoggedOutEvent) {
+    		theplayer = null;
+    	}
+    	@SubscribeEvent
+    	public static void onMouseInput(final MouseInputEvent mouseInputEvent) {
+    		if(mouseInputEvent.getMods() == GLFW.GLFW_MOD_SHIFT && mouseInputEvent.getButton() == GLFW.GLFW_MOUSE_BUTTON_RIGHT && mouseInputEvent.getAction() == GLFW.GLFW_PRESS) {
+    			if(theplayer != null) {
+    				if(EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.FIRE_ABILITY, theplayer.getActiveItemStack()) > 0) {
+        				LOGGER.info("Fire spell!");
+        			}
+    			} else {
+    				LOGGER.info("Player is null!");
+    			}
+    		}
+    	}
     	@SubscribeEvent
     	public static void onLivingEquipmentChange(final LivingEquipmentChangeEvent livingEquipmentChangeEvent) {
     		if(livingEquipmentChangeEvent.getEntityLiving() instanceof PlayerEntity) {

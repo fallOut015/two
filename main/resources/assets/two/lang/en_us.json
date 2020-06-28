@@ -1,6 +1,8 @@
 {
 	"entity.two.chameleon" : "Chameleon",
 	"entity.two.dark_dwarf_archer" : "Dark Dwarven Archer",
+	"entity.two.capped_arrow" : "Capped Arrow",
+	"entity.two.sigil" : "Sigil",
 	
 	
 	
@@ -1049,5 +1051,6 @@
 	
 	"enchantment.two.bounding" : "Bounding",
 	"enchantment.two.swiping" : "Swiping",
-	"enchantment.two.vitality_thief" : "Vitality Thief"
+	"enchantment.two.vitality_thief" : "Vitality Thief",
+	"enchantment.two.fire_ability" : "Pyro / Force Flame / Vim Flammae"
 }
