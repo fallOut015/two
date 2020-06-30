@@ -1049,8 +1049,12 @@
 	
 	
 	
-	"enchantment.two.bounding" : "Bounding",
 	"enchantment.two.swiping" : "Swiping",
 	"enchantment.two.vitality_thief" : "Vitality Thief",
+	"enchantment.two.distance" : "Distance",
+	"enchantment.two.bounding" : "Bounding",
+
+	"enchantment.two.flimsiness_curse" : "Curse of Flimsiness",
+
 	"enchantment.two.fire_ability" : "Pyro / Force Flame / Vim Flammae"
 }

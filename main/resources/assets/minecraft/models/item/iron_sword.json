@@ -23,7 +23,7 @@
 				"minecraft:damaged" : 1,
                 "minecraft:damage" : 0.125
             },
-            "model" : "minecraft:item/iron_sword_broke"
+            "model" : "minecraft:item/iron_sword_broken"
         }
 	]
 }

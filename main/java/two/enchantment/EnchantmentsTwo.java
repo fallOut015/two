@@ -13,11 +13,15 @@ import two.item.SickleItem;
 
 @ObjectHolder("two")
 public class EnchantmentsTwo {
-	public static final Enchantment BOUNDING = register("bounding", new BoundingEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.FEET));
 	public static final Enchantment SWIPING = register("swiping", new SwipingEnchantment(Enchantment.Rarity.UNCOMMON, EquipmentSlotType.MAINHAND));
 	public static final Enchantment VITALITY_THIEF = register("vitality_thief", new VitalityThiefEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
+	public static final Enchantment DISTANCE = register("distance", new DistanceEnchantment(Enchantment.Rarity.RARE, EquipmentSlotType.MAINHAND));
+	public static final Enchantment BOUNDING = register("bounding", new BoundingEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.FEET));
+	
+	public static final Enchantment FLIMSINESS_CURSE = register("flimsiness_curse", new FlimsinessCurseEnchantment(Enchantment.Rarity.UNCOMMON, EquipmentSlotType.MAINHAND));
+	
 	public static final Enchantment FIRE_ABILITY = register("fire_ability", new FireAbilityEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
-	//	public static final Enchantment DISTANCE = register("distance", new DistanceEnchantment());
+	
 	//	public static final Enchantment GENTLE_DESCENT;
 	// disabler
 	// backfire curse
