@@ -12,7 +12,7 @@ public class SmithingHammerItem extends Item {
 		return true;
 	};
 	public ItemStack getContainerItem(ItemStack itemStack) {
-		itemStack.setDamage(itemStack.getDamage() - 2);;
+		itemStack.setDamage(itemStack.getDamage() - 2);
 		return itemStack;
 	};
 }
