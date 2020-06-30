@@ -47,8 +47,8 @@ import two.world.dimension.ModDimensionTwo;
 @ObjectHolder("two")
 public class ItemsTwo {
 	// Not in creative inventory
-	public static final Item TEST_BLOCK = register(BlocksTwo.TEST_BLOCK, new Item.Properties().rarity(Rarity.EPIC));
-	public static final Item TEST_ITEM = register("test_item", new Item(new Item.Properties().rarity(Rarity.EPIC)));
+//	public static final Item TEST_BLOCK = register(BlocksTwo.TEST_BLOCK, new Item.Properties().rarity(Rarity.EPIC));
+//	public static final Item TEST_ITEM = register("test_item", new Item(new Item.Properties().rarity(Rarity.EPIC)));
 	public static final Item COMMUNISM = register("communism", new Item(new Item.Properties().rarity(Rarity.EPIC)) {
 		@Override
 		public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
@@ -640,15 +640,15 @@ public class ItemsTwo {
     public static final Item LEAD_BATTLEAXE = register("lead_battleaxe", new BattleaxeItem(ItemTierTwo.LEAD, 0, -0.0F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item MYRKYLITE_BATTLEAXE = register("myrkylite_battleaxe", new BattleaxeItem(ItemTierTwo.MYRKYLITE, 6, -2.4f, (new Item.Properties()).group(ItemGroup.COMBAT)));
 
-    public static final Item IRON_DAGGER = register("iron_dagger", new DaggerItem(ItemTier.IRON, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-	public static final Item WOODEN_DAGGER = register("wooden_dagger", new DaggerItem(ItemTier.WOOD, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item STONE_DAGGER = register("stone_dagger", new DaggerItem(ItemTier.STONE, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item DIAMOND_DAGGER = register("diamond_dagger", new DaggerItem(ItemTier.DIAMOND, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item GOLDEN_DAGGER = register("golden_dagger", new DaggerItem(ItemTier.GOLD, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item EMERALD_DAGGER = register("emerald_dagger", new DaggerItem(ItemTierTwo.EMERALD, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item RUBY_DAGGER = register("ruby_dagger", new DaggerItem(ItemTierTwo.RUBY, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item LEAD_DAGGER = register("lead_dagger", new DaggerItem(ItemTierTwo.LEAD, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item MYRKYLITE_DAGGER = register("myrkylite_dagger", new DaggerItem(ItemTierTwo.MYRKYLITE, 1, -1.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item IRON_DAGGER = register("iron_dagger", new DaggerItem(ItemTier.IRON, 0, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+	public static final Item WOODEN_DAGGER = register("wooden_dagger", new DaggerItem(ItemTier.WOOD, 0, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item STONE_DAGGER = register("stone_dagger", new DaggerItem(ItemTier.STONE, 0, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item DIAMOND_DAGGER = register("diamond_dagger", new DaggerItem(ItemTier.DIAMOND, 0, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GOLDEN_DAGGER = register("golden_dagger", new DaggerItem(ItemTier.GOLD, 0, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item EMERALD_DAGGER = register("emerald_dagger", new DaggerItem(ItemTierTwo.EMERALD, 0, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item RUBY_DAGGER = register("ruby_dagger", new DaggerItem(ItemTierTwo.RUBY, 0, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item LEAD_DAGGER = register("lead_dagger", new DaggerItem(ItemTierTwo.LEAD, 0, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item MYRKYLITE_DAGGER = register("myrkylite_dagger", new DaggerItem(ItemTierTwo.MYRKYLITE, 0, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
 
     public static final Item CUTLASS = register("cutlass", new CutlassItem(new Item.Properties()/*.group(ItemGroup.COMBAT)*/));
 

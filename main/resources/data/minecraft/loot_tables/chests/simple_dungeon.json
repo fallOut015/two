@@ -60,11 +60,6 @@
         },
 		{
           "type": "minecraft:item",
-          "weight": 3,
-          "name": "two:blood_flame_blade"
-        },
-		{
-          "type": "minecraft:item",
           "weight": 8,
           "name": "two:dreamcatcher_healing"
         },
@@ -317,16 +312,6 @@
           ],
           "name": "minecraft:rotten_flesh"
         },
-		{
-          "type": "minecraft:item",
-          "weight": 1,
-          "name": "two:evocation_staff"
-        },
-		{
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "two:double_jump_boots"
-        },
         {
           "type": "minecraft:item",
           "weight": 10,
@@ -341,6 +326,35 @@
             }
           ],
           "name": "minecraft:string"
+        }
+      ]
+    },
+	{
+      "rolls": {
+        "min": 0.0,
+        "max": 1.0,
+        "type": "minecraft:uniform"
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "two:blood_flame_blade"
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "two:evocation_staff"
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "two:double_jump_boots"
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "two:banisher"
         }
       ]
     }

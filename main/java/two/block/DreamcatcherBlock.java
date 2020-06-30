@@ -97,11 +97,13 @@ public abstract class DreamcatcherBlock extends Block {
 	
 	@Override
 	public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-		Direction direction = stateIn.get(FACING);
-		double x = MathHelper.lerp(rand.nextInt(2), (double)pos.getX(), (double)pos.getX() + 0.5D);
-		double y = MathHelper.lerp(rand.nextInt(2), (double)pos.getY(), (double)pos.getY() + 0.7D);
-		double z = MathHelper.lerp(rand.nextInt(2), (double)pos.getZ(), (double)pos.getZ() + 0.5D);
-		Direction direction1 = direction.getOpposite();
-		worldIn.addParticle(ParticleTypes.CRIT, x + 0.27D * (double)direction1.getXOffset(), y + 0.22D, z + 0.27D * (double)direction1.getZOffset(), 0.0D, 0.0D, 0.0D);
+		if(worldIn.isNightTime()) {
+			Direction direction = stateIn.get(FACING);
+			double x = MathHelper.lerp(rand.nextInt(2), (double)pos.getX(), (double)pos.getX() + 0.5D);
+			double y = MathHelper.lerp(rand.nextInt(2), (double)pos.getY(), (double)pos.getY() + 0.7D);
+			double z = MathHelper.lerp(rand.nextInt(2), (double)pos.getZ(), (double)pos.getZ() + 0.5D);
+			Direction direction1 = direction.getOpposite();
+			worldIn.addParticle(ParticleTypes.CRIT, x + 0.27D * (double)direction1.getXOffset(), y + 0.22D, z + 0.27D * (double)direction1.getZOffset(), 0.0D, 0.0D, 0.0D);
+		}
 	}
 }

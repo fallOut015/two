@@ -12,6 +12,8 @@ import net.minecraft.item.IItemTier;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.TieredItem;
+import net.minecraft.particles.ParticleTypes;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -32,8 +34,12 @@ public class DaggerItem extends TieredItem {
 		return !player.isCreative();
 	}
 	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		if(attacker.isCrouching())
+		if(attacker.isCrouching()) {
 			target.setHealth(target.getHealth() - 2);
+			target.setMotion(0, 0.5, 0);
+			for(int i = 0; i < target.getHealth(); ++ i)
+				target.getEntityWorld().addParticle(ParticleTypes.CRIT, target.getPosX(), target.getPosY(), target.getPosZ(), Math.random() - 0.5D, 0.0D, Math.random() - 0.5D);
+		}
 		
 		stack.damageItem(1, attacker, player ->
 			player.sendBreakAnimation(EquipmentSlotType.MAINHAND)
@@ -41,8 +47,20 @@ public class DaggerItem extends TieredItem {
 		
 	    return true;
 	}
+	@Override
+	public boolean itemInteractionForEntity(ItemStack stack, PlayerEntity playerIn, LivingEntity target, Hand hand) {
+		if(playerIn.getPositionVec().distanceTo(target.getPositionVec()) < 1.41421356237) {
+			if(target.entityDropItem(target.getHeldItem(hand)) == null) {
+				return false;
+			}
+			target.setHeldItem(hand, ItemStack.EMPTY);
+			return true;
+		}
+		
+		return false;
+	}
 	public boolean onBlockDestroyed(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
-		if (state.getBlockHardness(worldIn, pos) != 0.0F) {
+		if(state.getBlockHardness(worldIn, pos) != 0.0F) {
 			stack.damageItem(2, entityLiving, player ->
 				player.sendBreakAnimation(EquipmentSlotType.MAINHAND)
 			);

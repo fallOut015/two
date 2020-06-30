@@ -28,8 +28,8 @@ public class BanisherItem extends Item {
 	public BanisherItem(Properties properties) {
 		super(properties);
 		
-		this.attackDamage = 0.2f;
-		this.attackSpeed = 2.0f;
+		this.attackDamage = 1.0f;
+		this.attackSpeed = -3.0f;
 	}
 	
 	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
