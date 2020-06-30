@@ -7,21 +7,21 @@
 		{
             "predicate" : {
 				"minecraft:damaged" : 1,
-                "minecraft:damage" : 0.5
+                "minecraft:damage" : 0.75
             },
             "model" : "minecraft:item/iron_sword_scraped"
         },
 		{
             "predicate" : {
 				"minecraft:damaged" : 1,
-                "minecraft:damage" : 0.25
+                "minecraft:damage" : 0.5
             },
             "model" : "minecraft:item/iron_sword_chipped"
         },
 		{
             "predicate" : {
 				"minecraft:damaged" : 1,
-                "minecraft:damage" : 0.125
+                "minecraft:damage" : 0.25
             },
             "model" : "minecraft:item/iron_sword_broken"
         }
