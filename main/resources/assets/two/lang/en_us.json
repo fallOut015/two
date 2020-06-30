@@ -1050,11 +1050,21 @@
 	
 	
 	"enchantment.two.swiping" : "Swiping",
+	"enchantment.two.disabler" : "Disabler",
 	"enchantment.two.vitality_thief" : "Vitality Thief",
 	"enchantment.two.distance" : "Distance",
 	"enchantment.two.bounding" : "Bounding",
+	"enchantment.two.gentle_descent" : "Gentle Descent",
 
 	"enchantment.two.flimsiness_curse" : "Curse of Flimsiness",
+	"enchantment.two.clumsiness_curse" : "Curse of Clumsiness",
+	"enchantment.two.backfire_curse" : "Curse of Backfiring",
+	"enchantment.two.heaviness_curse" : "Curse of Heaviness",
 
-	"enchantment.two.fire_ability" : "Pyro / Force Flame / Vim Flammae"
+	"enchantment.two.fire_ability" : "Pyro / Force Flame / Vim Flammae",
+	"enchantment.two.lightning_ability" : "Electricity / Tempest / Vi Tempestatis",
+	"enchantment.two.grass_ability" : "Vines / Plant Power / Potentia Herba",
+	"enchantment.two.nether_ability" : "Hellfire / Hell on Earth / Infernum in Terra",
+	"enchantment.two.wind_ability" : "Wind / Control Wind / Potestate Venti",
+	"enchantment.two.ice_ability" : "Chill / Cold Control / Imperium Gelu"
 }
