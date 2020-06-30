@@ -54,7 +54,7 @@ import two.world.dimension.ModDimensionTwo;
 
 @ObjectHolder("two")
 public class BlocksTwo {
-	public static final Block TEST_BLOCK = register("test_block", new Block(Block.Properties.create(Material.MISCELLANEOUS).lightValue(1)));
+//	public static final Block TEST_BLOCK = register("test_block", new Block(Block.Properties.create(Material.MISCELLANEOUS).lightValue(1)));
     
 //	@ObjectHolder("minecraft:anvil")
 //	public static final Block ANVIL = register("minecraft:anvil", new AnvilBlockTwo(Block.Properties.create(Material.ANVIL)).setRegistryName("minecraft", "anvil"));
