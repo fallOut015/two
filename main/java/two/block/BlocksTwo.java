@@ -290,7 +290,7 @@ public class BlocksTwo {
 	public static final Block RED_GLAZED_BRICK_WALL = register("red_glazed_brick_wall", new WallBlock(Block.Properties.from(RED_GLAZED_BRICKS)));
 	public static final Block BLACK_GLAZED_BRICK_WALL = register("black_glazed_brick_wall", new WallBlock(Block.Properties.from(BLACK_GLAZED_BRICKS)));
 	
-	public static final Block ADOBE_WET = register("adobe_wet", new AdobeBlock(Block.Properties.create(Material.CLAY).tickRandomly().hardnessAndResistance(1.0f, 2.0f)));
+	public static final Block ADOBE_WET = register("adobe_wet", new AdobeWetBlock(Block.Properties.create(Material.CLAY).tickRandomly().hardnessAndResistance(1.0f, 2.0f)));
 	
 	public static final Block ADOBE_DRY = register("adobe_dry", new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f, 4.5f)));
 	public static final Block ADOBE_DRY_SLAB = register("adobe_dry_slab", new SlabBlock(Block.Properties.from(ADOBE_DRY)));
