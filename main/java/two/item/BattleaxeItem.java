@@ -49,7 +49,7 @@ public class BattleaxeItem extends TieredItem {
 
 	    return true;
 	}
-	   
+	
 	public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot) {
 		@SuppressWarnings("deprecation")
 		Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(equipmentSlot);

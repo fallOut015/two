@@ -5,8 +5,11 @@ import java.util.LinkedList;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.ContainerType;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
+import two.Two;
 import two.client.gui.screen.inventory.KnapsackScreen;
 import two.client.gui.screen.inventory.UpholsteryTableScreen;
 
@@ -17,9 +20,12 @@ public class ContainerTypeTwo {
 	
 	public static void onContainerTypesRegistry(final RegistryEvent.Register<ContainerType<?>> containerTypeRegistryEvent) {
 		containerTypeRegistryEvent.getRegistry().registerAll(Holder.CONTAINERTYPESTWO.toArray(new ContainerType<?> [] {}));
-
-		ScreenManager.registerFactory(KNAPSACK, KnapsackScreen::new);
-		ScreenManager.registerFactory(UPHOLSTERY_TABLE, UpholsteryTableScreen::new);
+	
+		try {
+			registerScreens();
+		} catch(NoSuchMethodError e) {
+			Two.LOGGER.error(e);
+		}
 	}
 	static <T extends Container> ContainerType<T> register(String key, ContainerType.IFactory<T> factory) {
 		@SuppressWarnings("unchecked")
@@ -28,6 +34,11 @@ public class ContainerTypeTwo {
 		Holder.CONTAINERTYPESTWO.add(containerType);
 		
 		return containerType;
+	}
+	@OnlyIn(Dist.CLIENT)
+	static void registerScreens() {
+		ScreenManager.registerFactory(KNAPSACK, KnapsackScreen::new);
+		ScreenManager.registerFactory(UPHOLSTERY_TABLE, UpholsteryTableScreen::new);
 	}
 	static class Holder {
 		public static final LinkedList<ContainerType<?>> CONTAINERTYPESTWO = new LinkedList<ContainerType<?>>();

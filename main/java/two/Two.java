@@ -5,16 +5,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Function;
 
-import javax.annotation.Nullable;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.lwjgl.glfw.GLFW;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -48,7 +44,8 @@ import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.client.event.InputEvent.MouseInputEvent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.ModDimension;
@@ -59,8 +56,6 @@ import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -99,7 +94,7 @@ import two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 
 @Mod("two")
 public class Two {
-	// TODO STAIRS AND SLAB FOR ADOBE AND GLAZED BRICKS
+	// TODO SLABS, STAIRS, and WALLS for GLAZED BRICKS
 	// TODO SLAB, PRESSURE PLATE, FENCE, STAIRS, BUTTON, SIGN, AND BOAT FOR STAINED PLANKS
 	
 	// GLAIVE
@@ -121,8 +116,8 @@ public class Two {
 	// FIX MODELS (LIKE DREAMCATCHERS AND SAPLINGS)
 	
     public static final Logger LOGGER = LogManager.getLogger();
-    @Nullable
-    public static PlayerEntity theplayer;
+//    @Nullable
+//    public static PlayerEntity theplayer;
     
     public Two() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -141,8 +136,11 @@ public class Two {
 //    	RenderingRegistry.registerEntityRenderingHandler(EntityType.WOLF, WolfRendererTwo::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SIGIL, SigilRenderer::new);
     	
-    	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
-    	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
+    	try {
+    		clientOnly();
+    	} catch(NoSuchMethodError e) {
+    		Two.LOGGER.error(e);
+    	}
     	
     	ClientRegistry.bindTileEntityRenderer(TileEntityTypeTwo.CHAIR, ChairRenderer::new);
     	
@@ -206,6 +204,11 @@ public class Two {
     }
     private void enqueueIMC(final InterModEnqueueEvent event) {}
     private void processIMC(final InterModProcessEvent event) {}
+    @OnlyIn(Dist.CLIENT)
+    private static void clientOnly() {
+    	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
+    	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
+    }
     
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) {}
@@ -218,7 +221,7 @@ public class Two {
         }
     	@SubscribeEvent
         public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
-        	ItemsTwo.onItemsRegistry(itemRegistryEvent);
+    		ItemsTwo.onItemsRegistry(itemRegistryEvent);
         }
     	@SubscribeEvent
     	public static void onBiomesRegistry(final RegistryEvent.Register<Biome> biomeRegistryEvent) {
@@ -269,6 +272,7 @@ public class Two {
     
     @Mod.EventBusSubscriber
     public static class Events {
+    	/*
     	@SubscribeEvent
     	public static void onPlayerLoggedIn(final PlayerLoggedInEvent playerLoggedInEvent) {
     		if(theplayer == null) {
@@ -291,6 +295,7 @@ public class Two {
     			}
     		}
     	}
+    	*/
     	@SubscribeEvent
     	public static void onLivingEquipmentChange(final LivingEquipmentChangeEvent livingEquipmentChangeEvent) {
     		if(livingEquipmentChangeEvent.getEntityLiving() instanceof PlayerEntity) {
@@ -373,6 +378,7 @@ public class Two {
     		}
     	}
     	@SubscribeEvent
+    	@OnlyIn(Dist.CLIENT)
     	public static void onItemTooltip(final ItemTooltipEvent itemToolTipEvent) {
     		// Pickaxes show all of the ores they can mine. 
     		if(itemToolTipEvent.getItemStack().getItem() instanceof PickaxeItem) {

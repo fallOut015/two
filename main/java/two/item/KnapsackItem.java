@@ -10,16 +10,16 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import two.inventory.KnapsackInventory;
+import two.inventory.container.ContainerTypeTwo;
 
 public class KnapsackItem extends Item {
-	private boolean open;
 	public KnapsackItem(Properties properties) {
 		super(properties);
-		this.open = false;
-		this.addPropertyOverride(new ResourceLocation("open"), (itemStack, world, livingEntity) -> {
+		this.addPropertyOverride(new ResourceLocation("two", "open"), (itemStack, world, livingEntity) -> {
 			if(livingEntity != null && livingEntity.getActiveItemStack().getItem() instanceof KnapsackItem)
-				if(((KnapsackItem) itemStack.getItem()).isOpen())
-					return 1.0f;
+				if(livingEntity instanceof PlayerEntity)
+					if(((PlayerEntity) livingEntity).openContainer.getType() == ContainerTypeTwo.KNAPSACK)
+						return 1.0f;
 			return 0.0f;
 		});
 	}
@@ -34,15 +34,6 @@ public class KnapsackItem extends Item {
 		playerIn.addStat(Stats.ITEM_USED.get(this));
 		
 		return ActionResult.resultSuccess(itemStack);
-	}
-	public void setOpen() {
-		this.open = true;
-	}
-	public void setClosed() {
-		this.open = false;
-	}
-	public boolean isOpen() {
-		return this.open;
 	}
 	
 	/*@Override
