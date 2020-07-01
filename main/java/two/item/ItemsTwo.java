@@ -579,8 +579,15 @@ public class ItemsTwo {
     public static final Item CORN = register("corn", new Item(new Item.Properties().food(FoodsTwo.CORN).group(ItemGroup.FOOD)));
     public static final Item APPLE_PIE = register("apple_pie", new Item(new Item.Properties().food(FoodsTwo.APPLE_PIE).group(ItemGroup.FOOD)));
     public static final Item TOAST = register("toast", new Item(new Item.Properties().food(FoodsTwo.TOAST).group(ItemGroup.FOOD)));
-    public static final Item APPLE_CORE = register("apple_core", new Item(new Item.Properties().group(ItemGroup.FOOD)));
     
+    public static final Item APPLE_CORE = register("apple_core", new Item(new Item.Properties().group(ItemGroup.FOOD)));
+    public static final Item GOLDEN_APPLE_CORE = register("golden_apple_core", new Item(new Item.Properties().group(ItemGroup.FOOD)));
+    public static final Item BEETROOT_STEMS = register("beetroot_stems", new Item(new Item.Properties().group(ItemGroup.FOOD)));
+    public static final Item CARROT_STEM = register("carrot_stem", new Item(new Item.Properties().group(ItemGroup.FOOD)));
+    public static final Item GOLDEN_CARROT_STEM = register("golden_carrot_stem", new Item(new Item.Properties().group(ItemGroup.FOOD)));
+    public static final Item CHORUS_PIT = register("chorus_pit", new Item(new Item.Properties().group(ItemGroup.FOOD)));
+    public static final Item MELON_RIND = register("melon_rind", new Item(new Item.Properties().group(ItemGroup.FOOD)));
+
     
 	
 	// Tools
@@ -996,7 +1003,10 @@ public class ItemsTwo {
     magic items (durability)
     ability magic (mana)
     magick (material)
-    wizard magic (various things)
+    dnd magic (various things)
+	rpg magic (leveling up spells)
+	doctor strange magic (rituals and spirits)
+	conjuration (spirits)
     
     */
     

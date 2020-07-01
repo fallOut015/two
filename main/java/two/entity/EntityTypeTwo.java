@@ -8,8 +8,6 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
 import two.entity.effect.SigilEntity;
 import two.entity.monster.DarkDwarfArcherEntity;
-import two.entity.monster.ShadowEntity;
-import two.entity.monster.WandererEntity;
 import two.entity.passive.ChameleonEntity;
 import two.entity.projectile.CappedArrowEntity;
 
@@ -17,8 +15,8 @@ import two.entity.projectile.CappedArrowEntity;
 @SuppressWarnings("unchecked")
 public class EntityTypeTwo {
 	public static EntityType<ChameleonEntity> CHAMELEON = (EntityType<ChameleonEntity>) register("chameleon", EntityType.Builder.create(ChameleonEntity::new, EntityClassification.CREATURE).size(0.25f, 0.25f).build("chameleon"));
-	public static EntityType<WandererEntity> WANDERER = (EntityType<WandererEntity>) register("wanderer", EntityType.Builder.create(WandererEntity::new, EntityClassification.MONSTER).size(0.5f, 1.0f).build("wanderer"));
-	public static EntityType<ShadowEntity> SHADOW = (EntityType<ShadowEntity>) register("shadow", EntityType.Builder.create(ShadowEntity::new, EntityClassification.MONSTER).size(0.5f, 1.0f).build("shadow"));
+//	public static EntityType<WandererEntity> WANDERER = (EntityType<WandererEntity>) register("wanderer", EntityType.Builder.create(WandererEntity::new, EntityClassification.MONSTER).size(0.5f, 1.0f).build("wanderer"));
+//	public static EntityType<ShadowEntity> SHADOW = (EntityType<ShadowEntity>) register("shadow", EntityType.Builder.create(ShadowEntity::new, EntityClassification.MONSTER).size(0.5f, 1.0f).build("shadow"));
 	public static EntityType<DarkDwarfArcherEntity> DARK_DWARF_ARCHER = (EntityType<DarkDwarfArcherEntity>) register("dark_dwarf_archer", EntityType.Builder.create(DarkDwarfArcherEntity::new, EntityClassification.MONSTER).size(0.5f, 0.75f).build("dark_dwarf_archer"));
 	// DARK_DWARF_GUARD
 	// DARK_DWARF_MAGE
