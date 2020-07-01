@@ -1,10 +1,8 @@
 package two;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Function;
 
 import org.apache.logging.log4j.LogManager;
@@ -12,6 +10,8 @@ import org.apache.logging.log4j.Logger;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
@@ -25,7 +25,6 @@ import net.minecraft.item.IItemTier;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTier;
-import net.minecraft.item.Items;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.INBT;
@@ -132,34 +131,6 @@ public class Two {
     
 //	public static AttributeModifier leveluphealth = new AttributeModifier(UUID.fromString("5D6F0BA2-1186-46AC-B896-C61C5CEE99CC"), "level_up_health", 2, AttributeModifier.Operation.ADDITION);
     
-    public static final Map<Item, Item> FOOD_TO_SCRAPS = new HashMap<Item, Item>();
-    
-    static {
-//    	FOOD_TO_SCRAPS.put(Items.GOLDEN_APPLE, ItemsTwo.GOLDEN_APPLE_CORE);
-//    	FOOD_TO_SCRAPS.put(Items.GOLDEN_CARROT, ItemsTwo.GOLDEN_CARROT_STEM);
-    	FOOD_TO_SCRAPS.put(Items.COOKED_BEEF, Items.BONE);
-    	FOOD_TO_SCRAPS.put(Items.COOKED_PORKCHOP, Items.BONE);
-    	FOOD_TO_SCRAPS.put(Items.COOKED_MUTTON, Items.BONE);
-    	FOOD_TO_SCRAPS.put(Items.COOKED_COD, Items.BONE);
-    	FOOD_TO_SCRAPS.put(Items.COOKED_SALMON, Items.BONE);
-    	FOOD_TO_SCRAPS.put(Items.COOKED_CHICKEN, Items.BONE);
-    	FOOD_TO_SCRAPS.put(Items.COOKED_RABBIT, Items.BONE);
-//    	FOOD_TO_SCRAPS.put(Items.MELON_SLICE, ItemsTwo.MELON_RIND);
-//    	FOOD_TO_SCRAPS.put(Items.CARROT, ItemsTwo.CARROT_STEM);
-//    	FOOD_TO_SCRAPS.put(Items.BEETROOT, ItemsTwo.BEETROOT_STEMS);
-    	FOOD_TO_SCRAPS.put(Items.SWEET_BERRIES, Items.STICK);
-    	FOOD_TO_SCRAPS.put(Items.BEEF, Items.BONE);
-    	FOOD_TO_SCRAPS.put(Items.PORKCHOP, Items.BONE);
-    	FOOD_TO_SCRAPS.put(Items.MUTTON, Items.BONE);
-    	FOOD_TO_SCRAPS.put(Items.CHICKEN, Items.BONE);
-    	FOOD_TO_SCRAPS.put(Items.RABBIT, Items.BONE);
-    	FOOD_TO_SCRAPS.put(Items.COD, Items.BONE);
-    	FOOD_TO_SCRAPS.put(Items.SALMON, Items.BONE);
-//    	FOOD_TO_SCRAPS.put(Items.CHORUS_FRUIT, ItemsTwo.CHORUS_PIT);
-    	FOOD_TO_SCRAPS.put(Items.PUFFERFISH, Items.BONE);
-    	FOOD_TO_SCRAPS.put(Items.TROPICAL_FISH, Items.BONE);
-    }
-    
     public Two() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
@@ -243,6 +214,26 @@ public class Two {
     		// Other ore generation is handled in the new biomes' classes. 
     	}
     	
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.CHERRY_SAPLING, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.MAPLE_SAPLING, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.GHOSTWOOD_SAPLING, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.CLOUDWOOD_SAPLING, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.BLACKBARK_SAPLING, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.FROSTBARK_SAPLING, RenderType.getCutout());
+    	
+    	RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_CHAOS, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_HEALING, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_LOOT, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_LUCKY, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_NIGHTMARE, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_RAINBOW, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_RANDOM, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_SKY, RenderType.getCutout());
+
+//	    RenderTypeLookup.setRenderLayer(BlocksTwo.CHAIR, RenderType.getCutout());
+
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.STARSTONE_TORCH, RenderType.getCutout());
+
     	CapabilitiesTwo.register();
     }
     private void enqueueIMC(final InterModEnqueueEvent event) {}
@@ -456,8 +447,8 @@ public class Two {
     	@SubscribeEvent
     	public static void onFinish(final LivingEntityUseItemEvent.Finish livingEntityUseItemEvent$Finish) {
     		if(livingEntityUseItemEvent$Finish.getItem().isFood()) {
-    			if(FOOD_TO_SCRAPS.containsKey(livingEntityUseItemEvent$Finish.getItem().getItem())) {
-    				ItemStack result = new ItemStack(FOOD_TO_SCRAPS.get(livingEntityUseItemEvent$Finish.getItem().getItem()));
+    			if(ItemsTwo.Holder.FOOD_TO_SCRAPS.containsKey(livingEntityUseItemEvent$Finish.getItem().getItem())) {
+    				ItemStack result = new ItemStack(ItemsTwo.Holder.FOOD_TO_SCRAPS.get(livingEntityUseItemEvent$Finish.getItem().getItem()));
     				livingEntityUseItemEvent$Finish.getEntityLiving().getEntityWorld().addEntity(new ItemEntity(livingEntityUseItemEvent$Finish.getEntityLiving().getEntityWorld(), livingEntityUseItemEvent$Finish.getEntityLiving().getPosX(), livingEntityUseItemEvent$Finish.getEntityLiving().getPosY(), livingEntityUseItemEvent$Finish.getEntityLiving().getPosZ(), result));
     				livingEntityUseItemEvent$Finish.setResultStack(result);
     			}
