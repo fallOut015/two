@@ -1,7 +1,9 @@
 package two.item;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 
 import net.minecraft.block.Block;
@@ -20,6 +22,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTier;
+import net.minecraft.item.Items;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.Rarity;
 import net.minecraft.item.ShovelItem;
@@ -532,43 +535,43 @@ public class ItemsTwo {
     public static final Item MUSIC_DISC_BAD_DREAMS = register("music_disc_bad_dreams", new MusicDiscItemTwo(13, SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
     public static final Item MUSIC_DISC_REALM_NINE = register("music_disc_realm_nine", new MusicDiscItemTwo(14, SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
 	
-    public static final Item LETTER_A = register("letter_a", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_B = register("letter_b", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_C = register("letter_c", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_D = register("letter_d", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_E = register("letter_e", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_F = register("letter_f", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_G = register("letter_g", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_H = register("letter_h", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_I = register("letter_i", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_J = register("letter_j", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_K = register("letter_k", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_L = register("letter_l", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_M = register("letter_m", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_N = register("letter_n", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_O = register("letter_o", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_P = register("letter_p", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_Q = register("letter_q", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_R = register("letter_r", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_S = register("letter_s", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_T = register("letter_t", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_U = register("letter_u", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_V = register("letter_v", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_W = register("letter_w", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_X = register("letter_x", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_Y = register("letter_y", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item LETTER_Z = register("letter_z", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item LETTER_A = register(BlocksTwo.LETTER_A, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_B = register(BlocksTwo.LETTER_B, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_C = register(BlocksTwo.LETTER_C, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_D = register(BlocksTwo.LETTER_D, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_E = register(BlocksTwo.LETTER_E, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_F = register(BlocksTwo.LETTER_F, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_G = register(BlocksTwo.LETTER_G, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_H = register(BlocksTwo.LETTER_H, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_I = register(BlocksTwo.LETTER_I, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_J = register(BlocksTwo.LETTER_J, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_K = register(BlocksTwo.LETTER_K, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_L = register(BlocksTwo.LETTER_L, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_M = register(BlocksTwo.LETTER_M, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_N = register(BlocksTwo.LETTER_N, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_O = register(BlocksTwo.LETTER_O, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_P = register(BlocksTwo.LETTER_P, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_Q = register(BlocksTwo.LETTER_Q, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_R = register(BlocksTwo.LETTER_R, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_S = register(BlocksTwo.LETTER_S, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_T = register(BlocksTwo.LETTER_T, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_U = register(BlocksTwo.LETTER_U, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_V = register(BlocksTwo.LETTER_V, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_W = register(BlocksTwo.LETTER_W, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_X = register(BlocksTwo.LETTER_X, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_Y = register(BlocksTwo.LETTER_Y, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item LETTER_Z = register(BlocksTwo.LETTER_Z, new Item.Properties().group(ItemGroup.MISC));
 
-    public static final Item NUMBER_0 = register("number_0", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item NUMBER_1 = register("number_1", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item NUMBER_2 = register("number_2", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item NUMBER_3 = register("number_3", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item NUMBER_4 = register("number_4", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item NUMBER_5 = register("number_5", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item NUMBER_6 = register("number_6", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item NUMBER_7 = register("number_7", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item NUMBER_8 = register("number_8", new Item(new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item NUMBER_9 = register("number_9", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item NUMBER_0 = register(BlocksTwo.NUMBER_0, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item NUMBER_1 = register(BlocksTwo.NUMBER_1, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item NUMBER_2 = register(BlocksTwo.NUMBER_2, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item NUMBER_3 = register(BlocksTwo.NUMBER_3, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item NUMBER_4 = register(BlocksTwo.NUMBER_4, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item NUMBER_5 = register(BlocksTwo.NUMBER_5, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item NUMBER_6 = register(BlocksTwo.NUMBER_6, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item NUMBER_7 = register(BlocksTwo.NUMBER_7, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item NUMBER_8 = register(BlocksTwo.NUMBER_8, new Item.Properties().group(ItemGroup.MISC));
+    public static final Item NUMBER_9 = register(BlocksTwo.NUMBER_9, new Item.Properties().group(ItemGroup.MISC));
     
     
     
@@ -1011,14 +1014,37 @@ public class ItemsTwo {
     */
     
     
-    
 	public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
 //    	itemRegistryEvent.getRegistry().getValue(new ResourceLocation("minecraft", "command_block"))
 		ItemGroup.COMBAT.setRelevantEnchantmentTypes(new EnchantmentType[]{ EnchantmentType.ALL, EnchantmentType.ARMOR, EnchantmentType.ARMOR_FEET, EnchantmentType.ARMOR_HEAD, EnchantmentType.ARMOR_LEGS, EnchantmentType.ARMOR_CHEST, EnchantmentType.BOW, EnchantmentType.WEAPON, EnchantmentType.WEARABLE, EnchantmentType.BREAKABLE, EnchantmentType.TRIDENT, EnchantmentType.CROSSBOW, EnchantmentsTwo.Holder.DOUBLE_JUMP_BOOTS, EnchantmentsTwo.Holder.BLOOD_BLADE, EnchantmentsTwo.Holder.BANISHER, EnchantmentsTwo.Holder.HERMES_HELMET });
 		ItemGroup.TOOLS.setRelevantEnchantmentTypes(new EnchantmentType[]{ EnchantmentType.ALL, EnchantmentType.DIGGER, EnchantmentType.FISHING_ROD, EnchantmentType.BREAKABLE, EnchantmentsTwo.Holder.SICKLE });
 		
 		itemRegistryEvent.getRegistry().registerAll(Holder.ITEMSTWO.toArray(new Item[] {}));
-    }
+    
+		Holder.FOOD_TO_SCRAPS.put(Items.GOLDEN_APPLE, ItemsTwo.GOLDEN_APPLE_CORE);
+		Holder.FOOD_TO_SCRAPS.put(Items.GOLDEN_CARROT, ItemsTwo.GOLDEN_CARROT_STEM);
+		Holder.FOOD_TO_SCRAPS.put(Items.COOKED_BEEF, Items.BONE);
+		Holder.FOOD_TO_SCRAPS.put(Items.COOKED_PORKCHOP, Items.BONE);
+		Holder.FOOD_TO_SCRAPS.put(Items.COOKED_MUTTON, Items.BONE);
+		Holder.FOOD_TO_SCRAPS.put(Items.COOKED_COD, Items.BONE);
+		Holder.FOOD_TO_SCRAPS.put(Items.COOKED_SALMON, Items.BONE);
+		Holder.FOOD_TO_SCRAPS.put(Items.COOKED_CHICKEN, Items.BONE);
+		Holder.FOOD_TO_SCRAPS.put(Items.COOKED_RABBIT, Items.BONE);
+		Holder.FOOD_TO_SCRAPS.put(Items.MELON_SLICE, ItemsTwo.MELON_RIND);
+		Holder.FOOD_TO_SCRAPS.put(Items.CARROT, ItemsTwo.CARROT_STEM);
+		Holder.FOOD_TO_SCRAPS.put(Items.BEETROOT, ItemsTwo.BEETROOT_STEMS);
+		Holder.FOOD_TO_SCRAPS.put(Items.SWEET_BERRIES, Items.STICK);
+		Holder.FOOD_TO_SCRAPS.put(Items.BEEF, Items.BONE);
+		Holder.FOOD_TO_SCRAPS.put(Items.PORKCHOP, Items.BONE);
+		Holder.FOOD_TO_SCRAPS.put(Items.MUTTON, Items.BONE);
+		Holder.FOOD_TO_SCRAPS.put(Items.CHICKEN, Items.BONE);
+		Holder.FOOD_TO_SCRAPS.put(Items.RABBIT, Items.BONE);
+		Holder.FOOD_TO_SCRAPS.put(Items.COD, Items.BONE);
+		Holder.FOOD_TO_SCRAPS.put(Items.SALMON, Items.BONE);
+		Holder.FOOD_TO_SCRAPS.put(Items.CHORUS_FRUIT, ItemsTwo.CHORUS_PIT);
+		Holder.FOOD_TO_SCRAPS.put(Items.PUFFERFISH, Items.BONE);
+		Holder.FOOD_TO_SCRAPS.put(Items.TROPICAL_FISH, Items.BONE);
+	}
 	static Item register(Block block, Item.Properties properties) {
 		return register(block.getRegistryName().getPath(), new BlockItem(block, properties));
 	}
@@ -1027,7 +1053,9 @@ public class ItemsTwo {
 		
 	    return item;
 	}
-	static class Holder {
+	public static class Holder {
 		public static final LinkedList<Item> ITEMSTWO = new LinkedList<Item>();
+	
+	    public static final Map<Item, Item> FOOD_TO_SCRAPS = new HashMap<Item, Item>();
 	}
 }

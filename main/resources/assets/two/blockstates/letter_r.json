@@ -1,0 +1,8 @@
+{
+	"variants" : {
+    	"facing=north" : { "model": "two:block/letter_r" },
+        "facing=east" :  { "model": "two:block/letter_r", "y": 90 },
+        "facing=south" : { "model": "two:block/letter_r", "y": 180 },
+        "facing=west" :  { "model": "two:block/letter_r", "y": 270 }
+    }
+}

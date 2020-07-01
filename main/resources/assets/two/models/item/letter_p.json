@@ -1,6 +1,6 @@
 {
     "parent" : "minecraft:item/generated",
     "textures" : {
-        "layer0" : "two:item/letter_p"
+        "layer0" : "two:block/letter_p"
     }
 }

@@ -502,6 +502,44 @@ public class BlocksTwo {
 	public static final Block STARSTONE_TORCH = register("starstone_torch", new TorchBlockTwo(Block.Properties.create(Material.MISCELLANEOUS).lightValue(16).doesNotBlockMovement().hardnessAndResistance(0)));
 	public static final Block STARSTONE_WALL_TORCH = register("starstone_wall_torch", new WallTorchBlockTwo(Block.Properties.create(Material.MISCELLANEOUS).lightValue(16).doesNotBlockMovement().hardnessAndResistance(0).lootFrom(STARSTONE_TORCH)));
 	
+	public static final Block LETTER_A = register("letter_a", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_B = register("letter_b", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_C = register("letter_c", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_D = register("letter_d", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_E = register("letter_e", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_F = register("letter_f", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_G = register("letter_g", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_H = register("letter_h", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_I = register("letter_i", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_J = register("letter_j", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_K = register("letter_k", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_L = register("letter_l", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_M = register("letter_m", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_N = register("letter_n", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_O = register("letter_o", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_P = register("letter_p", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_Q = register("letter_q", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_R = register("letter_r", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_S = register("letter_s", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_T = register("letter_t", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_U = register("letter_u", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_V = register("letter_v", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_W = register("letter_w", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_X = register("letter_x", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_Y = register("letter_y", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block LETTER_Z = register("letter_z", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+
+	public static final Block NUMBER_0 = register("number_0", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block NUMBER_1 = register("number_1", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block NUMBER_2 = register("number_2", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block NUMBER_3 = register("number_3", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block NUMBER_4 = register("number_4", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block NUMBER_5 = register("number_5", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block NUMBER_6 = register("number_6", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block NUMBER_7 = register("number_7", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block NUMBER_8 = register("number_8", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+	public static final Block NUMBER_9 = register("number_9", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
+
 	
 	
 	
