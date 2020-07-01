@@ -9,7 +9,7 @@
 				"minecraft:damaged" : 1,
                 "minecraft:damage" : 0.25
             },
-            "model" : "minecraft:item/iron_sword_broken"
+            "model" : "minecraft:item/iron_sword_scraped"
         },
 		{
             "predicate" : {
@@ -23,7 +23,7 @@
 				"minecraft:damaged" : 1,
                 "minecraft:damage" : 0.75
             },
-            "model" : "minecraft:item/iron_sword_scraped"
+            "model" : "minecraft:item/iron_sword_broken"
         }
 	]
 }

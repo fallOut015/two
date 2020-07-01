@@ -41,6 +41,10 @@ Changelog:
 	Added Nidavellir.
 	Added Regolith and Myrkylite.
 	Added letters and numbers.
+	Added daggers. 
+	Added a handful of new enchantments. 
+	Added food scraps. 
+	Added extra textures for weapon durability. 
 '''
 [[dependencies.two]] #optional
     modId="forge"
