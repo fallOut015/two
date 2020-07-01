@@ -579,6 +579,7 @@ public class ItemsTwo {
     public static final Item CORN = register("corn", new Item(new Item.Properties().food(FoodsTwo.CORN).group(ItemGroup.FOOD)));
     public static final Item APPLE_PIE = register("apple_pie", new Item(new Item.Properties().food(FoodsTwo.APPLE_PIE).group(ItemGroup.FOOD)));
     public static final Item TOAST = register("toast", new Item(new Item.Properties().food(FoodsTwo.TOAST).group(ItemGroup.FOOD)));
+    public static final Item APPLE_CORE = register("apple_core", new Item(new Item.Properties().group(ItemGroup.FOOD)));
     
     
 	

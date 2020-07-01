@@ -3,10 +3,14 @@ package two;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -22,11 +26,15 @@ import net.minecraft.item.IItemTier;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTier;
+import net.minecraft.item.Items;
 import net.minecraft.item.PickaxeItem;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.INBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.stats.StatType;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.StringTextComponent;
@@ -52,12 +60,15 @@ import net.minecraftforge.common.ModDimension;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
+import net.minecraftforge.event.entity.player.PlayerXpEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -77,6 +88,7 @@ import two.client.renderer.entity.DarkDwarfArcherRenderer;
 import two.client.renderer.entity.SigilRenderer;
 import two.client.renderer.entity.layers.TopHatLayer;
 import two.client.renderer.tileentity.ChairRenderer;
+import two.common.capabilities.CapabilitiesTwo;
 import two.enchantment.EnchantmentsTwo;
 import two.entity.EntityTypeTwo;
 import two.inventory.container.ContainerTypeTwo;
@@ -118,6 +130,13 @@ public class Two {
     public static final Logger LOGGER = LogManager.getLogger();
 //    @Nullable
 //    public static PlayerEntity theplayer;
+    
+//	public static AttributeModifier leveluphealth = new AttributeModifier(UUID.fromString("5D6F0BA2-1186-46AC-B896-C61C5CEE99CC"), "level_up_health", 2, AttributeModifier.Operation.ADDITION);
+    
+    public static final Map<Item, Item> FOOD_TO_SCRAPS = Maps.newHashMap(ImmutableMap.of(
+    	Items.APPLE, ItemsTwo.APPLE_CORE,
+    	Items.COOKED_COD, Items.BONE
+    ));
     
     public Two() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -201,6 +220,8 @@ public class Two {
     		}
     		// Other ore generation is handled in the new biomes' classes. 
     	}
+    	
+    	CapabilitiesTwo.register();
     }
     private void enqueueIMC(final InterModEnqueueEvent event) {}
     private void processIMC(final InterModProcessEvent event) {}
@@ -378,57 +399,97 @@ public class Two {
     		}
     	}
     	@SubscribeEvent
+    	public static void onLevelChange(final PlayerXpEvent.LevelChange playerXpEvent$LevelChange) {
+    		// Later on when there are choices for leveling up this will be in an if statement. 
+    		
+    		INBT nbt = CapabilitiesTwo.PLAYERUPGRADES.writeNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP);
+       		
+       		((CompoundNBT) nbt).putDouble("health", ((CompoundNBT) nbt).getDouble("health") + playerXpEvent$LevelChange.getLevels());
+       		((CompoundNBT) nbt).putDouble("hunger", ((CompoundNBT) nbt).getDouble("hunger") + playerXpEvent$LevelChange.getLevels());
+       		((CompoundNBT) nbt).putDouble("armor", ((CompoundNBT) nbt).getDouble("armor") + playerXpEvent$LevelChange.getLevels());
+       		((CompoundNBT) nbt).putDouble("breathing", ((CompoundNBT) nbt).getDouble("breathing") + playerXpEvent$LevelChange.getLevels());
+
+    		CapabilitiesTwo.PLAYERUPGRADES.readNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP, nbt);
+
+    		Two.LOGGER.info("instance double health: " + CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance().getHealth());
+    		
+    		
+    		
+//    		leveluphealth = new AttributeModifier(UUID.fromString("5D6F0BA2-1186-46AC-B896-C61C5CEE99CC"), "level_up_health", currentleveluphealth + playerXpEvent$LevelChange.getLevels(), AttributeModifier.Operation.ADDITION);
+//    		playerXpEvent$LevelChange.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(leveluphealth);
+    	}
+    	public static void onPlayerClone(final PlayerEvent.Clone playerEvent$Clone) {
+    		if(playerEvent$Clone.isWasDeath()) {
+        		INBT nbt = CapabilitiesTwo.PLAYERUPGRADES.writeNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP);
+           		
+        		((CompoundNBT) nbt).putDouble("health", 0);
+           		((CompoundNBT) nbt).putDouble("hunger", 0);
+           		((CompoundNBT) nbt).putDouble("armor", 0);
+           		((CompoundNBT) nbt).putDouble("breathing", 0);
+        		
+           		CapabilitiesTwo.PLAYERUPGRADES.readNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP, nbt);
+    		}
+    	}
+    	public static void onFinish(final LivingEntityUseItemEvent.Finish livingEntityUseItemEvent$Finish) {
+    		if(livingEntityUseItemEvent$Finish.getItem().isFood()) {
+    			if(FOOD_TO_SCRAPS.containsKey(livingEntityUseItemEvent$Finish.getItem().getItem())) {
+//    				livingEntityUseItemEvent$Finish.getEntityLiving().
+    				FOOD_TO_SCRAPS.get(livingEntityUseItemEvent$Finish.getItem().getItem());
+    			}
+    		}
+    	}
+    	@SubscribeEvent
     	@OnlyIn(Dist.CLIENT)
-    	public static void onItemTooltip(final ItemTooltipEvent itemToolTipEvent) {
+    	public static void onItemTooltip(final ItemTooltipEvent itemTooltipEvent) {
     		// Pickaxes show all of the ores they can mine. 
-    		if(itemToolTipEvent.getItemStack().getItem() instanceof PickaxeItem) {
-    			if(((PickaxeItem) itemToolTipEvent.getItemStack().getItem()).getTier().getHarvestLevel() == 6)
-    				itemToolTipEvent.getToolTip().add(new StringTextComponent("Can mine everything."));
+    		if(itemTooltipEvent.getItemStack().getItem() instanceof PickaxeItem) {
+    			if(((PickaxeItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel() == 6)
+    				itemTooltipEvent.getToolTip().add(new StringTextComponent("Can mine everything."));
     			else {
     				List<IItemTier> itemTiers = new LinkedList<IItemTier>();
     				
         			for(IItemTier itemTier : ItemTier.values())
-        				if(itemTier != ItemTier.WOOD && ((PickaxeItem) itemToolTipEvent.getItemStack().getItem()).getTier().getHarvestLevel() >= itemTier.getHarvestLevel() - 1)
+        				if(itemTier != ItemTier.WOOD && ((PickaxeItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel() >= itemTier.getHarvestLevel() - 1)
         					itemTiers.add(itemTier);
         			for(IItemTier itemTier : ItemTierTwo.values())
-        				if(itemTier != ItemTierTwo.BLOOD_BLADE && ((PickaxeItem) itemToolTipEvent.getItemStack().getItem()).getTier().getHarvestLevel() >= itemTier.getHarvestLevel() - 1)
+        				if(itemTier != ItemTierTwo.BLOOD_BLADE && ((PickaxeItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel() >= itemTier.getHarvestLevel() - 1)
         					itemTiers.add(itemTier);
         			
         			Collections.sort((List<IItemTier>) itemTiers, (itemTier1, itemTier2) -> itemTier1.getHarvestLevel() - itemTier2.getHarvestLevel());
         			
-        			itemToolTipEvent.getToolTip().add(new StringTextComponent("Can mine...").applyTextStyle(TextFormatting.GRAY));        			
-        			itemToolTipEvent.getToolTip().add(new StringTextComponent(itemTiers.toString().toLowerCase()/*.replaceAll("[", "").replaceAll("]", "")*/).applyTextStyle(TextFormatting.GRAY));
+        			itemTooltipEvent.getToolTip().add(new StringTextComponent("Can mine...").applyTextStyle(TextFormatting.GRAY));        			
+        			itemTooltipEvent.getToolTip().add(new StringTextComponent(itemTiers.toString().toLowerCase()/*.replaceAll("[", "").replaceAll("]", "")*/).applyTextStyle(TextFormatting.GRAY));
     			}
     		}
-    		if(itemToolTipEvent.getItemStack().getItem() == ItemsTwo.CHAIR) {
+    		if(itemTooltipEvent.getItemStack().getItem() == ItemsTwo.CHAIR) {
     			String seat = "";
     			try {
-        			seat = itemToolTipEvent.getItemStack().getTag().getString("top");
+        			seat = itemTooltipEvent.getItemStack().getTag().getString("top");
     			} catch(Exception e) {
     				Two.LOGGER.info(e);
     			}
     			String legs = "";
     			try {
-    				legs = itemToolTipEvent.getItemStack().getTag().getString("middle");
+    				legs = itemTooltipEvent.getItemStack().getTag().getString("middle");
     			} catch(Exception e) {
     				Two.LOGGER.info(e);
     			}
     			String back = "";
     			try {
-    				back = itemToolTipEvent.getItemStack().getTag().getString("bottom");
+    				back = itemTooltipEvent.getItemStack().getTag().getString("bottom");
     			} catch(Exception e) {
     				Two.LOGGER.info(e);
     			}
-    			itemToolTipEvent.getToolTip().add(new StringTextComponent("Back: " + back));
-    			itemToolTipEvent.getToolTip().add(new StringTextComponent("Seat: " + seat));
-    			itemToolTipEvent.getToolTip().add(new StringTextComponent("Legs: " + legs));
+    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Back: " + back));
+    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Seat: " + seat));
+    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Legs: " + legs));
     		}
-    		if(itemToolTipEvent.getItemStack().getItem() instanceof DoubleJumpBootsItem) {
-    			int jumps = itemToolTipEvent.getItemStack().getTag().getInt("jumps");
-    			int extrajumplimit = itemToolTipEvent.getItemStack().getTag().getInt("extrajumplimit");
+    		if(itemTooltipEvent.getItemStack().getItem() instanceof DoubleJumpBootsItem) {
+    			int jumps = itemTooltipEvent.getItemStack().getTag().getInt("jumps");
+    			int extrajumplimit = itemTooltipEvent.getItemStack().getTag().getInt("extrajumplimit");
     			
-    			itemToolTipEvent.getToolTip().add(new StringTextComponent("Jumps: " + jumps));
-    			itemToolTipEvent.getToolTip().add(new StringTextComponent("Extra Jump Limit: " + extrajumplimit));
+    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Jumps: " + jumps));
+    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Extra Jump Limit: " + extrajumplimit));
     		}
     	}
     }

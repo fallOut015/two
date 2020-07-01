@@ -1,7 +1,6 @@
 package two.enchantment;
 
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -15,9 +14,7 @@ public class FlimsinessCurseEnchantment extends Enchantment {
 	
 	@Override
 	public void onEntityDamaged(LivingEntity user, Entity target, int level) {
-		if(EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.FLIMSINESS_CURSE, user.getActiveItemStack()) > 0) {
-			user.getActiveItemStack().damageItem(level * 20, user, playerEntity -> playerEntity.sendBreakAnimation(user.getActiveHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND));
-		}
+		user.getActiveItemStack().damageItem((level + 1) * 20, user, playerEntity -> playerEntity.sendBreakAnimation(user.getActiveHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND));
 	}
 	@Override
 	public boolean isCurse() {
