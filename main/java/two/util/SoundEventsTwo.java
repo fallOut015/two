@@ -35,6 +35,7 @@ public class SoundEventsTwo {
 	
 	
 	@ObjectHolder("music.nightmare") public static final SoundEvent MUSIC_NIGHTMARE = register("music.nightmare");
+	@ObjectHolder("music.sky") public static final SoundEvent MUSIC_SKY = register("music.sky");
 	
 	
 	

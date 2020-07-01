@@ -86,5 +86,14 @@
 				"stream" : "true"
 			}
 		]
+	},
+	"music.sky" : {
+		"category" : "music",
+		"sounds" : [
+			{
+				"name" : "two:music/sky",
+				"stream" : "true"
+			}
+		]
 	}
 }
