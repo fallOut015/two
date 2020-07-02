@@ -18,7 +18,7 @@ public class SigilModel<T extends SigilEntity> extends EntityModel<T> {
 		this.textureHeight = 64;
 		this.circle = new ModelRenderer(this, 0, 0);
 		this.circle.setRotationPoint(32, 0, 32);
-		this.circle.addBox(-32, 0, -32, 64, 0.1f, 64);
+		this.circle.addBox(-32, 0, -32, 64, 0.065f, 64);
 	}
 	
 	@Override
