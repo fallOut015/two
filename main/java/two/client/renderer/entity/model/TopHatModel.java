@@ -21,7 +21,7 @@ public class TopHatModel<T extends LivingEntity> extends AgeableModel<T> {
         this.top.addBox(-4.0F, -6.0F, -4.0F, 8, 6, 8, 0.0F);
         this.brim = new ModelRenderer(this, 0, 0);
         this.brim.setRotationPoint(0.0F, 23.0F, 0.0F);
-        this.brim.addBox(-6.0F, 0.0F, -6.0F, 12, 1, 12, 0.0F);
+        this.brim.addBox(-6.0F, 0, -6.0F, 12, 1, 12, 0.0F);
         this.brim.addChild(this.top);
     }
 
