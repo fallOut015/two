@@ -1031,6 +1031,7 @@ public class ItemsTwo {
 		Holder.FOOD_TO_SCRAPS.put(Items.COOKED_CHICKEN, Items.BONE);
 		Holder.FOOD_TO_SCRAPS.put(Items.COOKED_RABBIT, Items.BONE);
 		Holder.FOOD_TO_SCRAPS.put(Items.MELON_SLICE, ItemsTwo.MELON_RIND);
+		Holder.FOOD_TO_SCRAPS.put(Items.APPLE, ItemsTwo.APPLE_CORE);
 		Holder.FOOD_TO_SCRAPS.put(Items.CARROT, ItemsTwo.CARROT_STEM);
 		Holder.FOOD_TO_SCRAPS.put(Items.BEETROOT, ItemsTwo.BEETROOT_STEMS);
 		Holder.FOOD_TO_SCRAPS.put(Items.SWEET_BERRIES, Items.STICK);
