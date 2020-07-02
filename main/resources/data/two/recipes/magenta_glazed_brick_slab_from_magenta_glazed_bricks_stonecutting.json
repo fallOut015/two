@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "two:magenta_glazed_bricks"
+  },
+  "result": "two:magenta_glazed_brick_slab",
+  "count": 2
+}

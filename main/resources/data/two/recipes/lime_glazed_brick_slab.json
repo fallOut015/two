@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "two:lime_glazed_bricks"
+    }
+  },
+  "result": {
+    "item": "two:lime_glazed_brick_slab",
+    "count": 6
+  }
+}
