@@ -10,6 +10,7 @@ import net.minecraft.item.ItemTier;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import two.Two;
 import two.entity.projectile.CappedArrowEntity;
 import two.item.ItemTierTwo;
 
@@ -33,6 +34,8 @@ public class CappedArrowRenderer extends ArrowRenderer<CappedArrowEntity> {
 
 	@Override
 	public ResourceLocation getEntityTexture(CappedArrowEntity entity) {
+		Two.LOGGER.info(entity.getItemTier());
+		Two.LOGGER.info(RESOURCE_FOR_ARROW_TIER.get(entity.getItemTier()));
 		return RESOURCE_FOR_ARROW_TIER.get(entity.getItemTier());
 	}
 	
