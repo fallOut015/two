@@ -1,5 +1,6 @@
 package two;
 
+import java.lang.reflect.Method;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,12 +12,10 @@ import org.apache.logging.log4j.Logger;
 import com.google.common.collect.Sets;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.ComposterBlock;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -35,21 +34,14 @@ import net.minecraft.potion.Effects;
 import net.minecraft.stats.StatType;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
+import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.dimension.DimensionType;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.placement.CountRangeConfig;
-import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
@@ -79,9 +71,9 @@ import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.ForgeRegistries;
 import two.block.BlocksTwo;
 import two.block.DreamcatcherBlock;
+import two.client.renderer.RenderTypeLookupTwo;
 import two.client.renderer.entity.CappedArrowRenderer;
 import two.client.renderer.entity.ChameleonRenderer;
 import two.client.renderer.entity.DarkDwarfArcherRenderer;
@@ -100,6 +92,7 @@ import two.stats.StatsTwo;
 import two.tileentity.TileEntityTypeTwo;
 import two.util.SoundEventsTwo;
 import two.world.biome.BiomesTwo;
+import two.world.biome.DefaultBiomeFeaturesTwo;
 import two.world.dimension.ModDimensionTwo;
 import two.world.gen.feature.FeatureTwo;
 import two.world.gen.surfacebuilders.SurfaceBuilderTwo;
@@ -114,7 +107,6 @@ public class Two {
 	// MACE
 	// LONGBOW
 	// ARBALEST
-	// CAPPED ARROWS
 	
 	// MATTOCK
 	
@@ -123,13 +115,7 @@ public class Two {
 	// CURSED CHESTS?
 	// FOOD SCRAPS
 	
-	// FIX TREES
-	// FIX SOUNDS
-	// FIX MODELS (LIKE DREAMCATCHERS AND SAPLINGS)
-	
     public static final Logger LOGGER = LogManager.getLogger();
-//    @Nullable
-//    public static PlayerEntity theplayer;
     
 //	public static AttributeModifier leveluphealth = new AttributeModifier(UUID.fromString("5D6F0BA2-1186-46AC-B896-C61C5CEE99CC"), "level_up_health", 2, AttributeModifier.Operation.ADDITION);
     
@@ -150,135 +136,38 @@ public class Two {
 //    	RenderingRegistry.registerEntityRenderingHandler(EntityType.WOLF, WolfRendererTwo::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SIGIL, SigilRenderer::new);
     	
-    	try {
-    		clientOnly();
-    	} catch(NoSuchMethodError e) {
-    		Two.LOGGER.error(e);
-    	}
-    	
     	ClientRegistry.bindTileEntityRenderer(TileEntityTypeTwo.CHAIR, ChairRenderer::new);
     	
-    	Biomes.JUNGLE.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.MAPLE_TREE.withConfiguration(FeatureTwo.MAPLE));
-    	Biomes.JUNGLE.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.CHERRY_TREE.withConfiguration(FeatureTwo.MAPLE));
-    	Biomes.JUNGLE.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.GHOSTWOOD_TREE.withConfiguration(FeatureTwo.GHOSTWOOD));
-    	
-    	Biomes.BADLANDS.addStructure(FeatureTwo.ADOBE_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-    	Biomes.BADLANDS_PLATEAU.addStructure(FeatureTwo.ADOBE_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-    	Biomes.ERODED_BADLANDS.addStructure(FeatureTwo.ADOBE_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-    	Biomes.MODIFIED_BADLANDS_PLATEAU.addStructure(FeatureTwo.ADOBE_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-    	Biomes.MODIFIED_WOODED_BADLANDS_PLATEAU.addStructure(FeatureTwo.ADOBE_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-    	Biomes.WOODED_BADLANDS_PLATEAU.addStructure(FeatureTwo.ADOBE_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+    	DefaultBiomeFeaturesTwo.addFeatures();
+    	DefaultBiomeFeaturesTwo.addStructures();
+    	DefaultBiomeFeaturesTwo.addSpawns();
 
-    	Biomes.PLAINS.addStructure(FeatureTwo.DWARVEN_KEEP.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-    	
-    	Biomes.SAVANNA.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.TANZANITE_ORE.getDefaultState(), 1)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(1, 0, 0, 1))));
-    	Biomes.SAVANNA_PLATEAU.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.TANZANITE_ORE.getDefaultState(), 1)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(1, 0, 0, 1))));
-    	Biomes.SHATTERED_SAVANNA.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.TANZANITE_ORE.getDefaultState(), 1)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(1, 0, 0, 1))));
-    	Biomes.SHATTERED_SAVANNA_PLATEAU.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.TANZANITE_ORE.getDefaultState(), 1)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(1, 0, 0, 1))));
-
-    	Biomes.DESERT.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.CHAMELEON, 10, 1, 2));
-    	Biomes.DESERT_HILLS.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.CHAMELEON, 8, 1, 2));
-    	Biomes.DESERT_LAKES.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.CHAMELEON, 8, 1, 2));
-    	
-    	Biomes.JUNGLE.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.CHAMELEON, 12, 2, 4));
-    	Biomes.JUNGLE_EDGE.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.CHAMELEON, 4, 2, 4));
-    	Biomes.JUNGLE_HILLS.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.CHAMELEON, 10, 2, 4));
-    	Biomes.MODIFIED_JUNGLE.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.CHAMELEON, 10, 3, 5));
-    	Biomes.MODIFIED_JUNGLE_EDGE.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.CHAMELEON, 8, 3, 5));
-    	
-    	for(Biome biomeIn : ForgeRegistries.BIOMES) {
-    		if(biomeIn.getCategory() == Category.NETHER) {
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, BlocksTwo.AMETHYST_ORE.getDefaultState(), 6)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 10, 20, 64))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, BlocksTwo.GARNET_ORE.getDefaultState(), 6)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 10, 20, 64))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, BlocksTwo.TOPAZ_ORE.getDefaultState(), 5)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 10, 20, 32))));
-
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, BlocksTwo.LEAD_ORE.getDefaultState(), 9)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(16, 10, 20, 128))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, BlocksTwo.TITANIUM_ORE.getDefaultState(), 4)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 10, 20, 32))));
-    		} else if(biomeIn.getCategory() == Category.THEEND) {
-    			if(biomeIn != Biomes.THE_END) {
-    				biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.END_STONE, BlocksTwo.COBALT_ORE.getDefaultState(), 7)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 0, 0, 32))));
-    				biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.END_STONE, BlocksTwo.JADE_ORE.getDefaultState(), 7)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 0, 0, 32))));
-    				biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.END_STONE, BlocksTwo.SAPPHIRE_ORE.getDefaultState(), 7)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 0, 0, 16))));
-
-    				biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.END_STONE, BlocksTwo.PLATINUM_ORE.getDefaultState(), 5)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 0, 0, 16))));
-    			}
-    		} else if(biomeIn.getCategory() != Category.NONE) {
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.OPAL_ORE.getDefaultState(), 8)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 0, 0, 32))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.RUBY_ORE.getDefaultState(), 8)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 0, 0, 32))));
-        	
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.TALC_ORE.getDefaultState(), 17)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 0, 0, 128))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.TIN_ORE.getDefaultState(), 10)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 0, 0, 64))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.ALUMINUM_ORE.getDefaultState(), 10)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 0, 0, 64))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.SILVER_ORE.getDefaultState(), 9)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(16, 0, 0, 20))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.COPPER_ORE.getDefaultState(), 9)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 0, 0, 64))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.PYRITE_ORE.getDefaultState(), 9)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(2, 0, 0, 32))));
-    		}
-    		// Other ore generation is handled in the new biomes' classes. 
-    	}
-    	
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.CHERRY_SAPLING, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.MAPLE_SAPLING, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.GHOSTWOOD_SAPLING, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.CLOUDWOOD_SAPLING, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.BLACKBARK_SAPLING, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.FROSTBARK_SAPLING, RenderType.getCutout());
-    	
-    	RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_CHAOS, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_HEALING, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_LOOT, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_LUCKY, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_NIGHTMARE, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_RAINBOW, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_RANDOM, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_SKY, RenderType.getCutout());
-
-//	    RenderTypeLookup.setRenderLayer(BlocksTwo.CHAIR, RenderType.getCutout());
-
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.STARSTONE_TORCH, RenderType.getCutout());
-
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_A, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_B, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_C, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_D, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_E, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_F, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_G, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_H, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_J, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_K, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_L, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_M, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_N, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_O, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_P, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_Q, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_R, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_S, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_T, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_U, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_V, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_W, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_X, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_Y, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_Z, RenderType.getCutout());
-
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.NUMBER_0, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.NUMBER_1, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.NUMBER_2, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.NUMBER_3, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.NUMBER_4, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.NUMBER_5, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.NUMBER_6, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.NUMBER_7, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.NUMBER_8, RenderType.getCutout());
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.NUMBER_9, RenderType.getCutout());
+    	RenderTypeLookupTwo.setRenderLayers();
 
     	CapabilitiesTwo.register();
+    	
+    	try {
+    		Two.LOGGER.info("Adding compostables. Making Composter$registerCompostable accessible.");
+    		Method registerCompostable = ComposterBlock.class.getDeclaredMethod("registerCompostable", float.class, IItemProvider.class);
+        	registerCompostable.setAccessible(true);
+        	registerCompostable.invoke(null, 0.3f, ItemsTwo.MELON_RIND);
+        	registerCompostable.invoke(null, 0.5f, ItemsTwo.APPLE_CORE);
+        	registerCompostable.invoke(null, 0.5f, ItemsTwo.BEETROOT_STEMS);
+        	registerCompostable.invoke(null, 0.5f, ItemsTwo.CARROT_STEM);
+        	registerCompostable.setAccessible(false); // safety cause why not
+        	Two.LOGGER.info("Composter$registerCompostable is private again.");
+    	} catch (Exception exception) { LOGGER.warn(exception); }
+
+    	try {
+    		clientOnly();
+    	} catch(NoSuchMethodError e) { Two.LOGGER.error(e); }
     }
     private void enqueueIMC(final InterModEnqueueEvent event) {}
     private void processIMC(final InterModProcessEvent event) {}
     @OnlyIn(Dist.CLIENT)
     private static void clientOnly() {
+		Two.LOGGER.info("Running Two$clientOnly, will throw a NoSuchMethod error on a dedicated server.");
+
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
     }
@@ -345,49 +234,24 @@ public class Two {
     
     @Mod.EventBusSubscriber
     public static class Events {
-    	/*
-    	@SubscribeEvent
-    	public static void onPlayerLoggedIn(final PlayerLoggedInEvent playerLoggedInEvent) {
-    		if(theplayer == null) {
-    			theplayer = playerLoggedInEvent.getPlayer();
-    		}
-    	}
-    	@SubscribeEvent
-    	public static void onPlayerLoggedOut(final PlayerLoggedOutEvent playerLoggedOutEvent) {
-    		theplayer = null;
-    	}
-    	@SubscribeEvent
-    	public static void onMouseInput(final MouseInputEvent mouseInputEvent) {
-    		if(mouseInputEvent.getMods() == GLFW.GLFW_MOD_SHIFT && mouseInputEvent.getButton() == GLFW.GLFW_MOUSE_BUTTON_RIGHT && mouseInputEvent.getAction() == GLFW.GLFW_PRESS) {
-    			if(theplayer != null) {
-    				if(EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.FIRE_ABILITY, theplayer.getActiveItemStack()) > 0) {
-        				LOGGER.info("Fire spell!");
-        			}
-    			} else {
-    				LOGGER.info("Player is null!");
-    			}
-    		}
-    	}
-    	*/
     	@SubscribeEvent
     	public static void onLivingEquipmentChange(final LivingEquipmentChangeEvent livingEquipmentChangeEvent) {
-    		if(livingEquipmentChangeEvent.getEntityLiving() instanceof PlayerEntity) {
-    			if(livingEquipmentChangeEvent.getSlot().getSlotType().equals(EquipmentSlotType.Group.ARMOR)) {
-    				List<ItemStack> list = new LinkedList<ItemStack>();
-    				livingEquipmentChangeEvent.getEntityLiving().getArmorInventoryList().forEach(list::add);
-    				if(livingEquipmentChangeEvent.getFrom().getItem() instanceof ArmorItem) {
-    					try {
-    						if(list.stream().allMatch(itemstack -> ((ArmorItem) itemstack.getItem()).getArmorMaterial() == ((ArmorItem) livingEquipmentChangeEvent.getFrom().getItem()).getArmorMaterial())) {
-            					LOGGER.info("Apply set bonus!");
-            					if(((ArmorItem) livingEquipmentChangeEvent.getFrom().getItem()).getArmorMaterial() == ArmorMaterialTwo.OBSIDIAN) {
-            			    		 livingEquipmentChangeEvent.getEntityLiving().addPotionEffect(new EffectInstance(Effects.SLOW_FALLING, 50, 3, false, true));
-            					}
-            				}     						
-    					} catch(Exception e) {
-    						LOGGER.warn(e);
-    						LOGGER.warn(e.getClass());
-    					}
+    		if(livingEquipmentChangeEvent.getEntityLiving() instanceof PlayerEntity && livingEquipmentChangeEvent.getSlot().getSlotType().equals(EquipmentSlotType.Group.ARMOR)) {
+    			List<ItemStack> list = new LinkedList<ItemStack>();
+    			livingEquipmentChangeEvent.getEntityLiving().getArmorInventoryList().forEach(list::add);
+    			if(livingEquipmentChangeEvent.getTo().getItem() instanceof ArmorItem && list.stream().allMatch(itemstack -> {
+    				return (itemstack.getItem() instanceof ArmorItem) && ((ArmorItem) itemstack.getItem()).getArmorMaterial() == ((ArmorItem) livingEquipmentChangeEvent.getTo().getItem()).getArmorMaterial();
+    			})) {
+    				if(((ArmorItem) livingEquipmentChangeEvent.getTo().getItem()).getArmorMaterial() == ArmorMaterialTwo.OBSIDIAN) {
+    					livingEquipmentChangeEvent.getEntityLiving().addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 50, 3, false, true));
     				}
+    				
+    				/*
+    				 * obsidian -> total fire resistance
+    				 * woolen -> padding
+    				 * sponge -> squishy swiftness
+    				 * glowstone -> dazzling
+    				 */
     			}
     		}
     	}
@@ -465,8 +329,6 @@ public class Two {
 
     		Two.LOGGER.info("instance double health: " + CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance().getHealth());
     		
-    		
-    		
 //    		leveluphealth = new AttributeModifier(UUID.fromString("5D6F0BA2-1186-46AC-B896-C61C5CEE99CC"), "level_up_health", currentleveluphealth + playerXpEvent$LevelChange.getLevels(), AttributeModifier.Operation.ADDITION);
 //    		playerXpEvent$LevelChange.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(leveluphealth);
     	}
@@ -497,8 +359,8 @@ public class Two {
     				}
     				
     				// TODO
-    				// Make it so food scraps can be fed to animals and used as compost. 
-    				// Some might have some recipes that rely on it? 
+    				// Make it so food scraps can be fed to animals. 
+    				// Food recipes for each new scrap. 
     			}
     		}
     	}
