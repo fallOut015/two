@@ -24,6 +24,7 @@ public class EntityTypeTwo {
 	// DARK_DWARF_PALADIN
 	
 	public static EntityType<CappedArrowEntity> CAPPED_ARROW = (EntityType<CappedArrowEntity>) register("capped_arrow", EntityType.Builder.<CappedArrowEntity>create(CappedArrowEntity::new, EntityClassification.MISC).size(0.5F, 0.5F).build("capped_arrow"));
+	// fire arrow, ice arrow, shock arrow, bomb arrow
 	
 	public static EntityType<SigilEntity> SIGIL = (EntityType<SigilEntity>) register("sigil", EntityType.Builder.create(SigilEntity::new, EntityClassification.MISC).size(4, 0.1f).disableSerialization().build("sigil"));
 	
