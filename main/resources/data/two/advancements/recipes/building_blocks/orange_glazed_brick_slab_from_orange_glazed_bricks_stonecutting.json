@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:orange_glazed_brick_slab_from_orange_glazed_bricks_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:orange_glazed_bricks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:orange_glazed_brick_slab_from_orange_glazed_bricks_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}
