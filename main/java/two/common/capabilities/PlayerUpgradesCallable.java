@@ -3,7 +3,7 @@ package two.common.capabilities;
 import java.util.concurrent.Callable;
 
 public class PlayerUpgradesCallable implements Callable<IPlayerUpgrades> {
-	private static final PlayerUpgrades PLAYERUPGRADES;
+	private static final IPlayerUpgrades PLAYERUPGRADES;
 	
 	static {
 		PLAYERUPGRADES = new PlayerUpgrades();
