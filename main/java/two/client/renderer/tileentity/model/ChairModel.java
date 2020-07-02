@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.model.Model;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraft.util.Direction;
 
 @OnlyIn(Dist.CLIENT)
 public class ChairModel extends Model {
@@ -44,6 +45,13 @@ public class ChairModel extends Model {
          this.leg_d = new ModelRenderer(this, 24, 0);
          this.leg_d.setRotationPoint(-8.0F, 9.0F, -8.0F);
          this.leg_d.addBox(0.0F, -17.0F, 0.0F, 2, 15, 2);
+         
+         this.seat.addChild(leg_a);
+         this.seat.addChild(leg_b);
+         this.seat.addChild(leg_c);
+         this.seat.addChild(leg_d);
+         
+         this.seat.addChild(back);
 	}
 
 	@Override
@@ -54,5 +62,9 @@ public class ChairModel extends Model {
         this.leg_b.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
         this.leg_c.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
         this.leg_d.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
+	}
+	
+	public void setRotationAngles(Direction directionIn) {
+		this.seat.rotateAngleY = directionIn.getHorizontalAngle();
 	}
 }
