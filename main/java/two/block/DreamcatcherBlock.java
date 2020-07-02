@@ -9,7 +9,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.particles.ParticleTypes;
+import net.minecraft.particles.IParticleData;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.Direction;
@@ -31,10 +31,12 @@ public abstract class DreamcatcherBlock extends Block {
 	protected static final VoxelShape DREAMCATCHER_WEST_AABB = Block.makeCuboidShape(13.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 	protected static final VoxelShape DREAMCATCHER_SOUTH_AABB = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 3.0D);
 	protected static final VoxelShape DREAMCATCHER_NORTH_AABB = Block.makeCuboidShape(0.0D, 0.0D, 13.0D, 16.0D, 16.0D, 16.0D);
-
-	public DreamcatcherBlock(Properties properties) {
+	private final IParticleData particle;
+	
+	public DreamcatcherBlock(Properties properties, IParticleData particle) {
 		super(properties);
 	    this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
+	    this.particle = particle;
 	}
 	
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
@@ -97,13 +99,25 @@ public abstract class DreamcatcherBlock extends Block {
 	
 	@Override
 	public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-		if(worldIn.isNightTime()) {
-			Direction direction = stateIn.get(FACING);
-			double x = MathHelper.lerp(rand.nextInt(2), (double)pos.getX(), (double)pos.getX() + 0.5D);
-			double y = MathHelper.lerp(rand.nextInt(2), (double)pos.getY(), (double)pos.getY() + 0.7D);
-			double z = MathHelper.lerp(rand.nextInt(2), (double)pos.getZ(), (double)pos.getZ() + 0.5D);
-			Direction direction1 = direction.getOpposite();
-			worldIn.addParticle(ParticleTypes.CRIT, x + 0.27D * (double)direction1.getXOffset(), y + 0.22D, z + 0.27D * (double)direction1.getZOffset(), 0.0D, 0.0D, 0.0D);
+		if(worldIn.getDayTime() > 13000) {
+			double x = 0, z = 0;
+			double y = MathHelper.lerp(rand.nextInt(2), (double)pos.getY(), (double)pos.getY() + 1);
+
+			if(stateIn.get(FACING).equals(Direction.NORTH)) {
+				x = MathHelper.lerp(rand.nextInt(2), (double)pos.getX(), (double)pos.getX() + 1);
+				z = pos.getZ() + 0.8125;
+			} else if(stateIn.get(FACING).equals(Direction.EAST)) {
+				x = pos.getX() + 0.1875;
+				z = MathHelper.lerp(rand.nextInt(2), (double)pos.getZ(), (double)pos.getZ() + 1);
+			} else if(stateIn.get(FACING).equals(Direction.SOUTH)) {
+				x = MathHelper.lerp(rand.nextInt(2), (double)pos.getX(), (double)pos.getX() + 1);
+				z = pos.getZ() + 0.1875;
+			} else if(stateIn.get(FACING).equals(Direction.WEST)) {
+				x = pos.getX() + 0.8125;
+				z = MathHelper.lerp(rand.nextInt(2), (double)pos.getZ(), (double)pos.getZ() + 1);
+			}
+			
+			worldIn.addParticle(this.particle, x, y, z, 0.0D, 0.0D, 0.0D);
 		}
 	}
 }

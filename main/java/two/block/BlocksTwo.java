@@ -26,6 +26,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TranslationTextComponent;
@@ -400,19 +401,19 @@ public class BlocksTwo {
 	public static final Block SMOOTH_GOLD_STAIRS = register("smooth_gold_stairs", new StairsBlockTwo(SMOOTH_GOLD.getDefaultState(), Block.Properties.from(SMOOTH_GOLD)));
 	public static final Block SMOOTH_GOLD_SLAB = register("smooth_gold_slab", new SlabBlock(Block.Properties.from(SMOOTH_GOLD)));
 	
-	public static final Block DREAMCATCHER_CHAOS = register("dreamcatcher_chaos", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.RED).hardnessAndResistance(0.4F).notSolid()) {
+	public static final Block DREAMCATCHER_CHAOS = register("dreamcatcher_chaos", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.RED).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.ANGRY_VILLAGER) {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_chaos");
 		};
 	});
-	public static final Block DREAMCATCHER_HEALING = register("dreamcatcher_healing", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.PINK).hardnessAndResistance(0.4F).notSolid()) {
+	public static final Block DREAMCATCHER_HEALING = register("dreamcatcher_healing", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.PINK).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.HEART) {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			playerWakeUpEvent.getPlayer().setHealth(20);
 		}
 	});
-	public static final Block DREAMCATCHER_LOOT = register("dreamcatcher_loot", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.YELLOW).hardnessAndResistance(0.4F).notSolid()) {
+	public static final Block DREAMCATCHER_LOOT = register("dreamcatcher_loot", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.YELLOW).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.FALLING_NECTAR) {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
             LootContext.Builder lootcontext$builder = (new LootContext.Builder((ServerWorld) playerWakeUpEvent.getPlayer().getEntityWorld())).withRandom(playerWakeUpEvent.getPlayer().getEntityWorld().getRandom()).withLuck(1).withParameter(LootParameters.POSITION, playerWakeUpEvent.getPlayer().getPosition()).withParameter(LootParameters.THIS_ENTITY, playerWakeUpEvent.getEntity());
@@ -422,13 +423,13 @@ public class BlocksTwo {
             playerWakeUpEvent.getPlayer().world.addEntity(new ItemEntity(playerWakeUpEvent.getPlayer().getEntityWorld(), playerWakeUpEvent.getPlayer().prevPosX, playerWakeUpEvent.getPlayer().prevPosY + 0.5, playerWakeUpEvent.getPlayer().prevPosZ, list.get(playerWakeUpEvent.getPlayer().getEntityWorld().getRandom().nextInt(list.size()))));
 		}
 	});
-	public static final Block DREAMCATCHER_LUCKY = register("dreamcatcher_lucky", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.GREEN_TERRACOTTA).hardnessAndResistance(0.4F).notSolid()) {
+	public static final Block DREAMCATCHER_LUCKY = register("dreamcatcher_lucky", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.GREEN_TERRACOTTA).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.MYCELIUM) {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_lucky");
 		}
 	});
-	public static final Block DREAMCATCHER_NIGHTMARE = register("dreamcatcher_nightmare", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.STONE).hardnessAndResistance(0.4F).notSolid()) {
+	public static final Block DREAMCATCHER_NIGHTMARE = register("dreamcatcher_nightmare", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.STONE).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.WITCH) {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			BlockState bedstate = playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedPosition().get());
@@ -450,13 +451,13 @@ public class BlocksTwo {
 			playerWakeUpEvent.getPlayer().getEntityWorld().setDayTime(13000);
 		}
 	});
-	public static final Block DREAMCATCHER_RAINBOW = register("dreamcatcher_rainbow", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.CYAN).hardnessAndResistance(0.4F).notSolid()) {
+	public static final Block DREAMCATCHER_RAINBOW = register("dreamcatcher_rainbow", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.CYAN).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.EFFECT) {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_rainbow");
 		};
 	});
-	public static final Block DREAMCATCHER_RANDOM = register("dreamcatcher_random", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.BLACK).hardnessAndResistance(0.4F).notSolid()) {
+	public static final Block DREAMCATCHER_RANDOM = register("dreamcatcher_random", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.BLACK).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.NOTE) {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			int roll = playerWakeUpEvent.getPlayer().getEntityWorld().getRandom().nextInt(10);
@@ -469,7 +470,7 @@ public class BlocksTwo {
 			}
 		};
 	});
-	public static final Block DREAMCATCHER_SKY = register("dreamcatcher_sky", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.SNOW).hardnessAndResistance(0.4F).notSolid()) {
+	public static final Block DREAMCATCHER_SKY = register("dreamcatcher_sky", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.SNOW).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.CLOUD) {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			BlockState bedstate = playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedPosition().get());
