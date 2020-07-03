@@ -46,6 +46,8 @@ Changelog:
 	Added food scraps. 
 	Added extra textures for weapon durability. 
 	Added a stupid placeholder title. 
+	Added extra health when the player levels up (will change in the future).
+	Added the ground light. 
 '''
 [[dependencies.two]] #optional
     modId="forge"
