@@ -1,0 +1,8 @@
+{
+    "parent": "minecraft:block/outer_stairs",
+    "textures": {
+        "bottom": "two:block/yellow_glazed_bricks",
+        "top": "two:block/yellow_glazed_bricks",
+        "side": "two:block/yellow_glazed_bricks"
+    }
+}
