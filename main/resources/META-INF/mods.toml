@@ -45,6 +45,7 @@ Changelog:
 	Added a handful of new enchantments. 
 	Added food scraps. 
 	Added extra textures for weapon durability. 
+	Added a stupid placeholder title. 
 '''
 [[dependencies.two]] #optional
     modId="forge"

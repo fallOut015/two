@@ -277,19 +277,19 @@ public class Two {
     	@SubscribeEvent
     	public static void onLivingJump(final LivingJumpEvent livingJumpEvent) {
     		if(livingJumpEvent.getEntityLiving() instanceof PlayerEntity) {
-    			LOGGER.info("Player Jump!");
+//    			LOGGER.info("Player Jump!");
     			PlayerEntity p = (PlayerEntity) livingJumpEvent.getEntityLiving();
         		LinkedList<ItemStack> list = new LinkedList<ItemStack>();
         		livingJumpEvent.getEntityLiving().getArmorInventoryList().forEach(list::add);
-        		LOGGER.info(list);
+//        		LOGGER.info(list);
         		if(list.getFirst().getItem() == ItemsTwo.DOUBLE_JUMP_BOOTS) {
-        			LOGGER.info("Boots!");
-        			LOGGER.info("Jumps: " + list.getFirst().getTag().getInt("jumps"));
-        			LOGGER.info("Extra Jump Limit: " + list.getFirst().getTag().getInt("extrajumplimit"));
+//        			LOGGER.info("Boots!");
+//        			LOGGER.info("Jumps: " + list.getFirst().getTag().getInt("jumps"));
+//        			LOGGER.info("Extra Jump Limit: " + list.getFirst().getTag().getInt("extrajumplimit"));
         			if(list.getFirst().getTag().getInt("jumps") < list.getFirst().getTag().getInt("extrajumplimit")) {
-        				LOGGER.info("Allowed jump limit!");
+//        				LOGGER.info("Allowed jump limit!");
         				if(p.isAirBorne) {
-        					LOGGER.info("Airborne!");
+//        					LOGGER.info("Airborne!");
         					p.jump();
         					list.getFirst().getTag().putInt("jumps", list.getFirst().getTag().getInt("jumps") + 1);
         				}
@@ -300,15 +300,15 @@ public class Two {
     	@SubscribeEvent
     	public static void onLivingFall(final LivingFallEvent livingFallEvent) {
     		if(livingFallEvent.getEntityLiving() instanceof PlayerEntity) {
-    			LOGGER.info("Player Fall!");
+//    			LOGGER.info("Player Fall!");
     			PlayerEntity p = (PlayerEntity) livingFallEvent.getEntityLiving();
         		LinkedList<ItemStack> list = new LinkedList<ItemStack>();
         		livingFallEvent.getEntityLiving().getArmorInventoryList().forEach(list::add);
-        		LOGGER.info(list);
+//        		LOGGER.info(list);
         		if(list.getFirst().getItem() == ItemsTwo.DOUBLE_JUMP_BOOTS) {
-        			LOGGER.info("Boots!");
+//        			LOGGER.info("Boots!");
         			if(p.onGround) {
-        				LOGGER.info("Grounded!");
+//        				LOGGER.info("Grounded!");
         				list.getFirst().getTag().putInt("jumps", 0);
         			}
         		}
@@ -327,7 +327,7 @@ public class Two {
 
     		CapabilitiesTwo.PLAYERUPGRADES.readNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP, nbt);
 
-    		Two.LOGGER.info("instance double health: " + CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance().getHealth());
+//    		Two.LOGGER.info("instance double health: " + CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance().getHealth());
     		
 //    		leveluphealth = new AttributeModifier(UUID.fromString("5D6F0BA2-1186-46AC-B896-C61C5CEE99CC"), "level_up_health", currentleveluphealth + playerXpEvent$LevelChange.getLevels(), AttributeModifier.Operation.ADDITION);
 //    		playerXpEvent$LevelChange.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(leveluphealth);
