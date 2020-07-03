@@ -16,10 +16,6 @@
 
 
 	
-	"block.two.test_block" : "Test Block",
-	
-	
-	
 	"block.two.adobe_wet" : "Wet Adobe",
 	
 	"block.two.adobe_dry" : "Adobe Bricks",
@@ -407,8 +403,8 @@
 	"block.two.couch" : "Couch",
 	"block.two.shelf" : "Shelf",
 	
-	"block.starstone_torch" : "Starstone Torch",
-	"block.starstone_wall_torch" : "Starstone Wall Torch",
+	"block.two.starstone_torch" : "Starstone Torch",
+	"block.two.starstone_wall_torch" : "Starstone Wall Torch",
 	
 	"block.two.letter_a" : "A",
 	"block.two.letter_b" : "B",
@@ -463,9 +459,18 @@
 	
 	
 	
-	"item.two.test_item" : "Test Item",
+	"item.two.chair" : "Chair",
+	"item.two.edge_stool" : "Edge Stool",
+	"item.two.round_stool" : "Round Stool",
+	"item.two.edge_table" : "Edge Table",
+	"item.two.round_table" : "Round Table",
+	"item.two.cupboard" : "Cupboard",
+	"item.two.lamp" : "Lamp",
+	"item.two.bed" : "Bed",
+	"item.two.couch" : "Couch",
+	"item.two.shelf" : "Shelf",	
 	
-	
+
 
 	"item.two.cherry_boat" : "Cherry Rowboat",
 	"item.two.maple_boat" : "Maple Rowboat",
@@ -572,6 +577,7 @@
 	"item.two.obsidian_horse_armor" : "Obsidian Horse Armor",
 
 	"item.two.knapsack" : "Knapsack",
+	"item.two.small_backpack" : "Small Backpack",
 	
 	"item.two.chameleon_spawn_egg" : "Chameleon Spawn Egg",
 	"item.two.dark_dwarf_archer_spawn_egg" : "Dark Dwarven Archer Spawn Egg",
@@ -676,6 +682,7 @@
 	"item.two.banisher" : "The Banisher",
 	"item.two.stormbreaker" : "Stormbreaker",
 	"item.two.evocation_staff" : "Staff of Evocation",
+	"item.two.conjuration_staff" : "Staff of Conjuration",
 	
 	"item.two.iron_capped_arrow" : "Iron Capped Arrow",
 	"item.two.wooden_capped_arrow" : "Wooden Capped Arrow",
@@ -950,6 +957,8 @@
 	"item.two.top_hat" : "Top Hat",
 	
 	"item.two.double_jump_boots" : "Double Jump Boots",
+	
+	"item.two.hermes_helmet" : "Hermes Helmet",
 	
 
 
