@@ -32,6 +32,7 @@ public class RenderTypeLookupTwo {
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_F, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_G, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_H, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_I, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_J, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_K, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_L, RenderType.getCutout());
