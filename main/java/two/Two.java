@@ -1,9 +1,12 @@
 package two;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 import java.util.function.Function;
 
 import org.apache.logging.log4j.LogManager;
@@ -17,6 +20,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -28,6 +33,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTier;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.INBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -117,7 +123,7 @@ public class Two {
 	
     public static final Logger LOGGER = LogManager.getLogger();
     
-//	public static AttributeModifier leveluphealth = new AttributeModifier(UUID.fromString("5D6F0BA2-1186-46AC-B896-C61C5CEE99CC"), "level_up_health", 2, AttributeModifier.Operation.ADDITION);
+	public static AttributeModifier leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", 2, AttributeModifier.Operation.ADDITION);
     
     public Two() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -327,10 +333,15 @@ public class Two {
 
     		CapabilitiesTwo.PLAYERUPGRADES.readNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP, nbt);
 
-//    		Two.LOGGER.info("instance double health: " + CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance().getHealth());
+    		Two.LOGGER.info("instance double health: " + CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance().getHealth());
     		
-//    		leveluphealth = new AttributeModifier(UUID.fromString("5D6F0BA2-1186-46AC-B896-C61C5CEE99CC"), "level_up_health", currentleveluphealth + playerXpEvent$LevelChange.getLevels(), AttributeModifier.Operation.ADDITION);
-//    		playerXpEvent$LevelChange.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(leveluphealth);
+    		leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance().getHealth(), AttributeModifier.Operation.ADDITION);
+    		float health = playerXpEvent$LevelChange.getPlayer().getHealth();
+    		if(playerXpEvent$LevelChange.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).hasModifier(leveluphealth)) {
+        		playerXpEvent$LevelChange.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).removeModifier(leveluphealth);
+    		}
+    		playerXpEvent$LevelChange.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(leveluphealth);
+    		playerXpEvent$LevelChange.getPlayer().setHealth(health);
     	}
     	@SubscribeEvent
     	public static void onPlayerClone(final PlayerEvent.Clone playerEvent$Clone) {
@@ -343,6 +354,12 @@ public class Two {
            		((CompoundNBT) nbt).putDouble("breathing", 0);
         		
            		CapabilitiesTwo.PLAYERUPGRADES.readNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP, nbt);
+    		
+        		leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", 0, AttributeModifier.Operation.ADDITION);
+        		if(playerEvent$Clone.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).hasModifier(leveluphealth)) {
+        			playerEvent$Clone.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).removeModifier(leveluphealth);
+        		}
+        		playerEvent$Clone.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(leveluphealth);
     		}
     	}
     	@SubscribeEvent
@@ -362,6 +379,32 @@ public class Two {
     				// Make it so food scraps can be fed to animals. 
     				// Food recipes for each new scrap. 
     			}
+    		}
+    	}
+    	@SubscribeEvent
+    	public static void onLoadFromFile(PlayerEvent.LoadFromFile playerEvent$LoadFromFile) {
+    		if(playerEvent$LoadFromFile.getPlayerDirectory().canRead()) {
+    			File fileIn = new File(playerEvent$LoadFromFile.getPlayerDirectory().getPath() + "/two_playerdata.nbt");
+    			try {
+					CapabilitiesTwo.PLAYERUPGRADES.readNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP, CompressedStreamTools.read(fileIn));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+    			LOGGER.info("Read from two_playerdata.nbt");
+    		}
+    	}
+    	@SubscribeEvent
+    	public static void onSaveToFile(PlayerEvent.SaveToFile playerEvent$SaveToFile) {
+    		if(playerEvent$SaveToFile.getPlayerDirectory().canWrite()) {
+    			File fileIn = new File(playerEvent$SaveToFile.getPlayerDirectory().getPath() + "/two_playerdata.nbt");
+    			CompoundNBT compound = (CompoundNBT) CapabilitiesTwo.PLAYERUPGRADES.writeNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP);
+    			try {
+					CompressedStreamTools.write(compound, fileIn);
+    				fileIn.createNewFile();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+    			LOGGER.info("Wrote to two_playerdata.nbt");
     		}
     	}
     	@SubscribeEvent
