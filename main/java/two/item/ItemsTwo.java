@@ -28,6 +28,7 @@ import net.minecraft.item.Rarity;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.SwordItem;
+import net.minecraft.item.WallOrFloorItem;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.ActionResult;
@@ -405,7 +406,7 @@ public class ItemsTwo {
 	public static final Item BLACKBARK_DOOR = register(BlocksTwo.BLACKBARK_DOOR, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item FROSTBARK_DOOR = register(BlocksTwo.FROSTBARK_DOOR, new Item.Properties().group(ItemGroup.REDSTONE));
 	
-	public static final Item STARSTONE_TORCH = register(BlocksTwo.STARSTONE_TORCH, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item STARSTONE_TORCH = register(new WallOrFloorItem(BlocksTwo.STARSTONE_TORCH, BlocksTwo.STARSTONE_WALL_TORCH, new Item.Properties().group(ItemGroup.DECORATIONS)));
 	
 	
 	
@@ -1016,7 +1017,7 @@ public class ItemsTwo {
     
 	public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
 //    	itemRegistryEvent.getRegistry().getValue(new ResourceLocation("minecraft", "command_block"))
-		ItemGroup.COMBAT.setRelevantEnchantmentTypes(new EnchantmentType[]{ EnchantmentType.ALL, EnchantmentType.ARMOR, EnchantmentType.ARMOR_FEET, EnchantmentType.ARMOR_HEAD, EnchantmentType.ARMOR_LEGS, EnchantmentType.ARMOR_CHEST, EnchantmentType.BOW, EnchantmentType.WEAPON, EnchantmentType.WEARABLE, EnchantmentType.BREAKABLE, EnchantmentType.TRIDENT, EnchantmentType.CROSSBOW, EnchantmentsTwo.Holder.DOUBLE_JUMP_BOOTS, EnchantmentsTwo.Holder.BLOOD_BLADE, EnchantmentsTwo.Holder.BANISHER, EnchantmentsTwo.Holder.HERMES_HELMET });
+		ItemGroup.COMBAT.setRelevantEnchantmentTypes(new EnchantmentType[]{ EnchantmentType.ALL, EnchantmentType.ARMOR, EnchantmentType.ARMOR_FEET, EnchantmentType.ARMOR_HEAD, EnchantmentType.ARMOR_LEGS, EnchantmentType.ARMOR_CHEST, EnchantmentType.BOW, EnchantmentType.WEAPON, EnchantmentType.WEARABLE, EnchantmentType.BREAKABLE, EnchantmentType.TRIDENT, EnchantmentType.CROSSBOW, EnchantmentsTwo.Holder.DOUBLE_JUMP_BOOTS, EnchantmentsTwo.Holder.BLOOD_BLADE, EnchantmentsTwo.Holder.BANISHER, EnchantmentsTwo.Holder.HERMES_HELMET, EnchantmentsTwo.Holder.EVOCATION_STAFF });
 		ItemGroup.TOOLS.setRelevantEnchantmentTypes(new EnchantmentType[]{ EnchantmentType.ALL, EnchantmentType.DIGGER, EnchantmentType.FISHING_ROD, EnchantmentType.BREAKABLE, EnchantmentsTwo.Holder.SICKLE });
 		
 		itemRegistryEvent.getRegistry().registerAll(Holder.ITEMSTWO.toArray(new Item[] {}));
@@ -1048,6 +1049,12 @@ public class ItemsTwo {
 	}
 	static Item register(Block block, Item.Properties properties) {
 		return register(block.getRegistryName().getPath(), new BlockItem(block, properties));
+	}
+	static Item register(BlockItem block) {
+		return register(block.getBlock(), block);
+	}
+	static Item register(Block block, Item item) {
+		return register(block.getRegistryName().getPath(), item);
 	}
 	static Item register(String key, Item item) {
 		Holder.ITEMSTWO.add(item.setRegistryName(key));
