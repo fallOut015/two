@@ -1,6 +1,25 @@
 {
 	"replace" : false,
 	"values" : [
+		"#two:adobe_walls",
+		
+		"two:white_glazed_brick_wall",
+		"two:orange_glazed_brick_wall",
+		"two:magenta_glazed_brick_wall",
+		"two:light_blue_glazed_brick_wall",
+		"two:yellow_glazed_brick_wall",
+		"two:lime_glazed_brick_wall",
+		"two:pink_glazed_brick_wall",
+		"two:gray_glazed_brick_wall",
+		"two:light_gray_glazed_brick_wall",
+		"two:cyan_glazed_brick_wall",
+		"two:purple_glazed_brick_wall",
+		"two:blue_glazed_brick_wall",
+		"two:brown_glazed_brick_wall",
+		"two:green_glazed_brick_wall",
+		"two:red_glazed_brick_wall",
+		"two:black_glazed_brick_wall",
+		
 		"two:myrkylite_wall",
 		"two:polished_myrkylite_wall",
 		"two:polished_myrkylite_brick_wall"

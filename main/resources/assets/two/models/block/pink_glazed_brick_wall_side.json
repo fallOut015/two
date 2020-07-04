@@ -1,0 +1,6 @@
+{
+    "parent": "block/template_wall_side",
+    "textures": {
+        "wall": "two:block/pink_glazed_bricks"
+    }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "two:black_glazed_bricks"
+  },
+  "result": "two:black_glazed_brick_wall",
+  "count": 1
+}
