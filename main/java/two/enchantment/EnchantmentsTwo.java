@@ -16,6 +16,7 @@ public class EnchantmentsTwo {
 	public static final Enchantment SWIPING = register("swiping", new SwipingEnchantment(Enchantment.Rarity.UNCOMMON, EquipmentSlotType.MAINHAND));
 	public static final Enchantment DISABLER = register("disabler", new DisablerEnchantment(Enchantment.Rarity.UNCOMMON, EquipmentSlotType.MAINHAND));
 	public static final Enchantment VITALITY_THIEF = register("vitality_thief", new VitalityThiefEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
+	public static final Enchantment SNAPPING = register("snapping", new SnappingEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
 	public static final Enchantment DISTANCE = register("distance", new DistanceEnchantment(Enchantment.Rarity.RARE, EquipmentSlotType.MAINHAND));
 	public static final Enchantment BOUNDING = register("bounding", new BoundingEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.FEET));
 	public static final Enchantment GENTLE_DESCENT = register("gentle_descent", new GentleDescentEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.HEAD));
@@ -52,6 +53,7 @@ public class EnchantmentsTwo {
 		public static final EnchantmentType DOUBLE_JUMP_BOOTS = EnchantmentType.create("double_jump_boots", item -> item.asItem() == ItemsTwo.DOUBLE_JUMP_BOOTS);
 		public static final EnchantmentType SICKLE = EnchantmentType.create("sickle", item -> item.asItem() instanceof SickleItem);
 		public static final EnchantmentType BLOOD_BLADE = EnchantmentType.create("blood_blade", item -> item.asItem() instanceof BloodBladeItem);
+		public static final EnchantmentType EVOCATION_STAFF = EnchantmentType.create("evocation_staff", item -> item.asItem() == ItemsTwo.EVOCATION_STAFF);
 		public static final EnchantmentType BANISHER = EnchantmentType.create("banisher", item -> item.asItem() == ItemsTwo.BANISHER);
 		public static final EnchantmentType HERMES_HELMET = EnchantmentType.create("hermes_helmet", item -> item.asItem() == ItemsTwo.HERMES_HELMET);
 	}
