@@ -7,7 +7,7 @@ version="${file.jarVersion}"
 displayName="NEW Minecraft v2"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/minecraft-v2" #optional
 logoFile="two.png" #optional
-credits="Well, me, HarryTalks, other tutorial youtubers, Forge guys, Notch, Jeb, Derek, Karsten, Pam, my friends, among others. Patrons:" #optional
+credits="Well, me, HarryTalks, other tutorial youtubers, Forge guys, Notch, Jeb, Derek, Karsten, Pam, my friends, among others. OrionSh. Patrons:" #optional
 authors="fallOut015" #optional
 description='''
 Minecraft just got an upgrade. 
