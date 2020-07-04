@@ -23,6 +23,7 @@ public class RenderTypeLookupTwo {
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_SKY, RenderType.getCutout());
 
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.STARSTONE_TORCH, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.STARSTONE_WALL_TORCH, RenderType.getCutout());
 
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_A, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.LETTER_B, RenderType.getCutout());
