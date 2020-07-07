@@ -346,20 +346,24 @@ public class Two {
     	@SubscribeEvent
     	public static void onPlayerClone(final PlayerEvent.Clone playerEvent$Clone) {
     		if(playerEvent$Clone.isWasDeath()) {
-        		INBT nbt = CapabilitiesTwo.PLAYERUPGRADES.writeNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP);
-           		
-        		((CompoundNBT) nbt).putDouble("health", 0);
-           		((CompoundNBT) nbt).putDouble("hunger", 0);
-           		((CompoundNBT) nbt).putDouble("armor", 0);
-           		((CompoundNBT) nbt).putDouble("breathing", 0);
+    			try {
+    				INBT nbt = CapabilitiesTwo.PLAYERUPGRADES.writeNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP);
+               		
+            		((CompoundNBT) nbt).putDouble("health", 0);
+               		((CompoundNBT) nbt).putDouble("hunger", 0);
+               		((CompoundNBT) nbt).putDouble("armor", 0);
+               		((CompoundNBT) nbt).putDouble("breathing", 0);
+            		
+               		CapabilitiesTwo.PLAYERUPGRADES.readNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP, nbt);
         		
-           		CapabilitiesTwo.PLAYERUPGRADES.readNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP, nbt);
-    		
-        		leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", 0, AttributeModifier.Operation.ADDITION);
-        		if(playerEvent$Clone.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).hasModifier(leveluphealth)) {
-        			playerEvent$Clone.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).removeModifier(leveluphealth);
-        		}
-        		playerEvent$Clone.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(leveluphealth);
+            		leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", 0, AttributeModifier.Operation.ADDITION);
+            		if(playerEvent$Clone.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).hasModifier(leveluphealth)) {
+            			playerEvent$Clone.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).removeModifier(leveluphealth);
+            		}
+            		playerEvent$Clone.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(leveluphealth);
+    			} catch(NullPointerException npe) {
+    				LOGGER.warn(npe);
+    			}
     		}
     	}
     	@SubscribeEvent
