@@ -2,7 +2,7 @@ package two.entity.passive;
 
 import java.util.UUID;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -21,13 +21,12 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import two.entity.EntityTypeTwo;
 
 public class ChameleonEntity extends ShoulderRidingEntity {
 	private static final DataParameter<Boolean> CAMOFLOUGE = EntityDataManager.createKey(ChameleonEntity.class, DataSerializers.BOOLEAN);
-	private Block on;
+	private BlockState on;
 	
 	public ChameleonEntity(EntityType<? extends ChameleonEntity> type, World worldIn) {
 		super(type, worldIn);
@@ -58,12 +57,12 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 		}
 		return chameleonentity;
 	}
-	@SuppressWarnings("deprecation")
-	public Block getStandingOn() {
-		if(world.getBlockState(new BlockPos(this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ())).getBlock().isSolid(
-			world.getBlockState(new BlockPos(this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ())).getBlockState()
-		)) this.on = world.getBlockState(new BlockPos(this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ())).getBlock();
-		else this.on = world.getBlockState(new BlockPos(this.getPosition().getX(), this.getPosition().getY() - 0.25, this.getPosition().getZ())).getBlock();
+	public BlockState getStandingOn() {
+		if(!this.world.getBlockState(this.getPosition()).isSolid() && !this.world.getBlockState(this.getPosition()).isAir(this.world, this.getPosition())) {
+			this.on = this.world.getBlockState(this.getPosition());
+		} else {
+			this.on = this.world.getBlockState(this.getPosition().down());			
+		}
 		return this.on;
 	}
 	@Override
