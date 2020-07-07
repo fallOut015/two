@@ -13,7 +13,7 @@ import two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 public class SvartalhillsBiome extends Biome {
 	protected SvartalhillsBiome() {
 		super(new Biome.Builder()
-			.surfaceBuilder(SurfaceBuilderTwo.NIDAVELLIR, SurfaceBuilderTwo.REGOLITH_CONFIG)
+			.surfaceBuilder(SurfaceBuilderTwo.NIDAVELLIR, SurfaceBuilderTwo.REGOLITH_MYRKYLITE_CONFIG)
 			.precipitation(RainType.NONE)
 			.category(Category.NONE)
 			.depth(0.1f)

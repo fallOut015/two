@@ -7,7 +7,7 @@ import two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 public class PetrifiedPlainsBiome extends Biome {
 	protected PetrifiedPlainsBiome() {
 		super(new Biome.Builder()
-			.surfaceBuilder(SurfaceBuilderTwo.FROSTBITE, SurfaceBuilderTwo.ICE_CONFIG)
+			.surfaceBuilder(SurfaceBuilderTwo.FROSTBITE, SurfaceBuilderTwo.ICE_PACKED_ICE_CONFIG)
 			.precipitation(RainType.SNOW)
 			.category(Category.ICY)
 			.depth(0.1f)

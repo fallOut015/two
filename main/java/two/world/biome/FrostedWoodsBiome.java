@@ -7,7 +7,7 @@ import two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 public class FrostedWoodsBiome extends Biome {
 	protected FrostedWoodsBiome() {
 		super(new Biome.Builder()
-			.surfaceBuilder(SurfaceBuilderTwo.FROSTBITE, SurfaceBuilderTwo.ICE_CONFIG)
+			.surfaceBuilder(SurfaceBuilderTwo.FROSTBITE, SurfaceBuilderTwo.PERMAFROST_GRASS_BLOCK_PERMAFROST_DIRT_CONFIG)
 			.precipitation(RainType.SNOW)
 			.category(Category.ICY)
 			.depth(0.1f)
@@ -22,5 +22,7 @@ public class FrostedWoodsBiome extends Biome {
 		DefaultBiomeFeatures.addLakes(this);
 		//this.addFeature(Decoration.VEGETAL_DECORATION, FeatureTwo.CLOUDWOOD_TREE.func_225566_b_(FeatureTwo.CLOUDWOOD));
 		// Replace ^ with frostbark and shiverwood
+		DefaultBiomeFeatures.addFreezeTopLayer(this);
+		DefaultBiomeFeatures.addTaigaConifers(this);
 	}
 }

@@ -21,12 +21,16 @@ public class SurfaceBuilderTwo {
 	public static final BlockState REGOLITH = BlocksTwo.REGOLITH.getDefaultState();
 	public static final BlockState MYRKYLITE = BlocksTwo.MYRKYLITE.getDefaultState();
 	
+	public static final BlockState PERMAFROST_GRASS_BLOCK = BlocksTwo.PERMAFROST_GRASS_BLOCK.getDefaultState();
+	public static final BlockState PERMAFROST_DIRT = BlocksTwo.PERMAFROST_DIRT.getDefaultState();
 	
 	
-	public static final SurfaceBuilderConfig GAULT_CONFIG = new SurfaceBuilderConfig(GAULT, NIGHTSTONE, NIGHTSTONE);
+	
+	public static final SurfaceBuilderConfig GAULT_NIGHTSTONE_CONFIG = new SurfaceBuilderConfig(GAULT, NIGHTSTONE, NIGHTSTONE);
 	public static final SurfaceBuilderConfig CLOUD_CONFIG = new SurfaceBuilderConfig(CLOUD, CLOUD, CLOUD);
-	public static final SurfaceBuilderConfig ICE_CONFIG = new SurfaceBuilderConfig(ICE, ICE, PACKED_ICE);
-	public static final SurfaceBuilderConfig REGOLITH_CONFIG = new SurfaceBuilderConfig(REGOLITH, MYRKYLITE, REGOLITH);
+	public static final SurfaceBuilderConfig ICE_PACKED_ICE_CONFIG = new SurfaceBuilderConfig(ICE, ICE, PACKED_ICE);
+	public static final SurfaceBuilderConfig REGOLITH_MYRKYLITE_CONFIG = new SurfaceBuilderConfig(REGOLITH, MYRKYLITE, REGOLITH);
+	public static final SurfaceBuilderConfig PERMAFROST_GRASS_BLOCK_PERMAFROST_DIRT_CONFIG = new SurfaceBuilderConfig(PERMAFROST_GRASS_BLOCK, PERMAFROST_DIRT, PERMAFROST_DIRT);
 	
 	
 	

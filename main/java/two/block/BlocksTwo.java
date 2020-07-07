@@ -303,11 +303,14 @@ public class BlocksTwo {
 	public static final Block ADOBE_FROZEN_STAIRS = register("adobe_frozen_stairs", new StairsBlockTwo(ADOBE_FROZEN.getDefaultState(), Block.Properties.from(ADOBE_FROZEN)));
 	public static final Block ADOBE_FROZEN_WALL = register("adobe_frozen_wall", new WallBlock(Block.Properties.from(ADOBE_FROZEN)));
 	
+	// Nightmare
 	public static final Block GAULT = register("gault", new Block(Block.Properties.create(MaterialTwo.GAULT).hardnessAndResistance(2.0f)));
 	public static final Block NIGHTSTONE = register("nightstone", new Block(Block.Properties.create(MaterialTwo.NIGHSTONE).hardnessAndResistance(7.0f)));
 
+	// Sky
 	public static final Block CLOUD = register("cloud", new Block(Block.Properties.create(Material.WOOL).hardnessAndResistance(0.1f)));
 	
+	// Nidavellir
 	public static final Block REGOLITH = register("regolith", new Block(Block.Properties.create(MaterialTwo.REGOLITH).hardnessAndResistance(1.0f)));
 	
 	public static final Block MYRKYLITE = register("myrkylite", new Block(Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(2.0f).harvestTool(ToolType.PICKAXE).harvestLevel(5)));
@@ -325,9 +328,17 @@ public class BlocksTwo {
 	public static final Block POLISHED_MYRKYLITE_BRICK_STAIRS = register("polished_myrkylite_brick_stairs", new StairsBlockTwo(POLISHED_MYRKYLITE_BRICKS.getDefaultState(), Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(4.0f)));
 	public static final Block POLISHED_MYRKYLITE_BRICK_WALL = register("polished_myrkylite_brick_wall", new WallBlock(Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(4.0f)));
 	
+	// Blood Aether
 	public static final Block SANGUINE = register("sanguine", new Block(Block.Properties.create(Material.SAND)));
 	public static final Block CRIMSON = register("crimson", new Block(Block.Properties.create(Material.IRON)));
 	public static final Block ABADDON = register("abaddon", new Block(Block.Properties.create(Material.ROCK)));
+	
+	// Frostbite
+	public static final Block PERMAFROST_GRASS_BLOCK = register("permafrost_grass_block", new PermafrostBlock(Block.Properties.create(Material.ORGANIC)));
+	public static final Block PERMAFROST_DIRT = register("permafrost_dirt", new Block(Block.Properties.create(Material.ORGANIC)));
+	public static final Block SILICATE = register("silicate", new Block(Block.Properties.create(Material.ROCK)));
+	public static final Block EPIDOTE = register("epidote", new Block(Block.Properties.create(Material.ROCK)));
+	public static final Block MANTLE = register("mantle", new Block(Block.Properties.create(Material.ROCK)));
 	
 	public static final Block COBALT_ORE = register("cobalt_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
 	public static final Block JADE_ORE = register("jade_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(4).harvestTool(ToolType.PICKAXE)));

@@ -272,6 +272,12 @@
 	"block.two.crimson" : "Crimson",
 	"block.two.abaddon" : "Abaddon",
 	
+	"block.two.permafrost_grass_block" : "Permafrost Grass Block",
+	"block.two.permafrost_dirt" : "Permafrost Dirt",
+	"block.two.silicate" : "Silicate",
+	"block.two.epidote" : "Epidote",
+	"block.two.mantle" : "Mantle",
+	
 	"block.two.cobalt_ore" : "Cobalt Ore",
 	"block.two.jade_ore" : "Jade Ore",
 	"block.two.opal_ore" : "Opal Ore",

@@ -6,7 +6,7 @@ import two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 public class NightmareHighlandsBiome extends Biome {
 	public NightmareHighlandsBiome() {
 		super(new Biome.Builder()
-			.surfaceBuilder(SurfaceBuilderTwo.NIGHTMARE_HIGHLANDS, SurfaceBuilderTwo.GAULT_CONFIG)
+			.surfaceBuilder(SurfaceBuilderTwo.NIGHTMARE_HIGHLANDS, SurfaceBuilderTwo.GAULT_NIGHTSTONE_CONFIG)
 			.precipitation(RainType.NONE)
 			.category(Category.NONE)
 			.depth(0.1f)

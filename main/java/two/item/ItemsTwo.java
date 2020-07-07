@@ -214,6 +214,12 @@ public class ItemsTwo {
 	public static final Item CRIMSON = register(BlocksTwo.CRIMSON, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item ABADDON = register(BlocksTwo.ABADDON, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
+	public static final Item PERMAFROST_GRASS_BLOCK = register(BlocksTwo.PERMAFROST_GRASS_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item PERMAFROST_DIRT = register(BlocksTwo.PERMAFROST_DIRT, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SILICATE = register(BlocksTwo.SILICATE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item EPIDOTE = register(BlocksTwo.EPIDOTE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item MANTLE = register(BlocksTwo.MANTLE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
 	public static final Item COBALT_ORE = register(BlocksTwo.COBALT_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item JADE_ORE = register(BlocksTwo.JADE_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item OPAL_ORE = register(BlocksTwo.OPAL_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -353,7 +359,7 @@ public class ItemsTwo {
 	public static final Item MAPLE_TAP = register(BlocksTwo.MAPLE_TAP, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
 	public static final Item BILLBOARD = register(BlocksTwo.BILLBOARD, new Item.Properties().group(ItemGroup.DECORATIONS));
-	public static final Item CONVEYER = register(BlocksTwo.CONVEYER, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item CONVEYER = register(BlocksTwo.CONVEYER, new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/);
 	public static final Item GROUND_LIGHT = register(BlocksTwo.GROUND_LIGHT, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item UPHOLSTERY_TABLE = register(BlocksTwo.UPHOLSTERY_TABLE, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
@@ -1046,6 +1052,8 @@ public class ItemsTwo {
 		Holder.FOOD_TO_SCRAPS.put(Items.CHORUS_FRUIT, ItemsTwo.CHORUS_PIT);
 		Holder.FOOD_TO_SCRAPS.put(Items.PUFFERFISH, Items.BONE);
 		Holder.FOOD_TO_SCRAPS.put(Items.TROPICAL_FISH, Items.BONE);
+		
+//		Items.ARROW.getAttributeModifiers(EquipmentSlotType.MAINHAND).put(SharedMonsterAttributesTwo.PROJECTILE_VELOCITY_ATTRIBUTE.getName(), new AttributeModifier(SharedMonsterAttributesTwo.PROJECTILE_VELOCITY_ID, "Weapon modifier", 1, AttributeModifier.Operation.MULTIPLY_BASE));
 	}
 	static Item register(Block block, Item.Properties properties) {
 		return register(block.getRegistryName().getPath(), new BlockItem(block, properties));

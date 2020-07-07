@@ -7,7 +7,7 @@ import two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 public class TundraHillsBiome extends Biome {
 	protected TundraHillsBiome() {
 		super(new Biome.Builder()
-			.surfaceBuilder(SurfaceBuilderTwo.FROSTBITE, SurfaceBuilderTwo.ICE_CONFIG)
+			.surfaceBuilder(SurfaceBuilderTwo.FROSTBITE, SurfaceBuilderTwo.ICE_PACKED_ICE_CONFIG)
 			.precipitation(RainType.SNOW)
 			.category(Category.ICY)
 			.depth(0.1f)

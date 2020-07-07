@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+            { "model": "two:block/permafrost_dirt" },
+            { "model": "two:block/permafrost_dirt", "y": 90 },
+            { "model": "two:block/permafrost_dirt", "y": 180 },
+            { "model": "two:block/permafrost_dirt", "y": 270 }
+        ]
+    }
+}

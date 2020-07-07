@@ -9,7 +9,7 @@ import two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 public class TheForestBiome extends Biome {
 	protected TheForestBiome() {
 		super(new Biome.Builder()
-			.surfaceBuilder(SurfaceBuilderTwo.NIGHTMARE, SurfaceBuilderTwo.GAULT_CONFIG)
+			.surfaceBuilder(SurfaceBuilderTwo.NIGHTMARE, SurfaceBuilderTwo.GAULT_NIGHTSTONE_CONFIG)
 			.precipitation(RainType.SNOW)
 			.category(Category.FOREST)
 			.depth(0.1f)

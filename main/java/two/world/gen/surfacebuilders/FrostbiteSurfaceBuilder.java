@@ -18,31 +18,34 @@ public class FrostbiteSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig
 		super(deserializer);
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
-		BlockState blockstate = SurfaceBuilderTwo.ICE;
-	    BlockState blockstate1 = SurfaceBuilderTwo.PACKED_ICE;
-	    BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
-	    int i = -1;
-	    int j = (int)(noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
-	    int k = x & 15;
-	    int l = z & 15;
-	    int sealevel = 0;
+		this.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, config.getTop(), config.getUnder(), config.getUnderWaterMaterial(), seaLevel);
+	}
+	
+	@SuppressWarnings("deprecation")
+	private void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, BlockState top, BlockState middle, BlockState bottom, int sealevel) {
+		BlockState blockstate = top;
+		BlockState blockstate1 = middle;
+		BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+		int i = -1;
+		int j = (int)(noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
+		int k = x & 15;
+		int l = z & 15;
 
-	    for(int i1 = startHeight; i1 >= 0; --i1) {
-	    	blockpos$mutable.setPos(k, i1, l);
-	        BlockState blockstate2 = chunkIn.getBlockState(blockpos$mutable);
-	        if (blockstate2.isAir()) {
-	        	i = -1;
-	        } else if (blockstate2.getBlock() == defaultBlock.getBlock()) {
+		for(int i1 = startHeight; i1 >= 0; --i1) {
+			blockpos$mutable.setPos(k, i1, l);
+			BlockState blockstate2 = chunkIn.getBlockState(blockpos$mutable);
+			if (blockstate2.isAir()) {
+	            i = -1;
+			} else if (blockstate2.getBlock() == defaultBlock.getBlock()) {
 	            if (i == -1) {
 	            	if (j <= 0) {
 	            		blockstate = Blocks.AIR.getDefaultState();
 	            		blockstate1 = defaultBlock;
 	            	} else if (i1 >= sealevel - 4 && i1 <= sealevel + 1) {
-	            		blockstate = SurfaceBuilderTwo.ICE;
-	            		blockstate1 = SurfaceBuilderTwo.PACKED_ICE;
+	            		blockstate = top;
+	            		blockstate1 = middle;
 	            	}
 
 	            	if (i1 < sealevel && (blockstate == null || blockstate.isAir())) {
@@ -61,7 +64,7 @@ public class FrostbiteSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig
 	            	} else if (i1 < sealevel - 7 - j) {
 	            		blockstate = Blocks.AIR.getDefaultState();
 	            		blockstate1 = defaultBlock;
-	            		chunkIn.setBlockState(blockpos$mutable, SurfaceBuilderTwo.ICE, false);
+	            		chunkIn.setBlockState(blockpos$mutable, bottom, false);
 	            	} else {
 	            		chunkIn.setBlockState(blockpos$mutable, blockstate1, false);
 	            	}
@@ -73,7 +76,7 @@ public class FrostbiteSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig
 	            		blockstate1 = blockstate1.getBlock() == Blocks.RED_SAND ? Blocks.RED_SANDSTONE.getDefaultState() : Blocks.SANDSTONE.getDefaultState();
 	            	}
 	            }
-	        }
-	    }
+			}
+		}
 	}
 }
