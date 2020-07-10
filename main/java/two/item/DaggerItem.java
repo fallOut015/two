@@ -3,6 +3,8 @@ package two.item;
 import com.google.common.collect.Multimap;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -16,6 +18,7 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import two.enchantment.EnchantmentsTwo;
 
 public class DaggerItem extends TieredItem {
 	private final float attackDamage;
@@ -34,13 +37,6 @@ public class DaggerItem extends TieredItem {
 		return !player.isCreative();
 	}
 	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		if(attacker.isCrouching()) {
-			target.setHealth(target.getHealth() - 2);
-			target.setMotion(0, 0.5, 0);
-			for(int i = 0; i < target.getHealth(); ++ i)
-				target.getEntityWorld().addParticle(ParticleTypes.CRIT, target.getPosX(), target.getPosY(), target.getPosZ(), Math.random() - 0.5D, 0.0D, Math.random() - 0.5D);
-		}
-		
 		stack.damageItem(1, attacker, player ->
 			player.sendBreakAnimation(EquipmentSlotType.MAINHAND)
 	    );
@@ -49,7 +45,7 @@ public class DaggerItem extends TieredItem {
 	}
 	@Override
 	public boolean itemInteractionForEntity(ItemStack stack, PlayerEntity playerIn, LivingEntity target, Hand hand) {
-		if(playerIn.getPositionVec().distanceTo(target.getPositionVec()) < 1.41421356237) {
+		if(EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.DISARMING, stack) > 0 && playerIn.getPositionVec().distanceTo(target.getPositionVec()) < 1.41421356237) {
 			if(target.entityDropItem(target.getHeldItem(hand)) == null) {
 				return false;
 			}
@@ -77,5 +73,19 @@ public class DaggerItem extends TieredItem {
 		}
 
 		return multimap;
+	}
+	
+	@Override
+	public boolean onLeftClickEntity(ItemStack stack, PlayerEntity player, Entity entity) {
+		if(entity instanceof LivingEntity) {
+			stack.hitEntity((LivingEntity) entity, player);
+			if(player.isCrouching()) {
+				((LivingEntity) entity).setHealth(((LivingEntity) entity).getHealth() - 1);
+				((LivingEntity) entity).setMotion(0, 0.5, 0);
+				for(int i = 0; i < ((LivingEntity) entity).getHealth(); ++ i)
+					entity.getEntityWorld().addParticle(ParticleTypes.CRIT, entity.getPosX(), entity.getPosY() + entity.getHeight() / 2, entity.getPosZ(), Math.random() - 0.5D, 0.0D, Math.random() - 0.5D);
+			}
+		}
+		return false;
 	}
 }

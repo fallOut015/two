@@ -8,6 +8,7 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
 import two.item.BloodBladeItem;
+import two.item.DaggerItem;
 import two.item.ItemsTwo;
 import two.item.SickleItem;
 
@@ -15,6 +16,7 @@ import two.item.SickleItem;
 public class EnchantmentsTwo {
 	public static final Enchantment SWIPING = register("swiping", new SwipingEnchantment(Enchantment.Rarity.UNCOMMON, EquipmentSlotType.MAINHAND));
 	public static final Enchantment DISABLER = register("disabler", new DisablerEnchantment(Enchantment.Rarity.UNCOMMON, EquipmentSlotType.MAINHAND));
+	public static final Enchantment DISARMING = register("disarming", new DisarmingEnchantment(Enchantment.Rarity.COMMON, EquipmentSlotType.MAINHAND));
 	public static final Enchantment VITALITY_THIEF = register("vitality_thief", new VitalityThiefEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
 	public static final Enchantment SNAPPING = register("snapping", new SnappingEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
 	public static final Enchantment DISTANCE = register("distance", new DistanceEnchantment(Enchantment.Rarity.RARE, EquipmentSlotType.MAINHAND));
@@ -52,6 +54,7 @@ public class EnchantmentsTwo {
 	
 		public static final EnchantmentType DOUBLE_JUMP_BOOTS = EnchantmentType.create("double_jump_boots", item -> item.asItem() == ItemsTwo.DOUBLE_JUMP_BOOTS);
 		public static final EnchantmentType SICKLE = EnchantmentType.create("sickle", item -> item.asItem() instanceof SickleItem);
+		public static final EnchantmentType DAGGER = EnchantmentType.create("dagger", item -> item.asItem() instanceof DaggerItem);
 		public static final EnchantmentType BLOOD_BLADE = EnchantmentType.create("blood_blade", item -> item.asItem() instanceof BloodBladeItem);
 		public static final EnchantmentType EVOCATION_STAFF = EnchantmentType.create("evocation_staff", item -> item.asItem() == ItemsTwo.EVOCATION_STAFF);
 		public static final EnchantmentType BANISHER = EnchantmentType.create("banisher", item -> item.asItem() == ItemsTwo.BANISHER);
