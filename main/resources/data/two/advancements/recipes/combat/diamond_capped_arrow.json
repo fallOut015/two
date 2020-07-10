@@ -35,7 +35,6 @@
   },
   "requirements": [
     [
-      "has_feather",
       "has_diamond",
       "has_the_recipe"
     ]

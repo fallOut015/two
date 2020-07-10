@@ -35,7 +35,6 @@
   },
   "requirements": [
     [
-      "has_feather",
       "has_emerald",
       "has_the_recipe"
     ]

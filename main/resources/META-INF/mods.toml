@@ -48,6 +48,10 @@ Changelog:
 	Added a stupid placeholder title. 
 	Added extra health when the player levels up (will change in the future).
 	Added the ground light. 
+	Added fire arrows. 
+	Added ice arrows. 
+	Added bomb arrows.
+	Added shock arrows.
 '''
 [[dependencies.two]] #optional
     modId="forge"

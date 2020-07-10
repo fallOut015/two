@@ -705,6 +705,11 @@ public class ItemsTwo {
     public static final Item LEAD_CAPPED_ARROW = register("lead_capped_arrow", new CappedArrowItem(ItemTierTwo.LEAD, new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item MYRKYLITE_CAPPED_ARROW = register("myrkylite_capped_arrow", new CappedArrowItem(ItemTierTwo.MYRKYLITE, new Item.Properties().group(ItemGroup.COMBAT)));
 
+    public static final Item FIRE_ARROW = register("fire_arrow", new FireArrow(new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item ICE_ARROW = register("ice_arrow", new IceArrow(new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item BOMB_ARROW = register("bomb_arrow", new BombArrow(new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item SHOCK_ARROW = register("shock_arrow", new ShockArrow(new Item.Properties().group(ItemGroup.COMBAT)));
+    
     public static final Item EMERALD_HELMET = register("emerald_helmet", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item EMERALD_CHESTPLATE = register("emerald_chestplate", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item EMERALD_LEGGINGS = register("emerald_leggings", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));

@@ -2,6 +2,10 @@
 	"entity.two.chameleon" : "Chameleon",
 	"entity.two.dark_dwarf_archer" : "Dark Dwarven Archer",
 	"entity.two.capped_arrow" : "Capped Arrow",
+	"entity.two.fire_arrow" : "Fire Arrow",
+	"entity.two.ice_arrow" : "Ice Arrow",
+	"entity.two.bomb_arrow" : "Bomb Arrow",
+	"entity.two.shock_arrow" : "Shock Arrow",
 	"entity.two.sigil" : "Sigil",
 	
 	
@@ -701,6 +705,11 @@
 	"item.two.ruby_capped_arrow" : "Ruby Capped Arrow",
 	"item.two.lead_capped_arrow" : "Lead Capped Arrow",
 	"item.two.myrkylite_capped_arrow" : "Myrkylite Capped Arrow",
+	
+	"item.two.fire_arrow" : "Fire Arrow",
+	"item.two.ice_arrow" : "Ice Arrow",
+	"item.two.bomb_arrow" : "Bomb Arrow",
+	"item.two.shock_arrow" : "Shock Arrow",
 	
 	"item.two.emerald_helmet" : "Emerald Helmet",
 	"item.two.emerald_chestplate" : "Emerald Chestplate",

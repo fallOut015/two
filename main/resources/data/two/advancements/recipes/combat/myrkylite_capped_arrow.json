@@ -35,7 +35,6 @@
   },
   "requirements": [
     [
-      "has_feather",
       "has_myrkylite",
       "has_the_recipe"
     ]
