@@ -6,6 +6,8 @@ import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.IPacket;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 import two.entity.EntityTypeTwo;
@@ -36,5 +38,9 @@ public class IceArrowEntity extends AbstractArrowEntity {
 		if (this.world.isRemote && !this.inGround) {
 			this.world.addParticle(ParticleTypes.CLOUD, this.getPosX(), this.getPosY(), this.getPosZ(), 0.0D, 0.0D, 0.0D);
 		}
+	}
+	@Override
+	protected void arrowHit(LivingEntity living) {
+		living.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 50, 6, false, false));
 	}
 }
