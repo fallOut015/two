@@ -10,6 +10,6 @@ import net.minecraftforge.common.ModDimension;
 public class SkyModDimension extends ModDimension {
 	@Override
 	public BiFunction<World, DimensionType, ? extends Dimension> getFactory() {
-		return (world, dimensionType) -> new SkyDimension(world, dimensionType, 0);
+		return (world, dimensionType) -> new SkyDimension(world, dimensionType, 0.5f);
 	}
 }
