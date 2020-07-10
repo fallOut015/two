@@ -99,7 +99,7 @@ public abstract class DreamcatcherBlock extends Block {
 	
 	@Override
 	public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-		if(worldIn.getDayTime() > 13000) {
+		if(worldIn.getDayTime() > 13000 && worldIn.getDayTime() < 23500) {
 			double x = 0, z = 0;
 			double y = MathHelper.lerp(rand.nextInt(2), (double)pos.getY(), (double)pos.getY() + 1);
 
