@@ -3,6 +3,7 @@ package two.item;
 import com.google.common.collect.Multimap;
 
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -11,8 +12,6 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.ResourceLocation;
-import two.Two;
 import two.enchantment.EnchantmentsTwo;
 
 public class BanisherItem extends Item {
@@ -23,21 +22,14 @@ public class BanisherItem extends Item {
 		super(properties);
 		
 		this.attackDamage = 0.5f;
-		this.attackSpeed = -3.0f;
+		this.attackSpeed = -3.5f;
 	}
 	
+	@Override
 	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		if(attacker instanceof PlayerEntity) {
-			if(this.getPropertyGetter(new ResourceLocation("minecraft", "cooldown")).call(stack, attacker.getEntityWorld(), attacker) == 0.0f) {
-				Two.LOGGER.info("Cooldown f: " + this.getPropertyGetter(new ResourceLocation("minecraft", "cooldown")).call(attacker.getActiveItemStack(), attacker.getEntityWorld(), attacker));
-				target.knockBack(target, 2 * (EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.DISTANCE, stack) + 1), -(target.prevPosX - attacker.prevPosX), -(target.prevPosZ - attacker.prevPosZ));
-				target.world.addParticle(ParticleTypes.EXPLOSION, target.prevPosX, target.prevPosY, target.prevPosZ, -(target.prevPosX - attacker.prevPosX), -0.1, -(target.prevPosZ - attacker.prevPosZ));
-				return true;
-			}
-		}
-		return false;
+		stack.damageItem(1, attacker, livingEntityIn -> livingEntityIn.sendBreakAnimation(EquipmentSlotType.MAINHAND));
+		return true;
 	}
-	
 	@SuppressWarnings("deprecation")
 	public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot) {
 		Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(equipmentSlot);
@@ -46,5 +38,18 @@ public class BanisherItem extends Item {
 			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)this.attackSpeed, AttributeModifier.Operation.ADDITION));
 		}
 		return multimap;
+	}
+	
+	@Override
+	public boolean onLeftClickEntity(ItemStack stack, PlayerEntity player, Entity entity) {
+		if(entity instanceof LivingEntity) {
+			if((player).getCooledAttackStrength(0.5f) == 1f) {
+				stack.hitEntity((LivingEntity) entity, player);
+				((LivingEntity) entity).knockBack(entity, 2 * (EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.DISTANCE, stack) + 1), -(entity.prevPosX - player.prevPosX), -(entity.prevPosZ - player.prevPosZ));
+				entity.world.addParticle(ParticleTypes.EXPLOSION, player.getPosX(), player.getPosY(), entity.getPosZ(), -(entity.prevPosX - player.prevPosX), -0.1, -(entity.prevPosZ - player.prevPosZ));
+				stack.damageItem(4, player, livingEntityIn -> livingEntityIn.sendBreakAnimation(EquipmentSlotType.MAINHAND));
+			}		
+		}
+		return false;
 	}
 }
