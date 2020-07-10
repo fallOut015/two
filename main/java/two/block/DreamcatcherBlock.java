@@ -23,6 +23,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
+import net.minecraft.world.dimension.DimensionType;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 
 public abstract class DreamcatcherBlock extends Block {
@@ -99,6 +100,8 @@ public abstract class DreamcatcherBlock extends Block {
 	
 	@Override
 	public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+		// TODO check dimension
+		
 		if(worldIn.getDayTime() > 13000 && worldIn.getDayTime() < 23500) {
 			double x = 0, z = 0;
 			double y = MathHelper.lerp(rand.nextInt(2), (double)pos.getY(), (double)pos.getY() + 1);
