@@ -498,7 +498,7 @@ public class BlocksTwo {
 	});
 	
 	public static final Block MAPLE_TAP = register("maple_tap", new MapleTapBlock(Block.Properties.create(Material.IRON)));
-	public static final Block GROUND_LIGHT = register("ground_light", new GroundLightBlock(Block.Properties.create(Material.GLASS).lightValue(5).hardnessAndResistance(0.5f).doesNotBlockMovement()));
+	public static final Block GROUND_LIGHT = register("ground_light", new GroundLightBlock(Block.Properties.create(Material.GLASS).lightValue(8).hardnessAndResistance(0.5f).doesNotBlockMovement()));
 	public static final Block BILLBOARD = register("billboard", new Block(Block.Properties.create(Material.GLASS).lightValue(5).hardnessAndResistance(0.2f).sound(SoundType.GLASS)));
 	public static final Block CONVEYER = register("conveyer", new ConveyerBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(1.0f)));
 	
