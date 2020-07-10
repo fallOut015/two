@@ -4,13 +4,13 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import two.inventory.KnapsackInventory;
-import two.inventory.container.ContainerTypeTwo;
 
 public class KnapsackItem extends Item {
 	public KnapsackItem(Properties properties) {
@@ -18,8 +18,9 @@ public class KnapsackItem extends Item {
 		this.addPropertyOverride(new ResourceLocation("two", "open"), (itemStack, world, livingEntity) -> {
 			if(livingEntity != null && livingEntity.getActiveItemStack().getItem() instanceof KnapsackItem)
 				if(livingEntity instanceof PlayerEntity)
-					if(((PlayerEntity) livingEntity).openContainer.getType() == ContainerTypeTwo.KNAPSACK)
+					if(livingEntity.getActiveItemStack().hasTag() && livingEntity.getActiveItemStack().getTag().getBoolean("open") == true) {
 						return 1.0f;
+					}
 			return 0.0f;
 		});
 	}
@@ -28,6 +29,14 @@ public class KnapsackItem extends Item {
 		super.onItemRightClick(worldIn, playerIn, handIn);
 		
 		ItemStack itemStack = playerIn.getHeldItem(handIn);
+		
+		if(itemStack.hasTag()) {
+			itemStack.getTag().putBoolean("open", true);
+		} else {
+			CompoundNBT nbt = new CompoundNBT();
+			nbt.putBoolean("open", true);
+			itemStack.setTag(nbt);
+		}
 		
 		INamedContainerProvider knapsackContainerProvider = new KnapsackInventory(playerIn, itemStack);
 		playerIn.openContainer(knapsackContainerProvider);

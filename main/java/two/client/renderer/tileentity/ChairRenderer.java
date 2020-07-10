@@ -15,6 +15,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import two.client.renderer.tileentity.model.ChairModel;
 import two.tileentity.ChairTileEntity;
 
+// TODO make fast
+
 @OnlyIn(Dist.CLIENT)
 public class ChairRenderer extends TileEntityRenderer<ChairTileEntity> {
 	private final ChairModel model = new ChairModel();

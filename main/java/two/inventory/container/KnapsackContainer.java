@@ -67,7 +67,8 @@ public class KnapsackContainer extends Container {
 		
 		this.compoundNBT = ((KnapsackInventory) this.knapsackInventory).write(this.compoundNBT);
 		((KnapsackInventory) this.knapsackInventory).itemStack.setTag(this.compoundNBT);
-		
+		((KnapsackInventory) this.knapsackInventory).itemStack.getTag().putBoolean("open", false);
+
 	    this.knapsackInventory.closeInventory(playerIn);
 	}
 	public IInventory getKnapsackInventory() {
