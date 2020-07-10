@@ -434,7 +434,7 @@ public class BlocksTwo {
             playerWakeUpEvent.getPlayer().world.addEntity(new ItemEntity(playerWakeUpEvent.getPlayer().getEntityWorld(), playerWakeUpEvent.getPlayer().prevPosX, playerWakeUpEvent.getPlayer().prevPosY + 0.5, playerWakeUpEvent.getPlayer().prevPosZ, list.get(playerWakeUpEvent.getPlayer().getEntityWorld().getRandom().nextInt(list.size()))));
 		}
 	});
-	public static final Block DREAMCATCHER_LUCKY = register("dreamcatcher_lucky", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.GREEN_TERRACOTTA).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.MYCELIUM) {
+	public static final Block DREAMCATCHER_LUCKY = register("dreamcatcher_lucky", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.GREEN_TERRACOTTA).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.COMPOSTER) {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			Two.LOGGER.info("onPlayerWakeUp fired for a dreamcatcher_lucky");
