@@ -48,6 +48,7 @@ public abstract class BloodBladeItem extends SwordItem {
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, PlayerEntity player, Entity entity) {
 		if(entity instanceof LivingEntity) {
+			stack.hitEntity((LivingEntity) entity, player);
 			if((player).getCooledAttackStrength(0.5f) == 1f) {
 				this.bonusEffect(stack, (LivingEntity) entity, player);
 
