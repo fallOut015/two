@@ -9,6 +9,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FenceBlock;
 import net.minecraft.block.FenceGateBlock;
+import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.LogBlock;
@@ -27,6 +28,7 @@ import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TranslationTextComponent;
@@ -76,22 +78,22 @@ public class BlocksTwo {
 	public static final Block BLACKBARK_PLANKS = register("blackbark_planks", new Block(Block.Properties.create(Material.WOOD, MaterialColor.BLACK).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
 	public static final Block FROSTBARK_PLANKS = register("frostbark_planks", new Block(Block.Properties.create(Material.WOOD, MaterialColor.ICE).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
 	
-	public static final Block WHITE_STAINED_PLANKS = register("white_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.WHITE).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
-	public static final Block ORANGE_STAINED_PLANKS = register("orange_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.ORANGE).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
-	public static final Block MAGENTA_STAINED_PLANKS = register("magenta_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.MAGENTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
-	public static final Block LIGHT_BLUE_STAINED_PLANKS = register("light_blue_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.LIGHT_BLUE).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
-	public static final Block YELLOW_STAINED_PLANKS = register("yellow_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.YELLOW).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
-	public static final Block LIME_STAINED_PLANKS = register("lime_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.LIME).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
-	public static final Block PINK_STAINED_PLANKS = register("pink_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.PINK).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
-	public static final Block GRAY_STAINED_PLANKS = register("gray_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.GRAY).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
-	public static final Block LIGHT_GRAY_STAINED_PLANKS = register("light_gray_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.LIGHT_GRAY).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
-	public static final Block CYAN_STAINED_PLANKS = register("cyan_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.CYAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
-	public static final Block PURPLE_STAINED_PLANKS = register("purple_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.PURPLE).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
-	public static final Block BLUE_STAINED_PLANKS = register("blue_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.BLUE).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
-	public static final Block BROWN_STAINED_PLANKS = register("brown_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.BROWN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
-	public static final Block GREEN_STAINED_PLANKS = register("green_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.GREEN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
-	public static final Block RED_STAINED_PLANKS = register("red_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.RED).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
-	public static final Block BLACK_STAINED_PLANKS = register("black_stained_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.BLACK).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	public static final Block WHITE_STAINED_WOODEN_PLANKS = register("white_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.WHITE).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	public static final Block ORANGE_STAINED_WOODEN_PLANKS = register("orange_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.ORANGE).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	public static final Block MAGENTA_STAINED_WOODEN_PLANKS = register("magenta_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.MAGENTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	public static final Block LIGHT_BLUE_STAINED_WOODEN_PLANKS = register("light_blue_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.LIGHT_BLUE).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	public static final Block YELLOW_STAINED_WOODEN_PLANKS = register("yellow_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.YELLOW).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	public static final Block LIME_STAINED_WOODEN_PLANKS = register("lime_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.LIME).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	public static final Block PINK_STAINED_WOODEN_PLANKS = register("pink_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.PINK).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	public static final Block GRAY_STAINED_WOODEN_PLANKS = register("gray_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.GRAY).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	public static final Block LIGHT_GRAY_STAINED_WOODEN_PLANKS = register("light_gray_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.LIGHT_GRAY).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	public static final Block CYAN_STAINED_WOODEN_PLANKS = register("cyan_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.CYAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	public static final Block PURPLE_STAINED_WOODEN_PLANKS = register("purple_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.PURPLE).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	public static final Block BLUE_STAINED_WOODEN_PLANKS = register("blue_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.BLUE).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	public static final Block BROWN_STAINED_WOODEN_PLANKS = register("brown_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.BROWN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	public static final Block GREEN_STAINED_WOODEN_PLANKS = register("green_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.GREEN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	public static final Block RED_STAINED_WOODEN_PLANKS = register("red_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.RED).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	public static final Block BLACK_STAINED_WOODEN_PLANKS = register("black_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.BLACK).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	
 	// stained boat
 	// stained sign
@@ -103,6 +105,15 @@ public class BlocksTwo {
 	// stained button
 	// stained pressure plate
 	// stained trapdoor
+	
+	public static final Block PURPETAL = register("purpetal", new FlowerBlock(Effects.LEVITATION, 10, Block.Properties.create(Material.ORGANIC).notSolid().doesNotBlockMovement()) {
+		protected boolean isValidGround(BlockState state, net.minecraft.world.IBlockReader worldIn, BlockPos pos) {
+			return state.getBlock() == Blocks.END_STONE;
+		};
+	});
+	public static final Block PURPETAL_STEM = register("purpetal_stem", new RotatedPillarBlock(Block.Properties.create(Material.ORGANIC)));
+	public static final Block PURPETAL_PETAL = register("purpetal_petal", new Block(Block.Properties.create(Material.ORGANIC)));
+	public static final Block PURPETAL_PISTOL = register("purpetal_pistol", new Block(Block.Properties.create(Material.ORGANIC)));
 	
 	public static final Block CHERRY_SAPLING = register("cherry_sapling", new SaplingBlockTwo(new CherryTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT)));
 	public static final Block MAPLE_SAPLING = register("maple_sapling", new SaplingBlockTwo(new MapleTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT)));

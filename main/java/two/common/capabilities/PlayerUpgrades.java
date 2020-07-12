@@ -1,6 +1,8 @@
 package two.common.capabilities;
 
 public class PlayerUpgrades implements IPlayerUpgrades {
+	int upgradePoints = 0; // upgradePoints that increase whenever you level up. 
+	
 	double health = 0; // bonus health in half hearts. 
 	double hunger = 0; // bonus hunger in half shanks. 
 	double armor = 0; // bonus armor in half plates. 
@@ -38,5 +40,14 @@ public class PlayerUpgrades implements IPlayerUpgrades {
 	@Override
 	public double getArmor() {
 		return this.armor;
+	}
+	
+	@Override
+	public int getUpgradePoints() {
+		return this.upgradePoints;
+	}
+	@Override
+	public void setUpgradePoints(int upgradePoints) {
+		this.upgradePoints = upgradePoints;
 	}
 }

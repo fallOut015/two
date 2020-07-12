@@ -58,6 +58,11 @@
           "weight": 5,
           "name": "minecraft:golden_sword"
         },
+		{
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "two:blood_wither_blade"
+        },
         {
           "type": "minecraft:item",
           "weight": 5,

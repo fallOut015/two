@@ -60,6 +60,16 @@
         },
 		{
           "type": "minecraft:item",
+          "weight": 1,
+          "name": "two:emerald_horse_armor"
+        },
+		{
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "two:ruby_horse_armor"
+        },
+		{
+          "type": "minecraft:item",
           "weight": 8,
           "name": "two:dreamcatcher_healing"
         },

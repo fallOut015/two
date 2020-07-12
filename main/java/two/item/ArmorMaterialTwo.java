@@ -68,52 +68,52 @@ public enum ArmorMaterialTwo implements IArmorMaterial {
 	}),
 	
 	WHITE_STAINED_WOOD("white_stained_wood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
-		return Ingredient.fromItems(ItemsTwo.WHITE_STAINED_PLANKS);
+		return Ingredient.fromItems(ItemsTwo.WHITE_STAINED_WOODEN_PLANKS);
 	}),
 	ORANGE_STAINED_WOOD("orange_stained_wood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
-		return Ingredient.fromItems(ItemsTwo.ORANGE_STAINED_PLANKS);
+		return Ingredient.fromItems(ItemsTwo.ORANGE_STAINED_WOODEN_PLANKS);
 	}),
 	MAGENTA_STAINED_WOOD("magenta_stained_wood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
-		return Ingredient.fromItems(ItemsTwo.MAGENTA_STAINED_PLANKS);
+		return Ingredient.fromItems(ItemsTwo.MAGENTA_STAINED_WOODEN_PLANKS);
 	}),
 	LIGHT_BLUE_STAINED_WOOD("light_blue_stained_wood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
-		return Ingredient.fromItems(ItemsTwo.LIGHT_BLUE_STAINED_PLANKS);
+		return Ingredient.fromItems(ItemsTwo.LIGHT_BLUE_STAINED_WOODEN_PLANKS);
 	}),
 	YELLOW_STAINED_WOOD("yellow_stained_wood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
-		return Ingredient.fromItems(ItemsTwo.YELLOW_STAINED_PLANKS);
+		return Ingredient.fromItems(ItemsTwo.YELLOW_STAINED_WOODEN_PLANKS);
 	}),
 	LIME_STAINED_WOOD("lime_stained_wood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
-		return Ingredient.fromItems(ItemsTwo.LIME_STAINED_PLANKS);
+		return Ingredient.fromItems(ItemsTwo.LIME_STAINED_WOODEN_PLANKS);
 	}),
 	PINK_STAINED_WOOD("pink_stained_wood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
-		return Ingredient.fromItems(ItemsTwo.PINK_STAINED_PLANKS);
+		return Ingredient.fromItems(ItemsTwo.PINK_STAINED_WOODEN_PLANKS);
 	}),
 	GRAY_STAINED_WOOD("gray_stained_wood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
-		return Ingredient.fromItems(ItemsTwo.GRAY_STAINED_PLANKS);
+		return Ingredient.fromItems(ItemsTwo.GRAY_STAINED_WOODEN_PLANKS);
 	}),
 	LIGHT_GRAY_STAINED_WOOD("light_gray_stained_wood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
-		return Ingredient.fromItems(ItemsTwo.LIGHT_GRAY_STAINED_PLANKS);
+		return Ingredient.fromItems(ItemsTwo.LIGHT_GRAY_STAINED_WOODEN_PLANKS);
 	}),
 	CYAN_STAINED_WOOD("cyan_stained_wood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
-		return Ingredient.fromItems(ItemsTwo.CYAN_STAINED_PLANKS);
+		return Ingredient.fromItems(ItemsTwo.CYAN_STAINED_WOODEN_PLANKS);
 	}),
 	PURPLE_STAINED_WOOD("purple_stained_wood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
-		return Ingredient.fromItems(ItemsTwo.PURPLE_STAINED_PLANKS);
+		return Ingredient.fromItems(ItemsTwo.PURPLE_STAINED_WOODEN_PLANKS);
 	}),
 	BLUE_STAINED_WOOD("blue_stained_wood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
-		return Ingredient.fromItems(ItemsTwo.BLUE_STAINED_PLANKS);
+		return Ingredient.fromItems(ItemsTwo.BLUE_STAINED_WOODEN_PLANKS);
 	}),
 	BROWN_STAINED_WOOD("brown_stained_wood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
-		return Ingredient.fromItems(ItemsTwo.BROWN_STAINED_PLANKS);
+		return Ingredient.fromItems(ItemsTwo.BROWN_STAINED_WOODEN_PLANKS);
 	}),
 	GREEN_STAINED_WOOD("green_stained_wood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
-		return Ingredient.fromItems(ItemsTwo.GREEN_STAINED_PLANKS);
+		return Ingredient.fromItems(ItemsTwo.GREEN_STAINED_WOODEN_PLANKS);
 	}),
 	RED_STAINED_WOOD("red_stained_wood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
-		return Ingredient.fromItems(ItemsTwo.RED_STAINED_PLANKS);
+		return Ingredient.fromItems(ItemsTwo.RED_STAINED_WOODEN_PLANKS);
 	}),
 	BLACK_STAINED_WOOD("black_stained_wood", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
-		return Ingredient.fromItems(ItemsTwo.BLACK_STAINED_PLANKS);
+		return Ingredient.fromItems(ItemsTwo.BLACK_STAINED_WOODEN_PLANKS);
 	}),
 	
 	WHITE_WOOL("white_wool", 4, new int[] {1, 2, 3, 1}, 5, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOL, 0.0f, () -> {

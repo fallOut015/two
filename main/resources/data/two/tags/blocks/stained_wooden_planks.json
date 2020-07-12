@@ -1,0 +1,21 @@
+{
+	"replace" : false,
+  	"values" : [
+    	"two:white_stained_wooden_planks",
+		"two:orange_stained_wooden_planks",
+		"two:magenta_stained_wooden_planks",
+		"two:light_blue_stained_wooden_planks",
+		"two:yellow_stained_wooden_planks",
+		"two:lime_stained_wooden_planks",
+		"two:pink_stained_wooden_planks",
+		"two:gray_stained_wooden_planks",
+		"two:light_gray_stained_wooden_planks",
+		"two:cyan_stained_wooden_planks",
+		"two:purple_stained_wooden_planks",
+		"two:blue_stained_wooden_planks",
+		"two:brown_stained_wooden_planks",
+		"two:green_stained_wooden_planks",
+		"two:red_stained_wooden_planks",
+		"two:black_stained_wooden_planks"
+  	]
+}

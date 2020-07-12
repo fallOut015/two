@@ -1,6 +1,5 @@
 package two.block;
 
-import net.minecraft.block.BlockState;
 import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.MoverType;
@@ -20,20 +19,37 @@ public class ConveyerBlock extends RotatedPillarBlock {
 //	}
 	
 	@Override
-	public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+	public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
 		if(!(entityIn.getPosY() > pos.getY())) {
 			return;
 		}
 		Vec3d destination = entityIn.getPositionVec();
-		if(state.get(AXIS).test(Direction.NORTH)) {
+		if(worldIn.getBlockState(pos).get(AXIS).test(Direction.NORTH)) {
 			destination.add(1, 0, 0);
-		} else if(state.get(AXIS).test(Direction.EAST)) {
+		} else if(worldIn.getBlockState(pos).get(AXIS).test(Direction.EAST)) {
 			destination.add(1, 0, 0);
-		} else if(state.get(AXIS).test(Direction.SOUTH)) {
+		} else if(worldIn.getBlockState(pos).get(AXIS).test(Direction.SOUTH)) {
 			destination.add(-1, 0, 0);
-		} else if(state.get(AXIS).test(Direction.WEST)) {
+		} else if(worldIn.getBlockState(pos).get(AXIS).test(Direction.WEST)) {
 			destination.add(-1, 0, 0);
 		}
 		entityIn.move(MoverType.SELF, destination);
 	}
+//	@Override
+//	public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+//		if(!(entityIn.getPosY() > pos.getY())) {
+//			return;
+//		}
+//		Vec3d destination = entityIn.getPositionVec();
+//		if(state.get(AXIS).test(Direction.NORTH)) {
+//			destination.add(1, 0, 0);
+//		} else if(state.get(AXIS).test(Direction.EAST)) {
+//			destination.add(1, 0, 0);
+//		} else if(state.get(AXIS).test(Direction.SOUTH)) {
+//			destination.add(-1, 0, 0);
+//		} else if(state.get(AXIS).test(Direction.WEST)) {
+//			destination.add(-1, 0, 0);
+//		}
+//		entityIn.move(MoverType.SELF, destination);
+//	}
 }

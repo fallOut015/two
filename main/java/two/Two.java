@@ -109,11 +109,9 @@ import two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 
 @Mod("two")
 public class Two {
-	// TODO SLABS, STAIRS, and WALLS for GLAZED BRICKS
 	// TODO SLAB, PRESSURE PLATE, FENCE, STAIRS, BUTTON, SIGN, AND BOAT FOR STAINED PLANKS
 	
 	// GLAIVE
-	// DAGGER
 	// MACE
 	// LONGBOW
 	// ARBALEST
@@ -403,6 +401,8 @@ public class Two {
 					CapabilitiesTwo.PLAYERUPGRADES.readNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP, CompressedStreamTools.read(fileIn));
 				} catch (IOException e) {
 					e.printStackTrace();
+				} catch (NullPointerException e) {
+					Two.LOGGER.warn(e);
 				}
     			LOGGER.info("Read from two_playerdata.nbt");
     		}

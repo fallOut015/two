@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "has_feather": {
+	"has_feather": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [

@@ -6,6 +6,8 @@ import two.block.BlocksTwo;
 
 public class RenderTypeLookupTwo {
 	public static void setRenderLayers() {
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.PURPETAL, RenderType.getCutout());
+
 		RenderTypeLookup.setRenderLayer(BlocksTwo.CHERRY_SAPLING, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.MAPLE_SAPLING, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.GHOSTWOOD_SAPLING, RenderType.getCutout());
@@ -21,6 +23,8 @@ public class RenderTypeLookupTwo {
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_RAINBOW, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_RANDOM, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_SKY, RenderType.getCutout());
+
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.MAPLE_TAP, RenderType.getCutout());
 
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.STARSTONE_TORCH, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.STARSTONE_WALL_TORCH, RenderType.getCutout());

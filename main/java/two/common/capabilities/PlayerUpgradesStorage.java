@@ -10,6 +10,7 @@ public class PlayerUpgradesStorage implements IStorage<IPlayerUpgrades> {
 	@Override
 	public INBT writeNBT(Capability<IPlayerUpgrades> capability, IPlayerUpgrades instance, Direction side) {
 		CompoundNBT nbt = new CompoundNBT();
+		nbt.putInt("upgradePoints", instance.getUpgradePoints());
 		nbt.putDouble("health", instance.getHealth());
 		nbt.putDouble("hunger", instance.getHunger());
 		nbt.putDouble("armor", instance.getArmor());
@@ -19,6 +20,7 @@ public class PlayerUpgradesStorage implements IStorage<IPlayerUpgrades> {
 	@Override
 	public void readNBT(Capability<IPlayerUpgrades> capability, IPlayerUpgrades instance, Direction side, INBT nbt) {
 		if(nbt instanceof CompoundNBT) {
+			instance.setUpgradePoints(((CompoundNBT) nbt).getInt("upgradePoints"));
 			instance.setHealth(((CompoundNBT) nbt).getDouble("health"));
 			instance.setHunger(((CompoundNBT) nbt).getDouble("hunger"));
 			instance.setArmor(((CompoundNBT) nbt).getDouble("armor"));
