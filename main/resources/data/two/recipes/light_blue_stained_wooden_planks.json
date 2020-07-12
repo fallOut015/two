@@ -11,11 +11,11 @@
       		"tag" : "minecraft:planks"
     	},
     	"X" : {
-      		"item" : "minecraft:cyan_dye"
+      		"item" : "minecraft:light_blue_dye"
     	}
   	},
   	"result" : {
-    	"item" : "two:cyan_stained_planks",
+    	"item" : "two:light_blue_stained_wooden_planks",
     	"count" : 8
   	}
 }
