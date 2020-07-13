@@ -525,6 +525,8 @@ public class BlocksTwo {
 	public static final Block STARSTONE_TORCH = register("starstone_torch", new TorchBlockTwo(Block.Properties.create(Material.MISCELLANEOUS).lightValue(16).doesNotBlockMovement().hardnessAndResistance(0)));
 	public static final Block STARSTONE_WALL_TORCH = register("starstone_wall_torch", new WallTorchBlockTwo(Block.Properties.create(Material.MISCELLANEOUS).lightValue(16).doesNotBlockMovement().hardnessAndResistance(0).lootFrom(STARSTONE_TORCH)));
 	
+	public static final Block FLAGSTONE_PATH = register("flagstone_path", new Block(Block.Properties.from(Blocks.GRASS_PATH)));
+	
 	public static final Block LETTER_A = register("letter_a", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
 	public static final Block LETTER_B = register("letter_b", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
 	public static final Block LETTER_C = register("letter_c", new WallDecorationBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0).notSolid()));
@@ -569,7 +571,7 @@ public class BlocksTwo {
 	
 	public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
     	blockRegistryEvent.getRegistry().registerAll(Holder.BLOCKSTWO.toArray(new Block[] {}));
-    }
+	}
 	static Block register(String key, Block block) {
 		Holder.BLOCKSTWO.add(block.setRegistryName(key));
 		

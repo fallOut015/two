@@ -1,0 +1,43 @@
+{
+	"parent": "minecraft:recipes/root",
+  	"rewards": {
+    	"recipes": [
+      		"two:flagstone_path"
+    	]
+  	},
+  	"criteria": {
+    	"has_cobblestone": {
+      		"trigger": "minecraft:inventory_changed",
+      		"conditions": {
+        		"items": [
+          			{
+            			"tag": "forge:cobblestone"
+          			}
+        		]
+      		}
+    	},
+		"has_dirt": {
+      		"trigger": "minecraft:inventory_changed",
+      		"conditions": {
+        		"items": [
+          			{
+            			"item": "minecraft:dirt"
+          			}
+        		]
+      		}
+    	},
+    	"has_the_recipe": {
+      		"trigger": "minecraft:recipe_unlocked",
+      		"conditions": {
+        		"recipe": "two:flagstone_path"
+      		}
+    	}
+  	},
+  	"requirements": [
+    	[
+      		"has_cobblestone",
+      		"has_dirt",
+      		"has_the_recipe"
+    	]
+  	]
+}

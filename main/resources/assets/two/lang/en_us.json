@@ -418,6 +418,8 @@
 	"block.two.couch" : "Couch",
 	"block.two.shelf" : "Shelf",
 	
+	"block.two.flagstone_path" : "Flagstone Path",
+	
 	"block.two.starstone_torch" : "Starstone Torch",
 	"block.two.starstone_wall_torch" : "Starstone Wall Torch",
 	
