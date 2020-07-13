@@ -2,7 +2,7 @@
 	"parent" : "minecraft:recipes/root",
   	"rewards" : {
     	"recipes" : [
-      		"two:light_gray_stained_planks"
+      		"two:yellow_stained_wooden_planks"
     	]
   	},
   	"criteria" : {
@@ -19,7 +19,7 @@
     	"has_the_recipe" : {
       		"trigger" : "minecraft:recipe_unlocked",
       		"conditions" : {
-        		"recipe" : "two:light_gray_stained_planks"
+        		"recipe" : "two:yellow_stained_wooden_planks"
       		}
     	}
   	},
