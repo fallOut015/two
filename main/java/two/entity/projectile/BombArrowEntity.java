@@ -48,8 +48,7 @@ public class BombArrowEntity extends AbstractArrowEntity {
 		}
 	}
 	private void explode() {
-		Explosion.Mode explosion$mode = net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.world, this) ? Explosion.Mode.DESTROY : Explosion.Mode.NONE;
-		this.world.createExplosion(this, this.getPosX(), this.getPosY(), this.getPosZ(), 2.0f, explosion$mode);
+		this.world.createExplosion(this, this.getPosX(), this.getPosY(), this.getPosZ(), 2.0f, Explosion.Mode.BREAK);
 		this.remove();
 	}
 }
