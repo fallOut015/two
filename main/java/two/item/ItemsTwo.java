@@ -7,11 +7,16 @@ import java.util.Map;
 import java.util.function.Function;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.dispenser.IPosition;
+import net.minecraft.dispenser.ProjectileDispenseBehavior;
 import net.minecraft.enchantment.EnchantmentType;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.AxeItem;
@@ -45,6 +50,11 @@ import net.minecraftforge.registries.ObjectHolder;
 import two.block.BlocksTwo;
 import two.enchantment.EnchantmentsTwo;
 import two.entity.EntityTypeTwo;
+import two.entity.projectile.BombArrowEntity;
+import two.entity.projectile.CappedArrowEntity;
+import two.entity.projectile.FireArrowEntity;
+import two.entity.projectile.IceArrowEntity;
+import two.entity.projectile.ShockArrowEntity;
 import two.util.SoundEventsTwo;
 import two.world.dimension.ModDimensionTwo;
 
@@ -364,10 +374,10 @@ public class ItemsTwo {
 	public static final Item DREAMCATCHER_SKY = register(BlocksTwo.DREAMCATCHER_SKY, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
 	public static final Item MAPLE_TAP = register(BlocksTwo.MAPLE_TAP, new Item.Properties().group(ItemGroup.DECORATIONS));
-	
+	public static final Item GROUND_LIGHT = register(BlocksTwo.GROUND_LIGHT, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item BILLBOARD = register(BlocksTwo.BILLBOARD, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item CONVEYER = register(BlocksTwo.CONVEYER, new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/);
-	public static final Item GROUND_LIGHT = register(BlocksTwo.GROUND_LIGHT, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
 	public static final Item UPHOLSTERY_TABLE = register(BlocksTwo.UPHOLSTERY_TABLE, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
 	public static final Item CHAIR = register("chair", new ChairItem(BlocksTwo.CHAIR, new Item.Properties().group(ItemGroup.DECORATIONS)));
@@ -380,6 +390,10 @@ public class ItemsTwo {
 	public static final Item BED = register("bed", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
 	public static final Item COUCH = register("couch", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
 	public static final Item SHELF = register("shelf", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
+	
+	public static final Item STARSTONE_TORCH = register(new WallOrFloorItem(BlocksTwo.STARSTONE_TORCH, BlocksTwo.STARSTONE_WALL_TORCH, new Item.Properties().group(ItemGroup.DECORATIONS)));
+
+	public static final Item FLAGSTONE_PATH = register(BlocksTwo.FLAGSTONE_PATH, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
 	
 	
@@ -418,8 +432,6 @@ public class ItemsTwo {
 	public static final Item CLOUDWOOD_DOOR = register(BlocksTwo.CLOUDWOOD_DOOR, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item BLACKBARK_DOOR = register(BlocksTwo.BLACKBARK_DOOR, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item FROSTBARK_DOOR = register(BlocksTwo.FROSTBARK_DOOR, new Item.Properties().group(ItemGroup.REDSTONE));
-	
-	public static final Item STARSTONE_TORCH = register(new WallOrFloorItem(BlocksTwo.STARSTONE_TORCH, BlocksTwo.STARSTONE_WALL_TORCH, new Item.Properties().group(ItemGroup.DECORATIONS)));
 	
 	
 	
@@ -1037,11 +1049,11 @@ public class ItemsTwo {
     
 	public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
 //    	itemRegistryEvent.getRegistry().getValue(new ResourceLocation("minecraft", "command_block"))
-		ItemGroup.COMBAT.setRelevantEnchantmentTypes(new EnchantmentType[]{ EnchantmentType.ALL, EnchantmentType.ARMOR, EnchantmentType.ARMOR_FEET, EnchantmentType.ARMOR_HEAD, EnchantmentType.ARMOR_LEGS, EnchantmentType.ARMOR_CHEST, EnchantmentType.BOW, EnchantmentType.WEAPON, EnchantmentType.WEARABLE, EnchantmentType.BREAKABLE, EnchantmentType.TRIDENT, EnchantmentType.CROSSBOW, EnchantmentsTwo.Holder.DOUBLE_JUMP_BOOTS, EnchantmentsTwo.Holder.BLOOD_BLADE, EnchantmentsTwo.Holder.BANISHER, EnchantmentsTwo.Holder.HERMES_HELMET, EnchantmentsTwo.Holder.EVOCATION_STAFF, EnchantmentsTwo.Holder.DAGGER });
-		ItemGroup.TOOLS.setRelevantEnchantmentTypes(new EnchantmentType[]{ EnchantmentType.ALL, EnchantmentType.DIGGER, EnchantmentType.FISHING_ROD, EnchantmentType.BREAKABLE, EnchantmentsTwo.Holder.SICKLE });
-		
 		itemRegistryEvent.getRegistry().registerAll(Holder.ITEMSTWO.toArray(new Item[] {}));
     
+		ItemGroup.COMBAT.setRelevantEnchantmentTypes(new EnchantmentType[]{ EnchantmentType.ALL, EnchantmentType.ARMOR, EnchantmentType.ARMOR_FEET, EnchantmentType.ARMOR_HEAD, EnchantmentType.ARMOR_LEGS, EnchantmentType.ARMOR_CHEST, EnchantmentType.BOW, EnchantmentType.WEAPON, EnchantmentType.WEARABLE, EnchantmentType.BREAKABLE, EnchantmentType.TRIDENT, EnchantmentType.CROSSBOW, EnchantmentsTwo.Holder.DOUBLE_JUMP_BOOTS, EnchantmentsTwo.Holder.BLOOD_BLADE, EnchantmentsTwo.Holder.BANISHER, EnchantmentsTwo.Holder.HERMES_HELMET, EnchantmentsTwo.Holder.EVOCATION_STAFF, EnchantmentsTwo.Holder.DAGGER });
+		ItemGroup.TOOLS.setRelevantEnchantmentTypes(new EnchantmentType[]{ EnchantmentType.ALL, EnchantmentType.DIGGER, EnchantmentType.FISHING_ROD, EnchantmentType.BREAKABLE, EnchantmentsTwo.Holder.SICKLE });
+
 		Holder.FOOD_TO_SCRAPS.put(Items.GOLDEN_APPLE, ItemsTwo.GOLDEN_APPLE_CORE);
 		Holder.FOOD_TO_SCRAPS.put(Items.GOLDEN_CARROT, ItemsTwo.GOLDEN_CARROT_STEM);
 		Holder.FOOD_TO_SCRAPS.put(Items.COOKED_BEEF, Items.BONE);
@@ -1066,6 +1078,108 @@ public class ItemsTwo {
 		Holder.FOOD_TO_SCRAPS.put(Items.CHORUS_FRUIT, ItemsTwo.CHORUS_PIT);
 		Holder.FOOD_TO_SCRAPS.put(Items.PUFFERFISH, Items.BONE);
 		Holder.FOOD_TO_SCRAPS.put(Items.TROPICAL_FISH, Items.BONE);
+		
+		DispenserBlock.registerDispenseBehavior(ItemsTwo.IRON_CAPPED_ARROW, new ProjectileDispenseBehavior() {
+			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
+				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+				cappedarrowentity.setItemTier(ItemTier.IRON);
+				return cappedarrowentity;
+	         }
+		});
+		DispenserBlock.registerDispenseBehavior(ItemsTwo.WOODEN_CAPPED_ARROW, new ProjectileDispenseBehavior() {
+			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
+				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+				cappedarrowentity.setItemTier(ItemTier.WOOD);
+				return cappedarrowentity;
+	         }
+		});
+		DispenserBlock.registerDispenseBehavior(ItemsTwo.STONE_CAPPED_ARROW, new ProjectileDispenseBehavior() {
+			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
+				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+				cappedarrowentity.setItemTier(ItemTier.STONE);
+				return cappedarrowentity;
+	         }
+		});
+		DispenserBlock.registerDispenseBehavior(ItemsTwo.GOLDEN_CAPPED_ARROW, new ProjectileDispenseBehavior() {
+			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
+				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+				cappedarrowentity.setItemTier(ItemTier.GOLD);
+				return cappedarrowentity;
+	         }
+		});
+		DispenserBlock.registerDispenseBehavior(ItemsTwo.DIAMOND_CAPPED_ARROW, new ProjectileDispenseBehavior() {
+			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
+				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+				cappedarrowentity.setItemTier(ItemTier.DIAMOND);
+				return cappedarrowentity;
+	         }
+		});
+		DispenserBlock.registerDispenseBehavior(ItemsTwo.EMERALD_CAPPED_ARROW, new ProjectileDispenseBehavior() {
+			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
+				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+				cappedarrowentity.setItemTier(ItemTierTwo.EMERALD);
+				return cappedarrowentity;
+	         }
+		});
+		DispenserBlock.registerDispenseBehavior(ItemsTwo.RUBY_CAPPED_ARROW, new ProjectileDispenseBehavior() {
+			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
+				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+				cappedarrowentity.setItemTier(ItemTierTwo.RUBY);
+				return cappedarrowentity;
+	         }
+		});
+		DispenserBlock.registerDispenseBehavior(ItemsTwo.LEAD_CAPPED_ARROW, new ProjectileDispenseBehavior() {
+			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
+				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+				cappedarrowentity.setItemTier(ItemTierTwo.LEAD);
+				return cappedarrowentity;
+	         }
+		});
+		DispenserBlock.registerDispenseBehavior(ItemsTwo.MYRKYLITE_CAPPED_ARROW, new ProjectileDispenseBehavior() {
+			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
+				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+				cappedarrowentity.setItemTier(ItemTierTwo.MYRKYLITE);
+				return cappedarrowentity;
+	         }
+		});
+		
+		DispenserBlock.registerDispenseBehavior(ItemsTwo.FIRE_ARROW, new ProjectileDispenseBehavior() {
+			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+				AbstractArrowEntity abstractarrowentity = new FireArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
+	            abstractarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+	            return abstractarrowentity;
+			}
+		});
+		DispenserBlock.registerDispenseBehavior(ItemsTwo.ICE_ARROW, new ProjectileDispenseBehavior() {
+			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+				AbstractArrowEntity abstractarrowentity = new IceArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
+	            abstractarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+	            return abstractarrowentity;
+			}
+		});
+		DispenserBlock.registerDispenseBehavior(ItemsTwo.BOMB_ARROW, new ProjectileDispenseBehavior() {
+			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+				AbstractArrowEntity abstractarrowentity = new BombArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
+	            abstractarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+	            return abstractarrowentity;
+			}
+		});
+		DispenserBlock.registerDispenseBehavior(ItemsTwo.SHOCK_ARROW, new ProjectileDispenseBehavior() {
+			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+				AbstractArrowEntity abstractarrowentity = new ShockArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
+	            abstractarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+	            return abstractarrowentity;
+			}
+		});
 		
 //		Items.ARROW.getAttributeModifiers(EquipmentSlotType.MAINHAND).put(SharedMonsterAttributesTwo.PROJECTILE_VELOCITY_ATTRIBUTE.getName(), new AttributeModifier(SharedMonsterAttributesTwo.PROJECTILE_VELOCITY_ID, "Weapon modifier", 1, AttributeModifier.Operation.MULTIPLY_BASE));
 	}
