@@ -15,6 +15,7 @@ import org.apache.logging.log4j.Logger;
 import com.google.common.collect.Sets;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.Enchantment;
@@ -43,10 +44,15 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.server.ServerWorld;
@@ -67,6 +73,8 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.event.entity.player.PlayerXpEvent;
+import net.minecraftforge.event.world.ChunkDataEvent;
+import net.minecraftforge.event.world.ChunkEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -86,6 +94,7 @@ import two.client.renderer.entity.ChameleonRenderer;
 import two.client.renderer.entity.DarkDwarfArcherRenderer;
 import two.client.renderer.entity.FireArrowRenderer;
 import two.client.renderer.entity.IceArrowRenderer;
+import two.client.renderer.entity.MummifiedZombieRenderer;
 import two.client.renderer.entity.ShockArrowRenderer;
 import two.client.renderer.entity.SigilRenderer;
 import two.client.renderer.entity.layers.TopHatLayer;
@@ -104,6 +113,7 @@ import two.util.SoundEventsTwo;
 import two.world.biome.BiomesTwo;
 import two.world.biome.DefaultBiomeFeaturesTwo;
 import two.world.dimension.ModDimensionTwo;
+import two.world.gen.carver.WorldCarverTwo;
 import two.world.gen.feature.FeatureTwo;
 import two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 
@@ -147,7 +157,10 @@ public class Two {
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SHOCK_ARROW, ShockArrowRenderer::new);
     	
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.DARK_DWARF_ARCHER, DarkDwarfArcherRenderer::new);
-//    	RenderingRegistry.registerEntityRenderingHandler(EntityType.WOLF, WolfRendererTwo::new);
+
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.MUMMIFIED_ZOMBIE, MummifiedZombieRenderer::new);
+    	
+    	//    	RenderingRegistry.registerEntityRenderingHandler(EntityType.WOLF, WolfRendererTwo::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SIGIL, SigilRenderer::new);
     	
     	ClientRegistry.bindTileEntityRenderer(TileEntityTypeTwo.CHAIR, ChairRenderer::new);
@@ -155,6 +168,7 @@ public class Two {
     	DefaultBiomeFeaturesTwo.addFeatures();
     	DefaultBiomeFeaturesTwo.addStructures();
     	DefaultBiomeFeaturesTwo.addSpawns();
+    	DefaultBiomeFeaturesTwo.addCarvers();
 
     	RenderTypeLookupTwo.setRenderLayers();
 
@@ -208,6 +222,10 @@ public class Two {
     		ContainerTypeTwo.onContainerTypesRegistry(containerTypeRegistryEvent);
     	}
     	@SubscribeEvent
+    	public static void onWorldCarversRegistry(final RegistryEvent.Register<WorldCarver<?>> worldCarverRegistryEvent) {
+    		WorldCarverTwo.onWorldCarversRegistry(worldCarverRegistryEvent);
+    	}
+    	@SubscribeEvent
     	public static void onEnchantmentsRegistry(final RegistryEvent.Register<Enchantment> enchantmentRegistryEvent) {
     		EnchantmentsTwo.onEnchantmentsRegistry(enchantmentRegistryEvent);
     	}
@@ -248,6 +266,40 @@ public class Two {
     
     @Mod.EventBusSubscriber
     public static class Events {
+    	@SuppressWarnings("deprecation")
+		@SubscribeEvent
+    	public static void onChunkLoad(final ChunkEvent.Load chunkEvent$Load) {
+    		if(chunkEvent$Load.getChunk().getBiomes() != null) {
+    			for(int id : chunkEvent$Load.getChunk().getBiomes().getBiomeIds()) {
+    				if(id == Registry.BIOME.getId(Biomes.DESERT) || id == Registry.BIOME.getId(Biomes.DESERT_HILLS) || id == Registry.BIOME.getId(Biomes.DESERT_LAKES)) {
+    					if(chunkEvent$Load.getChunk() instanceof ChunkPrimer) {
+//    						if(!((ChunkPrimer) chunkEvent$Load.getChunk()).isModified()) {
+    							for(int x = 0; x < 16; ++ x) {
+    	    						for(int z = 0; z < 16; ++ z) {
+    	    							for(int y = 0; y < chunkEvent$Load.getChunk().getHeight(); ++ y) {
+    	    								if(chunkEvent$Load.getChunk().getBlockState(new BlockPos(x, y, z)).getBlock() == Blocks.STONE || chunkEvent$Load.getChunk().getBlockState(new BlockPos(x, y, z)).getBlock() == Blocks.GRANITE || chunkEvent$Load.getChunk().getBlockState(new BlockPos(x, y, z)).getBlock() == Blocks.ANDESITE || chunkEvent$Load.getChunk().getBlockState(new BlockPos(x, y, z)).getBlock() == Blocks.DIORITE) {
+    	    									chunkEvent$Load.getChunk().setBlockState(new BlockPos(x, y, z), Blocks.SMOOTH_SANDSTONE.getDefaultState(), false);
+    	    								} else if(chunkEvent$Load.getChunk().getBlockState(new BlockPos(x, y, z)).getBlock() == Blocks.GRAVEL) {
+    	    									chunkEvent$Load.getChunk().setBlockState(new BlockPos(x, y, z), Blocks.SAND.getDefaultState(), false);
+    	    								} else if(chunkEvent$Load.getChunk().getBlockState(new BlockPos(x, y, z)).getBlock() == Blocks.DIRT) {
+    	    									chunkEvent$Load.getChunk().setBlockState(new BlockPos(x, y, z), Blocks.SAND.getDefaultState(), false);
+    	    								}
+    	    							}
+    	    						}
+    	    					}
+        						((ChunkPrimer) chunkEvent$Load.getChunk()).setModified(true);
+//    						}
+    					}
+    				}
+    			}
+    		}
+    	}
+    	@SubscribeEvent
+    	public static void onChunkDataLoad(final ChunkDataEvent.Load chunkDataEvent$Load) {}
+    	@SubscribeEvent
+    	public static void onChunkDataSave(final ChunkDataEvent.Save chunkDataEvent$Save) {
+    		
+    	}
     	@SubscribeEvent
     	public static void onLivingEquipmentChange(final LivingEquipmentChangeEvent livingEquipmentChangeEvent) {
     		if(livingEquipmentChangeEvent.getEntityLiving() instanceof PlayerEntity && livingEquipmentChangeEvent.getSlot().getSlotType().equals(EquipmentSlotType.Group.ARMOR)) {

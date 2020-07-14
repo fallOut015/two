@@ -544,6 +544,7 @@ public class ItemsTwo {
     
     public static final Item CHAMELEON_SPAWN_EGG = register("chameleon_spawn_egg", new SpawnEggItem(EntityTypeTwo.CHAMELEON, 2162500, 14463743, new Item.Properties().group(ItemGroup.MISC)));
     public static final Item DARK_DWARF_ARCHER_SPAWN_EGG = register("dark_dwarf_archer_spawn_egg", new SpawnEggItem(EntityTypeTwo.DARK_DWARF_ARCHER, 3617852, 7880467, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item MUMMIFIED_ZOMBIE_SPAWN_EGG = register("mummified_zombie_spawn_egg", new SpawnEggItem(EntityTypeTwo.MUMMIFIED_ZOMBIE, 3490609, 13487798, new Item.Properties().group(ItemGroup.MISC)));
     
     public static final Item CHAMELEON_EYE = register("chameleon_eye", new Item(new Item.Properties().group(ItemGroup.MISC)));
     

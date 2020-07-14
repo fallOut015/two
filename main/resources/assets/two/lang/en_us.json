@@ -1,6 +1,7 @@
 {
 	"entity.two.chameleon" : "Chameleon",
 	"entity.two.dark_dwarf_archer" : "Dark Dwarven Archer",
+	"entity.two.mummified_zombie" : "Mummified Zombie",
 	"entity.two.capped_arrow" : "Capped Arrow",
 	"entity.two.fire_arrow" : "Fire Arrow",
 	"entity.two.ice_arrow" : "Ice Arrow",
@@ -600,6 +601,7 @@
 	
 	"item.two.chameleon_spawn_egg" : "Chameleon Spawn Egg",
 	"item.two.dark_dwarf_archer_spawn_egg" : "Dark Dwarven Archer Spawn Egg",
+	"item.two.mummified_zombie_spawn_egg" : "Mummified Zombie Spawn Egg",
 	
 	"item.two.chameleon_eye" : "Chameleon Eye",
 	

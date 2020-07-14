@@ -8,6 +8,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
 import two.entity.effect.SigilEntity;
 import two.entity.monster.DarkDwarfArcherEntity;
+import two.entity.monster.MummifiedZombieEntity;
 import two.entity.passive.ChameleonEntity;
 import two.entity.projectile.BombArrowEntity;
 import two.entity.projectile.CappedArrowEntity;
@@ -26,6 +27,7 @@ public class EntityTypeTwo {
 	// DARK_DWARF_MAGE
 	// DARK_DWARF_POTIONER
 	// DARK_DWARF_PALADIN
+	public static EntityType<MummifiedZombieEntity> MUMMIFIED_ZOMBIE = (EntityType<MummifiedZombieEntity>) register("mummified_zombie", EntityType.Builder.create(MummifiedZombieEntity::new, EntityClassification.MONSTER).size(0.6F, 1.95F).build("mummified_zombie"));
 	
 	public static EntityType<CappedArrowEntity> CAPPED_ARROW = (EntityType<CappedArrowEntity>) register("capped_arrow", EntityType.Builder.<CappedArrowEntity>create(CappedArrowEntity::new, EntityClassification.MISC).size(0.5F, 0.5F).build("capped_arrow"));
 	public static EntityType<FireArrowEntity> FIRE_ARROW = (EntityType<FireArrowEntity>) register("fire_arrow", EntityType.Builder.<FireArrowEntity>create(FireArrowEntity::new, EntityClassification.MISC).size(0.5f, 0.5f).build("fire_arrow"));
