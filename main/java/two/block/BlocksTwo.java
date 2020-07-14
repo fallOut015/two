@@ -115,6 +115,8 @@ public class BlocksTwo {
 	public static final Block PURPETAL_PETAL = register("purpetal_petal", new Block(Block.Properties.create(Material.ORGANIC)));
 	public static final Block PURPETAL_PISTOL = register("purpetal_pistol", new Block(Block.Properties.create(Material.ORGANIC)));
 	
+	public static final Block SUCCULIGHT = register("succulight", new SucculightBlock(Effects.NIGHT_VISION, 5, Block.Properties.create(Material.CACTUS).notSolid().doesNotBlockMovement().lightValue(5)));
+	
 	public static final Block CHERRY_SAPLING = register("cherry_sapling", new SaplingBlockTwo(new CherryTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT)));
 	public static final Block MAPLE_SAPLING = register("maple_sapling", new SaplingBlockTwo(new MapleTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT)));
 	public static final Block GHOSTWOOD_SAPLING = register("ghostwood_sapling", new SaplingBlockTwo(new GhostwoodTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT)));

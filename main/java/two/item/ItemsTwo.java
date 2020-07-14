@@ -309,6 +309,8 @@ public class ItemsTwo {
 	// Decoration
 	public static final Item PURPETAL = register(BlocksTwo.PURPETAL, new Item.Properties().group(ItemGroup.DECORATIONS));
 
+	public static final Item SUCCULIGHT = register(BlocksTwo.SUCCULIGHT, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
 	public static final Item CHERRY_SAPLING = register(BlocksTwo.CHERRY_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item MAPLE_SAPLING = register(BlocksTwo.MAPLE_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item GHOSTWOOD_SAPLING = register(BlocksTwo.GHOSTWOOD_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));

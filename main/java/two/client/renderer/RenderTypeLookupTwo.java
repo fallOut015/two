@@ -7,6 +7,7 @@ import two.block.BlocksTwo;
 public class RenderTypeLookupTwo {
 	public static void setRenderLayers() {
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.PURPETAL, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.SUCCULIGHT, RenderType.getCutout());
 
 		RenderTypeLookup.setRenderLayer(BlocksTwo.CHERRY_SAPLING, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.MAPLE_SAPLING, RenderType.getCutout());
