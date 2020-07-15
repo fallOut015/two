@@ -5,9 +5,8 @@ import java.util.LinkedList;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.pattern.BlockMatcher;
-import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
+import net.minecraft.world.gen.feature.BlockWithContextConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
@@ -66,7 +65,7 @@ public class FeatureTwo {
 	
 	@ObjectHolder("two:replace_block") public static final Feature<ReplaceBlockConfig> REPLACE_BLOCK = (Feature<ReplaceBlockConfig>) register("replace_block", new ReplaceBlockFeature(ReplaceBlockConfig::deserialize));
 	
-	public static final BlockClusterFeatureConfig SUCCULIGHT_CONFIG = new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BlocksTwo.SUCCULIGHT.getDefaultState()), new SimpleBlockPlacer()).tries(1).xSpread(0).ySpread(0).zSpread(0).build();
+	public static final BlockWithContextConfig SUCCULIGHT_CONFIG = new BlockWithContextConfig(BlocksTwo.SUCCULIGHT.getDefaultState(), new BlockState[] { Blocks.SAND.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() });
 	
 	
 	
