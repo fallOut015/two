@@ -3,6 +3,7 @@ package two.entity.monster;
 import java.util.Random;
 
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
@@ -55,6 +56,10 @@ public class MummifiedZombieEntity extends ZombieEntity {
 	@Override
 	protected void registerAttributes() {
 		super.registerAttributes();
+		this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(40.0D);
+		this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue((double)0.39F);
+		this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
+		this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(3.0D);
 	}
 	@Override
 	protected void registerData() {
