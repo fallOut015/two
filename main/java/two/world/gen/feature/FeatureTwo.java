@@ -5,10 +5,14 @@ import java.util.LinkedList;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.pattern.BlockMatcher;
+import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.feature.ReplaceBlockConfig;
+import net.minecraft.world.gen.feature.ReplaceBlockFeature;
 import net.minecraft.world.gen.feature.TreeFeature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
@@ -59,6 +63,10 @@ public class FeatureTwo {
 
 	@ObjectHolder("two:adobe_well") public static final Structure<NoFeatureConfig> ADOBE_WELL = (Structure<NoFeatureConfig>) register("adobe_well", new AdobeWellStructure(NoFeatureConfig::deserialize));
 	@ObjectHolder("two:dwarven_keep") public static final Structure<NoFeatureConfig> DWARVEN_KEEP = (Structure<NoFeatureConfig>) register("dwarven_keep", new DwarvenKeepStructure(NoFeatureConfig::deserialize));
+	
+	@ObjectHolder("two:replace_block") public static final Feature<ReplaceBlockConfig> REPLACE_BLOCK = (Feature<ReplaceBlockConfig>) register("replace_block", new ReplaceBlockFeature(ReplaceBlockConfig::deserialize));
+	
+	public static final BlockClusterFeatureConfig SUCCULIGHT_CONFIG = new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BlocksTwo.SUCCULIGHT.getDefaultState()), new SimpleBlockPlacer()).tries(1).xSpread(0).ySpread(0).zSpread(0).build();
 	
 	
 	
