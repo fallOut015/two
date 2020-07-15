@@ -3,6 +3,7 @@ package two.client.renderer;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import two.block.BlocksTwo;
+import two.fluid.FluidsTwo;
 
 public class RenderTypeLookupTwo {
 	public static void setRenderLayers() {
@@ -67,5 +68,10 @@ public class RenderTypeLookupTwo {
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.NUMBER_7, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.NUMBER_8, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.NUMBER_9, RenderType.getCutout());
+	    
+	    
+	    
+	    RenderTypeLookup.setRenderLayer(FluidsTwo.FLOWING_MUD, RenderType.getTranslucent());
+	    RenderTypeLookup.setRenderLayer(FluidsTwo.MUD, RenderType.getTranslucent());
 	}
 }

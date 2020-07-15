@@ -21,6 +21,7 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.BucketItem;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.HorseArmorItem;
 import net.minecraft.item.Item;
@@ -55,6 +56,7 @@ import two.entity.projectile.CappedArrowEntity;
 import two.entity.projectile.FireArrowEntity;
 import two.entity.projectile.IceArrowEntity;
 import two.entity.projectile.ShockArrowEntity;
+import two.fluid.FluidsTwo;
 import two.util.SoundEventsTwo;
 import two.world.dimension.ModDimensionTwo;
 
@@ -566,6 +568,8 @@ public class ItemsTwo {
     public static final Item MUSIC_DISC_BAD_DREAMS = register("music_disc_bad_dreams", new MusicDiscItemTwo(13, SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
     public static final Item MUSIC_DISC_REALM_NINE = register("music_disc_realm_nine", new MusicDiscItemTwo(14, SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
 	
+    public static final Item MUD_BUCKET = register("mud_bucket", new BucketItem(() -> FluidsTwo.MUD, new Item.Properties().group(ItemGroup.MISC)));
+    
     public static final Item LETTER_A = register(BlocksTwo.LETTER_A, new Item.Properties().group(ItemGroup.MISC));
     public static final Item LETTER_B = register(BlocksTwo.LETTER_B, new Item.Properties().group(ItemGroup.MISC));
     public static final Item LETTER_C = register(BlocksTwo.LETTER_C, new Item.Properties().group(ItemGroup.MISC));

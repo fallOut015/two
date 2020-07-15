@@ -11,6 +11,7 @@ import net.minecraft.block.FenceBlock;
 import net.minecraft.block.FenceGateBlock;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.FlowerPotBlock;
+import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.LogBlock;
 import net.minecraft.block.OreBlock;
@@ -53,6 +54,7 @@ import two.block.trees.CloudwoodTree;
 import two.block.trees.FrostbarkTree;
 import two.block.trees.GhostwoodTree;
 import two.block.trees.MapleTree;
+import two.fluid.FluidsTwo;
 import two.world.dimension.ModDimensionTwo;
 
 @ObjectHolder("two")
@@ -61,6 +63,8 @@ public class BlocksTwo {
     
 //	@ObjectHolder("minecraft:anvil")
 //	public static final Block ANVIL = register("minecraft:anvil", new AnvilBlockTwo(Block.Properties.create(Material.ANVIL)).setRegistryName("minecraft", "anvil"));
+	
+	public static final Block MUD = register("mud", new FlowingFluidBlock(() -> FluidsTwo.MUD, Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(150f).noDrops()));
 	
 	//public static final Block CEDAR_PLANKS = register("cedar_planks", new Block(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	//public static final Block REDWOOD_PLANKS = register("redwood_planks", new Block(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));

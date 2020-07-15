@@ -25,6 +25,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.ArmorItem;
@@ -54,6 +55,7 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
@@ -102,6 +104,7 @@ import two.client.renderer.tileentity.ChairRenderer;
 import two.common.capabilities.CapabilitiesTwo;
 import two.enchantment.EnchantmentsTwo;
 import two.entity.EntityTypeTwo;
+import two.fluid.FluidsTwo;
 import two.inventory.container.ContainerTypeTwo;
 import two.item.ArmorMaterialTwo;
 import two.item.DoubleJumpBootsItem;
@@ -115,6 +118,7 @@ import two.world.biome.DefaultBiomeFeaturesTwo;
 import two.world.dimension.ModDimensionTwo;
 import two.world.gen.carver.WorldCarverTwo;
 import two.world.gen.feature.FeatureTwo;
+import two.world.gen.placement.PlacementTwo;
 import two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 
 @Mod("two")
@@ -238,6 +242,10 @@ public class Two {
     		FeatureTwo.onFeaturesRegistry(featureRegistryEvent);
     	}
     	@SubscribeEvent
+    	public static void onFluidsRegistry(final RegistryEvent.Register<Fluid> fluidRegistryEvent) {
+    		FluidsTwo.onFluidsRegistry(fluidRegistryEvent);
+    	}
+    	@SubscribeEvent
     	public static void onGlobalLootModifierSerializersRegistry(final RegistryEvent.Register<GlobalLootModifierSerializer<?>> globalLootModifierSerializerRegistryEvent) {
     		// loot stuff
 //    		LootTables.CHESTS_SIMPLE_DUNGEON.
@@ -245,6 +253,10 @@ public class Two {
     	@SubscribeEvent
     	public static void onModDimensionsRegistry(final RegistryEvent.Register<ModDimension> modDimensionRegistryEvent) {
     		ModDimensionTwo.onModDimensionsRegistry(modDimensionRegistryEvent);
+    	}
+    	@SubscribeEvent
+    	public static void onPlacementsRegistry(final RegistryEvent.Register<Placement<?>> placementRegistryEvent) {
+    		PlacementTwo.onPlacementsRegistry(placementRegistryEvent);
     	}
     	@SubscribeEvent
         public static void onSoundEventsRegistry(final RegistryEvent.Register<SoundEvent> soundEventRegistryEvent) {

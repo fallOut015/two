@@ -21,6 +21,8 @@
 
 
 	
+	"block.two.mud" : "Mud",
+	
 	"block.two.adobe_wet" : "Wet Adobe",
 	
 	"block.two.adobe_dry" : "Adobe Bricks",
@@ -614,6 +616,8 @@
 	
 	"item.two.music_disc_realm_nine" : "Music Disc",
 	"item.two.music_disc_realm_nine.desc" : "Realm 9",
+	
+	"item.two.mud_bucket" : "Mud Bucket",
 	
 	
 	
