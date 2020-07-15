@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:coal_from_desert_coal_ore_blasting"
+    ]
+  },
+  "criteria": {
+    "has_desert_coal_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:desert_coal_ore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:coal_from_desert_coal_ore_blasting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_desert_coal_ore",
+      "has_the_recipe"
+    ]
+  ]
+}

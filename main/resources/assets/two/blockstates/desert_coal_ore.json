@@ -1,0 +1,7 @@
+{
+	"variants" : {
+    	"" : {
+			"model" : "two:block/desert_coal_ore"
+		}
+	}
+}

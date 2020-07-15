@@ -234,16 +234,20 @@ public class ItemsTwo {
 	public static final Item EPIDOTE = register(BlocksTwo.EPIDOTE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item MANTLE = register(BlocksTwo.MANTLE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
-	public static final Item COBALT_ORE = register(BlocksTwo.COBALT_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-	public static final Item JADE_ORE = register(BlocksTwo.JADE_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item DESERT_COAL_ORE = register(BlocksTwo.DESERT_COAL_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item DESERT_IRON_ORE = register(BlocksTwo.DESERT_IRON_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item DESERT_GOLD_ORE = register(BlocksTwo.DESERT_GOLD_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
+	public static final Item END_COBALT_ORE = register(BlocksTwo.END_COBALT_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item END_JADE_ORE = register(BlocksTwo.END_JADE_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item OPAL_ORE = register(BlocksTwo.OPAL_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item TANZANITE_ORE = register(BlocksTwo.TANZANITE_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-	public static final Item AMETHYST_ORE = register(BlocksTwo.AMETHYST_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-	public static final Item GARNET_ORE = register(BlocksTwo.GARNET_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-	public static final Item TOPAZ_ORE = register(BlocksTwo.TOPAZ_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-	public static final Item SAPPHIRE_ORE = register(BlocksTwo.SAPPHIRE_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item NETHER_AMETHYST_ORE = register(BlocksTwo.NETHER_AMETHYST_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item NETHER_GARNET_ORE = register(BlocksTwo.NETHER_GARNET_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item NETHER_TOPAZ_ORE = register(BlocksTwo.NETHER_TOPAZ_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item END_SAPPHIRE_ORE = register(BlocksTwo.END_SAPPHIRE_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item RUBY_ORE = register(BlocksTwo.RUBY_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-	public static final Item CELESTIUM_ORE = register(BlocksTwo.CELESTIUM_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item NIDAVELLIR_CELESTIUM_ORE = register(BlocksTwo.NIDAVELLIR_CELESTIUM_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	public static final Item COBALT_BLOCK = register(BlocksTwo.COBALT_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item JADE_BLOCK = register(BlocksTwo.JADE_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -257,16 +261,16 @@ public class ItemsTwo {
 	public static final Item CELESTIUM_BLOCK = register(BlocksTwo.CELESTIUM_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	public static final Item TALC_ORE = register(BlocksTwo.TALC_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-	public static final Item LEAD_ORE = register(BlocksTwo.LEAD_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item NETHER_LEAD_ORE = register(BlocksTwo.NETHER_LEAD_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item TIN_ORE = register(BlocksTwo.TIN_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item ALUMINUM_ORE = register(BlocksTwo.ALUMINUM_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item SILVER_ORE = register(BlocksTwo.SILVER_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item COPPER_ORE = register(BlocksTwo.COPPER_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-	public static final Item PLATINUM_ORE = register(BlocksTwo.PLATINUM_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-	public static final Item TITANIUM_ORE = register(BlocksTwo.TITANIUM_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item END_PLATINUM_ORE = register(BlocksTwo.END_PLATINUM_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item NETHER_TITANIUM_ORE = register(BlocksTwo.NETHER_TITANIUM_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item PYRITE_ORE = register(BlocksTwo.PYRITE_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-	public static final Item STARSTONE_ORE = register(BlocksTwo.STARSTONE_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-	public static final Item URU_ORE = register(BlocksTwo.URU_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item NIDAVELLIR_STARSTONE_ORE = register(BlocksTwo.NIDAVELLIR_STARSTONE_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item NIDAVELLIR_URU_ORE = register(BlocksTwo.NIDAVELLIR_URU_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	public static final Item TALC_BLOCK = register(BlocksTwo.TALC_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item LEAD_BLOCK = register(BlocksTwo.LEAD_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));

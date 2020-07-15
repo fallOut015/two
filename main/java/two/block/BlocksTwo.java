@@ -357,16 +357,20 @@ public class BlocksTwo {
 	public static final Block EPIDOTE = register("epidote", new Block(Block.Properties.create(Material.ROCK)));
 	public static final Block MANTLE = register("mantle", new Block(Block.Properties.create(Material.ROCK)));
 	
-	public static final Block COBALT_ORE = register("cobalt_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
-	public static final Block JADE_ORE = register("jade_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
+	public static final Block DESERT_COAL_ORE = register("desert_coal_ore", new Block(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.COAL_ORE.getHarvestLevel(Blocks.COAL_ORE.getDefaultState()))));
+	public static final Block DESERT_IRON_ORE = register("desert_iron_ore", new Block(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.IRON_ORE.getHarvestLevel(Blocks.IRON_ORE.getDefaultState()))));
+	public static final Block DESERT_GOLD_ORE = register("desert_gold_ore", new Block(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.GOLD_ORE.getHarvestLevel(Blocks.GOLD_ORE.getDefaultState()))));
+
+	public static final Block END_COBALT_ORE = register("end_cobalt_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
+	public static final Block END_JADE_ORE = register("end_jade_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
 	public static final Block OPAL_ORE = register("opal_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(1).harvestTool(ToolType.PICKAXE)));
 	public static final Block TANZANITE_ORE = register("tanzanite_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(2).harvestTool(ToolType.PICKAXE)));
-	public static final Block AMETHYST_ORE = register("amethyst_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
-	public static final Block GARNET_ORE = register("garnet_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
-	public static final Block TOPAZ_ORE = register("topaz_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
-	public static final Block SAPPHIRE_ORE = register("sapphire_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(6).harvestTool(ToolType.PICKAXE)));
+	public static final Block NETHER_AMETHYST_ORE = register("nether_amethyst_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
+	public static final Block NETHER_GARNET_ORE = register("nether_garnet_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
+	public static final Block NETHER_TOPAZ_ORE = register("nether_topaz_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
+	public static final Block END_SAPPHIRE_ORE = register("end_sapphire_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(6).harvestTool(ToolType.PICKAXE)));
 	public static final Block RUBY_ORE = register("ruby_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
-	public static final Block CELESTIUM_ORE = register("celestium_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(8).harvestTool(ToolType.PICKAXE)));
+	public static final Block NIDAVELLIR_CELESTIUM_ORE = register("nidavellir_celestium_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(8).harvestTool(ToolType.PICKAXE)));
 
 	public static final Block COBALT_BLOCK = register("cobalt_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_BLUE_TERRACOTTA).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block JADE_BLOCK = register("jade_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GREEN).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
@@ -380,16 +384,16 @@ public class BlocksTwo {
 	public static final Block CELESTIUM_BLOCK = register("celestium_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_BLUE).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	
 	public static final Block TALC_ORE = register("talc_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
-	public static final Block LEAD_ORE = register("lead_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(1).harvestTool(ToolType.PICKAXE)));
+	public static final Block NETHER_LEAD_ORE = register("nether_lead_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(1).harvestTool(ToolType.PICKAXE)));
 	public static final Block TIN_ORE = register("tin_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(1).harvestTool(ToolType.PICKAXE)));
 	public static final Block ALUMINUM_ORE = register("aluminum_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(1).harvestTool(ToolType.PICKAXE)));
 	public static final Block SILVER_ORE = register("silver_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(2).harvestTool(ToolType.PICKAXE)));
 	public static final Block COPPER_ORE = register("copper_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(2).harvestTool(ToolType.PICKAXE)));
-	public static final Block PLATINUM_ORE = register("platinum_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(5).harvestTool(ToolType.PICKAXE)));
-	public static final Block TITANIUM_ORE = register("titanium_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
+	public static final Block END_PLATINUM_ORE = register("end_platinum_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(5).harvestTool(ToolType.PICKAXE)));
+	public static final Block NETHER_TITANIUM_ORE = register("nether_titanium_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
 	public static final Block PYRITE_ORE = register("pyrite_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
-	public static final Block STARSTONE_ORE = register("starstone_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(6).harvestTool(ToolType.PICKAXE).lightValue(10)));
-	public static final Block URU_ORE = register("uru_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(9).harvestTool(ToolType.PICKAXE)));
+	public static final Block NIDAVELLIR_STARSTONE_ORE = register("nidavellir_starstone_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(6).harvestTool(ToolType.PICKAXE).lightValue(10)));
+	public static final Block NIDAVELLIR_URU_ORE = register("nidavellir_uru_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(9).harvestTool(ToolType.PICKAXE)));
 	
 	public static final Block TALC_BLOCK = register("talc_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.SNOW).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block LEAD_BLOCK = register("lead_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));

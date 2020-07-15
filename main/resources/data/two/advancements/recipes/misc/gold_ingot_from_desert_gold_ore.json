@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:gold_ingot_from_desert_gold_ore"
+    ]
+  },
+  "criteria": {
+    "has_desert_gold_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:desert_gold_ore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:gold_ingot_from_desert_gold_ore"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_desert_gold_ore",
+      "has_the_recipe"
+    ]
+  ]
+}
