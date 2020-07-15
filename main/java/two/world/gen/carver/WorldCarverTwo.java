@@ -10,11 +10,11 @@ import net.minecraftforge.registries.ObjectHolder;
 @ObjectHolder("two")
 @SuppressWarnings("unchecked")
 public class WorldCarverTwo {
-	public static final WorldCarver<ProbabilityConfig> CAVERN = (WorldCarver<ProbabilityConfig>) register("cavern", new CavernWorldCarver(ProbabilityConfig::deserialize, 100));
+	public static final WorldCarver<ProbabilityConfig> CAVERN = (WorldCarver<ProbabilityConfig>) register("cavern", new CavernWorldCarver(ProbabilityConfig::deserialize, 128));
 	// huge cave ^
 	// slightly bigger cave
 	// carvers for specific underground biomes
-//	public static final WorldCarver<ProbabilityConfig> WIDE_CAVE
+	public static final WorldCarver<ProbabilityConfig> WIDE_CAVE = (WorldCarver<ProbabilityConfig>) register("wide_cave", new WideCaveWorldCarver(ProbabilityConfig::deserialize, 128));
 	// crater
 	
 	public static void onWorldCarversRegistry(final RegistryEvent.Register<WorldCarver<?>> worldCarverRegistryEvent) {
