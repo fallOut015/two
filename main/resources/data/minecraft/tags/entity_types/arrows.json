@@ -1,0 +1,10 @@
+{
+	"replace": false,
+  	"values": [
+    	"two:capped_arrow",
+    	"two:fire_arrow",
+		"two:ice_arrow",
+		"two:bomb_arrow",
+		"two:shock_arrow"
+	]
+}
