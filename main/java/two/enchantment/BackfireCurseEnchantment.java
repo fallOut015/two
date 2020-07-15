@@ -14,7 +14,7 @@ public class BackfireCurseEnchantment extends Enchantment {
 	
 	@Override
 	public void onEntityDamaged(LivingEntity user, Entity target, int level) {
-		user.attackEntityFrom(DamageSource.MAGIC, level);
+		user.attackEntityFrom(DamageSource.MAGIC, 2 * level);
 	}
 	@Override
 	public boolean isCurse() {
