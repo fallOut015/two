@@ -15,7 +15,6 @@ import org.apache.logging.log4j.Logger;
 import com.google.common.collect.Sets;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.Enchantment;
@@ -45,13 +44,9 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.Feature;
@@ -75,8 +70,6 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.event.entity.player.PlayerXpEvent;
-import net.minecraftforge.event.world.ChunkDataEvent;
-import net.minecraftforge.event.world.ChunkEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -226,10 +219,6 @@ public class Two {
     		ContainerTypeTwo.onContainerTypesRegistry(containerTypeRegistryEvent);
     	}
     	@SubscribeEvent
-    	public static void onWorldCarversRegistry(final RegistryEvent.Register<WorldCarver<?>> worldCarverRegistryEvent) {
-    		WorldCarverTwo.onWorldCarversRegistry(worldCarverRegistryEvent);
-    	}
-    	@SubscribeEvent
     	public static void onEnchantmentsRegistry(final RegistryEvent.Register<Enchantment> enchantmentRegistryEvent) {
     		EnchantmentsTwo.onEnchantmentsRegistry(enchantmentRegistryEvent);
     	}
@@ -274,44 +263,14 @@ public class Two {
     	public static void onTileEntitiesRegistry(final RegistryEvent.Register<TileEntityType<?>> tileEntityRegistryEvent) {
     		TileEntityTypeTwo.onTileEntitiesRegistry(tileEntityRegistryEvent);
     	}
+    	@SubscribeEvent
+    	public static void onWorldCarversRegistry(final RegistryEvent.Register<WorldCarver<?>> worldCarverRegistryEvent) {
+    		WorldCarverTwo.onWorldCarversRegistry(worldCarverRegistryEvent);
+    	}
     }
     
     @Mod.EventBusSubscriber
     public static class Events {
-    	@SuppressWarnings("deprecation")
-		@SubscribeEvent
-    	public static void onChunkLoad(final ChunkEvent.Load chunkEvent$Load) {
-    		if(chunkEvent$Load.getChunk().getBiomes() != null) {
-    			for(int id : chunkEvent$Load.getChunk().getBiomes().getBiomeIds()) {
-    				if(id == Registry.BIOME.getId(Biomes.DESERT) || id == Registry.BIOME.getId(Biomes.DESERT_HILLS) || id == Registry.BIOME.getId(Biomes.DESERT_LAKES)) {
-    					if(chunkEvent$Load.getChunk() instanceof ChunkPrimer) {
-//    						if(!((ChunkPrimer) chunkEvent$Load.getChunk()).isModified()) {
-    							for(int x = 0; x < 16; ++ x) {
-    	    						for(int z = 0; z < 16; ++ z) {
-    	    							for(int y = 0; y < chunkEvent$Load.getChunk().getHeight(); ++ y) {
-    	    								if(chunkEvent$Load.getChunk().getBlockState(new BlockPos(x, y, z)).getBlock() == Blocks.STONE || chunkEvent$Load.getChunk().getBlockState(new BlockPos(x, y, z)).getBlock() == Blocks.GRANITE || chunkEvent$Load.getChunk().getBlockState(new BlockPos(x, y, z)).getBlock() == Blocks.ANDESITE || chunkEvent$Load.getChunk().getBlockState(new BlockPos(x, y, z)).getBlock() == Blocks.DIORITE) {
-    	    									chunkEvent$Load.getChunk().setBlockState(new BlockPos(x, y, z), Blocks.SMOOTH_SANDSTONE.getDefaultState(), false);
-    	    								} else if(chunkEvent$Load.getChunk().getBlockState(new BlockPos(x, y, z)).getBlock() == Blocks.GRAVEL) {
-    	    									chunkEvent$Load.getChunk().setBlockState(new BlockPos(x, y, z), Blocks.SAND.getDefaultState(), false);
-    	    								} else if(chunkEvent$Load.getChunk().getBlockState(new BlockPos(x, y, z)).getBlock() == Blocks.DIRT) {
-    	    									chunkEvent$Load.getChunk().setBlockState(new BlockPos(x, y, z), Blocks.SAND.getDefaultState(), false);
-    	    								}
-    	    							}
-    	    						}
-    	    					}
-        						((ChunkPrimer) chunkEvent$Load.getChunk()).setModified(true);
-//    						}
-    					}
-    				}
-    			}
-    		}
-    	}
-    	@SubscribeEvent
-    	public static void onChunkDataLoad(final ChunkDataEvent.Load chunkDataEvent$Load) {}
-    	@SubscribeEvent
-    	public static void onChunkDataSave(final ChunkDataEvent.Save chunkDataEvent$Save) {
-    		
-    	}
     	@SubscribeEvent
     	public static void onLivingEquipmentChange(final LivingEquipmentChangeEvent livingEquipmentChangeEvent) {
     		if(livingEquipmentChangeEvent.getEntityLiving() instanceof PlayerEntity && livingEquipmentChangeEvent.getSlot().getSlotType().equals(EquipmentSlotType.Group.ARMOR)) {
