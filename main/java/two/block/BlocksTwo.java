@@ -357,9 +357,9 @@ public class BlocksTwo {
 	public static final Block EPIDOTE = register("epidote", new Block(Block.Properties.create(Material.ROCK)));
 	public static final Block MANTLE = register("mantle", new Block(Block.Properties.create(Material.ROCK)));
 	
-	public static final Block DESERT_COAL_ORE = register("desert_coal_ore", new Block(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.COAL_ORE.getHarvestLevel(Blocks.COAL_ORE.getDefaultState()))));
-	public static final Block DESERT_IRON_ORE = register("desert_iron_ore", new Block(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.IRON_ORE.getHarvestLevel(Blocks.IRON_ORE.getDefaultState()))));
-	public static final Block DESERT_GOLD_ORE = register("desert_gold_ore", new Block(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.GOLD_ORE.getHarvestLevel(Blocks.GOLD_ORE.getDefaultState()))));
+	public static final Block DESERT_COAL_ORE = register("desert_coal_ore", new OreBlock(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.COAL_ORE.getHarvestLevel(Blocks.COAL_ORE.getDefaultState()))));
+	public static final Block DESERT_IRON_ORE = register("desert_iron_ore", new OreBlock(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.IRON_ORE.getHarvestLevel(Blocks.IRON_ORE.getDefaultState()))));
+	public static final Block DESERT_GOLD_ORE = register("desert_gold_ore", new OreBlock(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.GOLD_ORE.getHarvestLevel(Blocks.GOLD_ORE.getDefaultState()))));
 
 	public static final Block END_COBALT_ORE = register("end_cobalt_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
 	public static final Block END_JADE_ORE = register("end_jade_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
