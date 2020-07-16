@@ -1,0 +1,7 @@
+{
+	"variants" : {
+    	"" : {
+			"model" : "two:block/nether_topaz_ore"
+		}
+	}
+}
