@@ -10,6 +10,7 @@ import net.minecraft.world.gen.feature.BlockWithContextConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.feature.OreFeatureConfig.FillerBlockType;
 import net.minecraft.world.gen.feature.ReplaceBlockConfig;
 import net.minecraft.world.gen.feature.ReplaceBlockFeature;
 import net.minecraft.world.gen.feature.TreeFeature;
@@ -25,10 +26,11 @@ import two.world.gen.feature.structure.DwarvenKeepStructure;
 
 @SuppressWarnings("unchecked")
 public class FeatureTwo {
-	public static final OreFeatureConfig.FillerBlockType END_STONE = OreFeatureConfig.FillerBlockType.create("end_stone", "", BlockMatcher.forBlock(Blocks.END_STONE));
+	public static final OreFeatureConfig.FillerBlockType END_STONE = OreFeatureConfig.FillerBlockType.create(FillerBlockType.class.toString(), "end_stone", BlockMatcher.forBlock(Blocks.END_STONE));
+	public static final OreFeatureConfig.FillerBlockType SMOOTH_SANDSTONE = OreFeatureConfig.FillerBlockType.create(FillerBlockType.class.toString(), "smooth_sandstone", BlockMatcher.forBlock(Blocks.SMOOTH_SANDSTONE));
 //	OreFeatureConfig.FillerBlockType NIGHTSTONE = OreFeatureConfig.FillerBlockType.create("nightstone", "", BlockMatcher.forBlock(BlocksTwo.NIGHTSTONE));
 //	OreFeatureConfig.FillerBlockType PACKED_ICE = OreFeatureConfig.FillerBlockType.create("packed_ice", "", BlockMatcher.forBlock(Blocks.PACKED_ICE));
-	public static final OreFeatureConfig.FillerBlockType MYRKYLITE = OreFeatureConfig.FillerBlockType.create("myrkylite", "", BlockMatcher.forBlock(BlocksTwo.MYRKYLITE));
+	public static final OreFeatureConfig.FillerBlockType MYRKYLITE = OreFeatureConfig.FillerBlockType.create(FillerBlockType.class.toString(), "myrkylite", BlockMatcher.forBlock(BlocksTwo.MYRKYLITE));
 
 	private static final BlockState CHERRY_LOG = BlocksTwo.CHERRY_LOG.getDefaultState();
 	private static final BlockState MAPLE_LOG = BlocksTwo.MAPLE_LOG.getDefaultState();
@@ -64,9 +66,12 @@ public class FeatureTwo {
 	@ObjectHolder("two:dwarven_keep") public static final Structure<NoFeatureConfig> DWARVEN_KEEP = (Structure<NoFeatureConfig>) register("dwarven_keep", new DwarvenKeepStructure(NoFeatureConfig::deserialize));
 	
 	@ObjectHolder("two:replace_block") public static final Feature<ReplaceBlockConfig> REPLACE_BLOCK = (Feature<ReplaceBlockConfig>) register("replace_block", new ReplaceBlockFeature(ReplaceBlockConfig::deserialize));
+	@ObjectHolder("two:multi_replace_block") public static final Feature<MultiReplaceBlockConfig> MULTI_REPLACE_BLOCK = (Feature<MultiReplaceBlockConfig>) register("multi_replace_block", new MultiReplaceBlockFeature(MultiReplaceBlockConfig::deserialize));
 	
 	public static final BlockWithContextConfig SUCCULIGHT_CONFIG = new BlockWithContextConfig(BlocksTwo.SUCCULIGHT.getDefaultState(), new BlockState[] { Blocks.SAND.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() });
 	
+	
+	// desert arch feature
 	
 	
 	
