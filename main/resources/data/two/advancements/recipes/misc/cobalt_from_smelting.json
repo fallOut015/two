@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_cobalt_ore": {
+    "has_end_cobalt_ore": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "two:cobalt_ore"
+            "item": "two:end_cobalt_ore"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_cobalt_ore",
+      "has_end_cobalt_ore",
       "has_the_recipe"
     ]
   ]

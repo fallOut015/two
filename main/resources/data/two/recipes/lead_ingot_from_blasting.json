@@ -1,7 +1,7 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "two:lead_ore"
+    "item": "two:nether_lead_ore"
   },
   "result": "two:lead_ingot",
   "experience": 0.7,

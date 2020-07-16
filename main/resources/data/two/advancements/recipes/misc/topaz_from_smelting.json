@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_topaz_ore": {
+    "has_nether_topaz_ore": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "two:topaz_ore"
+            "item": "two:nether_topaz_ore"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_topaz_ore",
+      "has_nether_topaz_ore",
       "has_the_recipe"
     ]
   ]

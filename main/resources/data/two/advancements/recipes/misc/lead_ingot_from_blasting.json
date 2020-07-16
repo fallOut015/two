@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_lead_ore": {
+    "has_nether_lead_ore": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "two:lead_ore"
+            "item": "two:nether_lead_ore"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_lead_ore",
+      "has_nether_lead_ore",
       "has_the_recipe"
     ]
   ]

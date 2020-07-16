@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "two:lead_ore"
+          "name": "two:nether_lead_ore"
         }
       ],
       "conditions": [

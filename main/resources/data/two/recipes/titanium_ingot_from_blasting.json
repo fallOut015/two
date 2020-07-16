@@ -1,7 +1,7 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "two:titanium_ore"
+    "item": "two:nether_titanium_ore"
   },
   "result": "two:titanium_ingot",
   "experience": 0.7,

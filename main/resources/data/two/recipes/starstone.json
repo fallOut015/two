@@ -1,7 +1,7 @@
 {
   	"type" : "minecraft:smelting",
   	"ingredient" : {
-    	"item" : "two:starstone_ore"
+    	"item" : "two:nidavellir_starstone_ore"
   	},
   	"result" : "two:starstone",
   	"experience" : 0.7,

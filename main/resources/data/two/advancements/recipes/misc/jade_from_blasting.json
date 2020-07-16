@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_jade_ore": {
+    "has_end_jade_ore": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "two:jade_ore"
+            "item": "two:end_jade_ore"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_jade_ore",
+      "has_end_jade_ore",
       "has_the_recipe"
     ]
   ]
