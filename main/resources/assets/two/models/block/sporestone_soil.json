@@ -1,0 +1,9 @@
+{
+    "parent": "minecraft:block/cube_bottom_top",
+    "textures": {
+        "particle": "two:block/sporestone_soil_top",
+        "bottom": "two:block/sporestone",
+        "top": "two:block/sporestone_soil_top",
+        "side": "two:block/sporestone_soil_side"
+    }
+}
