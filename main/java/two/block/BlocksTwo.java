@@ -12,6 +12,7 @@ import net.minecraft.block.FenceGateBlock;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.block.FlowingFluidBlock;
+import net.minecraft.block.LanternBlock;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.LogBlock;
 import net.minecraft.block.OreBlock;
@@ -337,11 +338,13 @@ public class BlocksTwo {
 	public static final Block ADOBE_FROZEN_STAIRS = register("adobe_frozen_stairs", new StairsBlockTwo(ADOBE_FROZEN.getDefaultState(), Block.Properties.from(ADOBE_FROZEN)));
 	public static final Block ADOBE_FROZEN_WALL = register("adobe_frozen_wall", new WallBlock(Block.Properties.from(ADOBE_FROZEN)));
 	
-	public static final Block SPORESTONE = register("sporestone", new Block(Block.Properties.create(Material.ROCK)));
-	public static final Block SPORESTONE_SOIL = register("sporestone_soil", new Block(Block.Properties.create(Material.ROCK)));
+	public static final Block SPORESTONE = register("sporestone", new Block(Block.Properties.create(Material.ROCK, MaterialColor.BLACK).hardnessAndResistance(1.0f, 4.0f).harvestTool(ToolType.PICKAXE)));
+	public static final Block SPORESTONE_SOIL = register("sporestone_soil", new Block(Block.Properties.create(Material.ROCK, MaterialColor.BLACK).hardnessAndResistance(1.0f, 4.0f).harvestTool(ToolType.PICKAXE)));
 	
 	public static final Block NEONDOT = register("neondot", new NeondotBlock(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT).lightValue(4)));
 	public static final Block BRIMSHINE = register("brimshine", new BrimshineBlock(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT).lightValue(4)));
+	
+	public static final Block SHROOMGLOW_LANTERN = register("shroomglow_lantern", new LanternBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(3.5F).sound(SoundType.LANTERN).lightValue(12).notSolid()));
 	
 	// Nightmare
 	public static final Block GAULT = register("gault", new Block(Block.Properties.create(MaterialTwo.GAULT).hardnessAndResistance(2.0f)));

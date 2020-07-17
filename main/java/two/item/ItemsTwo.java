@@ -340,6 +340,8 @@ public class ItemsTwo {
 	public static final Item NEONDOT = register(BlocksTwo.NEONDOT, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item BRIMSHINE = register(BlocksTwo.BRIMSHINE, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
+	public static final Item SHROOMGLOW_LANTERN = register(BlocksTwo.SHROOMGLOW_LANTERN, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
 	public static final Item CHERRY_SAPLING = register(BlocksTwo.CHERRY_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item MAPLE_SAPLING = register(BlocksTwo.MAPLE_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item GHOSTWOOD_SAPLING = register(BlocksTwo.GHOSTWOOD_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));

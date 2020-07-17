@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "hanging=true": { "model": "two:block/hanging_shroomglow_lantern"},
+        "hanging=false": { "model": "two:block/shroomglow_lantern"}
+  }
+}
