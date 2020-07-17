@@ -8,7 +8,12 @@ import two.fluid.FluidsTwo;
 public class RenderTypeLookupTwo {
 	public static void setRenderLayers() {
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.PURPETAL, RenderType.getCutout());
+	    
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.SUCCULIGHT, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.POTTED_SUCCULIGHT, RenderType.getCutout());
+
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.NEONDOT, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.BRIMSHINE, RenderType.getCutout());
 
 		RenderTypeLookup.setRenderLayer(BlocksTwo.CHERRY_SAPLING, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.MAPLE_SAPLING, RenderType.getCutout());
