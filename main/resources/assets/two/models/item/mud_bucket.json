@@ -1,6 +1,7 @@
 {
-    "parent" : "minecraft:item/generated",
+    "parent" : "forge:item/bucket",
     "textures" : {
-        "layer0" : "two:item/apple_pie"
+        "base" : "minecraft:item/bucket",
+        "fluid" : "forge:item/mask/bucket_fluid"
     }
 }
