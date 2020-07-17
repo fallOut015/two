@@ -241,6 +241,9 @@ public class ItemsTwo {
 	public static final Item POLISHED_MYRKYLITE_BRICK_SLAB = register(BlocksTwo.POLISHED_MYRKYLITE_BRICK_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item POLISHED_MYRKYLITE_BRICK_STAIRS = register(BlocksTwo.POLISHED_MYRKYLITE_BRICK_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 
+	public static final Item SPORESTONE = register(BlocksTwo.SPORESTONE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SPORESTONE_SOIL = register(BlocksTwo.SPORESTONE_SOIL, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
 	public static final Item SANGUINE = register(BlocksTwo.SANGUINE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item CRIMSON = register(BlocksTwo.CRIMSON, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item ABADDON = register(BlocksTwo.ABADDON, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -333,6 +336,9 @@ public class ItemsTwo {
 	public static final Item PURPETAL = register(BlocksTwo.PURPETAL, new Item.Properties().group(ItemGroup.DECORATIONS));
 
 	public static final Item SUCCULIGHT = register(BlocksTwo.SUCCULIGHT, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
+	public static final Item NEONDOT = register(BlocksTwo.NEONDOT, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item BRIMSHINE = register(BlocksTwo.BRIMSHINE, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
 	public static final Item CHERRY_SAPLING = register(BlocksTwo.CHERRY_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item MAPLE_SAPLING = register(BlocksTwo.MAPLE_SAPLING, new Item.Properties().group(ItemGroup.DECORATIONS));
@@ -564,6 +570,7 @@ public class ItemsTwo {
     public static final Item KNAPSACK = register("knapsack", new KnapsackItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
     //potion sack -> displays extra potion slots
     //quiver -> displays extra arrow slots
+    public static final Item INSPECTION_SPECTACLES = register("inspection_spectacles", new InspectionSpectaclesItem(new Item.Properties().group(ItemGroup.MISC)));
     
     public static final Item CHAMELEON_SPAWN_EGG = register("chameleon_spawn_egg", new SpawnEggItem(EntityTypeTwo.CHAMELEON, 2162500, 14463743, new Item.Properties().group(ItemGroup.MISC)));
     public static final Item DARK_DWARF_ARCHER_SPAWN_EGG = register("dark_dwarf_archer_spawn_egg", new SpawnEggItem(EntityTypeTwo.DARK_DWARF_ARCHER, 3617852, 7880467, new Item.Properties().group(ItemGroup.MISC)));

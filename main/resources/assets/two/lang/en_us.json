@@ -292,6 +292,12 @@
 	"block.two.polished_myrkylite_brick_stairs" : "Polished Myrkylite Brick Stairs",
 	"block.two.polished_myrkylite_brick_wall" : "Polished Myrkylite Brick Wall",
 	
+	"block.two.sporestone" : "Sporestone",
+	"block.two.sporestone_soil" : "Sporestone Soil",
+	
+	"block.two.neondot" : "Neondot",
+	"block.two.brimshine" : "Brimshine",
+	
 	"block.two.sanguine" : "Sanguine",
 	"block.two.crimson" : "Crimson",
 	"block.two.abaddon" : "Abaddon",
@@ -308,6 +314,7 @@
 	"block.two.purpetal_pistol" : "Purpetal Pistol",
 	
 	"block.two.succulight" : "Succulight",
+	"block.two.potted_succulight" : "Potted Succulight",
 	
 	"block.two.desert_coal_ore" : "Desert Coal Ore",
 	"block.two.desert_iron_ore" : "Desert Iron Ore",
@@ -621,6 +628,7 @@
 
 	"item.two.knapsack" : "Knapsack",
 	"item.two.small_backpack" : "Small Backpack",
+	"item.two.inspection_spectacles" : "Inspection Spectacles",
 	
 	"item.two.chameleon_spawn_egg" : "Chameleon Spawn Egg",
 	"item.two.dark_dwarf_archer_spawn_egg" : "Dark Dwarven Archer Spawn Egg",
@@ -1137,5 +1145,48 @@
 	"enchantment.two.grass_ability" : "Vines / Plant Power / Potentia Herba",
 	"enchantment.two.nether_ability" : "Hellfire / Hell on Earth / Infernum in Terra",
 	"enchantment.two.wind_ability" : "Wind / Control Wind / Potestate Venti",
-	"enchantment.two.ice_ability" : "Chill / Cold Control / Imperium Gelu"
+	"enchantment.two.ice_ability" : "Chill / Cold Control / Imperium Gelu",
+	
+	
+	
+	
+	
+	"block.minecraft.stone.desc" : "This basic block generates underground most biomes. You can make some basic tools out of it once it's mined.",
+	"block.minecraft.granite.desc" : "Be sure you don't take it for *granite*. Seriously, this can improve a build by adding some variety, especially if you're using earth tones.'",
+	"block.minecraft.polished_granite.desc" : "The new and improved granite. Makes for better builds than the non-polished version.",
+	"block.minecraft.diorite.desc" : "Obviously the best of the three stone variants. Use this to transition between a darker stone and a lighter stone.",
+	"block.minecraft.polished_diorite.desc" : "Who thought diorite could get any better? You can use it to tile floors, or walls, or anything!",
+	"block.minecraft.andesite.desc" : "1 star. Too much like stone. On the bright side, you can spruce up your stone walls by throwing some of this in there.",
+	"block.minecraft.polished_andesite.desc" : "2 stars. It's a little better, I guess. Use this to add some variation to your walls you already added variation to.",
+	"block.minecraft.grass_block.desc" : "You gotta be good at the game to have *this* in your inventory. Use it wisely... Unless you have silk touch, in that case go wild.",
+	"block.minecraft.dirt.desc" : "Very similar to a grass block. If you place this next to grass, it just might spread onto the dirt! That is, if it's bright enough.",
+	"block.minecraft.coarse_dirt.desc" : "Um. What is this used for again? Oh yeah, grass won\'t spread on this bad boy. So there\'s that, I guess.",
+	"block.minecraft.podzol.desc" : "Seriously, why is there so much dirt? This dirt variant generates giant tree taigas and bamboo jungles. It allows mushrooms to be placed no matter the light level.",
+	"block.minecraft.cobblestone.desc" : "You need a pickaxe to mine this, and judging by the fact that it's in your inventory I'm gonna assume you have one. Perfect for making furnaces and the such. You can smelt it to turn it back into stone.",
+	"block.minecraft.oak_planks.desc" : "The classic. Goes great with the log version when making houses. You can make wooden tools out of it, as well as bowls, sticks, and more!",
+	"block.minecraft.spruce_planks.desc" : "Makes for perfect snowy builds, the dark wood contrasts the white of the snow. You can make wooden tools out of it, as well as bowls, sticks, and more!",
+	"block.minecraft.birch_planks.desc" : "One of the better wooden planks. You can make wooden tools out of it, as well as bowls, sticks, and more!",
+	"block.minecraft.jungle_planks.desc" : "Seriously who likes this. You can make wooden tools out of it, as well as bowls, sticks, and more.",
+	"block.minecraft.acacia_planks.desc" : "A-tier, great color, unique. You can make wooden tools out of it, as well as bowls, sticks, and more!",
+	"block.minecraft.dark_oak_planks.desc" : "For when you want edgy wood. You can make wooden tools out of it, as well as bowls, sticks, and more!",
+	"block.minecraft.bedrock.desc" : "You\'re playing creative aren\'t you?",
+	"block.minecraft.sand.desc" : "Watch your step! Sometimes sand is left floating, and mining a nearby sand block will cause it to fall! You can smelt this to turn it into glass, or put it into a crafting table for sandstone.",
+	"block.minecraft.red_sand.desc" : "The superior sand. Minerals in the sand oxidize and get a red hue, science! They generate in badlands biomes and can be used to make red sandstone and its variants.",
+	"block.minecraft.gravel.desc" : "Watch your head! Gravel generates in deposits underground, if you're not careful mining up you just might get a faceful of it!",
+	"block.minecraft.gold_ore.desc" : "You need a pickaxe with a harvest level of 2 or higher to mine this. It generates from block 32 on downwards. You can find more of it in more places in the Badlands.",
+	"block.minecraft.iron_ore.desc" : "You need a pickaxe with a harvest level of 1 or higher to mine this. It generates from block 64 on downwards.",
+	"block.minecraft.coal_ore.desc" : "You need a pickaxe with a harvest level of 0 or higher to mine this. It generates from block 128 on downwards.",
+	"block.minecraft.oak_log.desc" : "These trees grow in most forests and plains. You can craft bark out of this or smelt it into charcoal. Right-click with an axe to strip the bark off.",
+	"block.minecraft.spruce_log.desc" : "These trees grow in colder taiga forests. You can craft bark out of this or smelt it into charcoal. Right-click with an axe to strip the bark off.",
+	"block.minecraft.birch_log.desc" : "These trees grow in most forests and birch forests. You can craft bark out of this or smelt it into charcoal. Right-click with an axe to strip the bark off.",
+	"block.minecraft.jungle_log.desc" : "These trees grow in jungles. You can craft bark out of this or smelt it into charcoal. Right-click with an axe to strip the bark off.",
+	"block.minecraft.acacia_log.desc" : "These trees grow in savannas. You can craft bark out of this or smelt it into charcoal. Right-click with an axe to strip the bark off.",
+	"block.minecraft.dark_oak_log.desc" : "These trees grow in dark forests. You can craft bark out of this or smelt it into charcoal. Right-click with an axe to strip the bark off.",
+	"block.minecraft.stripped_oak_log.desc" : "Mostly used for building. You can use this as if it had its bark in crafting ans smelting still.",
+	"block.minecraft.stripped_spruce_log.desc" : "",
+	"block.minecraft.stripped_birch_log.desc" : "",
+	"block.minecraft.stripped_jungle_log.desc" : "",
+	"block.minecraft.stripped_dark_oak_log.desc" : "",
+		
+	"item.two.inspection_spectacles.desc" : "You're wearing them!"
 }
