@@ -52,6 +52,10 @@ Changelog:
 	Added ice arrows. 
 	Added bomb arrows.
 	Added shock arrows.
+	Added caverns. 
+	Changed some underground generations. 
+	Added flagstone path. 
+	Added some new ore variations. 
 '''
 [[dependencies.two]] #optional
     modId="forge"

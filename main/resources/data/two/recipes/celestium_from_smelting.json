@@ -1,7 +1,7 @@
 {
   	"type": "minecraft:smelting",
   	"ingredient": {
-  	  "item": "two:celestium_ore"
+  	  "item": "two:nidavellir_celestium_ore"
   	},
   	"result": "two:celestium",
   	"experience": 1.0,

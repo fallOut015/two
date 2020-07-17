@@ -1,7 +1,7 @@
 {
   	"type": "minecraft:blasting",
   	"ingredient": {
-    	"item": "two:topaz_ore"
+    	"item": "two:nether_topaz_ore"
   	},
   	"result": "two:topaz",
   	"experience": 1.0,

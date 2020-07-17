@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_uru_ore": {
+    "has_nidavellir_uru_ore": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "two:uru_ore"
+            "item": "two:nidavellir_uru_ore"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_uru_ore",
+      "has_nidavellir_uru_ore",
       "has_the_recipe"
     ]
   ]

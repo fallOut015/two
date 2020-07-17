@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_platinum_ore": {
+    "has_end_platinum_ore": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "two:platinum_ore"
+            "item": "two:end_platinum_ore"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_platinum_ore",
+      "has_end_platinum_ore",
       "has_the_recipe"
     ]
   ]

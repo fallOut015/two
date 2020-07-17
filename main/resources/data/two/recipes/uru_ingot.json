@@ -1,7 +1,7 @@
 {
   	"type" : "minecraft:smelting",
   	"ingredient" : {
-    	"item" : "two:uru_ore"
+    	"item" : "two:nidavellir_uru_ore"
   	},
   	"result" : "two:uru_ingot",
   	"experience" : 0.7,

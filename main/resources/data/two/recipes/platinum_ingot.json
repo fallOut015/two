@@ -1,7 +1,7 @@
 {
   	"type" : "minecraft:smelting",
   	"ingredient" : {
-    	"item" : "two:platinum_ore"
+    	"item" : "two:end_platinum_ore"
   	},
   	"result" : "two:platinum_ingot",
   	"experience" : 0.7,

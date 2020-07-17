@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_celestium_ore": {
+    "has_nidavellir_celestium_ore": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "two:celestium_ore"
+            "item": "two:nidavellir_celestium_ore"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_celestium_ore",
+      "has_nidavellir_celestium_ore",
       "has_the_recipe"
     ]
   ]

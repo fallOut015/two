@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_starstone_ore": {
+    "has_nidavellir_starstone_ore": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "two:starstone_ore"
+            "item": "two:nidavellir_starstone_ore"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_starstone_ore",
+      "has_nidavellir_starstone_ore",
       "has_the_recipe"
     ]
   ]

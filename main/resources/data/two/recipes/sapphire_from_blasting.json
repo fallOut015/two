@@ -1,7 +1,7 @@
 {
   	"type": "minecraft:blasting",
   	"ingredient": {
-    	"item": "two:sapphire_ore"
+    	"item": "two:end_sapphire_ore"
   	},
   	"result": "two:sapphire",
   	"experience": 1.0,

@@ -1,0 +1,7 @@
+{
+    "variants" : {
+        "type=bottom" : { "model" : "two:block/white_stained_wooden_slab" },
+        "type=top" : { "model" : "two:block/white_stained_wooden_slab_top" },
+        "type=double" : { "model" : "two:block/white_stained_wooden_planks" }
+    }
+}

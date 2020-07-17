@@ -36,6 +36,7 @@ import net.minecraft.item.PickaxeItem;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.INBT;
+import net.minecraft.particles.ParticleType;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.stats.StatType;
@@ -103,6 +104,7 @@ import two.item.ArmorMaterialTwo;
 import two.item.DoubleJumpBootsItem;
 import two.item.ItemTierTwo;
 import two.item.ItemsTwo;
+import two.particles.ParticleTypesTwo;
 import two.stats.StatsTwo;
 import two.tileentity.TileEntityTypeTwo;
 import two.util.SoundEventsTwo;
@@ -239,9 +241,14 @@ public class Two {
     		// loot stuff
 //    		LootTables.CHESTS_SIMPLE_DUNGEON.
     	}
+    	// Add a dimensions registry that registers mod dimensions? 
     	@SubscribeEvent
     	public static void onModDimensionsRegistry(final RegistryEvent.Register<ModDimension> modDimensionRegistryEvent) {
     		ModDimensionTwo.onModDimensionsRegistry(modDimensionRegistryEvent);
+    	}
+    	@SubscribeEvent
+    	public static void onParticleTypesRegistry(final RegistryEvent.Register<ParticleType<?>> particleTypeRegistryEvent) {
+    		ParticleTypesTwo.onParticleTypesRegistry(particleTypeRegistryEvent);
     	}
     	@SubscribeEvent
     	public static void onPlacementsRegistry(final RegistryEvent.Register<Placement<?>> placementRegistryEvent) {

@@ -1,7 +1,7 @@
 {
   	"type": "minecraft:blasting",
   	"ingredient": {
-    	"item": "two:garnet_ore"
+    	"item": "two:nether_garnet_ore"
   	},
   	"result": "two:garnet",
   	"experience": 1.0,

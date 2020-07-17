@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "two:platinum_ore"
+          "name": "two:end_platinum_ore"
         }
       ],
       "conditions": [

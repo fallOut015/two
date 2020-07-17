@@ -1,7 +1,7 @@
 {
   	"type": "minecraft:blasting",
   	"ingredient": {
-    	"item": "two:jade_ore"
+    	"item": "two:end_jade_ore"
   	},
   	"result": "two:jade",
   	"experience": 1.0,

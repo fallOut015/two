@@ -99,12 +99,28 @@ public class BlocksTwo {
 	public static final Block RED_STAINED_WOODEN_PLANKS = register("red_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.RED).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Block BLACK_STAINED_WOODEN_PLANKS = register("black_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.BLACK).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	
+	public static final Block WHITE_STAINED_WOODEN_SLAB = register("white_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.WHITE).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	public static final Block ORANGE_STAINED_WOODEN_SLAB = register("orange_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.ORANGE).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	public static final Block MAGENTA_STAINED_WOODEN_SLAB = register("magenta_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.MAGENTA).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	public static final Block LIGHT_BLUE_STAINED_WOODEN_SLAB = register("light_blue_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.LIGHT_BLUE).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	public static final Block YELLOW_STAINED_WOODEN_SLAB = register("yellow_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.YELLOW).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	public static final Block LIME_STAINED_WOODEN_SLAB = register("lime_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.LIME).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	public static final Block PINK_STAINED_WOODEN_SLAB = register("pink_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.PINK).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	public static final Block GRAY_STAINED_WOODEN_SLAB = register("gray_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.GRAY).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	public static final Block LIGHT_GRAY_STAINED_WOODEN_SLAB = register("light_gray_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.LIGHT_GRAY).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	public static final Block CYAN_STAINED_WOODEN_SLAB = register("cyan_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.CYAN).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	public static final Block PURPLE_STAINED_WOODEN_SLAB = register("purple_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.PURPLE).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	public static final Block BLUE_STAINED_WOODEN_SLAB = register("blue_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.BLUE).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	public static final Block BROWN_STAINED_WOODEN_SLAB = register("brown_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.BROWN).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	public static final Block GREEN_STAINED_WOODEN_SLAB = register("green_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.GREEN).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	public static final Block RED_STAINED_WOODEN_SLAB = register("red_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.RED).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	public static final Block BLACK_STAINED_WOODEN_SLAB = register("black_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.BLACK).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	
 	// stained boat
 	// stained sign
 	// stained fence
 	// stained door
 	// stained fence gate
-	// stained slab
 	// stained stairs
 	// stained button
 	// stained pressure plate
@@ -119,7 +135,7 @@ public class BlocksTwo {
 	public static final Block PURPETAL_PETAL = register("purpetal_petal", new Block(Block.Properties.create(Material.ORGANIC)));
 	public static final Block PURPETAL_PISTOL = register("purpetal_pistol", new Block(Block.Properties.create(Material.ORGANIC)));
 	
-	public static final Block SUCCULIGHT = register("succulight", new SucculightBlock(Effects.NIGHT_VISION, 5, Block.Properties.create(Material.CACTUS).notSolid().doesNotBlockMovement().lightValue(5)));
+	public static final Block SUCCULIGHT = register("succulight", new SucculightBlock(Effects.NIGHT_VISION, 5, Block.Properties.create(Material.CACTUS).notSolid().doesNotBlockMovement().lightValue(6)));
 	
 	public static final Block CHERRY_SAPLING = register("cherry_sapling", new SaplingBlockTwo(new CherryTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT)));
 	public static final Block MAPLE_SAPLING = register("maple_sapling", new SaplingBlockTwo(new MapleTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT)));
@@ -357,9 +373,9 @@ public class BlocksTwo {
 	public static final Block EPIDOTE = register("epidote", new Block(Block.Properties.create(Material.ROCK)));
 	public static final Block MANTLE = register("mantle", new Block(Block.Properties.create(Material.ROCK)));
 	
-	public static final Block DESERT_COAL_ORE = register("desert_coal_ore", new Block(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.COAL_ORE.getHarvestLevel(Blocks.COAL_ORE.getDefaultState()))));
-	public static final Block DESERT_IRON_ORE = register("desert_iron_ore", new Block(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.IRON_ORE.getHarvestLevel(Blocks.IRON_ORE.getDefaultState()))));
-	public static final Block DESERT_GOLD_ORE = register("desert_gold_ore", new Block(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.GOLD_ORE.getHarvestLevel(Blocks.GOLD_ORE.getDefaultState()))));
+	public static final Block DESERT_COAL_ORE = register("desert_coal_ore", new OreBlock(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.COAL_ORE.getHarvestLevel(Blocks.COAL_ORE.getDefaultState()))));
+	public static final Block DESERT_IRON_ORE = register("desert_iron_ore", new OreBlock(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.IRON_ORE.getHarvestLevel(Blocks.IRON_ORE.getDefaultState()))));
+	public static final Block DESERT_GOLD_ORE = register("desert_gold_ore", new OreBlock(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.GOLD_ORE.getHarvestLevel(Blocks.GOLD_ORE.getDefaultState()))));
 
 	public static final Block END_COBALT_ORE = register("end_cobalt_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
 	public static final Block END_JADE_ORE = register("end_jade_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(4).harvestTool(ToolType.PICKAXE)));

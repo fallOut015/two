@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "two:starstone_ore"
+          "name": "two:nidavellir_starstone_ore"
         }
       ],
       "conditions": [
