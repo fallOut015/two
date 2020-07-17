@@ -136,6 +136,7 @@ public class BlocksTwo {
 	public static final Block PURPETAL_PISTOL = register("purpetal_pistol", new Block(Block.Properties.create(Material.ORGANIC)));
 	
 	public static final Block SUCCULIGHT = register("succulight", new SucculightBlock(Effects.NIGHT_VISION, 5, Block.Properties.create(Material.CACTUS).notSolid().doesNotBlockMovement().lightValue(6)));
+	public static final Block POTTED_SUCCULIGHT = register("potted_succulight", new FlowerPotBlock(null, () -> BlocksTwo.SUCCULIGHT, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()));
 	
 	public static final Block CHERRY_SAPLING = register("cherry_sapling", new SaplingBlockTwo(new CherryTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT)));
 	public static final Block MAPLE_SAPLING = register("maple_sapling", new SaplingBlockTwo(new MapleTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT)));
@@ -335,6 +336,12 @@ public class BlocksTwo {
 	public static final Block ADOBE_FROZEN_SLAB = register("adobe_frozen_slab", new SlabBlock(Block.Properties.from(ADOBE_FROZEN)));
 	public static final Block ADOBE_FROZEN_STAIRS = register("adobe_frozen_stairs", new StairsBlockTwo(ADOBE_FROZEN.getDefaultState(), Block.Properties.from(ADOBE_FROZEN)));
 	public static final Block ADOBE_FROZEN_WALL = register("adobe_frozen_wall", new WallBlock(Block.Properties.from(ADOBE_FROZEN)));
+	
+	public static final Block SPORESTONE = register("sporestone", new Block(Block.Properties.create(Material.ROCK)));
+	public static final Block SPORESTONE_SOIL = register("sporestone_soil", new Block(Block.Properties.create(Material.ROCK)));
+	
+	public static final Block NEONDOT = register("neondot", new NeondotBlock(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT).lightValue(4)));
+	public static final Block BRIMSHINE = register("brimshine", new BrimshineBlock(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT).lightValue(4)));
 	
 	// Nightmare
 	public static final Block GAULT = register("gault", new Block(Block.Properties.create(MaterialTwo.GAULT).hardnessAndResistance(2.0f)));
