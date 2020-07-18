@@ -9,7 +9,9 @@ import net.minecraftforge.registries.ObjectHolder;
 import two.entity.effect.SigilEntity;
 import two.entity.monster.DarkDwarfArcherEntity;
 import two.entity.monster.MummifiedZombieEntity;
+import two.entity.passive.BeardedDragonEntity;
 import two.entity.passive.ChameleonEntity;
+import two.entity.passive.RedPandaEntity;
 import two.entity.projectile.BombArrowEntity;
 import two.entity.projectile.CappedArrowEntity;
 import two.entity.projectile.FireArrowEntity;
@@ -20,7 +22,10 @@ import two.entity.projectile.ShockArrowEntity;
 @SuppressWarnings("unchecked")
 public class EntityTypeTwo {
 	public static EntityType<ChameleonEntity> CHAMELEON = (EntityType<ChameleonEntity>) register("chameleon", EntityType.Builder.create(ChameleonEntity::new, EntityClassification.CREATURE).size(0.25f, 0.25f).build("chameleon"));
-//	public static EntityType<WandererEntity> WANDERER = (EntityType<WandererEntity>) register("wanderer", EntityType.Builder.create(WandererEntity::new, EntityClassification.MONSTER).size(0.5f, 1.0f).build("wanderer"));
+	public static EntityType<BeardedDragonEntity> BEARDED_DRAGON = (EntityType<BeardedDragonEntity>) register("bearded_dragon", EntityType.Builder.create(BeardedDragonEntity::new, EntityClassification.CREATURE).size(0.2f, 0.2f).build("bearded_dragon"));
+	public static EntityType<RedPandaEntity> RED_PANDA = (EntityType<RedPandaEntity>) register("red_panda", EntityType.Builder.create(RedPandaEntity::new, EntityClassification.CREATURE).size(0.6875f, 1f).build("red_panda"));
+	
+	//	public static EntityType<WandererEntity> WANDERER = (EntityType<WandererEntity>) register("wanderer", EntityType.Builder.create(WandererEntity::new, EntityClassification.MONSTER).size(0.5f, 1.0f).build("wanderer"));
 //	public static EntityType<ShadowEntity> SHADOW = (EntityType<ShadowEntity>) register("shadow", EntityType.Builder.create(ShadowEntity::new, EntityClassification.MONSTER).size(0.5f, 1.0f).build("shadow"));
 	public static EntityType<DarkDwarfArcherEntity> DARK_DWARF_ARCHER = (EntityType<DarkDwarfArcherEntity>) register("dark_dwarf_archer", EntityType.Builder.create(DarkDwarfArcherEntity::new, EntityClassification.MONSTER).size(0.5f, 0.75f).build("dark_dwarf_archer"));
 	// DARK_DWARF_GUARD

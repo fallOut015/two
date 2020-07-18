@@ -89,6 +89,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import two.block.BlocksTwo;
 import two.block.DreamcatcherBlock;
 import two.client.renderer.RenderTypeLookupTwo;
+import two.client.renderer.entity.BeardedDragonRenderer;
 import two.client.renderer.entity.BombArrowRenderer;
 import two.client.renderer.entity.CappedArrowRenderer;
 import two.client.renderer.entity.ChameleonRenderer;
@@ -96,6 +97,7 @@ import two.client.renderer.entity.DarkDwarfArcherRenderer;
 import two.client.renderer.entity.FireArrowRenderer;
 import two.client.renderer.entity.IceArrowRenderer;
 import two.client.renderer.entity.MummifiedZombieRenderer;
+import two.client.renderer.entity.RedPandaRenderer;
 import two.client.renderer.entity.ShockArrowRenderer;
 import two.client.renderer.entity.SigilRenderer;
 import two.client.renderer.entity.layers.InspectionSpectaclesLayer;
@@ -154,6 +156,8 @@ public class Two {
     private void setup(final FMLCommonSetupEvent event) {}
     private void doClientStuff(final FMLClientSetupEvent event) {
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CHAMELEON, ChameleonRenderer::new);
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonRenderer::new);
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.RED_PANDA, RedPandaRenderer::new);
     	
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CAPPED_ARROW, CappedArrowRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.FIRE_ARROW, FireArrowRenderer::new);
@@ -513,51 +517,56 @@ public class Two {
     			itemTooltipEvent.getToolTip().add(new StringTextComponent("Jumps: " + jumps));
     			itemTooltipEvent.getToolTip().add(new StringTextComponent("Extra Jump Limit: " + extrajumplimit));
     		}
-    		LinkedList<Item> equipment = new LinkedList<Item>();
-    		itemTooltipEvent.getEntityLiving().getArmorInventoryList().forEach(itemStack -> equipment.add(itemStack.getItem()));
-    		if(equipment.contains(ItemsTwo.INSPECTION_SPECTACLES)) {
-    			if(!LanguageMap.getInstance().translateKey(itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc").equals((itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc"))) {
-        			itemTooltipEvent.getToolTip().add(new TranslationTextComponent(itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc").applyTextStyles(TextFormatting.ITALIC, TextFormatting.GOLD));
-    			}
-    			if(itemTooltipEvent.getItemStack().getItem() instanceof TieredItem) {
-    				itemTooltipEvent.getToolTip().add(new StringTextComponent("Tier: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
-    				itemTooltipEvent.getToolTip().add(new StringTextComponent("Enchantability: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getItemEnchantability()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
+    		try {
+    			// TODO
+    			// some NPE is causing an exception which *can* be fatal. 
+    		} catch(NullPointerException e) {
+    			LinkedList<Item> equipment = new LinkedList<Item>();
+        		itemTooltipEvent.getEntityLiving().getArmorInventoryList().forEach(itemStack -> equipment.add(itemStack.getItem()));
+        		if(equipment.contains(ItemsTwo.INSPECTION_SPECTACLES)) {
+        			if(!LanguageMap.getInstance().translateKey(itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc").equals((itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc"))) {
+            			itemTooltipEvent.getToolTip().add(new TranslationTextComponent(itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc").applyTextStyles(TextFormatting.ITALIC, TextFormatting.GOLD));
+        			}
+        			if(itemTooltipEvent.getItemStack().getItem() instanceof TieredItem) {
+        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Tier: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
+        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Enchantability: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getItemEnchantability()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
 
-    				itemTooltipEvent.getToolTip().add(new StringTextComponent("Max Uses: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier().getMaxUses()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
-    				itemTooltipEvent.getToolTip().add(new StringTextComponent("Efficiency: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier().getEfficiency()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
-    				itemTooltipEvent.getToolTip().add(new StringTextComponent("Harvest Level: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
-    				itemTooltipEvent.getToolTip().add(new StringTextComponent("Repair Material: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier().getRepairMaterial().getMatchingStacks()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
-    			}
-    			if(itemTooltipEvent.getItemStack().getItem().isFood()) {
-    				if(itemTooltipEvent.getItemStack().getItem().getFood().isMeat()) {
-    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Meat").applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
-    				}
-    				if(itemTooltipEvent.getItemStack().getItem().getFood().canEatWhenFull()) {
-    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Can eat when full").applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
-    				}
-    				if(itemTooltipEvent.getItemStack().getItem().getFood().isFastEating()) {
-    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Fast eating").applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
-    				}
-					itemTooltipEvent.getToolTip().add(new StringTextComponent("Hunger Healing: " + itemTooltipEvent.getItemStack().getItem().getFood().getHealing()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
-					itemTooltipEvent.getToolTip().add(new StringTextComponent("Saturation: " + itemTooltipEvent.getItemStack().getItem().getFood().getSaturation()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
-					if(!itemTooltipEvent.getItemStack().getItem().getFood().getEffects().isEmpty()) {
-						itemTooltipEvent.getToolTip().add(new StringTextComponent("Effects: " + itemTooltipEvent.getItemStack().getItem().getFood().getEffects().toString()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
-					}
-    			}
-    			if(itemTooltipEvent.getItemStack().getItem() instanceof ArmorItem) {
-					itemTooltipEvent.getToolTip().add(new StringTextComponent("Tier: " + ((ArmorItem) (itemTooltipEvent.getItemStack().getItem())).getArmorMaterial()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.BLUE));
-					itemTooltipEvent.getToolTip().add(new StringTextComponent("Enchantability: " + ((ArmorItem) (itemTooltipEvent.getItemStack().getItem())).getItemEnchantability()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.BLUE));
-    			}
-    			if(itemTooltipEvent.getItemStack().getItem() instanceof BlockItem) {
-    				Block block = ((BlockItem) (itemTooltipEvent.getItemStack().getItem())).getBlock();
-    				if(block instanceof FlowerBlock) {
-    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Effect: " + LanguageMap.getInstance().translateKey(((FlowerBlock) block).getStewEffect().getName())).applyTextStyles(TextFormatting.ITALIC, TextFormatting.LIGHT_PURPLE));
-    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Duration: " + ((FlowerBlock) block).getStewEffectDuration()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.LIGHT_PURPLE));
-    				}
-//    				if(block.getLightValue(null) > 0) {
-//    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Light Value: " + block.getLightValue(null)).applyTextStyles(TextFormatting.ITALIC, TextFormatting.LIGHT_PURPLE));
-//    				}
-    			}
+        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Max Uses: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier().getMaxUses()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
+        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Efficiency: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier().getEfficiency()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
+        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Harvest Level: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
+        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Repair Material: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier().getRepairMaterial().getMatchingStacks()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
+        			}
+        			if(itemTooltipEvent.getItemStack().getItem().isFood()) {
+        				if(itemTooltipEvent.getItemStack().getItem().getFood().isMeat()) {
+        					itemTooltipEvent.getToolTip().add(new StringTextComponent("Meat").applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
+        				}
+        				if(itemTooltipEvent.getItemStack().getItem().getFood().canEatWhenFull()) {
+        					itemTooltipEvent.getToolTip().add(new StringTextComponent("Can eat when full").applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
+        				}
+        				if(itemTooltipEvent.getItemStack().getItem().getFood().isFastEating()) {
+        					itemTooltipEvent.getToolTip().add(new StringTextComponent("Fast eating").applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
+        				}
+    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Hunger Healing: " + itemTooltipEvent.getItemStack().getItem().getFood().getHealing()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
+    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Saturation: " + itemTooltipEvent.getItemStack().getItem().getFood().getSaturation()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
+    					if(!itemTooltipEvent.getItemStack().getItem().getFood().getEffects().isEmpty()) {
+    						itemTooltipEvent.getToolTip().add(new StringTextComponent("Effects: " + itemTooltipEvent.getItemStack().getItem().getFood().getEffects().toString()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
+    					}
+        			}
+        			if(itemTooltipEvent.getItemStack().getItem() instanceof ArmorItem) {
+    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Tier: " + ((ArmorItem) (itemTooltipEvent.getItemStack().getItem())).getArmorMaterial()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.BLUE));
+    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Enchantability: " + ((ArmorItem) (itemTooltipEvent.getItemStack().getItem())).getItemEnchantability()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.BLUE));
+        			}
+        			if(itemTooltipEvent.getItemStack().getItem() instanceof BlockItem) {
+        				Block block = ((BlockItem) (itemTooltipEvent.getItemStack().getItem())).getBlock();
+        				if(block instanceof FlowerBlock) {
+        					itemTooltipEvent.getToolTip().add(new StringTextComponent("Effect: " + LanguageMap.getInstance().translateKey(((FlowerBlock) block).getStewEffect().getName())).applyTextStyles(TextFormatting.ITALIC, TextFormatting.LIGHT_PURPLE));
+        					itemTooltipEvent.getToolTip().add(new StringTextComponent("Duration: " + ((FlowerBlock) block).getStewEffectDuration()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.LIGHT_PURPLE));
+        				}
+//        				if(block.getLightValue(null) > 0) {
+//        					itemTooltipEvent.getToolTip().add(new StringTextComponent("Light Value: " + block.getLightValue(null)).applyTextStyles(TextFormatting.ITALIC, TextFormatting.LIGHT_PURPLE));
+//        				}
+        			}
+        		}
     		}
     	}
     }

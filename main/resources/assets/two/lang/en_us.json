@@ -1,12 +1,17 @@
 {
 	"entity.two.chameleon" : "Chameleon",
+	"entity.two.bearded_dragon" : "Bearded Dragon",
+	"entity.two.red_panda" : "Red Panda",
+	
 	"entity.two.dark_dwarf_archer" : "Dark Dwarven Archer",
 	"entity.two.mummified_zombie" : "Mummified Zombie",
+	
 	"entity.two.capped_arrow" : "Capped Arrow",
 	"entity.two.fire_arrow" : "Fire Arrow",
 	"entity.two.ice_arrow" : "Ice Arrow",
 	"entity.two.bomb_arrow" : "Bomb Arrow",
 	"entity.two.shock_arrow" : "Shock Arrow",
+	
 	"entity.two.sigil" : "Sigil",
 	
 	
@@ -633,6 +638,8 @@
 	"item.two.inspection_spectacles" : "Inspection Spectacles",
 	
 	"item.two.chameleon_spawn_egg" : "Chameleon Spawn Egg",
+	"item.two.bearded_dragon_spawn_egg" : "Bearded Dragon Spawn Egg",
+	"item.two.red_panda_spawn_egg" : "Red Panda Spawn Egg",
 	"item.two.dark_dwarf_archer_spawn_egg" : "Dark Dwarven Archer Spawn Egg",
 	"item.two.mummified_zombie_spawn_egg" : "Mummified Zombie Spawn Egg",
 	
