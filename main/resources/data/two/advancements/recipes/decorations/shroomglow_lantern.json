@@ -57,6 +57,8 @@
     [
       "has_iron_nugget",
       "has_iron_ingot",
+	  "has_brimshine",
+      "has_neondot",
       "has_the_recipe"
     ]
   ]
