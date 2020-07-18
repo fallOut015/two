@@ -15,6 +15,8 @@ public class RenderTypeLookupTwo {
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.NEONDOT, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.BRIMSHINE, RenderType.getCutout());
 
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.SHROOMGLOW_LANTERN, RenderType.getCutout());
+
 		RenderTypeLookup.setRenderLayer(BlocksTwo.CHERRY_SAPLING, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.MAPLE_SAPLING, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.GHOSTWOOD_SAPLING, RenderType.getCutout());
