@@ -95,6 +95,7 @@ public class CappedArrowEntity extends AbstractArrowEntity implements IEntityAdd
 		ITEM_FOR_ARROW_TIER.put(ItemTierTwo.EMERALD, ItemsTwo.EMERALD_CAPPED_ARROW);
 		ITEM_FOR_ARROW_TIER.put(ItemTierTwo.RUBY, ItemsTwo.RUBY_CAPPED_ARROW);
 		ITEM_FOR_ARROW_TIER.put(ItemTierTwo.LEAD, ItemsTwo.LEAD_CAPPED_ARROW);
+		ITEM_FOR_ARROW_TIER.put(ItemTierTwo.COPPER, ItemsTwo.COPPER_CAPPED_ARROW);
 		ITEM_FOR_ARROW_TIER.put(ItemTierTwo.MYRKYLITE, ItemsTwo.MYRKYLITE_CAPPED_ARROW);
 	}
 

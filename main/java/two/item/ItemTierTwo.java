@@ -58,7 +58,7 @@ public enum ItemTierTwo implements IItemTier {
 	SILVER(2, 222, 5.0f, 2.0f, 10, () -> { // Overworld
 		return Ingredient.fromItems(ItemsTwo.SILVER_INGOT);
 	}),
-	COPPER(2, 180, 6.0f, 3.0f, 12, () -> { // Overworld
+	COPPER(2, 275, 6.5f, 2.0f, 15, () -> { // Overworld
 		return Ingredient.fromItems(ItemsTwo.COPPER_INGOT);
 	}),
 	PLATINUM(5, 1905, 7.0f, 4.0f, 10, () -> { // End

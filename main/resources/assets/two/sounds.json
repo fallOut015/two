@@ -20,6 +20,13 @@
 			"two:item/armor/equip_lead"
 		]
 	},
+	"item.armor.equip_copper" : {
+		"category" : "item",
+		"subtitle" : "subtitles.item.armor.equip_copper",
+		"sounds" : [
+			"two:item/armor/equip_copper"
+		]
+	},
 	"item.armor.equip_stone" : {
 		"category" : "item",
 		"subtitle" : "subtitles.item.armor.equip_stone",

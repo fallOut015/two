@@ -571,6 +571,7 @@
 	"item.two.emerald_horse_armor" : "Emerald Horse Armor",
 	"item.two.ruby_horse_armor" : "Ruby Horse Armor",
 	"item.two.lead_horse_armor" : "Lead Horse Armor",
+	"item.two.copper_horse_armor" : "Copper Horse Armor",
 	
 	"item.two.stone_horse_armor" : "Stone Horse Armor",
 	"item.two.myrkylite_horse_armor" : "Myrkylite Horse Armor",
@@ -691,6 +692,11 @@
 	"item.two.lead_axe" : "Lead Axe",
 	"item.two.lead_hoe" : "Lead Hoe",
 	
+	"item.two.copper_shovel" : "Copper Shovel",
+	"item.two.copper_pickaxe" : "Copper Pickaxe",
+	"item.two.copper_axe" : "Copper Axe",
+	"item.two.copper_hoe" : "Copper Hoe",
+	
 	"item.two.myrkylite_shovel" : "Myrkylite Shovel",
 	"item.two.myrkylite_pickaxe" : "Myrkylite  Pickaxe",
 	"item.two.myrkylite_axe" : "Myrkylite Axe",
@@ -705,6 +711,7 @@
 	"item.two.emerald_sickle" : "Emerald Sickle",
 	"item.two.ruby_sickle" : "Ruby Sickle",
 	"item.two.lead_sickle" : "Lead Sickle",
+	"item.two.copper_sickle" : "Copper Sickle",
 	"item.two.myrkylite_sickle" : "Myrkylite Sickle",
 	
 	"item.two.smithing_hammer" : "Smithing Hammer",
@@ -718,6 +725,7 @@
 	"item.two.emerald_sword" : "Emerald Sword",
 	"item.two.ruby_sword" : "Ruby Sword",
 	"item.two.lead_sword" : "Lead Sword",
+	"item.two.copper_sword" : "Copper Sword",
 	"item.two.myrkylite_sword" : "Myrkylite Sword",
 	
 	"item.two.iron_battleaxe" : "Iron Battleaxe",
@@ -728,6 +736,7 @@
 	"item.two.emerald_battleaxe" : "Emerald Battleaxe",
 	"item.two.ruby_battleaxe" : "Ruby Battleaxe",
 	"item.two.lead_battleaxe" : "Lead Battleaxe",
+	"item.two.copper_battleaxe" : "Copper Battleaxe",
 	"item.two.myrkylite_battleaxe" : "Myrkylite Battleaxe",
 	
 	"item.two.iron_dagger" : "Iron Dagger",
@@ -738,6 +747,7 @@
 	"item.two.emerald_dagger" : "Emerald Dagger",
 	"item.two.ruby_dagger" : "Ruby Dagger",
 	"item.two.lead_dagger" : "Lead Dagger",
+	"item.two.copper_dagger" : "Copper Dagger",
 	"item.two.myrkylite_dagger" : "Myrkylite Dagger",
 	
 	"item.two.cutlass" : "Cutlass",
@@ -758,6 +768,7 @@
 	"item.two.emerald_capped_arrow" : "Emerald Capped Arrow",
 	"item.two.ruby_capped_arrow" : "Ruby Capped Arrow",
 	"item.two.lead_capped_arrow" : "Lead Capped Arrow",
+	"item.two.copper_capped_arrow" : "Copper Capped Arrow",
 	"item.two.myrkylite_capped_arrow" : "Myrkylite Capped Arrow",
 	
 	"item.two.fire_arrow" : "Fire Arrow",
@@ -779,6 +790,11 @@
 	"item.two.lead_chestplate" : "Lead Chestplate",
 	"item.two.lead_leggings" : "Lead Leggings",
 	"item.two.lead_boots" : "Lead Boots",
+	
+	"item.two.copper_helmet" : "Copper Helmet",
+	"item.two.copper_chestplate" : "Copper Chestplate",
+	"item.two.copper_leggings" : "Copper Leggings",
+	"item.two.copper_boots" : "Copper Boots",
 	
 	"item.two.stone_helmet" : "Stone Helmet",
 	"item.two.stone_chestplate" : "Stone Chestplate",
@@ -1114,6 +1130,7 @@
 	"subtitles.item.armor.equip_emerald" : "Emerald armor blings",
 	"subtitles.item.armor.equip_ruby" : "Ruby armor blangs",
 	"subtitles.item.armor.equip_lead" : "Lead armor scuffs",
+	"subtitles.item.armor.equip_copper" : "Copper armor cops",
 	"subtitles.item.armor.equip_stone" : "Stone armor scrapes",
 	"subtitles.item.armor.equip_myrkylite" : "Myrkylite armor weighs",
 	"subtitles.item.armor.equip_wood" : "Wooden armor plats",

@@ -22,6 +22,9 @@ public enum ArmorMaterialTwo implements IArmorMaterial {
 	LEAD("lead", 0, new int[] {0, 0, 0, 0}, 0, SoundEventsTwo.ITEM_ARMOR_EQUIP_LEAD, 0.0f, () -> {
 		return Ingredient.fromItems(ItemsTwo.LEAD_INGOT);
 	}),
+	COPPER("copper", 16, new int[] {2, 5, 6, 2}, 0, SoundEventsTwo.ITEM_ARMOR_EQUIP_COPPER, 0.0f, () -> {
+		return Ingredient.fromItems(ItemsTwo.COPPER_INGOT);
+	}),
 	
 	STONE("stone", 10, new int[] {1, 4, 5, 2}, 6, SoundEventsTwo.ITEM_ARMOR_EQUIP_STONE, 1.0f, () -> {
 		return Ingredient.fromItems(Items.COBBLESTONE);
