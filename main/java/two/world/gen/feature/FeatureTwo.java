@@ -10,7 +10,6 @@ import net.minecraft.world.gen.feature.BlockWithContextConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.feature.OreFeatureConfig.FillerBlockType;
 import net.minecraft.world.gen.feature.ReplaceBlockConfig;
 import net.minecraft.world.gen.feature.ReplaceBlockFeature;
 import net.minecraft.world.gen.feature.TreeFeature;
@@ -26,12 +25,12 @@ import two.world.gen.feature.structure.DwarvenKeepStructure;
 
 @SuppressWarnings("unchecked")
 public class FeatureTwo {
-	public static final OreFeatureConfig.FillerBlockType END_STONE = OreFeatureConfig.FillerBlockType.create(FillerBlockType.class.toString(), "end_stone", BlockMatcher.forBlock(Blocks.END_STONE));
-	public static final OreFeatureConfig.FillerBlockType SMOOTH_SANDSTONE = OreFeatureConfig.FillerBlockType.create(FillerBlockType.class.toString(), "smooth_sandstone", BlockMatcher.forBlock(Blocks.SMOOTH_SANDSTONE));
+	public static final OreFeatureConfig.FillerBlockType END_STONE = OreFeatureConfig.FillerBlockType.create("two:END_STONE", "two:end_stone", BlockMatcher.forBlock(Blocks.END_STONE));
+	public static final OreFeatureConfig.FillerBlockType SMOOTH_SANDSTONE = OreFeatureConfig.FillerBlockType.create("two:SMOOTH_SANDSTONE", "two:smooth_sandstone", BlockMatcher.forBlock(Blocks.SMOOTH_SANDSTONE));
 //	OreFeatureConfig.FillerBlockType NIGHTSTONE = OreFeatureConfig.FillerBlockType.create("nightstone", "", BlockMatcher.forBlock(BlocksTwo.NIGHTSTONE));
 //	OreFeatureConfig.FillerBlockType PACKED_ICE = OreFeatureConfig.FillerBlockType.create("packed_ice", "", BlockMatcher.forBlock(Blocks.PACKED_ICE));
-	public static final OreFeatureConfig.FillerBlockType MYRKYLITE = OreFeatureConfig.FillerBlockType.create(FillerBlockType.class.toString(), "myrkylite", BlockMatcher.forBlock(BlocksTwo.MYRKYLITE));
-
+	public static final OreFeatureConfig.FillerBlockType MYRKYLITE = OreFeatureConfig.FillerBlockType.create("two:MYRKYLITE", "two:myrkylite", BlockMatcher.forBlock(BlocksTwo.MYRKYLITE));
+	
 	private static final BlockState CHERRY_LOG = BlocksTwo.CHERRY_LOG.getDefaultState();
 	private static final BlockState MAPLE_LOG = BlocksTwo.MAPLE_LOG.getDefaultState();
 	private static final BlockState GHOSTWOOD_LOG = BlocksTwo.GHOSTWOOD_LOG.getDefaultState();
