@@ -9,13 +9,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.util.ITeleporter;
-import two.world.dimension.ModDimensionTwo;
+import two.world.dimension.DimensionTypeTwo;
 
 public class SnowglobeItem extends Item {
 	public SnowglobeItem(Properties properties) {
@@ -26,8 +23,7 @@ public class SnowglobeItem extends Item {
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		super.onItemRightClick(worldIn, playerIn, handIn);
 		
-		DimensionType frostbite = DimensionManager.registerOrGetDimension(new ResourceLocation("two", "frostbite"), ModDimensionTwo.FROSTBITE, null, false);
-		playerIn.changeDimension(frostbite, new ITeleporter() {
+		playerIn.changeDimension(DimensionTypeTwo.FROSTBTIE, new ITeleporter() {
 			public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
 				return repositionEntity.apply(false);
 			}
