@@ -1,6 +1,7 @@
 {
   	"replace" : false,
   	"values" : [
-    	"two:copper_ore"
+    	"two:copper_ore",
+		"two:desert_copper_ore"
   	]
 }

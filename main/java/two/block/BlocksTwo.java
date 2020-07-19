@@ -35,13 +35,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IWorldReader;
-import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.LootParameterSets;
 import net.minecraft.world.storage.loot.LootParameters;
 import net.minecraft.world.storage.loot.LootTable;
-import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.event.RegistryEvent;
@@ -56,7 +54,7 @@ import two.block.trees.FrostbarkTree;
 import two.block.trees.GhostwoodTree;
 import two.block.trees.MapleTree;
 import two.fluid.FluidsTwo;
-import two.world.dimension.ModDimensionTwo;
+import two.world.dimension.DimensionTypeTwo;
 
 @ObjectHolder("two")
 public class BlocksTwo {
@@ -386,6 +384,7 @@ public class BlocksTwo {
 	public static final Block DESERT_COAL_ORE = register("desert_coal_ore", new OreBlock(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.COAL_ORE.getHarvestLevel(Blocks.COAL_ORE.getDefaultState()))));
 	public static final Block DESERT_IRON_ORE = register("desert_iron_ore", new OreBlock(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.IRON_ORE.getHarvestLevel(Blocks.IRON_ORE.getDefaultState()))));
 	public static final Block DESERT_GOLD_ORE = register("desert_gold_ore", new OreBlock(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.GOLD_ORE.getHarvestLevel(Blocks.GOLD_ORE.getDefaultState()))));
+	public static final Block DESERT_COPPER_ORE = register("desert_copper_ore", new OreBlock(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(2)));
 
 	public static final Block END_COBALT_ORE = register("end_cobalt_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
 	public static final Block END_JADE_ORE = register("end_jade_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
@@ -494,8 +493,7 @@ public class BlocksTwo {
 			//Block bed = bedstate.getBlock();
 			IWorldReader worldreader = playerWakeUpEvent.getPlayer().getEntityWorld();
 			BlockPos blockpos = playerWakeUpEvent.getPlayer().getBedPosition().get();
-			DimensionType nightmare = DimensionManager.registerOrGetDimension(new ResourceLocation("two", "nightmare"), ModDimensionTwo.NIGHTMARE, null, false);
-			playerWakeUpEvent.getPlayer().changeDimension(nightmare, new ITeleporter() {
+			playerWakeUpEvent.getPlayer().changeDimension(DimensionTypeTwo.NIGHTMARE, new ITeleporter() {
 				public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
 					return repositionEntity.apply(false);
 				}
@@ -532,8 +530,7 @@ public class BlocksTwo {
 		@Override
 		public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
 			BlockState bedstate = playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedPosition().get());
-			DimensionType sky = DimensionManager.registerOrGetDimension(new ResourceLocation("two", "sky"), ModDimensionTwo.SKY, null, true);
-			playerWakeUpEvent.getPlayer().changeDimension(sky, new ITeleporter() {
+			playerWakeUpEvent.getPlayer().changeDimension(DimensionTypeTwo.SKY, new ITeleporter() {
 				public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
 					return repositionEntity.apply(false);
 				}

@@ -38,13 +38,10 @@ import net.minecraft.item.WallOrFloorItem;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
-import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
@@ -58,7 +55,7 @@ import two.entity.projectile.IceArrowEntity;
 import two.entity.projectile.ShockArrowEntity;
 import two.fluid.FluidsTwo;
 import two.util.SoundEventsTwo;
-import two.world.dimension.ModDimensionTwo;
+import two.world.dimension.DimensionTypeTwo;
 
 @ObjectHolder("two")
 public class ItemsTwo {
@@ -257,6 +254,7 @@ public class ItemsTwo {
 	public static final Item DESERT_COAL_ORE = register(BlocksTwo.DESERT_COAL_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item DESERT_IRON_ORE = register(BlocksTwo.DESERT_IRON_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item DESERT_GOLD_ORE = register(BlocksTwo.DESERT_GOLD_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item DESERT_COPPER_ORE = register(BlocksTwo.DESERT_COPPER_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	public static final Item END_COBALT_ORE = register(BlocksTwo.END_COBALT_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item END_JADE_ORE = register(BlocksTwo.END_JADE_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -572,7 +570,7 @@ public class ItemsTwo {
     public static final Item KNAPSACK = register("knapsack", new KnapsackItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
     //potion sack -> displays extra potion slots
     //quiver -> displays extra arrow slots
-    public static final Item INSPECTION_SPECTACLES = register("inspection_spectacles", new InspectionSpectaclesItem(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item INSPECTION_SPECTACLES = register("inspection_spectacles", new InspectionSpectaclesItem(new Item.Properties().group(ItemGroup.MISC).rarity(Rarity.EPIC)));
     
     public static final Item CHAMELEON_SPAWN_EGG = register("chameleon_spawn_egg", new SpawnEggItem(EntityTypeTwo.CHAMELEON, 2162500, 14463743, new Item.Properties().group(ItemGroup.MISC)));
     public static final Item BEARDED_DRAGON_SPAWN_EGG = register("bearded_dragon_spawn_egg", new SpawnEggItem(EntityTypeTwo.BEARDED_DRAGON, 14397817, 15255450, new Item.Properties().group(ItemGroup.MISC)));
@@ -586,8 +584,7 @@ public class ItemsTwo {
     
     public static final Item REGOLITH_DUST = register("regolith_dust", new Item(new Item.Properties().group(ItemGroup.MISC)  ) {
     	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, net.minecraft.util.Hand handIn) {
-			DimensionType nidavellir = DimensionManager.registerOrGetDimension(new ResourceLocation("two", "nidavellir"), ModDimensionTwo.NIDAVELLIR, null, false);
-			playerIn.changeDimension(nidavellir, new ITeleporter() {
+			playerIn.changeDimension(DimensionTypeTwo.NIDAVELLIR, new ITeleporter() {
 				public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
 					return repositionEntity.apply(false);
 				}
