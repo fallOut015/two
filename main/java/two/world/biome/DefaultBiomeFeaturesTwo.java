@@ -5,6 +5,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
@@ -108,6 +109,10 @@ public class DefaultBiomeFeaturesTwo {
 		Biomes.DESERT.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).clear();
 		Biomes.DESERT_HILLS.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).clear();
 		Biomes.DESERT_LAKES.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).clear();
+
+		Biomes.DESERT.getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).removeIf(configuredFeature -> configuredFeature.feature == Feature.SPRING_FEATURE && configuredFeature.config == DefaultBiomeFeatures.LAVA_SPRING_CONFIG);
+		Biomes.DESERT_HILLS.getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).removeIf(configuredFeature -> configuredFeature.feature == Feature.SPRING_FEATURE && configuredFeature.config == DefaultBiomeFeatures.LAVA_SPRING_CONFIG);
+		Biomes.DESERT_LAKES.getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).removeIf(configuredFeature -> configuredFeature.feature == Feature.SPRING_FEATURE && configuredFeature.config == DefaultBiomeFeatures.LAVA_SPRING_CONFIG);
 		
 		
 		
@@ -133,12 +138,15 @@ public class DefaultBiomeFeaturesTwo {
 		Biomes.DESERT.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.SMOOTH_SANDSTONE, BlocksTwo.DESERT_COAL_ORE.getDefaultState(), 20)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 0, 0, 128))));
 		Biomes.DESERT.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.SMOOTH_SANDSTONE, BlocksTwo.DESERT_IRON_ORE.getDefaultState(), 18)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(32, 0, 0, 96))));
 		Biomes.DESERT.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.SMOOTH_SANDSTONE, BlocksTwo.DESERT_GOLD_ORE.getDefaultState(), 18)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 0, 0, 48))));
+		Biomes.DESERT.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.SMOOTH_SANDSTONE, BlocksTwo.DESERT_COPPER_ORE.getDefaultState(), 18)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 0, 0, 96))));
 		Biomes.DESERT_HILLS.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.SMOOTH_SANDSTONE, BlocksTwo.DESERT_COAL_ORE.getDefaultState(), 18)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 0, 0, 128))));
 		Biomes.DESERT_HILLS.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.SMOOTH_SANDSTONE, BlocksTwo.DESERT_IRON_ORE.getDefaultState(), 18)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(32, 0, 0, 96))));
 		Biomes.DESERT_HILLS.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.SMOOTH_SANDSTONE, BlocksTwo.DESERT_GOLD_ORE.getDefaultState(), 20)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 0, 0, 48))));
+		Biomes.DESERT_HILLS.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.SMOOTH_SANDSTONE, BlocksTwo.DESERT_COPPER_ORE.getDefaultState(), 20)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 0, 0, 96))));
 		Biomes.DESERT_LAKES.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.SMOOTH_SANDSTONE, BlocksTwo.DESERT_COAL_ORE.getDefaultState(), 18)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 0, 0, 128))));
 		Biomes.DESERT_LAKES.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.SMOOTH_SANDSTONE, BlocksTwo.DESERT_IRON_ORE.getDefaultState(), 20)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(32, 0, 0, 96))));
 		Biomes.DESERT_LAKES.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.SMOOTH_SANDSTONE, BlocksTwo.DESERT_GOLD_ORE.getDefaultState(), 18)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 0, 0, 48))));
+		Biomes.DESERT_LAKES.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.SMOOTH_SANDSTONE, BlocksTwo.DESERT_COPPER_ORE.getDefaultState(), 18)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 0, 0, 96))));
 	}
 	private static void icyFeatures() {
 		Biomes.ICE_SPIKES.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).clear();
@@ -159,6 +167,12 @@ public class DefaultBiomeFeaturesTwo {
 		// cold oceans, taiga, snowy mountains, etc.
 	}
 	private static void mushroomFeatures() {
-		// mushroom island, mushroom beach
+		Biomes.MUSHROOM_FIELD_SHORE.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).clear();
+		Biomes.MUSHROOM_FIELDS.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).clear();
+		
+		
+		
+		Biomes.MUSHROOM_FIELD_SHORE.addFeature(GenerationStage.Decoration.RAW_GENERATION, FeatureTwo.MULTI_REPLACE_BLOCK.withConfiguration(new MultiReplaceBlockConfig(Blocks.STONE.getDefaultState(), BlocksTwo.SPORESTONE.getDefaultState(), Blocks.STONE.getDefaultState(), BlocksTwo.SPORESTONE_SOIL.getDefaultState())).withPlacement(PlacementTwo.PLACE_ALL_TO_64.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		Biomes.MUSHROOM_FIELDS.addFeature(GenerationStage.Decoration.RAW_GENERATION, FeatureTwo.MULTI_REPLACE_BLOCK.withConfiguration(new MultiReplaceBlockConfig(Blocks.STONE.getDefaultState(), BlocksTwo.SPORESTONE.getDefaultState(), Blocks.STONE.getDefaultState(), BlocksTwo.SPORESTONE_SOIL.getDefaultState())).withPlacement(PlacementTwo.PLACE_ALL_TO_64.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 	}
 }
