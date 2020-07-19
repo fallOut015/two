@@ -1209,10 +1209,11 @@
 	"block.minecraft.jungle_log.desc" : "These trees grow in jungles. You can craft bark out of this or smelt it into charcoal. Right-click with an axe to strip the bark off.",
 	"block.minecraft.acacia_log.desc" : "These trees grow in savannas. You can craft bark out of this or smelt it into charcoal. Right-click with an axe to strip the bark off.",
 	"block.minecraft.dark_oak_log.desc" : "These trees grow in dark forests. You can craft bark out of this or smelt it into charcoal. Right-click with an axe to strip the bark off.",
-	"block.minecraft.stripped_oak_log.desc" : "Mostly used for building. You can use this as if it had its bark in crafting ans smelting still.",
-	"block.minecraft.stripped_spruce_log.desc" : "",
-	"block.minecraft.stripped_birch_log.desc" : "",
+	"block.minecraft.stripped_oak_log.desc" : "Mostly used for building. You can use this as if it had its bark in crafting and smelting still.",
+	"block.minecraft.stripped_spruce_log.desc" : "Used in village builds because of the natural dark color. You can use this as if it had its bark in crafting and smelting still.",
+	"block.minecraft.stripped_birch_log.desc" : "Come to think of it I don't know what this looks like. You can use this as if it had its bark in crafting and smelting still.",
 	"block.minecraft.stripped_jungle_log.desc" : "",
+	"block.minecraft.stripped_acacia_log.desc" : "",
 	"block.minecraft.stripped_dark_oak_log.desc" : "",
 		
 	"item.two.inspection_spectacles.desc" : "You're wearing them!"
