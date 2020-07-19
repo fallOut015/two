@@ -118,6 +118,7 @@ import two.tileentity.TileEntityTypeTwo;
 import two.util.SoundEventsTwo;
 import two.world.biome.BiomesTwo;
 import two.world.biome.DefaultBiomeFeaturesTwo;
+import two.world.dimension.DimensionTypeTwo;
 import two.world.dimension.ModDimensionTwo;
 import two.world.gen.carver.WorldCarverTwo;
 import two.world.gen.feature.FeatureTwo;
@@ -153,7 +154,13 @@ public class Two {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void setup(final FMLCommonSetupEvent event) {}
+    private void setup(final FMLCommonSetupEvent event) {
+//    	DeferredWorkQueue ? 
+    	DefaultBiomeFeaturesTwo.addFeatures();
+    	DefaultBiomeFeaturesTwo.addStructures();
+    	DefaultBiomeFeaturesTwo.addSpawns();
+    	DefaultBiomeFeaturesTwo.addCarvers();
+    }
     private void doClientStuff(final FMLClientSetupEvent event) {
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CHAMELEON, ChameleonRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonRenderer::new);
@@ -174,11 +181,6 @@ public class Two {
     	
     	ClientRegistry.bindTileEntityRenderer(TileEntityTypeTwo.CHAIR, ChairRenderer::new);
     	
-    	DefaultBiomeFeaturesTwo.addFeatures();
-    	DefaultBiomeFeaturesTwo.addStructures();
-    	DefaultBiomeFeaturesTwo.addSpawns();
-    	DefaultBiomeFeaturesTwo.addCarvers();
-
     	RenderTypeLookupTwo.setRenderLayers();
 
     	CapabilitiesTwo.register();
@@ -196,6 +198,7 @@ public class Two {
     	} catch (Exception exception) { LOGGER.warn(exception); }
 
     	try {
+    		Two.LOGGER.info("Running Two$clientOnly, will throw a NoSuchMethod error on a dedicated server.");
     		clientOnly();
     	} catch(NoSuchMethodError e) { Two.LOGGER.error(e); }
     }
@@ -203,8 +206,6 @@ public class Two {
     private void processIMC(final InterModProcessEvent event) {}
     @OnlyIn(Dist.CLIENT)
     private static void clientOnly() {
-		Two.LOGGER.info("Running Two$clientOnly, will throw a NoSuchMethod error on a dedicated server.");
-
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
 
@@ -234,6 +235,10 @@ public class Two {
     		ContainerTypeTwo.onContainerTypesRegistry(containerTypeRegistryEvent);
     	}
     	@SubscribeEvent
+    	public static void onDimensionTypesRegistry(final RegistryEvent.Register<DimensionType> dimensionTypeRegistryEvent) {
+    		DimensionTypeTwo.onDimensionTypesRegistry(dimensionTypeRegistryEvent);
+    	}
+    	@SubscribeEvent
     	public static void onEnchantmentsRegistry(final RegistryEvent.Register<Enchantment> enchantmentRegistryEvent) {
     		EnchantmentsTwo.onEnchantmentsRegistry(enchantmentRegistryEvent);
     	}
@@ -254,7 +259,6 @@ public class Two {
     		// loot stuff
 //    		LootTables.CHESTS_SIMPLE_DUNGEON.
     	}
-    	// Add a dimensions registry that registers mod dimensions? 
     	@SubscribeEvent
     	public static void onModDimensionsRegistry(final RegistryEvent.Register<ModDimension> modDimensionRegistryEvent) {
     		ModDimensionTwo.onModDimensionsRegistry(modDimensionRegistryEvent);
@@ -517,11 +521,9 @@ public class Two {
     			itemTooltipEvent.getToolTip().add(new StringTextComponent("Jumps: " + jumps));
     			itemTooltipEvent.getToolTip().add(new StringTextComponent("Extra Jump Limit: " + extrajumplimit));
     		}
-    		try {
-    			// TODO
-    			// some NPE is causing an exception which *can* be fatal. 
-    		} catch(NullPointerException e) {
-    			LinkedList<Item> equipment = new LinkedList<Item>();
+    		
+    		LinkedList<Item> equipment = new LinkedList<Item>();
+    		if(itemTooltipEvent.getEntityLiving() != null) {
         		itemTooltipEvent.getEntityLiving().getArmorInventoryList().forEach(itemStack -> equipment.add(itemStack.getItem()));
         		if(equipment.contains(ItemsTwo.INSPECTION_SPECTACLES)) {
         			if(!LanguageMap.getInstance().translateKey(itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc").equals((itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc"))) {
@@ -562,9 +564,7 @@ public class Two {
         					itemTooltipEvent.getToolTip().add(new StringTextComponent("Effect: " + LanguageMap.getInstance().translateKey(((FlowerBlock) block).getStewEffect().getName())).applyTextStyles(TextFormatting.ITALIC, TextFormatting.LIGHT_PURPLE));
         					itemTooltipEvent.getToolTip().add(new StringTextComponent("Duration: " + ((FlowerBlock) block).getStewEffectDuration()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.LIGHT_PURPLE));
         				}
-//        				if(block.getLightValue(null) > 0) {
-//        					itemTooltipEvent.getToolTip().add(new StringTextComponent("Light Value: " + block.getLightValue(null)).applyTextStyles(TextFormatting.ITALIC, TextFormatting.LIGHT_PURPLE));
-//        				}
+        				// TODO Other Block Data. 
         			}
         		}
     		}
