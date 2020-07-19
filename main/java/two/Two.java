@@ -3,7 +3,6 @@ package two;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
@@ -30,11 +29,9 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.IItemTier;
+import net.minecraft.item.HorseArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTier;
-import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.TieredItem;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.CompressedStreamTools;
@@ -110,7 +107,6 @@ import two.fluid.FluidsTwo;
 import two.inventory.container.ContainerTypeTwo;
 import two.item.ArmorMaterialTwo;
 import two.item.DoubleJumpBootsItem;
-import two.item.ItemTierTwo;
 import two.item.ItemsTwo;
 import two.particles.ParticleTypesTwo;
 import two.stats.StatsTwo;
@@ -472,25 +468,25 @@ public class Two {
     	@OnlyIn(Dist.CLIENT)
     	public static void onItemTooltip(final ItemTooltipEvent itemTooltipEvent) {
     		// Pickaxes show all of the ores they can mine. 
-    		if(itemTooltipEvent.getItemStack().getItem() instanceof PickaxeItem) {
-    			if(((PickaxeItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel() == 6)
-    				itemTooltipEvent.getToolTip().add(new StringTextComponent("Can mine everything."));
-    			else {
-    				List<IItemTier> itemTiers = new LinkedList<IItemTier>();
-    				
-        			for(IItemTier itemTier : ItemTier.values())
-        				if(itemTier != ItemTier.WOOD && ((PickaxeItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel() >= itemTier.getHarvestLevel() - 1)
-        					itemTiers.add(itemTier);
-        			for(IItemTier itemTier : ItemTierTwo.values())
-        				if(itemTier != ItemTierTwo.BLOOD_BLADE && ((PickaxeItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel() >= itemTier.getHarvestLevel() - 1)
-        					itemTiers.add(itemTier);
-        			
-        			Collections.sort((List<IItemTier>) itemTiers, (itemTier1, itemTier2) -> itemTier1.getHarvestLevel() - itemTier2.getHarvestLevel());
-        			
-        			itemTooltipEvent.getToolTip().add(new StringTextComponent("Can mine...").applyTextStyle(TextFormatting.GRAY));        			
-        			itemTooltipEvent.getToolTip().add(new StringTextComponent(itemTiers.toString().toLowerCase()/*.replaceAll("[", "").replaceAll("]", "")*/).applyTextStyle(TextFormatting.GRAY));
-    			}
-    		}
+//    		if(itemTooltipEvent.getItemStack().getItem() instanceof PickaxeItem) {
+//    			if(((PickaxeItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel() == 6)
+//    				itemTooltipEvent.getToolTip().add(new StringTextComponent("Can mine everything."));
+//    			else {
+//    				List<IItemTier> itemTiers = new LinkedList<IItemTier>();
+//    				
+//        			for(IItemTier itemTier : ItemTier.values())
+//        				if(itemTier != ItemTier.WOOD && ((PickaxeItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel() > itemTier.getHarvestLevel() - 1)
+//        					itemTiers.add(itemTier);
+//        			for(IItemTier itemTier : ItemTierTwo.values())
+//        				if(itemTier != ItemTierTwo.BLOOD_BLADE && ((PickaxeItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel() > itemTier.getHarvestLevel() - 1)
+//        					itemTiers.add(itemTier);
+//        			
+//        			Collections.sort((List<IItemTier>) itemTiers, (itemTier1, itemTier2) -> itemTier1.getHarvestLevel() - itemTier2.getHarvestLevel());
+//        			
+//        			itemTooltipEvent.getToolTip().add(new StringTextComponent("Can mine...").applyTextStyle(TextFormatting.GRAY));        			
+//        			itemTooltipEvent.getToolTip().add(new StringTextComponent(itemTiers.toString().toLowerCase()/*.replaceAll("[", "").replaceAll("]", "")*/).applyTextStyle(TextFormatting.GRAY));
+//    			}
+//    		}
     		if(itemTooltipEvent.getItemStack().getItem() == ItemsTwo.CHAIR) {
     			String seat = "";
     			try {
@@ -557,6 +553,9 @@ public class Two {
         			if(itemTooltipEvent.getItemStack().getItem() instanceof ArmorItem) {
     					itemTooltipEvent.getToolTip().add(new StringTextComponent("Tier: " + ((ArmorItem) (itemTooltipEvent.getItemStack().getItem())).getArmorMaterial()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.BLUE));
     					itemTooltipEvent.getToolTip().add(new StringTextComponent("Enchantability: " + ((ArmorItem) (itemTooltipEvent.getItemStack().getItem())).getItemEnchantability()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.BLUE));
+        			}
+        			if(itemTooltipEvent.getItemStack().getItem() instanceof HorseArmorItem) {
+        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Protection: " + ((HorseArmorItem) itemTooltipEvent.getItemStack().getItem()).func_219977_e()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.BLUE));
         			}
         			if(itemTooltipEvent.getItemStack().getItem() instanceof BlockItem) {
         				Block block = ((BlockItem) (itemTooltipEvent.getItemStack().getItem())).getBlock();

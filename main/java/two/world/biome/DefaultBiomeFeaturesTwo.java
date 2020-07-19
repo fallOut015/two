@@ -174,5 +174,13 @@ public class DefaultBiomeFeaturesTwo {
 		
 		Biomes.MUSHROOM_FIELD_SHORE.addFeature(GenerationStage.Decoration.RAW_GENERATION, FeatureTwo.MULTI_REPLACE_BLOCK.withConfiguration(new MultiReplaceBlockConfig(Blocks.STONE.getDefaultState(), BlocksTwo.SPORESTONE.getDefaultState(), Blocks.STONE.getDefaultState(), BlocksTwo.SPORESTONE_SOIL.getDefaultState())).withPlacement(PlacementTwo.PLACE_ALL_TO_64.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 		Biomes.MUSHROOM_FIELDS.addFeature(GenerationStage.Decoration.RAW_GENERATION, FeatureTwo.MULTI_REPLACE_BLOCK.withConfiguration(new MultiReplaceBlockConfig(Blocks.STONE.getDefaultState(), BlocksTwo.SPORESTONE.getDefaultState(), Blocks.STONE.getDefaultState(), BlocksTwo.SPORESTONE_SOIL.getDefaultState())).withPlacement(PlacementTwo.PLACE_ALL_TO_64.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+
+	
+	
+		Biomes.MUSHROOM_FIELD_SHORE.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.SIMPLE_BLOCK.withConfiguration(FeatureTwo.NEONDOT_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(7))));
+		Biomes.MUSHROOM_FIELDS.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.SIMPLE_BLOCK.withConfiguration(FeatureTwo.NEONDOT_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(8))));
+		
+		Biomes.MUSHROOM_FIELD_SHORE.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.SIMPLE_BLOCK.withConfiguration(FeatureTwo.BRIMSHINE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(7))));
+		Biomes.MUSHROOM_FIELDS.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.SIMPLE_BLOCK.withConfiguration(FeatureTwo.BRIMSHINE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(8))));
 	}
 }

@@ -68,6 +68,8 @@ public class FeatureTwo {
 	@ObjectHolder("two:multi_replace_block") public static final Feature<MultiReplaceBlockConfig> MULTI_REPLACE_BLOCK = (Feature<MultiReplaceBlockConfig>) register("multi_replace_block", new MultiReplaceBlockFeature(MultiReplaceBlockConfig::deserialize));
 	
 	public static final BlockWithContextConfig SUCCULIGHT_CONFIG = new BlockWithContextConfig(BlocksTwo.SUCCULIGHT.getDefaultState(), new BlockState[] { Blocks.SAND.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() });
+	public static final BlockWithContextConfig NEONDOT_CONFIG = new BlockWithContextConfig(BlocksTwo.NEONDOT.getDefaultState(), new BlockState[] { BlocksTwo.SPORESTONE_SOIL.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() });
+	public static final BlockWithContextConfig BRIMSHINE_CONFIG = new BlockWithContextConfig(BlocksTwo.BRIMSHINE.getDefaultState(), new BlockState[] { BlocksTwo.SPORESTONE_SOIL.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() });
 	
 	
 	// desert arch feature

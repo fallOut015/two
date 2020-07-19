@@ -13,6 +13,8 @@ public class ParticleTypesTwo {
 //	public static final BasicParticleType SPARK = register("spark", false);
 //	public static final BasicParticleType TWINKLE = register("twinkle", false);
 	
+	// TODO fix
+	
 	public static void onParticleTypesRegistry(final RegistryEvent.Register<ParticleType<?>> particleTypeRegistryEvent) {
 		particleTypeRegistryEvent.getRegistry().registerAll(Holder.PARTICLETYPESTWO.toArray(new ParticleType<?> [] { }));
 	}
