@@ -56,6 +56,7 @@ Changelog:
 	Changed some underground generations. 
 	Added flagstone path. 
 	Added some new ore variations. 
+	Added copper items.
 '''
 [[dependencies.two]] #optional
     modId="forge"
