@@ -29,6 +29,9 @@ public class SigilModel<T extends SigilEntity> extends EntityModel<T> {
 	}
 	@Override
 	public void render(MatrixStack matrixStackIn, IVertexBuilder bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha) {
+		matrixStackIn.push();
+		matrixStackIn.scale(0.5f, 0.5f, 0.5f);
 		this.circle.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn);
+		matrixStackIn.pop();
 	}
 }
