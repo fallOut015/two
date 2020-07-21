@@ -2,6 +2,7 @@ package two.item;
 
 import com.google.common.collect.Multimap;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -12,6 +13,8 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import two.enchantment.EnchantmentsTwo;
 
 public class BanisherItem extends Item {
@@ -25,6 +28,10 @@ public class BanisherItem extends Item {
 		this.attackSpeed = -3.5f;
 	}
 	
+	@Override
+	public boolean canPlayerBreakBlockWhileHolding(BlockState state, World worldIn, BlockPos pos, PlayerEntity player) {
+		return !player.isCreative();
+	}
 	@Override
 	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 		stack.damageItem(1, attacker, livingEntityIn -> livingEntityIn.sendBreakAnimation(EquipmentSlotType.MAINHAND));
