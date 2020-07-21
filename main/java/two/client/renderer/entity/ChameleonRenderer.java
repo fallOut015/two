@@ -18,7 +18,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Pose;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -33,12 +32,27 @@ public class ChameleonRenderer extends MobRenderer<ChameleonEntity, ChameleonMod
 	public ChameleonRenderer(EntityRendererManager renderManagerIn) {
 		super(renderManagerIn, new ChameleonModel<>(), 0.25f);
 	}
-
+	
 	@SuppressWarnings("deprecation")
+	ResourceLocation blockOnResource(ChameleonEntity entity, BlockState blockStateIn) {
+		String location;
+		try {
+			TextureAtlasSprite texture = Minecraft.getInstance().getBlockRendererDispatcher().getBlockModelShapes().getModel(blockStateIn).getQuads(blockStateIn, Direction.UP, entity.getRNG()).get(0).func_187508_a();
+			location = texture.getName().getNamespace().replaceFirst("minecraft:", "") + ":textures/" + texture.getName().getPath() + ".png";
+		} catch(IndexOutOfBoundsException exception) {
+			location = "two:textures/entity/chameleon.png";
+		}
+		return new ResourceLocation(location);
+	}
+
 	public ResourceLocation getEntityTexture(ChameleonEntity entity) {
-		if(!ChameleonEntity.camoflouged(entity)) return TEXTURE;
+		if(entity.blendOff()) {
+			return TEXTURE;
+		} else if(entity.blend()) {
+			entity.updateOn();
+		}
 		
-		switch(entity.getStandingOn().getBlock().getRegistryName().toString()) { //Had to convert to string for the switch statement. 
+		switch(entity.getOn().getBlock().getRegistryName().toString()) { //Had to convert to string for the switch statement. 
 			case "minecraft:air":
 			case "minecraft:cave_air":
 			case "minecraft:water":
@@ -48,21 +62,13 @@ public class ChameleonRenderer extends MobRenderer<ChameleonEntity, ChameleonMod
 			case "minecraft:barrier":
 				return TEXTURE;
 			default:
-				BlockState blockStateIn = entity.getStandingOn();
-				String location;
-				try {
-					TextureAtlasSprite texture = Minecraft.getInstance().getBlockRendererDispatcher().getBlockModelShapes().getModel(blockStateIn).getQuads(blockStateIn, Direction.UP, entity.getRNG()).get(0).func_187508_a();
-					location = texture.getName().getNamespace().replaceFirst("minecraft:", "") + ":textures/" + texture.getName().getPath() + ".png";
-				} catch(IndexOutOfBoundsException exception) {
-					location = "two:textures/entity/chameleon.png";
-				}
-				return new ResourceLocation(location);
+				BlockState blockStateIn = entity.getOn();
+				return blockOnResource(entity, blockStateIn);
 		}
 	}
 	@Override
 	public void render(ChameleonEntity entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn) {
-		int color = Minecraft.getInstance().getBlockColors().getColor(entityIn.getStandingOn(), null, new BlockPos(entityIn.getPosition().down()), 0);
-		if(color != -1) {
+		if(!entityIn.blendOff() && entityIn.getColor() != -1) {
 			if (net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.client.event.RenderLivingEvent.Pre<ChameleonEntity, ChameleonModel<ChameleonEntity>>(entityIn, this, partialTicks, matrixStackIn, bufferIn, packedLightIn))) return;
 			matrixStackIn.push();
 			this.entityModel.swingProgress = this.getSwingProgress(entityIn, partialTicks);
@@ -126,16 +132,16 @@ public class ChameleonRenderer extends MobRenderer<ChameleonEntity, ChameleonMod
 			this.entityModel.setRotationAngles(entityIn, f5, f8, f7, f2, f6);
 			boolean flag = this.isVisible(entityIn);
 			boolean flag1 = !flag && !entityIn.isInvisibleToPlayer(Minecraft.getInstance().player);
-			if(entityIn.getStandingOn().getBlock().getTags().contains(Tags.Blocks.GLASS.getId())) {
+			if(entityIn.getOn().getBlock().getTags().contains(Tags.Blocks.GLASS.getId())) {
 				flag1 = true;
 			}
 			RenderType rendertype = this.func_230042_a_(entityIn, flag, flag1);
 			if (rendertype != null) {
 				IVertexBuilder ivertexbuilder = bufferIn.getBuffer(rendertype);
 				int i = getPackedOverlay(entityIn, this.getOverlayProgress(entityIn, partialTicks));
-	            float red = (float)(color >> 16 & 255) / 255.0F;
-	            float green = (float)(color >> 8 & 255) / 255.0F;
-	            float blue = (float)(color & 255) / 255.0F;
+	            float red = (float)(entityIn.getColor() >> 16 & 255) / 255.0F;
+	            float green = (float)(entityIn.getColor() >> 8 & 255) / 255.0F;
+	            float blue = (float)(entityIn.getColor() & 255) / 255.0F;
 				this.entityModel.render(matrixStackIn, ivertexbuilder, packedLightIn, i, red, green, blue, flag1 ? 0.15F : 1.0F);
 			}
 

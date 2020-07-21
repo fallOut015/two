@@ -4,14 +4,15 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 
-import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import two.entity.passive.ChameleonEntity;
 
 @OnlyIn(Dist.CLIENT)
-public class ChameleonModel<T extends ChameleonEntity> extends EntityModel<T> {
+public class ChameleonModel<T extends ChameleonEntity> extends AgeableModel<T> {
     private final ModelRenderer body;
     private final ModelRenderer tailA;
     private final ModelRenderer legUpperLeftA;
@@ -45,7 +46,7 @@ public class ChameleonModel<T extends ChameleonEntity> extends EntityModel<T> {
         this.tongue = new ModelRenderer(this, 2, 20);
         this.tongue.mirror = true;
         this.tongue.setRotationPoint(0.0F, 0.0F, -2.0F);
-        this.tongue.addBox(-0.5F, 0.0F, -1.0F, 1.0f, 0.0f, 2.0f);
+        this.tongue.addBox(-0.5F, 0.0F, -1.0F, 1.0f, 0.1f, 2.0f);
         this.legUpperRightA = new ModelRenderer(this, 18, 9);
         this.legUpperRightA.setRotationPoint(-0.7F, 23.1F, -1.3F);
         this.legUpperRightA.addBox(-0.5F, -0.5F, -1.0F, 1.0f, 1.0f, 2.0f);
@@ -128,15 +129,41 @@ public class ChameleonModel<T extends ChameleonEntity> extends EntityModel<T> {
         renderer.rotateAngleY = y;
         renderer.rotateAngleZ = z;
     }
-	@Override
-	public void setRotationAngles(T t, float p_225597_2_, float p_225597_3_, float p_225597_4_, float p_225597_5_, float p_225597_6_) {
-		// TODO
-	}
 	
 	@Override
 	public void render(MatrixStack matrixStackIn, IVertexBuilder bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha) {
 		ImmutableList.of(this.legUpperRightA, this.legLowerRightA, this.body, this.legLowerLeftA, this.legUpperLeftA, this.tailA).forEach(modelRenderer -> {
 			modelRenderer.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
 		});
+	}
+	@Override
+	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.legLowerLeftA.rotateAngleY = MathHelper.cos(limbSwing * 3.6662F) * 1.4F * limbSwingAmount;
+		this.legUpperRightA.rotateAngleY = MathHelper.cos(limbSwing * 3.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+		this.legLowerRightA.rotateAngleY = MathHelper.cos(limbSwing * 3.6662F) * 1.4F * limbSwingAmount;
+		this.legUpperLeftA.rotateAngleY = MathHelper.cos(limbSwing * 3.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+    	this.tailA.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 0.9F * limbSwingAmount;
+	}
+	@Override
+	protected Iterable<ModelRenderer> getHeadParts() {
+		return ImmutableList.of(this.head);
+	}
+	@Override
+	protected Iterable<ModelRenderer> getBodyParts() {
+		return ImmutableList.of(this.legUpperRightA, this.legLowerRightA, this.body, this.legLowerLeftA, this.legUpperLeftA, this.tailA);
+	}
+	
+	public void renderOnShoulder(MatrixStack matrixStackIn, IVertexBuilder bufferIn, int packedLightIn, int packedOverlayIn, float p_228284_5_, float p_228284_6_, float p_228284_7_, float p_228284_8_, int p_228284_9_) {
+//		this.setLivingAnimations(ChameleonModel.State.ON_SHOULDER);
+//		this.setRotationAngles(ChameleonModel.State.ON_SHOULDER, p_228284_9_, p_228284_5_, p_228284_6_, 0.0F, p_228284_7_, p_228284_8_);
+		ImmutableList.of(this.legUpperRightA, this.legLowerRightA, this.body, this.legLowerLeftA, this.legUpperLeftA, this.tailA).forEach(modelRenderer -> {
+			modelRenderer.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn);
+		});
+	}
+	
+	@OnlyIn(Dist.CLIENT)
+	public static enum State {
+		OFF_SHOULDER,
+		ON_SHOULDER
 	}
 }
