@@ -18,11 +18,18 @@ import net.minecraft.block.ComposterBlock;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.monster.CaveSpiderEntity;
+import net.minecraft.entity.monster.EndermiteEntity;
+import net.minecraft.entity.monster.SilverfishEntity;
+import net.minecraft.entity.monster.SpiderEntity;
+import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -37,6 +44,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.INBT;
 import net.minecraft.particles.ParticleType;
+import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.stats.StatType;
@@ -64,6 +72,7 @@ import net.minecraftforge.common.ModDimension;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
@@ -93,22 +102,27 @@ import two.client.renderer.entity.ChameleonRenderer;
 import two.client.renderer.entity.DarkDwarfArcherRenderer;
 import two.client.renderer.entity.FireArrowRenderer;
 import two.client.renderer.entity.IceArrowRenderer;
+import two.client.renderer.entity.IceSlimeRenderer;
 import two.client.renderer.entity.MummifiedZombieRenderer;
+import two.client.renderer.entity.NetherBugRenderer;
 import two.client.renderer.entity.RedPandaRenderer;
 import two.client.renderer.entity.ShockArrowRenderer;
 import two.client.renderer.entity.SigilRenderer;
+import two.client.renderer.entity.layers.ChameleonLayer;
 import two.client.renderer.entity.layers.InspectionSpectaclesLayer;
 import two.client.renderer.entity.layers.TopHatLayer;
 import two.client.renderer.tileentity.ChairRenderer;
 import two.common.capabilities.CapabilitiesTwo;
 import two.enchantment.EnchantmentsTwo;
 import two.entity.EntityTypeTwo;
+import two.entity.passive.ChameleonEntity;
 import two.fluid.FluidsTwo;
 import two.inventory.container.ContainerTypeTwo;
 import two.item.ArmorMaterialTwo;
 import two.item.DoubleJumpBootsItem;
 import two.item.ItemsTwo;
 import two.particles.ParticleTypesTwo;
+import two.potion.EffectsTwo;
 import two.stats.StatsTwo;
 import two.tileentity.TileEntityTypeTwo;
 import two.util.SoundEventsTwo;
@@ -156,11 +170,14 @@ public class Two {
     	DefaultBiomeFeaturesTwo.addStructures();
     	DefaultBiomeFeaturesTwo.addSpawns();
     	DefaultBiomeFeaturesTwo.addCarvers();
+    	
+    	
     }
     private void doClientStuff(final FMLClientSetupEvent event) {
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CHAMELEON, ChameleonRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.RED_PANDA, RedPandaRenderer::new);
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.NETHER_BUG, NetherBugRenderer::new);
     	
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CAPPED_ARROW, CappedArrowRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.FIRE_ARROW, FireArrowRenderer::new);
@@ -171,6 +188,7 @@ public class Two {
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.DARK_DWARF_ARCHER, DarkDwarfArcherRenderer::new);
 
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.MUMMIFIED_ZOMBIE, MummifiedZombieRenderer::new);
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.ICE_SLIME, IceSlimeRenderer::new);
     	
     	//    	RenderingRegistry.registerEntityRenderingHandler(EntityType.WOLF, WolfRendererTwo::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SIGIL, SigilRenderer::new);
@@ -207,6 +225,9 @@ public class Two {
 
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new InspectionSpectaclesLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new InspectionSpectaclesLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
+
+    	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new ChameleonLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
+    	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new ChameleonLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
     }
     
     @SubscribeEvent
@@ -233,6 +254,10 @@ public class Two {
     	@SubscribeEvent
     	public static void onDimensionTypesRegistry(final RegistryEvent.Register<DimensionType> dimensionTypeRegistryEvent) {
     		DimensionTypeTwo.onDimensionTypesRegistry(dimensionTypeRegistryEvent);
+    	}
+    	@SubscribeEvent
+    	public static void onEffectsRegistry(final RegistryEvent.Register<Effect> effectRegistryEvent) {
+    		EffectsTwo.onEffectsRegistry(effectRegistryEvent);
     	}
     	@SubscribeEvent
     	public static void onEnchantmentsRegistry(final RegistryEvent.Register<Enchantment> enchantmentRegistryEvent) {
@@ -329,6 +354,20 @@ public class Two {
     				}
     			});
     			playerSleepInBedEvent.getPlayer().getEntityWorld().setDayTime(24000);
+    		}
+    	}
+    	@SubscribeEvent
+    	public static void onEntityJoinWorld(final EntityJoinWorldEvent entityJoinWorldEvent) {
+    		if(entityJoinWorldEvent.getEntity() instanceof SpiderEntity) {
+    			((SpiderEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(3, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 1.2D, 1.4D));
+    		} else if(entityJoinWorldEvent.getEntity() instanceof CaveSpiderEntity) {
+    			((CaveSpiderEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(3, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 1.2D, 1.4D));
+    		} else if(entityJoinWorldEvent.getEntity() instanceof SilverfishEntity) {
+    			((SilverfishEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(1, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 0.5D, 0.7D));
+    		} else if(entityJoinWorldEvent.getEntity() instanceof EndermiteEntity) {
+    			((EndermiteEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(1, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 0.5D, 0.7D));
+    		} else if(entityJoinWorldEvent.getEntity() instanceof BeeEntity) {
+    			((BeeEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(3, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 0.6D, 0.8D));
     		}
     	}
     	@SubscribeEvent
