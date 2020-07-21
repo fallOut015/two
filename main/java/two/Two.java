@@ -18,6 +18,7 @@ import net.minecraft.block.ComposterBlock;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -79,6 +80,7 @@ import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.event.entity.player.PlayerXpEvent;
@@ -113,6 +115,7 @@ import two.client.renderer.entity.layers.InspectionSpectaclesLayer;
 import two.client.renderer.entity.layers.TopHatLayer;
 import two.client.renderer.tileentity.ChairRenderer;
 import two.common.capabilities.CapabilitiesTwo;
+import two.enchantment.AbilityEnchantment;
 import two.enchantment.EnchantmentsTwo;
 import two.entity.EntityTypeTwo;
 import two.entity.passive.ChameleonEntity;
@@ -476,7 +479,17 @@ public class Two {
     		}
     	}
     	@SubscribeEvent
-    	public static void onLoadFromFile(PlayerEvent.LoadFromFile playerEvent$LoadFromFile) {
+    	public static void onRightClickItem(final PlayerInteractEvent.RightClickItem playerInteractEvent$rightClickItem) {
+    		if(playerInteractEvent$rightClickItem.getPlayer().isSneaking()) {
+    			EnchantmentHelper.getEnchantments(playerInteractEvent$rightClickItem.getItemStack()).forEach((key, value) -> {
+        			if(key instanceof AbilityEnchantment) {
+        				((AbilityEnchantment) key).action(playerInteractEvent$rightClickItem);
+        			}
+        		});
+    		}
+    	}
+    	@SubscribeEvent
+    	public static void onLoadFromFile(final PlayerEvent.LoadFromFile playerEvent$LoadFromFile) {
     		if(playerEvent$LoadFromFile.getPlayerDirectory().canRead()) {
     			File fileIn = new File(playerEvent$LoadFromFile.getPlayerDirectory().getPath() + "/two_playerdata.nbt");
     			try {
@@ -490,7 +503,7 @@ public class Two {
     		}
     	}
     	@SubscribeEvent
-    	public static void onSaveToFile(PlayerEvent.SaveToFile playerEvent$SaveToFile) {
+    	public static void onSaveToFile(final PlayerEvent.SaveToFile playerEvent$SaveToFile) {
     		if(playerEvent$SaveToFile.getPlayerDirectory().canWrite()) {
     			File fileIn = new File(playerEvent$SaveToFile.getPlayerDirectory().getPath() + "/two_playerdata.nbt");
     			CompoundNBT compound = (CompoundNBT) CapabilitiesTwo.PLAYERUPGRADES.writeNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP);
