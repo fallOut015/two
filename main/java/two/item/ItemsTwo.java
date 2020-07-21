@@ -578,8 +578,10 @@ public class ItemsTwo {
     public static final Item RED_PANDA_SPAWN_EGG = register("red_panda_spawn_egg", new SpawnEggItem(EntityTypeTwo.RED_PANDA, 3215619, 13847826, new Item.Properties().group(ItemGroup.MISC)));
     public static final Item DARK_DWARF_ARCHER_SPAWN_EGG = register("dark_dwarf_archer_spawn_egg", new SpawnEggItem(EntityTypeTwo.DARK_DWARF_ARCHER, 3617852, 7880467, new Item.Properties().group(ItemGroup.MISC)));
     public static final Item MUMMIFIED_ZOMBIE_SPAWN_EGG = register("mummified_zombie_spawn_egg", new SpawnEggItem(EntityTypeTwo.MUMMIFIED_ZOMBIE, 3490609, 13487798, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item ICE_SLIME_SPAWN_EGG = register("ice_slime_spawn_egg", new SpawnEggItem(EntityTypeTwo.ICE_SLIME, 14606335, 16382719, new Item.Properties().group(ItemGroup.MISC)));
     
     public static final Item CHAMELEON_EYE = register("chameleon_eye", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item CHAMELEON_SKIN = register("chameleon_skin", new Item(new Item.Properties().group(ItemGroup.MISC)));
     
     public static final Item SNOWGLOBE = register("snowglobe", new SnowglobeItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
     
