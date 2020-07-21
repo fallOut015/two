@@ -464,6 +464,6 @@
 
 §f"Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover." §7- Unknown
 §f"I'm just saying that the barrier of coming out is a tough one, the strongest hammer in the world couldn't break it. but all it needs is a little push, and that wall comes down. and it's all worth it to feel like me." §7- Hanna Rosen
-§f"I regret starting my puzzle on top of the box." §7- Hieroglyph
+§f"I regret starting my puzzle on top of the box." §7- Hiero
 §f"huh" §7- Donny
 §f"bitch" §7- Eli
