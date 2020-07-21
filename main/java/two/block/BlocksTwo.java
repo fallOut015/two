@@ -33,6 +33,7 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.server.ServerWorld;
@@ -381,7 +382,11 @@ public class BlocksTwo {
 	public static final Block EPIDOTE = register("epidote", new Block(Block.Properties.create(Material.ROCK)));
 	public static final Block MANTLE = register("mantle", new Block(Block.Properties.create(Material.ROCK)));
 	
-	public static final Block DESERT_COAL_ORE = register("desert_coal_ore", new OreBlock(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.COAL_ORE.getHarvestLevel(Blocks.COAL_ORE.getDefaultState()))));
+	public static final Block DESERT_COAL_ORE = register("desert_coal_ore", new OreBlock(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.COAL_ORE.getHarvestLevel(Blocks.COAL_ORE.getDefaultState()))) {
+		protected int getExperience(java.util.Random rand) {
+			return MathHelper.nextInt(rand, 0, 3);
+		};
+	});
 	public static final Block DESERT_IRON_ORE = register("desert_iron_ore", new OreBlock(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.IRON_ORE.getHarvestLevel(Blocks.IRON_ORE.getDefaultState()))));
 	public static final Block DESERT_GOLD_ORE = register("desert_gold_ore", new OreBlock(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(Blocks.GOLD_ORE.getHarvestLevel(Blocks.GOLD_ORE.getDefaultState()))));
 	public static final Block DESERT_COPPER_ORE = register("desert_copper_ore", new OreBlock(Block.Properties.create(Material.ROCK, MaterialColor.SAND).hardnessAndResistance(2.0F, 6.0F).harvestTool(ToolType.PICKAXE).harvestLevel(2)));
