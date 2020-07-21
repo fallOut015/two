@@ -8,9 +8,11 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
 import two.entity.effect.SigilEntity;
 import two.entity.monster.DarkDwarfArcherEntity;
+import two.entity.monster.IceSlimeEntity;
 import two.entity.monster.MummifiedZombieEntity;
 import two.entity.passive.BeardedDragonEntity;
 import two.entity.passive.ChameleonEntity;
+import two.entity.passive.NetherBugEntity;
 import two.entity.passive.RedPandaEntity;
 import two.entity.projectile.BombArrowEntity;
 import two.entity.projectile.CappedArrowEntity;
@@ -24,6 +26,7 @@ public class EntityTypeTwo {
 	public static EntityType<ChameleonEntity> CHAMELEON = (EntityType<ChameleonEntity>) register("chameleon", EntityType.Builder.create(ChameleonEntity::new, EntityClassification.CREATURE).size(0.25f, 0.25f).build("chameleon"));
 	public static EntityType<BeardedDragonEntity> BEARDED_DRAGON = (EntityType<BeardedDragonEntity>) register("bearded_dragon", EntityType.Builder.create(BeardedDragonEntity::new, EntityClassification.CREATURE).size(0.2f, 0.2f).build("bearded_dragon"));
 	public static EntityType<RedPandaEntity> RED_PANDA = (EntityType<RedPandaEntity>) register("red_panda", EntityType.Builder.create(RedPandaEntity::new, EntityClassification.CREATURE).size(0.6875f, 1f).build("red_panda"));
+	public static EntityType<NetherBugEntity> NETHER_BUG = (EntityType<NetherBugEntity>) register("nether_bug", EntityType.Builder.create(NetherBugEntity::new, EntityClassification.CREATURE).size(0.6875f, 1f).build("nether_bug"));
 	
 	//	public static EntityType<WandererEntity> WANDERER = (EntityType<WandererEntity>) register("wanderer", EntityType.Builder.create(WandererEntity::new, EntityClassification.MONSTER).size(0.5f, 1.0f).build("wanderer"));
 //	public static EntityType<ShadowEntity> SHADOW = (EntityType<ShadowEntity>) register("shadow", EntityType.Builder.create(ShadowEntity::new, EntityClassification.MONSTER).size(0.5f, 1.0f).build("shadow"));
@@ -33,6 +36,7 @@ public class EntityTypeTwo {
 	// DARK_DWARF_POTIONER
 	// DARK_DWARF_PALADIN
 	public static EntityType<MummifiedZombieEntity> MUMMIFIED_ZOMBIE = (EntityType<MummifiedZombieEntity>) register("mummified_zombie", EntityType.Builder.create(MummifiedZombieEntity::new, EntityClassification.MONSTER).size(0.6F, 1.95F).build("mummified_zombie"));
+	public static EntityType<IceSlimeEntity> ICE_SLIME = (EntityType<IceSlimeEntity>) register("ice_slime", EntityType.Builder.create(IceSlimeEntity::new, EntityClassification.MONSTER).size(2.04F, 2.04F).build("ice_slime"));
 	
 	public static EntityType<CappedArrowEntity> CAPPED_ARROW = (EntityType<CappedArrowEntity>) register("capped_arrow", EntityType.Builder.<CappedArrowEntity>create(CappedArrowEntity::new, EntityClassification.MISC).size(0.5F, 0.5F).build("capped_arrow"));
 	public static EntityType<FireArrowEntity> FIRE_ARROW = (EntityType<FireArrowEntity>) register("fire_arrow", EntityType.Builder.<FireArrowEntity>create(FireArrowEntity::new, EntityClassification.MISC).size(0.5f, 0.5f).build("fire_arrow"));
