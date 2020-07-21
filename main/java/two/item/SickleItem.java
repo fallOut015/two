@@ -25,7 +25,7 @@ import two.enchantment.EnchantmentsTwo;
 
 public class SickleItem extends TieredItem {
 	private final float speed;
-	private static final Set<Block> CROPS = Sets.newHashSet(Blocks.WHEAT, Blocks.CARROTS, Blocks.POTATOES, Blocks.BEETROOTS);
+	private static final Set<Block> CROPS = Sets.newHashSet(Blocks.WHEAT, Blocks.CARROTS, Blocks.POTATOES);
 
 	public SickleItem(IItemTier tierIn, float attackSpeedIn, Properties builder) {
 		super(tierIn, builder);
