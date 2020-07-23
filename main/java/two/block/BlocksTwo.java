@@ -341,8 +341,14 @@ public class BlocksTwo {
 	public static final Block SPORESTONE_SOIL = register("sporestone_soil", new Block(Block.Properties.create(Material.ROCK, MaterialColor.BLACK).hardnessAndResistance(1.0f, 4.0f).harvestTool(ToolType.PICKAXE)));
 	
 	public static final Block NEONDOT = register("neondot", new NeondotBlock(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT).lightValue(4)));
+	public static final Block NEONDOT_STEM = register("neondot_stem", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.CYAN).hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
+	public static final Block NEONDOT_CAP = register("neondot_cap", new Block(Block.Properties.create(Material.WOOD, MaterialColor.PURPLE).hardnessAndResistance(0.8f).sound(SoundType.CLOTH)));
+
 	public static final Block BRIMSHINE = register("brimshine", new BrimshineBlock(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT).lightValue(4)));
-	
+	public static final Block BRIMSHINE_STEM = register("brimshine_stem", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
+	public static final Block BRIMSHINE_CAP = register("brimshine_cap", new Block(Block.Properties.create(Material.WOOD, MaterialColor.YELLOW).hardnessAndResistance(0.8f).sound(SoundType.CLOTH)));
+
+	public static final Block SHROOMGLOW = register("shroomglow", new Block(Block.Properties.create(Material.WOOD, MaterialColor.LIME).hardnessAndResistance(0.5f).sound(SoundType.CLOTH).lightValue(8)));
 	public static final Block SHROOMGLOW_LANTERN = register("shroomglow_lantern", new LanternBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(3.5F).sound(SoundType.LANTERN).lightValue(12).notSolid()));
 	
 	// Nightmare
@@ -560,8 +566,8 @@ public class BlocksTwo {
 //	public static final Block CUPBOARD;
 //	public static final Block LAMP;
 	
-	public static final Block STARSTONE_TORCH = register("starstone_torch", new TorchBlockTwo(Block.Properties.create(Material.MISCELLANEOUS).lightValue(16).doesNotBlockMovement().hardnessAndResistance(0)));
-	public static final Block STARSTONE_WALL_TORCH = register("starstone_wall_torch", new WallTorchBlockTwo(Block.Properties.create(Material.MISCELLANEOUS).lightValue(16).doesNotBlockMovement().hardnessAndResistance(0).lootFrom(STARSTONE_TORCH)));
+	public static final Block STARSTONE_TORCH = register("starstone_torch", new TorchBlockTwo(ParticleTypes.BUBBLE, ParticleTypes.ANGRY_VILLAGER, Block.Properties.create(Material.MISCELLANEOUS).lightValue(16).doesNotBlockMovement().hardnessAndResistance(0)));
+	public static final Block STARSTONE_WALL_TORCH = register("starstone_wall_torch", new WallTorchBlockTwo(ParticleTypes.CAMPFIRE_COSY_SMOKE, ParticleTypes.BARRIER, Block.Properties.create(Material.MISCELLANEOUS).lightValue(16).doesNotBlockMovement().hardnessAndResistance(0).lootFrom(STARSTONE_TORCH)));
 	
 	public static final Block FLAGSTONE_PATH = register("flagstone_path", new Block(Block.Properties.from(Blocks.GRASS_PATH)));
 	

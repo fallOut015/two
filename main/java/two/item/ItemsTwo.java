@@ -134,6 +134,9 @@ public class ItemsTwo {
 	public static final Item BLACKBARK_LOG = register(BlocksTwo.BLACKBARK_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item FROSTBARK_LOG = register(BlocksTwo.FROSTBARK_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
+	public static final Item NEONDOT_STEM = register(BlocksTwo.NEONDOT_STEM, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BRIMSHINE_STEM = register(BlocksTwo.BRIMSHINE_STEM, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
 	public static final Item STRIPPED_CHERRY_LOG = register(BlocksTwo.STRIPPED_CHERRY_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item STRIPPED_MAPLE_LOG = register(BlocksTwo.STRIPPED_MAPLE_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item STRIPPED_GHOSTWOOD_LOG = register(BlocksTwo.STRIPPED_GHOSTWOOD_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -357,6 +360,10 @@ public class ItemsTwo {
 	public static final Item BLACKBARK_LEAVES = register(BlocksTwo.BLACKBARK_LEAVES, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item FROSTBARK_LEAVES = register(BlocksTwo.FROSTBARK_LEAVES, new Item.Properties().group(ItemGroup.DECORATIONS));
 
+	public static final Item NEONDOT_CAP = register(BlocksTwo.NEONDOT_CAP, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item BRIMSHINE_CAP = register(BlocksTwo.BRIMSHINE_CAP, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item SHROOMGLOW = register(BlocksTwo.SHROOMGLOW, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
 	public static final Item CHERRY_FENCE = register(BlocksTwo.CHERRY_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item MAPLE_FENCE = register(BlocksTwo.MAPLE_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item GHOSTWOOD_FENCE = register(BlocksTwo.GHOSTWOOD_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));

@@ -6,6 +6,9 @@
 		"#two:ghostwood_logs",
     	"#two:cloudwood_logs",
 		"#two:blackbark_logs",
-    	"#two:frostbark_logs"
+    	"#two:frostbark_logs",
+
+		"#two:neondot_stems",
+		"#two:brimshine_stems"
 	]
 }

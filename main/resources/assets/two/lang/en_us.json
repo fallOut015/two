@@ -97,6 +97,9 @@
 	"block.two.blackbark_log" : "Blackbark Log",
 	"block.two.frostbark_log" : "Frostbark Log",
 	
+	"block.two.neondot_stem" : "Neondot Stem",
+	"block.two.brimshine_stem" : "Brimshine Stem",
+	
 	"block.two.cherry_sapling" : "Cherry Sapling",
 	"block.two.maple_sapling" : "Maple Sapling",
 	"block.two.ghostwood_sapling" : "Ghostwood Sapling",
@@ -138,6 +141,10 @@
 	"block.two.cloudwood_leaves" : "Cloudwood Leaves",
 	"block.two.blackbark_leaves" : "Blackbark Leaves",
 	"block.two.frostbark_leaves" : "Frostbark Leaves",
+	
+	"block.two.neondot_cap" : "Neondot Cap",
+	"block.two.brimshine_cap" : "Brimshine Cap",
+	"block.two.shroomglow" : "Shroomglow",
 	
 	"block.two.cherry_slab" : "Cherry Slab",
 	"block.two.maple_slab" : "Maple Slab",
@@ -1170,12 +1177,18 @@
 	"enchantment.two.backfire_curse" : "Curse of Backfiring",
 	"enchantment.two.heaviness_curse" : "Curse of Heaviness",
 
-	"enchantment.two.fire_ability" : "Pyro / Force Flame / Vim Flammae",
-	"enchantment.two.lightning_ability" : "Electricity / Tempest / Vi Tempestatis",
-	"enchantment.two.grass_ability" : "Vines / Plant Power / Potentia Herba",
-	"enchantment.two.nether_ability" : "Hellfire / Hell on Earth / Infernum in Terra",
-	"enchantment.two.wind_ability" : "Wind / Control Wind / Potestate Venti",
-	"enchantment.two.ice_ability" : "Chill / Cold Control / Imperium Gelu",
+//	"enchantment.two.fire_ability" : "Pyro / Force Flame / Vim Flammae",
+//	"enchantment.two.lightning_ability" : "Electricity / Tempest / Vi Tempestatis",
+//	"enchantment.two.grass_ability" : "Vines / Plant Power / Potentia Herba",
+//	"enchantment.two.nether_ability" : "Hellfire / Hell on Earth / Infernum in Terra",
+//	"enchantment.two.wind_ability" : "Wind / Control Wind / Potestate Venti",
+//	"enchantment.two.ice_ability" : "Chill / Cold Control / Imperium Gelu", sav these names because i like them too much
+	"enchantment.two.fire_ability" : "Pyro",
+	"enchantment.two.lightning_ability" : "Tempest",
+	"enchantment.two.grass_ability" : "Vines",
+	"enchantment.two.nether_ability" : "Hellfire",
+	"enchantment.two.wind_ability" : "Twister",
+	"enchantment.two.ice_ability" : "Chill",
 	
 	
 	
