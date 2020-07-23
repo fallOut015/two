@@ -10,7 +10,11 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
+import net.minecraft.world.gen.feature.BigMushroomFeatureConfig;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.server.ServerWorld;
+import two.world.biome.DefaultBiomeFeaturesTwo;
+import two.world.gen.feature.FeatureTwo;
 
 public class BrimshineBlock extends MushroomBlock {
 	protected static final VoxelShape SHAPE = Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 11.0D, 13.0D);
@@ -35,18 +39,14 @@ public class BrimshineBlock extends MushroomBlock {
 	}
 	@Override
 	public boolean func_226940_a_(ServerWorld p_226940_1_, BlockPos p_226940_2_, BlockState p_226940_3_, Random p_226940_4_) {
-		return super.func_226940_a_(p_226940_1_, p_226940_2_, p_226940_3_, p_226940_4_);
+		p_226940_1_.removeBlock(p_226940_2_, false);
+		ConfiguredFeature<BigMushroomFeatureConfig, ?> configuredfeature = FeatureTwo.HUGE_BRIMSHINE.withConfiguration(DefaultBiomeFeaturesTwo.BIG_BRIMSHINE);
+
+		if (configuredfeature.place(p_226940_1_, p_226940_1_.getChunkProvider().getChunkGenerator(), p_226940_4_, p_226940_2_)) {
+			return true;
+		} else {
+			p_226940_1_.setBlockState(p_226940_2_, p_226940_3_, 3);
+			return false;
+		}
 	}
-//	@Override
-//	public boolean func_226940_a_(ServerWorld p_226940_1_, BlockPos p_226940_2_, BlockState p_226940_3_, Random p_226940_4_) {
-//		p_226940_1_.removeBlock(p_226940_2_, false);
-//		ConfiguredFeature<BigMushroomFeatureConfig, ?> configuredfeature = FeatureTwo.HUGE_BRIMSHINE.withConfiguration(DefaultBiomeFeaturesTwo.BIG_BRIMSHINE);
-//
-//		if (configuredfeature.place(p_226940_1_, p_226940_1_.getChunkProvider().getChunkGenerator(), p_226940_4_, p_226940_2_)) {
-//			return true;
-//		} else {
-//			p_226940_1_.setBlockState(p_226940_2_, p_226940_3_, 3);
-//			return false;
-//		}
-//	}
 }
