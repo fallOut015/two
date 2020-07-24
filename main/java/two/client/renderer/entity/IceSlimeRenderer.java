@@ -7,7 +7,6 @@ import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.layers.SlimeGelLayer;
 import net.minecraft.client.renderer.entity.model.SlimeModel;
-import net.minecraft.entity.monster.SlimeEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.Dist;
@@ -20,10 +19,9 @@ public class IceSlimeRenderer extends MobRenderer<IceSlimeEntity, SlimeModel<Ice
 
 	public IceSlimeRenderer(EntityRendererManager renderManagerIn) {
 		super(renderManagerIn, new SlimeModel<>(16), 0.25f);
-		this.addLayer(new SlimeGelLayer<IceSlimeEntity>(this));
+		this.addLayer(new SlimeGelLayer<>(this));
 	}
 
-	@OnlyIn(Dist.CLIENT)
 	public void render(IceSlimeEntity entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn) {
 		this.shadowSize = 0.25F * (float)entityIn.getSlimeSize();
 		super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
@@ -32,7 +30,7 @@ public class IceSlimeRenderer extends MobRenderer<IceSlimeEntity, SlimeModel<Ice
 	public ResourceLocation getEntityTexture(IceSlimeEntity entity) {
 		return TEXTURE;
 	}
-	protected void preRenderCallback(SlimeEntity entitylivingbaseIn, MatrixStack matrixStackIn, float partialTickTime) {
+	protected void preRenderCallback(IceSlimeEntity entitylivingbaseIn, MatrixStack matrixStackIn, float partialTickTime) {
 		matrixStackIn.scale(0.999F, 0.999F, 0.999F);
 		matrixStackIn.translate(0.0D, (double)0.001F, 0.0D);
 		float f1 = (float)entitylivingbaseIn.getSlimeSize();

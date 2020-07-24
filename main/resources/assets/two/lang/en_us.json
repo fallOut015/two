@@ -12,6 +12,7 @@
 	"entity.two.ice_arrow" : "Ice Arrow",
 	"entity.two.bomb_arrow" : "Bomb Arrow",
 	"entity.two.shock_arrow" : "Shock Arrow",
+	"entity.two.evocation_fangs" : "Evocation Fangs",
 	
 	"entity.two.sigil" : "Sigil",
 	
@@ -657,6 +658,8 @@
 	"item.two.chameleon_eye" : "Chameleon Eye",
 	"item.two.chameleon_skin" : "Chameleon Skin",
 	
+	"item.two.ice_slime_ball" : "Ice Slimeball",
+	
 	"item.two.snowglobe" : "Snowglobe",
 	
 	"item.two.regolith_dust" : "Regolith Dust",
@@ -1158,6 +1161,12 @@
 	
 	
 	"attribute.name.generic.projectileVelocity": "Projectile Velocity",
+	
+	
+	
+	
+	
+	"effect.two.frosty" : "Frosty",
 	
 	
 	

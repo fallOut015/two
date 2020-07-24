@@ -590,6 +590,8 @@ public class ItemsTwo {
     public static final Item CHAMELEON_EYE = register("chameleon_eye", new Item(new Item.Properties().group(ItemGroup.MISC)));
     public static final Item CHAMELEON_SKIN = register("chameleon_skin", new Item(new Item.Properties().group(ItemGroup.MISC)));
     
+    public static final Item ICE_SLIME_BALL = register("ice_slime_ball", new Item(new Item.Properties().group(ItemGroup.MISC)));
+    
     public static final Item SNOWGLOBE = register("snowglobe", new SnowglobeItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
     
     public static final Item REGOLITH_DUST = register("regolith_dust", new Item(new Item.Properties().group(ItemGroup.MISC)  ) {
