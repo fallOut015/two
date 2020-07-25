@@ -7,6 +7,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
 import two.entity.effect.SigilEntity;
+import two.entity.effect.TwisterEntity;
 import two.entity.monster.DarkDwarfArcherEntity;
 import two.entity.monster.IceSlimeEntity;
 import two.entity.monster.MummifiedZombieEntity;
@@ -16,6 +17,7 @@ import two.entity.passive.NetherBugEntity;
 import two.entity.passive.RedPandaEntity;
 import two.entity.projectile.BombArrowEntity;
 import two.entity.projectile.CappedArrowEntity;
+import two.entity.projectile.EvocationFangsEntity;
 import two.entity.projectile.FireArrowEntity;
 import two.entity.projectile.IceArrowEntity;
 import two.entity.projectile.ShockArrowEntity;
@@ -43,8 +45,10 @@ public class EntityTypeTwo {
 	public static EntityType<IceArrowEntity> ICE_ARROW = (EntityType<IceArrowEntity>) register("ice_arrow", EntityType.Builder.<IceArrowEntity>create(IceArrowEntity::new, EntityClassification.MISC).size(0.5f, 0.5f).build("ice_arrow"));
 	public static EntityType<BombArrowEntity> BOMB_ARROW = (EntityType<BombArrowEntity>) register("bomb_arrow", EntityType.Builder.<BombArrowEntity>create(BombArrowEntity::new, EntityClassification.MISC).size(0.5f, 0.5f).build("bomb_arrow"));
 	public static EntityType<ShockArrowEntity> SHOCK_ARROW = (EntityType<ShockArrowEntity>) register("shock_arrow", EntityType.Builder.<ShockArrowEntity>create(ShockArrowEntity::new, EntityClassification.MISC).size(0.5f, 0.5f).build("shock_arrow"));
+	public static EntityType<EvocationFangsEntity> EVOCATION_FANGS = (EntityType<EvocationFangsEntity>) register("evocation_fangs", EntityType.Builder.<EvocationFangsEntity>create(EvocationFangsEntity::new, EntityClassification.MISC).size(0.5f, 0.8f).build("evocation_fangs"));
 	
 	public static EntityType<SigilEntity> SIGIL = (EntityType<SigilEntity>) register("sigil", EntityType.Builder.create(SigilEntity::new, EntityClassification.MISC).size(4, 0.1f).disableSerialization().build("sigil"));
+	public static EntityType<TwisterEntity> TWISTER = (EntityType<TwisterEntity>) register("twister", EntityType.Builder.create(TwisterEntity::new, EntityClassification.MISC).size(1, 2).disableSerialization().build("twister"));
 	
 	
 	
