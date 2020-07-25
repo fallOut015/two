@@ -29,19 +29,21 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.pathfinding.ClimberPathNavigator;
 import net.minecraft.pathfinding.PathNavigator;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import two.entity.EntityTypeTwo;
+import two.entity.ai.goal.RestOnBlockGoal;
 import two.item.ItemsTwo;
+import two.pathfinding.SmallClimberPathNavigator;
 
 public class ChameleonEntity extends ShoulderRidingEntity {
 	private static final DataParameter<Integer> CAMOFLOUGE = EntityDataManager.createKey(ChameleonEntity.class, DataSerializers.VARINT);
 	private static final DataParameter<Optional<BlockState>> ON = EntityDataManager.createKey(ChameleonEntity.class, DataSerializers.OPTIONAL_BLOCK_STATE);
 	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(ChameleonEntity.class, DataSerializers.VARINT);
 	private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(ChameleonEntity.class, DataSerializers.BYTE);
+	private static final DataParameter<Boolean> RESTING = EntityDataManager.createKey(ChameleonEntity.class, DataSerializers.BOOLEAN);
 	public int timeUntilNextShed = this.rand.nextInt(12000) + 6000;
 
 	private static final Ingredient TEMPTATION_ITEMS = Ingredient.fromItems(Items.SPIDER_EYE, Items.FERMENTED_SPIDER_EYE);
@@ -54,12 +56,14 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 	@Override
 	protected void registerGoals() {
 	    this.goalSelector.addGoal(1, new FollowOwnerGoal(this, 1.5D, 1.0F, 9.0F, false));
-		this.goalSelector.addGoal(4, new BreedGoal(this, 0.8D));
-		this.goalSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 0.8D, 1.0000001E-5F));
-		this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 10.0F));
-		this.goalSelector.addGoal(3, new PanicGoal(this, 2.0D));
-		this.goalSelector.addGoal(5, new TemptGoal(this, 1.2D, false, TEMPTATION_ITEMS));
 		this.goalSelector.addGoal(2, new LandOnOwnersShoulderGoal(this));
+		this.goalSelector.addGoal(3, new PanicGoal(this, 2.0D));
+		this.goalSelector.addGoal(4, new BreedGoal(this, 0.8D));
+		this.goalSelector.addGoal(5, new RestOnBlockGoal(this, Blocks.SAND));
+		this.goalSelector.addGoal(5, new RestOnBlockGoal(this, Blocks.JUNGLE_LOG));
+		this.goalSelector.addGoal(6, new TemptGoal(this, 1.2D, false, TEMPTATION_ITEMS));
+		this.goalSelector.addGoal(7, new LookAtGoal(this, PlayerEntity.class, 10.0F));
+		this.goalSelector.addGoal(8, new WaterAvoidingRandomWalkingGoal(this, 0.8D, 1.0000001E-5F));
 	}
 	@Override
 	protected void registerAttributes() {
@@ -80,6 +84,7 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 		this.dataManager.register(ON, Optional.empty());
 		this.dataManager.register(COLOR, -1); // -1 for no color overlay
 		this.dataManager.register(CLIMBING, (byte)0);
+		this.dataManager.register(RESTING, false);
 	}
 	@Override
 	public AgeableEntity createChild(AgeableEntity ageable) {
@@ -165,6 +170,8 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 		this.dataManager.set(CAMOFLOUGE, compound.getInt("camoflouge"));
 		this.dataManager.set(ON, Optional.of(NBTUtil.readBlockState((CompoundNBT) compound.get("on"))));
 		this.dataManager.set(COLOR, compound.getInt("color"));
+		
+		this.dataManager.set(RESTING, compound.getBoolean("resting"));
 	}
 	@Override
 	public void writeAdditional(CompoundNBT compound) {
@@ -173,6 +180,8 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 		compound.putInt("camoflouge", this.dataManager.get(CAMOFLOUGE).intValue());
 		compound.put("on", NBTUtil.writeBlockState(this.dataManager.get(ON).orElse(Blocks.AIR.getDefaultState())));
 		compound.putInt("color", this.dataManager.get(COLOR).intValue());
+		
+		compound.putBoolean("resting", this.dataManager.get(RESTING).booleanValue());
 	}
 	@Override
 	public void setTamed(boolean tamed) {
@@ -197,7 +206,7 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 	}
 	@Override
 	protected PathNavigator createNavigator(World worldIn) {
-		return new ClimberPathNavigator(this, worldIn);
+		return new SmallClimberPathNavigator(this, worldIn);
 	}
 	@Override
 	public void livingTick() {
@@ -248,8 +257,8 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 	 * fix camoflouge when hanging on the edge of a block
 	 * camoflouge when submerged in a block
 	 * no sound
-	 * climber path finding issues
 	 * chameleons scare arthopods on shoulders
 	 * chameleons retain texture on shoulder
+	 * resting
 	 */
 }
