@@ -1,8 +1,8 @@
 package two.item;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.EvokerFangsEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,6 +16,8 @@ import net.minecraft.util.math.RayTraceContext.FluidMode;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.World;
+import two.enchantment.EnchantmentsTwo;
+import two.entity.projectile.EvocationFangsEntity;
 
 public class EvocationStaffItem extends Item {
 	public EvocationStaffItem(Properties properties) {
@@ -35,21 +37,23 @@ public class EvocationStaffItem extends Item {
 		double d1 = Math.max(result.getHitVec().getY(), playerIn.getPosY()) + 1.0D;
 		float f = (float)MathHelper.atan2(result.getHitVec().getZ() - playerIn.getPosZ(), result.getHitVec().getX() - playerIn.getPosX());
 
+		int snappingLevel = EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.SNAPPING, playerIn.getHeldItem(handIn));
+		
 		if (playerIn.getDistanceSq(result.getHitVec()) < 9.0D) {
 			for(int i = 0; i < 5; ++i) {
 				float f1 = f + (float)i * (float)Math.PI * 0.4F;
-				this.spawnFangs(playerIn.getPosX() + (double)MathHelper.cos(f1) * 1.5D, playerIn.getPosZ() + (double)MathHelper.sin(f1) * 1.5D, d0, d1, f1, 0, playerIn);
+				this.spawnFangs(playerIn.getPosX() + (double)MathHelper.cos(f1) * 1.5D, playerIn.getPosZ() + (double)MathHelper.sin(f1) * 1.5D, d0, d1, f1, 0, playerIn, snappingLevel);
 			}
 
 			for(int k = 0; k < 8; ++k) {
 				float f2 = f + (float)k * (float)Math.PI * 2.0F / 8.0F + 1.2566371F;
-				this.spawnFangs(playerIn.getPosX() + (double)MathHelper.cos(f2) * 2.5D, playerIn.getPosZ() + (double)MathHelper.sin(f2) * 2.5D, d0, d1, f2, 3, playerIn);
+				this.spawnFangs(playerIn.getPosX() + (double)MathHelper.cos(f2) * 2.5D, playerIn.getPosZ() + (double)MathHelper.sin(f2) * 2.5D, d0, d1, f2, 3, playerIn, snappingLevel);
 			}
 		} else {
 			for(int l = 0; l < 16; ++l) {
 				double d2 = 1.25D * (double)(l + 1);
 				int j = 1 * l;
-				this.spawnFangs(playerIn.getPosX() + (double)MathHelper.cos(f) * d2, playerIn.getPosZ() + (double)MathHelper.sin(f) * d2, d0, d1, f, j, playerIn);
+				this.spawnFangs(playerIn.getPosX() + (double)MathHelper.cos(f) * d2, playerIn.getPosZ() + (double)MathHelper.sin(f) * d2, d0, d1, f, j, playerIn, snappingLevel);
 			}
 		}
 	        
@@ -58,13 +62,13 @@ public class EvocationStaffItem extends Item {
 		return ActionResult.resultSuccess(playerIn.getHeldItem(handIn));
 	}
 	
-	private void spawnFangs(double d1, double d3, double d5, double d7, float f9, int i10, PlayerEntity playerIn) {
-        // Almost a direct copy of EvokerEntity::spawnFangs
+	private void spawnFangs(double d1, double d3, double d5, double d7, float f9, int i10, PlayerEntity playerIn, int snappingLevel) {
+        // Almost a direct copy of EvokerEntity::spawnFangs, or at least, it was. 
 		
 		BlockPos blockpos = new BlockPos(d1, d7, d3);
         boolean flag = false;
         double d0 = 0.0D;
-
+        
         while(true) {
            BlockPos blockpos1 = blockpos.down();
            BlockState blockstate = playerIn.world.getBlockState(blockpos1);
@@ -88,7 +92,7 @@ public class EvocationStaffItem extends Item {
         }
 
         if (flag) {
-           playerIn.world.addEntity(new EvokerFangsEntity(playerIn.world, d1, (double)blockpos.getY() + d0, d3, f9, i10, playerIn));
+           playerIn.world.addEntity(new EvocationFangsEntity(playerIn.world, d1, (double) blockpos.getY() + d0, d3, f9, i10, playerIn, snappingLevel));
         }
 	}
 }
