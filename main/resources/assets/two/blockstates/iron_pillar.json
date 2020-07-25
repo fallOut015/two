@@ -1,5 +1,7 @@
 {
     "variants": {
-        "": { "model": "two:block/iron_pillar" }
+        "axis=y": { "model": "two:block/iron_pillar" },
+        "axis=z": { "model": "two:block/iron_pillar", "x": 90 },
+        "axis=x": { "model": "two:block/iron_pillar", "x": 90, "y": 90 }
     }
 }

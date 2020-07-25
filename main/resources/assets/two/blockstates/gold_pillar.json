@@ -1,5 +1,7 @@
 {
     "variants": {
-        "": { "model": "two:block/gold_pillar" }
+        "axis=y": { "model": "two:block/gold_pillar" },
+        "axis=z": { "model": "two:block/gold_pillar", "x": 90 },
+        "axis=x": { "model": "two:block/gold_pillar", "x": 90, "y": 90 }
     }
 }
