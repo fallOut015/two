@@ -17,6 +17,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.EvokerFangsRenderer;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.CreatureEntity;
@@ -51,9 +52,11 @@ import net.minecraft.potion.Effects;
 import net.minecraft.stats.StatType;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
+import net.minecraft.util.Hand;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.LanguageMap;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -110,6 +113,7 @@ import two.client.renderer.entity.NetherBugRenderer;
 import two.client.renderer.entity.RedPandaRenderer;
 import two.client.renderer.entity.ShockArrowRenderer;
 import two.client.renderer.entity.SigilRenderer;
+import two.client.renderer.entity.TwisterRenderer;
 import two.client.renderer.entity.layers.ChameleonLayer;
 import two.client.renderer.entity.layers.InspectionSpectaclesLayer;
 import two.client.renderer.entity.layers.TopHatLayer;
@@ -187,6 +191,7 @@ public class Two {
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.ICE_ARROW, IceArrowRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BOMB_ARROW, BombArrowRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SHOCK_ARROW, ShockArrowRenderer::new);
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.EVOCATION_FANGS, EvokerFangsRenderer::new);
     	
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.DARK_DWARF_ARCHER, DarkDwarfArcherRenderer::new);
 
@@ -195,6 +200,7 @@ public class Two {
     	
     	//    	RenderingRegistry.registerEntityRenderingHandler(EntityType.WOLF, WolfRendererTwo::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SIGIL, SigilRenderer::new);
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.TWISTER, TwisterRenderer::new);
     	
     	ClientRegistry.bindTileEntityRenderer(TileEntityTypeTwo.CHAIR, ChairRenderer::new);
     	
@@ -375,7 +381,13 @@ public class Two {
     	}
     	@SubscribeEvent
     	public static void onLivingJump(final LivingJumpEvent livingJumpEvent) {
+    		if(livingJumpEvent.getEntityLiving().getActivePotionEffect(EffectsTwo.FROSTY) != null) {
+    			livingJumpEvent.getEntityLiving().setJumping(false);
+    			livingJumpEvent.getEntityLiving().setMotion(Vec3d.ZERO);
+    			return;
+    		}
     		if(livingJumpEvent.getEntityLiving() instanceof PlayerEntity) {
+//    			livingJumpEvent.getEntityLiving().addVelocity(0, 0.42F, 0);
 //    			LOGGER.info("Player Jump!");
     			PlayerEntity p = (PlayerEntity) livingJumpEvent.getEntityLiving();
         		LinkedList<ItemStack> list = new LinkedList<ItemStack>();
@@ -389,7 +401,7 @@ public class Two {
 //        				LOGGER.info("Allowed jump limit!");
         				if(p.isAirBorne) {
 //        					LOGGER.info("Airborne!");
-        					p.jump();
+//        					p.jump();
         					list.getFirst().getTag().putInt("jumps", list.getFirst().getTag().getInt("jumps") + 1);
         				}
         			}
@@ -484,6 +496,9 @@ public class Two {
     			EnchantmentHelper.getEnchantments(playerInteractEvent$rightClickItem.getItemStack()).forEach((key, value) -> {
         			if(key instanceof AbilityEnchantment) {
         				((AbilityEnchantment) key).action(playerInteractEvent$rightClickItem);
+        				playerInteractEvent$rightClickItem.getPlayer().getCooldownTracker().setCooldown(playerInteractEvent$rightClickItem.getItemStack().getItem(), 10);
+        				playerInteractEvent$rightClickItem.getPlayer().getHeldItem(playerInteractEvent$rightClickItem.getHand()).damageItem(20, playerInteractEvent$rightClickItem.getPlayer(), playerEntity -> playerEntity.sendBreakAnimation(playerInteractEvent$rightClickItem.getHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND));
+        				playerInteractEvent$rightClickItem.getPlayer().swingArm(playerInteractEvent$rightClickItem.getHand());
         			}
         		});
     		}
