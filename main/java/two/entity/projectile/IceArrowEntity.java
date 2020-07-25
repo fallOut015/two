@@ -6,12 +6,12 @@ import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.IPacket;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 import two.entity.EntityTypeTwo;
 import two.item.ItemsTwo;
 import two.particles.ParticleTypesTwo;
+import two.potion.EffectsTwo;
 
 public class IceArrowEntity extends AbstractArrowEntity {
 	public IceArrowEntity(EntityType<? extends IceArrowEntity> entityType, World worldIn) {
@@ -41,6 +41,6 @@ public class IceArrowEntity extends AbstractArrowEntity {
 	}
 	@Override
 	protected void arrowHit(LivingEntity living) {
-		living.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 50, 6, false, false));
+		living.addPotionEffect(new EffectInstance(EffectsTwo.FROSTY, 50, 1, false, false));
 	}
 }
