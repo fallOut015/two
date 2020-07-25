@@ -127,6 +127,24 @@ public class ItemsTwo {
 	public static final Item RED_STAINED_WOODEN_SLAB = register(BlocksTwo.RED_STAINED_WOODEN_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item BLACK_STAINED_WOODEN_SLAB = register(BlocksTwo.BLACK_STAINED_WOODEN_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
+	public static final Item WHITE_STAINED_WOODEN_STAIRS = register(BlocksTwo.WHITE_STAINED_WOODEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item ORANGE_STAINED_WOODEN_STAIRS = register(BlocksTwo.ORANGE_STAINED_WOODEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item MAGENTA_STAINED_WOODEN_STAIRS = register(BlocksTwo.MAGENTA_STAINED_WOODEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LIGHT_BLUE_STAINED_WOODEN_STAIRS = register(BlocksTwo.LIGHT_BLUE_STAINED_WOODEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item YELLOW_STAINED_WOODEN_STAIRS = register(BlocksTwo.YELLOW_STAINED_WOODEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LIME_STAINED_WOODEN_STAIRS = register(BlocksTwo.LIME_STAINED_WOODEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item PINK_STAINED_WOODEN_STAIRS = register(BlocksTwo.PINK_STAINED_WOODEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item GRAY_STAINED_WOODEN_STAIRS = register(BlocksTwo.GRAY_STAINED_WOODEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LIGHT_GRAY_STAINED_WOODEN_STAIRS = register(BlocksTwo.LIGHT_GRAY_STAINED_WOODEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item CYAN_STAINED_WOODEN_STAIRS = register(BlocksTwo.CYAN_STAINED_WOODEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item PURPLE_STAINED_WOODEN_STAIRS = register(BlocksTwo.PURPLE_STAINED_WOODEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BLUE_STAINED_WOODEN_STAIRS = register(BlocksTwo.BLUE_STAINED_WOODEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BROWN_STAINED_WOODEN_STAIRS = register(BlocksTwo.BROWN_STAINED_WOODEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item GREEN_STAINED_WOODEN_STAIRS = register(BlocksTwo.GREEN_STAINED_WOODEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item RED_STAINED_WOODEN_STAIRS = register(BlocksTwo.RED_STAINED_WOODEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BLACK_STAINED_WOODEN_STAIRS = register(BlocksTwo.BLACK_STAINED_WOODEN_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+
+	
 	public static final Item CHERRY_LOG = register(BlocksTwo.CHERRY_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item MAPLE_LOG = register(BlocksTwo.MAPLE_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item GHOSTWOOD_LOG = register(BlocksTwo.GHOSTWOOD_LOG, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
