@@ -6,7 +6,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.pattern.BlockMatcher;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.BlockWithContextConfig;
+import net.minecraft.world.gen.feature.BigMushroomFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
@@ -67,10 +67,8 @@ public class FeatureTwo {
 	@ObjectHolder("two:replace_block") public static final Feature<ReplaceBlockConfig> REPLACE_BLOCK = (Feature<ReplaceBlockConfig>) register("replace_block", new ReplaceBlockFeature(ReplaceBlockConfig::deserialize));
 	@ObjectHolder("two:multi_replace_block") public static final Feature<MultiReplaceBlockConfig> MULTI_REPLACE_BLOCK = (Feature<MultiReplaceBlockConfig>) register("multi_replace_block", new MultiReplaceBlockFeature(MultiReplaceBlockConfig::deserialize));
 	
-	public static final BlockWithContextConfig SUCCULIGHT_CONFIG = new BlockWithContextConfig(BlocksTwo.SUCCULIGHT.getDefaultState(), new BlockState[] { Blocks.SAND.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() });
-	public static final BlockWithContextConfig NEONDOT_CONFIG = new BlockWithContextConfig(BlocksTwo.NEONDOT.getDefaultState(), new BlockState[] { BlocksTwo.SPORESTONE_SOIL.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() });
-	public static final BlockWithContextConfig BRIMSHINE_CONFIG = new BlockWithContextConfig(BlocksTwo.BRIMSHINE.getDefaultState(), new BlockState[] { BlocksTwo.SPORESTONE_SOIL.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() });
-	
+	@ObjectHolder("two:huge_neondot") public static final Feature<BigMushroomFeatureConfig> HUGE_NEONDOT = (Feature<BigMushroomFeatureConfig>) register("huge_neondot", new BigNeondotFeature(BigMushroomFeatureConfig::deserialize));
+	@ObjectHolder("two:huge_brimshine") public static final Feature<BigMushroomFeatureConfig> HUGE_BRIMSHINE = (Feature<BigMushroomFeatureConfig>) register("huge_brimshine", new BigBrimshineFeature(BigMushroomFeatureConfig::deserialize));
 	
 	// desert arch feature
 	
