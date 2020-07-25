@@ -57,6 +57,7 @@ Changelog:
 	Added flagstone path. 
 	Added some new ore variations. 
 	Added copper items.
+	Added Ability Enchantments. 
 '''
 [[dependencies.two]] #optional
     modId="forge"
