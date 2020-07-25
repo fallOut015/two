@@ -34,6 +34,8 @@ public class ChameleonModel<T extends ChameleonEntity> extends AgeableModel<T> {
     private final ModelRenderer legLowerRightB;
 
     public ChameleonModel() {
+    	super(true, 2.0f, 5.0f);
+    	
         this.textureWidth = 64;
         this.textureHeight = 32;
         this.fin = new ModelRenderer(this, 0, 8);
