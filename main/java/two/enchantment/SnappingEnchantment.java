@@ -7,4 +7,9 @@ public class SnappingEnchantment extends Enchantment {
 	public SnappingEnchantment(Enchantment.Rarity rarityIn, EquipmentSlotType... slots) {
 		super(rarityIn, EnchantmentsTwo.Holder.EVOCATION_STAFF, slots);
 	}
+	
+	@Override
+	public int getMaxLevel() {
+		return 2;
+	}
 }
