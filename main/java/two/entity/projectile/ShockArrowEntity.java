@@ -2,14 +2,18 @@ package two.entity.projectile;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.LightningBoltEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.IPacket;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.fml.network.NetworkHooks;
 import two.entity.EntityTypeTwo;
 import two.item.ItemsTwo;
 import two.particles.ParticleTypesTwo;
+import two.potion.EffectsTwo;
 
 public class ShockArrowEntity extends AbstractArrowEntity {
 	public ShockArrowEntity(EntityType<? extends ShockArrowEntity> entityType, World worldIn) {
@@ -36,5 +40,9 @@ public class ShockArrowEntity extends AbstractArrowEntity {
 		if (this.world.isRemote && !this.inGround) {
 //			this.world.addParticle(ParticleTypesTwo.SPARK, this.getPosX(), this.getPosY(), this.getPosZ(), 0.0D, 0.0D, 0.0D);
 		}
+	}
+	@Override
+	protected void arrowHit(LivingEntity living) {
+		((ServerWorld) living.getEntityWorld()).addLightningBolt(new LightningBoltEntity(((ServerWorld) living.getEntityWorld()), living.getPosX(), living.getPosY(), living.getPosZ(), false));
 	}
 }
