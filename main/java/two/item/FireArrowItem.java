@@ -5,15 +5,15 @@ import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import two.entity.projectile.BombArrowEntity;
+import two.entity.projectile.FireArrowEntity;
 
-public class BombArrow extends ArrowItem {
-	public BombArrow(Properties builder) {
+public class FireArrowItem extends ArrowItem {
+	public FireArrowItem(Properties builder) {
 		super(builder);
 	}
 	
 	public AbstractArrowEntity createArrow(World worldIn, ItemStack stack, LivingEntity shooter) {
-		BombArrowEntity bombarrowentity = new BombArrowEntity(worldIn, shooter);
-		return bombarrowentity;
+		FireArrowEntity firearrowentity = new FireArrowEntity(worldIn, shooter);
+		return firearrowentity;
 	}
 }

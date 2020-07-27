@@ -800,10 +800,15 @@ public class ItemsTwo {
     public static final Item COPPER_CAPPED_ARROW = register("copper_capped_arrow", new CappedArrowItem(ItemTierTwo.COPPER, new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item MYRKYLITE_CAPPED_ARROW = register("myrkylite_capped_arrow", new CappedArrowItem(ItemTierTwo.MYRKYLITE, new Item.Properties().group(ItemGroup.COMBAT)));
 
-    public static final Item FIRE_ARROW = register("fire_arrow", new FireArrow(new Item.Properties().group(ItemGroup.COMBAT)));
-    public static final Item ICE_ARROW = register("ice_arrow", new IceArrow(new Item.Properties().group(ItemGroup.COMBAT)));
-    public static final Item BOMB_ARROW = register("bomb_arrow", new BombArrow(new Item.Properties().group(ItemGroup.COMBAT)));
-    public static final Item SHOCK_ARROW = register("shock_arrow", new ShockArrow(new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item FIRE_ARROW = register("fire_arrow", new FireArrowItem(new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item ICE_ARROW = register("ice_arrow", new IceArrowItem(new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item BOMB_ARROW = register("bomb_arrow", new BombArrowItem(new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item SHOCK_ARROW = register("shock_arrow", new ShockArrowItem(new Item.Properties().group(ItemGroup.COMBAT)));
+    
+    public static final Item SHURIKEN = register("shuriken", new ShurikenItem(new Item.Properties()/*.group(ItemGroup.COMBAT)*/));
+    // TODO Shuriken code so that it can stick in blocks and whatnot. 
+    // Also rendering and spinning. 
+    // And put back into creative menu for 2.023. 
     
     public static final Item EMERALD_HELMET = register("emerald_helmet", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item EMERALD_CHESTPLATE = register("emerald_chestplate", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
