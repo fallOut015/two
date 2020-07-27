@@ -81,6 +81,8 @@ public class BlocksTwo {
 	public static final Block CLOUDWOOD_PLANKS = register("cloudwood_planks", new Block(Block.Properties.create(Material.WOOD, MaterialColor.CYAN_TERRACOTTA).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
 	public static final Block BLACKBARK_PLANKS = register("blackbark_planks", new Block(Block.Properties.create(Material.WOOD, MaterialColor.BLACK).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
 	public static final Block FROSTBARK_PLANKS = register("frostbark_planks", new Block(Block.Properties.create(Material.WOOD, MaterialColor.ICE).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	public static final Block NEONDOT_PLANKS = register("neondot_planks", new Block(Block.Properties.create(Material.WOOD, MaterialColor.CYAN).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	public static final Block BRIMSHINE_PLANKS = register("brimshine_planks", new Block(Block.Properties.create(Material.WOOD, MaterialColor.LIME).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
 	
 	public static final Block WHITE_STAINED_WOODEN_PLANKS = register("white_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.WHITE).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Block ORANGE_STAINED_WOODEN_PLANKS = register("orange_stained_wooden_planks", new Block(Block.Properties.create(Material.WOOD, DyeColor.ORANGE).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
@@ -168,41 +170,53 @@ public class BlocksTwo {
 	public static final Block POTTED_CLOUDWOOD_SAPLING = register("potted_cloudwood_sapling", new FlowerPotBlock(null, () -> CLOUDWOOD_SAPLING, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()));
 	public static final Block POTTED_BLACKBARK_SAPLING = register("potted_blackbark_sapling", new FlowerPotBlock(null, () -> BLACKBARK_SAPLING, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()));
 	public static final Block POTTED_FROSTBARK_SAPLING = register("potted_frostbark_sapling", new FlowerPotBlock(null, () -> FROSTBARK_SAPLING, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()));
-
+	// potted neondot
+	// potted brimshine TODO
+	
 	public static final Block CHERRY_LOG = register("cherry_log", new LogBlock(MaterialColor.STONE, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block MAPLE_LOG = register("maple_log", new LogBlock(MaterialColor.BROWN_TERRACOTTA, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
 	public static final Block GHOSTWOOD_LOG = register("ghostwood_log", new LogBlock(MaterialColor.SNOW, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block CLOUDWOOD_LOG = register("cloudwood_log", new LogBlock(MaterialColor.CYAN, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
 	public static final Block BLACKBARK_LOG = register("blackbark_log", new LogBlock(MaterialColor.BLACK, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block FROSTBARK_LOG = register("frostbark_log", new LogBlock(MaterialColor.ICE, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
-	
+	public static final Block NEONDOT_STEM = register("neondot_stem", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.CYAN).hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
+	public static final Block BRIMSHINE_STEM = register("brimshine_stem", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
+
 	public static final Block STRIPPED_CHERRY_LOG = register("stripped_cherry_log", new LogBlock(MaterialColor.RED, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block STRIPPED_MAPLE_LOG = register("stripped_maple_log", new LogBlock(MaterialColor.SAND, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block STRIPPED_GHOSTWOOD_LOG = register("stripped_ghostwood_log", new LogBlock(MaterialColor.RED_TERRACOTTA, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block STRIPPED_CLOUDWOOD_LOG = register("stripped_cloudwood_log", new LogBlock(MaterialColor.SNOW, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block STRIPPED_BLACKBARK_LOG = register("stripped_blackbark_log", new LogBlock(MaterialColor.BROWN_TERRACOTTA, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block STRIPPED_FROSTBARK_LOG = register("stripped_frostbark_log", new LogBlock(MaterialColor.WHITE_TERRACOTTA, Block.Properties.create(Material.WOOD).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
-
+	// stripped neondot stem
+	// stripped brimshine stem
+	
 	public static final Block STRIPPED_CHERRY_WOOD = register("stripped_cherry_wood", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.RED).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block STRIPPED_MAPLE_WOOD = register("stripped_maple_wood", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.SAND).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block STRIPPED_GHOSTWOOD_WOOD = register("stripped_ghostwood_wood", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.RED_TERRACOTTA).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block STRIPPED_CLOUDWOOD_WOOD = register("stripped_cloudwood_wood", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.SNOW).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block STRIPPED_BLACKBARK_WOOD = register("stripped_blackbark_wood", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block STRIPPED_FROSTBARK_WOOD = register("stripped_frostbark_wood", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
-
+	// stripped neondot hyphae
+	// stripped brimshine hyphae
+	
 	public static final Block CHERRY_WOOD = register("cherry_wood", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.STONE).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block MAPLE_WOOD = register("maple_wood", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block GHOSTWOOD_WOOD = register("ghostwood_wood", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.SNOW).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block CLOUDWOOD_WOOD = register("cloudwood_wood", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.CYAN).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block BLACKBARK_WOOD = register("blackbark_wood", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.BLACK).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
 	public static final Block FROSTBARK_WOOD = register("frostbark_wood", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.ICE).hardnessAndResistance(2.0f).sound(SoundType.WOOD)));
-
+	// neondot hyphae
+	// brimshine hyphae
+	
 	public static final Block CHERRY_LEAVES = register("cherry_leaves", new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid()));
 	public static final Block MAPLE_LEAVES = register("maple_leaves", new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid()));
 	public static final Block GHOSTWOOD_LEAVES = register("ghostwood_leaves", new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid()));
 	public static final Block CLOUDWOOD_LEAVES = register("cloudwood_leaves", new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid()));
 	public static final Block BLACKBARK_LEAVES = register("blackbark_leaves", new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2f).tickRandomly().sound(SoundType.PLANT).notSolid()));
 	public static final Block FROSTBARK_LEAVES = register("frostbark_leaves", new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2f).tickRandomly().sound(SoundType.PLANT).notSolid()));
+	public static final Block NEONDOT_CAP = register("neondot_cap", new Block(Block.Properties.create(Material.WOOD, MaterialColor.PURPLE).hardnessAndResistance(0.8f).sound(SoundType.CLOTH)));
+	public static final Block BRIMSHINE_CAP = register("brimshine_cap", new Block(Block.Properties.create(Material.WOOD, MaterialColor.YELLOW).hardnessAndResistance(0.8f).sound(SoundType.CLOTH)));
 
 	public static final Block CHERRY_SLAB = register("cherry_slab", new SlabBlock(Block.Properties.create(Material.WOOD, MaterialColor.PINK_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Block MAPLE_SLAB = register("maple_slab", new SlabBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
@@ -210,6 +224,8 @@ public class BlocksTwo {
 	public static final Block CLOUDWOOD_SLAB = register("cloudwood_slab", new SlabBlock(Block.Properties.create(Material.WOOD, MaterialColor.CYAN_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Block BLACKBARK_SLAB = register("blackbark_slab", new SlabBlock(Block.Properties.create(Material.WOOD, MaterialColor.BLACK).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Block FROSTBARK_SLAB = register("frostbark_slab", new SlabBlock(Block.Properties.create(Material.WOOD, MaterialColor.ICE).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	// neondot slab
+	// brimshine slab
 	
 	public static final Block CHERRY_PRESSURE_PLATE = register("cherry_pressure_plate", new PressurePlateBlockTwo(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.PINK_TERRACOTTA).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
 	public static final Block MAPLE_PRESSURE_PLATE = register("maple_pressure_plate", new PressurePlateBlockTwo(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
@@ -217,6 +233,8 @@ public class BlocksTwo {
 	public static final Block CLOUDWOOD_PRESSURE_PLATE = register("cloudwood_pressure_plate", new PressurePlateBlockTwo(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.CYAN_TERRACOTTA).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
 	public static final Block BLACKBARK_PRESSURE_PLATE = register("blackbark_pressure_plate", new PressurePlateBlockTwo(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.BLACK).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
 	public static final Block FROSTBARK_PRESSURE_PLATE = register("frostbark_pressure_plate", new PressurePlateBlockTwo(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.ICE).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
+	// neondot pressure plate
+	// brimshine pressure plate
 	
 	public static final Block CHERRY_FENCE = register("cherry_fence", new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.PINK_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Block MAPLE_FENCE = register("maple_fence", new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
@@ -224,6 +242,8 @@ public class BlocksTwo {
 	public static final Block CLOUDWOOD_FENCE = register("cloudwood_fence", new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.CYAN_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Block BLACKBARK_FENCE = register("blackbark_fence", new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.BLACK).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Block FROSTBARK_FENCE = register("frostbark_fence", new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.ICE).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	// neondot fence
+	// brimshine fence
 	
 	public static final Block CHERRY_TRAPDOOR = register("cherry_trapdoor", new TrapDoorBlockTwo(Block.Properties.create(Material.WOOD, MaterialColor.PINK_TERRACOTTA).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()));
 	public static final Block MAPLE_TRAPDOOR = register("maple_trapdoor", new TrapDoorBlockTwo(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()));
@@ -231,6 +251,8 @@ public class BlocksTwo {
 	public static final Block CLOUDWOOD_TRAPDOOR = register("cloudwood_trapdoor", new TrapDoorBlockTwo(Block.Properties.create(Material.WOOD, MaterialColor.CYAN_TERRACOTTA).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()));
 	public static final Block BLACKBARK_TRAPDOOR = register("blackbark_trapdoor", new TrapDoorBlockTwo(Block.Properties.create(Material.WOOD, MaterialColor.BLACK).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()));
 	public static final Block FROSTBARK_TRAPDOOR = register("frostbark_trapdoor", new TrapDoorBlockTwo(Block.Properties.create(Material.WOOD, MaterialColor.ICE).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()));
+	// neondot trapdoor
+	// brimshine trapdoor
 	
 	public static final Block CHERRY_FENCE_GATE = register("cherry_fence_gate", new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.PINK_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Block MAPLE_FENCE_GATE = register("maple_fence_gate", new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
@@ -238,6 +260,8 @@ public class BlocksTwo {
 	public static final Block CLOUDWOOD_FENCE_GATE = register("cloudwood_fence_gate", new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.CYAN_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Block BLACKBARK_FENCE_GATE = register("blackbark_fence_gate", new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.BLACK).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	public static final Block FROSTBARK_FENCE_GATE = register("frostbark_fence_gate", new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.ICE).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+	// neondot fence gate
+	// brimshine fence gate
 	
 	public static final Block CHERRY_STAIRS = register("cherry_stairs", new StairsBlockTwo(CHERRY_PLANKS.getDefaultState(), Block.Properties.from(CHERRY_PLANKS)));
 	public static final Block MAPLE_STAIRS = register("maple_stairs", new StairsBlockTwo(MAPLE_PLANKS.getDefaultState(), Block.Properties.from(MAPLE_PLANKS)));
@@ -245,6 +269,8 @@ public class BlocksTwo {
 	public static final Block CLOUDWOOD_STAIRS = register("cloudwood_stairs", new StairsBlockTwo(CLOUDWOOD_PLANKS.getDefaultState(), Block.Properties.from(CLOUDWOOD_PLANKS)));
 	public static final Block BLACKBARK_STAIRS = register("blackbark_stairs", new StairsBlockTwo(BLACKBARK_PLANKS.getDefaultState(), Block.Properties.from(BLACKBARK_PLANKS)));
 	public static final Block FROSTBARK_STAIRS = register("frostbark_stairs", new StairsBlockTwo(FROSTBARK_PLANKS.getDefaultState(), Block.Properties.from(FROSTBARK_PLANKS)));
+	// neondot stairs
+	// brimshine stairs
 	
 	public static final Block CHERRY_BUTTON = register("cherry_button", new WoodButtonBlockTwo(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
 	public static final Block MAPLE_BUTTON = register("maple_button", new WoodButtonBlockTwo(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
@@ -252,6 +278,8 @@ public class BlocksTwo {
 	public static final Block CLOUDWOOD_BUTTON = register("cloudwood_button", new WoodButtonBlockTwo(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
 	public static final Block BLACKBARK_BUTTON = register("blackbark_button", new WoodButtonBlockTwo(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
 	public static final Block FROSTBARK_BUTTON = register("frostbark_button", new WoodButtonBlockTwo(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
+	// neondot button
+	// brimshine button
 	
 	public static final Block CHERRY_DOOR = register("cherry_door", new DoorBlockTwo(Block.Properties.create(Material.WOOD, MaterialColor.PINK_TERRACOTTA).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()));
 	public static final Block MAPLE_DOOR = register("maple_door", new DoorBlockTwo(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()));
@@ -259,6 +287,8 @@ public class BlocksTwo {
 	public static final Block CLOUDWOOD_DOOR = register("cloudwood_door", new DoorBlockTwo(Block.Properties.create(Material.WOOD, MaterialColor.CYAN_TERRACOTTA).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()));
 	public static final Block BLACKBARK_DOOR = register("blackbark_door", new DoorBlockTwo(Block.Properties.create(Material.WOOD, MaterialColor.BLACK).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()));
 	public static final Block FROSTBARK_DOOR = register("frostbark_door", new DoorBlockTwo(Block.Properties.create(Material.WOOD, MaterialColor.ICE).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()));
+	// neondot door
+	// brimshine door
 	
 	public static final Block CHERRY_SIGN = register("cherry_sign", new StandingSignBlock(Block.Properties.create(Material.WOOD, MaterialColor.PINK_TERRACOTTA).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), WoodTypeTwo.CHERRY));
 	public static final Block MAPLE_SIGN = register("maple_sign", new StandingSignBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), WoodTypeTwo.MAPLE));
@@ -266,6 +296,8 @@ public class BlocksTwo {
 	public static final Block CLOUDWOOD_SIGN = register("cloudwood_sign", new StandingSignBlock(Block.Properties.create(Material.WOOD, MaterialColor.CYAN_TERRACOTTA).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), WoodTypeTwo.CLOUDWOOD));
 	public static final Block BLACKBARK_SIGN = register("blackbark_sign", new StandingSignBlock(Block.Properties.create(Material.WOOD, MaterialColor.BLACK).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), WoodTypeTwo.BLACKBARK));
 	public static final Block FROSTBARK_SIGN = register("frostbark_sign", new StandingSignBlock(Block.Properties.create(Material.WOOD, MaterialColor.ICE).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), WoodTypeTwo.FROSTBARK));
+	// neondot sign
+	// brimshine sign
 	
 	public static final Block CHERRY_WALL_SIGN = register("cherry_wall_sign", new WallSignBlock(Block.Properties.create(Material.WOOD, MaterialColor.PINK_TERRACOTTA).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(CHERRY_SIGN), WoodTypeTwo.CHERRY));
 	public static final Block MAPLE_WALL_SIGN = register("maple_wall_sign", new WallSignBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(MAPLE_SIGN), WoodTypeTwo.MAPLE));
@@ -273,6 +305,8 @@ public class BlocksTwo {
 	public static final Block CLOUDWOOD_WALL_SIGN = register("cloudwood_wall_sign", new WallSignBlock(Block.Properties.create(Material.WOOD, MaterialColor.CYAN_TERRACOTTA).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(CLOUDWOOD_SIGN), WoodTypeTwo.CLOUDWOOD));
 	public static final Block BLACKBARK_WALL_SIGN = register("blackbark_wall_sign", new WallSignBlock(Block.Properties.create(Material.WOOD, MaterialColor.BLACK).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(BLACKBARK_SIGN), WoodTypeTwo.BLACKBARK));
 	public static final Block FROSTBARK_WALL_SIGN = register("frostbark_wall_sign", new WallSignBlock(Block.Properties.create(Material.WOOD, MaterialColor.ICE).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(FROSTBARK_SIGN), WoodTypeTwo.FROSTBARK));
+	// neondot wall sign
+	// brimshine wall sign
 	
 	public static final Block WHITE_GLAZED_BRICKS = register("white_glazed_bricks", new Block(Block.Properties.create(Material.ROCK, DyeColor.WHITE).hardnessAndResistance(2.0F, 6.0F)));
 	public static final Block ORANGE_GLAZED_BRICKS = register("orange_glazed_bricks", new Block(Block.Properties.create(Material.ROCK, DyeColor.ORANGE).hardnessAndResistance(2.0F, 6.0F)));
@@ -358,12 +392,7 @@ public class BlocksTwo {
 	public static final Block SPORESTONE_SOIL = register("sporestone_soil", new Block(Block.Properties.create(Material.ROCK, MaterialColor.BLACK).hardnessAndResistance(1.0f, 4.0f).harvestTool(ToolType.PICKAXE)));
 	
 	public static final Block NEONDOT = register("neondot", new NeondotBlock(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT).lightValue(4)));
-	public static final Block NEONDOT_STEM = register("neondot_stem", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.CYAN).hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
-	public static final Block NEONDOT_CAP = register("neondot_cap", new Block(Block.Properties.create(Material.WOOD, MaterialColor.PURPLE).hardnessAndResistance(0.8f).sound(SoundType.CLOTH)));
-
 	public static final Block BRIMSHINE = register("brimshine", new BrimshineBlock(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT).lightValue(4)));
-	public static final Block BRIMSHINE_STEM = register("brimshine_stem", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
-	public static final Block BRIMSHINE_CAP = register("brimshine_cap", new Block(Block.Properties.create(Material.WOOD, MaterialColor.YELLOW).hardnessAndResistance(0.8f).sound(SoundType.CLOTH)));
 
 	public static final Block SHROOMGLOW = register("shroomglow", new Block(Block.Properties.create(Material.WOOD, MaterialColor.LIME).hardnessAndResistance(0.5f).sound(SoundType.CLOTH).lightValue(8)));
 	public static final Block SHROOMGLOW_LANTERN = register("shroomglow_lantern", new LanternBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(3.5F).sound(SoundType.LANTERN).lightValue(12).notSolid()));
