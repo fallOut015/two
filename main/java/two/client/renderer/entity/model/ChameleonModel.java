@@ -140,10 +140,10 @@ public class ChameleonModel<T extends ChameleonEntity> extends AgeableModel<T> {
 	}
 	@Override
 	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.legLowerLeftA.rotateAngleY = MathHelper.cos(limbSwing * 3.6662F) * 1.4F * limbSwingAmount;
-		this.legUpperRightA.rotateAngleY = MathHelper.cos(limbSwing * 3.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-		this.legLowerRightA.rotateAngleY = MathHelper.cos(limbSwing * 3.6662F) * 1.4F * limbSwingAmount;
-		this.legUpperLeftA.rotateAngleY = MathHelper.cos(limbSwing * 3.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+		this.legLowerLeftA.rotateAngleY = MathHelper.cos(limbSwing * 3.6662F) * 1.4F * limbSwingAmount - 0.2617993877991494F;
+		this.legUpperRightA.rotateAngleY = MathHelper.cos(limbSwing * 3.6662F + (float)Math.PI) * 1.4F * limbSwingAmount - 0.4363323129985824F;
+		this.legLowerRightA.rotateAngleY = MathHelper.cos(limbSwing * 3.6662F) * 1.4F * limbSwingAmount + 0.2617993877991494F;
+		this.legUpperLeftA.rotateAngleY = MathHelper.cos(limbSwing * 3.6662F + (float)Math.PI) * 1.4F * limbSwingAmount + 0.4363323129985824F;
     	this.tailA.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 0.9F * limbSwingAmount;
 	}
 	@Override
