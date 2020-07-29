@@ -10,7 +10,7 @@
       		"tag": "forge:rods/wooden"
     	},
     	"X": {
-      		"item" : "minecraft:ice"
+      		"item" : "two:ice_slime_ball"
     	},
     	"Y": {
      	 	"item": "minecraft:feather"

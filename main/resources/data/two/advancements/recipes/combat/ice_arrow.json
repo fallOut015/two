@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_ice": {
+    "has_ice_slime_ball": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:ice"
+            "item": "two:ice_slime_ball"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_ice",
+      "has_ice_slime_ball",
       "has_the_recipe"
     ]
   ]
