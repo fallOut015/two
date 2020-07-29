@@ -118,6 +118,7 @@ import two.client.renderer.entity.ShockArrowRenderer;
 import two.client.renderer.entity.ShurikenRenderer;
 import two.client.renderer.entity.SigilRenderer;
 import two.client.renderer.entity.TwisterRenderer;
+import two.client.renderer.entity.layers.BeardedDragonLayer;
 import two.client.renderer.entity.layers.ChameleonLayer;
 import two.client.renderer.entity.layers.InspectionSpectaclesLayer;
 import two.client.renderer.entity.layers.TopHatLayer;
@@ -242,6 +243,9 @@ public class Two {
 
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new ChameleonLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new ChameleonLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
+
+    	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new BeardedDragonLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
+    	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new BeardedDragonLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
     }
     
     @SubscribeEvent
