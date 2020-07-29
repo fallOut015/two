@@ -34,6 +34,7 @@ public class RenderTypeLookupTwo {
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_SKY, RenderType.getCutout());
 
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.MAPLE_TAP, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.ICE_SLIME_BLOCK, RenderType.getTranslucent());
 
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.STARSTONE_TORCH, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.STARSTONE_WALL_TORCH, RenderType.getCutout());
