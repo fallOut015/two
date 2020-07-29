@@ -19,6 +19,7 @@ import net.minecraft.block.OreBlock;
 import net.minecraft.block.PressurePlateBlock;
 import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.block.SlabBlock;
+import net.minecraft.block.SlimeBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.StandingSignBlock;
 import net.minecraft.block.WallBlock;
@@ -602,6 +603,7 @@ public class BlocksTwo {
 	public static final Block GROUND_LIGHT = register("ground_light", new GroundLightBlock(Block.Properties.create(Material.GLASS).lightValue(8).hardnessAndResistance(0.5f).doesNotBlockMovement()));
 	public static final Block BILLBOARD = register("billboard", new Block(Block.Properties.create(Material.GLASS).lightValue(5).hardnessAndResistance(0.2f).sound(SoundType.GLASS)));
 	public static final Block CONVEYER = register("conveyer", new ConveyerBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(1.0f)));
+	public static final Block ICE_SLIME_BLOCK = register("ice_slime_block", new SlimeBlock(Block.Properties.create(Material.CLAY, MaterialColor.ICE).slipperiness(1.98F).sound(SoundType.SLIME).notSolid()));
 	
 	public static final Block UPHOLSTERY_TABLE = register("upholstery_table", new UpholsteryTableBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.5f).sound(SoundType.WOOD)));
 	

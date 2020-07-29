@@ -433,6 +433,7 @@ public class ItemsTwo {
 	public static final Item GROUND_LIGHT = register(BlocksTwo.GROUND_LIGHT, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item BILLBOARD = register(BlocksTwo.BILLBOARD, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item CONVEYER = register(BlocksTwo.CONVEYER, new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/);
+	public static final Item ICE_SLIME_BLOCK = register(BlocksTwo.ICE_SLIME_BLOCK, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
 	public static final Item UPHOLSTERY_TABLE = register(BlocksTwo.UPHOLSTERY_TABLE, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
