@@ -51,10 +51,10 @@ public class IceSlimeEntity extends SlimeEntity {
 		}
 	}
 	
-	public static boolean canSpawn(EntityType<IceSlimeEntity> batIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-		if (pos.getY() >= worldIn.getSeaLevel()) {
-			return false;
+	public static boolean canSpawn(EntityType<IceSlimeEntity> iceSlimeIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+		if (pos.getY() >= worldIn.getSeaLevel() / 2) {
+			return randomIn.nextInt(10) == 0; // small chance of spawning above ground. 
 		}
-		return true;
+		return true; // spawns underground. 
 	}
 }

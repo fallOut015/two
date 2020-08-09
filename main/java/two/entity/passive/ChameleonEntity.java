@@ -206,7 +206,7 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 	}
 	@Override
 	protected PathNavigator createNavigator(World worldIn) {
-		return new SmallClimberPathNavigator(this, worldIn);
+		return new SmallClimberPathNavigator(this, worldIn); // TODO in forge 1.16.1 i should be able to replace this with a normal climber path finder
 	}
 	@Override
 	public void livingTick() {
@@ -256,7 +256,7 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 	 * data fixer
 	 * fix camoflouge when hanging on the edge of a block
 	 * camoflouge when submerged in a block
-	 * no sound
+	 * add sound
 	 * chameleons scare arthopods on shoulders
 	 * chameleons retain texture on shoulder
 	 * resting
