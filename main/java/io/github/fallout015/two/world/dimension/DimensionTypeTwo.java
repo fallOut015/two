@@ -8,7 +8,6 @@ import net.minecraft.world.dimension.DimensionType;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.ModDimension;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.registries.ObjectHolder;
 
 public class DimensionTypeTwo {
 	public static final DimensionType NIGHTMARE = register("nightmare", ModDimensionTwo.NIGHTMARE, null, true);
