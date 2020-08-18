@@ -1,12 +1,12 @@
 package io.github.fallout015.two.entity.passive;
 
+import java.util.EnumSet;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.function.Predicate;
 
 import io.github.fallout015.two.entity.EntityTypeTwo;
-import io.github.fallout015.two.entity.ai.goal.RestOnBlockGoal;
 import io.github.fallout015.two.item.ItemsTwo;
-import io.github.fallout015.two.pathfinding.SmallClimberPathNavigator;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
@@ -15,11 +15,13 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.goal.BreedGoal;
 import net.minecraft.entity.ai.goal.FollowOwnerGoal;
+import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.LandOnOwnersShoulderGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.PanicGoal;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
+import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.ShoulderRidingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -33,6 +35,7 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.pathfinding.ClimberPathNavigator;
 import net.minecraft.pathfinding.PathNavigator;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -59,8 +62,8 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 		this.goalSelector.addGoal(2, new LandOnOwnersShoulderGoal(this));
 		this.goalSelector.addGoal(3, new PanicGoal(this, 2.0D));
 		this.goalSelector.addGoal(4, new BreedGoal(this, 0.8D));
-		this.goalSelector.addGoal(5, new RestOnBlockGoal(this, Blocks.SAND));
-		this.goalSelector.addGoal(5, new RestOnBlockGoal(this, Blocks.JUNGLE_LOG));
+		this.goalSelector.addGoal(5, new RestOnBlockGoal(this, (blockState) -> blockState.getBlock() == Blocks.SAND)); // add a light value to the predicate
+		this.goalSelector.addGoal(5, new RestOnBlockGoal(this, (blockState) -> blockState.getBlock() == Blocks.JUNGLE_LOG));
 		this.goalSelector.addGoal(6, new TemptGoal(this, 1.2D, false, TEMPTATION_ITEMS));
 		this.goalSelector.addGoal(7, new LookAtGoal(this, PlayerEntity.class, 10.0F));
 		this.goalSelector.addGoal(8, new WaterAvoidingRandomWalkingGoal(this, 0.8D, 1.0000001E-5F));
@@ -206,7 +209,7 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 	}
 	@Override
 	protected PathNavigator createNavigator(World worldIn) {
-		return new SmallClimberPathNavigator(this, worldIn); // TODO in forge 1.16.1 i should be able to replace this with a normal climber path finder
+		return new ClimberPathNavigator(this, worldIn); // TODO in forge 1.16.1 i should be able to replace this with a normal climber path finder
 	}
 	@Override
 	public void livingTick() {
@@ -261,4 +264,21 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 	 * chameleons retain texture on shoulder
 	 * resting
 	 */
+	
+	public class RestOnBlockGoal extends Goal {
+		private final AnimalEntity animal;
+		private final Predicate<BlockState> predicate$BlockState;
+		
+		public RestOnBlockGoal(AnimalEntity animal, Predicate<BlockState> predicate$BlockState) {
+			this.animal = animal;
+			this.predicate$BlockState = predicate$BlockState;
+			
+			this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
+		}
+			   
+		@Override
+		public boolean shouldExecute() {
+			return false;
+		}
+	}
 }
