@@ -15,7 +15,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 // TODO QuadripedModel
 @OnlyIn(Dist.CLIENT)
-public class RedPandaModel<T extends RedPandaEntity> extends EntityModel<T> {
+public class RedPandaModel<T extends RedPandaEntity> extends EntityModel<T> { // todo quadruped
 	private final ModelRenderer body;
 	private final ModelRenderer head;
 	private final ModelRenderer tail;

@@ -1089,6 +1089,8 @@ public class ItemsTwo {
     public static final Item DOUBLE_JUMP_BOOTS = register("double_jump_boots", new DoubleJumpBootsItem(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)));
     public static final Item HERMES_HELMET = register("hermes_helmet", new HermesHelmetItem(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)));
     
+    public static final Item CHAMELEON_CLOAK = register("chameleon_cloak", new ChameleonCloakItem(new Item.Properties().group(ItemGroup.COMBAT).maxDamage(432).rarity(Rarity.UNCOMMON)));
+    
     
     
     /*
@@ -1103,7 +1105,6 @@ public class ItemsTwo {
     flash bomb
     confetti bomb
     cutlass
-    ore capped-arrows
     bolt (replaces current arrow)
     ore maces
     ore longbows

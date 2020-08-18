@@ -32,6 +32,7 @@ import io.github.fallout015.two.client.renderer.entity.ShurikenRenderer;
 import io.github.fallout015.two.client.renderer.entity.SigilRenderer;
 import io.github.fallout015.two.client.renderer.entity.TwisterRenderer;
 import io.github.fallout015.two.client.renderer.entity.layers.BeardedDragonLayer;
+import io.github.fallout015.two.client.renderer.entity.layers.ChameleonCloakLayer;
 import io.github.fallout015.two.client.renderer.entity.layers.ChameleonLayer;
 import io.github.fallout015.two.client.renderer.entity.layers.InspectionSpectaclesLayer;
 import io.github.fallout015.two.client.renderer.entity.layers.TopHatLayer;
@@ -246,6 +247,9 @@ public class Two {
 
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new BeardedDragonLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new BeardedDragonLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
+
+    	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new ChameleonCloakLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
+    	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new ChameleonCloakLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
     }
     
     @SubscribeEvent

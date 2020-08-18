@@ -12,7 +12,6 @@ import net.minecraft.util.math.MathHelper;
 // Exported for Minecraft version 1.15
 // Paste this class into your mod and generate all required imports
 
-
 public class NetherBugModel<T extends NetherBugEntity> extends EntityModel<T> {
 	private final ModelRenderer body;
 	private final ModelRenderer legA;

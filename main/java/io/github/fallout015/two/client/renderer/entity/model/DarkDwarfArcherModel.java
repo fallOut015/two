@@ -11,7 +11,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class DarkDwarfArcherModel<T extends DarkDwarfArcherEntity> extends EntityModel<T> {
+public class DarkDwarfArcherModel<T extends DarkDwarfArcherEntity> extends EntityModel<T> { // todo biped
     public ModelRenderer body;
     public ModelRenderer legRight;
     public ModelRenderer legLeft;
