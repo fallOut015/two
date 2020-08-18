@@ -18,49 +18,50 @@ import io.github.fallout015.two.entity.projectile.FireArrowEntity;
 import io.github.fallout015.two.entity.projectile.IceArrowEntity;
 import io.github.fallout015.two.entity.projectile.ShockArrowEntity;
 import io.github.fallout015.two.entity.projectile.ShurikenEntity;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
 
 @ObjectHolder("two")
-@SuppressWarnings("unchecked")
 public class EntityTypeTwo {
-	public static EntityType<ChameleonEntity> CHAMELEON = (EntityType<ChameleonEntity>) register("chameleon", EntityType.Builder.create(ChameleonEntity::new, EntityClassification.CREATURE).size(0.25f, 0.25f).build("chameleon"));
-	public static EntityType<BeardedDragonEntity> BEARDED_DRAGON = (EntityType<BeardedDragonEntity>) register("bearded_dragon", EntityType.Builder.create(BeardedDragonEntity::new, EntityClassification.CREATURE).size(0.2f, 0.2f).build("bearded_dragon"));
-	public static EntityType<RedPandaEntity> RED_PANDA = (EntityType<RedPandaEntity>) register("red_panda", EntityType.Builder.create(RedPandaEntity::new, EntityClassification.CREATURE).size(0.6875f, 1f).build("red_panda"));
-	public static EntityType<NetherBugEntity> NETHER_BUG = (EntityType<NetherBugEntity>) register("nether_bug", EntityType.Builder.create(NetherBugEntity::new, EntityClassification.CREATURE).size(0.6875f, 1f).build("nether_bug"));
+	public static EntityType<ChameleonEntity> CHAMELEON = register("chameleon", EntityType.Builder.create(ChameleonEntity::new, EntityClassification.CREATURE).size(0.25f, 0.25f));
+	public static EntityType<BeardedDragonEntity> BEARDED_DRAGON = register("bearded_dragon", EntityType.Builder.create(BeardedDragonEntity::new, EntityClassification.CREATURE).size(0.2f, 0.2f));
+	public static EntityType<RedPandaEntity> RED_PANDA = register("red_panda", EntityType.Builder.create(RedPandaEntity::new, EntityClassification.CREATURE).size(0.6875f, 1f));
+	public static EntityType<NetherBugEntity> NETHER_BUG = register("nether_bug", EntityType.Builder.create(NetherBugEntity::new, EntityClassification.CREATURE).size(0.6875f, 1f));
 	
 	//	public static EntityType<WandererEntity> WANDERER = (EntityType<WandererEntity>) register("wanderer", EntityType.Builder.create(WandererEntity::new, EntityClassification.MONSTER).size(0.5f, 1.0f).build("wanderer"));
 //	public static EntityType<ShadowEntity> SHADOW = (EntityType<ShadowEntity>) register("shadow", EntityType.Builder.create(ShadowEntity::new, EntityClassification.MONSTER).size(0.5f, 1.0f).build("shadow"));
-	public static EntityType<DarkDwarfArcherEntity> DARK_DWARF_ARCHER = (EntityType<DarkDwarfArcherEntity>) register("dark_dwarf_archer", EntityType.Builder.create(DarkDwarfArcherEntity::new, EntityClassification.MONSTER).size(0.5f, 0.75f).build("dark_dwarf_archer"));
+	public static EntityType<DarkDwarfArcherEntity> DARK_DWARF_ARCHER = register("dark_dwarf_archer", EntityType.Builder.create(DarkDwarfArcherEntity::new, EntityClassification.MONSTER).size(0.5f, 0.75f));
 	// DARK_DWARF_GUARD
 	// DARK_DWARF_MAGE
 	// DARK_DWARF_POTIONER
 	// DARK_DWARF_PALADIN
-	public static EntityType<MummifiedZombieEntity> MUMMIFIED_ZOMBIE = (EntityType<MummifiedZombieEntity>) register("mummified_zombie", EntityType.Builder.create(MummifiedZombieEntity::new, EntityClassification.MONSTER).size(0.6F, 1.95F).build("mummified_zombie"));
-	public static EntityType<IceSlimeEntity> ICE_SLIME = (EntityType<IceSlimeEntity>) register("ice_slime", EntityType.Builder.create(IceSlimeEntity::new, EntityClassification.MONSTER).size(2.04F, 2.04F).build("ice_slime"));
+	public static EntityType<MummifiedZombieEntity> MUMMIFIED_ZOMBIE = register("mummified_zombie", EntityType.Builder.create(MummifiedZombieEntity::new, EntityClassification.MONSTER).size(0.6F, 1.95F));
+	public static EntityType<IceSlimeEntity> ICE_SLIME = register("ice_slime", EntityType.Builder.create(IceSlimeEntity::new, EntityClassification.MONSTER).size(2.04F, 2.04F));
 	
-	public static EntityType<CappedArrowEntity> CAPPED_ARROW = (EntityType<CappedArrowEntity>) register("capped_arrow", EntityType.Builder.<CappedArrowEntity>create(CappedArrowEntity::new, EntityClassification.MISC).size(0.5F, 0.5F).build("capped_arrow"));
-	public static EntityType<FireArrowEntity> FIRE_ARROW = (EntityType<FireArrowEntity>) register("fire_arrow", EntityType.Builder.<FireArrowEntity>create(FireArrowEntity::new, EntityClassification.MISC).size(0.5f, 0.5f).build("fire_arrow"));
-	public static EntityType<IceArrowEntity> ICE_ARROW = (EntityType<IceArrowEntity>) register("ice_arrow", EntityType.Builder.<IceArrowEntity>create(IceArrowEntity::new, EntityClassification.MISC).size(0.5f, 0.5f).build("ice_arrow"));
-	public static EntityType<BombArrowEntity> BOMB_ARROW = (EntityType<BombArrowEntity>) register("bomb_arrow", EntityType.Builder.<BombArrowEntity>create(BombArrowEntity::new, EntityClassification.MISC).size(0.5f, 0.5f).build("bomb_arrow"));
-	public static EntityType<ShockArrowEntity> SHOCK_ARROW = (EntityType<ShockArrowEntity>) register("shock_arrow", EntityType.Builder.<ShockArrowEntity>create(ShockArrowEntity::new, EntityClassification.MISC).size(0.5f, 0.5f).build("shock_arrow"));
-	public static EntityType<EvocationFangsEntity> EVOCATION_FANGS = (EntityType<EvocationFangsEntity>) register("evocation_fangs", EntityType.Builder.<EvocationFangsEntity>create(EvocationFangsEntity::new, EntityClassification.MISC).size(0.5f, 0.8f).build("evocation_fangs"));
-	public static EntityType<ShurikenEntity> SHURIKEN = (EntityType<ShurikenEntity>) register("shuriken", EntityType.Builder.<ShurikenEntity>create(ShurikenEntity::new, EntityClassification.MISC).size(0.25f, 0.25f).build("shuriken"));
+	public static EntityType<CappedArrowEntity> CAPPED_ARROW = register("capped_arrow", EntityType.Builder.<CappedArrowEntity>create(CappedArrowEntity::new, EntityClassification.MISC).size(0.5F, 0.5F));
+	public static EntityType<FireArrowEntity> FIRE_ARROW = register("fire_arrow", EntityType.Builder.<FireArrowEntity>create(FireArrowEntity::new, EntityClassification.MISC).size(0.5f, 0.5f));
+	public static EntityType<IceArrowEntity> ICE_ARROW = register("ice_arrow", EntityType.Builder.<IceArrowEntity>create(IceArrowEntity::new, EntityClassification.MISC).size(0.5f, 0.5f));
+	public static EntityType<BombArrowEntity> BOMB_ARROW = register("bomb_arrow", EntityType.Builder.<BombArrowEntity>create(BombArrowEntity::new, EntityClassification.MISC).size(0.5f, 0.5f));
+	public static EntityType<ShockArrowEntity> SHOCK_ARROW = register("shock_arrow", EntityType.Builder.<ShockArrowEntity>create(ShockArrowEntity::new, EntityClassification.MISC).size(0.5f, 0.5f));
+	public static EntityType<EvocationFangsEntity> EVOCATION_FANGS = register("evocation_fangs", EntityType.Builder.<EvocationFangsEntity>create(EvocationFangsEntity::new, EntityClassification.MISC).size(0.5f, 0.8f));
+	public static EntityType<ShurikenEntity> SHURIKEN = register("shuriken", EntityType.Builder.<ShurikenEntity>create(ShurikenEntity::new, EntityClassification.MISC).size(0.25f, 0.25f));
 	
-	public static EntityType<SigilEntity> SIGIL = (EntityType<SigilEntity>) register("sigil", EntityType.Builder.create(SigilEntity::new, EntityClassification.MISC).size(4, 0.1f).disableSerialization().build("sigil"));
-	public static EntityType<TwisterEntity> TWISTER = (EntityType<TwisterEntity>) register("twister", EntityType.Builder.create(TwisterEntity::new, EntityClassification.MISC).size(1, 2).disableSerialization().build("twister"));
+	public static EntityType<SigilEntity> SIGIL = register("sigil", EntityType.Builder.create(SigilEntity::new, EntityClassification.MISC).size(4, 0.1f).disableSerialization());
+	public static EntityType<TwisterEntity> TWISTER = register("twister", EntityType.Builder.<TwisterEntity>create(TwisterEntity::new, EntityClassification.MISC).size(1, 2).disableSerialization());
 	
 	
 	
 	public static void onEntityTypesRegistry(final RegistryEvent.Register<EntityType<?>> entityTypeRegistryEvent) {
-		entityTypeRegistryEvent.getRegistry().registerAll(Holder.ENTITYTYPESTWO.toArray(new EntityType<?> [] {}));
+		entityTypeRegistryEvent.getRegistry().registerAll(Holder.ENTITYTYPESTWO.toArray(new EntityType<?>[] {}));
 	}
-	private static EntityType<?> register(String key, EntityType<?> entityType) {
-		entityType.setRegistryName(key);
-		Holder.ENTITYTYPESTWO.add(entityType);
-		return entityType;
+	private static <T extends Entity> EntityType<T> register(String key, EntityType.Builder<T> entityType) {
+		@SuppressWarnings("unchecked")
+		EntityType<T> entity = (EntityType<T>) entityType.build(key).setRegistryName(key);
+		Holder.ENTITYTYPESTWO.add(entity);
+		return entity;
 	}
 	static class Holder {
 		public static final LinkedList<EntityType<?>> ENTITYTYPESTWO = new LinkedList<EntityType<?>>();
