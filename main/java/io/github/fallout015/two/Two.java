@@ -47,6 +47,7 @@ import io.github.fallout015.two.inventory.container.ContainerTypeTwo;
 import io.github.fallout015.two.item.ArmorMaterialTwo;
 import io.github.fallout015.two.item.DoubleJumpBootsItem;
 import io.github.fallout015.two.item.ItemsTwo;
+import io.github.fallout015.two.item.SlimeBootsItem;
 import io.github.fallout015.two.particles.ParticleTypesTwo;
 import io.github.fallout015.two.potion.EffectsTwo;
 import io.github.fallout015.two.stats.StatsTwo;
@@ -161,10 +162,8 @@ public class Two {
 	
 	// PILLARS
 	// FURNITURE
-	// CURSED CHESTS?
-	// FOOD SCRAPS
 	
-    public static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger("two");
     
 	public static AttributeModifier leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", 2, AttributeModifier.Operation.ADDITION);
     
@@ -183,8 +182,6 @@ public class Two {
     	DefaultBiomeFeaturesTwo.addStructures();
     	DefaultBiomeFeaturesTwo.addSpawns();
     	DefaultBiomeFeaturesTwo.addCarvers();
-    	
-    	
     }
     private void doClientStuff(final FMLClientSetupEvent event) {
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CHAMELEON, ChameleonRenderer::new);
@@ -440,6 +437,12 @@ public class Two {
         		LinkedList<ItemStack> list = new LinkedList<ItemStack>();
         		livingFallEvent.getEntityLiving().getArmorInventoryList().forEach(list::add);
 //        		LOGGER.info(list);
+        		if(list.getFirst().getItem() == ItemsTwo.SLIME_BOOTS) {
+        			int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.REBOUND, list.getFirst());
+        			if(level > 0) {
+            			SlimeBootsItem.bounce(livingFallEvent.getEntityLiving(), level);
+        			}
+        		}
         		if(list.getFirst().getItem() == ItemsTwo.DOUBLE_JUMP_BOOTS) {
 //        			LOGGER.info("Boots!");
         			if(p.onGround) {
