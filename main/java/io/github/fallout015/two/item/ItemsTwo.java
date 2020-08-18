@@ -1087,6 +1087,8 @@ public class ItemsTwo {
     public static final Item TOP_HAT = register("top_hat", new TopHatItem(new Item.Properties().group(ItemGroup.COMBAT)));
     
     public static final Item DOUBLE_JUMP_BOOTS = register("double_jump_boots", new DoubleJumpBootsItem(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)));
+    public static final Item BEAMING_BOOTS = register("beaming_boots", new BeamingBootsItem(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)));
+    public static final Item SLIME_BOOTS = register("slime_boots", new SlimeBootsItem(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)));
     public static final Item HERMES_HELMET = register("hermes_helmet", new HermesHelmetItem(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)));
     
     public static final Item CHAMELEON_CLOAK = register("chameleon_cloak", new ChameleonCloakItem(new Item.Properties().group(ItemGroup.COMBAT).maxDamage(432).rarity(Rarity.UNCOMMON)));
@@ -1139,7 +1141,7 @@ public class ItemsTwo {
 //    	itemRegistryEvent.getRegistry().getValue(new ResourceLocation("minecraft", "command_block"))
 		itemRegistryEvent.getRegistry().registerAll(Holder.ITEMSTWO.toArray(new Item[] {}));
     
-		ItemGroup.COMBAT.setRelevantEnchantmentTypes(new EnchantmentType[]{ EnchantmentType.ALL, EnchantmentType.ARMOR, EnchantmentType.ARMOR_FEET, EnchantmentType.ARMOR_HEAD, EnchantmentType.ARMOR_LEGS, EnchantmentType.ARMOR_CHEST, EnchantmentType.BOW, EnchantmentType.WEAPON, EnchantmentType.WEARABLE, EnchantmentType.BREAKABLE, EnchantmentType.TRIDENT, EnchantmentType.CROSSBOW, EnchantmentsTwo.Holder.DOUBLE_JUMP_BOOTS, EnchantmentsTwo.Holder.BLOOD_BLADE, EnchantmentsTwo.Holder.BANISHER, EnchantmentsTwo.Holder.HERMES_HELMET, EnchantmentsTwo.Holder.EVOCATION_STAFF, EnchantmentsTwo.Holder.DAGGER });
+		ItemGroup.COMBAT.setRelevantEnchantmentTypes(new EnchantmentType[]{ EnchantmentType.ALL, EnchantmentType.ARMOR, EnchantmentType.ARMOR_FEET, EnchantmentType.ARMOR_HEAD, EnchantmentType.ARMOR_LEGS, EnchantmentType.ARMOR_CHEST, EnchantmentType.BOW, EnchantmentType.WEAPON, EnchantmentType.WEARABLE, EnchantmentType.BREAKABLE, EnchantmentType.TRIDENT, EnchantmentType.CROSSBOW, EnchantmentsTwo.Holder.DOUBLE_JUMP_BOOTS, EnchantmentsTwo.Holder.BLOOD_BLADE, EnchantmentsTwo.Holder.BANISHER, EnchantmentsTwo.Holder.HERMES_HELMET, EnchantmentsTwo.Holder.EVOCATION_STAFF, EnchantmentsTwo.Holder.DAGGER, EnchantmentsTwo.Holder.SLIME_BOOTS });
 		ItemGroup.TOOLS.setRelevantEnchantmentTypes(new EnchantmentType[]{ EnchantmentType.ALL, EnchantmentType.DIGGER, EnchantmentType.FISHING_ROD, EnchantmentType.BREAKABLE, EnchantmentsTwo.Holder.SICKLE });
 
 		Holder.FOOD_TO_SCRAPS.put(Items.GOLDEN_APPLE, ItemsTwo.GOLDEN_APPLE_CORE);

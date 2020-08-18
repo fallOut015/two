@@ -22,6 +22,7 @@ public class EnchantmentsTwo {
 	public static final Enchantment DISTANCE = register("distance", new DistanceEnchantment(Enchantment.Rarity.RARE, EquipmentSlotType.MAINHAND));
 	public static final Enchantment BOUNDING = register("bounding", new BoundingEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.FEET));
 	public static final Enchantment GENTLE_DESCENT = register("gentle_descent", new GentleDescentEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.HEAD));
+	public static final Enchantment REBOUND = register("rebound", new ReboundEnchantment(Enchantment.Rarity.COMMON, EquipmentSlotType.FEET));
 	
 	public static final Enchantment FLIMSINESS_CURSE = register("flimsiness_curse", new FlimsinessCurseEnchantment(Enchantment.Rarity.UNCOMMON, EquipmentSlotType.MAINHAND));
 	public static final Enchantment CLUMSINESS_CURSE = register("clumsiness_curse", new ClumsinessCurseEnchantment(Enchantment.Rarity.UNCOMMON, EquipmentSlotType.MAINHAND));
@@ -59,5 +60,6 @@ public class EnchantmentsTwo {
 		public static final EnchantmentType EVOCATION_STAFF = EnchantmentType.create("evocation_staff", item -> item.asItem() == ItemsTwo.EVOCATION_STAFF);
 		public static final EnchantmentType BANISHER = EnchantmentType.create("banisher", item -> item.asItem() == ItemsTwo.BANISHER);
 		public static final EnchantmentType HERMES_HELMET = EnchantmentType.create("hermes_helmet", item -> item.asItem() == ItemsTwo.HERMES_HELMET);
+		public static final EnchantmentType SLIME_BOOTS = EnchantmentType.create("slime_boots", item -> item.asItem() == ItemsTwo.SLIME_BOOTS);
 	}
 }
