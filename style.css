@@ -1,0 +1,47 @@
+body {
+	background-color:white;
+}
+
+body header {
+	position:fixed;
+	width:100%;
+	height:24pt;
+	background-color:orange;
+	box-shadow:0 2pt 4pt rgba(0, 0, 0, 0.25);
+	left:0;
+	top:0;
+	z-index:1;
+	weight:100;
+}
+
+body div {
+
+}
+body div#banner {
+	position:relative;
+	text-align:center;
+	width:calc(100% + 12pt);
+	font-family:oswald-extra-light;
+	font-size:24pt;
+	background-image:url("banner.jpg");
+	padding-top:10%;
+	padding-bottom:10%;
+	margin:auto;
+	left:-6pt;
+}
+body div#content {
+
+}
+
+
+
+@font-face {
+	font-family:open-sans;
+	src:url(OpenSans-Light.ttf);
+	font-weight:100;
+}
+@font-face {
+	font-family:oswald-extra-light;
+	src:url(Oswald-ExtraLight.ttf);
+	weight:100;
+}
