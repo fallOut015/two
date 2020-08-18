@@ -1077,6 +1077,8 @@
 	"item.two.top_hat" : "Top Hat",
 	
 	"item.two.double_jump_boots" : "Double Jump Boots",
+	"item.two.beaming_boots" : "Beaming Boots",
+	"item.two.slime_boots" : "Slime Boots",
 	"item.two.hermes_helmet" : "Hermes Helmet",
 	
 	"item.two.chameleon_cloak" : "Chameleon Cloak",
@@ -1201,6 +1203,7 @@
 	"enchantment.two.distance" : "Distance",
 	"enchantment.two.bounding" : "Bounding",
 	"enchantment.two.gentle_descent" : "Gentle Descent",
+	"enchantment.two.rebound" : "Rebound",
 
 	"enchantment.two.flimsiness_curse" : "Maldición de Romper",
 	"enchantment.two.clumsiness_curse" : "Maldición de Dejar Caer",

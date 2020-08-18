@@ -178,10 +178,16 @@ public enum ArmorMaterialTwo implements IArmorMaterial {
 		return Ingredient.fromItems(Items.OBSIDIAN);
 	}),
 	
-	DOUBLE_JUMP_BOOTS("double_jump_boots", 5, new int[] {1, 2, 3, 1}, 5, SoundEventsTwo.ITEM_ARMOR_EQUIP_DOUBLE_JUMP_BOOTS, 0.0f, () -> {
+	DOUBLE_JUMP_BOOTS("double_jump_boots", 5, new int[] {2, 0, 0, 0}, 5, SoundEventsTwo.ITEM_ARMOR_EQUIP_DOUBLE_JUMP_BOOTS, 0.0f, () -> {
 		return Ingredient.fromItems(Items.FEATHER);
 	}),
-	HERMES_HELMET("hermes_helmet", 5, new int[] {1, 2, 3, 1}, 5, SoundEventsTwo.ITEM_ARMOR_EQUIP_HERMES_HELMET, 0.0f, () -> {
+	BEAMING_BOOTS("beaming_boots", 5, new int[] {2, 0, 0, 0}, 5, SoundEventsTwo.ITEM_ARMOR_EQUIP_BEAMING_BOOTS, 0.0f, () -> {
+		return Ingredient.fromItems(Items.CHORUS_FRUIT);
+	}),
+	SLIME_BOOTS("slime_boots", 5, new int[] {2, 0, 0, 0}, 5, SoundEventsTwo.ITEM_ARMOR_EQUIP_SLIME_BOOTS, 0.0f, () -> {
+		return Ingredient.fromItems(Items.SLIME_BALL);
+	}),
+	HERMES_HELMET("hermes_helmet", 5, new int[] {0, 0, 0, 2}, 5, SoundEventsTwo.ITEM_ARMOR_EQUIP_HERMES_HELMET, 0.0f, () -> {
 		return Ingredient.fromItems(Items.FEATHER);
 	});
 	

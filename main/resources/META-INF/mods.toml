@@ -65,6 +65,9 @@ Changelog:
 	Added the Hermes Helmet. 
 	Added the Neondot and Brimshine mushrooms.
 	Added the Shroomlight Lantern. 
+	Added the Chameleon Cloak. 
+	Added the Slime Boots.
+	Added the Beaming Boots.
 '''
 [[dependencies.two]] #optional
     modId="forge"
