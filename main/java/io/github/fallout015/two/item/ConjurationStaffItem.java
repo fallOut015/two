@@ -1,5 +1,6 @@
 package io.github.fallout015.two.item;
 
+import net.minecraft.enchantment.IVanishable;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -8,7 +9,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public class ConjurationStaffItem extends Item {
+public class ConjurationStaffItem extends Item implements IVanishable {
 	public ConjurationStaffItem(Properties properties) {
 		super(properties);
 	}

@@ -3,7 +3,7 @@ package io.github.fallout015.two.world.gen.feature;
 import java.util.Random;
 import java.util.function.Function;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 
 import io.github.fallout015.two.block.BlocksTwo;
 import net.minecraft.block.Block;
@@ -16,8 +16,8 @@ import net.minecraft.world.gen.feature.AbstractBigMushroomFeature;
 import net.minecraft.world.gen.feature.BigMushroomFeatureConfig;
 
 public class BigBrimshineFeature extends AbstractBigMushroomFeature {
-	public BigBrimshineFeature(Function<Dynamic<?>, ? extends BigMushroomFeatureConfig> p_i225795_1_) {
-		super(p_i225795_1_);
+	public BigBrimshineFeature(Codec<BigMushroomFeatureConfig> codec) {
+		super(codec);
 	}
 
 	@Override

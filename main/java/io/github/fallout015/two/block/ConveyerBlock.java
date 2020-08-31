@@ -5,7 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.MoverType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 
 public class ConveyerBlock extends RotatedPillarBlock {
@@ -23,7 +23,7 @@ public class ConveyerBlock extends RotatedPillarBlock {
 		if(!(entityIn.getPosY() > pos.getY())) {
 			return;
 		}
-		Vec3d destination = entityIn.getPositionVec();
+		Vector3d destination = entityIn.getPositionVec();
 		if(worldIn.getBlockState(pos).get(AXIS).test(Direction.NORTH)) {
 			destination.add(1, 0, 0);
 		} else if(worldIn.getBlockState(pos).get(AXIS).test(Direction.EAST)) {

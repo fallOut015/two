@@ -1,6 +1,0 @@
-{
-    "parent": "block/wall_inventory",
-    "textures": {
-        "wall": "two:block/cyan_glazed_bricks"
-    }
-}

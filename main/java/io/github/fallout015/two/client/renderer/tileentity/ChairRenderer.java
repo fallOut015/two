@@ -1,17 +1,12 @@
 package io.github.fallout015.two.client.renderer.tileentity;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.vertex.IVertexBuilder;
 
 import io.github.fallout015.two.client.renderer.tileentity.model.ChairModel;
 import io.github.fallout015.two.tileentity.ChairTileEntity;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.model.Material;
-import net.minecraft.client.renderer.texture.AtlasTexture;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -47,20 +42,21 @@ public class ChairRenderer extends TileEntityRenderer<ChairTileEntity> {
 //		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 //		GlStateManager.enableLighting();
 		
-		Material materialback = new Material(AtlasTexture.LOCATION_BLOCKS_TEXTURE, new ResourceLocation("block/" + back));
-		IVertexBuilder vertexbuilderback = materialback.getBuffer(bufferIn, RenderType::getEntityCutout);
-		this.model.back.render(matrixStackIn, vertexbuilderback, combinedLightIn, combinedOverlayIn);
+		// based off of book rendering code
+//		Material materialback = new Material(AtlasTexture.LOCATION_BLOCKS_TEXTURE, new ResourceLocation("block/" + back));
+//		IVertexBuilder vertexbuilderback = materialback.getBuffer(bufferIn, RenderType::getEntityCutout);
+//		this.model.back.render(matrixStackIn, vertexbuilderback, combinedLightIn, combinedOverlayIn);
 
-		Material materialseat = new Material(AtlasTexture.LOCATION_BLOCKS_TEXTURE, new ResourceLocation("block/" + seat));
-		IVertexBuilder vertexbuilderseat = materialseat.getBuffer(bufferIn, RenderType::getEntityCutout);
-		this.model.seat.render(matrixStackIn, vertexbuilderseat, combinedLightIn, combinedOverlayIn);
+//		Material materialseat = new Material(AtlasTexture.LOCATION_BLOCKS_TEXTURE, new ResourceLocation("block/" + seat));
+//		IVertexBuilder vertexbuilderseat = materialseat.getBuffer(bufferIn, RenderType::getEntityCutout);
+//		this.model.seat.render(matrixStackIn, vertexbuilderseat, combinedLightIn, combinedOverlayIn);
 		
-		Material materiallegs = new Material(AtlasTexture.LOCATION_BLOCKS_TEXTURE, new ResourceLocation("block/" + legs));
-		IVertexBuilder vertexbuilderlegs = materiallegs.getBuffer(bufferIn, RenderType::getEntityCutout);
-		this.model.leg_a.render(matrixStackIn, vertexbuilderlegs, combinedLightIn, combinedOverlayIn);
-		this.model.leg_b.render(matrixStackIn, vertexbuilderlegs, combinedLightIn, combinedOverlayIn);
-		this.model.leg_c.render(matrixStackIn, vertexbuilderlegs, combinedLightIn, combinedOverlayIn);
-		this.model.leg_d.render(matrixStackIn, vertexbuilderlegs, combinedLightIn, combinedOverlayIn);
+//		Material materiallegs = new Material(AtlasTexture.LOCATION_BLOCKS_TEXTURE, new ResourceLocation("block/" + legs));
+//		IVertexBuilder vertexbuilderlegs = materiallegs.getBuffer(bufferIn, RenderType::getEntityCutout);
+//		this.model.leg_a.render(matrixStackIn, vertexbuilderlegs, combinedLightIn, combinedOverlayIn);
+//		this.model.leg_b.render(matrixStackIn, vertexbuilderlegs, combinedLightIn, combinedOverlayIn);
+//		this.model.leg_c.render(matrixStackIn, vertexbuilderlegs, combinedLightIn, combinedOverlayIn);
+//		this.model.leg_d.render(matrixStackIn, vertexbuilderlegs, combinedLightIn, combinedOverlayIn);
 
 //		this.model.setRotationAngles(tileEntityIn.getBlockState().get(ChairBlock.FACING));
 

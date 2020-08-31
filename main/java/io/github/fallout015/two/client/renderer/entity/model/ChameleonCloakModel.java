@@ -6,7 +6,7 @@ import net.minecraft.client.entity.player.AbstractClientPlayerEntity;
 import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.vector.Vector3d;
 
 public class ChameleonCloakModel<T extends LivingEntity> extends AgeableModel<T> {
 	private final ModelRenderer rightWing;
@@ -32,9 +32,9 @@ public class ChameleonCloakModel<T extends LivingEntity> extends AgeableModel<T>
 		float f3 = 0.0F;
 		if (entityIn.isElytraFlying()) {
 			float f4 = 1.0F;
-			Vec3d vec3d = entityIn.getMotion();
+			Vector3d vec3d = entityIn.getMotion();
 			if (vec3d.y < 0.0D) {
-	            Vec3d vec3d1 = vec3d.normalize();
+	            Vector3d vec3d1 = vec3d.normalize();
 	            f4 = 1.0F - (float)Math.pow(-vec3d1.y, 1.5D);
 			}
 

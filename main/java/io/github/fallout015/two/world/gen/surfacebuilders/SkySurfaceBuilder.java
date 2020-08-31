@@ -1,9 +1,8 @@
 package io.github.fallout015.two.world.gen.surfacebuilders;
 
 import java.util.Random;
-import java.util.function.Function;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome;
@@ -12,8 +11,8 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 public class SkySurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
-	public SkySurfaceBuilder(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> deserializer) {
-		super(deserializer);
+	public SkySurfaceBuilder(Codec<SurfaceBuilderConfig> codec) {
+		super(codec);
 	}
 
 	@Override

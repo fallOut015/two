@@ -132,10 +132,10 @@ public class ChameleonRenderer extends MobRenderer<ChameleonEntity, ChameleonMod
 			this.entityModel.setRotationAngles(entityIn, f5, f8, f7, f2, f6);
 			boolean flag = this.isVisible(entityIn);
 			boolean flag1 = !flag && !entityIn.isInvisibleToPlayer(Minecraft.getInstance().player);
-			if(entityIn.getOn().getBlock().getTags().contains(Tags.Blocks.GLASS.getId())) {
+			if(entityIn.getOn().getBlock().getTags().contains(Tags.Blocks.GLASS.func_230234_a_())) {
 				flag1 = true;
 			}
-			RenderType rendertype = this.func_230042_a_(entityIn, flag, flag1);
+			RenderType rendertype = this.func_230496_a_(entityIn, flag, flag1, false); // udpate render code, the fourth "false" should be flag2 which controls outlines
 			if (rendertype != null) {
 				IVertexBuilder ivertexbuilder = bufferIn.getBuffer(rendertype);
 				int i = getPackedOverlay(entityIn, this.getOverlayProgress(entityIn, partialTicks));
@@ -152,7 +152,7 @@ public class ChameleonRenderer extends MobRenderer<ChameleonEntity, ChameleonMod
 			}
 
 			matrixStackIn.pop();
-			net.minecraftforge.client.event.RenderNameplateEvent renderNameplateEvent = new net.minecraftforge.client.event.RenderNameplateEvent(entityIn, entityIn.getDisplayName().getFormattedText(), this, matrixStackIn, bufferIn, packedLightIn);
+			net.minecraftforge.client.event.RenderNameplateEvent renderNameplateEvent = new net.minecraftforge.client.event.RenderNameplateEvent(entityIn, entityIn.getDisplayName().func_230531_f_(), this, matrixStackIn, bufferIn, packedLightIn);
 			net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(renderNameplateEvent);
 			if (renderNameplateEvent.getResult() != net.minecraftforge.eventbus.api.Event.Result.DENY && (renderNameplateEvent.getResult() == net.minecraftforge.eventbus.api.Event.Result.ALLOW || this.canRenderName(entityIn))) {
 				this.renderName(entityIn, renderNameplateEvent.getContent(), matrixStackIn, bufferIn, packedLightIn);

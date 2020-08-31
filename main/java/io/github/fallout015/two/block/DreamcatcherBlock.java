@@ -1,19 +1,29 @@
 package io.github.fallout015.two.block;
 
+import java.util.List;
 import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import io.github.fallout015.two.Two;
+import io.netty.util.internal.shaded.org.jctools.queues.MessagePassingQueue.Consumer;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.HorizontalBlock;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.loot.LootContext;
+import net.minecraft.loot.LootParameterSets;
+import net.minecraft.loot.LootParameters;
+import net.minecraft.loot.LootTable;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Mirror;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -23,20 +33,23 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 
-public abstract class DreamcatcherBlock extends Block {
+public class DreamcatcherBlock extends Block {
 	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 	protected static final VoxelShape DREAMCATCHER_EAST_AABB = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 3.0D, 16.0D, 16.0D);
 	protected static final VoxelShape DREAMCATCHER_WEST_AABB = Block.makeCuboidShape(13.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 	protected static final VoxelShape DREAMCATCHER_SOUTH_AABB = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 3.0D);
 	protected static final VoxelShape DREAMCATCHER_NORTH_AABB = Block.makeCuboidShape(0.0D, 0.0D, 13.0D, 16.0D, 16.0D, 16.0D);
 	private final IParticleData particle;
+	private final Consumer<PlayerWakeUpEvent> effect;
 	
-	public DreamcatcherBlock(Properties properties, IParticleData particle) {
+	public DreamcatcherBlock(Properties properties, IParticleData particle, Consumer<PlayerWakeUpEvent> effect) {
 		super(properties);
 	    this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
 	    this.particle = particle;
+	    this.effect = effect;
 	}
 	
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
@@ -95,8 +108,61 @@ public abstract class DreamcatcherBlock extends Block {
 		builder.add(FACING);
 	}
 	
-	public abstract void onPlayerWakeUp(final PlayerWakeUpEvent playerWakeUpEvent);
-	
+	public static void dreamcatcherChaos(PlayerWakeUpEvent playerWakeUpEvent) { }
+	public static void dreamcatcherHealing(PlayerWakeUpEvent playerWakeUpEvent) {
+		playerWakeUpEvent.getPlayer().setHealth(20);
+	}
+	public static void dreamcatcherLoot(PlayerWakeUpEvent playerWakeUpEvent) {
+		LootContext.Builder lootcontext$builder = (new LootContext.Builder((ServerWorld) playerWakeUpEvent.getPlayer().getEntityWorld())).withRandom(playerWakeUpEvent.getPlayer().getEntityWorld().getRandom()).withLuck(1).withParameter(LootParameters.field_237457_g_, playerWakeUpEvent.getPlayer().getPositionVec()).withParameter(LootParameters.THIS_ENTITY, playerWakeUpEvent.getEntity());
+        LootTable loottable = playerWakeUpEvent.getPlayer().getEntityWorld().getServer().getLootTableManager().getLootTableFromLocation(new ResourceLocation("two", "gameplay/dreamcatcher_loot"));
+        List<ItemStack> list = loottable.generate(lootcontext$builder.build(LootParameterSets.GIFT));
+
+        playerWakeUpEvent.getPlayer().world.addEntity(new ItemEntity(playerWakeUpEvent.getPlayer().getEntityWorld(), playerWakeUpEvent.getPlayer().prevPosX, playerWakeUpEvent.getPlayer().prevPosY + 0.5, playerWakeUpEvent.getPlayer().prevPosZ, list.get(playerWakeUpEvent.getPlayer().getEntityWorld().getRandom().nextInt(list.size()))));
+	}
+	public static void dreamcatcherLucky(PlayerWakeUpEvent playerWakeUpEvent) { }
+	public static void dreamcatcherNightmare(PlayerWakeUpEvent playerWakeUpEvent) {
+		BlockState bedstate = playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedPosition().get());
+		//Block bed = bedstate.getBlock();
+		IWorldReader worldreader = playerWakeUpEvent.getPlayer().getEntityWorld();
+		BlockPos blockpos = playerWakeUpEvent.getPlayer().getBedPosition().get();
+//		playerWakeUpEvent.getPlayer().changeDimension(DimensionTypeTwo.NIGHTMARE, new ITeleporter() {
+//			public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
+//				return repositionEntity.apply(false);
+//			}
+//		});
+//		bedstate.getBlock().setBedOccupied(bedstate, worldreader, blockpos, playerWakeUpEvent.getEntityLiving(), false);
+//		playerWakeUpEvent.getPlayer().sendStatusMessage(new TranslationTextComponent("block.minecraft.bed.nightmare"), true);
+//		// Somewhere I need to make a manager for the inventories, probably in the ModDimension classes. 
+//		// I also need to spawn a bed in the dimension that lets you wake back up. 
+//		playerWakeUpEvent.getPlayer().getEntityWorld().setBlockState(playerWakeUpEvent.getPlayer().getPosition(), bedstate);
+//		// foot of bed
+//		playerWakeUpEvent.getPlayer().getEntityWorld().setDayTime(13000);
+		// TODO you get it
+	}
+	public static void dreamcatcherRainbow(PlayerWakeUpEvent playerWakeUpEvent) { }
+	public static void dreamcatcherRandom(PlayerWakeUpEvent playerWakeUpEvent) {
+		int roll = playerWakeUpEvent.getPlayer().getEntityWorld().getRandom().nextInt(10);
+		switch(roll) {
+			case 0:
+				Two.LOGGER.info("Something good!");
+				break;
+			default:
+				Two.LOGGER.info("Something else!");
+		}
+	}
+	public static void dreamcatcherSky(PlayerWakeUpEvent playerWakeUpEvent) {
+		BlockState bedstate = playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedPosition().get());
+//		playerWakeUpEvent.getPlayer().changeDimension(DimensionTypeTwo.SKY, new ITeleporter() {
+//			public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
+//				return repositionEntity.apply(false);
+//			}
+//		});
+//		playerWakeUpEvent.getPlayer().sendStatusMessage(new TranslationTextComponent("block.minecraft.bed.sky"), true);
+//		playerWakeUpEvent.getPlayer().getEntityWorld().setBlockState(playerWakeUpEvent.getPlayer().getPosition(), bedstate);
+//		playerWakeUpEvent.getPlayer().getEntityWorld().setDayTime(13000);
+		// TODO blah blah blah
+	}
+
 	@Override
 	public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		// TODO check dimension
@@ -121,5 +187,9 @@ public abstract class DreamcatcherBlock extends Block {
 			
 			worldIn.addParticle(this.particle, x, y, z, 0.0D, 0.0D, 0.0D);
 		}
+	}
+	
+	public void onPlayerWakeUp(PlayerWakeUpEvent playerWakeUpEvent) {
+		this.effect.accept(playerWakeUpEvent);
 	}
 }

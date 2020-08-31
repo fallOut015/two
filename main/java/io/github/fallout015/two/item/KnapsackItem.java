@@ -1,6 +1,7 @@
 package io.github.fallout015.two.item;
 
 import io.github.fallout015.two.inventory.KnapsackInventory;
+import net.minecraft.enchantment.IVanishable;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.Item;
@@ -9,20 +10,19 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-public class KnapsackItem extends Item {
+public class KnapsackItem extends Item implements IVanishable {
 	public KnapsackItem(Properties properties) {
 		super(properties);
-		this.addPropertyOverride(new ResourceLocation("two", "open"), (itemStack, world, livingEntity) -> {
-			if(livingEntity != null && livingEntity.getActiveItemStack().getItem() instanceof KnapsackItem)
-				if(livingEntity instanceof PlayerEntity)
-					if(livingEntity.getActiveItemStack().hasTag() && livingEntity.getActiveItemStack().getTag().getBoolean("open") == true) {
-						return 1.0f;
-					}
-			return 0.0f;
-		});
+//		this.addPropertyOverride(new ResourceLocation("two", "open"), (itemStack, world, livingEntity) -> {
+//			if(livingEntity != null && livingEntity.getActiveItemStack().getItem() instanceof KnapsackItem)
+//				if(livingEntity instanceof PlayerEntity)
+//					if(livingEntity.getActiveItemStack().hasTag() && livingEntity.getActiveItemStack().getTag().getBoolean("open") == true) {
+//						return 1.0f;
+//					}
+//			return 0.0f;
+//		});
 	}
 	
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {

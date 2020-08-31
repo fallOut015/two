@@ -1,5 +1,6 @@
 package io.github.fallout015.two.item;
 
+import net.minecraft.enchantment.IVanishable;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -11,7 +12,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public class ChameleonCloakItem extends Item {
+public class ChameleonCloakItem extends Item implements IVanishable {
 	public ChameleonCloakItem(Properties properties) {
 		super(properties);
 	}

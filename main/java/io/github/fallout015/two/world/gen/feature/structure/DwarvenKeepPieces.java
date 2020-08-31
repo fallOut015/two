@@ -116,7 +116,7 @@ public class DwarvenKeepPieces {
 		private final boolean overwrite;
 
 		public KeepTemplate(TemplateManager template, String pieceName, BlockPos templatePosition, Rotation rotation, boolean overwriteIn) {
-			super(StructuresTwo.DKP, 0);
+			super(StructureTwo.DKP, 0);
 			this.pieceName = pieceName;
 			this.templatePosition = templatePosition;
 			this.rotation = rotation;
@@ -124,7 +124,7 @@ public class DwarvenKeepPieces {
 			this.loadTemplate(template);
 		}
 		public KeepTemplate(TemplateManager template, CompoundNBT nbt) {
-			super(StructuresTwo.DKP, nbt);
+			super(StructureTwo.DKP, nbt);
 			this.pieceName = nbt.getString("Template");
 			this.rotation = Rotation.valueOf(nbt.getString("Rot"));
 			this.overwrite = nbt.getBoolean("OW");

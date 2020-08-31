@@ -1,9 +1,8 @@
 package io.github.fallout015.two.world.gen.feature;
 
 import java.util.Random;
-import java.util.function.Function;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 
 import io.github.fallout015.two.block.BlocksTwo;
 import net.minecraft.block.Block;
@@ -14,15 +13,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockPos.Mutable;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.AbstractBigMushroomFeature;
 import net.minecraft.world.gen.feature.BigMushroomFeatureConfig;
 
 public class BigNeondotFeature extends AbstractBigMushroomFeature {
 	Direction facing;
 	
-	public BigNeondotFeature(Function<Dynamic<?>, ? extends BigMushroomFeatureConfig> p_i225795_1_) {
-		super(p_i225795_1_);
+	public BigNeondotFeature(Codec<BigMushroomFeatureConfig> codec) {
+		super(codec);
 	}
 
 	@Override

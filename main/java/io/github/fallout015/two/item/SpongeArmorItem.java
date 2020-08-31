@@ -11,8 +11,8 @@ import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.block.IBucketPickupHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.IArmorMaterial;
@@ -44,11 +44,16 @@ public class SpongeArmorItem extends ArmorItem {
 		} // Only checks once even if you have more sponge armor. make a value that goes up that increases your absorbancy
 		// TODO
 		
-		if(player.isInWater())
-			if(this.absorb(world, player.getPosition()))
-		         world.playEvent(2001, player.getPosition(), Block.getStateId(Blocks.WATER.getDefaultState()));
+		if(player.isInWater()) {
+			this.tryAbsorb(world, new BlockPos(player.getPositionVec()));
+		}
 	}
 	
+	protected void tryAbsorb(World worldIn, BlockPos pos) {
+		if(this.absorb(worldIn, pos)) {
+			worldIn.playEvent(2001, pos, Block.getStateId(Blocks.WATER.getDefaultState()));
+		}
+	}
 	private boolean absorb(World worldIn, BlockPos pos) {
 		Queue<Tuple<BlockPos, Integer>> queue = Lists.newLinkedList();
 	    queue.add(new Tuple<>(pos, 0));
@@ -62,7 +67,7 @@ public class SpongeArmorItem extends ArmorItem {
 	        for(Direction direction : Direction.values()) {
 	        	BlockPos blockpos1 = blockpos.offset(direction);
 	            BlockState blockstate = worldIn.getBlockState(blockpos1);
-	            IFluidState ifluidstate = worldIn.getFluidState(blockpos1);
+	            FluidState ifluidstate = worldIn.getFluidState(blockpos1);
 	            Material material = blockstate.getMaterial();
 	            if (ifluidstate.isTagged(FluidTags.WATER)) {
 	            	if (blockstate.getBlock() instanceof IBucketPickupHandler && ((IBucketPickupHandler)blockstate.getBlock()).pickupFluid(worldIn, blockpos1, blockstate) != Fluids.EMPTY) {

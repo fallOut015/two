@@ -4,7 +4,7 @@ import java.util.BitSet;
 import java.util.Random;
 import java.util.function.Function;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -14,8 +14,8 @@ import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 
 public class WideCaveWorldCarver extends WorldCarver<ProbabilityConfig> {
-	public WideCaveWorldCarver(Function<Dynamic<?>, ? extends ProbabilityConfig> p_i49929_1_, int p_i49929_2_) {
-		super(p_i49929_1_, p_i49929_2_);
+	public WideCaveWorldCarver(Codec<ProbabilityConfig> codec, int maxHeight) {
+		super(codec, maxHeight);
 	}
 
 	public boolean shouldCarve(Random rand, int chunkX, int chunkZ, ProbabilityConfig config) {

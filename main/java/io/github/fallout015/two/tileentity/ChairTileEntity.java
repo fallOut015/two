@@ -29,7 +29,7 @@ public class ChairTileEntity extends TileEntity implements IFurnitureSlots {
 		this.seat = compound.getString("middle");
 		this.legs = compound.getString("bottom");
 		
-		super.read(compound);
+//		super.read(compound);
 	}
 	
 	@Nullable

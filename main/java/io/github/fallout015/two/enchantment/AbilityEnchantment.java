@@ -3,6 +3,7 @@ package io.github.fallout015.two.enchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentType;
 import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.util.text.IFormattableTextComponent;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
@@ -19,14 +20,14 @@ public abstract class AbilityEnchantment extends Enchantment {
 	}
 	@Override
 	public ITextComponent getDisplayName(int level) {
-		ITextComponent itextcomponent = new TranslationTextComponent(this.getName());
-		itextcomponent.applyTextStyle(TextFormatting.GREEN);
+		IFormattableTextComponent iformattabletextcomponent = new TranslationTextComponent(this.getName());
+		iformattabletextcomponent.func_240699_a_(TextFormatting.GREEN);
+		
+//		if (level != 1 || this.getMaxLevel() != 1) {
+//			iformattabletextcomponent.func_240702_b_(" ").func_230529_a_(new TranslationTextComponent("enchantment.level." + level));
+//		}
 
-		if (level != 1 || this.getMaxLevel() != 1) {
-			itextcomponent.appendText(" ").appendSibling(new TranslationTextComponent("enchantment.level." + level));
-		}
-
-		return itextcomponent;
+		return iformattabletextcomponent;
 	}
 	
 	abstract public void action(final PlayerInteractEvent.RightClickItem playerInteractEvent$rightClickItem);

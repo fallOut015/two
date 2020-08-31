@@ -3,7 +3,6 @@ package io.github.fallout015.two.entity.effect;
 import io.github.fallout015.two.entity.EntityTypeTwo;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
@@ -12,7 +11,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class SigilEntity extends LivingEntity {
+public class SigilEntity extends LivingEntity { // TODO change to normal entity
 	public SigilEntity(EntityType<? extends LivingEntity> type, World worldIn) {
 		super(EntityTypeTwo.SIGIL, worldIn);
 	}
@@ -61,11 +60,5 @@ public class SigilEntity extends LivingEntity {
 	@Override
 	protected void registerData() {
 		super.registerData();
-	}
-	@Override
-	protected void registerAttributes() {
-		super.registerAttributes();
-		
-		this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1);
 	}
 }

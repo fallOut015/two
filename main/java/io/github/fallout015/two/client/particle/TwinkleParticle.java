@@ -5,15 +5,15 @@ import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.particle.IParticleRenderType;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.SpriteTexturedParticle;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particles.BasicParticleType;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class TwinkleParticle extends SpriteTexturedParticle {
-	private TwinkleParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn) {
+	private TwinkleParticle(ClientWorld worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn) {
 		super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn);
 		this.motionX = this.motionX * (double)0.01F + xSpeedIn;
 		this.motionY = this.motionY * (double)0.01F + ySpeedIn;
@@ -78,7 +78,7 @@ public class TwinkleParticle extends SpriteTexturedParticle {
 			this.spriteSet = p_i50823_1_;
 		}
 
-		public Particle makeParticle(BasicParticleType typeIn, World worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+		public Particle makeParticle(BasicParticleType typeIn, ClientWorld worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
 			TwinkleParticle twinkleparticle = new TwinkleParticle(worldIn, x, y, z, xSpeed, ySpeed, zSpeed);
 			twinkleparticle.selectSpriteRandomly(this.spriteSet);
 			return twinkleparticle;

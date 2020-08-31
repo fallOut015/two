@@ -1,5 +1,6 @@
 package io.github.fallout015.two.item;
 
+import net.minecraft.enchantment.IVanishable;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -9,7 +10,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public class InspectionSpectaclesItem extends Item {
+public class InspectionSpectaclesItem extends Item implements IVanishable {
 	public InspectionSpectaclesItem(Properties properties) {
 		super(properties);
 	}

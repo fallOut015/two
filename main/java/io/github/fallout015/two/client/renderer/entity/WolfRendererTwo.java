@@ -16,7 +16,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class WolfRendererTwo extends MobRenderer<WolfEntity, WolfModel<WolfEntity>> {
 	private static final ResourceLocation WOLF_TEXTURES = new ResourceLocation("textures/entity/wolf/wolf.png");
 	private static final ResourceLocation TAMED_WOLF_TEXTURES = new ResourceLocation("textures/entity/wolf/wolf_tame.png");
-	private static final ResourceLocation ANRGY_WOLF_TEXTURES = new ResourceLocation("textures/entity/wolf/wolf_angry.png");
+	private static final ResourceLocation ANGRY_WOLF_TEXTURES = new ResourceLocation("textures/entity/wolf/wolf_angry.png");
 
 	public WolfRendererTwo(EntityRendererManager renderManagerIn) {
 		super(renderManagerIn, new WolfModel<>(), 0.5F);
@@ -26,12 +26,12 @@ public class WolfRendererTwo extends MobRenderer<WolfEntity, WolfModel<WolfEntit
 	protected float handleRotationFloat(WolfEntity livingBase, float partialTicks) {
 		return livingBase.getTailRotation();
 	}
-
 	public void render(WolfEntity entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn) {
 		if (entityIn.isWolfWet()) {
-			float f = entityIn.getBrightness() * entityIn.getShadingWhileWet(partialTicks);
+			float f = entityIn.getShadingWhileWet(partialTicks);
 			this.entityModel.setTint(f, f, f);
 		}
+
 		super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
 		if (entityIn.isWolfWet()) {
 			this.entityModel.setTint(1.0F, 1.0F, 1.0F);
@@ -41,7 +41,7 @@ public class WolfRendererTwo extends MobRenderer<WolfEntity, WolfModel<WolfEntit
 		if (entity.isTamed()) {
 			return TAMED_WOLF_TEXTURES;
 		} else {
-			return entity.isAngry() ? ANRGY_WOLF_TEXTURES : WOLF_TEXTURES;
+			return entity.func_233678_J__() ? ANGRY_WOLF_TEXTURES : WOLF_TEXTURES;
 		}
 	}
 }

@@ -1,11 +1,15 @@
 package io.github.fallout015.two.item;
 
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.ImmutableMultimap.Builder;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.enchantment.IVanishable;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IItemTier;
@@ -15,14 +19,17 @@ import net.minecraft.item.TieredItem;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BattleaxeItem extends TieredItem {
+public class BattleaxeItem extends TieredItem implements IVanishable {
 	private final float attackDamage;
-	private final float attackSpeed;
+	private final Multimap<Attribute, AttributeModifier> modifiers;
 	
-	public BattleaxeItem(IItemTier tier, int attackDamageIn, float attackSpeedIn, Item.Properties builder) {
-		super(tier, builder);
-		this.attackSpeed = attackSpeedIn;
+	public BattleaxeItem(IItemTier tier, int attackDamageIn, float attackSpeedIn, Item.Properties properties) {
+		super(tier, properties);
 	    this.attackDamage = (float)attackDamageIn + tier.getAttackDamage();
+	    Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+	    builder.put(Attributes.field_233823_f_, new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.attackDamage, AttributeModifier.Operation.ADDITION));
+	    builder.put(Attributes.field_233825_h_, new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)attackSpeedIn, AttributeModifier.Operation.ADDITION));
+	    this.modifiers = builder.build();
 	}
 	
 	public float getAttackDamage() {
@@ -50,14 +57,8 @@ public class BattleaxeItem extends TieredItem {
 	    return true;
 	}
 	
-	public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot) {
-		@SuppressWarnings("deprecation")
-		Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(equipmentSlot);
-		if (equipmentSlot == EquipmentSlotType.MAINHAND) {
-			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.attackDamage, AttributeModifier.Operation.ADDITION));
-		    multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)this.attackSpeed, AttributeModifier.Operation.ADDITION));
-		}
-
-		return multimap;
+	@SuppressWarnings("deprecation")
+	public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot) {
+		return equipmentSlot == EquipmentSlotType.MAINHAND ? this.modifiers : super.getAttributeModifiers(equipmentSlot);
 	}
 }
