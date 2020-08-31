@@ -51,6 +51,12 @@ public enum ArmorMaterialTwo implements IArmorMaterial {
 	DARK_OAK("dark_oak", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
 		return Ingredient.fromItems(Items.DARK_OAK_PLANKS);
 	}),
+	CRIMSON("crimson", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_FUNGUS, 0.0f, () -> {
+		return Ingredient.fromItems(Items.field_234798_v_);
+	}),
+	WARPED("warped", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_FUNGUS, 0.0f, () -> {
+		return Ingredient.fromItems(Items.field_234799_w_);
+	}),
 	CHERRY("cherry", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, () -> {
 		return Ingredient.fromItems(ItemsTwo.CHERRY_PLANKS);
 	}),

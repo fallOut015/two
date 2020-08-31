@@ -18,6 +18,7 @@ public class SoundEventsTwo {
 	@ObjectHolder("item.armor.equip_myrkylite") public static final SoundEvent ITEM_ARMOR_EQUIP_MYRKYLITE = register("item.armor.equip_myrkylite");
 	
 	@ObjectHolder("item.armor.equip_wood") public static final SoundEvent ITEM_ARMOR_EQUIP_WOOD = register("item.armor.equip_wood");
+	@ObjectHolder("item.armor.equip_fungus") public static final SoundEvent ITEM_ARMOR_EQUIP_FUNGUS = register("item.armor.equip_fungus");
 	
 	@ObjectHolder("item.armor.equip_wool") public static final SoundEvent ITEM_ARMOR_EQUIP_WOOL = register("item.armor.equip_wool");
 	
