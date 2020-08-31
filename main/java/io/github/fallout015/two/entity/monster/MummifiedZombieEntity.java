@@ -2,10 +2,12 @@ package io.github.fallout015.two.entity.monster;
 
 import java.util.Random;
 
+import io.github.fallout015.two.Two;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
@@ -39,7 +41,6 @@ public class MummifiedZombieEntity extends ZombieEntity {
 	
 	@Override
 	protected void registerGoals() {
-//		this.goalSelector.addGoal(4, new ZombieEntity.AttackTurtleEggGoal(this, 1.0D, 3));
 		this.goalSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 8.0F));
 		this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
 		this.applyEntityAI();
@@ -56,7 +57,7 @@ public class MummifiedZombieEntity extends ZombieEntity {
 		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, TurtleEntity.class, 10, true, false, TurtleEntity.TARGET_DRY_BABY));
 	}
 	
-	public static AttributeModifierMap.MutableAttribute func_234342_eQ_() {
+	public static AttributeModifierMap.MutableAttribute applyAttributes() {
 		return MonsterEntity.func_234295_eP_().func_233815_a_(Attributes.field_233819_b_, 40.0D).func_233815_a_(Attributes.field_233821_d_, (double)0.33F).func_233815_a_(Attributes.field_233823_f_, 4.0D).func_233815_a_(Attributes.field_233826_i_, 3.0D).func_233814_a_(Attributes.field_233829_l_);
 	}
 	

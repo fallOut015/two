@@ -26,7 +26,7 @@ public class NetherBugEntity extends CreatureEntity {
 		this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, AbstractPiglinEntity.class, 10.0F, 0.4D, 0.6D));
 	}
 	
-	public static AttributeModifierMap.MutableAttribute func_234233_eS_() {
+	public static AttributeModifierMap.MutableAttribute applyAttributes() {
 		return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233821_d_, (double)0.2F).func_233815_a_(Attributes.field_233818_a_, 10.0D);
 	}
 

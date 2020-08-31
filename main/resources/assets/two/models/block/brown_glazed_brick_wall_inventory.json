@@ -1,0 +1,6 @@
+{
+    "parent": "block/wall_inventory",
+    "textures": {
+        "wall": "two:block/brown_glazed_bricks"
+    }
+}

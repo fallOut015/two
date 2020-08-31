@@ -41,7 +41,11 @@ import io.github.fallout015.two.common.capabilities.CapabilitiesTwo;
 import io.github.fallout015.two.enchantment.AbilityEnchantment;
 import io.github.fallout015.two.enchantment.EnchantmentsTwo;
 import io.github.fallout015.two.entity.EntityTypeTwo;
+import io.github.fallout015.two.entity.monster.MummifiedZombieEntity;
+import io.github.fallout015.two.entity.passive.BeardedDragonEntity;
 import io.github.fallout015.two.entity.passive.ChameleonEntity;
+import io.github.fallout015.two.entity.passive.NetherBugEntity;
+import io.github.fallout015.two.entity.passive.RedPandaEntity;
 import io.github.fallout015.two.fluid.FluidsTwo;
 import io.github.fallout015.two.inventory.container.ContainerTypeTwo;
 import io.github.fallout015.two.item.ArmorMaterialTwo;
@@ -65,11 +69,13 @@ import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.merchant.villager.VillagerProfession;
 import net.minecraft.entity.monster.CaveSpiderEntity;
 import net.minecraft.entity.monster.EndermiteEntity;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.monster.SilverfishEntity;
 import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.entity.passive.BeeEntity;
@@ -173,6 +179,14 @@ public class Two {
 //    	DefaultBiomeFeaturesTwo.addStructures();
 //    	DefaultBiomeFeaturesTwo.addSpawns();
 //    	DefaultBiomeFeaturesTwo.addCarvers();
+    	
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.CHAMELEON, ChameleonEntity.applyAttributes().func_233813_a_());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonEntity.applyAttributes().func_233813_a_());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.RED_PANDA, RedPandaEntity.applyAttributes().func_233813_a_());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.NETHER_BUG, NetherBugEntity.applyAttributes().func_233813_a_());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.DARK_DWARF_ARCHER, MonsterEntity.func_234295_eP_().func_233813_a_()); // TODO give own stats. 
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.MUMMIFIED_ZOMBIE, MummifiedZombieEntity.applyAttributes().func_233813_a_());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.ICE_SLIME, MonsterEntity.func_234295_eP_().func_233813_a_()); // TODO give own stats.
     }
 	private void doClientStuff(final FMLClientSetupEvent event) {
 //    	for(String name : BLACKLIST) {
@@ -383,6 +397,7 @@ public class Two {
 		@SubscribeEvent
 		public static void onSleepFinishedTime(final SleepFinishedTimeEvent sleepFinishedTimeEvent) {
 			// TODO move dreamcatcher code here
+			Two.LOGGER.info("sleep time fininshed");
 		}
     	@SubscribeEvent
     	public static void onPlayerSleepInBed(final PlayerSleepInBedEvent playerSleepInBedEvent) {
@@ -536,7 +551,8 @@ public class Two {
     				
     				// TODO
     				// Make it so food scraps can be fed to animals. 
-    				// Food recipes for each new scrap. 
+    				// Food recipes for each new scrap.
+    				// Put the scrap in your hand if it can.
     			}
     		}
     	}

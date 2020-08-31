@@ -14,7 +14,7 @@ public class RedPandaEntity extends AnimalEntity {
 		super(type, worldIn);
 	}
 
-	public static AttributeModifierMap.MutableAttribute func_234233_eS_() {
+	public static AttributeModifierMap.MutableAttribute applyAttributes() {
 		return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233821_d_, (double)1F).func_233815_a_(Attributes.field_233818_a_, 15.0D);
 	}
 
