@@ -4,20 +4,25 @@ import io.github.fallout015.two.block.BlocksTwo;
 import io.github.fallout015.two.entity.EntityTypeTwo;
 import io.github.fallout015.two.world.gen.carver.WorldCarverTwo;
 import io.github.fallout015.two.world.gen.feature.FeatureTwo;
+import io.github.fallout015.two.world.gen.feature.FeaturesTwo;
 import io.github.fallout015.two.world.gen.feature.MultiReplaceBlockConfig;
 import io.github.fallout015.two.world.gen.placement.PlacementTwo;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.BigMushroomFeatureConfig;
 import net.minecraft.world.gen.feature.BlockWithContextConfig;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
@@ -34,52 +39,8 @@ public class DefaultBiomeFeaturesTwo {
 	public static final BlockWithContextConfig NEONDOT_CONFIG = new BlockWithContextConfig(BlocksTwo.NEONDOT.getDefaultState(), new BlockState[] { BlocksTwo.SPORESTONE_SOIL.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() });
 	public static final BlockWithContextConfig BRIMSHINE_CONFIG = new BlockWithContextConfig(BlocksTwo.BRIMSHINE.getDefaultState(), new BlockState[] { BlocksTwo.SPORESTONE_SOIL.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() }, new BlockState [] { Blocks.CAVE_AIR.getDefaultState() });
 
-	public static final BigMushroomFeatureConfig BIG_NEONDOT = new BigMushroomFeatureConfig(new SimpleBlockStateProvider(BlocksTwo.NEONDOT_CAP.getDefaultState()), new SimpleBlockStateProvider(BlocksTwo.NEONDOT_STEM.getDefaultState()), 2);
-	public static final BigMushroomFeatureConfig BIG_BRIMSHINE = new BigMushroomFeatureConfig(new SimpleBlockStateProvider(BlocksTwo.BRIMSHINE_CAP.getDefaultState()), new SimpleBlockStateProvider(BlocksTwo.BRIMSHINE_STEM.getDefaultState()), 3);
-
 	public static void addFeatures() {
-    	Biomes.JUNGLE.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureTwo.MAPLE_TREE.withConfiguration(FeatureTwo.MAPLE));
-    	Biomes.JUNGLE.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureTwo.CHERRY_TREE.withConfiguration(FeatureTwo.MAPLE));
-    	Biomes.JUNGLE.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, FeatureTwo.GHOSTWOOD_TREE.withConfiguration(FeatureTwo.GHOSTWOOD));
-
-    	Biomes.SAVANNA.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.TANZANITE_ORE.getDefaultState(), 1)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(1, 0, 0, 1))));
-    	Biomes.SAVANNA_PLATEAU.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.TANZANITE_ORE.getDefaultState(), 1)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(1, 0, 0, 1))));
-    	Biomes.SHATTERED_SAVANNA.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.TANZANITE_ORE.getDefaultState(), 1)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(1, 0, 0, 1))));
-    	Biomes.SHATTERED_SAVANNA_PLATEAU.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.TANZANITE_ORE.getDefaultState(), 1)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(1, 0, 0, 1))));
-    	
-    	for(Biome biomeIn : ForgeRegistries.BIOMES) {
-    		if(biomeIn.getCategory() == Category.NETHER) {
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, BlocksTwo.NETHER_AMETHYST_ORE.getDefaultState(), 6)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 10, 20, 64))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, BlocksTwo.NETHER_GARNET_ORE.getDefaultState(), 6)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 10, 20, 64))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, BlocksTwo.NETHER_TOPAZ_ORE.getDefaultState(), 5)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 10, 20, 32))));
-
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, BlocksTwo.NETHER_LEAD_ORE.getDefaultState(), 9)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(16, 10, 20, 128))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, BlocksTwo.NETHER_TITANIUM_ORE.getDefaultState(), 4)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 10, 20, 32))));
-    		} else if(biomeIn.getCategory() == Category.THEEND) {
-    			if(biomeIn != Biomes.THE_END) {
-    				biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.END_STONE, BlocksTwo.END_COBALT_ORE.getDefaultState(), 7)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 0, 0, 32))));
-    				biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.END_STONE, BlocksTwo.END_JADE_ORE.getDefaultState(), 7)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 0, 0, 32))));
-    				biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.END_STONE, BlocksTwo.END_SAPPHIRE_ORE.getDefaultState(), 7)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 0, 0, 16))));
-
-    				biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(FeatureTwo.END_STONE, BlocksTwo.END_PLATINUM_ORE.getDefaultState(), 5)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 0, 0, 16))));
-    			}
-    		} else if(biomeIn.getCategory() != Category.NONE) {
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.OPAL_ORE.getDefaultState(), 8)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 0, 0, 32))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.RUBY_ORE.getDefaultState(), 8)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(4, 0, 0, 32))));
-        	
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.TALC_ORE.getDefaultState(), 16)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 0, 0, 128))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.TIN_ORE.getDefaultState(), 8)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 0, 0, 48))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.ALUMINUM_ORE.getDefaultState(), 8)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 0, 0, 42))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.SILVER_ORE.getDefaultState(), 8)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(16, 0, 0, 20))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.COPPER_ORE.getDefaultState(), 8)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(16, 0, 0, 44))));
-    			biomeIn.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlocksTwo.PYRITE_ORE.getDefaultState(), 9)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(2, 0, 0, 32))));
-    		}
-    		
-    		desertFeatures();
-    		icyFeatures();
-    		coldFeatures();
-    		mushroomFeatures();
-    	}
+		
 	}
 	public static void addStructures() {
 		Biomes.BADLANDS.addStructure(FeatureTwo.ADOBE_WELL.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
@@ -92,30 +53,24 @@ public class DefaultBiomeFeaturesTwo {
 //    	Biomes.PLAINS.addStructure(FeatureTwo.DWARVEN_KEEP.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	}
 	public static void addSpawns() {
-		Biomes.SAVANNA.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.BEARDED_DRAGON, 12, 2, 4));
-		Biomes.SAVANNA_PLATEAU.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.BEARDED_DRAGON, 12, 2, 4));
-		Biomes.SHATTERED_SAVANNA.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.BEARDED_DRAGON, 12, 2, 4));
-		Biomes.SHATTERED_SAVANNA_PLATEAU.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.BEARDED_DRAGON, 12, 2, 4));
+//		Savanna.addBeardedDragons();
+//		SavannaPlateau.addBeardedDragons();
+//		ShatteredSavanna.addBeardedDragons();
+//		ShatteredSavannaPlateau.addBeardedDragons();
 		
+//		Desert.addChameleons(10, 1, 2);
+//		DesertHills.addChameleons(8, 1, 2);
+//		DesertLakes.addChameleons(8, 1, 2);
 		
-		
-    	Biomes.DESERT.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.CHAMELEON, 10, 1, 2));
-    	Biomes.DESERT_HILLS.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.CHAMELEON, 8, 1, 2));
-    	Biomes.DESERT_LAKES.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.CHAMELEON, 8, 1, 2));
-    
     	Biomes.DESERT.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(EntityTypeTwo.MUMMIFIED_ZOMBIE, 5, 1, 2));
     	Biomes.DESERT_HILLS.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(EntityTypeTwo.MUMMIFIED_ZOMBIE, 7, 1, 2));
     	
-    	
-    	
-    	Biomes.JUNGLE.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.CHAMELEON, 12, 2, 4));
-    	Biomes.JUNGLE_EDGE.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.CHAMELEON, 4, 2, 4));
-    	Biomes.JUNGLE_HILLS.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.CHAMELEON, 10, 2, 4));
-    	Biomes.MODIFIED_JUNGLE.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.CHAMELEON, 10, 3, 5));
-    	Biomes.MODIFIED_JUNGLE_EDGE.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(EntityTypeTwo.CHAMELEON, 8, 3, 5));
+//    	Jungle.addChameleons(12, 2, 4);
+//    	JungleEdge.addChameleons(4, 2, 4);
+//    	JungleHills.addChameleons(10, 2, 4);
+//    	ModifiedJungle.addChameleons(10, 3, 5);
+//    	ModifiedJungleEdge.addChameleons(8, 3, 5);
 	
-	
-    	
 		Biomes.ICE_SPIKES.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(EntityTypeTwo.ICE_SLIME, 90, 1, 3));
 		Biomes.DEEP_FROZEN_OCEAN.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(EntityTypeTwo.ICE_SLIME, 70, 1, 3));
 		Biomes.DEEP_COLD_OCEAN.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(EntityTypeTwo.ICE_SLIME, 70, 1, 3));
@@ -220,5 +175,49 @@ public class DefaultBiomeFeaturesTwo {
 
 		Biomes.MUSHROOM_FIELD_SHORE.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, FeatureTwo.HUGE_BRIMSHINE.withConfiguration(BIG_BRIMSHINE).withPlacement(Placement.COUNT_DEPTH_AVERAGE.configure(new DepthAverageConfig(1, 32, 32))));
 		Biomes.MUSHROOM_FIELDS.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, FeatureTwo.HUGE_BRIMSHINE.withConfiguration(BIG_BRIMSHINE).withPlacement(Placement.COUNT_DEPTH_AVERAGE.configure(new DepthAverageConfig(1, 32, 32))));
+	}
+	
+	public static void addOverworldOres(BiomeGenerationSettings.Builder builder) {
+		// Desert
+		// reset desert ores
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_DESERT_IRON);
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_DESERT_COAL);
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_DESERT_COPPER);
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_DESERT_GOLD);
+		// else if for other underground regions, else for overworld
+		
+		// Overworld
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_ALUMINUM);
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_COPPER);
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_OPAL);
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_PYRITE);
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_RUBY);
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_SILVER);
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_TALC);
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_TIN);
+		
+		// Acacia
+		// in addition to the overworld ores
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_TANZANITE);
+	}
+	public static void addNetherOres(BiomeGenerationSettings.Builder builder) {
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_NETHER_AMETHYST);
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_NETHER_GARNET);
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_NETHER_LEAD);
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_NETHER_TITANIUM);
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_NETHER_TOPAZ);
+	}
+	public static void addEndOres(BiomeGenerationSettings.Builder builder) {
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_END_COBALT);
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_END_JADE);
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_END_PLATINUM);
+		builder.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, FeaturesTwo.ORE_END_SAPPHIRE);
+	}
+	
+	public static void addChameleons(MobSpawnInfo.Builder builder, int weight, int minCount, int maxCount) {
+		builder.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityTypeTwo.CHAMELEON, weight, minCount, maxCount));
+	}
+	public static void addBeardedDragons(MobSpawnInfo.Builder builder) {
+		builder.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityTypeTwo.CHAMELEON, 12, 2, 4));
 	}
 }

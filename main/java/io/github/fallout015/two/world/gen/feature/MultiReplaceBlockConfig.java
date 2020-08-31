@@ -1,14 +1,24 @@
 package io.github.fallout015.two.world.gen.feature;
 
-import com.google.common.collect.ImmutableMap;
-import com.mojang.datafixers.Dynamic;
-import com.mojang.datafixers.types.DynamicOps;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 
 public class MultiReplaceBlockConfig implements IFeatureConfig {
+	public static final Codec<MultiReplaceBlockConfig> CODEC = RecordCodecBuilder.create((instance) -> {
+		return instance.group(
+			BlockState.field_235877_b_.fieldOf("target1").forGetter((config) -> {
+			return config.target1;
+		}), BlockState.field_235877_b_.fieldOf("state1").forGetter((config) -> {
+			return config.state1;
+		}), BlockState.field_235877_b_.fieldOf("target2").forGetter((config) -> {
+			return config.target2;
+		}), BlockState.field_235877_b_.fieldOf("state2").forGetter((config) -> {
+			return config.state2;
+		})).apply(instance, MultiReplaceBlockConfig::new);
+	});
 	public final BlockState target1;
 	public final BlockState state1;
 	public final BlockState target2;
@@ -19,17 +29,5 @@ public class MultiReplaceBlockConfig implements IFeatureConfig {
 		this.state1 = state1;
 		this.target2 = target2;
 		this.state2 = state2;
-	}
-
-	public <T> Dynamic<T> serialize(DynamicOps<T> ops) {
-		return new Dynamic<>(ops, ops.createMap(ImmutableMap.of(ops.createString("target1"), BlockState.serialize(ops, this.target1).getValue(), ops.createString("state1"), BlockState.serialize(ops, this.state1).getValue(), ops.createString("target2"), BlockState.serialize(ops, this.target2).getValue(), ops.createString("state2"), BlockState.serialize(ops, this.state2).getValue())));
-	}
-
-	public static <T> MultiReplaceBlockConfig deserialize(Dynamic<T> p_214657_0_) {
-		BlockState blockstate = p_214657_0_.get("target1").map(BlockState::deserialize).orElse(Blocks.AIR.getDefaultState());
-		BlockState blockstate1 = p_214657_0_.get("state1").map(BlockState::deserialize).orElse(Blocks.AIR.getDefaultState());
-		BlockState blockstate2 = p_214657_0_.get("target2").map(BlockState::deserialize).orElse(Blocks.AIR.getDefaultState());
-		BlockState blockstate3 = p_214657_0_.get("state2").map(BlockState::deserialize).orElse(Blocks.AIR.getDefaultState());
-		return new MultiReplaceBlockConfig(blockstate, blockstate1, blockstate2, blockstate3);
 	}
 }

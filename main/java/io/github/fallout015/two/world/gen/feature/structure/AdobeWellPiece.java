@@ -18,10 +18,10 @@ public class AdobeWellPiece extends ScatteredStructurePiece {
 //	private static final PlacementSettings PLACEMENT_SETTINGS = new PlacementSettings().
 	
 	public AdobeWellPiece(Random random, int x, int z) {
-		super(StructuresTwo.AWP, random, x, 64, z, 21, 15, 21);
+		super(StructureTwo.AWP, random, x, 64, z, 21, 15, 21);
 	}
 	public AdobeWellPiece(TemplateManager templateManager, CompoundNBT nbt) {
-		super(StructuresTwo.AWP, nbt);
+		super(StructureTwo.AWP, nbt);
 	}
 	
 	@Override

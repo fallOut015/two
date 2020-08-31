@@ -7,7 +7,6 @@ import io.github.fallout015.two.Two;
 import io.github.fallout015.two.entity.EntityTypeTwo;
 import io.github.fallout015.two.item.ItemTierTwo;
 import io.github.fallout015.two.item.ItemsTwo;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
@@ -18,7 +17,6 @@ import net.minecraft.item.ItemTier;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.IPacket;
 import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -72,14 +70,21 @@ public class CappedArrowEntity extends AbstractArrowEntity implements IEntityAdd
 		}
 	}
 	
+	
+	// update to the new shoot
+//	@Override
+//	public void shoot(Entity shooter, float pitch, float yaw, float p_184547_4_, float velocity, float inaccuracy) {
+//		float f = -MathHelper.sin(yaw * ((float)Math.PI / 180F)) * MathHelper.cos(pitch * ((float)Math.PI / 180F));
+//		float f1 = -MathHelper.sin(pitch * ((float)Math.PI / 180F));
+//		float f2 = MathHelper.cos(yaw * ((float)Math.PI / 180F)) * MathHelper.cos(pitch * ((float)Math.PI / 180F));
+//		velocity *= this.getVelocityMultiplier();
+//		this.shoot((double) f, (double) f1, (double) f2, velocity, inaccuracy);
+//		this.setMotion(this.getMotion().add(shooter.getMotion().x, shooter.onGround ? 0.0D : shooter.getMotion().y, shooter.getMotion().z));
+//	}
 	@Override
-	public void shoot(Entity shooter, float pitch, float yaw, float p_184547_4_, float velocity, float inaccuracy) {
-		float f = -MathHelper.sin(yaw * ((float)Math.PI / 180F)) * MathHelper.cos(pitch * ((float)Math.PI / 180F));
-		float f1 = -MathHelper.sin(pitch * ((float)Math.PI / 180F));
-		float f2 = MathHelper.cos(yaw * ((float)Math.PI / 180F)) * MathHelper.cos(pitch * ((float)Math.PI / 180F));
-		velocity *= this.getVelocityMultiplier();
-		this.shoot((double) f, (double) f1, (double) f2, velocity, inaccuracy);
-		this.setMotion(this.getMotion().add(shooter.getMotion().x, shooter.onGround ? 0.0D : shooter.getMotion().y, shooter.getMotion().z));
+	public void shoot(double x, double y, double z, float velocity, float inaccuracy) {
+		// TODO Auto-generated method stub
+		super.shoot(x, y, z, velocity, inaccuracy);
 	}
 	@Override
 	public IPacket<?> createSpawnPacket() {

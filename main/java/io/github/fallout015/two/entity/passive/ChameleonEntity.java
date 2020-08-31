@@ -12,7 +12,10 @@ import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.ai.attributes.AttributeModifierMap;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.BreedGoal;
 import net.minecraft.entity.ai.goal.FollowOwnerGoal;
 import net.minecraft.entity.ai.goal.Goal;
@@ -24,10 +27,10 @@ import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.ShoulderRidingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.DyeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.NBTUtil;
@@ -37,9 +40,11 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.pathfinding.ClimberPathNavigator;
 import net.minecraft.pathfinding.PathNavigator;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 
 public class ChameleonEntity extends ShoulderRidingEntity {
 	private static final DataParameter<Integer> CAMOFLOUGE = EntityDataManager.createKey(ChameleonEntity.class, DataSerializers.VARINT);
@@ -68,17 +73,11 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 		this.goalSelector.addGoal(7, new LookAtGoal(this, PlayerEntity.class, 10.0F));
 		this.goalSelector.addGoal(8, new WaterAvoidingRandomWalkingGoal(this, 0.8D, 1.0000001E-5F));
 	}
-	@Override
-	protected void registerAttributes() {
-		super.registerAttributes();
-		
-		if (this.isTamed()) {
-			this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D);
-		} else {
-			this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(5.0D);
-		}
-		this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.15);
+	
+	public static AttributeModifierMap.MutableAttribute func_234233_eS_() {
+		return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233821_d_, (double)0.15F).func_233815_a_(Attributes.field_233818_a_, 5.0D);
 	}
+	
 	@Override
 	protected void registerData() {
 		super.registerData();
@@ -90,23 +89,23 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 		this.dataManager.register(RESTING, false);
 	}
 	@Override
-	public AgeableEntity createChild(AgeableEntity ageable) {
-		ChameleonEntity chameleonentity = EntityTypeTwo.CHAMELEON.create(this.world);
+	public AgeableEntity func_241840_a(ServerWorld serverWorld, AgeableEntity ageable) {
+		ChameleonEntity chameleonentity = EntityTypeTwo.CHAMELEON.create(serverWorld);
 		UUID uuid = this.getOwnerId();
 		if (uuid != null) {
 			chameleonentity.setOwnerId(uuid);
 			chameleonentity.setTamed(true);
 		}
+		
 		return chameleonentity;
 	}
-	@Override
-	public boolean processInteract(PlayerEntity player, Hand hand) {
+	
+	public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
 		ItemStack itemstack = player.getHeldItem(hand);
 		Item item = itemstack.getItem();
-		if (itemstack.getItem() instanceof SpawnEggItem) {
-			return super.processInteract(player, hand);
-		} else if (this.world.isRemote) {
-			return this.isOwner(player) || item == Items.SPIDER_EYE;
+		if (this.world.isRemote) {
+			boolean flag = this.isOwner(player) || this.isTamed() || item == Items.SPIDER_EYE && !this.isTamed();
+			return flag ? ActionResultType.CONSUME : ActionResultType.PASS;
 		} else {
 			if (this.isTamed()) {
 				if(this.isSpecialItem(itemstack)) {
@@ -126,35 +125,48 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 							this.world.addParticle(ParticleTypes.CLOUD, this.getPosXRandom(1.0D), this.getPosYRandom() + 0.5D, this.getPosZRandom(1.0D), d0, d1, d2);
 						}
 					}
-				} else if (item.isFood() && this.getHealth() < this.getMaxHealth()) {
-	               if (!player.abilities.isCreativeMode) {
-	            	   itemstack.shrink(1);
-	               }
-
-	               this.heal((float)item.getFood().getHealing());
-	               return true;
 				}
-	            if (this.isOwner(player) && !this.isBreedingItem(itemstack)) {
-	            	this.isJumping = false;
-	            	this.navigator.clearPath();
+				if (this.isBreedingItem(itemstack) && this.getHealth() < this.getMaxHealth()) {
+					if (!player.abilities.isCreativeMode) {
+						itemstack.shrink(1);
+					}
+
+					this.heal((float)item.getFood().getHealing());
+					return ActionResultType.SUCCESS;
 	            }
+
+	            if (!(item instanceof DyeItem)) {
+	            	ActionResultType actionresulttype = super.func_230254_b_(player, hand);
+	            	if ((!actionresulttype.isSuccessOrConsume() || this.isChild()) && this.isOwner(player)) {
+	            		this.func_233687_w_(!this.func_233685_eM_());
+	            		this.isJumping = false;
+	            		this.navigator.clearPath();
+	            		this.setAttackTarget((LivingEntity)null);
+	            		return ActionResultType.SUCCESS;
+	            	}
+
+	            	return actionresulttype;
+	            }
+
 			} else if (item == Items.SPIDER_EYE) {
-				if (!player.abilities.isCreativeMode) {
-					itemstack.shrink(1);
+	            if (!player.abilities.isCreativeMode) {
+	            	itemstack.shrink(1);
 	            }
 
 	            if (this.rand.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
 	            	this.setTamedBy(player);
 	            	this.navigator.clearPath();
+	            	this.setAttackTarget((LivingEntity)null);
+	            	this.func_233687_w_(true);
 	            	this.world.setEntityState(this, (byte)7);
 	            } else {
 	            	this.world.setEntityState(this, (byte)6);
 	            }
 
-	            return true;
+	            return ActionResultType.SUCCESS;
 			}
 
-			return super.processInteract(player, hand);
+			return super.func_230254_b_(player, hand);
 		}
 	}
 	@Override
@@ -190,10 +202,10 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 	public void setTamed(boolean tamed) {
 		super.setTamed(tamed);
 		if (tamed) {
-			this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D);
+			this.getAttribute(Attributes.field_233818_a_).setBaseValue(10.0D);
 			this.setHealth(10.0F);
 		} else {
-			this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(5.0D);
+			this.getAttribute(Attributes.field_233818_a_).setBaseValue(5.0D);
 		}
 	}
 	@Override
@@ -209,7 +221,7 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 	}
 	@Override
 	protected PathNavigator createNavigator(World worldIn) {
-		return new ClimberPathNavigator(this, worldIn); // TODO in forge 1.16.1 i should be able to replace this with a normal climber path finder
+		return new ClimberPathNavigator(this, worldIn); // TODO in forge 1.16.1 it was changed, time to see if it works
 	}
 	@Override
 	public void livingTick() {
@@ -247,8 +259,8 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 		return this.dataManager.get(COLOR).intValue();
 	}
 	public void updateOn() {
-		this.dataManager.set(ON, Optional.of(this.world.getBlockState(this.getPosition().down())));
-		this.dataManager.set(COLOR, Minecraft.getInstance().getBlockColors().getColor(this.dataManager.get(ON).get(), null, new BlockPos(this.getPosition().down()), 0));
+		this.dataManager.set(ON, Optional.of(this.world.getBlockState(this.getPositionUnderneath())));
+		this.dataManager.set(COLOR, Minecraft.getInstance().getBlockColors().getColor(this.dataManager.get(ON).get(), null, new BlockPos(this.getPositionUnderneath()), 0));
 	}
 	// TODO
 	/*

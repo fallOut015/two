@@ -6,9 +6,9 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.potion.Effect;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.PlantType;
 
@@ -25,11 +25,11 @@ public class SucculightBlock extends FlowerBlock {
 	}
 	@Override
 	public PlantType getPlantType(IBlockReader world, BlockPos pos) {
-		return PlantType.Desert;
+		return PlantType.DESERT;
 	}
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-		Vec3d vec3d = state.getOffset(worldIn, pos);
+		Vector3d vec3d = state.getOffset(worldIn, pos);
 		return SHAPE.withOffset(vec3d.x, vec3d.y, vec3d.z);
 	}
 }

@@ -27,7 +27,7 @@ import net.minecraftforge.common.Tags;
 
 @OnlyIn(Dist.CLIENT)
 public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContainer> {
-	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("two", "textures/gui/container/upholstery_table.png");
+	private static final ResourceLocation UPHOLSTERY_TABLE_GUI_TEXTURE = new ResourceLocation("two", "textures/gui/container/upholstery_table.png");
 	
 //	private ItemStack stacktop = ItemStack.EMPTY;
 //	private ItemStack stackmiddle = ItemStack.EMPTY;
@@ -38,11 +38,11 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 	private float field_214126_x;
 	private int field_214128_z = 1;
 	
-	public static final Predicate<Item> PLANKS = item -> item.getTags().contains(ItemTags.PLANKS.getId());
-	public static final Predicate<Item> WOOL = item -> item.getTags().contains(ItemTags.WOOL.getId());
-	public static final Predicate<Item> GLASS = item -> item.getTags().contains(Tags.Items.GLASS.getId());
-	public static final Predicate<Item> INGOTS = item -> item.getTags().contains(Tags.Items.INGOTS.getId());
-	public static final Predicate<Item> STORAGE_BLOCKS = item -> item.getTags().contains(Tags.Items.STORAGE_BLOCKS.getId());
+	public static final Predicate<Item> PLANKS = item -> item.getTags().contains(ItemTags.PLANKS.func_230234_a_());
+	public static final Predicate<Item> WOOL = item -> item.getTags().contains(ItemTags.WOOL.func_230234_a_());
+	public static final Predicate<Item> GLASS = item -> item.getTags().contains(Tags.Items.GLASS.func_230234_a_());
+	public static final Predicate<Item> INGOTS = item -> item.getTags().contains(Tags.Items.INGOTS.func_230234_a_());
+	public static final Predicate<Item> STORAGE_BLOCKS = item -> item.getTags().contains(Tags.Items.STORAGE_BLOCKS.func_230234_a_());
 	
 	public static final Predicate<Item> PLANKS_STORAGE_BLOCKS = item -> PLANKS.or(STORAGE_BLOCKS).test(item);
 	public static final Predicate<Item> PLANKS_WOOL_STORAGE_BLOCKS = item -> PLANKS_STORAGE_BLOCKS.or(WOOL).test(item);
@@ -97,43 +97,39 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 		screenContainer.setUpdate(this::update);
 	}
 
-	public void render(int p_render_1_, int p_render_2_, float p_render_3_) {
-		super.render(p_render_1_, p_render_2_, p_render_3_);
-		this.renderHoveredToolTip(p_render_1_, p_render_2_);
+	public void func_230430_a_(MatrixStack p_230430_1_, int p_230430_2_, int p_230430_3_, float p_230430_4_) {
+		super.func_230430_a_(p_230430_1_, p_230430_2_, p_230430_3_, p_230430_4_);
+		this.func_230459_a_(p_230430_1_, p_230430_2_, p_230430_3_);
 	}
-	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		this.font.drawString(this.title.getFormattedText(), 8.0F, 4.0F, 4210752);
-		this.font.drawString(this.playerInventory.getDisplayName().getFormattedText(), 8.0F, (float)(this.ySize - 96 + 2), 4210752);
-	}
-	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-		this.renderBackground();
-		this.minecraft.getTextureManager().bindTexture(GUI_TEXTURE);
+	protected void func_230450_a_(MatrixStack p_230450_1_, float p_230450_2_, int p_230450_3_, int p_230450_4_) {
+		this.func_230446_a_(p_230450_1_);
+		this.field_230706_i_.getTextureManager().bindTexture(UPHOLSTERY_TABLE_GUI_TEXTURE);
 		
 		int i = this.guiLeft;
 		int j = this.guiTop;
-		this.blit(i, j, 0, 0, this.xSize, this.ySize);
+		this.func_238474_b_(p_230450_1_, i, j, 0, 0, this.xSize, this.ySize);
 		
 		Slot top = this.container.top();
 		Slot middle = this.container.middle();
 		Slot bottom = this.container.bottom();
 
 		if(selectedFurniture != null && !top.getHasStack())
-			this.blit(i + top.xPos, j + top.yPos, this.xSize, (selectedFurniture.ordinal()) * 16, 16, 16);
+//			this.blit(i + top.xPos, j + top.yPos, this.xSize, (selectedFurniture.ordinal()) * 16, 16, 16);
 		if(selectedFurniture != null && !middle.getHasStack())
-			this.blit(i + middle.xPos, j + middle.yPos, this.xSize + 16, (selectedFurniture.ordinal()) * 16, 16, 16);
+//			this.blit(i + middle.xPos, j + middle.yPos, this.xSize + 16, (selectedFurniture.ordinal()) * 16, 16, 16);
 		if(selectedFurniture != null && !bottom.getHasStack())
-			this.blit(i + bottom.xPos, j + bottom.yPos, this.xSize + 32, (selectedFurniture.ordinal()) * 16, 16, 16);
+//			this.blit(i + bottom.xPos, j + bottom.yPos, this.xSize + 32, (selectedFurniture.ordinal()) * 16, 16, 16);
 
-		int k = (int)(41.0F * this.field_214126_x);
-		this.blit(i + 119, j + 13 + k, 232 + (this.showUsableIcons ? 0 : 12), 0, 12, 15);
+//		int k = (int)(41.0F * this.field_214126_x);
+//		this.blit(i + 119, j + 13 + k, 232 + (this.showUsableIcons ? 0 : 12), 0, 12, 15);
 		RenderHelper.setupGuiFlatDiffuseLighting();
-		IRenderTypeBuffer.Impl irendertypebuffer$impl = this.minecraft.getRenderTypeBuffers().getBufferSource();
+//		IRenderTypeBuffer.Impl irendertypebuffer$impl = this.minecraft.getRenderTypeBuffers().getBufferSource();
 		MatrixStack matrixstack = new MatrixStack();
 		matrixstack.translate((double)(i + 139), (double)(j + 52), 0.0D);
 		matrixstack.scale(24.0F, -24.0F, 1.0F);
 		matrixstack.translate(0.5D, 0.5D, 0.5D);
 		matrixstack.scale(0.6666667F, -0.6666667F, -0.6666667F);
-		irendertypebuffer$impl.finish();
+//		irendertypebuffer$impl.finish();
 		if(this.showUsableIcons) {
 			int i2 = i + 60;
 			int k2 = j + 13;
@@ -143,10 +139,10 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 				int i1 = l - this.field_214128_z;
 	            int j1 = i2 + i1 % 4 * 14;
 	            int k1 = k2 + i1 / 4 * 14;
-	            this.minecraft.getTextureManager().bindTexture(GUI_TEXTURE);
+	            this.field_230706_i_.getTextureManager().bindTexture(UPHOLSTERY_TABLE_GUI_TEXTURE);
 	            int yblittingstart = this.ySize;
 
-	            this.blit(j1, k1, 14 * (l - 1), yblittingstart + (this.selectedFurniture != null && l == this.selectedFurniture.getID() ? 14 : 0), 14, 14);
+//	            this.blit(j1, k1, 14 * (l - 1), yblittingstart + (this.selectedFurniture != null && l == this.selectedFurniture.getID() ? 14 : 0), 14, 14);
 	            this.renderMatrix(l, j1, k1);
 			}
 		}
@@ -161,7 +157,7 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 		matrixstack.translate(0.5D, 0.5D, 0.0D);
 		matrixstack.translate(0.5D, 0.5D, 0.5D);
 		matrixstack.scale(0.6666667F, -0.6666667F, -0.6666667F);
-		IRenderTypeBuffer.Impl irendertypebuffer$impl = this.minecraft.getRenderTypeBuffers().getBufferSource();
+		IRenderTypeBuffer.Impl irendertypebuffer$impl = this.field_230706_i_.getRenderTypeBuffers().getBufferSource();
 		matrixstack.pop();
 		irendertypebuffer$impl.finish();
 	}
@@ -210,8 +206,8 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 	            		default:
 	            			this.selectedFurniture = null;
 	            	}
-	            	if(this.container.enchantItem(this.minecraft.player, this.selectedFurniture)) {
-	                	this.minecraft.playerController.sendEnchantPacket(this.container.windowId, this.selectedFurniture == null ? 0 : this.selectedFurniture.getID());
+	            	if(this.container.enchantItem(this.field_230706_i_.player, this.selectedFurniture)) {
+	                	this.field_230706_i_.playerController.sendEnchantPacket(this.container.windowId, this.selectedFurniture == null ? 0 : this.selectedFurniture.getID());
 	        		}
 	            	Minecraft.getInstance().getSoundHandler().play(SimpleSound.master(SoundEventsTwo.GUI_UPHOLSTERY_TABLE_SELECT_TEMPLATE, 1.0F));
 	            	return true;
@@ -221,7 +217,7 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 			i = this.guiLeft + 119;
 			j = this.guiTop + 9;
 		}
-		return super.mouseClicked(mousex, mousey, mousez);
+		return super.func_231044_a_(mousex, mousey, mousez);
 	}
 	protected boolean hasClickedOutside(double d1, double d3, int i5, int i6, int i7) {
 		return d1 < (double) i5 || d3 < (double) i6 || d1 >= (double) (i5 + this.xSize) || d3 >= (double) (i6 + this.ySize);
@@ -229,6 +225,7 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 	private void update() {
 		Two.LOGGER.info("update()");
 		
+		// TODO
 //		this.stacktop = this.container.top().getStack();
 //		this.stackmiddle = this.container.middle().getStack();
 //		this.stackbottom = this.container.bottom().getStack();

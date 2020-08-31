@@ -1,9 +1,10 @@
 package io.github.fallout015.two.item;
 
+import net.minecraft.enchantment.IVanishable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class SmithingHammerItem extends Item {
+public class SmithingHammerItem extends Item implements IVanishable {
 	public SmithingHammerItem(Properties properties) {
 		super(properties);
 	}

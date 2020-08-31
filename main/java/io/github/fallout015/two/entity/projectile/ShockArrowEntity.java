@@ -43,6 +43,7 @@ public class ShockArrowEntity extends AbstractArrowEntity {
 	}
 	@Override
 	protected void arrowHit(LivingEntity living) {
-		((ServerWorld) living.getEntityWorld()).addLightningBolt(new LightningBoltEntity(((ServerWorld) living.getEntityWorld()), living.getPosX(), living.getPosY(), living.getPosZ(), false));
+		// TODO
+//		((ServerWorld) living.getEntityWorld()).addLightningBolt(new LightningBoltEntity(((ServerWorld) living.getEntityWorld()), living.getPosX(), living.getPosY(), living.getPosZ(), false));
 	}
 }

@@ -6,7 +6,6 @@ import java.lang.reflect.Method;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
-import java.util.function.Function;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,7 +13,6 @@ import org.apache.logging.log4j.Logger;
 import com.google.common.collect.Sets;
 
 import io.github.fallout015.two.block.BlocksTwo;
-import io.github.fallout015.two.block.DreamcatcherBlock;
 import io.github.fallout015.two.client.renderer.RenderTypeLookupTwo;
 import io.github.fallout015.two.client.renderer.entity.BeardedDragonRenderer;
 import io.github.fallout015.two.client.renderer.entity.BombArrowRenderer;
@@ -47,7 +45,6 @@ import io.github.fallout015.two.entity.passive.ChameleonEntity;
 import io.github.fallout015.two.fluid.FluidsTwo;
 import io.github.fallout015.two.inventory.container.ContainerTypeTwo;
 import io.github.fallout015.two.item.ArmorMaterialTwo;
-import io.github.fallout015.two.item.DoubleJumpBootsItem;
 import io.github.fallout015.two.item.ItemsTwo;
 import io.github.fallout015.two.item.SlimeBootsItem;
 import io.github.fallout015.two.particles.ParticleTypesTwo;
@@ -55,28 +52,22 @@ import io.github.fallout015.two.potion.EffectsTwo;
 import io.github.fallout015.two.stats.StatsTwo;
 import io.github.fallout015.two.tileentity.TileEntityTypeTwo;
 import io.github.fallout015.two.util.SoundEventsTwo;
-import io.github.fallout015.two.world.biome.BiomesTwo;
-import io.github.fallout015.two.world.biome.DefaultBiomeFeaturesTwo;
-import io.github.fallout015.two.world.dimension.DimensionTypeTwo;
-import io.github.fallout015.two.world.dimension.ModDimensionTwo;
 import io.github.fallout015.two.world.gen.carver.WorldCarverTwo;
-import io.github.fallout015.two.world.gen.feature.FeatureTwo;
 import io.github.fallout015.two.world.gen.placement.PlacementTwo;
 import io.github.fallout015.two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 import net.minecraft.block.Block;
 import net.minecraft.block.ComposterBlock;
-import net.minecraft.block.FlowerBlock;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EvokerFangsRenderer;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.CreatureEntity;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.merchant.villager.VillagerProfession;
 import net.minecraft.entity.monster.CaveSpiderEntity;
 import net.minecraft.entity.monster.EndermiteEntity;
 import net.minecraft.entity.monster.SilverfishEntity;
@@ -89,11 +80,9 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArrowItem;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.HorseArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.TieredItem;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.INBT;
@@ -106,27 +95,18 @@ import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.IItemProvider;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.text.LanguageMap;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.ModDimension;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
-import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
@@ -134,12 +114,12 @@ import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.event.entity.player.PlayerXpEvent;
+import net.minecraftforge.event.world.SleepFinishedTimeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -169,23 +149,38 @@ public class Two {
     
 	public static AttributeModifier leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", 2, AttributeModifier.Operation.ADDITION);
     
+	@SuppressWarnings("unused")
+	private static final String[] BLACKLIST;
+	
     public Two() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
-
+        
         MinecraftForge.EVENT_BUS.register(this);
+    }
+    
+    static {
+    	BLACKLIST = new String[] {
+    		"Dev"
+    	};
     }
 
     private void setup(final FMLCommonSetupEvent event) {
 //    	DeferredWorkQueue ? 
-    	DefaultBiomeFeaturesTwo.addFeatures();
-    	DefaultBiomeFeaturesTwo.addStructures();
-    	DefaultBiomeFeaturesTwo.addSpawns();
-    	DefaultBiomeFeaturesTwo.addCarvers();
+//    	DefaultBiomeFeaturesTwo.addFeatures();
+//    	DefaultBiomeFeaturesTwo.addStructures();
+//    	DefaultBiomeFeaturesTwo.addSpawns();
+//    	DefaultBiomeFeaturesTwo.addCarvers();
     }
-    private void doClientStuff(final FMLClientSetupEvent event) {
+	private void doClientStuff(final FMLClientSetupEvent event) {
+//    	for(String name : BLACKLIST) {
+//    		if(name.equals(event.getMinecraftSupplier().get().player.getName().getString())) {
+//    			Assert.assrt("You are blacklisted!", false);
+//    		}
+//    	}
+    	
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CHAMELEON, ChameleonRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.RED_PANDA, RedPandaRenderer::new);
@@ -250,9 +245,11 @@ public class Two {
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new ChameleonCloakLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new ChameleonCloakLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
 
+    	// Derek's cosmetic headphones
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new HeadphonesLayer(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new HeadphonesLayer(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
 
+    	// Karsten's cosmetic crown
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new CrownLayer(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new CrownLayer(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
     }
@@ -272,15 +269,11 @@ public class Two {
         }
     	@SubscribeEvent
     	public static void onBiomesRegistry(final RegistryEvent.Register<Biome> biomeRegistryEvent) {
-    		BiomesTwo.onBiomesRegistry(biomeRegistryEvent);
+//    		BiomesTwo.onBiomesRegistry(biomeRegistryEvent);
     	}
     	@SubscribeEvent
     	public static void onContainerTypesRegistry(final RegistryEvent.Register<ContainerType<?>> containerTypeRegistryEvent) {
     		ContainerTypeTwo.onContainerTypesRegistry(containerTypeRegistryEvent);
-    	}
-    	@SubscribeEvent
-    	public static void onDimensionTypesRegistry(final RegistryEvent.Register<DimensionType> dimensionTypeRegistryEvent) {
-    		DimensionTypeTwo.onDimensionTypesRegistry(dimensionTypeRegistryEvent);
     	}
     	@SubscribeEvent
     	public static void onEffectsRegistry(final RegistryEvent.Register<Effect> effectRegistryEvent) {
@@ -296,7 +289,7 @@ public class Two {
     	}
     	@SubscribeEvent
     	public static void onFeaturesRegistry(final RegistryEvent.Register<Feature<?>> featureRegistryEvent) {
-    		FeatureTwo.onFeaturesRegistry(featureRegistryEvent);
+//    		FeatureTwo.onFeaturesRegistry(featureRegistryEvent);
     	}
     	@SubscribeEvent
     	public static void onFluidsRegistry(final RegistryEvent.Register<Fluid> fluidRegistryEvent) {
@@ -306,10 +299,6 @@ public class Two {
     	public static void onGlobalLootModifierSerializersRegistry(final RegistryEvent.Register<GlobalLootModifierSerializer<?>> globalLootModifierSerializerRegistryEvent) {
     		// loot stuff
 //    		LootTables.CHESTS_SIMPLE_DUNGEON.
-    	}
-    	@SubscribeEvent
-    	public static void onModDimensionsRegistry(final RegistryEvent.Register<ModDimension> modDimensionRegistryEvent) {
-    		ModDimensionTwo.onModDimensionsRegistry(modDimensionRegistryEvent);
     	}
     	@SubscribeEvent
     	public static void onParticleTypesRegistry(final RegistryEvent.Register<ParticleType<?>> particleTypeRegistryEvent) {
@@ -328,12 +317,20 @@ public class Two {
     		StatsTwo.onStatTypesRegistry(statTypeRegistry);
     	}
     	@SubscribeEvent
+    	public static void onStructuresRegistry(final RegistryEvent.Register<Structure<?>> structureRegistry) {
+//    		StructureTwo.onStructuresRegistry(structureRegistry);
+    	}
+    	@SubscribeEvent
     	public static void onSurfaceBuildersRegistry(final RegistryEvent.Register<SurfaceBuilder<?>> surfaceBuilderRegistryEvent) {
     		SurfaceBuilderTwo.onSurfaceBuildersRegistry(surfaceBuilderRegistryEvent);
     	}
     	@SubscribeEvent
     	public static void onTileEntitiesRegistry(final RegistryEvent.Register<TileEntityType<?>> tileEntityRegistryEvent) {
     		TileEntityTypeTwo.onTileEntitiesRegistry(tileEntityRegistryEvent);
+    	}
+    	@SubscribeEvent
+    	public static void onVillagerProfessionsRegistry(final RegistryEvent.Register<VillagerProfession> villagerProfessionRegistryEvent) {
+    		// tailor and carpenter for now
     	}
     	@SubscribeEvent
     	public static void onWorldCarversRegistry(final RegistryEvent.Register<WorldCarver<?>> worldCarverRegistryEvent) {
@@ -347,11 +344,11 @@ public class Two {
     	public static void onItemToss(final ItemTossEvent itemTossEvent) {
     		if(itemTossEvent.getEntityItem().getItem().getItem() instanceof ArrowItem && !itemTossEvent.getPlayer().getEntityWorld().isRemote) {
     			AbstractArrowEntity abstractarrowentity = ((ArrowItem) itemTossEvent.getEntityItem().getItem().getItem()).createArrow(itemTossEvent.getEntityItem().getEntityWorld(), itemTossEvent.getEntityItem().getItem(), itemTossEvent.getPlayer());
-                abstractarrowentity.shoot(itemTossEvent.getPlayer(), itemTossEvent.getPlayer().rotationPitch, itemTossEvent.getPlayer().rotationYaw, 0.0F, 0.9F, 2.0F);
+//                abstractarrowentity.shoot(itemTossEvent.getPlayer(), itemTossEvent.getPlayer().rotationPitch, itemTossEvent.getPlayer().rotationYaw, 0.0F, 0.9F, 2.0F);
                 itemTossEvent.getPlayer().getEntityWorld().addEntity(abstractarrowentity);
                 itemTossEvent.setCanceled(true);
                 // TODO Keep? Remove? I personally don't like this. And adding an extra item with a drop action sounds weird. 
-                // Also TODO add item back to inventory in creative after it's cancelled. 
+                // Also TODO add item back to inventory in creative after it's cancelled, and add back shooting. 
     		}
     	}
     	@SubscribeEvent
@@ -378,20 +375,38 @@ public class Two {
 		@SubscribeEvent
     	public static void onPlayerWakeUp(final PlayerWakeUpEvent playerWakeUpEvent) {
 			if(playerWakeUpEvent.getPlayer().getEntityWorld().getDayTime() == 24000) {
-    			if(playerWakeUpEvent.getPlayer().dimension == DimensionType.OVERWORLD && playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation(DimensionType.OVERWORLD).up()).getBlock() instanceof DreamcatcherBlock) {
-    				((DreamcatcherBlock) playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation(DimensionType.OVERWORLD).up()).getBlock()).onPlayerWakeUp(playerWakeUpEvent);
-    			}
+//    			if(playerWakeUpEvent.getPlayer().dimension == DimensionType.OVERWORLD && playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation(DimensionType.OVERWORLD).up()).getBlock() instanceof DreamcatcherBlock) {
+//    				((DreamcatcherBlock) playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation(DimensionType.OVERWORLD).up()).getBlock()).onPlayerWakeUp(playerWakeUpEvent);
+//    			} // TODO
     		}
     	}
+		@SubscribeEvent
+		public static void onSleepFinishedTime(final SleepFinishedTimeEvent sleepFinishedTimeEvent) {
+			// TODO move dreamcatcher code here
+		}
     	@SubscribeEvent
     	public static void onPlayerSleepInBed(final PlayerSleepInBedEvent playerSleepInBedEvent) {
-    		if(playerSleepInBedEvent.getPlayer().dimension.equals(DimensionManager.registerOrGetDimension(new ResourceLocation("two", "nightmare"), ModDimensionTwo.NIGHTMARE, null, false))) {
-    			playerSleepInBedEvent.getPlayer().changeDimension(DimensionType.OVERWORLD, new ITeleporter() {
-    				public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
-    					return repositionEntity.apply(false);
-    				}
-    			});
-    			playerSleepInBedEvent.getPlayer().getEntityWorld().setDayTime(24000);
+//    		if(playerSleepInBedEvent.getPlayer().dimension.equals(DimensionManager.registerOrGetDimension(new ResourceLocation("two", "nightmare"), ModDimensionTwo.NIGHTMARE, null, false))) {
+//    			playerSleepInBedEvent.getPlayer().changeDimension(DimensionType.OVERWORLD, new ITeleporter() {
+//    				public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
+//    					return repositionEntity.apply(false);
+//    				}
+//    			});
+//    			playerSleepInBedEvent.getPlayer().getEntityWorld().setDayTime(24000);
+//    		}
+    	}
+    	@SubscribeEvent
+    	public static void onItemCrafted(final PlayerEvent.ItemCraftedEvent playerEvent$ItemCraftedEvent) {
+    		if(playerEvent$ItemCraftedEvent.getCrafting().getItem() == Items.CAKE) {
+    			if(playerEvent$ItemCraftedEvent.getCrafting().hasTag()) {
+    				playerEvent$ItemCraftedEvent.getCrafting().getTag().putInt("slices", 8);
+    				Two.LOGGER.info("cake HAS tag");
+    			} else {
+    				CompoundNBT nbt = new CompoundNBT();
+    				nbt.putInt("slices", 8);
+    				playerEvent$ItemCraftedEvent.getCrafting().setTag(nbt);
+    				Two.LOGGER.info("cake has NO tag");
+    			}
     		}
     	}
     	@SubscribeEvent
@@ -412,7 +427,7 @@ public class Two {
     	public static void onLivingJump(final LivingJumpEvent livingJumpEvent) {
     		if(livingJumpEvent.getEntityLiving().getActivePotionEffect(EffectsTwo.FROSTY) != null) {
     			livingJumpEvent.getEntityLiving().setJumping(false);
-    			livingJumpEvent.getEntityLiving().setMotion(Vec3d.ZERO);
+    			livingJumpEvent.getEntityLiving().setMotion(Vector3d.ZERO);
     			return;
     		}
     		if(livingJumpEvent.getEntityLiving() instanceof PlayerEntity) {
@@ -453,7 +468,7 @@ public class Two {
         		}
         		if(list.getFirst().getItem() == ItemsTwo.DOUBLE_JUMP_BOOTS) {
 //        			LOGGER.info("Boots!");
-        			if(p.onGround) {
+        			if(p.func_233570_aj_()) {
 //        				LOGGER.info("Grounded!");
         				list.getFirst().getTag().putInt("jumps", 0);
         			}
@@ -477,10 +492,10 @@ public class Two {
     		
     		leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance().getHealth(), AttributeModifier.Operation.ADDITION);
     		float health = playerXpEvent$LevelChange.getPlayer().getHealth();
-    		if(playerXpEvent$LevelChange.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).hasModifier(leveluphealth)) {
-        		playerXpEvent$LevelChange.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).removeModifier(leveluphealth);
+    		if(playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.field_233818_a_).hasModifier(leveluphealth)) {
+        		playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.field_233818_a_).removeModifier(leveluphealth);
     		}
-    		playerXpEvent$LevelChange.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(leveluphealth);
+//    		playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.field_233818_a_).applyModifier(leveluphealth); // TODO og my god
     		playerXpEvent$LevelChange.getPlayer().setHealth(health);
     	}
     	@SubscribeEvent
@@ -497,10 +512,10 @@ public class Two {
                		CapabilitiesTwo.PLAYERUPGRADES.readNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP, nbt);
         		
             		leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", 0, AttributeModifier.Operation.ADDITION);
-            		if(playerEvent$Clone.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).hasModifier(leveluphealth)) {
-            			playerEvent$Clone.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).removeModifier(leveluphealth);
+            		if(playerEvent$Clone.getPlayer().getAttribute(Attributes.field_233818_a_).hasModifier(leveluphealth)) {
+            			playerEvent$Clone.getPlayer().getAttribute(Attributes.field_233818_a_).removeModifier(leveluphealth);
             		}
-            		playerEvent$Clone.getPlayer().getAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(leveluphealth);
+//            		playerEvent$Clone.getPlayer().getAttribute(Attributes.field_233818_a_).applyModifier(leveluphealth); TODO
     			} catch(NullPointerException npe) {
     				LOGGER.warn(npe);
     			}
@@ -566,109 +581,109 @@ public class Two {
     			LOGGER.info("Wrote to two_playerdata.nbt");
     		}
     	}
-    	@SubscribeEvent
-    	@OnlyIn(Dist.CLIENT)
-    	public static void onItemTooltip(final ItemTooltipEvent itemTooltipEvent) {
-    		// Pickaxes show all of the ores they can mine. 
-//    		if(itemTooltipEvent.getItemStack().getItem() instanceof PickaxeItem) {
-//    			if(((PickaxeItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel() == 6)
-//    				itemTooltipEvent.getToolTip().add(new StringTextComponent("Can mine everything."));
-//    			else {
-//    				List<IItemTier> itemTiers = new LinkedList<IItemTier>();
-//    				
-//        			for(IItemTier itemTier : ItemTier.values())
-//        				if(itemTier != ItemTier.WOOD && ((PickaxeItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel() > itemTier.getHarvestLevel() - 1)
-//        					itemTiers.add(itemTier);
-//        			for(IItemTier itemTier : ItemTierTwo.values())
-//        				if(itemTier != ItemTierTwo.BLOOD_BLADE && ((PickaxeItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel() > itemTier.getHarvestLevel() - 1)
-//        					itemTiers.add(itemTier);
-//        			
-//        			Collections.sort((List<IItemTier>) itemTiers, (itemTier1, itemTier2) -> itemTier1.getHarvestLevel() - itemTier2.getHarvestLevel());
-//        			
-//        			itemTooltipEvent.getToolTip().add(new StringTextComponent("Can mine...").applyTextStyle(TextFormatting.GRAY));        			
-//        			itemTooltipEvent.getToolTip().add(new StringTextComponent(itemTiers.toString().toLowerCase()/*.replaceAll("[", "").replaceAll("]", "")*/).applyTextStyle(TextFormatting.GRAY));
+//    	@SubscribeEvent
+//    	@OnlyIn(Dist.CLIENT)
+//    	public static void onItemTooltip(final ItemTooltipEvent itemTooltipEvent) {
+//    		// Pickaxes show all of the ores they can mine. 
+////    		if(itemTooltipEvent.getItemStack().getItem() instanceof PickaxeItem) {
+////    			if(((PickaxeItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel() == 6)
+////    				itemTooltipEvent.getToolTip().add(new StringTextComponent("Can mine everything."));
+////    			else {
+////    				List<IItemTier> itemTiers = new LinkedList<IItemTier>();
+////    				
+////        			for(IItemTier itemTier : ItemTier.values())
+////        				if(itemTier != ItemTier.WOOD && ((PickaxeItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel() > itemTier.getHarvestLevel() - 1)
+////        					itemTiers.add(itemTier);
+////        			for(IItemTier itemTier : ItemTierTwo.values())
+////        				if(itemTier != ItemTierTwo.BLOOD_BLADE && ((PickaxeItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel() > itemTier.getHarvestLevel() - 1)
+////        					itemTiers.add(itemTier);
+////        			
+////        			Collections.sort((List<IItemTier>) itemTiers, (itemTier1, itemTier2) -> itemTier1.getHarvestLevel() - itemTier2.getHarvestLevel());
+////        			
+////        			itemTooltipEvent.getToolTip().add(new StringTextComponent("Can mine...").applyTextStyle(TextFormatting.GRAY));        			
+////        			itemTooltipEvent.getToolTip().add(new StringTextComponent(itemTiers.toString().toLowerCase()/*.replaceAll("[", "").replaceAll("]", "")*/).applyTextStyle(TextFormatting.GRAY));
+////    			}
+////    		}
+//    		if(itemTooltipEvent.getItemStack().getItem() == ItemsTwo.CHAIR) {
+//    			String seat = "";
+//    			try {
+//        			seat = itemTooltipEvent.getItemStack().getTag().getString("top");
+//    			} catch(Exception e) {
+//    				Two.LOGGER.info(e);
 //    			}
+//    			String legs = "";
+//    			try {
+//    				legs = itemTooltipEvent.getItemStack().getTag().getString("middle");
+//    			} catch(Exception e) {
+//    				Two.LOGGER.info(e);
+//    			}
+//    			String back = "";
+//    			try {
+//    				back = itemTooltipEvent.getItemStack().getTag().getString("bottom");
+//    			} catch(Exception e) {
+//    				Two.LOGGER.info(e);
+//    			}
+//    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Back: " + back));
+//    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Seat: " + seat));
+//    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Legs: " + legs));
 //    		}
-    		if(itemTooltipEvent.getItemStack().getItem() == ItemsTwo.CHAIR) {
-    			String seat = "";
-    			try {
-        			seat = itemTooltipEvent.getItemStack().getTag().getString("top");
-    			} catch(Exception e) {
-    				Two.LOGGER.info(e);
-    			}
-    			String legs = "";
-    			try {
-    				legs = itemTooltipEvent.getItemStack().getTag().getString("middle");
-    			} catch(Exception e) {
-    				Two.LOGGER.info(e);
-    			}
-    			String back = "";
-    			try {
-    				back = itemTooltipEvent.getItemStack().getTag().getString("bottom");
-    			} catch(Exception e) {
-    				Two.LOGGER.info(e);
-    			}
-    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Back: " + back));
-    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Seat: " + seat));
-    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Legs: " + legs));
-    		}
-    		if(itemTooltipEvent.getItemStack().getItem() instanceof DoubleJumpBootsItem) {
-    			int jumps = itemTooltipEvent.getItemStack().getTag().getInt("jumps");
-    			int extrajumplimit = itemTooltipEvent.getItemStack().getTag().getInt("extrajumplimit");
-    			
-    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Jumps: " + jumps));
-    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Extra Jump Limit: " + extrajumplimit));
-    		}
-    		
-    		LinkedList<Item> equipment = new LinkedList<Item>();
-    		if(itemTooltipEvent.getEntityLiving() != null) {
-        		itemTooltipEvent.getEntityLiving().getArmorInventoryList().forEach(itemStack -> equipment.add(itemStack.getItem()));
-        		if(equipment.contains(ItemsTwo.INSPECTION_SPECTACLES)) {
-        			if(!LanguageMap.getInstance().translateKey(itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc").equals((itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc"))) {
-            			itemTooltipEvent.getToolTip().add(new TranslationTextComponent(itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc").applyTextStyles(TextFormatting.ITALIC, TextFormatting.GOLD));
-        			}
-        			if(itemTooltipEvent.getItemStack().getItem() instanceof TieredItem) {
-        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Tier: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
-        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Enchantability: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getItemEnchantability()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
-
-        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Max Uses: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier().getMaxUses()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
-        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Efficiency: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier().getEfficiency()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
-        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Harvest Level: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
-        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Repair Material: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier().getRepairMaterial().getMatchingStacks()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
-        			}
-        			if(itemTooltipEvent.getItemStack().getItem().isFood()) {
-        				if(itemTooltipEvent.getItemStack().getItem().getFood().isMeat()) {
-        					itemTooltipEvent.getToolTip().add(new StringTextComponent("Meat").applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
-        				}
-        				if(itemTooltipEvent.getItemStack().getItem().getFood().canEatWhenFull()) {
-        					itemTooltipEvent.getToolTip().add(new StringTextComponent("Can eat when full").applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
-        				}
-        				if(itemTooltipEvent.getItemStack().getItem().getFood().isFastEating()) {
-        					itemTooltipEvent.getToolTip().add(new StringTextComponent("Fast eating").applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
-        				}
-    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Hunger Healing: " + itemTooltipEvent.getItemStack().getItem().getFood().getHealing()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
-    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Saturation: " + itemTooltipEvent.getItemStack().getItem().getFood().getSaturation()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
-    					if(!itemTooltipEvent.getItemStack().getItem().getFood().getEffects().isEmpty()) {
-    						itemTooltipEvent.getToolTip().add(new StringTextComponent("Effects: " + itemTooltipEvent.getItemStack().getItem().getFood().getEffects().toString()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
-    					}
-        			}
-        			if(itemTooltipEvent.getItemStack().getItem() instanceof ArmorItem) {
-    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Tier: " + ((ArmorItem) (itemTooltipEvent.getItemStack().getItem())).getArmorMaterial()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.BLUE));
-    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Enchantability: " + ((ArmorItem) (itemTooltipEvent.getItemStack().getItem())).getItemEnchantability()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.BLUE));
-        			}
-        			if(itemTooltipEvent.getItemStack().getItem() instanceof HorseArmorItem) {
-        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Protection: " + ((HorseArmorItem) itemTooltipEvent.getItemStack().getItem()).func_219977_e()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.BLUE));
-        			}
-        			if(itemTooltipEvent.getItemStack().getItem() instanceof BlockItem) {
-        				Block block = ((BlockItem) (itemTooltipEvent.getItemStack().getItem())).getBlock();
-        				if(block instanceof FlowerBlock) {
-        					itemTooltipEvent.getToolTip().add(new StringTextComponent("Effect: " + LanguageMap.getInstance().translateKey(((FlowerBlock) block).getStewEffect().getName())).applyTextStyles(TextFormatting.ITALIC, TextFormatting.LIGHT_PURPLE));
-        					itemTooltipEvent.getToolTip().add(new StringTextComponent("Duration: " + ((FlowerBlock) block).getStewEffectDuration()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.LIGHT_PURPLE));
-        				}
-        				// TODO Other Block Data. 
-        			}
-        		}
-    		}
-    	}
+//    		if(itemTooltipEvent.getItemStack().getItem() instanceof DoubleJumpBootsItem) {
+//    			int jumps = itemTooltipEvent.getItemStack().getTag().getInt("jumps");
+//    			int extrajumplimit = itemTooltipEvent.getItemStack().getTag().getInt("extrajumplimit");
+//    			
+//    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Jumps: " + jumps));
+//    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Extra Jump Limit: " + extrajumplimit));
+//    		}
+//    		
+//    		LinkedList<Item> equipment = new LinkedList<Item>();
+//    		if(itemTooltipEvent.getEntityLiving() != null) {
+//        		itemTooltipEvent.getEntityLiving().getArmorInventoryList().forEach(itemStack -> equipment.add(itemStack.getItem()));
+//        		if(equipment.contains(ItemsTwo.INSPECTION_SPECTACLES)) {
+//        			if(!LanguageMap.getInstance().translateKey(itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc").equals((itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc"))) {
+//            			itemTooltipEvent.getToolTip().add(new TranslationTextComponent(itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc").applyTextStyles(TextFormatting.ITALIC, TextFormatting.GOLD));
+//        			}
+//        			if(itemTooltipEvent.getItemStack().getItem() instanceof TieredItem) {
+//        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Tier: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
+//        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Enchantability: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getItemEnchantability()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
+//
+//        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Max Uses: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier().getMaxUses()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
+//        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Efficiency: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier().getEfficiency()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
+//        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Harvest Level: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
+//        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Repair Material: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier().getRepairMaterial().getMatchingStacks()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
+//        			}
+//        			if(itemTooltipEvent.getItemStack().getItem().isFood()) {
+//        				if(itemTooltipEvent.getItemStack().getItem().getFood().isMeat()) {
+//        					itemTooltipEvent.getToolTip().add(new StringTextComponent("Meat").applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
+//        				}
+//        				if(itemTooltipEvent.getItemStack().getItem().getFood().canEatWhenFull()) {
+//        					itemTooltipEvent.getToolTip().add(new StringTextComponent("Can eat when full").applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
+//        				}
+//        				if(itemTooltipEvent.getItemStack().getItem().getFood().isFastEating()) {
+//        					itemTooltipEvent.getToolTip().add(new StringTextComponent("Fast eating").applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
+//        				}
+//    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Hunger Healing: " + itemTooltipEvent.getItemStack().getItem().getFood().getHealing()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
+//    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Saturation: " + itemTooltipEvent.getItemStack().getItem().getFood().getSaturation()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
+//    					if(!itemTooltipEvent.getItemStack().getItem().getFood().getEffects().isEmpty()) {
+//    						itemTooltipEvent.getToolTip().add(new StringTextComponent("Effects: " + itemTooltipEvent.getItemStack().getItem().getFood().getEffects().toString()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.RED));
+//    					}
+//        			}
+//        			if(itemTooltipEvent.getItemStack().getItem() instanceof ArmorItem) {
+//    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Tier: " + ((ArmorItem) (itemTooltipEvent.getItemStack().getItem())).getArmorMaterial()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.BLUE));
+//    					itemTooltipEvent.getToolTip().add(new StringTextComponent("Enchantability: " + ((ArmorItem) (itemTooltipEvent.getItemStack().getItem())).getItemEnchantability()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.BLUE));
+//        			}
+//        			if(itemTooltipEvent.getItemStack().getItem() instanceof HorseArmorItem) {
+//        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Protection: " + ((HorseArmorItem) itemTooltipEvent.getItemStack().getItem()).func_219977_e()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.BLUE));
+//        			}
+//        			if(itemTooltipEvent.getItemStack().getItem() instanceof BlockItem) {
+//        				Block block = ((BlockItem) (itemTooltipEvent.getItemStack().getItem())).getBlock();
+//        				if(block instanceof FlowerBlock) {
+//        					itemTooltipEvent.getToolTip().add(new StringTextComponent("Effect: " + LanguageMap.getInstance().translateKey(((FlowerBlock) block).getStewEffect().getName())).applyTextStyles(TextFormatting.ITALIC, TextFormatting.LIGHT_PURPLE));
+//        					itemTooltipEvent.getToolTip().add(new StringTextComponent("Duration: " + ((FlowerBlock) block).getStewEffectDuration()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.LIGHT_PURPLE));
+//        				}
+//        				// TODO Other Block Data. 
+//        			}
+//        		}
+//    		}
+//    	}
     }
 }

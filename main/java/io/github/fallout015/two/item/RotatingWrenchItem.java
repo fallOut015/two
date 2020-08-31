@@ -11,7 +11,7 @@ public class RotatingWrenchItem extends Item {
 	}
 	
 	public ActionResultType onItemUse(ItemUseContext context) {
-		context.getWorld().setBlockState(context.getPos(), context.getWorld().getBlockState(context.getPos()).rotate(Rotation.CLOCKWISE_90));
+		context.getWorld().setBlockState(context.getPos(), context.getWorld().getBlockState(context.getPos()).rotate(context.getWorld(), context.getPos(), Rotation.CLOCKWISE_90));
 		
 		return ActionResultType.SUCCESS;
 	};

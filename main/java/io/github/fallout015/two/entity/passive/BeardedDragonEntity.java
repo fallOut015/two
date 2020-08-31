@@ -5,7 +5,10 @@ import java.util.UUID;
 import io.github.fallout015.two.entity.EntityTypeTwo;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.ai.attributes.AttributeModifierMap;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.BreedGoal;
 import net.minecraft.entity.ai.goal.FollowOwnerGoal;
 import net.minecraft.entity.ai.goal.LandOnOwnersShoulderGoal;
@@ -15,13 +18,15 @@ import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.passive.ShoulderRidingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.DyeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 
 public class BeardedDragonEntity extends ShoulderRidingEntity {
 	private static final Ingredient TEMPTATION_ITEMS = Ingredient.fromItems(Items.SPIDER_EYE);
@@ -32,13 +37,14 @@ public class BeardedDragonEntity extends ShoulderRidingEntity {
 	}
 
 	@Override
-	public AgeableEntity createChild(AgeableEntity ageable) {
-		BeardedDragonEntity beardeddragonentity = EntityTypeTwo.BEARDED_DRAGON.create(this.world);
+	public AgeableEntity func_241840_a(ServerWorld serverWorld, AgeableEntity ageable) {
+		BeardedDragonEntity beardeddragonentity = EntityTypeTwo.BEARDED_DRAGON.create(serverWorld);
 		UUID uuid = this.getOwnerId();
 		if (uuid != null) {
 			beardeddragonentity.setOwnerId(uuid);
 			beardeddragonentity.setTamed(true);
 		}
+		
 		return beardeddragonentity;
 	}
 	@Override
@@ -51,58 +57,63 @@ public class BeardedDragonEntity extends ShoulderRidingEntity {
 		this.goalSelector.addGoal(6, new BreedGoal(this, 0.8D));
 		this.goalSelector.addGoal(7, new TemptGoal(this, 1.2D, false, TEMPTATION_ITEMS));
 	}
-	@Override
-	protected void registerAttributes() {
-		super.registerAttributes();
-		
-		if (this.isTamed()) {
-			this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(8.0D);
-		} else {
-			this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(4.0D);
-		}	
-		this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3);
+	
+	public static AttributeModifierMap.MutableAttribute func_234233_eS_() {
+		return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233821_d_, (double)0.3F).func_233815_a_(Attributes.field_233818_a_, 5.0D);
 	}
-	@Override
-	public boolean processInteract(PlayerEntity player, Hand hand) {
+	
+	public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
 		ItemStack itemstack = player.getHeldItem(hand);
 		Item item = itemstack.getItem();
-		if (itemstack.getItem() instanceof SpawnEggItem) {
-			return super.processInteract(player, hand);
-		} else if (this.world.isRemote) {
-			return this.isOwner(player) || item == Items.SPIDER_EYE;
+		if (this.world.isRemote) {
+			boolean flag = this.isOwner(player) || this.isTamed() || item == Items.SPIDER_EYE && !this.isTamed();
+			return flag ? ActionResultType.CONSUME : ActionResultType.PASS;
 		} else {
 			if (this.isTamed()) {
-				if (item.isFood() && this.getHealth() < this.getMaxHealth()) {
-	               if (!player.abilities.isCreativeMode) {
-	            	   itemstack.shrink(1);
-	               }
+				if (this.isBreedingItem(itemstack) && this.getHealth() < this.getMaxHealth()) {
+					if (!player.abilities.isCreativeMode) {
+						itemstack.shrink(1);
+					}
 
-	               this.heal((float)item.getFood().getHealing());
-	               return true;
-				}
-	            if (this.isOwner(player) && !this.isBreedingItem(itemstack)) {
-	            	this.isJumping = false;
-	            	this.navigator.clearPath();
+					this.heal((float)item.getFood().getHealing());
+					return ActionResultType.SUCCESS;
 	            }
+
+	            if (!(item instanceof DyeItem)) {
+	            	ActionResultType actionresulttype = super.func_230254_b_(player, hand);
+	            	if ((!actionresulttype.isSuccessOrConsume() || this.isChild()) && this.isOwner(player)) {
+	            		this.func_233687_w_(!this.func_233685_eM_());
+	            		this.isJumping = false;
+	            		this.navigator.clearPath();
+	            		this.setAttackTarget((LivingEntity)null);
+	            		return ActionResultType.SUCCESS;
+	            	}
+
+	            	return actionresulttype;
+	            }
+
 			} else if (item == Items.SPIDER_EYE) {
-				if (!player.abilities.isCreativeMode) {
-					itemstack.shrink(1);
+	            if (!player.abilities.isCreativeMode) {
+	            	itemstack.shrink(1);
 	            }
 
 	            if (this.rand.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
 	            	this.setTamedBy(player);
 	            	this.navigator.clearPath();
+	            	this.setAttackTarget((LivingEntity)null);
+	            	this.func_233687_w_(true);
 	            	this.world.setEntityState(this, (byte)7);
 	            } else {
 	            	this.world.setEntityState(this, (byte)6);
 	            }
 
-	            return true;
+	            return ActionResultType.SUCCESS;
 			}
 
-			return super.processInteract(player, hand);
+			return super.func_230254_b_(player, hand);
 		}
 	}
+	
 	@Override
 	public boolean isBreedingItem(ItemStack stack) {
 		Item item = stack.getItem();
@@ -112,10 +123,10 @@ public class BeardedDragonEntity extends ShoulderRidingEntity {
 	public void setTamed(boolean tamed) {
 		super.setTamed(tamed);
 		if (tamed) {
-			this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D);
+			this.getAttribute(Attributes.field_233818_a_).setBaseValue(10.0D);
 			this.setHealth(10.0F);
 		} else {
-			this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(5.0D);
+			this.getAttribute(Attributes.field_233818_a_).setBaseValue(5.0D);
 		}
 	}
 }

@@ -4,7 +4,7 @@ import java.util.BitSet;
 import java.util.Random;
 import java.util.function.Function;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -14,8 +14,8 @@ import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 
 public class CavernWorldCarver extends WorldCarver<ProbabilityConfig> {
-	public CavernWorldCarver(Function<Dynamic<?>, ? extends ProbabilityConfig> config, int maxHeight) {
-		super(config, maxHeight);
+	public CavernWorldCarver(Codec<ProbabilityConfig> codec, int maxHeight) {
+		super(codec, maxHeight);
 	}
 
 	protected int generateCaveStartY(Random rand) {

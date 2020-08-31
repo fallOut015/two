@@ -4,6 +4,7 @@ import io.github.fallout015.two.enchantment.EnchantmentsTwo;
 import io.github.fallout015.two.entity.projectile.EvocationFangsEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.IVanishable;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
@@ -19,7 +20,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.World;
 
-public class EvocationStaffItem extends Item {
+public class EvocationStaffItem extends Item implements IVanishable {
 	public EvocationStaffItem(Properties properties) {
 		super(properties);
 	}

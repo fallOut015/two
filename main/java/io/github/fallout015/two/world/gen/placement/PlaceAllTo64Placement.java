@@ -2,19 +2,18 @@ package io.github.fallout015.two.world.gen.placement;
 
 import java.util.Objects;
 import java.util.Random;
-import java.util.function.Function;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.placement.NoPlacementConfig;
 import net.minecraft.world.gen.placement.SimplePlacement;
 
 public class PlaceAllTo64Placement extends SimplePlacement<NoPlacementConfig> {
-	public PlaceAllTo64Placement(Function<Dynamic<?>, ? extends NoPlacementConfig> p_i51362_1_) {
-		super(p_i51362_1_);
+	public PlaceAllTo64Placement(Codec<NoPlacementConfig> codec) {
+		super(codec);
 	}
 
 	@Override

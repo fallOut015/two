@@ -6,12 +6,20 @@ body header {
 	position:fixed;
 	width:100%;
 	height:24pt;
-	background-color:orange;
+	background-color:royalblue;
 	box-shadow:0 2pt 4pt rgba(0, 0, 0, 0.25);
 	left:0;
 	top:0;
 	z-index:1;
 	weight:100;
+}
+body header ul {
+	text-align:center;
+	color:white;
+	font-family:open-sans;
+}
+body header ul u {
+	
 }
 
 body div {

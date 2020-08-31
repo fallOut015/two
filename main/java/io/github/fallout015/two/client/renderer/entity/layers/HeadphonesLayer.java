@@ -39,9 +39,8 @@ public class HeadphonesLayer extends LayerRenderer<AbstractClientPlayerEntity, P
 	    		if(itemStack.getItem() instanceof ArmorItem)
 	    			armor.add((ArmorItem) itemStack.getItem());
 	    	});
-	    	if(armor.removeIf(item -> item.getEquipmentSlot() == EquipmentSlotType.HEAD)) {
-	    		IVertexBuilder ivertexbuilder = bufferIn.getBuffer(RenderType.getEntitySolid(entitylivingbaseIn.getLocationSkin()));
-		    	ivertexbuilder = bufferIn.getBuffer(RenderType.getEntitySolid(TEXTURE));
+	    	if(!armor.removeIf(item -> item.getEquipmentSlot() == EquipmentSlotType.HEAD)) {
+	    		IVertexBuilder ivertexbuilder = bufferIn.getBuffer(RenderType.getEntitySolid(TEXTURE));
 		    	int i = LivingRenderer.getPackedOverlay(entitylivingbaseIn, 0.0F);
 
 		    	matrixStackIn.push();

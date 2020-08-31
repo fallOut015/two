@@ -17,7 +17,6 @@ public class ParticleTypesTwo {
 	
 	// TODO fix
 	
-	@SuppressWarnings("resource")
 	public static void onParticleTypesRegistry(final RegistryEvent.Register<ParticleType<?>> particleTypeRegistryEvent) {
 		particleTypeRegistryEvent.getRegistry().registerAll(Holder.PARTICLETYPESTWO.toArray(new ParticleType<?> [] { }));
 

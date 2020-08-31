@@ -11,7 +11,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 
-public class ShurikenItem extends Item {
+public class ShurikenItem extends Item { // make vanishable?
 	public ShurikenItem(Properties properties) {
 		super(properties);
 	}
@@ -23,7 +23,8 @@ public class ShurikenItem extends Item {
 		if (!worldIn.isRemote) {
 			ShurikenEntity shurikenentity = new ShurikenEntity(playerIn, worldIn);
 			shurikenentity.setItem(itemstack);
-			shurikenentity.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 0.0F);
+			// TODO, you get the deal
+//			shurikenentity.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 0.0F);
 			worldIn.addEntity(shurikenentity);
 		}
 

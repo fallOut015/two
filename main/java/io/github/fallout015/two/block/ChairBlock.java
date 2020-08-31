@@ -47,7 +47,8 @@ public class ChairBlock extends Block implements ITileEntityProvider {
 	    			return blockstate1;
 	    
 	    if(context.getWorld().getTileEntity(context.getPos()) instanceof ChairTileEntity) {
-	    	context.getWorld().getTileEntity(context.getPos()).read(context.getItem().getTag());
+//	    	context.getWorld().getTileEntity(context.getPos()).read(context.getItem().getTag());
+	    	// because i removed it from ChairTileEntity TODO
 	    }
 
 	    return null;
@@ -90,11 +91,7 @@ public class ChairBlock extends Block implements ITileEntityProvider {
 		return this.createNewTileEntity(world);
 	}
 	@Override
-	public boolean hasTileEntity() {
-		return true;
-	}
-	@Override
 	public boolean hasTileEntity(BlockState state) {
-		return this.hasTileEntity();
+		return true;
 	}
 }

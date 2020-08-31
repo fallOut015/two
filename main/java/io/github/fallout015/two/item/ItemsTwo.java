@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 
 import io.github.fallout015.two.block.BlocksTwo;
 import io.github.fallout015.two.enchantment.EnchantmentsTwo;
@@ -16,18 +15,16 @@ import io.github.fallout015.two.entity.projectile.IceArrowEntity;
 import io.github.fallout015.two.entity.projectile.ShockArrowEntity;
 import io.github.fallout015.two.fluid.FluidsTwo;
 import io.github.fallout015.two.util.SoundEventsTwo;
-import io.github.fallout015.two.world.dimension.DimensionTypeTwo;
 import net.minecraft.block.Block;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.dispenser.IPosition;
 import net.minecraft.dispenser.ProjectileDispenseBehavior;
 import net.minecraft.enchantment.EnchantmentType;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.AxeItem;
@@ -52,8 +49,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
 
@@ -538,7 +533,8 @@ public class ItemsTwo {
 	public static final Item COPPER_HORSE_ARMOR = register("copper_horse_armor", new HorseArmorItem(6, "copper", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
 	public static final Item STONE_HORSE_ARMOR = register("stone_horse_armor", new HorseArmorItem(4, "stone", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
 	public static final Item MYRKYLITE_HORSE_ARMOR = register("myrkylite_horse_armor", new HorseArmorItem(4, "myrkylite", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
-    
+    // NETHERITE_HORSE_ARMOR
+	
     public static final Item OAK_HORSE_ARMOR = register("oak_horse_armor", new HorseArmorItem(2, "oak", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
     public static final Item SPRUCE_HORSE_ARMOR = register("spruce_horse_armor", new HorseArmorItem(2, "spruce", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
     public static final Item BIRCH_HORSE_ARMOR = register("birch_horse_armor", new HorseArmorItem(2, "birch", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
@@ -615,11 +611,11 @@ public class ItemsTwo {
     
     public static final Item REGOLITH_DUST = register("regolith_dust", new Item(new Item.Properties().group(ItemGroup.MISC)  ) {
     	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, net.minecraft.util.Hand handIn) {
-			playerIn.changeDimension(DimensionTypeTwo.NIDAVELLIR, new ITeleporter() {
-				public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
-					return repositionEntity.apply(false);
-				}
-			});
+//			playerIn.changeDimension(DimensionTypeTwo.NIDAVELLIR, new ITeleporter() {
+//				public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
+//					return repositionEntity.apply(false);
+//				}
+//			}); // eh this was just for debugging anyways TODO
 
     		return ActionResult.resultSuccess(playerIn.getHeldItem(handIn));
     	};
@@ -692,39 +688,43 @@ public class ItemsTwo {
     public static final Item EMERALD_SHOVEL = register("emerald_shovel", new ShovelItem(ItemTierTwo.EMERALD, 1.5f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item EMERALD_PICKAXE = register("emerald_pickaxe", new PickaxeItem(ItemTierTwo.EMERALD, 1, -2.8f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item EMERALD_AXE = register("emerald_axe", new AxeItem(ItemTierTwo.EMERALD, 6.0f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item EMERALD_HOE = register("emerald_hoe", new HoeItem(ItemTierTwo.EMERALD, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
+	public static final Item EMERALD_HOE = register("emerald_hoe", new HoeItem(ItemTierTwo.EMERALD, 0, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
 
     public static final Item RUBY_SHOVEL = register("ruby_shovel", new ShovelItem(ItemTierTwo.RUBY, 1.5f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item RUBY_PICKAXE = register("ruby_pickaxe", new PickaxeItem(ItemTierTwo.RUBY, 1, -2.8f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item RUBY_AXE = register("ruby_axe", new AxeItem(ItemTierTwo.RUBY, 6.0f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item RUBY_HOE = register("ruby_hoe", new HoeItem(ItemTierTwo.RUBY, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
+	public static final Item RUBY_HOE = register("ruby_hoe", new HoeItem(ItemTierTwo.RUBY, 0, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
 
     public static final Item LEAD_SHOVEL = register("lead_shovel", new ShovelItem(ItemTierTwo.LEAD, 1.5f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item LEAD_PICKAXE = register("lead_pickaxe", new PickaxeItem(ItemTierTwo.LEAD, 1, -2.8f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item LEAD_AXE = register("lead_axe", new AxeItem(ItemTierTwo.LEAD, 6.0f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item LEAD_HOE = register("lead_hoe", new HoeItem(ItemTierTwo.LEAD, -2.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
+	public static final Item LEAD_HOE = register("lead_hoe", new HoeItem(ItemTierTwo.LEAD, 0, -2.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
 
 	public static final Item COPPER_SHOVEL = register("copper_shovel", new ShovelItem(ItemTierTwo.COPPER, 1.5f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item COPPER_PICKAXE = register("copper_pickaxe", new PickaxeItem(ItemTierTwo.COPPER, 1, -2.8f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item COPPER_AXE = register("copper_axe", new AxeItem(ItemTierTwo.COPPER, 6.0f, -3.1f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item COPPER_HOE = register("copper_hoe", new HoeItem(ItemTierTwo.COPPER, -1.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
+	public static final Item COPPER_HOE = register("copper_hoe", new HoeItem(ItemTierTwo.COPPER, 0, -1.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
 
     public static final Item MYRKYLITE_SHOVEL = register("myrkylite_shovel", new ShovelItem(ItemTierTwo.MYRKYLITE, 1.5f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item MYRKYLITE_PICKAXE = register("myrkylite_pickaxe", new PickaxeItem(ItemTierTwo.MYRKYLITE, 1, -2.8f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item MYRKYLITE_AXE = register("myrkylite_axe", new AxeItem(ItemTierTwo.MYRKYLITE, 6.0f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item MYRKYLITE_HOE = register("myrkylite_hoe", new HoeItem(ItemTierTwo.MYRKYLITE, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
+	public static final Item MYRKYLITE_HOE = register("myrkylite_hoe", new HoeItem(ItemTierTwo.MYRKYLITE, 0, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
 	
-	public static final Item IRON_SICKLE = register("iron_sickle", new SickleItem(ItemTier.IRON, -1.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item WOODEN_SICKLE = register("wooden_sickle", new SickleItem(ItemTier.WOOD, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item STONE_SICKLE = register("stone_sickle", new SickleItem(ItemTier.STONE, -2.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item DIAMOND_SICKLE = register("diamond_sickle", new SickleItem(ItemTier.DIAMOND, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item GOLDEN_SICKLE = register("golden_sickle", new SickleItem(ItemTier.GOLD, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item EMERALD_SICKLE = register("emerald_sickle", new SickleItem(ItemTierTwo.EMERALD, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item RUBY_SICKLE = register("ruby_sickle", new SickleItem(ItemTierTwo.RUBY, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item LEAD_SICKLE = register("lead_sickle", new SickleItem(ItemTierTwo.LEAD, -2.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item COPPER_SICKLE = register("copper_sickle", new SickleItem(ItemTierTwo.COPPER, -1.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item MYRKYLITE_SICKLE = register("myrkylite_sickle", new SickleItem(ItemTierTwo.MYRKYLITE, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-
+	// TODO update hoe stats
+	
+	public static final Item IRON_SICKLE = register("iron_sickle", new SickleItem(ItemTier.IRON, 0, -1.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item WOODEN_SICKLE = register("wooden_sickle", new SickleItem(ItemTier.WOOD, 0, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item STONE_SICKLE = register("stone_sickle", new SickleItem(ItemTier.STONE, 0, -2.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item DIAMOND_SICKLE = register("diamond_sickle", new SickleItem(ItemTier.DIAMOND, 0, 0.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item GOLDEN_SICKLE = register("golden_sickle", new SickleItem(ItemTier.GOLD, 0, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item EMERALD_SICKLE = register("emerald_sickle", new SickleItem(ItemTierTwo.EMERALD, 0, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item RUBY_SICKLE = register("ruby_sickle", new SickleItem(ItemTierTwo.RUBY, 0, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item LEAD_SICKLE = register("lead_sickle", new SickleItem(ItemTierTwo.LEAD, 0, -2.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item COPPER_SICKLE = register("copper_sickle", new SickleItem(ItemTierTwo.COPPER, 0, -1.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item MYRKYLITE_SICKLE = register("myrkylite_sickle", new SickleItem(ItemTierTwo.MYRKYLITE, 0, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+	// TODO fix stats
+	// NETHERITE_SICKLE
+	
 	public static final Item SMITHING_HAMMER = register("smithing_hammer", new SmithingHammerItem(new Item.Properties().group(ItemGroup.TOOLS).defaultMaxDamage(100)));
 	public static final Item HANDSAW = register("handsaw", new Item(new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item ROTATING_WRENCH = register("rotating_wrench", new RotatingWrenchItem(new Item.Properties().group(ItemGroup.TOOLS)));
@@ -753,7 +753,8 @@ public class ItemsTwo {
     public static final Item LEAD_BATTLEAXE = register("lead_battleaxe", new BattleaxeItem(ItemTierTwo.LEAD, 0, -0.0F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item COPPER_BATTLEAXE = register("copper_battleaxe", new BattleaxeItem(ItemTierTwo.COPPER, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item MYRKYLITE_BATTLEAXE = register("myrkylite_battleaxe", new BattleaxeItem(ItemTierTwo.MYRKYLITE, 6, -2.4f, (new Item.Properties()).group(ItemGroup.COMBAT)));
-
+    // NETHERITE_BATTLEAXE
+    
     public static final Item IRON_DAGGER = register("iron_dagger", new DaggerItem(ItemTier.IRON, 0, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
 	public static final Item WOODEN_DAGGER = register("wooden_dagger", new DaggerItem(ItemTier.WOOD, 0, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item STONE_DAGGER = register("stone_dagger", new DaggerItem(ItemTier.STONE, 0, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
@@ -764,7 +765,8 @@ public class ItemsTwo {
     public static final Item LEAD_DAGGER = register("lead_dagger", new DaggerItem(ItemTierTwo.LEAD, 0, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item COPPER_DAGGER = register("copper_dagger", new DaggerItem(ItemTierTwo.COPPER, 0, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item MYRKYLITE_DAGGER = register("myrkylite_dagger", new DaggerItem(ItemTierTwo.MYRKYLITE, 0, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-
+    // NETHERITE_DAGGER
+    
     public static final Item CUTLASS = register("cutlass", new CutlassItem(new Item.Properties()/*.group(ItemGroup.COMBAT)*/));
 
     public static final Item BLOOD_WITHER_BLADE = register("blood_wither_blade", new BloodBladeItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)) {
@@ -800,7 +802,8 @@ public class ItemsTwo {
     public static final Item LEAD_CAPPED_ARROW = register("lead_capped_arrow", new CappedArrowItem(ItemTierTwo.LEAD, new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item COPPER_CAPPED_ARROW = register("copper_capped_arrow", new CappedArrowItem(ItemTierTwo.COPPER, new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item MYRKYLITE_CAPPED_ARROW = register("myrkylite_capped_arrow", new CappedArrowItem(ItemTierTwo.MYRKYLITE, new Item.Properties().group(ItemGroup.COMBAT)));
-
+    // NETHERITE_CAPPED_ARROW
+    
     public static final Item FIRE_ARROW = register("fire_arrow", new FireArrowItem(new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item ICE_ARROW = register("ice_arrow", new IceArrowItem(new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item BOMB_ARROW = register("bomb_arrow", new BombArrowItem(new Item.Properties().group(ItemGroup.COMBAT)));
@@ -809,7 +812,7 @@ public class ItemsTwo {
     public static final Item SHURIKEN = register("shuriken", new ShurikenItem(new Item.Properties()/*.group(ItemGroup.COMBAT)*/));
     // TODO Shuriken code so that it can stick in blocks and whatnot. 
     // Also rendering and spinning. 
-    // And put back into creative menu for 2.023. 
+    // And put back into creative menu for whenever i add the bombs and stuff. 
     
     public static final Item EMERALD_HELMET = register("emerald_helmet", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item EMERALD_CHESTPLATE = register("emerald_chestplate", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
@@ -1141,8 +1144,10 @@ public class ItemsTwo {
 //    	itemRegistryEvent.getRegistry().getValue(new ResourceLocation("minecraft", "command_block"))
 		itemRegistryEvent.getRegistry().registerAll(Holder.ITEMSTWO.toArray(new Item[] {}));
     
-		ItemGroup.COMBAT.setRelevantEnchantmentTypes(new EnchantmentType[]{ EnchantmentType.ALL, EnchantmentType.ARMOR, EnchantmentType.ARMOR_FEET, EnchantmentType.ARMOR_HEAD, EnchantmentType.ARMOR_LEGS, EnchantmentType.ARMOR_CHEST, EnchantmentType.BOW, EnchantmentType.WEAPON, EnchantmentType.WEARABLE, EnchantmentType.BREAKABLE, EnchantmentType.TRIDENT, EnchantmentType.CROSSBOW, EnchantmentsTwo.Holder.DOUBLE_JUMP_BOOTS, EnchantmentsTwo.Holder.BLOOD_BLADE, EnchantmentsTwo.Holder.BANISHER, EnchantmentsTwo.Holder.HERMES_HELMET, EnchantmentsTwo.Holder.EVOCATION_STAFF, EnchantmentsTwo.Holder.DAGGER, EnchantmentsTwo.Holder.SLIME_BOOTS });
-		ItemGroup.TOOLS.setRelevantEnchantmentTypes(new EnchantmentType[]{ EnchantmentType.ALL, EnchantmentType.DIGGER, EnchantmentType.FISHING_ROD, EnchantmentType.BREAKABLE, EnchantmentsTwo.Holder.SICKLE });
+		// TODO give tnt fuel time and have it explode when it's done
+		
+		ItemGroup.COMBAT.setRelevantEnchantmentTypes(new EnchantmentType[]{EnchantmentType.VANISHABLE, EnchantmentType.ARMOR, EnchantmentType.ARMOR_FEET, EnchantmentType.ARMOR_HEAD, EnchantmentType.ARMOR_LEGS, EnchantmentType.ARMOR_CHEST, EnchantmentType.BOW, EnchantmentType.WEAPON, EnchantmentType.WEARABLE, EnchantmentType.BREAKABLE, EnchantmentType.TRIDENT, EnchantmentType.CROSSBOW, EnchantmentsTwo.Holder.DOUBLE_JUMP_BOOTS, EnchantmentsTwo.Holder.BLOOD_BLADE, EnchantmentsTwo.Holder.BANISHER, EnchantmentsTwo.Holder.HERMES_HELMET, EnchantmentsTwo.Holder.EVOCATION_STAFF, EnchantmentsTwo.Holder.DAGGER, EnchantmentsTwo.Holder.SLIME_BOOTS });
+		ItemGroup.TOOLS.setRelevantEnchantmentTypes(new EnchantmentType[]{EnchantmentType.VANISHABLE, EnchantmentType.DIGGER, EnchantmentType.FISHING_ROD, EnchantmentType.BREAKABLE, EnchantmentsTwo.Holder.SICKLE });
 
 		Holder.FOOD_TO_SCRAPS.put(Items.GOLDEN_APPLE, ItemsTwo.GOLDEN_APPLE_CORE);
 		Holder.FOOD_TO_SCRAPS.put(Items.GOLDEN_CARROT, ItemsTwo.GOLDEN_CARROT_STEM);
@@ -1170,7 +1175,7 @@ public class ItemsTwo {
 		Holder.FOOD_TO_SCRAPS.put(Items.TROPICAL_FISH, Items.BONE);
 		
 		DispenserBlock.registerDispenseBehavior(ItemsTwo.IRON_CAPPED_ARROW, new ProjectileDispenseBehavior() {
-			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
 				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
 				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
 				cappedarrowentity.setItemTier(ItemTier.IRON);
@@ -1178,7 +1183,7 @@ public class ItemsTwo {
 	         }
 		});
 		DispenserBlock.registerDispenseBehavior(ItemsTwo.WOODEN_CAPPED_ARROW, new ProjectileDispenseBehavior() {
-			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
 				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
 				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
 				cappedarrowentity.setItemTier(ItemTier.WOOD);
@@ -1186,7 +1191,7 @@ public class ItemsTwo {
 	         }
 		});
 		DispenserBlock.registerDispenseBehavior(ItemsTwo.STONE_CAPPED_ARROW, new ProjectileDispenseBehavior() {
-			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
 				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
 				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
 				cappedarrowentity.setItemTier(ItemTier.STONE);
@@ -1194,7 +1199,7 @@ public class ItemsTwo {
 	         }
 		});
 		DispenserBlock.registerDispenseBehavior(ItemsTwo.GOLDEN_CAPPED_ARROW, new ProjectileDispenseBehavior() {
-			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
 				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
 				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
 				cappedarrowentity.setItemTier(ItemTier.GOLD);
@@ -1202,7 +1207,7 @@ public class ItemsTwo {
 	         }
 		});
 		DispenserBlock.registerDispenseBehavior(ItemsTwo.DIAMOND_CAPPED_ARROW, new ProjectileDispenseBehavior() {
-			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
 				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
 				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
 				cappedarrowentity.setItemTier(ItemTier.DIAMOND);
@@ -1210,7 +1215,7 @@ public class ItemsTwo {
 	         }
 		});
 		DispenserBlock.registerDispenseBehavior(ItemsTwo.EMERALD_CAPPED_ARROW, new ProjectileDispenseBehavior() {
-			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
 				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
 				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
 				cappedarrowentity.setItemTier(ItemTierTwo.EMERALD);
@@ -1218,7 +1223,7 @@ public class ItemsTwo {
 	         }
 		});
 		DispenserBlock.registerDispenseBehavior(ItemsTwo.RUBY_CAPPED_ARROW, new ProjectileDispenseBehavior() {
-			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
 				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
 				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
 				cappedarrowentity.setItemTier(ItemTierTwo.RUBY);
@@ -1226,7 +1231,7 @@ public class ItemsTwo {
 	         }
 		});
 		DispenserBlock.registerDispenseBehavior(ItemsTwo.LEAD_CAPPED_ARROW, new ProjectileDispenseBehavior() {
-			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
 				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
 				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
 				cappedarrowentity.setItemTier(ItemTierTwo.LEAD);
@@ -1234,7 +1239,7 @@ public class ItemsTwo {
 	         }
 		});
 		DispenserBlock.registerDispenseBehavior(ItemsTwo.COPPER_CAPPED_ARROW, new ProjectileDispenseBehavior() {
-			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
 				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
 				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
 				cappedarrowentity.setItemTier(ItemTierTwo.COPPER);
@@ -1242,7 +1247,7 @@ public class ItemsTwo {
 	         }
 		});
 		DispenserBlock.registerDispenseBehavior(ItemsTwo.MYRKYLITE_CAPPED_ARROW, new ProjectileDispenseBehavior() {
-			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
 				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
 				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
 				cappedarrowentity.setItemTier(ItemTierTwo.MYRKYLITE);
@@ -1251,28 +1256,28 @@ public class ItemsTwo {
 		});
 		
 		DispenserBlock.registerDispenseBehavior(ItemsTwo.FIRE_ARROW, new ProjectileDispenseBehavior() {
-			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
 				AbstractArrowEntity abstractarrowentity = new FireArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
 	            abstractarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
 	            return abstractarrowentity;
 			}
 		});
 		DispenserBlock.registerDispenseBehavior(ItemsTwo.ICE_ARROW, new ProjectileDispenseBehavior() {
-			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
 				AbstractArrowEntity abstractarrowentity = new IceArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
 	            abstractarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
 	            return abstractarrowentity;
 			}
 		});
 		DispenserBlock.registerDispenseBehavior(ItemsTwo.BOMB_ARROW, new ProjectileDispenseBehavior() {
-			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
 				AbstractArrowEntity abstractarrowentity = new BombArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
 	            abstractarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
 	            return abstractarrowentity;
 			}
 		});
 		DispenserBlock.registerDispenseBehavior(ItemsTwo.SHOCK_ARROW, new ProjectileDispenseBehavior() {
-			protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
 				AbstractArrowEntity abstractarrowentity = new ShockArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
 	            abstractarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
 	            return abstractarrowentity;

@@ -1,10 +1,12 @@
 modLoader="javafml"
-loaderVersion="[31,)"
-issueTrackerURL="http://my.issue.tracker/" #optional
+loaderVersion="[33,)"
+license="All rights reserved"
+issueTrackerURL="https://github.com/fallOut015/two.src/issues" #optional
 [[mods]]
 modId="two"
 version="${file.jarVersion}"
-displayName="NEW Minecraft v2"
+displayName="Minecraft v2.0"
+updateJSONURL="https://fallout015.github.io/two.src/updateJSONURL.json" #optional
 displayURL="https://www.curseforge.com/minecraft/mc-mods/minecraft-v2" #optional
 logoFile="two.png" #optional
 credits="Well, me, HarryTalks, other tutorial youtubers, Forge guys, Notch, Jeb, Derek, Karsten, Pam, my friends, among others. OrionSh. humanoidZX. NoName. Jägermeister Patrons:" #optional
@@ -69,15 +71,15 @@ Changelog:
 	Added the Slime Boots.
 	Added the Beaming Boots.
 '''
-[[dependencies.two]] #optional
+[[dependencies.examplemod]] #optional
     modId="forge"
     mandatory=true
-    versionRange="[31,)"
+    versionRange="[33,)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.two]]
+[[dependencies.examplemod]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.15.2]"
+    versionRange="[1.16.2]"
     ordering="NONE"
     side="BOTH"

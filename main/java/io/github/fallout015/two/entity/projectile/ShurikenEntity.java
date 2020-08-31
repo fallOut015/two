@@ -18,6 +18,8 @@ import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
+// TODO
+
 public class ShurikenEntity extends ThrowableEntity {
 	private static final DataParameter<ItemStack> ITEMSTACK_DATA = EntityDataManager.createKey(ShurikenEntity.class, DataSerializers.ITEMSTACK);
 	
@@ -49,7 +51,7 @@ public class ShurikenEntity extends ThrowableEntity {
 	protected void onImpact(RayTraceResult result) {
 		if (result.getType() == RayTraceResult.Type.ENTITY) {
 			Entity entity = ((EntityRayTraceResult)result).getEntity();
-			entity.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 2.0f);
+			entity.attackEntityFrom(DamageSource.causeThrownDamage(this, this.func_234616_v_()), 2.0f);
 		}
 		if (!this.world.isRemote) {
 			this.world.setEntityState(this, (byte)3);
