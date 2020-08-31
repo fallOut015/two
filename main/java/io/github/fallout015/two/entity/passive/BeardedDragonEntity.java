@@ -58,7 +58,7 @@ public class BeardedDragonEntity extends ShoulderRidingEntity {
 		this.goalSelector.addGoal(7, new TemptGoal(this, 1.2D, false, TEMPTATION_ITEMS));
 	}
 	
-	public static AttributeModifierMap.MutableAttribute func_234233_eS_() {
+	public static AttributeModifierMap.MutableAttribute applyAttributes() {
 		return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233821_d_, (double)0.3F).func_233815_a_(Attributes.field_233818_a_, 5.0D);
 	}
 	

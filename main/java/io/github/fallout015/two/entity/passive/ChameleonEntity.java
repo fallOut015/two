@@ -74,7 +74,7 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 		this.goalSelector.addGoal(8, new WaterAvoidingRandomWalkingGoal(this, 0.8D, 1.0000001E-5F));
 	}
 	
-	public static AttributeModifierMap.MutableAttribute func_234233_eS_() {
+	public static AttributeModifierMap.MutableAttribute applyAttributes() {
 		return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233821_d_, (double)0.15F).func_233815_a_(Attributes.field_233818_a_, 5.0D);
 	}
 	
