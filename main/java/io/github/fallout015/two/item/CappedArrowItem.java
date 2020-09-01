@@ -8,11 +8,13 @@ import io.github.fallout015.two.entity.projectile.CappedArrowEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTier;
 import net.minecraft.world.World;
 
 public class CappedArrowItem extends ArrowItem {
@@ -23,7 +25,7 @@ public class CappedArrowItem extends ArrowItem {
 		super(properties);
 		this.tier = tier;
 		Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-//	    builder.put(Attributes.field_233825_h_, new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)attackSpeedIn, AttributeModifier.Operation.ADDITION));
+	    builder.put(Attributes.field_233825_h_, new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)tier.getEfficiency() / ItemTier.IRON.getEfficiency(), AttributeModifier.Operation.MULTIPLY_BASE));
 	    this.modifiers = builder.build();
 	}
 	

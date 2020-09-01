@@ -57,6 +57,8 @@ import io.github.fallout015.two.stats.StatsTwo;
 import io.github.fallout015.two.tileentity.TileEntityTypeTwo;
 import io.github.fallout015.two.util.SoundEventsTwo;
 import io.github.fallout015.two.world.gen.carver.WorldCarverTwo;
+import io.github.fallout015.two.world.gen.feature.FeatureTwo;
+import io.github.fallout015.two.world.gen.feature.structure.StructureTwo;
 import io.github.fallout015.two.world.gen.placement.PlacementTwo;
 import io.github.fallout015.two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 import net.minecraft.block.Block;
@@ -244,8 +246,8 @@ public class Two {
     private void processIMC(final InterModProcessEvent event) {}
     @OnlyIn(Dist.CLIENT)
     private static void clientOnly() {
-    	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
-    	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
+    	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new TopHatLayer(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
+    	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new TopHatLayer(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
 
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new InspectionSpectaclesLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new InspectionSpectaclesLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
@@ -303,7 +305,7 @@ public class Two {
     	}
     	@SubscribeEvent
     	public static void onFeaturesRegistry(final RegistryEvent.Register<Feature<?>> featureRegistryEvent) {
-//    		FeatureTwo.onFeaturesRegistry(featureRegistryEvent);
+    		FeatureTwo.onFeaturesRegistry(featureRegistryEvent);
     	}
     	@SubscribeEvent
     	public static void onFluidsRegistry(final RegistryEvent.Register<Fluid> fluidRegistryEvent) {
@@ -332,7 +334,7 @@ public class Two {
     	}
     	@SubscribeEvent
     	public static void onStructuresRegistry(final RegistryEvent.Register<Structure<?>> structureRegistry) {
-//    		StructureTwo.onStructuresRegistry(structureRegistry);
+    		StructureTwo.onStructuresRegistry(structureRegistry);
     	}
     	@SubscribeEvent
     	public static void onSurfaceBuildersRegistry(final RegistryEvent.Register<SurfaceBuilder<?>> surfaceBuilderRegistryEvent) {

@@ -1,7 +1,6 @@
 package io.github.fallout015.two.world.gen.feature;
 
 import java.util.Random;
-import java.util.function.Function;
 
 import com.mojang.serialization.Codec;
 
@@ -37,7 +36,7 @@ public class BigBrimshineFeature extends AbstractBigMushroomFeature {
 	@Override
 	protected boolean func_227209_a_(IWorld p_227209_1_, BlockPos p_227209_2_, int p_227209_3_, Mutable p_227209_4_, BigMushroomFeatureConfig p_227209_5_) {
 		int i = p_227209_2_.getY();
-		if (i >= 1 && i + p_227209_3_ + 1 < p_227209_1_.getMaxHeight()) {
+		if (i >= 1 && i + p_227209_3_ + 1 < 255) {
 			Block block = p_227209_1_.getBlockState(p_227209_2_.down()).getBlock();
 			if (block != BlocksTwo.SPORESTONE_SOIL) {
 				return false;
@@ -48,7 +47,7 @@ public class BigBrimshineFeature extends AbstractBigMushroomFeature {
 	            	for(int l = -k; l <= k; ++l) {
 	            		for(int i1 = -k; i1 <= k; ++i1) {
 	            			BlockState blockstate = p_227209_1_.getBlockState(p_227209_4_.setPos(p_227209_2_).move(l, j, i1));
-	            			if (!blockstate.isAir(p_227209_1_, p_227209_4_) && !blockstate.isIn(BlockTags.LEAVES)) {
+	            			if (!blockstate.isAir(p_227209_1_, p_227209_4_) && !blockstate.func_235714_a_(BlockTags.LEAVES)) {
 	            				return false;
 	            			}
 	            		}

@@ -10,4 +10,9 @@ public class DimensionTypeTwo {
 	public static final ResourceLocation DEEP_DARK = new ResourceLocation("deep_dark");
 	public static final ResourceLocation BLOOD_AETHER = new ResourceLocation("blood_aether");
 	public static final ResourceLocation RAINBOW = new ResourceLocation("rainbow");
+	public static final ResourceLocation UMBRAL_PLANE = new ResourceLocation("umbral_plane");
+	
+	// TODO registry keys as well
 }
+
+// two:worldgen/dimensions
