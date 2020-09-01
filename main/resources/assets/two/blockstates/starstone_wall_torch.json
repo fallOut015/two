@@ -1,8 +1,19 @@
 {
-    "variants": {
-        "facing=east": { "model": "two:block/starstone_wall_torch" },
-        "facing=south": { "model": "two:block/starstone_wall_torch", "y": 90 },
-        "facing=west": { "model": "two:block/starstone_wall_torch", "y": 180 },
-        "facing=north": { "model": "two:block/starstone_wall_torch", "y": 270 }
+  "variants": {
+    "facing=east": {
+      "model": "two:block/starstone_wall_torch"
+    },
+    "facing=north": {
+      "model": "two:block/starstone_wall_torch",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "two:block/starstone_wall_torch",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "two:block/starstone_wall_torch",
+      "y": 180
     }
+  }
 }
