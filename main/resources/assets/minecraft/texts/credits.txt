@@ -27,7 +27,7 @@
 §f          Maria Lemón
 §f          Michael Stoyke
 §f          Thomas Guimbretière
-§f          Alise Herrera-Sturm
+§f          Alison Herrera-Sturm
 
 §7Launcher Tech Lead
 §f          Mikael Hedberg
@@ -54,7 +54,7 @@
 
 §7Minecraft Content Lead
 §f          Marc Watson
-§f          Alise Herrera-Sturm
+§f          Alison Herrera-Sturm
 
 §7Minecraft Content Coordinator
 §f          Adam Martinsson
@@ -73,7 +73,7 @@
 §7Graphics Artists
 §f          Jasper Boerstra
 §f          Mattis Grahm
-§f          Alise Herrera-Sturm
+§f          Alison Herrera-Sturm
 §f          Derek Herrera-Sturm
 
 §7User Experience Design
@@ -99,11 +99,11 @@
 §f          Daniel Rosenfeld
 §f          Kevin Martinez
 §f          Peter Hont
-§f          Alise Herrera-Sturm
+§f          Alison Herrera-Sturm
 
 §7Music composed by
 §f          Daniel Rosenfeld
-§f          Alise Herrera-Sturm
+§f          Alison Herrera-Sturm
 
 §7Writing
 §f          Julian Gough
