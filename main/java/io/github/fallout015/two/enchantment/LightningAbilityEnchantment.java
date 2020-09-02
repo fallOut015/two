@@ -2,6 +2,8 @@ package io.github.fallout015.two.enchantment;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.EnchantmentType;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.effect.LightningBoltEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.util.Direction;
@@ -12,6 +14,7 @@ import net.minecraft.util.math.RayTraceContext.FluidMode;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickItem;
@@ -69,7 +72,11 @@ public class LightningAbilityEnchantment extends AbilityEnchantment {
 
         if(flag) {
         	if(playerIn.getEntityWorld() instanceof ServerWorld) {
-//        		((ServerWorld) playerIn.getEntityWorld()).addLightningBolt(new LightningBoltEntity(((ServerWorld) playerIn.getEntityWorld()), d1, (double)blockpos.getY() + d0, d3, false));
+        		LightningBoltEntity lightningboltentity = EntityType.LIGHTNING_BOLT.create(playerIn.getEntityWorld());
+        		BlockPos bp = new BlockPos(d1, blockpos.getY() + d0, d3);
+        		lightningboltentity.func_233576_c_(Vector3d.func_237492_c_(bp));
+                lightningboltentity.func_233623_a_(playerIn.getEntityWorld().getGameRules().getBoolean(GameRules.DO_MOB_SPAWNING) && playerIn.getEntityWorld().rand.nextDouble() < (double) playerIn.getEntityWorld().getDifficultyForLocation(bp).getAdditionalDifficulty() * 0.01D);
+                playerIn.getEntityWorld().addEntity(lightningboltentity);
         	}
         }
         
