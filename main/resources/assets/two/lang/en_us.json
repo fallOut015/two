@@ -1241,7 +1241,7 @@
 	"block.minecraft.bedrock.desc" : "You\'re playing creative aren\'t you?",
 	"block.minecraft.sand.desc" : "Watch your step! Sometimes sand is left floating, and mining a nearby sand block will cause it to fall! You can smelt this to turn it into glass, or put it into a crafting table for sandstone.",
 	"block.minecraft.red_sand.desc" : "The superior sand. Minerals in the sand oxidize and get a red hue, science! They generate in badlands biomes and can be used to make red sandstone and its variants.",
-	"block.minecraft.gravel.desc" : "Watch your head! Gravel generates in deposits underground, if you're not careful mining up you just might get a faceful of it!",
+	"block.minecraft.gravel.desc" : "Watch your head! Gravel generates in deposits underground, if you're not careful mining up, you just might get a faceful of it!",
 	"block.minecraft.gold_ore.desc" : "You need a pickaxe with a harvest level of 2 or higher to mine this. It generates from block 32 on downwards. You can find more of it in more places in the Badlands.",
 	"block.minecraft.iron_ore.desc" : "You need a pickaxe with a harvest level of 1 or higher to mine this. It generates from block 64 on downwards.",
 	"block.minecraft.coal_ore.desc" : "You need a pickaxe with a harvest level of 0 or higher to mine this. It generates from block 128 on downwards.",
