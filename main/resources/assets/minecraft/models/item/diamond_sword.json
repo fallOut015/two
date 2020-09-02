@@ -1,0 +1,29 @@
+{
+    "parent" : "minecraft:item/handheld",
+    "textures" : {
+        "layer0" : "minecraft:item/diamond_sword"
+    },
+	"overrides" : [
+		{
+            "predicate" : {
+				"minecraft:damaged" : 1,
+                "minecraft:damage" : 0.25
+            },
+            "model" : "minecraft:item/diamond_sword_scraped"
+        },
+		{
+            "predicate" : {
+				"minecraft:damaged" : 1,
+                "minecraft:damage" : 0.5
+            },
+            "model" : "minecraft:item/diamond_sword_chipped"
+        },
+		{
+            "predicate" : {
+				"minecraft:damaged" : 1,
+                "minecraft:damage" : 0.75
+            },
+            "model" : "minecraft:item/diamond_sword_broken"
+        }
+	]
+}
