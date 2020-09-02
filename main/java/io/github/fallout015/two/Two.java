@@ -28,6 +28,7 @@ import io.github.fallout015.two.client.renderer.entity.RedPandaRenderer;
 import io.github.fallout015.two.client.renderer.entity.ShockArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.ShurikenRenderer;
 import io.github.fallout015.two.client.renderer.entity.SigilRenderer;
+import io.github.fallout015.two.client.renderer.entity.SwarmRenderer;
 import io.github.fallout015.two.client.renderer.entity.TwisterRenderer;
 import io.github.fallout015.two.client.renderer.entity.layers.BeardedDragonLayer;
 import io.github.fallout015.two.client.renderer.entity.layers.ChameleonCloakLayer;
@@ -141,7 +142,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod("two")
 public class Two {
-	// TODO SLAB, PRESSURE PLATE, FENCE, STAIRS, BUTTON, SIGN, AND BOAT FOR STAINED PLANKS
+	// TODO PRESSURE PLATE, FENCE, STAIRS, BUTTON, SIGN, AND BOAT FOR STAINED PLANKS
 	
 	// GLAIVE
 	// MACE
@@ -218,6 +219,8 @@ public class Two {
     	//    	RenderingRegistry.registerEntityRenderingHandler(EntityType.WOLF, WolfRendererTwo::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SIGIL, SigilRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.TWISTER, TwisterRenderer::new);
+    	
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SWARM, SwarmRenderer::new);
     	
     	ClientRegistry.bindTileEntityRenderer(TileEntityTypeTwo.CHAIR, ChairRenderer::new);
     	

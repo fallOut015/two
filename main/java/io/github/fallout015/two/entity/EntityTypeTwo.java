@@ -3,6 +3,7 @@ package io.github.fallout015.two.entity;
 import java.util.LinkedList;
 
 import io.github.fallout015.two.entity.effect.SigilEntity;
+import io.github.fallout015.two.entity.effect.SwarmEntity;
 import io.github.fallout015.two.entity.effect.TwisterEntity;
 import io.github.fallout015.two.entity.monster.DarkDwarfArcherEntity;
 import io.github.fallout015.two.entity.monster.IceSlimeEntity;
@@ -51,6 +52,8 @@ public class EntityTypeTwo {
 	
 	public static EntityType<SigilEntity> SIGIL = register("sigil", EntityType.Builder.create(SigilEntity::new, EntityClassification.MISC).size(4, 0.1f).disableSerialization());
 	public static EntityType<TwisterEntity> TWISTER = register("twister", EntityType.Builder.<TwisterEntity>create(TwisterEntity::new, EntityClassification.MISC).size(1, 2).disableSerialization());
+	
+	public static EntityType<SwarmEntity> SWARM = register("swarm", EntityType.Builder.create(SwarmEntity::new, EntityClassification.AMBIENT).size(0, 0));
 	
 	
 	
