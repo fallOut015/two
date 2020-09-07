@@ -22,14 +22,15 @@ public class UpholsteryTableBlock extends Block {
       super(properties);
    }
 
-   public ActionResultType func_225533_a_(BlockState state, World worldIn, BlockPos pos, PlayerEntity playerIn, Hand handIn, BlockRayTraceResult blockRayTraceResult) {
-      if (worldIn.isRemote) {
-         return ActionResultType.SUCCESS;
-      } else {
-         playerIn.openContainer(state.getContainer(worldIn, pos));
-         playerIn.addStat(StatsTwo.INTERACT_WITH_UPHOLSTERY_TABLE);
-         return ActionResultType.SUCCESS;
-      }
+   @Override
+	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+	   if (worldIn.isRemote) {
+		   return ActionResultType.SUCCESS;
+	   } else {
+		   player.openContainer(state.getContainer(worldIn, pos));
+		   player.addStat(StatsTwo.INTERACT_WITH_UPHOLSTERY_TABLE);
+		   return ActionResultType.SUCCESS;
+	   }
    }
 
    public INamedContainerProvider getContainer(BlockState state, World worldIn, BlockPos pos) {
