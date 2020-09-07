@@ -8,6 +8,7 @@ import java.util.Map;
 import io.github.fallout015.two.block.BlocksTwo;
 import io.github.fallout015.two.enchantment.EnchantmentsTwo;
 import io.github.fallout015.two.entity.EntityTypeTwo;
+import io.github.fallout015.two.entity.item.BoatEntityTwo;
 import io.github.fallout015.two.entity.projectile.BombArrowEntity;
 import io.github.fallout015.two.entity.projectile.CappedArrowEntity;
 import io.github.fallout015.two.entity.projectile.FireArrowEntity;
@@ -37,6 +38,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTier;
 import net.minecraft.item.Items;
+import net.minecraft.item.MusicDiscItem;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.Rarity;
 import net.minecraft.item.ShovelItem;
@@ -489,9 +491,8 @@ public class ItemsTwo {
 	
 	// Transportation
 	//public static final Item MAPLE_BOAT = register("maple_boat", new BoatItem(BoatEntityTwo.Type.MAPLE, new Item.Properties().group(ItemGroup.TRANSPORTATION)));
-	// crimson boat
-	// warped boat
-	
+	public static final Item CRIMSON_BOAT = register("crimson_boat", new BoatItemTwo(BoatEntityTwo.Type.CRIMSON, (new Item.Properties()).maxStackSize(1).group(ItemGroup.TRANSPORTATION)));
+	public static final Item WARPED_BOAT = register("warped_boat", new BoatItemTwo(BoatEntityTwo.Type.CRIMSON, (new Item.Properties()).maxStackSize(1).group(ItemGroup.TRANSPORTATION)));
 	public static final Item MAPLE_BOAT = register("maple_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
 	public static final Item CHERRY_BOAT = register("cherry_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
 	public static final Item GHOSTWOOD_BOAT = register("ghostwood_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
@@ -626,8 +627,8 @@ public class ItemsTwo {
     	};
     });
     
-    public static final Item MUSIC_DISC_BAD_DREAMS = register("music_disc_bad_dreams", new MusicDiscItemTwo(13, SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
-    public static final Item MUSIC_DISC_REALM_NINE = register("music_disc_realm_nine", new MusicDiscItemTwo(14, SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
+    public static final Item MUSIC_DISC_BAD_DREAMS = register("music_disc_bad_dreams", new MusicDiscItem(13, () -> SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
+    public static final Item MUSIC_DISC_REALM_NINE = register("music_disc_realm_nine", new MusicDiscItem(14, () -> SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
 	
     public static final Item MUD_BUCKET = register("mud_bucket", new BucketItem(() -> FluidsTwo.MUD, new Item.Properties().group(ItemGroup.MISC)));
     
@@ -812,7 +813,7 @@ public class ItemsTwo {
     		target.setFire(5);
     	}
     });
-    public static final Item BLOOD_VENOM_BLADE = register("blood_venom_blade", new BloodBladeItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)) {
+    public static final Item BLOOD_VENOM_BLADE = register("blood_venom_blade", new BloodBladeItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE), true) {
     	@Override
     	public void bonusEffect(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.addPotionEffect(new EffectInstance(Effects.POISON, 50, 3, false, true));
