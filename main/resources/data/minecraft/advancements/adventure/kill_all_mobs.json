@@ -36,14 +36,6 @@
         }
       }
     },
-    "minecraft:zombie_pigman": {
-      "trigger": "minecraft:player_killed_entity",
-      "conditions": {
-        "entity": {
-          "type": "minecraft:zombie_pigman"
-        }
-      }
-    },
     "minecraft:enderman": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
@@ -252,9 +244,6 @@
     ],
     [
       "minecraft:spider"
-    ],
-    [
-      "minecraft:zombie_pigman"
     ],
     [
       "minecraft:enderman"
