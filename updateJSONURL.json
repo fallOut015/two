@@ -1,7 +1,7 @@
 {
 	"homepage" : "https://www.curseforge.com/minecraft/mc-mods/minecraft-v2/files",
   	"1.16.2" : {
-    	"2.0.23" : "Ported to 1.16.2! Modified wall model files and changed some stuff internally. Finished some stuff that was supposed to be in the previous version, like Ability Enchantments, Shrooms, Blocks, etc."
+    	"2.0.23" : "Ported to 1.16.2! Modified wall model files and changed some stuff internally. Finished some stuff that was supposed to be in the previous version, like Ability Enchantments, Shrooms, Blocks, etc. Also added a config to control stuff like textures."
 	},
   	"promos" : {
     	"1.15.2-latest" : "2.0.225",
