@@ -1,16 +1,7 @@
 {
-	"variants" : {
-    	"facing=north" : {
-			"model" : "minecraft:block/air"
-		},
-		"facing=east" : {
-			"model" : "minecraft:block/air"
-		},
-		"facing=south" : {
-			"model" : "minecraft:block/air"
-		},
-		"facing=west" : {
-			"model" : "minecraft:block/air"
-		}
-	}
+  "variants": {
+    "": {
+      "model": "two:block/chair"
+    }
+  }
 }
