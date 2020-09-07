@@ -1,6 +1,9 @@
 {
 	"replace" : false,
 	"values" : [
+		"two:crimson_boat",
+		"two:warped_boat",
+		
 		"two:cherry_boat",
 		"two:maple_boat",
 		"two:ghostwood_boat",
