@@ -70,21 +70,9 @@ public class CappedArrowEntity extends AbstractArrowEntity implements IEntityAdd
 		}
 	}
 	
-	
-	// update to the new shoot
-//	@Override
-//	public void shoot(Entity shooter, float pitch, float yaw, float p_184547_4_, float velocity, float inaccuracy) {
-//		float f = -MathHelper.sin(yaw * ((float)Math.PI / 180F)) * MathHelper.cos(pitch * ((float)Math.PI / 180F));
-//		float f1 = -MathHelper.sin(pitch * ((float)Math.PI / 180F));
-//		float f2 = MathHelper.cos(yaw * ((float)Math.PI / 180F)) * MathHelper.cos(pitch * ((float)Math.PI / 180F));
-//		velocity *= this.getVelocityMultiplier();
-//		this.shoot((double) f, (double) f1, (double) f2, velocity, inaccuracy);
-//		this.setMotion(this.getMotion().add(shooter.getMotion().x, shooter.onGround ? 0.0D : shooter.getMotion().y, shooter.getMotion().z));
-//	}
 	@Override
 	public void shoot(double x, double y, double z, float velocity, float inaccuracy) {
-		// TODO Auto-generated method stub
-		super.shoot(x, y, z, velocity, inaccuracy);
+		super.shoot(x, y, z, velocity * this.getVelocityMultiplier(), inaccuracy);
 	}
 	@Override
 	public IPacket<?> createSpawnPacket() {
@@ -92,11 +80,12 @@ public class CappedArrowEntity extends AbstractArrowEntity implements IEntityAdd
 	}
 	
 	static {
-		ITEM_FOR_ARROW_TIER.put(ItemTier.IRON, ItemsTwo.IRON_CAPPED_ARROW);
 		ITEM_FOR_ARROW_TIER.put(ItemTier.WOOD, ItemsTwo.WOODEN_CAPPED_ARROW);
 		ITEM_FOR_ARROW_TIER.put(ItemTier.STONE, ItemsTwo.STONE_CAPPED_ARROW);
 		ITEM_FOR_ARROW_TIER.put(ItemTier.GOLD, ItemsTwo.GOLDEN_CAPPED_ARROW);
+		ITEM_FOR_ARROW_TIER.put(ItemTier.IRON, ItemsTwo.IRON_CAPPED_ARROW);
 		ITEM_FOR_ARROW_TIER.put(ItemTier.DIAMOND, ItemsTwo.DIAMOND_CAPPED_ARROW);
+		ITEM_FOR_ARROW_TIER.put(ItemTier.NETHERITE, ItemsTwo.NETHERITE_CAPPED_ARROW);
 		ITEM_FOR_ARROW_TIER.put(ItemTierTwo.EMERALD, ItemsTwo.EMERALD_CAPPED_ARROW);
 		ITEM_FOR_ARROW_TIER.put(ItemTierTwo.RUBY, ItemsTwo.RUBY_CAPPED_ARROW);
 		ITEM_FOR_ARROW_TIER.put(ItemTierTwo.LEAD, ItemsTwo.LEAD_CAPPED_ARROW);

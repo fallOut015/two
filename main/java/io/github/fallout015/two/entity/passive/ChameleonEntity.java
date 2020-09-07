@@ -53,7 +53,7 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 	private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(ChameleonEntity.class, DataSerializers.BYTE);
 	private static final DataParameter<Boolean> RESTING = EntityDataManager.createKey(ChameleonEntity.class, DataSerializers.BOOLEAN);
 	public int timeUntilNextShed = this.rand.nextInt(12000) + 6000;
-
+	
 	private static final Ingredient TEMPTATION_ITEMS = Ingredient.fromItems(Items.SPIDER_EYE, Items.FERMENTED_SPIDER_EYE);
 
 	public ChameleonEntity(EntityType<? extends ChameleonEntity> type, World worldIn) {
@@ -156,7 +156,6 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 	            if (this.rand.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
 	            	this.setTamedBy(player);
 	            	this.navigator.clearPath();
-	            	this.setAttackTarget((LivingEntity)null);
 	            	this.func_233687_w_(true);
 	            	this.world.setEntityState(this, (byte)7);
 	            } else {
@@ -221,7 +220,7 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 	}
 	@Override
 	protected PathNavigator createNavigator(World worldIn) {
-		return new ClimberPathNavigator(this, worldIn); // TODO in forge 1.16.1 it was changed, time to see if it works
+		return new ClimberPathNavigator(this, worldIn);
 	}
 	@Override
 	public void livingTick() {
