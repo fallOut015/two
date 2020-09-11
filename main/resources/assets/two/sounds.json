@@ -48,6 +48,13 @@
 			"two:item/armor/equip_wood"
 		]
 	},
+	"item.armor.equip_fungus" : {
+		"category" : "item",
+		"subtitle" : "subtitles.item.armor.equip_fungus",
+		"sounds" : [
+			"two:item/armor/equip_fungus"
+		]
+	},
 	"item.armor.equip_wool" : {
 		"category" : "item",
 		"subtitle" : "subtitles.item.armor.equip_wool",

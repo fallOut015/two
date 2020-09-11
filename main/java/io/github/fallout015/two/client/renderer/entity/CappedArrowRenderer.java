@@ -15,11 +15,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class CappedArrowRenderer extends ArrowRenderer<CappedArrowEntity> {
-	private static final ResourceLocation RESOURCE_LOCATION_IRON = new ResourceLocation("two", "textures/entity/projectiles/iron_capped_arrow.png");
 	private static final ResourceLocation RESOURCE_LOCATION_WOOD = new ResourceLocation("two", "textures/entity/projectiles/wooden_capped_arrow.png");
 	private static final ResourceLocation RESOURCE_LOCATION_STONE = new ResourceLocation("two", "textures/entity/projectiles/stone_capped_arrow.png");
 	private static final ResourceLocation RESOURCE_LOCATION_GOLD = new ResourceLocation("two", "textures/entity/projectiles/golden_capped_arrow.png");
+	private static final ResourceLocation RESOURCE_LOCATION_IRON = new ResourceLocation("two", "textures/entity/projectiles/iron_capped_arrow.png");
 	private static final ResourceLocation RESOURCE_LOCATION_DIAMOND = new ResourceLocation("two", "textures/entity/projectiles/diamond_capped_arrow.png");
+	private static final ResourceLocation RESOURCE_LOCATION_NETHERITE = new ResourceLocation("two", "textures/entity/projectiles/netherite_capped_arrow.png");
 	private static final ResourceLocation RESOURCE_LOCATION_EMERALD = new ResourceLocation("two", "textures/entity/projectiles/emerald_capped_arrow.png");
 	private static final ResourceLocation RESOURCE_LOCATION_RUBY = new ResourceLocation("two", "textures/entity/projectiles/ruby_capped_arrow.png");
 	private static final ResourceLocation RESOURCE_LOCATION_LEAD = new ResourceLocation("two", "textures/entity/projectiles/lead_capped_arrow.png");
@@ -38,11 +39,12 @@ public class CappedArrowRenderer extends ArrowRenderer<CappedArrowEntity> {
 	}
 	
 	static {
-		RESOURCE_FOR_ARROW_TIER.put(ItemTier.IRON, RESOURCE_LOCATION_IRON);
 		RESOURCE_FOR_ARROW_TIER.put(ItemTier.WOOD, RESOURCE_LOCATION_WOOD);
 		RESOURCE_FOR_ARROW_TIER.put(ItemTier.STONE, RESOURCE_LOCATION_STONE);
 		RESOURCE_FOR_ARROW_TIER.put(ItemTier.GOLD, RESOURCE_LOCATION_GOLD);
+		RESOURCE_FOR_ARROW_TIER.put(ItemTier.IRON, RESOURCE_LOCATION_IRON);
 		RESOURCE_FOR_ARROW_TIER.put(ItemTier.DIAMOND, RESOURCE_LOCATION_DIAMOND);
+		RESOURCE_FOR_ARROW_TIER.put(ItemTier.NETHERITE, RESOURCE_LOCATION_NETHERITE);
 		RESOURCE_FOR_ARROW_TIER.put(ItemTierTwo.EMERALD, RESOURCE_LOCATION_EMERALD);
 		RESOURCE_FOR_ARROW_TIER.put(ItemTierTwo.RUBY, RESOURCE_LOCATION_RUBY);
 		RESOURCE_FOR_ARROW_TIER.put(ItemTierTwo.LEAD, RESOURCE_LOCATION_LEAD);

@@ -8,6 +8,7 @@ import java.util.Map;
 import io.github.fallout015.two.block.BlocksTwo;
 import io.github.fallout015.two.enchantment.EnchantmentsTwo;
 import io.github.fallout015.two.entity.EntityTypeTwo;
+import io.github.fallout015.two.entity.item.BoatEntityTwo;
 import io.github.fallout015.two.entity.projectile.BombArrowEntity;
 import io.github.fallout015.two.entity.projectile.CappedArrowEntity;
 import io.github.fallout015.two.entity.projectile.FireArrowEntity;
@@ -37,6 +38,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTier;
 import net.minecraft.item.Items;
+import net.minecraft.item.MusicDiscItem;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.Rarity;
 import net.minecraft.item.ShovelItem;
@@ -430,6 +432,8 @@ public class ItemsTwo {
 	public static final Item CONVEYER = register(BlocksTwo.CONVEYER, new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/);
 	public static final Item ICE_SLIME_BLOCK = register(BlocksTwo.ICE_SLIME_BLOCK, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
+	public static final Item TELEPORTER = register(BlocksTwo.TELEPORTER, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
 	public static final Item UPHOLSTERY_TABLE = register(BlocksTwo.UPHOLSTERY_TABLE, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
 	public static final Item CHAIR = register("chair", new ChairItem(BlocksTwo.CHAIR, new Item.Properties().group(ItemGroup.DECORATIONS)));
@@ -489,9 +493,8 @@ public class ItemsTwo {
 	
 	// Transportation
 	//public static final Item MAPLE_BOAT = register("maple_boat", new BoatItem(BoatEntityTwo.Type.MAPLE, new Item.Properties().group(ItemGroup.TRANSPORTATION)));
-	// crimson boat
-	// warped boat
-	
+	public static final Item CRIMSON_BOAT = register("crimson_boat", new BoatItemTwo(BoatEntityTwo.Type.CRIMSON, (new Item.Properties()).maxStackSize(1).group(ItemGroup.TRANSPORTATION)));
+	public static final Item WARPED_BOAT = register("warped_boat", new BoatItemTwo(BoatEntityTwo.Type.CRIMSON, (new Item.Properties()).maxStackSize(1).group(ItemGroup.TRANSPORTATION)));
 	public static final Item MAPLE_BOAT = register("maple_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
 	public static final Item CHERRY_BOAT = register("cherry_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
 	public static final Item GHOSTWOOD_BOAT = register("ghostwood_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
@@ -626,8 +629,8 @@ public class ItemsTwo {
     	};
     });
     
-    public static final Item MUSIC_DISC_BAD_DREAMS = register("music_disc_bad_dreams", new MusicDiscItemTwo(13, SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
-    public static final Item MUSIC_DISC_REALM_NINE = register("music_disc_realm_nine", new MusicDiscItemTwo(14, SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
+    public static final Item MUSIC_DISC_BAD_DREAMS = register("music_disc_bad_dreams", new MusicDiscItem(13, () -> SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
+    public static final Item MUSIC_DISC_REALM_NINE = register("music_disc_realm_nine", new MusicDiscItem(14, () -> SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
 	
     public static final Item MUD_BUCKET = register("mud_bucket", new BucketItem(() -> FluidsTwo.MUD, new Item.Properties().group(ItemGroup.MISC)));
     
@@ -676,7 +679,25 @@ public class ItemsTwo {
     public static final Item TOMATO = register("tomato", new Item(new Item.Properties().food(FoodsTwo.TOMATO).group(ItemGroup.FOOD)));
     public static final Item BANANA_BUNCH = register("banana_bunch", new Item(new Item.Properties().food(FoodsTwo.BANANA_BUNCH).group(ItemGroup.FOOD)));
     public static final Item CORN = register("corn", new Item(new Item.Properties().food(FoodsTwo.CORN).group(ItemGroup.FOOD)));
+    
+    // Chocolate Cake
+    // Red Velvet Cake
+    // Carrot Cake
+    // Apple Cake
+    // Cheesecake
+    // Birthday Cake
+    // Wedding Cake
+    // Sponge Cake
+    
+    public static final Item SUGAR_COOKIE = register("sugar_cookie", new Item(new Item.Properties().food(FoodsTwo.SUGAR_COOKIE).group(ItemGroup.FOOD)));
+    // Thumbprint Cookie
+    // Macaron
+    
     public static final Item APPLE_PIE = register("apple_pie", new Item(new Item.Properties().food(FoodsTwo.APPLE_PIE).group(ItemGroup.FOOD)));
+    // Blueberry Pie
+    // Chocolate Pie
+    // Meat Pie
+    
     public static final Item TOAST = register("toast", new Item(new Item.Properties().food(FoodsTwo.TOAST).group(ItemGroup.FOOD)));
     
     public static final Item APPLE_CORE = register("apple_core", new Item(new Item.Properties().group(ItemGroup.FOOD)));
@@ -794,7 +815,7 @@ public class ItemsTwo {
     		target.setFire(5);
     	}
     });
-    public static final Item BLOOD_VENOM_BLADE = register("blood_venom_blade", new BloodBladeItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)) {
+    public static final Item BLOOD_VENOM_BLADE = register("blood_venom_blade", new BloodBladeItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE), true) {
     	@Override
     	public void bonusEffect(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.addPotionEffect(new EffectInstance(Effects.POISON, 50, 3, false, true));
@@ -810,8 +831,8 @@ public class ItemsTwo {
     public static final Item GOLDEN_CAPPED_ARROW = register("golden_capped_arrow", new CappedArrowItem(ItemTier.GOLD, new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item IRON_CAPPED_ARROW = register("iron_capped_arrow", new CappedArrowItem(ItemTier.IRON, new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item DIAMOND_CAPPED_ARROW = register("diamond_capped_arrow", new CappedArrowItem(ItemTier.DIAMOND, new Item.Properties().group(ItemGroup.COMBAT)));
-    // NETHERITE_CAPPED_ARROW
-    public static final Item EMERALD_CAPPED_ARROW = register("emerald_capped_arrow", new CappedArrowItem(ItemTierTwo.EMERALD, new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item NETHERITE_CAPPED_ARROW = register("netherite_capped_arrow", new CappedArrowItem(ItemTier.NETHERITE, new Item.Properties().group(ItemGroup.COMBAT)));
+	public static final Item EMERALD_CAPPED_ARROW = register("emerald_capped_arrow", new CappedArrowItem(ItemTierTwo.EMERALD, new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item RUBY_CAPPED_ARROW = register("ruby_capped_arrow", new CappedArrowItem(ItemTierTwo.RUBY, new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item LEAD_CAPPED_ARROW = register("lead_capped_arrow", new CappedArrowItem(ItemTierTwo.LEAD, new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item COPPER_CAPPED_ARROW = register("copper_capped_arrow", new CappedArrowItem(ItemTierTwo.COPPER, new Item.Properties().group(ItemGroup.COMBAT)));
@@ -887,9 +908,16 @@ public class ItemsTwo {
     public static final Item DARK_OAK_LEGGINGS = register("dark_oak_leggings", new ArmorItem(ArmorMaterialTwo.DARK_OAK, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item DARK_OAK_BOOTS = register("dark_oak_boots", new ArmorItem(ArmorMaterialTwo.DARK_OAK, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
 
-    // crimson armor
-    // warped armor
-    
+    public static final Item CRIMSON_HELMET = register("crimson_helmet", new ArmorItem(ArmorMaterialTwo.CRIMSON, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item CRIMSON_CHESTPLATE = register("crimson_chestplate", new ArmorItem(ArmorMaterialTwo.CRIMSON, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item CRIMSON_LEGGINGS = register("crimson_leggings", new ArmorItem(ArmorMaterialTwo.CRIMSON, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item CRIMSON_BOOTS = register("crimson_boots", new ArmorItem(ArmorMaterialTwo.CRIMSON, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
+    public static final Item WARPED_HELMET = register("warped_helmet", new ArmorItem(ArmorMaterialTwo.WARPED, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item WARPED_CHESTPLATE = register("warped_chestplate", new ArmorItem(ArmorMaterialTwo.WARPED, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item WARPED_LEGGINGS = register("warped_leggings", new ArmorItem(ArmorMaterialTwo.WARPED, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item WARPED_BOOTS = register("warped_boots", new ArmorItem(ArmorMaterialTwo.WARPED, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+
     public static final Item MAPLE_HELMET = register("maple_helmet", new ArmorItem(ArmorMaterialTwo.MAPLE, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item MAPLE_CHESTPLATE = register("maple_chestplate", new ArmorItem(ArmorMaterialTwo.MAPLE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item MAPLE_LEGGINGS = register("maple_leggings", new ArmorItem(ArmorMaterialTwo.MAPLE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));

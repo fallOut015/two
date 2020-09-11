@@ -2,12 +2,10 @@ package io.github.fallout015.two.entity.monster;
 
 import java.util.Random;
 
-import io.github.fallout015.two.Two;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
@@ -32,6 +30,7 @@ public class MummifiedZombieEntity extends ZombieEntity {
 		super(type, worldIn);
 	}
 	
+	@SuppressWarnings("deprecation")
 	public static boolean canSpawn(EntityType<MummifiedZombieEntity> batIn, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
 		if (pos.getY() >= worldIn.getSeaLevel()) {
 			return false;

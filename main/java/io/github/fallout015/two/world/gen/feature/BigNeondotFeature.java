@@ -11,6 +11,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockPos.Mutable;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.AbstractBigMushroomFeature;
@@ -54,9 +55,9 @@ public class BigNeondotFeature extends AbstractBigMushroomFeature {
 						mutable.setPos(pos).move(l, i, i1).move(this.facing);
 						if (world.getBlockState(mutable).canBeReplacedByLeaves(world, mutable)) {
 							if(rand.nextInt(5) == 0) {
-								this.setBlockState(world, mutable, BlocksTwo.SHROOMGLOW.getDefaultState());
+								this.func_230367_a_(world, mutable, BlocksTwo.SHROOMGLOW.getDefaultState());
 							} else {
-								this.setBlockState(world, mutable, config.field_227272_a_.getBlockState(rand, pos));
+								this.func_230367_a_(world, mutable, config.field_227272_a_.getBlockState(rand, pos));
 							}
 							// change to assigning one dot per face. 
 						}
@@ -74,26 +75,26 @@ public class BigNeondotFeature extends AbstractBigMushroomFeature {
 				mutable.setPos(pos).move(Direction.UP, i);
 			}
 			if (world.getBlockState(mutable).canBeReplacedByLogs(world, mutable)) {
-				this.setBlockState(world, mutable, config.field_227273_b_.getBlockState(rand, pos));
+				this.func_230367_a_(world, mutable, config.field_227273_b_.getBlockState(rand, pos));
 				if(i == 0 || i == 1 || i == 3) {
 					if(i == 0) {
 						// TODO change to algorithm
-						this.setBlockState(world, mutable.offset(this.facing).north(), config.field_227273_b_.getBlockState(rand, pos));
-						this.setBlockState(world, mutable.offset(this.facing).east(), config.field_227273_b_.getBlockState(rand, pos));
-						this.setBlockState(world, mutable.offset(this.facing).south(), config.field_227273_b_.getBlockState(rand, pos));
-						this.setBlockState(world, mutable.offset(this.facing).west(), config.field_227273_b_.getBlockState(rand, pos));
-						this.setBlockState(world, mutable.north(), config.field_227273_b_.getBlockState(rand, pos));
-						this.setBlockState(world, mutable.east(), config.field_227273_b_.getBlockState(rand, pos));
-						this.setBlockState(world, mutable.south(), config.field_227273_b_.getBlockState(rand, pos));
-						this.setBlockState(world, mutable.west(), config.field_227273_b_.getBlockState(rand, pos));
+						this.func_230367_a_(world, mutable.offset(this.facing).north(), config.field_227273_b_.getBlockState(rand, pos));
+						this.func_230367_a_(world, mutable.offset(this.facing).east(), config.field_227273_b_.getBlockState(rand, pos));
+						this.func_230367_a_(world, mutable.offset(this.facing).south(), config.field_227273_b_.getBlockState(rand, pos));
+						this.func_230367_a_(world, mutable.offset(this.facing).west(), config.field_227273_b_.getBlockState(rand, pos));
+						this.func_230367_a_(world, mutable.north(), config.field_227273_b_.getBlockState(rand, pos));
+						this.func_230367_a_(world, mutable.east(), config.field_227273_b_.getBlockState(rand, pos));
+						this.func_230367_a_(world, mutable.south(), config.field_227273_b_.getBlockState(rand, pos));
+						this.func_230367_a_(world, mutable.west(), config.field_227273_b_.getBlockState(rand, pos));
 					}
-					this.setBlockState(world, mutable.offset(this.facing), config.field_227273_b_.getBlockState(rand, pos));
+					this.func_230367_a_(world, mutable.offset(this.facing), config.field_227273_b_.getBlockState(rand, pos));
 				}
 			}
 		}
 	}
 	@Override
-	public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, BigMushroomFeatureConfig config) {
+	public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, BigMushroomFeatureConfig config) {
 		int i = this.func_227211_a_(rand); // stem height from 6 to 7. 
 		BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
 		if (!this.func_227209_a_(worldIn, pos, i, blockpos$mutable, config)) {
@@ -113,7 +114,7 @@ public class BigNeondotFeature extends AbstractBigMushroomFeature {
 	@Override
 	protected boolean func_227209_a_(IWorld p_227209_1_, BlockPos p_227209_2_, int p_227209_3_, Mutable p_227209_4_, BigMushroomFeatureConfig p_227209_5_) {
 		int i = p_227209_2_.getY();
-		if (i >= 1 && i + p_227209_3_ + 1 < p_227209_1_.getMaxHeight()) {
+		if (i >= 1 && i + p_227209_3_ + 1 < 256) {
 			Block block = p_227209_1_.getBlockState(p_227209_2_.down()).getBlock();
 			if (block != BlocksTwo.SPORESTONE_SOIL) {
 				return false;
@@ -124,7 +125,7 @@ public class BigNeondotFeature extends AbstractBigMushroomFeature {
 	            	for(int l = -k; l <= k; ++l) {
 	            		for(int i1 = -k; i1 <= k; ++i1) {
 	            			BlockState blockstate = p_227209_1_.getBlockState(p_227209_4_.setPos(p_227209_2_).move(l, j, i1));
-	            			if (!blockstate.isAir(p_227209_1_, p_227209_4_) && !blockstate.isIn(BlockTags.LEAVES)) {
+	            			if (!blockstate.isAir(p_227209_1_, p_227209_4_) && !blockstate.func_235714_a_(BlockTags.LEAVES)) {
 	            				return false;
 	            			}
 	            		}

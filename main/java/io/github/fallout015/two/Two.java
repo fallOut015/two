@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
+import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,6 +16,7 @@ import com.google.common.collect.Sets;
 import io.github.fallout015.two.block.BlocksTwo;
 import io.github.fallout015.two.client.renderer.RenderTypeLookupTwo;
 import io.github.fallout015.two.client.renderer.entity.BeardedDragonRenderer;
+import io.github.fallout015.two.client.renderer.entity.BoatRendererTwo;
 import io.github.fallout015.two.client.renderer.entity.BombArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.CappedArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.ChameleonRenderer;
@@ -28,6 +30,7 @@ import io.github.fallout015.two.client.renderer.entity.RedPandaRenderer;
 import io.github.fallout015.two.client.renderer.entity.ShockArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.ShurikenRenderer;
 import io.github.fallout015.two.client.renderer.entity.SigilRenderer;
+import io.github.fallout015.two.client.renderer.entity.SwarmRenderer;
 import io.github.fallout015.two.client.renderer.entity.TwisterRenderer;
 import io.github.fallout015.two.client.renderer.entity.layers.BeardedDragonLayer;
 import io.github.fallout015.two.client.renderer.entity.layers.ChameleonCloakLayer;
@@ -57,16 +60,22 @@ import io.github.fallout015.two.stats.StatsTwo;
 import io.github.fallout015.two.tileentity.TileEntityTypeTwo;
 import io.github.fallout015.two.util.SoundEventsTwo;
 import io.github.fallout015.two.world.gen.carver.WorldCarverTwo;
+import io.github.fallout015.two.world.gen.feature.FeatureTwo;
+import io.github.fallout015.two.world.gen.feature.structure.StructureTwo;
 import io.github.fallout015.two.world.gen.placement.PlacementTwo;
 import io.github.fallout015.two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 import net.minecraft.block.Block;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EvokerFangsRenderer;
+import net.minecraft.client.renderer.entity.model.BeeModel;
+import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.entity.model.SpiderModel;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
@@ -102,7 +111,14 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.vector.Quaternion;
 import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.math.vector.Vector3f;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.Feature;
@@ -111,6 +127,9 @@ import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.RenderLivingEvent;
+import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.event.RegistryEvent;
@@ -120,6 +139,7 @@ import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
@@ -127,9 +147,11 @@ import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.event.entity.player.PlayerXpEvent;
 import net.minecraftforge.event.world.SleepFinishedTimeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
@@ -139,7 +161,91 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod("two")
 public class Two {
-	// TODO SLAB, PRESSURE PLATE, FENCE, STAIRS, BUTTON, SIGN, AND BOAT FOR STAINED PLANKS
+	public static class Config {
+		public static final ClientConfig CLIENT;
+		public static final ForgeConfigSpec CLIENT_SPEC;
+		
+		static {
+			final Pair<ClientConfig, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(ClientConfig::new);
+			CLIENT_SPEC = specPair.getRight();
+			CLIENT = specPair.getLeft();
+		}
+		
+		public static boolean pamTextureBloodBlade = true;
+		public static boolean disableStainedWoodenCrafting = false;
+		public static boolean disableGlazedBricksCrafting = false;
+		public static boolean disableAdditionalCaves = false;
+		public static boolean disableModifiedCaves = false;
+		public static boolean disableNewNetherOres = false;
+		public static boolean disableNewOverworldOres = false;
+		public static boolean disableNewEndOres = false;
+		public static boolean renameVanillaItems = true;
+		public static boolean disableDreamcatchersInVillages = false;
+		public static boolean enableThrowingArrows = false;
+		public static boolean disableDaggerSneakAttack = false;
+		public static boolean bombArrowsObeyMobGriefing = false;
+		public static boolean disableInspectionSpectacleDescriptions = false;
+		public static boolean enablePickaxeTips = false;
+		public static boolean disableTeleporterCrafting = false;
+		public static boolean disableUndergroundRegions = false;
+		public static boolean disableUndergroundBiomes = false;
+		public static boolean disableAdobeFreezing = false;
+		
+		public static void bakeConfig() {
+			pamTextureBloodBlade = CLIENT.PAM_TEXTURE_BLOOD_BLADE.get();
+			disableInspectionSpectacleDescriptions = CLIENT.DISABLE_INSPECTION_SPECTACLES_DESCRIPTIONS.get();
+			enablePickaxeTips = CLIENT.ENABLE_PICKAXE_TIPS.get();
+			
+			disableStainedWoodenCrafting = CLIENT.DISABLE_STAINED_WOODEN_CRAFTING.get();
+			disableGlazedBricksCrafting = CLIENT.DISABLE_GLAZED_BRICK_CRAFTING.get();
+		}
+		
+		public static class ClientConfig {
+			// Cosmetic
+			public final BooleanValue PAM_TEXTURE_BLOOD_BLADE;
+			public final BooleanValue DISABLE_INSPECTION_SPECTACLES_DESCRIPTIONS;
+			public final BooleanValue ENABLE_PICKAXE_TIPS;
+			// Crafting
+			public final BooleanValue DISABLE_STAINED_WOODEN_CRAFTING;
+			public final BooleanValue DISABLE_GLAZED_BRICK_CRAFTING;
+//			public final BooleanValue disableTeleporterCrafting;
+			// World Gen
+//			public final BooleanValue disableAdditionalCaves;
+//			public final BooleanValue disableModifiedCaves;
+//			public final BooleanValue disableNewNetherOres;
+//			public final BooleanValue disableNewOverworldOres;
+//			public final BooleanValue disableNewEndOres;
+//			public final BooleanValue disableUndergroundRegions;
+//			public final BooleanValue disableUndergroundBiomes;
+			// Vanilla Alterations
+//			public final BooleanValue renameVanillaItems;
+			// Structures
+//			public final BooleanValue disableDreamcatchersInVillages;
+			// Misc
+//			public final BooleanValue enableThrowingArrows;
+//			public final BooleanValue disableDaggerSneakAttack;
+//			public final BooleanValue bombArrowsObeyMobGriefing;
+//			public final BooleanValue disableAdobeFreezing;
+			
+			public ClientConfig(ForgeConfigSpec.Builder builder) {
+				builder.push("Cosmetic");
+				this.PAM_TEXTURE_BLOOD_BLADE = builder.comment("Use Pam's texture for the Blood Venom Blade.").translation("two.config.pamTextureBloodBlade").define("PAM_TEXTURE_BLOOD_BLADE", true);
+				this.DISABLE_INSPECTION_SPECTACLES_DESCRIPTIONS = builder.comment("Disable the paragraph descriptions for items when wearing the Inspection Spectacles.").translation("two.config.disableInspectionSpectaclesDescriptions").define("DISABLE_INSPECTION_SPECTACLES_DESCRIPTIONS", false);
+				this.ENABLE_PICKAXE_TIPS = builder.comment("Enable pickaxe tooltips for what ores you can mine.").translation("two.config.enablePickaxeTips").define("ENABLE_PICKAXE_TIPS", false);
+				builder.pop();
+				builder.push("Crafting");
+				this.DISABLE_STAINED_WOODEN_CRAFTING = builder.comment("Disable the crafting recipes for everything related to Stained Wooden Planks. In case you have another mod that uses it.").translation("two.config.disableStainedWoodenCrafting").define("DISABLE_STAINED_WOODEN_CRAFTING", false);
+				this.DISABLE_GLAZED_BRICK_CRAFTING = builder.comment("Disable the crafting recipes for everything related to Glazed Bricks. In case you have another mod that uses it.").translation("two.config.disableGlazedBricksCrafting").define("DISABLE_GLAZED_BRICKS_CRAFTING", false);
+				builder.pop();
+				
+//				builder.push("category");
+//				this.anInt = builder.comment("anInt usage description").translation(Two.class.getAnnotation(Mod.class).value() + ".config." + "anInt").defineInRange("anInt", 10, 0, 100);
+//				builder.pop();
+			}
+		}
+	}
+	
+	// TODO PRESSURE PLATE, FENCE, STAIRS, BUTTON, SIGN, AND BOAT FOR STAINED PLANKS
 	
 	// GLAIVE
 	// MACE
@@ -151,7 +257,7 @@ public class Two {
 	// PILLARS
 	// FURNITURE
 	
-    public static final Logger LOGGER = LogManager.getLogger("two");
+    public static final Logger LOGGER = LogManager.getLogger(Two.class.getAnnotation(Mod.class).value());
     
 	public static AttributeModifier leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", 2, AttributeModifier.Operation.ADDITION);
     
@@ -163,6 +269,8 @@ public class Two {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
+        
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_SPEC);
         
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -179,6 +287,19 @@ public class Two {
 //    	DefaultBiomeFeaturesTwo.addStructures();
 //    	DefaultBiomeFeaturesTwo.addSpawns();
 //    	DefaultBiomeFeaturesTwo.addCarvers();
+    	
+//    	try {
+//        	WorldGenRegistries.field_243657_i.func_230516_a_(Biomes.DESERT).func_242440_e().func_242496_b().add(FeaturesTwo.DESERT_STONE_REPLACER);
+//        	WorldGenRegistries.field_243657_i.func_230516_a_(Biomes.DESERT_HILLS).func_242440_e().func_242496_b().add(FeaturesTwo.DESERT_STONE_REPLACER);
+//        	WorldGenRegistries.field_243657_i.func_230516_a_(Biomes.DESERT_LAKES).func_242440_e().func_242496_b().add(FeaturesTwo.DESERT_STONE_REPLACER);
+//
+//        	WorldGenRegistries.field_243657_i.func_230516_a_(Biomes.SAVANNA).func_242433_b().func_242559_a(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(EntityTypeTwo.BEARDED_DRAGON, 12, 2, 4));
+//        	WorldGenRegistries.field_243657_i.func_230516_a_(Biomes.SAVANNA_PLATEAU).func_242433_b().func_242559_a(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(EntityTypeTwo.BEARDED_DRAGON, 12, 2, 4));
+//        	WorldGenRegistries.field_243657_i.func_230516_a_(Biomes.SHATTERED_SAVANNA).func_242433_b().func_242559_a(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(EntityTypeTwo.BEARDED_DRAGON, 12, 2, 4));
+//        	WorldGenRegistries.field_243657_i.func_230516_a_(Biomes.SHATTERED_SAVANNA_PLATEAU).func_242433_b().func_242559_a(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(EntityTypeTwo.BEARDED_DRAGON, 12, 2, 4));
+//    	} catch(NullPointerException npe) {
+//    		npe.printStackTrace();
+//    	}
     	
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.CHAMELEON, ChameleonEntity.applyAttributes().func_233813_a_());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonEntity.applyAttributes().func_233813_a_());
@@ -207,7 +328,9 @@ public class Two {
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SHOCK_ARROW, ShockArrowRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.EVOCATION_FANGS, EvokerFangsRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SHURIKEN, ShurikenRenderer::new);
-    	
+
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BOAT_TWO, BoatRendererTwo::new);
+
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.DARK_DWARF_ARCHER, DarkDwarfArcherRenderer::new);
 
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.MUMMIFIED_ZOMBIE, MummifiedZombieRenderer::new);
@@ -216,6 +339,8 @@ public class Two {
     	//    	RenderingRegistry.registerEntityRenderingHandler(EntityType.WOLF, WolfRendererTwo::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SIGIL, SigilRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.TWISTER, TwisterRenderer::new);
+    	
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SWARM, SwarmRenderer::new);
     	
     	ClientRegistry.bindTileEntityRenderer(TileEntityTypeTwo.CHAIR, ChairRenderer::new);
     	
@@ -238,14 +363,14 @@ public class Two {
     	try {
     		Two.LOGGER.info("Running Two$clientOnly, will throw a NoSuchMethod error on a dedicated server.");
     		clientOnly();
-    	} catch(NoSuchMethodError e) { Two.LOGGER.error(e); }
+    	} catch(NoSuchMethodError e) { Two.LOGGER.error(e + " this is SUPPOSED to happen!"); }
     }
     private void enqueueIMC(final InterModEnqueueEvent event) {}
     private void processIMC(final InterModProcessEvent event) {}
     @OnlyIn(Dist.CLIENT)
     private static void clientOnly() {
-    	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
-    	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new TopHatLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
+    	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new TopHatLayer(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
+    	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new TopHatLayer(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
 
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new InspectionSpectaclesLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new InspectionSpectaclesLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
@@ -266,10 +391,19 @@ public class Two {
     	// Karsten's cosmetic crown
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new CrownLayer(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new CrownLayer(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
+    
+    	// Nick's cosmetic gauntlet, one for default and one for slim
+    	// Hanna's cosmetic cat ears
     }
     
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) {}
+    @SubscribeEvent
+    public static void onModConfigEvent(final ModConfig.ModConfigEvent configEvent) {
+    	if(configEvent.getConfig().getSpec() == Config.CLIENT_SPEC) {
+    		Config.bakeConfig();
+    	}
+    }
     
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
@@ -303,7 +437,7 @@ public class Two {
     	}
     	@SubscribeEvent
     	public static void onFeaturesRegistry(final RegistryEvent.Register<Feature<?>> featureRegistryEvent) {
-//    		FeatureTwo.onFeaturesRegistry(featureRegistryEvent);
+    		FeatureTwo.onFeaturesRegistry(featureRegistryEvent);
     	}
     	@SubscribeEvent
     	public static void onFluidsRegistry(final RegistryEvent.Register<Fluid> fluidRegistryEvent) {
@@ -332,7 +466,7 @@ public class Two {
     	}
     	@SubscribeEvent
     	public static void onStructuresRegistry(final RegistryEvent.Register<Structure<?>> structureRegistry) {
-//    		StructureTwo.onStructuresRegistry(structureRegistry);
+    		StructureTwo.onStructuresRegistry(structureRegistry);
     	}
     	@SubscribeEvent
     	public static void onSurfaceBuildersRegistry(final RegistryEvent.Register<SurfaceBuilder<?>> surfaceBuilderRegistryEvent) {
@@ -396,8 +530,7 @@ public class Two {
     	}
 		@SubscribeEvent
 		public static void onSleepFinishedTime(final SleepFinishedTimeEvent sleepFinishedTimeEvent) {
-			// TODO move dreamcatcher code here
-			Two.LOGGER.info("sleep time fininshed");
+//			((DreamcatcherBlock) sleepFinishedTimeEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation(DimensionType.OVERWORLD).up()).getBlock()).onPlayerWakeUp(playerWakeUpEvent);
 		}
     	@SubscribeEvent
     	public static void onPlayerSleepInBed(final PlayerSleepInBedEvent playerSleepInBedEvent) {
@@ -428,14 +561,17 @@ public class Two {
     	public static void onEntityJoinWorld(final EntityJoinWorldEvent entityJoinWorldEvent) {
     		if(entityJoinWorldEvent.getEntity() instanceof SpiderEntity) {
     			((SpiderEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(3, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 1.2D, 1.4D));
+//				entityJoinWorldEvent.getEntity().setBoundingBox(entityJoinWorldEvent.getEntity().getBoundingBox().shrink(10));
     		} else if(entityJoinWorldEvent.getEntity() instanceof CaveSpiderEntity) {
     			((CaveSpiderEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(3, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 1.2D, 1.4D));
+//				entityJoinWorldEvent.getEntity().setBoundingBox(entityJoinWorldEvent.getEntity().getBoundingBox().shrink(10));
     		} else if(entityJoinWorldEvent.getEntity() instanceof SilverfishEntity) {
     			((SilverfishEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(1, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 0.5D, 0.7D));
     		} else if(entityJoinWorldEvent.getEntity() instanceof EndermiteEntity) {
     			((EndermiteEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(1, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 0.5D, 0.7D));
     		} else if(entityJoinWorldEvent.getEntity() instanceof BeeEntity) {
     			((BeeEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(3, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 0.6D, 0.8D));
+//				entityJoinWorldEvent.getEntity().setBoundingBox(entityJoinWorldEvent.getEntity().getBoundingBox().shrink(10));
     		}
     	}
     	@SubscribeEvent
@@ -510,7 +646,7 @@ public class Two {
     		if(playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.field_233818_a_).hasModifier(leveluphealth)) {
         		playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.field_233818_a_).removeModifier(leveluphealth);
     		}
-//    		playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.field_233818_a_).applyModifier(leveluphealth); // TODO og my god
+    		playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.field_233818_a_).func_233767_b_(leveluphealth);
     		playerXpEvent$LevelChange.getPlayer().setHealth(health);
     	}
     	@SubscribeEvent
@@ -530,7 +666,7 @@ public class Two {
             		if(playerEvent$Clone.getPlayer().getAttribute(Attributes.field_233818_a_).hasModifier(leveluphealth)) {
             			playerEvent$Clone.getPlayer().getAttribute(Attributes.field_233818_a_).removeModifier(leveluphealth);
             		}
-//            		playerEvent$Clone.getPlayer().getAttribute(Attributes.field_233818_a_).applyModifier(leveluphealth); TODO
+            		playerEvent$Clone.getPlayer().getAttribute(Attributes.field_233818_a_).func_233767_b_(leveluphealth);
     			} catch(NullPointerException npe) {
     				LOGGER.warn(npe);
     			}
@@ -568,6 +704,19 @@ public class Two {
         			}
         		});
     		}
+    		if(playerInteractEvent$rightClickItem.getItemStack().getItem() == Items.ENDER_EYE) {
+    			if(playerInteractEvent$rightClickItem.getItemStack().hasTag()) {
+    				if(playerInteractEvent$rightClickItem.getItemStack().getTag().contains("pos")) {
+    					BlockPos pos = BlockPos.fromLong(playerInteractEvent$rightClickItem.getItemStack().getTag().getLong("pos"));
+    					float x = pos.getX();
+    					float y = pos.getY();
+    					float z = pos.getZ();
+    					playerInteractEvent$rightClickItem.getPlayer().attemptTeleport(x, y, z, true);
+    					// TODO try true in attemptTeleport
+//    					playerInteractEvent$rightClickItem.getPlayer().setPosition(x, y, z);
+    				}
+    			}
+    		}
     	}
     	@SubscribeEvent
     	public static void onLoadFromFile(final PlayerEvent.LoadFromFile playerEvent$LoadFromFile) {
@@ -597,9 +746,9 @@ public class Two {
     			LOGGER.info("Wrote to two_playerdata.nbt");
     		}
     	}
-//    	@SubscribeEvent
-//    	@OnlyIn(Dist.CLIENT)
-//    	public static void onItemTooltip(final ItemTooltipEvent itemTooltipEvent) {
+    	@SubscribeEvent
+    	@OnlyIn(Dist.CLIENT)
+    	public static void onItemTooltip(final ItemTooltipEvent itemTooltipEvent) {
 //    		// Pickaxes show all of the ores they can mine. 
 ////    		if(itemTooltipEvent.getItemStack().getItem() instanceof PickaxeItem) {
 ////    			if(((PickaxeItem) itemTooltipEvent.getItemStack().getItem()).getTier().getHarvestLevel() == 6)
@@ -620,29 +769,37 @@ public class Two {
 ////        			itemTooltipEvent.getToolTip().add(new StringTextComponent(itemTiers.toString().toLowerCase()/*.replaceAll("[", "").replaceAll("]", "")*/).applyTextStyle(TextFormatting.GRAY));
 ////    			}
 ////    		}
-//    		if(itemTooltipEvent.getItemStack().getItem() == ItemsTwo.CHAIR) {
-//    			String seat = "";
-//    			try {
-//        			seat = itemTooltipEvent.getItemStack().getTag().getString("top");
-//    			} catch(Exception e) {
-//    				Two.LOGGER.info(e);
-//    			}
-//    			String legs = "";
-//    			try {
-//    				legs = itemTooltipEvent.getItemStack().getTag().getString("middle");
-//    			} catch(Exception e) {
-//    				Two.LOGGER.info(e);
-//    			}
-//    			String back = "";
-//    			try {
-//    				back = itemTooltipEvent.getItemStack().getTag().getString("bottom");
-//    			} catch(Exception e) {
-//    				Two.LOGGER.info(e);
-//    			}
-//    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Back: " + back));
-//    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Seat: " + seat));
-//    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Legs: " + legs));
-//    		}
+    		if(itemTooltipEvent.getItemStack().getItem() == ItemsTwo.CHAIR) {
+    			String seat = "";
+    			try {
+        			seat = itemTooltipEvent.getItemStack().getTag().getString("top");
+    			} catch(Exception e) {
+    				Two.LOGGER.info(e);
+    			}
+    			String legs = "";
+    			try {
+    				legs = itemTooltipEvent.getItemStack().getTag().getString("middle");
+    			} catch(Exception e) {
+    				Two.LOGGER.info(e);
+    			}
+    			String back = "";
+    			try {
+    				back = itemTooltipEvent.getItemStack().getTag().getString("bottom");
+    			} catch(Exception e) {
+    				Two.LOGGER.info(e);
+    			}
+    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Back: " + back));
+    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Seat: " + seat));
+    			itemTooltipEvent.getToolTip().add(new StringTextComponent("Legs: " + legs));
+    		}
+    		if(itemTooltipEvent.getItemStack().getItem() == Items.ENDER_EYE) {
+    			if(itemTooltipEvent.getItemStack().hasTag()) {
+    				if(itemTooltipEvent.getItemStack().getTag().contains("pos")) {
+    					BlockPos pos = BlockPos.fromLong(itemTooltipEvent.getItemStack().getTag().getLong("pos"));
+    					itemTooltipEvent.getToolTip().add(new TranslationTextComponent("item.minecraft.ender_eye.pos").func_240701_a_(TextFormatting.ITALIC, TextFormatting.YELLOW).func_230529_a_(new StringTextComponent("(" + pos.getX() + ", " + pos.getY() + ", " + pos.getZ() + ")"))); // attuned ender eyes found in chests and stuff will have obfuscated names
+    				}
+    			}
+    		}
 //    		if(itemTooltipEvent.getItemStack().getItem() instanceof DoubleJumpBootsItem) {
 //    			int jumps = itemTooltipEvent.getItemStack().getTag().getInt("jumps");
 //    			int extrajumplimit = itemTooltipEvent.getItemStack().getTag().getInt("extrajumplimit");
@@ -655,8 +812,8 @@ public class Two {
 //    		if(itemTooltipEvent.getEntityLiving() != null) {
 //        		itemTooltipEvent.getEntityLiving().getArmorInventoryList().forEach(itemStack -> equipment.add(itemStack.getItem()));
 //        		if(equipment.contains(ItemsTwo.INSPECTION_SPECTACLES)) {
-//        			if(!LanguageMap.getInstance().translateKey(itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc").equals((itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc"))) {
-//            			itemTooltipEvent.getToolTip().add(new TranslationTextComponent(itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc").applyTextStyles(TextFormatting.ITALIC, TextFormatting.GOLD));
+//        			if(Two.Config.igjeingien && !LanguageMap.getInstance().translateKey(itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc").equals((itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".desc"))) {
+//            			itemTooltipEvent.getToolTip().add(new TranslationTextComponent(itemTooltipEvent.getItemStack().getItem().getTranslationKey() + ".info").applyTextStyles(TextFormatting.ITALIC, TextFormatting.GOLD));
 //        			}
 //        			if(itemTooltipEvent.getItemStack().getItem() instanceof TieredItem) {
 //        				itemTooltipEvent.getToolTip().add(new StringTextComponent("Tier: " + ((TieredItem) itemTooltipEvent.getItemStack().getItem()).getTier()).applyTextStyles(TextFormatting.ITALIC, TextFormatting.GREEN));
@@ -700,6 +857,85 @@ public class Two {
 //        			}
 //        		}
 //    		}
-//    	}
+    	}
+    	// I made bees in minecraft realistic
+    	@SubscribeEvent
+		public static void onPreRenderBee(final RenderLivingEvent.Pre<BeeEntity, BeeModel<BeeEntity>> renderLivingEvent) {
+			if(renderLivingEvent.getEntity().getType() == EntityType.BEE) {
+				renderLivingEvent.getMatrixStack().push();
+				renderLivingEvent.getMatrixStack().scale(0.1f, 0.1f, 0.1f);
+				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(false);
+			}
+		}
+    	@SubscribeEvent
+		public static void onPostRenderBee(final RenderLivingEvent.Post<BeeEntity, BeeModel<BeeEntity>> renderLivingEvent) {
+			if(renderLivingEvent.getEntity().getType() == EntityType.BEE) {
+				renderLivingEvent.getMatrixStack().pop();
+				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(true);
+			}
+		}
+    	@SubscribeEvent
+		public static void onPreRenderSpider(final RenderLivingEvent.Pre<SpiderEntity, SpiderModel<SpiderEntity>> renderLivingEvent) {
+			if(renderLivingEvent.getEntity().getType() == EntityType.SPIDER) {
+				renderLivingEvent.getMatrixStack().push();
+				renderLivingEvent.getMatrixStack().scale(0.1f, 0.1f, 0.1f);
+				if(renderLivingEvent.getEntity().isOnLadder() && renderLivingEvent.getEntity().moveVertical > 0) {
+					renderLivingEvent.getMatrixStack().rotate(new Quaternion(Vector3f.XP, 90, true));
+				}
+				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(false);
+			}
+		}
+    	@SubscribeEvent
+		public static void onPostRenderSpider(final RenderLivingEvent.Post<SpiderEntity, SpiderModel<SpiderEntity>> renderLivingEvent) {
+			if(renderLivingEvent.getEntity().getType() == EntityType.SPIDER) {
+				renderLivingEvent.getMatrixStack().pop();
+				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(true);
+			}
+		}
+    	@SubscribeEvent
+		public static void onPreRenderCaveSpider(final RenderLivingEvent.Pre<CaveSpiderEntity, SpiderModel<CaveSpiderEntity>> renderLivingEvent) {
+			if(renderLivingEvent.getEntity().getType() == EntityType.CAVE_SPIDER) {
+				renderLivingEvent.getMatrixStack().push();
+				renderLivingEvent.getMatrixStack().scale(0.1f, 0.1f, 0.1f);
+				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(false);
+			}
+		}
+    	@SubscribeEvent
+		public static void onPostRenderCaveSpider(final RenderLivingEvent.Post<CaveSpiderEntity, SpiderModel<CaveSpiderEntity>> renderLivingEvent) {
+			if(renderLivingEvent.getEntity().getType() == EntityType.CAVE_SPIDER) {
+				renderLivingEvent.getMatrixStack().pop();
+				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(true);
+			}
+		}
+    	
+    	// gianter giants
+    	// smaller bees and spider
+    	// corona bats
+    	// realistic eating or something
+    	// realistic climbing
+    	// chickens fly
+    	// trampling crops explodes
+    	
+    	@SubscribeEvent
+		public static void onPreRender(final RenderLivingEvent.Pre<LivingEntity, EntityModel<LivingEntity>> renderLivingEvent) {
+    		if(renderLivingEvent.getEntity().getType() == EntityType.BEE || renderLivingEvent.getEntity().getType() == EntityType.CAVE_SPIDER || renderLivingEvent.getEntity().getType() == EntityType.SPIDER)
+    			return;
+    		if(!renderLivingEvent.getEntity().removeTag("specialRender")) {
+        		renderLivingEvent.getMatrixStack().push();
+    			renderLivingEvent.getEntity().addTag("specialRender");
+    			World world = renderLivingEvent.getEntity().getEntityWorld();
+        		float x = world.rand.nextFloat() * 2;
+        		float y = world.rand.nextFloat() * 2;
+        		float z = world.rand.nextFloat() * 2;
+        		renderLivingEvent.getMatrixStack().scale(x, y, z); 
+        		renderLivingEvent.getMatrixStack().rotate(new Quaternion(x * 180f, y * 180f, z * 180f, true));
+    		}
+		}
+    	@SubscribeEvent
+		public static void onPostRender(final RenderLivingEvent.Post<LivingEntity, EntityModel<LivingEntity>> renderLivingEvent) {
+    		if(renderLivingEvent.getEntity().removeTag("specialRender")) {
+        		renderLivingEvent.getMatrixStack().pop();
+    		}
+		}
     }
 }

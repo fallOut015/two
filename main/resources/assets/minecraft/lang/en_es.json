@@ -1,0 +1,22 @@
+{
+	"block.minecraft.lapis_block" : "Block of Lapis Lazuli",
+	
+	"block.minecraft.bed.nightmare" : "La noche es fría, tan fría...",
+	"block.minecraft.bed.rainbow" : "Los arco iris llenan el cielo, y te sientes seguro",
+	"block.minecraft.bed.sky" : "Tu ropa de cama se siente como una nube, y ahora es",
+	
+	
+	
+	"item.minecraft.oak_boat" : "Oak Rowboat",
+	"item.minecraft.spruce_boat" : "Spruce Rowboat",
+	"item.minecraft.birch_boat" : "Birch Rowboat",
+	"item.minecraft.jungle_boat" : "Jungle Rowboat",
+	"item.minecraft.acacia_boat" : "Acacia Rowboat",
+	"item.minecraft.dark_oak_boat" : "Dark Oak Rowboat",
+
+	"item.minecraft.redstone" : "Redstone Dust",
+	
+	"item.minecraft.cookie" : "Chocolate Chip Cookie",
+	
+	"item.minecraft.ender_eye.pos" : "Attuned to "
+}

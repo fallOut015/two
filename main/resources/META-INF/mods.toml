@@ -70,6 +70,7 @@ Changelog:
 	Added the Chameleon Cloak. 
 	Added the Slime Boots.
 	Added the Beaming Boots.
+	Added a configuration file.
 '''
 [[dependencies.examplemod]] #optional
     modId="forge"

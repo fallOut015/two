@@ -49,19 +49,17 @@ public class BanisherItem extends Item implements IVanishable {
 		return equipmentSlot == EquipmentSlotType.MAINHAND ? this.modifiers : super.getAttributeModifiers(equipmentSlot);
 	}
 	
-	// change to on hitEntity TODO (why wasn't it already there?)
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, PlayerEntity player, Entity entity) {
 		if(entity instanceof LivingEntity) {
 			stack.hitEntity((LivingEntity) entity, player);
 			if((player).getCooledAttackStrength(0.5f) == 1f) {
 				((LivingEntity) entity).func_233627_a_(2 * (EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.DISTANCE, stack) + 1), -(entity.prevPosX - player.prevPosX), -(entity.prevPosZ - player.prevPosZ));
-				entity.world.addParticle(ParticleTypes.EXPLOSION, player.getPosX(), player.getPosY(), entity.getPosZ(), -(entity.prevPosX - player.prevPosX), -0.1, -(entity.prevPosZ - player.prevPosZ));
+				entity.world.addParticle(ParticleTypes.EXPLOSION, entity.getPosX(), entity.getPosY(), entity.getPosZ(), -(entity.prevPosX - player.prevPosX), -0.1, -(entity.prevPosZ - player.prevPosZ));
 				stack.damageItem(4, player, livingEntityIn -> livingEntityIn.sendBreakAnimation(EquipmentSlotType.MAINHAND));
-			}		
+				return true;
+			}
 		}
 		return false;
-		
-		// TODO make sure it's still working
 	}
 }

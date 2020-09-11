@@ -1,6 +1,6 @@
 {
     "parent": "block/wall_inventory",
     "textures": {
-        "wall": "two:block/red_glazed_bricks"
+        "wall": "two:block/polished_myrkylite"
     }
 }
