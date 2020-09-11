@@ -35,14 +35,14 @@ public class BrimshineBlock extends MushroomBlock {
 		BlockState blockstate = worldIn.getBlockState(pos.down());
 		return worldIn.getLightSubtracted(pos, 0) < 8 && blockstate.canSustainPlant(worldIn, blockpos, net.minecraft.util.Direction.UP, this);
 	}
-	public boolean func_226940_a_(ServerWorld p_226940_1_, BlockPos p_226940_2_, BlockState p_226940_3_, Random p_226940_4_) {
-		p_226940_1_.removeBlock(p_226940_2_, false);
+	public boolean func_226940_a_(ServerWorld world, BlockPos pos, BlockState state, Random rand) {
+		world.removeBlock(pos, false);
 		ConfiguredFeature<?, ?> configuredfeature = FeaturesTwo.HUGE_BRIMSHINE;
 
-		if (configuredfeature.func_242765_a(p_226940_1_, p_226940_1_.getChunkProvider().getChunkGenerator(), p_226940_4_, p_226940_2_)) {
+		if (configuredfeature.func_242765_a(world, world.getChunkProvider().getChunkGenerator(), rand, pos)) {
 			return true;
 		} else {
-			p_226940_1_.setBlockState(p_226940_2_, p_226940_3_, 3);
+			world.setBlockState(pos, state, 3);
 			return false;
 		}
 	}

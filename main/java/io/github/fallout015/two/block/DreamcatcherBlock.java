@@ -36,6 +36,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 
+// TODO
+
 public class DreamcatcherBlock extends Block {
 	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 	protected static final VoxelShape DREAMCATCHER_EAST_AABB = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 3.0D, 16.0D, 16.0D);
@@ -126,6 +128,8 @@ public class DreamcatcherBlock extends Block {
 		//Block bed = bedstate.getBlock();
 		IWorldReader worldreader = playerWakeUpEvent.getPlayer().getEntityWorld();
 		BlockPos blockpos = playerWakeUpEvent.getPlayer().getBedPosition().get();
+//		ServerWorld serverworld = playerWakeUpEvent.getPlayer().getServer().getWorld(/*RegistryKey<World>*/);
+//		playerWakeUpEvent.getPlayer().changeDimension(p_241206_1_, teleporter);
 //		playerWakeUpEvent.getPlayer().changeDimension(DimensionTypeTwo.NIGHTMARE, new ITeleporter() {
 //			public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
 //				return repositionEntity.apply(false);

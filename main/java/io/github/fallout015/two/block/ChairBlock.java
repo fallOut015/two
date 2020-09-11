@@ -15,20 +15,55 @@ import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
 @SuppressWarnings("deprecation")
 public class ChairBlock extends Block implements ITileEntityProvider {
 	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+	private static final VoxelShape LEG_A_SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 2.0D, 14.0D, 2.0D);
+	private static final VoxelShape LEG_B_SHAPE = Block.makeCuboidShape(14.0D, 0.0D, 0.0D, 16.0D, 14.0D, 2.0D);
+	private static final VoxelShape LEG_C_SHAPE = Block.makeCuboidShape(14.0D, 0.0D, 14.0D, 16.0D, 14.0D, 16.0D);
+	private static final VoxelShape LEG_D_SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 14.0D, 2.0D, 14.0D, 16.0D);
+	private static final VoxelShape LEGS_SHAPE = VoxelShapes.or(LEG_A_SHAPE, LEG_B_SHAPE, LEG_C_SHAPE, LEG_D_SHAPE);
+	private static final VoxelShape SEAT_SHAPE = Block.makeCuboidShape(0, 14, 0, 16, 16, 16);
+	private static final VoxelShape BACK_NORTH_SHAPE = Block.makeCuboidShape(0, 16.0D, 14.0D, 16.0D, 32.0D, 16.0D);
+	private static final VoxelShape BACK_EAST_SHAPE = Block.makeCuboidShape(0.0D, 16.0D, 0.0D, 2.0D, 32.0D, 16.0D);
+	private static final VoxelShape BACK_SOUTH_SHAPE = Block.makeCuboidShape(0, 16.0D, 0.0D, 16.0D, 32.0D, 2.0D);
+	private static final VoxelShape BACK_WEST_SHAPE = Block.makeCuboidShape(14.0D, 16.0D, 0.0D, 16.0D, 32.0D, 16.0D);
+	private static final VoxelShape NORTH_AABB = VoxelShapes.or(LEGS_SHAPE, SEAT_SHAPE, BACK_NORTH_SHAPE);
+	private static final VoxelShape EAST_AABB = VoxelShapes.or(LEGS_SHAPE, SEAT_SHAPE, BACK_EAST_SHAPE);
+	private static final VoxelShape SOUTH_AABB = VoxelShapes.or(LEGS_SHAPE, SEAT_SHAPE, BACK_SOUTH_SHAPE);
+	private static final VoxelShape WEST_AABB = VoxelShapes.or(LEGS_SHAPE, SEAT_SHAPE, BACK_WEST_SHAPE);
 	
 	public ChairBlock(Properties properties) {
 		super(properties);
 		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
+	}
+	
+	@Override
+	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+		switch((Direction)state.get(FACING)) {
+	    	case NORTH:
+	    		return NORTH_AABB;
+	    	case SOUTH:
+	    		return SOUTH_AABB;
+	    	case WEST:
+	    		return WEST_AABB;
+	    	case EAST:
+	    	default:
+	    		return EAST_AABB;
+	    }
 	}
 	
 	@Nullable
@@ -72,6 +107,13 @@ public class ChairBlock extends Block implements ITileEntityProvider {
 	    worldIn.addEntity(itementity);
 		
 		super.onBlockHarvested(worldIn, pos, state, player);
+	}
+	@Override
+	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+		// TODO chair sitting code
+//		player.startRiding(worldIn.getTileEntity(pos));
+		
+		return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
 	}
 	
 	public static BlockState from(ItemStack stack) {

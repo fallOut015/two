@@ -524,6 +524,8 @@ public class BlocksTwo {
 	public static final Block CONVEYER = register("conveyer", new ConveyerBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(1.0f)));
 	public static final Block ICE_SLIME_BLOCK = register("ice_slime_block", new SlimeBlock(Block.Properties.create(Material.CLAY, MaterialColor.ICE).slipperiness(1.98F).sound(SoundType.SLIME).notSolid()));
 	
+	public static final Block TELEPORTER = register("teleporter", new TeleporterBlock(Block.Properties.create(Material.PORTAL)));
+	
 	public static final Block UPHOLSTERY_TABLE = register("upholstery_table", new UpholsteryTableBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.5f).sound(SoundType.WOOD)));
 	
 	public static final Block CHAIR = register("chair", new ChairBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.5f).sound(SoundType.WOOD)));

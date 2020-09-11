@@ -432,6 +432,8 @@ public class ItemsTwo {
 	public static final Item CONVEYER = register(BlocksTwo.CONVEYER, new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/);
 	public static final Item ICE_SLIME_BLOCK = register(BlocksTwo.ICE_SLIME_BLOCK, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
+	public static final Item TELEPORTER = register(BlocksTwo.TELEPORTER, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
 	public static final Item UPHOLSTERY_TABLE = register(BlocksTwo.UPHOLSTERY_TABLE, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
 	public static final Item CHAIR = register("chair", new ChairItem(BlocksTwo.CHAIR, new Item.Properties().group(ItemGroup.DECORATIONS)));

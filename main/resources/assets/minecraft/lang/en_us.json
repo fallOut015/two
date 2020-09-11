@@ -16,5 +16,7 @@
 
 	"item.minecraft.redstone" : "Redstone Dust",
 	
-	"item.minecraft.cookie" : "Chocolate Chip Cookie"
+	"item.minecraft.cookie" : "Chocolate Chip Cookie",
+	
+	"item.minecraft.ender_eye.pos" : "Attuned to "
 }

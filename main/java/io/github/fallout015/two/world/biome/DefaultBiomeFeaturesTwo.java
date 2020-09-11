@@ -218,6 +218,6 @@ public class DefaultBiomeFeaturesTwo {
 		builder.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityTypeTwo.CHAMELEON, weight, minCount, maxCount));
 	}
 	public static void addBeardedDragons(MobSpawnInfo.Builder builder) {
-		builder.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityTypeTwo.CHAMELEON, 12, 2, 4));
+		builder.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityTypeTwo.BEARDED_DRAGON, 12, 2, 4));
 	}
 }
