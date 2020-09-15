@@ -4,7 +4,9 @@ import java.util.EnumSet;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
+import io.github.fallout015.two.Two;
 import io.github.fallout015.two.entity.EntityTypeTwo;
 import io.github.fallout015.two.item.ItemsTwo;
 import net.minecraft.block.BlockState;
@@ -279,17 +281,43 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 	public class RestOnBlockGoal extends Goal {
 		private final AnimalEntity animal;
 		private final Predicate<BlockState> predicate$BlockState;
+		private boolean foundBlock;
+		private final PathNavigator navigator;
+		private BlockPos destination;
 		
 		public RestOnBlockGoal(AnimalEntity animal, Predicate<BlockState> predicate$BlockState) {
 			this.animal = animal;
 			this.predicate$BlockState = predicate$BlockState;
+			this.foundBlock = false;
+			this.navigator = animal.getNavigator();
+			this.destination = BlockPos.ZERO;
 			
 			this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
 		}
 			   
 		@Override
 		public boolean shouldExecute() {
-			return false;
+			return true;
+		}
+		@Override
+		public void tick() {
+			super.tick();
+			
+			if(!this.foundBlock) {
+				BlockPos from = new BlockPos(this.animal.getPositionVec().getX() - 5, this.animal.getPositionVec().getY() - 5, this.animal.getPositionVec().getZ() - 5);
+				BlockPos to = new BlockPos(this.animal.getPositionVec().getX() + 5, this.animal.getPositionVec().getY() + 5, this.animal.getPositionVec().getZ() + 5);
+				Stream<BlockPos> blocks = BlockPos.getAllInBox(from, to);
+				blocks.forEach(pos -> {
+					if(this.predicate$BlockState.test(this.animal.getEntityWorld().getBlockState(pos))) {
+						Two.LOGGER.info("predicate accepted a block at {}", pos);
+						this.foundBlock = true; 
+						this.destination = pos;
+					}
+				});
+			} else {
+				Two.LOGGER.info("moving towards the goal");
+				this.navigator.tryMoveToXYZ(this.destination.getX(), this.destination.getY(), this.destination.getZ(), this.animal.getAIMoveSpeed());
+			}
 		}
 	}
 }

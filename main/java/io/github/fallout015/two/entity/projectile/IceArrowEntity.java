@@ -36,7 +36,7 @@ public class IceArrowEntity extends AbstractArrowEntity {
 	public void tick() {
 		super.tick();
 		if (this.world.isRemote && !this.inGround) {
-//			this.world.addParticle(ParticleTypesTwo.FROST, this.getPosX(), this.getPosY(), this.getPosZ(), 0.0D, 0.0D, 0.0D);
+			this.world.addParticle(ParticleTypesTwo.FROST, this.getPosX(), this.getPosY(), this.getPosZ(), 0.0D, 0.0D, 0.0D);
 		}
 	}
 	@Override

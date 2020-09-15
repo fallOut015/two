@@ -10,6 +10,7 @@ import io.github.fallout015.two.block.trees.FrostbarkTree;
 import io.github.fallout015.two.block.trees.GhostwoodTree;
 import io.github.fallout015.two.block.trees.MapleTree;
 import io.github.fallout015.two.fluid.FluidsTwo;
+import io.github.fallout015.two.particles.ParticleTypesTwo;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -536,8 +537,8 @@ public class BlocksTwo {
 //	public static final Block LAMP;
 	
 	// TODO parity with vanilla torches, also, maybe improve from 16 to 18 or something
-	public static final Block STARSTONE_TORCH = register("starstone_torch", new TorchBlock(Block.Properties.create(Material.MISCELLANEOUS).func_235838_a_(state -> 16).doesNotBlockMovement().hardnessAndResistance(0), ParticleTypes.BUBBLE));
-	public static final Block STARSTONE_WALL_TORCH = register("starstone_wall_torch", new WallTorchBlock(Block.Properties.create(Material.MISCELLANEOUS).func_235838_a_(state -> 16).doesNotBlockMovement().hardnessAndResistance(0), ParticleTypes.BUBBLE));
+	public static final Block STARSTONE_TORCH = register("starstone_torch", new TorchBlock(Block.Properties.create(Material.MISCELLANEOUS).func_235838_a_(state -> 16).doesNotBlockMovement().hardnessAndResistance(0), ParticleTypesTwo.TWINKLE));
+	public static final Block STARSTONE_WALL_TORCH = register("starstone_wall_torch", new WallTorchBlock(Block.Properties.create(Material.MISCELLANEOUS).func_235838_a_(state -> 16).doesNotBlockMovement().hardnessAndResistance(0), ParticleTypesTwo.TWINKLE));
 	
 	public static final Block FLAGSTONE_PATH = register("flagstone_path", new Block(Block.Properties.from(Blocks.GRASS_PATH)));
 	

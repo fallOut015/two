@@ -14,6 +14,9 @@ import org.apache.logging.log4j.Logger;
 import com.google.common.collect.Sets;
 
 import io.github.fallout015.two.block.BlocksTwo;
+import io.github.fallout015.two.client.particle.FrostParticle;
+import io.github.fallout015.two.client.particle.SparkParticle;
+import io.github.fallout015.two.client.particle.TwinkleParticle;
 import io.github.fallout015.two.client.renderer.RenderTypeLookupTwo;
 import io.github.fallout015.two.client.renderer.entity.BeardedDragonRenderer;
 import io.github.fallout015.two.client.renderer.entity.BoatRendererTwo;
@@ -281,7 +284,8 @@ public class Two {
     	};
     }
 
-    private void setup(final FMLCommonSetupEvent event) {
+	@SuppressWarnings("resource")
+	private void setup(final FMLCommonSetupEvent event) {
 //    	DeferredWorkQueue ? 
 //    	DefaultBiomeFeaturesTwo.addFeatures();
 //    	DefaultBiomeFeaturesTwo.addStructures();
@@ -300,6 +304,10 @@ public class Two {
 //    	} catch(NullPointerException npe) {
 //    		npe.printStackTrace();
 //    	}
+		
+		Minecraft.getInstance().particles.registerFactory(ParticleTypesTwo.FROST, FrostParticle.Factory::new);
+		Minecraft.getInstance().particles.registerFactory(ParticleTypesTwo.SPARK, SparkParticle.Factory::new);
+		Minecraft.getInstance().particles.registerFactory(ParticleTypesTwo.TWINKLE, TwinkleParticle.Factory::new);
     	
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.CHAMELEON, ChameleonEntity.applyAttributes().func_233813_a_());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonEntity.applyAttributes().func_233813_a_());
