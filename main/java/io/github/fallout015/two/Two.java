@@ -70,11 +70,14 @@ import io.github.fallout015.two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 import net.minecraft.block.Block;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EvokerFangsRenderer;
+import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
@@ -123,6 +126,9 @@ import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
+import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import net.minecraftforge.common.MinecraftForge;
@@ -193,6 +199,8 @@ public class Two {
 			
 			disableStainedWoodenCrafting = CLIENT.DISABLE_STAINED_WOODEN_CRAFTING.get();
 			disableGlazedBricksCrafting = CLIENT.DISABLE_GLAZED_BRICK_CRAFTING.get();
+			
+			enableThrowingArrows = CLIENT.ENABLE_THROWING_ARROWS.get();
 		}
 		
 		public static class ClientConfig {
@@ -217,7 +225,7 @@ public class Two {
 			// Structures
 //			public final BooleanValue disableDreamcatchersInVillages;
 			// Misc
-//			public final BooleanValue enableThrowingArrows;
+			public final BooleanValue ENABLE_THROWING_ARROWS;
 //			public final BooleanValue disableDaggerSneakAttack;
 //			public final BooleanValue bombArrowsObeyMobGriefing;
 //			public final BooleanValue disableAdobeFreezing;
@@ -232,7 +240,9 @@ public class Two {
 				this.DISABLE_STAINED_WOODEN_CRAFTING = builder.comment("Disable the crafting recipes for everything related to Stained Wooden Planks. In case you have another mod that uses it.").translation("two.config.disableStainedWoodenCrafting").define("DISABLE_STAINED_WOODEN_CRAFTING", false);
 				this.DISABLE_GLAZED_BRICK_CRAFTING = builder.comment("Disable the crafting recipes for everything related to Glazed Bricks. In case you have another mod that uses it.").translation("two.config.disableGlazedBricksCrafting").define("DISABLE_GLAZED_BRICKS_CRAFTING", false);
 				builder.pop();
-				
+				builder.push("Misc");
+				this.ENABLE_THROWING_ARROWS = builder.comment("Enable pressing Q to throw arrows like darts.").translation("two.config.enableThrowingArrows").define("ENABLE_THROWING_ARROWS", false);
+				builder.pop();
 //				builder.push("category");
 //				this.anInt = builder.comment("anInt usage description").translation(Two.class.getAnnotation(Mod.class).value() + ".config." + "anInt").defineInRange("anInt", 10, 0, 100);
 //				builder.pop();
@@ -314,7 +324,7 @@ public class Two {
 //    		if(name.equals(event.getMinecraftSupplier().get().player.getName().getString())) {
 //    			Assert.assrt("You are blacklisted!", false);
 //    		}
-//    	}
+//    	} // TODO blacklist code
     	
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CHAMELEON, ChameleonRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonRenderer::new);
@@ -490,7 +500,7 @@ public class Two {
     public static class Events {
     	@SubscribeEvent
     	public static void onItemToss(final ItemTossEvent itemTossEvent) {
-    		if(itemTossEvent.getEntityItem().getItem().getItem() instanceof ArrowItem && !itemTossEvent.getPlayer().getEntityWorld().isRemote) {
+    		if(Config.enableThrowingArrows && itemTossEvent.getEntityItem().getItem().getItem() instanceof ArrowItem && !itemTossEvent.getPlayer().getEntityWorld().isRemote) {
     			AbstractArrowEntity abstractarrowentity = ((ArrowItem) itemTossEvent.getEntityItem().getItem().getItem()).createArrow(itemTossEvent.getEntityItem().getEntityWorld(), itemTossEvent.getEntityItem().getItem(), itemTossEvent.getPlayer());
 //                abstractarrowentity.shoot(itemTossEvent.getPlayer(), itemTossEvent.getPlayer().rotationPitch, itemTossEvent.getPlayer().rotationYaw, 0.0F, 0.9F, 2.0F);
                 itemTossEvent.getPlayer().getEntityWorld().addEntity(abstractarrowentity);
@@ -854,6 +864,23 @@ public class Two {
 //        			}
 //        		}
 //    		}
+    	}
+    	@SubscribeEvent
+    	public static <T extends LivingEntity> void onRenderLivingPre(final RenderLivingEvent.Pre<T, EntityModel<T>> renderLivingEvent$Pre) {
+    		if(renderLivingEvent$Pre.getEntity().getActivePotionEffect(EffectsTwo.FROSTY) != null) {
+        		RenderType renderType = RenderType.getEntitySolid(renderLivingEvent$Pre.getRenderer().getEntityTexture((T) renderLivingEvent$Pre.getEntity()));
+        		renderLivingEvent$Pre.getBuffers().getBuffer(renderType).color(0, 64, 128, 128);
+    		}
+    	}
+    	@SubscribeEvent
+    	public static void onRenderGameOverlayPre(final RenderGameOverlayEvent.Pre renderGameOverlayEvent$Pre) {
+    		if(renderGameOverlayEvent$Pre.getType() == ElementType.VIGNETTE) {
+    			// render a light cyan vignette when frozen
+    		}
+    	}
+    	@SubscribeEvent
+    	public static void onRenderGameOverlayPost(final RenderGameOverlayEvent.Post renderGameOverlayEvent$Post) {
+    		
     	}
     }
 }
