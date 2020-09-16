@@ -10,6 +10,7 @@ import io.github.fallout015.two.block.trees.FrostbarkTree;
 import io.github.fallout015.two.block.trees.GhostwoodTree;
 import io.github.fallout015.two.block.trees.MapleTree;
 import io.github.fallout015.two.fluid.FluidsTwo;
+import io.github.fallout015.two.particles.ParticleTypesTwo;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -107,30 +108,30 @@ public class BlocksTwo {
 	public static final Block GREEN_STAINED_WOODEN_SLAB = register("green_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.GREEN).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
 	public static final Block RED_STAINED_WOODEN_SLAB = register("red_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.RED).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
 	public static final Block BLACK_STAINED_WOODEN_SLAB = register("black_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.BLACK).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	// TODO before this update releases I have to make some alt dye recipes and advancements for the slabs
 	
-	public static final Block WHITE_STAINED_WOODEN_STAIRS = register("white_stained_wooden_stairs", new StairsBlock(() -> WHITE_STAINED_WOODEN_PLANKS.getDefaultState(), Block.Properties.from(WHITE_STAINED_WOODEN_PLANKS)));
-	public static final Block ORANGE_STAINED_WOODEN_STAIRS = register("orange_stained_wooden_stairs", new StairsBlock(() -> ORANGE_STAINED_WOODEN_PLANKS.getDefaultState(), Block.Properties.from(ORANGE_STAINED_WOODEN_PLANKS)));
-	public static final Block MAGENTA_STAINED_WOODEN_STAIRS = register("magenta_stained_wooden_stairs", new StairsBlock(() -> MAGENTA_STAINED_WOODEN_PLANKS.getDefaultState(), Block.Properties.from(MAGENTA_STAINED_WOODEN_PLANKS)));
-	public static final Block LIGHT_BLUE_STAINED_WOODEN_STAIRS = register("light_blue_stained_wooden_stairs", new StairsBlock(() -> LIGHT_BLUE_STAINED_WOODEN_PLANKS.getDefaultState(), Block.Properties.from(LIGHT_BLUE_STAINED_WOODEN_PLANKS)));
-	public static final Block YELLOW_STAINED_WOODEN_STAIRS = register("yellow_stained_wooden_stairs", new StairsBlock(() -> YELLOW_STAINED_WOODEN_PLANKS.getDefaultState(), Block.Properties.from(YELLOW_STAINED_WOODEN_PLANKS)));
-	public static final Block LIME_STAINED_WOODEN_STAIRS = register("lime_stained_wooden_stairs", new StairsBlock(() -> LIME_STAINED_WOODEN_PLANKS.getDefaultState(), Block.Properties.from(LIME_STAINED_WOODEN_PLANKS)));
-	public static final Block PINK_STAINED_WOODEN_STAIRS = register("pink_stained_wooden_stairs", new StairsBlock(() -> PINK_STAINED_WOODEN_PLANKS.getDefaultState(), Block.Properties.from(PINK_STAINED_WOODEN_PLANKS)));
-	public static final Block GRAY_STAINED_WOODEN_STAIRS = register("gray_stained_wooden_stairs", new StairsBlock(() -> GRAY_STAINED_WOODEN_PLANKS.getDefaultState(), Block.Properties.from(GRAY_STAINED_WOODEN_PLANKS)));
-	public static final Block LIGHT_GRAY_STAINED_WOODEN_STAIRS = register("light_gray_stained_wooden_stairs", new StairsBlock(() -> LIGHT_GRAY_STAINED_WOODEN_PLANKS.getDefaultState(), Block.Properties.from(LIGHT_GRAY_STAINED_WOODEN_PLANKS)));
-	public static final Block CYAN_STAINED_WOODEN_STAIRS = register("cyan_stained_wooden_stairs", new StairsBlock(() -> CYAN_STAINED_WOODEN_PLANKS.getDefaultState(), Block.Properties.from(CYAN_STAINED_WOODEN_PLANKS)));
-	public static final Block PURPLE_STAINED_WOODEN_STAIRS = register("purple_stained_wooden_stairs", new StairsBlock(() -> PURPLE_STAINED_WOODEN_PLANKS.getDefaultState(), Block.Properties.from(PURPLE_STAINED_WOODEN_PLANKS)));
-	public static final Block BLUE_STAINED_WOODEN_STAIRS = register("blue_stained_wooden_stairs", new StairsBlock(() -> BLUE_STAINED_WOODEN_PLANKS.getDefaultState(), Block.Properties.from(BLUE_STAINED_WOODEN_PLANKS)));
-	public static final Block BROWN_STAINED_WOODEN_STAIRS = register("brown_stained_wooden_stairs", new StairsBlock(() -> BROWN_STAINED_WOODEN_PLANKS.getDefaultState(), Block.Properties.from(BROWN_STAINED_WOODEN_PLANKS)));
-	public static final Block GREEN_STAINED_WOODEN_STAIRS = register("green_stained_wooden_stairs", new StairsBlock(() -> GREEN_STAINED_WOODEN_PLANKS.getDefaultState(), Block.Properties.from(GREEN_STAINED_WOODEN_PLANKS)));
-	public static final Block RED_STAINED_WOODEN_STAIRS = register("red_stained_wooden_stairs", new StairsBlock(() -> RED_STAINED_WOODEN_PLANKS.getDefaultState(), Block.Properties.from(RED_STAINED_WOODEN_PLANKS)));
-	public static final Block BLACK_STAINED_WOODEN_STAIRS = register("black_stained_wooden_stairs", new StairsBlock(() -> BLACK_STAINED_WOODEN_PLANKS.getDefaultState(), Block.Properties.from(BLACK_STAINED_WOODEN_PLANKS)));
+	public static final Block WHITE_STAINED_WOODEN_STAIRS = register("white_stained_wooden_stairs", new StairsBlock(WHITE_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(WHITE_STAINED_WOODEN_PLANKS)));
+	public static final Block ORANGE_STAINED_WOODEN_STAIRS = register("orange_stained_wooden_stairs", new StairsBlock(ORANGE_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(ORANGE_STAINED_WOODEN_PLANKS)));
+	public static final Block MAGENTA_STAINED_WOODEN_STAIRS = register("magenta_stained_wooden_stairs", new StairsBlock(MAGENTA_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(MAGENTA_STAINED_WOODEN_PLANKS)));
+	public static final Block LIGHT_BLUE_STAINED_WOODEN_STAIRS = register("light_blue_stained_wooden_stairs", new StairsBlock(LIGHT_BLUE_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(LIGHT_BLUE_STAINED_WOODEN_PLANKS)));
+	public static final Block YELLOW_STAINED_WOODEN_STAIRS = register("yellow_stained_wooden_stairs", new StairsBlock(YELLOW_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(YELLOW_STAINED_WOODEN_PLANKS)));
+	public static final Block LIME_STAINED_WOODEN_STAIRS = register("lime_stained_wooden_stairs", new StairsBlock(LIME_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(LIME_STAINED_WOODEN_PLANKS)));
+	public static final Block PINK_STAINED_WOODEN_STAIRS = register("pink_stained_wooden_stairs", new StairsBlock(PINK_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(PINK_STAINED_WOODEN_PLANKS)));
+	public static final Block GRAY_STAINED_WOODEN_STAIRS = register("gray_stained_wooden_stairs", new StairsBlock(GRAY_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(GRAY_STAINED_WOODEN_PLANKS)));
+	public static final Block LIGHT_GRAY_STAINED_WOODEN_STAIRS = register("light_gray_stained_wooden_stairs", new StairsBlock(LIGHT_GRAY_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(LIGHT_GRAY_STAINED_WOODEN_PLANKS)));
+	public static final Block CYAN_STAINED_WOODEN_STAIRS = register("cyan_stained_wooden_stairs", new StairsBlock(CYAN_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(CYAN_STAINED_WOODEN_PLANKS)));
+	public static final Block PURPLE_STAINED_WOODEN_STAIRS = register("purple_stained_wooden_stairs", new StairsBlock(PURPLE_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(PURPLE_STAINED_WOODEN_PLANKS)));
+	public static final Block BLUE_STAINED_WOODEN_STAIRS = register("blue_stained_wooden_stairs", new StairsBlock(BLUE_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(BLUE_STAINED_WOODEN_PLANKS)));
+	public static final Block BROWN_STAINED_WOODEN_STAIRS = register("brown_stained_wooden_stairs", new StairsBlock(BROWN_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(BROWN_STAINED_WOODEN_PLANKS)));
+	public static final Block GREEN_STAINED_WOODEN_STAIRS = register("green_stained_wooden_stairs", new StairsBlock(GREEN_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(GREEN_STAINED_WOODEN_PLANKS)));
+	public static final Block RED_STAINED_WOODEN_STAIRS = register("red_stained_wooden_stairs", new StairsBlock(RED_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(RED_STAINED_WOODEN_PLANKS)));
+	public static final Block BLACK_STAINED_WOODEN_STAIRS = register("black_stained_wooden_stairs", new StairsBlock(BLACK_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(BLACK_STAINED_WOODEN_PLANKS)));
 	
 	// stained boat
 	// stained sign
-	// stained fence
+	// stained fence (next)
 	// stained door
-	// stained fence gate
-	// stained stairs
+	// stained fence gate (next)
 	// stained button
 	// stained pressure plate
 	// stained trapdoor
@@ -256,12 +257,12 @@ public class BlocksTwo {
 	// neondot fence gate
 	// brimshine fence gate
 	
-	public static final Block CHERRY_STAIRS = register("cherry_stairs", new StairsBlock(() -> CHERRY_PLANKS.getDefaultState(), Block.Properties.from(CHERRY_PLANKS)));
-	public static final Block MAPLE_STAIRS = register("maple_stairs", new StairsBlock(() -> MAPLE_PLANKS.getDefaultState(), Block.Properties.from(MAPLE_PLANKS)));
-	public static final Block GHOSTWOOD_STAIRS = register("ghostwood_stairs", new StairsBlock(() -> GHOSTWOOD_PLANKS.getDefaultState(), Block.Properties.from(GHOSTWOOD_PLANKS)));
-	public static final Block CLOUDWOOD_STAIRS = register("cloudwood_stairs", new StairsBlock(() -> CLOUDWOOD_PLANKS.getDefaultState(), Block.Properties.from(CLOUDWOOD_PLANKS)));
-	public static final Block BLACKBARK_STAIRS = register("blackbark_stairs", new StairsBlock(() -> BLACKBARK_PLANKS.getDefaultState(), Block.Properties.from(BLACKBARK_PLANKS)));
-	public static final Block FROSTBARK_STAIRS = register("frostbark_stairs", new StairsBlock(() -> FROSTBARK_PLANKS.getDefaultState(), Block.Properties.from(FROSTBARK_PLANKS)));
+	public static final Block CHERRY_STAIRS = register("cherry_stairs", new StairsBlock(CHERRY_PLANKS::getDefaultState, Block.Properties.from(CHERRY_PLANKS)));
+	public static final Block MAPLE_STAIRS = register("maple_stairs", new StairsBlock(MAPLE_PLANKS::getDefaultState, Block.Properties.from(MAPLE_PLANKS)));
+	public static final Block GHOSTWOOD_STAIRS = register("ghostwood_stairs", new StairsBlock(GHOSTWOOD_PLANKS::getDefaultState, Block.Properties.from(GHOSTWOOD_PLANKS)));
+	public static final Block CLOUDWOOD_STAIRS = register("cloudwood_stairs", new StairsBlock(CLOUDWOOD_PLANKS::getDefaultState, Block.Properties.from(CLOUDWOOD_PLANKS)));
+	public static final Block BLACKBARK_STAIRS = register("blackbark_stairs", new StairsBlock(BLACKBARK_PLANKS::getDefaultState, Block.Properties.from(BLACKBARK_PLANKS)));
+	public static final Block FROSTBARK_STAIRS = register("frostbark_stairs", new StairsBlock(FROSTBARK_PLANKS::getDefaultState, Block.Properties.from(FROSTBARK_PLANKS)));
 	// neondot stairs
 	// brimshine stairs
 	
@@ -335,23 +336,24 @@ public class BlocksTwo {
 	public static final Block RED_GLAZED_BRICK_SLAB = register("red_glazed_brick_slab", new SlabBlock(Block.Properties.from(RED_GLAZED_BRICKS)));
 	public static final Block BLACK_GLAZED_BRICK_SLAB = register("black_glazed_brick_slab", new SlabBlock(Block.Properties.from(BLACK_GLAZED_BRICKS)));
 
-	public static final Block WHITE_GLAZED_BRICK_STAIRS = register("white_glazed_brick_stairs", new StairsBlock(() -> WHITE_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(WHITE_GLAZED_BRICKS)));
-	public static final Block ORANGE_GLAZED_BRICK_STAIRS = register("orange_glazed_brick_stairs", new StairsBlock(() -> ORANGE_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(ORANGE_GLAZED_BRICKS)));
-	public static final Block MAGENTA_GLAZED_BRICK_STAIRS = register("magenta_glazed_brick_stairs", new StairsBlock(() -> MAGENTA_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(MAGENTA_GLAZED_BRICKS)));
-	public static final Block LIGHT_BLUE_GLAZED_BRICK_STAIRS = register("light_blue_glazed_brick_stairs", new StairsBlock(() -> LIGHT_BLUE_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(LIGHT_BLUE_GLAZED_BRICKS)));
-	public static final Block YELLOW_GLAZED_BRICK_STAIRS = register("yellow_glazed_brick_stairs", new StairsBlock(() -> YELLOW_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(YELLOW_GLAZED_BRICKS)));
-	public static final Block LIME_GLAZED_BRICK_STAIRS = register("lime_glazed_brick_stairs", new StairsBlock(() -> LIME_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(LIME_GLAZED_BRICKS)));
-	public static final Block PINK_GLAZED_BRICK_STAIRS = register("pink_glazed_brick_stairs", new StairsBlock(() -> PINK_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(PINK_GLAZED_BRICKS)));
-	public static final Block GRAY_GLAZED_BRICK_STAIRS = register("gray_glazed_brick_stairs", new StairsBlock(() -> GRAY_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(GRAY_GLAZED_BRICKS)));
-	public static final Block LIGHT_GRAY_GLAZED_BRICK_STAIRS = register("light_gray_glazed_brick_stairs", new StairsBlock(() -> LIGHT_GRAY_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(LIGHT_GRAY_GLAZED_BRICKS)));
-	public static final Block CYAN_GLAZED_BRICK_STAIRS = register("cyan_glazed_brick_stairs", new StairsBlock(() -> CYAN_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(CYAN_GLAZED_BRICKS)));
-	public static final Block PURPLE_GLAZED_BRICK_STAIRS = register("purple_glazed_brick_stairs", new StairsBlock(() -> PURPLE_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(PURPLE_GLAZED_BRICKS)));
-	public static final Block BLUE_GLAZED_BRICK_STAIRS = register("blue_glazed_brick_stairs", new StairsBlock(() -> BLUE_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(BLUE_GLAZED_BRICKS)));
-	public static final Block BROWN_GLAZED_BRICK_STAIRS = register("brown_glazed_brick_stairs", new StairsBlock(() -> BROWN_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(BROWN_GLAZED_BRICKS)));
-	public static final Block GREEN_GLAZED_BRICK_STAIRS = register("green_glazed_brick_stairs", new StairsBlock(() -> GREEN_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(GREEN_GLAZED_BRICKS)));
-	public static final Block RED_GLAZED_BRICK_STAIRS = register("red_glazed_brick_stairs", new StairsBlock(() -> RED_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(RED_GLAZED_BRICKS)));
-	public static final Block BLACK_GLAZED_BRICK_STAIRS = register("black_glazed_brick_stairs", new StairsBlock(() -> BLACK_GLAZED_BRICKS.getDefaultState(), Block.Properties.from(BLACK_GLAZED_BRICKS)));
-
+	public static final Block WHITE_GLAZED_BRICK_STAIRS = register("white_glazed_brick_stairs", new StairsBlock(WHITE_GLAZED_BRICKS::getDefaultState, Block.Properties.from(WHITE_GLAZED_BRICKS)));
+	public static final Block ORANGE_GLAZED_BRICK_STAIRS = register("orange_glazed_brick_stairs", new StairsBlock(ORANGE_GLAZED_BRICKS::getDefaultState, Block.Properties.from(ORANGE_GLAZED_BRICKS)));
+	public static final Block MAGENTA_GLAZED_BRICK_STAIRS = register("magenta_glazed_brick_stairs", new StairsBlock(MAGENTA_GLAZED_BRICKS::getDefaultState, Block.Properties.from(MAGENTA_GLAZED_BRICKS)));
+	public static final Block LIGHT_BLUE_GLAZED_BRICK_STAIRS = register("light_blue_glazed_brick_stairs", new StairsBlock(LIGHT_BLUE_GLAZED_BRICKS::getDefaultState, Block.Properties.from(LIGHT_BLUE_GLAZED_BRICKS)));
+	public static final Block YELLOW_GLAZED_BRICK_STAIRS = register("yellow_glazed_brick_stairs", new StairsBlock(YELLOW_GLAZED_BRICKS::getDefaultState, Block.Properties.from(YELLOW_GLAZED_BRICKS)));
+	public static final Block LIME_GLAZED_BRICK_STAIRS = register("lime_glazed_brick_stairs", new StairsBlock(LIME_GLAZED_BRICKS::getDefaultState, Block.Properties.from(LIME_GLAZED_BRICKS)));
+	public static final Block PINK_GLAZED_BRICK_STAIRS = register("pink_glazed_brick_stairs", new StairsBlock(PINK_GLAZED_BRICKS::getDefaultState, Block.Properties.from(PINK_GLAZED_BRICKS)));
+	public static final Block GRAY_GLAZED_BRICK_STAIRS = register("gray_glazed_brick_stairs", new StairsBlock(GRAY_GLAZED_BRICKS::getDefaultState, Block.Properties.from(GRAY_GLAZED_BRICKS)));
+	public static final Block LIGHT_GRAY_GLAZED_BRICK_STAIRS = register("light_gray_glazed_brick_stairs", new StairsBlock(LIGHT_GRAY_GLAZED_BRICKS::getDefaultState, Block.Properties.from(LIGHT_GRAY_GLAZED_BRICKS)));
+	public static final Block CYAN_GLAZED_BRICK_STAIRS = register("cyan_glazed_brick_stairs", new StairsBlock(CYAN_GLAZED_BRICKS::getDefaultState, Block.Properties.from(CYAN_GLAZED_BRICKS)));
+	public static final Block PURPLE_GLAZED_BRICK_STAIRS = register("purple_glazed_brick_stairs", new StairsBlock(PURPLE_GLAZED_BRICKS::getDefaultState, Block.Properties.from(PURPLE_GLAZED_BRICKS)));
+	public static final Block BLUE_GLAZED_BRICK_STAIRS = register("blue_glazed_brick_stairs", new StairsBlock(BLUE_GLAZED_BRICKS::getDefaultState, Block.Properties.from(BLUE_GLAZED_BRICKS)));
+	public static final Block BROWN_GLAZED_BRICK_STAIRS = register("brown_glazed_brick_stairs", new StairsBlock(BROWN_GLAZED_BRICKS::getDefaultState, Block.Properties.from(BROWN_GLAZED_BRICKS)));
+	public static final Block GREEN_GLAZED_BRICK_STAIRS = register("green_glazed_brick_stairs", new StairsBlock(GREEN_GLAZED_BRICKS::getDefaultState, Block.Properties.from(GREEN_GLAZED_BRICKS)));
+	public static final Block RED_GLAZED_BRICK_STAIRS = register("red_glazed_brick_stairs", new StairsBlock(RED_GLAZED_BRICKS::getDefaultState, Block.Properties.from(RED_GLAZED_BRICKS)));
+	public static final Block BLACK_GLAZED_BRICK_STAIRS = register("black_glazed_brick_stairs", new StairsBlock(BLACK_GLAZED_BRICKS::getDefaultState, Block.Properties.from(BLACK_GLAZED_BRICKS)));
+	// TODO alt recipes
+	
 	public static final Block WHITE_GLAZED_BRICK_WALL = register("white_glazed_brick_wall", new WallBlock(Block.Properties.from(WHITE_GLAZED_BRICKS)));
 	public static final Block ORANGE_GLAZED_BRICK_WALL = register("orange_glazed_brick_wall", new WallBlock(Block.Properties.from(ORANGE_GLAZED_BRICKS)));
 	public static final Block MAGENTA_GLAZED_BRICK_WALL = register("magenta_glazed_brick_wall", new WallBlock(Block.Properties.from(MAGENTA_GLAZED_BRICKS)));
@@ -373,12 +375,12 @@ public class BlocksTwo {
 	
 	public static final Block ADOBE_DRY = register("adobe_dry", new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f, 4.5f)));
 	public static final Block ADOBE_DRY_SLAB = register("adobe_dry_slab", new SlabBlock(Block.Properties.from(ADOBE_DRY)));
-	public static final Block ADOBE_DRY_STAIRS = register("adobe_dry_stairs", new StairsBlock(() -> ADOBE_DRY.getDefaultState(), Block.Properties.from(ADOBE_DRY)));
+	public static final Block ADOBE_DRY_STAIRS = register("adobe_dry_stairs", new StairsBlock(ADOBE_DRY::getDefaultState, Block.Properties.from(ADOBE_DRY)));
 	public static final Block ADOBE_DRY_WALL = register("adobe_dry_wall", new WallBlock(Block.Properties.from(ADOBE_DRY)));
 	
 	public static final Block ADOBE_FROZEN = register("adobe_frozen", new Block(Block.Properties.create(Material.ICE).slipperiness(0.9f).hardnessAndResistance(0.5f)));
 	public static final Block ADOBE_FROZEN_SLAB = register("adobe_frozen_slab", new SlabBlock(Block.Properties.from(ADOBE_FROZEN)));
-	public static final Block ADOBE_FROZEN_STAIRS = register("adobe_frozen_stairs", new StairsBlock(() -> ADOBE_FROZEN.getDefaultState(), Block.Properties.from(ADOBE_FROZEN)));
+	public static final Block ADOBE_FROZEN_STAIRS = register("adobe_frozen_stairs", new StairsBlock(ADOBE_FROZEN::getDefaultState, Block.Properties.from(ADOBE_FROZEN)));
 	public static final Block ADOBE_FROZEN_WALL = register("adobe_frozen_wall", new WallBlock(Block.Properties.from(ADOBE_FROZEN)));
 	
 	public static final Block SPORESTONE = register("sporestone", new Block(Block.Properties.create(Material.ROCK, MaterialColor.BLACK).hardnessAndResistance(1.0f, 4.0f).harvestTool(ToolType.PICKAXE)));
@@ -402,17 +404,17 @@ public class BlocksTwo {
 	
 	public static final Block MYRKYLITE = register("myrkylite", new Block(Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(2.0f).harvestTool(ToolType.PICKAXE).harvestLevel(5)));
 	public static final Block MYRKYLITE_SLAB = register("myrkylite_slab", new SlabBlock(Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(2.0f).harvestTool(ToolType.PICKAXE).harvestLevel(5)));
-	public static final Block MYRKYLITE_STAIRS = register("myrkylite_stairs", new StairsBlock(() -> MYRKYLITE.getDefaultState(), Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(2.0f).harvestTool(ToolType.PICKAXE).harvestLevel(5)));
+	public static final Block MYRKYLITE_STAIRS = register("myrkylite_stairs", new StairsBlock(MYRKYLITE::getDefaultState, Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(2.0f).harvestTool(ToolType.PICKAXE).harvestLevel(5)));
 	public static final Block MYRKYLITE_WALL = register("myrkylite_wall", new WallBlock(Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(2.0f).harvestTool(ToolType.PICKAXE).harvestLevel(5)));
 	
 	public static final Block POLISHED_MYRKYLITE = register("polished_myrkylite", new Block(Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(2.0f).harvestTool(ToolType.PICKAXE)));
 	public static final Block POLISHED_MYRKYLITE_SLAB = register("polished_myrkylite_slab", new SlabBlock(Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(2.0f).harvestTool(ToolType.PICKAXE)));
-	public static final Block POLISHED_MYRKYLITE_STAIRS = register("polished_myrkylite_stairs", new StairsBlock(() -> POLISHED_MYRKYLITE.getDefaultState(), Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(2.0f).harvestTool(ToolType.PICKAXE)));
+	public static final Block POLISHED_MYRKYLITE_STAIRS = register("polished_myrkylite_stairs", new StairsBlock(POLISHED_MYRKYLITE::getDefaultState, Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(2.0f).harvestTool(ToolType.PICKAXE)));
 	public static final Block POLISHED_MYRKYLITE_WALL = register("polished_myrkylite_wall", new WallBlock(Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(2.0f).harvestTool(ToolType.PICKAXE)));
 	
 	public static final Block POLISHED_MYRKYLITE_BRICKS = register("polished_myrkylite_bricks", new Block(Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(4.0f)));
 	public static final Block POLISHED_MYRKYLITE_BRICK_SLAB = register("polished_myrkylite_brick_slab", new SlabBlock(Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(4.0f)));
-	public static final Block POLISHED_MYRKYLITE_BRICK_STAIRS = register("polished_myrkylite_brick_stairs", new StairsBlock(() -> POLISHED_MYRKYLITE_BRICKS.getDefaultState(), Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(4.0f)));
+	public static final Block POLISHED_MYRKYLITE_BRICK_STAIRS = register("polished_myrkylite_brick_stairs", new StairsBlock(POLISHED_MYRKYLITE_BRICKS::getDefaultState, Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(4.0f)));
 	public static final Block POLISHED_MYRKYLITE_BRICK_WALL = register("polished_myrkylite_brick_wall", new WallBlock(Block.Properties.create(MaterialTwo.MYRKYLITE).hardnessAndResistance(4.0f)));
 	
 	// Blood Aether
@@ -486,26 +488,26 @@ public class BlocksTwo {
 	
 	public static final Block CHISELED_LAPIS_BLOCK = register("chiseled_lapis_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LAPIS).hardnessAndResistance(0.8F)));
 	public static final Block LAPIS_PILLAR = register("lapis_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.LAPIS).hardnessAndResistance(0.8F)));
-	public static final Block LAPIS_STAIRS = register("lapis_stairs", new StairsBlock(() -> Blocks.LAPIS_BLOCK.getDefaultState(), Block.Properties.from(Blocks.LAPIS_BLOCK)));
+	public static final Block LAPIS_STAIRS = register("lapis_stairs", new StairsBlock(Blocks.LAPIS_BLOCK::getDefaultState, Block.Properties.from(Blocks.LAPIS_BLOCK)));
 	public static final Block LAPIS_SLAB = register("lapis_slab", new SlabBlock(Block.Properties.create(Material.IRON, MaterialColor.LAPIS).hardnessAndResistance(2.0F, 6.0F)));
 	public static final Block SMOOTH_LAPIS = register("smooth_lapis", new Block(Block.Properties.create(Material.IRON, MaterialColor.LAPIS).hardnessAndResistance(2.0F, 6.0F)));
-	public static final Block SMOOTH_LAPIS_STAIRS = register("smooth_lapis_stairs", new StairsBlock(() -> SMOOTH_LAPIS.getDefaultState(), Block.Properties.from(SMOOTH_LAPIS)));
+	public static final Block SMOOTH_LAPIS_STAIRS = register("smooth_lapis_stairs", new StairsBlock(SMOOTH_LAPIS::getDefaultState, Block.Properties.from(SMOOTH_LAPIS)));
 	public static final Block SMOOTH_LAPIS_SLAB = register("smooth_lapis_slab", new SlabBlock(Block.Properties.from(SMOOTH_LAPIS)));
 	
 	public static final Block CHISELED_IRON_BLOCK = register("chiseled_iron_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(0.8F)));
 	public static final Block IRON_PILLAR = register("iron_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(0.8F)));
-	public static final Block IRON_STAIRS = register("iron_stairs", new StairsBlock(() -> Blocks.IRON_BLOCK.getDefaultState(), Block.Properties.from(Blocks.IRON_BLOCK)));
+	public static final Block IRON_STAIRS = register("iron_stairs", new StairsBlock(Blocks.IRON_BLOCK::getDefaultState, Block.Properties.from(Blocks.IRON_BLOCK)));
 	public static final Block IRON_SLAB = register("iron_slab", new SlabBlock(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(2.0F, 6.0F)));
 	public static final Block SMOOTH_IRON = register("smooth_iron", new Block(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(2.0F, 6.0F)));
-	public static final Block SMOOTH_IRON_STAIRS = register("smooth_iron_stairs", new StairsBlock(() -> SMOOTH_IRON.getDefaultState(), Block.Properties.from(SMOOTH_IRON)));
+	public static final Block SMOOTH_IRON_STAIRS = register("smooth_iron_stairs", new StairsBlock(SMOOTH_IRON::getDefaultState, Block.Properties.from(SMOOTH_IRON)));
 	public static final Block SMOOTH_IRON_SLAB = register("smooth_iron_slab", new SlabBlock(Block.Properties.from(SMOOTH_IRON)));
 
 	public static final Block CHISELED_GOLD_BLOCK = register("chiseled_gold_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GOLD).hardnessAndResistance(0.8F)));
 	public static final Block GOLD_PILLAR = register("gold_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.GOLD).hardnessAndResistance(0.8F)));
-	public static final Block GOLD_STAIRS = register("gold_stairs", new StairsBlock(() -> Blocks.GOLD_BLOCK.getDefaultState(), Block.Properties.from(Blocks.GOLD_BLOCK)));
+	public static final Block GOLD_STAIRS = register("gold_stairs", new StairsBlock(Blocks.GOLD_BLOCK::getDefaultState, Block.Properties.from(Blocks.GOLD_BLOCK)));
 	public static final Block GOLD_SLAB = register("gold_slab", new SlabBlock(Block.Properties.create(Material.IRON, MaterialColor.GOLD).hardnessAndResistance(2.0F, 6.0F)));
 	public static final Block SMOOTH_GOLD = register("smooth_gold", new Block(Block.Properties.create(Material.IRON, MaterialColor.GOLD).hardnessAndResistance(2.0F, 6.0F)));
-	public static final Block SMOOTH_GOLD_STAIRS = register("smooth_gold_stairs", new StairsBlock(() -> SMOOTH_GOLD.getDefaultState(), Block.Properties.from(SMOOTH_GOLD)));
+	public static final Block SMOOTH_GOLD_STAIRS = register("smooth_gold_stairs", new StairsBlock(SMOOTH_GOLD::getDefaultState, Block.Properties.from(SMOOTH_GOLD)));
 	public static final Block SMOOTH_GOLD_SLAB = register("smooth_gold_slab", new SlabBlock(Block.Properties.from(SMOOTH_GOLD)));
 	
 	public static final Block DREAMCATCHER_CHAOS = register("dreamcatcher_chaos", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.RED).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.ANGRY_VILLAGER, DreamcatcherBlock::dreamcatcherChaos));
@@ -536,8 +538,8 @@ public class BlocksTwo {
 //	public static final Block LAMP;
 	
 	// TODO parity with vanilla torches, also, maybe improve from 16 to 18 or something
-	public static final Block STARSTONE_TORCH = register("starstone_torch", new TorchBlock(Block.Properties.create(Material.MISCELLANEOUS).func_235838_a_(state -> 16).doesNotBlockMovement().hardnessAndResistance(0), ParticleTypes.BUBBLE));
-	public static final Block STARSTONE_WALL_TORCH = register("starstone_wall_torch", new WallTorchBlock(Block.Properties.create(Material.MISCELLANEOUS).func_235838_a_(state -> 16).doesNotBlockMovement().hardnessAndResistance(0), ParticleTypes.BUBBLE));
+	public static final Block STARSTONE_TORCH = register("starstone_torch", new TorchBlock(Block.Properties.create(Material.MISCELLANEOUS).func_235838_a_(state -> 16).doesNotBlockMovement().hardnessAndResistance(0), ParticleTypesTwo.TWINKLE));
+	public static final Block STARSTONE_WALL_TORCH = register("starstone_wall_torch", new WallTorchBlock(Block.Properties.create(Material.MISCELLANEOUS).func_235838_a_(state -> 16).doesNotBlockMovement().hardnessAndResistance(0), ParticleTypesTwo.TWINKLE));
 	
 	public static final Block FLAGSTONE_PATH = register("flagstone_path", new Block(Block.Properties.from(Blocks.GRASS_PATH)));
 	

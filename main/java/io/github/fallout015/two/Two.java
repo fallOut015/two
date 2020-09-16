@@ -14,6 +14,9 @@ import org.apache.logging.log4j.Logger;
 import com.google.common.collect.Sets;
 
 import io.github.fallout015.two.block.BlocksTwo;
+import io.github.fallout015.two.client.particle.FrostParticle;
+import io.github.fallout015.two.client.particle.SparkParticle;
+import io.github.fallout015.two.client.particle.TwinkleParticle;
 import io.github.fallout015.two.client.renderer.RenderTypeLookupTwo;
 import io.github.fallout015.two.client.renderer.entity.BeardedDragonRenderer;
 import io.github.fallout015.two.client.renderer.entity.BoatRendererTwo;
@@ -67,10 +70,9 @@ import io.github.fallout015.two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 import net.minecraft.block.Block;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EvokerFangsRenderer;
-import net.minecraft.client.renderer.entity.model.BeeModel;
 import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.SpiderModel;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.CreatureEntity;
@@ -112,13 +114,10 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Quaternion;
 import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.util.math.vector.Vector3f;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.Feature;
@@ -127,6 +126,8 @@ import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
@@ -198,6 +199,8 @@ public class Two {
 			
 			disableStainedWoodenCrafting = CLIENT.DISABLE_STAINED_WOODEN_CRAFTING.get();
 			disableGlazedBricksCrafting = CLIENT.DISABLE_GLAZED_BRICK_CRAFTING.get();
+			
+			enableThrowingArrows = CLIENT.ENABLE_THROWING_ARROWS.get();
 		}
 		
 		public static class ClientConfig {
@@ -222,7 +225,7 @@ public class Two {
 			// Structures
 //			public final BooleanValue disableDreamcatchersInVillages;
 			// Misc
-//			public final BooleanValue enableThrowingArrows;
+			public final BooleanValue ENABLE_THROWING_ARROWS;
 //			public final BooleanValue disableDaggerSneakAttack;
 //			public final BooleanValue bombArrowsObeyMobGriefing;
 //			public final BooleanValue disableAdobeFreezing;
@@ -237,7 +240,9 @@ public class Two {
 				this.DISABLE_STAINED_WOODEN_CRAFTING = builder.comment("Disable the crafting recipes for everything related to Stained Wooden Planks. In case you have another mod that uses it.").translation("two.config.disableStainedWoodenCrafting").define("DISABLE_STAINED_WOODEN_CRAFTING", false);
 				this.DISABLE_GLAZED_BRICK_CRAFTING = builder.comment("Disable the crafting recipes for everything related to Glazed Bricks. In case you have another mod that uses it.").translation("two.config.disableGlazedBricksCrafting").define("DISABLE_GLAZED_BRICKS_CRAFTING", false);
 				builder.pop();
-				
+				builder.push("Misc");
+				this.ENABLE_THROWING_ARROWS = builder.comment("Enable pressing Q to throw arrows like darts.").translation("two.config.enableThrowingArrows").define("ENABLE_THROWING_ARROWS", false);
+				builder.pop();
 //				builder.push("category");
 //				this.anInt = builder.comment("anInt usage description").translation(Two.class.getAnnotation(Mod.class).value() + ".config." + "anInt").defineInRange("anInt", 10, 0, 100);
 //				builder.pop();
@@ -281,7 +286,8 @@ public class Two {
     	};
     }
 
-    private void setup(final FMLCommonSetupEvent event) {
+	@SuppressWarnings("resource")
+	private void setup(final FMLCommonSetupEvent event) {
 //    	DeferredWorkQueue ? 
 //    	DefaultBiomeFeaturesTwo.addFeatures();
 //    	DefaultBiomeFeaturesTwo.addStructures();
@@ -300,6 +306,10 @@ public class Two {
 //    	} catch(NullPointerException npe) {
 //    		npe.printStackTrace();
 //    	}
+		
+		Minecraft.getInstance().particles.registerFactory(ParticleTypesTwo.FROST, FrostParticle.Factory::new);
+		Minecraft.getInstance().particles.registerFactory(ParticleTypesTwo.SPARK, SparkParticle.Factory::new);
+		Minecraft.getInstance().particles.registerFactory(ParticleTypesTwo.TWINKLE, TwinkleParticle.Factory::new);
     	
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.CHAMELEON, ChameleonEntity.applyAttributes().func_233813_a_());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonEntity.applyAttributes().func_233813_a_());
@@ -314,7 +324,7 @@ public class Two {
 //    		if(name.equals(event.getMinecraftSupplier().get().player.getName().getString())) {
 //    			Assert.assrt("You are blacklisted!", false);
 //    		}
-//    	}
+//    	} // TODO blacklist code
     	
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CHAMELEON, ChameleonRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonRenderer::new);
@@ -490,7 +500,7 @@ public class Two {
     public static class Events {
     	@SubscribeEvent
     	public static void onItemToss(final ItemTossEvent itemTossEvent) {
-    		if(itemTossEvent.getEntityItem().getItem().getItem() instanceof ArrowItem && !itemTossEvent.getPlayer().getEntityWorld().isRemote) {
+    		if(Config.enableThrowingArrows && itemTossEvent.getEntityItem().getItem().getItem() instanceof ArrowItem && !itemTossEvent.getPlayer().getEntityWorld().isRemote) {
     			AbstractArrowEntity abstractarrowentity = ((ArrowItem) itemTossEvent.getEntityItem().getItem().getItem()).createArrow(itemTossEvent.getEntityItem().getEntityWorld(), itemTossEvent.getEntityItem().getItem(), itemTossEvent.getPlayer());
 //                abstractarrowentity.shoot(itemTossEvent.getPlayer(), itemTossEvent.getPlayer().rotationPitch, itemTossEvent.getPlayer().rotationYaw, 0.0F, 0.9F, 2.0F);
                 itemTossEvent.getPlayer().getEntityWorld().addEntity(abstractarrowentity);
@@ -561,17 +571,14 @@ public class Two {
     	public static void onEntityJoinWorld(final EntityJoinWorldEvent entityJoinWorldEvent) {
     		if(entityJoinWorldEvent.getEntity() instanceof SpiderEntity) {
     			((SpiderEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(3, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 1.2D, 1.4D));
-//				entityJoinWorldEvent.getEntity().setBoundingBox(entityJoinWorldEvent.getEntity().getBoundingBox().shrink(10));
     		} else if(entityJoinWorldEvent.getEntity() instanceof CaveSpiderEntity) {
     			((CaveSpiderEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(3, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 1.2D, 1.4D));
-//				entityJoinWorldEvent.getEntity().setBoundingBox(entityJoinWorldEvent.getEntity().getBoundingBox().shrink(10));
     		} else if(entityJoinWorldEvent.getEntity() instanceof SilverfishEntity) {
     			((SilverfishEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(1, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 0.5D, 0.7D));
     		} else if(entityJoinWorldEvent.getEntity() instanceof EndermiteEntity) {
     			((EndermiteEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(1, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 0.5D, 0.7D));
     		} else if(entityJoinWorldEvent.getEntity() instanceof BeeEntity) {
     			((BeeEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(3, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 0.6D, 0.8D));
-//				entityJoinWorldEvent.getEntity().setBoundingBox(entityJoinWorldEvent.getEntity().getBoundingBox().shrink(10));
     		}
     	}
     	@SubscribeEvent
@@ -858,84 +865,22 @@ public class Two {
 //        		}
 //    		}
     	}
-    	// I made bees in minecraft realistic
     	@SubscribeEvent
-		public static void onPreRenderBee(final RenderLivingEvent.Pre<BeeEntity, BeeModel<BeeEntity>> renderLivingEvent) {
-			if(renderLivingEvent.getEntity().getType() == EntityType.BEE) {
-				renderLivingEvent.getMatrixStack().push();
-				renderLivingEvent.getMatrixStack().scale(0.1f, 0.1f, 0.1f);
-				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(false);
-			}
-		}
-    	@SubscribeEvent
-		public static void onPostRenderBee(final RenderLivingEvent.Post<BeeEntity, BeeModel<BeeEntity>> renderLivingEvent) {
-			if(renderLivingEvent.getEntity().getType() == EntityType.BEE) {
-				renderLivingEvent.getMatrixStack().pop();
-				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(true);
-			}
-		}
-    	@SubscribeEvent
-		public static void onPreRenderSpider(final RenderLivingEvent.Pre<SpiderEntity, SpiderModel<SpiderEntity>> renderLivingEvent) {
-			if(renderLivingEvent.getEntity().getType() == EntityType.SPIDER) {
-				renderLivingEvent.getMatrixStack().push();
-				renderLivingEvent.getMatrixStack().scale(0.1f, 0.1f, 0.1f);
-				if(renderLivingEvent.getEntity().isOnLadder() && renderLivingEvent.getEntity().moveVertical > 0) {
-					renderLivingEvent.getMatrixStack().rotate(new Quaternion(Vector3f.XP, 90, true));
-				}
-				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(false);
-			}
-		}
-    	@SubscribeEvent
-		public static void onPostRenderSpider(final RenderLivingEvent.Post<SpiderEntity, SpiderModel<SpiderEntity>> renderLivingEvent) {
-			if(renderLivingEvent.getEntity().getType() == EntityType.SPIDER) {
-				renderLivingEvent.getMatrixStack().pop();
-				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(true);
-			}
-		}
-    	@SubscribeEvent
-		public static void onPreRenderCaveSpider(final RenderLivingEvent.Pre<CaveSpiderEntity, SpiderModel<CaveSpiderEntity>> renderLivingEvent) {
-			if(renderLivingEvent.getEntity().getType() == EntityType.CAVE_SPIDER) {
-				renderLivingEvent.getMatrixStack().push();
-				renderLivingEvent.getMatrixStack().scale(0.1f, 0.1f, 0.1f);
-				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(false);
-			}
-		}
-    	@SubscribeEvent
-		public static void onPostRenderCaveSpider(final RenderLivingEvent.Post<CaveSpiderEntity, SpiderModel<CaveSpiderEntity>> renderLivingEvent) {
-			if(renderLivingEvent.getEntity().getType() == EntityType.CAVE_SPIDER) {
-				renderLivingEvent.getMatrixStack().pop();
-				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(true);
-			}
-		}
-    	
-    	// gianter giants
-    	// smaller bees and spider
-    	// corona bats
-    	// realistic eating or something
-    	// realistic climbing
-    	// chickens fly
-    	// trampling crops explodes
-    	
-    	@SubscribeEvent
-		public static void onPreRender(final RenderLivingEvent.Pre<LivingEntity, EntityModel<LivingEntity>> renderLivingEvent) {
-    		if(renderLivingEvent.getEntity().getType() == EntityType.BEE || renderLivingEvent.getEntity().getType() == EntityType.CAVE_SPIDER || renderLivingEvent.getEntity().getType() == EntityType.SPIDER)
-    			return;
-    		if(!renderLivingEvent.getEntity().removeTag("specialRender")) {
-        		renderLivingEvent.getMatrixStack().push();
-    			renderLivingEvent.getEntity().addTag("specialRender");
-    			World world = renderLivingEvent.getEntity().getEntityWorld();
-        		float x = world.rand.nextFloat() * 2;
-        		float y = world.rand.nextFloat() * 2;
-        		float z = world.rand.nextFloat() * 2;
-        		renderLivingEvent.getMatrixStack().scale(x, y, z); 
-        		renderLivingEvent.getMatrixStack().rotate(new Quaternion(x * 180f, y * 180f, z * 180f, true));
+    	public static <T extends LivingEntity> void onRenderLivingPre(final RenderLivingEvent.Pre<T, EntityModel<T>> renderLivingEvent$Pre) {
+    		if(renderLivingEvent$Pre.getEntity().getActivePotionEffect(EffectsTwo.FROSTY) != null) {
+        		RenderType renderType = RenderType.getEntitySolid(renderLivingEvent$Pre.getRenderer().getEntityTexture((T) renderLivingEvent$Pre.getEntity()));
+        		renderLivingEvent$Pre.getBuffers().getBuffer(renderType).color(0, 64, 128, 128);
     		}
-		}
+    	}
     	@SubscribeEvent
-		public static void onPostRender(final RenderLivingEvent.Post<LivingEntity, EntityModel<LivingEntity>> renderLivingEvent) {
-    		if(renderLivingEvent.getEntity().removeTag("specialRender")) {
-        		renderLivingEvent.getMatrixStack().pop();
+    	public static void onRenderGameOverlayPre(final RenderGameOverlayEvent.Pre renderGameOverlayEvent$Pre) {
+    		if(renderGameOverlayEvent$Pre.getType() == ElementType.VIGNETTE) {
+    			// render a light cyan vignette when frozen
     		}
-		}
+    	}
+    	@SubscribeEvent
+    	public static void onRenderGameOverlayPost(final RenderGameOverlayEvent.Post renderGameOverlayEvent$Post) {
+    		
+    	}
     }
 }
