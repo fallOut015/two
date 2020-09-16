@@ -108,6 +108,7 @@ public class BlocksTwo {
 	public static final Block GREEN_STAINED_WOODEN_SLAB = register("green_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.GREEN).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
 	public static final Block RED_STAINED_WOODEN_SLAB = register("red_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.RED).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
 	public static final Block BLACK_STAINED_WOODEN_SLAB = register("black_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.BLACK).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
+	// TODO before this update releases I have to make some alt dye recipes and advancements for the slabs
 	
 	public static final Block WHITE_STAINED_WOODEN_STAIRS = register("white_stained_wooden_stairs", new StairsBlock(WHITE_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(WHITE_STAINED_WOODEN_PLANKS)));
 	public static final Block ORANGE_STAINED_WOODEN_STAIRS = register("orange_stained_wooden_stairs", new StairsBlock(ORANGE_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(ORANGE_STAINED_WOODEN_PLANKS)));
@@ -351,7 +352,8 @@ public class BlocksTwo {
 	public static final Block GREEN_GLAZED_BRICK_STAIRS = register("green_glazed_brick_stairs", new StairsBlock(GREEN_GLAZED_BRICKS::getDefaultState, Block.Properties.from(GREEN_GLAZED_BRICKS)));
 	public static final Block RED_GLAZED_BRICK_STAIRS = register("red_glazed_brick_stairs", new StairsBlock(RED_GLAZED_BRICKS::getDefaultState, Block.Properties.from(RED_GLAZED_BRICKS)));
 	public static final Block BLACK_GLAZED_BRICK_STAIRS = register("black_glazed_brick_stairs", new StairsBlock(BLACK_GLAZED_BRICKS::getDefaultState, Block.Properties.from(BLACK_GLAZED_BRICKS)));
-
+	// TODO alt recipes
+	
 	public static final Block WHITE_GLAZED_BRICK_WALL = register("white_glazed_brick_wall", new WallBlock(Block.Properties.from(WHITE_GLAZED_BRICKS)));
 	public static final Block ORANGE_GLAZED_BRICK_WALL = register("orange_glazed_brick_wall", new WallBlock(Block.Properties.from(ORANGE_GLAZED_BRICKS)));
 	public static final Block MAGENTA_GLAZED_BRICK_WALL = register("magenta_glazed_brick_wall", new WallBlock(Block.Properties.from(MAGENTA_GLAZED_BRICKS)));
