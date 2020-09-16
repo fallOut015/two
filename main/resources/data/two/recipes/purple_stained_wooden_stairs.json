@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "stained_wooden_stairs",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "two:purple_stained_wooden_planks"
+    }
+  },
+  "result": {
+    "item": "two:purple_stained_wooden_stairs",
+    "count": 4
+  }
+}

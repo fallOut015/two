@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:white_stained_wooden_stairs"
+    ]
+  },
+  "criteria": {
+    "has_stained_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:white_stained_wooden_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:white_stained_wooden_stairs"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stained_planks",
+      "has_the_recipe"
+    ]
+  ]
+}
