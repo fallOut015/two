@@ -71,14 +71,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EvokerFangsRenderer;
-import net.minecraft.client.renderer.entity.model.BeeModel;
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.SpiderModel;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
@@ -115,13 +111,10 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Quaternion;
 import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.util.math.vector.Vector3f;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.Feature;
@@ -130,7 +123,6 @@ import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import net.minecraftforge.common.MinecraftForge;
@@ -569,17 +561,14 @@ public class Two {
     	public static void onEntityJoinWorld(final EntityJoinWorldEvent entityJoinWorldEvent) {
     		if(entityJoinWorldEvent.getEntity() instanceof SpiderEntity) {
     			((SpiderEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(3, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 1.2D, 1.4D));
-//				entityJoinWorldEvent.getEntity().setBoundingBox(entityJoinWorldEvent.getEntity().getBoundingBox().shrink(10));
     		} else if(entityJoinWorldEvent.getEntity() instanceof CaveSpiderEntity) {
     			((CaveSpiderEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(3, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 1.2D, 1.4D));
-//				entityJoinWorldEvent.getEntity().setBoundingBox(entityJoinWorldEvent.getEntity().getBoundingBox().shrink(10));
     		} else if(entityJoinWorldEvent.getEntity() instanceof SilverfishEntity) {
     			((SilverfishEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(1, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 0.5D, 0.7D));
     		} else if(entityJoinWorldEvent.getEntity() instanceof EndermiteEntity) {
     			((EndermiteEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(1, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 0.5D, 0.7D));
     		} else if(entityJoinWorldEvent.getEntity() instanceof BeeEntity) {
     			((BeeEntity) entityJoinWorldEvent.getEntity()).goalSelector.addGoal(3, new AvoidEntityGoal<ChameleonEntity>((CreatureEntity) entityJoinWorldEvent.getEntity(), ChameleonEntity.class, 6.0f, 0.6D, 0.8D));
-//				entityJoinWorldEvent.getEntity().setBoundingBox(entityJoinWorldEvent.getEntity().getBoundingBox().shrink(10));
     		}
     	}
     	@SubscribeEvent
@@ -866,84 +855,5 @@ public class Two {
 //        		}
 //    		}
     	}
-    	// I made bees in minecraft realistic
-    	@SubscribeEvent
-		public static void onPreRenderBee(final RenderLivingEvent.Pre<BeeEntity, BeeModel<BeeEntity>> renderLivingEvent) {
-			if(renderLivingEvent.getEntity().getType() == EntityType.BEE) {
-				renderLivingEvent.getMatrixStack().push();
-				renderLivingEvent.getMatrixStack().scale(0.1f, 0.1f, 0.1f);
-				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(false);
-			}
-		}
-    	@SubscribeEvent
-		public static void onPostRenderBee(final RenderLivingEvent.Post<BeeEntity, BeeModel<BeeEntity>> renderLivingEvent) {
-			if(renderLivingEvent.getEntity().getType() == EntityType.BEE) {
-				renderLivingEvent.getMatrixStack().pop();
-				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(true);
-			}
-		}
-    	@SubscribeEvent
-		public static void onPreRenderSpider(final RenderLivingEvent.Pre<SpiderEntity, SpiderModel<SpiderEntity>> renderLivingEvent) {
-			if(renderLivingEvent.getEntity().getType() == EntityType.SPIDER) {
-				renderLivingEvent.getMatrixStack().push();
-				renderLivingEvent.getMatrixStack().scale(0.1f, 0.1f, 0.1f);
-				if(renderLivingEvent.getEntity().isOnLadder() && renderLivingEvent.getEntity().moveVertical > 0) {
-					renderLivingEvent.getMatrixStack().rotate(new Quaternion(Vector3f.XP, 90, true));
-				}
-				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(false);
-			}
-		}
-    	@SubscribeEvent
-		public static void onPostRenderSpider(final RenderLivingEvent.Post<SpiderEntity, SpiderModel<SpiderEntity>> renderLivingEvent) {
-			if(renderLivingEvent.getEntity().getType() == EntityType.SPIDER) {
-				renderLivingEvent.getMatrixStack().pop();
-				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(true);
-			}
-		}
-    	@SubscribeEvent
-		public static void onPreRenderCaveSpider(final RenderLivingEvent.Pre<CaveSpiderEntity, SpiderModel<CaveSpiderEntity>> renderLivingEvent) {
-			if(renderLivingEvent.getEntity().getType() == EntityType.CAVE_SPIDER) {
-				renderLivingEvent.getMatrixStack().push();
-				renderLivingEvent.getMatrixStack().scale(0.1f, 0.1f, 0.1f);
-				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(false);
-			}
-		}
-    	@SubscribeEvent
-		public static void onPostRenderCaveSpider(final RenderLivingEvent.Post<CaveSpiderEntity, SpiderModel<CaveSpiderEntity>> renderLivingEvent) {
-			if(renderLivingEvent.getEntity().getType() == EntityType.CAVE_SPIDER) {
-				renderLivingEvent.getMatrixStack().pop();
-				renderLivingEvent.getRenderer().getRenderManager().setRenderShadow(true);
-			}
-		}
-    	
-    	// gianter giants
-    	// smaller bees and spider
-    	// corona bats
-    	// realistic eating or something
-    	// realistic climbing
-    	// chickens fly
-    	// trampling crops explodes
-    	
-    	@SubscribeEvent
-		public static void onPreRender(final RenderLivingEvent.Pre<LivingEntity, EntityModel<LivingEntity>> renderLivingEvent) {
-    		if(renderLivingEvent.getEntity().getType() == EntityType.BEE || renderLivingEvent.getEntity().getType() == EntityType.CAVE_SPIDER || renderLivingEvent.getEntity().getType() == EntityType.SPIDER)
-    			return;
-    		if(!renderLivingEvent.getEntity().removeTag("specialRender")) {
-        		renderLivingEvent.getMatrixStack().push();
-    			renderLivingEvent.getEntity().addTag("specialRender");
-    			World world = renderLivingEvent.getEntity().getEntityWorld();
-        		float x = world.rand.nextFloat() * 2;
-        		float y = world.rand.nextFloat() * 2;
-        		float z = world.rand.nextFloat() * 2;
-        		renderLivingEvent.getMatrixStack().scale(x, y, z); 
-        		renderLivingEvent.getMatrixStack().rotate(new Quaternion(x * 180f, y * 180f, z * 180f, true));
-    		}
-		}
-    	@SubscribeEvent
-		public static void onPostRender(final RenderLivingEvent.Post<LivingEntity, EntityModel<LivingEntity>> renderLivingEvent) {
-    		if(renderLivingEvent.getEntity().removeTag("specialRender")) {
-        		renderLivingEvent.getMatrixStack().pop();
-    		}
-		}
     }
 }
