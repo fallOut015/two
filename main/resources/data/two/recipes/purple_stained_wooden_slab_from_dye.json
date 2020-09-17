@@ -1,0 +1,21 @@
+{
+	"type" : "minecraft:crafting_shaped",
+  	"group" : "stained_wooden_slabs",
+  	"pattern" : [
+    	"###",
+    	"#X#",
+    	"###"
+  	],
+  	"key" : {
+    	"#" : {
+      		"tag" : "minecraft:wooden_slabs"
+    	},
+    	"X" : {
+      		"item" : "minecraft:purple_dye"
+    	}
+  	},
+  	"result" : {
+    	"item" : "two:purple_stained_wooden_slab",
+    	"count" : 8
+  	}
+}
