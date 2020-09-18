@@ -20,11 +20,10 @@ public class ShurikenItem extends Item { // make vanishable?
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		ItemStack itemstack = playerIn.getHeldItem(handIn);
 		worldIn.playSound((PlayerEntity)null, playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-		if (!worldIn.isRemote) {
-			ShurikenEntity shurikenentity = new ShurikenEntity(playerIn, worldIn);
+		if(!worldIn.isRemote) {
+			ShurikenEntity shurikenentity = new ShurikenEntity(worldIn, playerIn);
 			shurikenentity.setItem(itemstack);
-			// TODO, you get the deal
-//			shurikenentity.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 0.0F);
+			shurikenentity.func_234612_a_(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F /*velocity*/, 0.0F /*inaccuracy*/); // TODO stats and different thrown sound
 			worldIn.addEntity(shurikenentity);
 		}
 
@@ -32,9 +31,7 @@ public class ShurikenItem extends Item { // make vanishable?
 		if (!playerIn.abilities.isCreativeMode) {
 			itemstack.shrink(1);
 		}
-		
-		playerIn.getCooldownTracker().setCooldown(this, 5);
 
-		return ActionResult.resultSuccess(itemstack);
+		return ActionResult.func_233538_a_(itemstack, worldIn.isRemote());
 	}
 }

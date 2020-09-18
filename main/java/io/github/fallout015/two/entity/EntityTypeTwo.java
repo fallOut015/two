@@ -49,6 +49,7 @@ public class EntityTypeTwo {
 	public static final EntityType<BombArrowEntity> BOMB_ARROW = register("bomb_arrow", EntityType.Builder.<BombArrowEntity>create(BombArrowEntity::new, EntityClassification.MISC).size(0.5f, 0.5f));
 	public static final EntityType<ShockArrowEntity> SHOCK_ARROW = register("shock_arrow", EntityType.Builder.<ShockArrowEntity>create(ShockArrowEntity::new, EntityClassification.MISC).size(0.5f, 0.5f));
 	public static final EntityType<EvocationFangsEntity> EVOCATION_FANGS = register("evocation_fangs", EntityType.Builder.<EvocationFangsEntity>create(EvocationFangsEntity::new, EntityClassification.MISC).size(0.5f, 0.8f));
+	
 	public static final EntityType<ShurikenEntity> SHURIKEN = register("shuriken", EntityType.Builder.<ShurikenEntity>create(ShurikenEntity::new, EntityClassification.MISC).size(0.25f, 0.25f));
 	
 	public static final EntityType<BoatEntityTwo> BOAT_TWO = register("boat_two", EntityType.Builder.<BoatEntityTwo>create(BoatEntityTwo::new, EntityClassification.MISC).size(1.375F, 0.5625F).func_233606_a_(10));

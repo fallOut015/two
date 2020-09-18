@@ -346,6 +346,8 @@ public class ItemsTwo {
 	public static final Item SMOOTH_GOLD_STAIRS = register(BlocksTwo.SMOOTH_GOLD_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item SMOOTH_GOLD_SLAB = register(BlocksTwo.SMOOTH_GOLD_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 
+	public static final Item CRYSTAL = register(BlocksTwo.CRYSTAL, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
 	
 	
 	// Decoration
@@ -843,10 +845,13 @@ public class ItemsTwo {
     public static final Item BOMB_ARROW = register("bomb_arrow", new BombArrowItem(new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item SHOCK_ARROW = register("shock_arrow", new ShockArrowItem(new Item.Properties().group(ItemGroup.COMBAT)));
     
-    public static final Item SHURIKEN = register("shuriken", new ShurikenItem(new Item.Properties()/*.group(ItemGroup.COMBAT)*/));
+    // dynamite (doesn't hurt)
+    // some other bomb (doesn't destroy)
+    // flash bomb
+    // smoke bomb
+    public static final Item SHURIKEN = register("shuriken", new ShurikenItem(new Item.Properties().group(ItemGroup.COMBAT)));
     // TODO Shuriken code so that it can stick in blocks and whatnot. 
     // Also rendering and spinning. 
-    // And put back into creative menu for whenever i add the bombs and stuff. 
     
     public static final Item EMERALD_HELMET = register("emerald_helmet", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item EMERALD_CHESTPLATE = register("emerald_chestplate", new ArmorItem(ArmorMaterialTwo.EMERALD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
