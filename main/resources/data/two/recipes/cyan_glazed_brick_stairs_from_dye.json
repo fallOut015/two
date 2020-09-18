@@ -1,0 +1,21 @@
+{
+	"type": "minecraft:crafting_shaped",
+  	"group": "stained_brick_stairs",
+  	"pattern": [
+    	"###",
+    	"#X#",
+    	"###"
+  	],
+  	"key": {
+    	"#": {
+      		"item": "minecraft:brick_stairs"
+    	},
+    	"X": {
+      		"item": "minecraft:cyan_dye"
+    	}
+  	},
+  	"result": {
+    	"item": "two:cyan_glazed_brick_stairs",
+    	"count": 8
+  	}
+}
