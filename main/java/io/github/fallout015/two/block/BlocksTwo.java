@@ -108,7 +108,6 @@ public class BlocksTwo {
 	public static final Block GREEN_STAINED_WOODEN_SLAB = register("green_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.GREEN).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
 	public static final Block RED_STAINED_WOODEN_SLAB = register("red_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.RED).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
 	public static final Block BLACK_STAINED_WOODEN_SLAB = register("black_stained_wooden_slab", new SlabBlock(Block.Properties.create(Material.WOOD, DyeColor.BLACK).hardnessAndResistance(2.0f, 3.0f).sound(SoundType.WOOD)));
-	// TODO before this update releases I have to make some alt dye recipes and advancements for the slabs
 	
 	public static final Block WHITE_STAINED_WOODEN_STAIRS = register("white_stained_wooden_stairs", new StairsBlock(WHITE_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(WHITE_STAINED_WOODEN_PLANKS)));
 	public static final Block ORANGE_STAINED_WOODEN_STAIRS = register("orange_stained_wooden_stairs", new StairsBlock(ORANGE_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(ORANGE_STAINED_WOODEN_PLANKS)));
@@ -130,11 +129,14 @@ public class BlocksTwo {
 	// stained boat
 	// stained sign
 	// stained fence (next)
-	// stained door
+	// stained door (not sure how it's gonna work)
 	// stained fence gate (next)
 	// stained button
 	// stained pressure plate
-	// stained trapdoor
+	// stained trapdoor (also not sure)
+	
+	// stained barrel
+	// stained chest
 	
 	public static final Block PURPETAL = register("purpetal", new FlowerBlock(Effects.LEVITATION, 10, Block.Properties.create(Material.ORGANIC).notSolid().doesNotBlockMovement()) {
 		protected boolean isValidGround(BlockState state, net.minecraft.world.IBlockReader worldIn, BlockPos pos) {
@@ -391,6 +393,8 @@ public class BlocksTwo {
 
 	public static final Block SHROOMGLOW = register("shroomglow", new Block(Block.Properties.create(Material.WOOD, MaterialColor.LIME).hardnessAndResistance(0.5f).sound(SoundType.CLOTH).func_235838_a_(state -> 8)));
 	public static final Block SHROOMGLOW_LANTERN = register("shroomglow_lantern", new LanternBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(3.5F).sound(SoundType.LANTERN).func_235838_a_(state -> 12).notSolid()));
+	
+	public static final Block CRYSTAL = register("crystal", new Block(Block.Properties.create(Material.GLASS, MaterialColor.CYAN).hardnessAndResistance(1.0f, 0.3f).sound(SoundType.STONE).notSolid()));
 	
 	// Nightmare
 	public static final Block GAULT = register("gault", new Block(Block.Properties.create(MaterialTwo.GAULT).hardnessAndResistance(2.0f)));
