@@ -354,7 +354,6 @@ public class BlocksTwo {
 	public static final Block GREEN_GLAZED_BRICK_STAIRS = register("green_glazed_brick_stairs", new StairsBlock(GREEN_GLAZED_BRICKS::getDefaultState, Block.Properties.from(GREEN_GLAZED_BRICKS)));
 	public static final Block RED_GLAZED_BRICK_STAIRS = register("red_glazed_brick_stairs", new StairsBlock(RED_GLAZED_BRICKS::getDefaultState, Block.Properties.from(RED_GLAZED_BRICKS)));
 	public static final Block BLACK_GLAZED_BRICK_STAIRS = register("black_glazed_brick_stairs", new StairsBlock(BLACK_GLAZED_BRICKS::getDefaultState, Block.Properties.from(BLACK_GLAZED_BRICKS)));
-	// TODO alt recipes
 	
 	public static final Block WHITE_GLAZED_BRICK_WALL = register("white_glazed_brick_wall", new WallBlock(Block.Properties.from(WHITE_GLAZED_BRICKS)));
 	public static final Block ORANGE_GLAZED_BRICK_WALL = register("orange_glazed_brick_wall", new WallBlock(Block.Properties.from(ORANGE_GLAZED_BRICKS)));
@@ -387,6 +386,7 @@ public class BlocksTwo {
 	
 	public static final Block SPORESTONE = register("sporestone", new Block(Block.Properties.create(Material.ROCK, MaterialColor.BLACK).hardnessAndResistance(1.0f, 4.0f).harvestTool(ToolType.PICKAXE)));
 	public static final Block SPORESTONE_SOIL = register("sporestone_soil", new Block(Block.Properties.create(Material.ROCK, MaterialColor.BLACK).hardnessAndResistance(1.0f, 4.0f).harvestTool(ToolType.PICKAXE)));
+	// make same block? (like grass)
 	
 	public static final Block NEONDOT = register("neondot", new NeondotBlock(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT).func_235838_a_(state -> 4)));
 	public static final Block BRIMSHINE = register("brimshine", new BrimshineBlock(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT).func_235838_a_(state -> 4)));
