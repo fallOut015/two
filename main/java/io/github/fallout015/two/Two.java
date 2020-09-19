@@ -407,7 +407,10 @@ public class Two {
     		Config.bakeConfig();
     	}
     }
-	
+//    @SubscribeEvent
+//    public static void onBiomeLoaded(final BiomeLoadingEvent event) {
+//    	
+//    }
     
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
@@ -568,7 +571,7 @@ public class Two {
     				Two.LOGGER.info("cake has NO tag");
     			}
     		}
-    	}
+    	} // TODO this doesn't cover cake magically appearing in chests...
     	@SubscribeEvent
     	public static void onEntityJoinWorld(final EntityJoinWorldEvent entityJoinWorldEvent) {
     		if(entityJoinWorldEvent.getEntity() instanceof SpiderEntity) {
