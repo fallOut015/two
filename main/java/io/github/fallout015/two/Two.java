@@ -28,7 +28,7 @@ import io.github.fallout015.two.client.renderer.entity.FireArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.IceArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.IceSlimeRenderer;
 import io.github.fallout015.two.client.renderer.entity.MummifiedZombieRenderer;
-import io.github.fallout015.two.client.renderer.entity.NetherBugRenderer;
+import io.github.fallout015.two.client.renderer.entity.CrimpRenderer;
 import io.github.fallout015.two.client.renderer.entity.RedPandaRenderer;
 import io.github.fallout015.two.client.renderer.entity.ShockArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.ShurikenRenderer;
@@ -50,7 +50,7 @@ import io.github.fallout015.two.entity.EntityTypeTwo;
 import io.github.fallout015.two.entity.monster.MummifiedZombieEntity;
 import io.github.fallout015.two.entity.passive.BeardedDragonEntity;
 import io.github.fallout015.two.entity.passive.ChameleonEntity;
-import io.github.fallout015.two.entity.passive.NetherBugEntity;
+import io.github.fallout015.two.entity.passive.CrimpEntity;
 import io.github.fallout015.two.entity.passive.RedPandaEntity;
 import io.github.fallout015.two.fluid.FluidsTwo;
 import io.github.fallout015.two.inventory.container.ContainerTypeTwo;
@@ -306,7 +306,7 @@ public class Two {
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.CHAMELEON, ChameleonEntity.applyAttributes().func_233813_a_());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonEntity.applyAttributes().func_233813_a_());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.RED_PANDA, RedPandaEntity.applyAttributes().func_233813_a_());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.NETHER_BUG, NetherBugEntity.applyAttributes().func_233813_a_());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.CRIMP, CrimpEntity.applyAttributes().func_233813_a_());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.DARK_DWARF_ARCHER, MonsterEntity.func_234295_eP_().func_233813_a_()); // TODO give own stats. 
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.MUMMIFIED_ZOMBIE, MummifiedZombieEntity.applyAttributes().func_233813_a_());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.ICE_SLIME, MonsterEntity.func_234295_eP_().func_233813_a_()); // TODO give own stats.
@@ -321,7 +321,7 @@ public class Two {
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CHAMELEON, ChameleonRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.RED_PANDA, RedPandaRenderer::new);
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.NETHER_BUG, NetherBugRenderer::new);
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CRIMP, CrimpRenderer::new);
     	
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CAPPED_ARROW, CappedArrowRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.FIRE_ARROW, FireArrowRenderer::new);
