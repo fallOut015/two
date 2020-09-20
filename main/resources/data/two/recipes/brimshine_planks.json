@@ -1,0 +1,13 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+  	"group" : "planks",
+  	"ingredients" : [
+    	{
+      		"tag" : "two:brimshine_stems"
+    	}
+  	],
+  	"result" : {
+    	"item" : "two:brimshine_planks",
+    	"count" : 4
+  	}
+}

@@ -3,6 +3,8 @@
 	"entity.two.bearded_dragon" : "Dragon Barbudo",
 	"entity.two.red_panda" : "Panda Rojo",
 	
+	"entity.two.crimp" : "Crimp",
+	
 	"entity.two.dark_dwarf_archer" : "Arquero Enano Malvado",
 	"entity.two.mummified_zombie" : "Zombi Momificado",
 	"entity.two.ice_slime" : "Limo Helado",
@@ -48,7 +50,9 @@
 	"block.two.cloudwood_planks" : "Cloudwood Planks",
 	"block.two.blackbark_planks" : "Blackbark Planks",
 	"block.two.frostbark_planks" : "Frostbark Planks",
-	
+	"block.two.neondot_planks" : "Neondot Planks",
+	"block.two.brimshine_planks" : "Brimshine Planks",
+
 	"block.two.white_stained_wooden_planks" : "White Stained Wooden Planks",
 	"block.two.orange_stained_wooden_planks" : "Orange Stained Wooden Planks",
 	"block.two.magenta_stained_wooden_planks" : "Magenta Stained Wooden Planks",
@@ -649,12 +653,13 @@
 	"item.two.small_backpack" : "Small Backpack",
 	"item.two.inspection_spectacles" : "Inspection Spectacles",
 	
-	"item.two.chameleon_spawn_egg" : "Chameleon Spawn Egg",
 	"item.two.bearded_dragon_spawn_egg" : "Bearded Dragon Spawn Egg",
-	"item.two.red_panda_spawn_egg" : "Red Panda Spawn Egg",
+	"item.two.chameleon_spawn_egg" : "Chameleon Spawn Egg",
+	"item.two.crimp_spawn_egg" : "Crimp Spawn Egg",
 	"item.two.dark_dwarf_archer_spawn_egg" : "Dark Dwarven Archer Spawn Egg",
-	"item.two.mummified_zombie_spawn_egg" : "Mummified Zombie Spawn Egg",
 	"item.two.ice_slime_spawn_egg" : "Ice Slime Spawn Egg",
+	"item.two.mummified_zombie_spawn_egg" : "Mummified Zombie Spawn Egg",
+	"item.two.red_panda_spawn_egg" : "Red Panda Spawn Egg",
 	
 	"item.two.chameleon_eye" : "Chameleon Eye",
 	"item.two.chameleon_skin" : "Chameleon Skin",

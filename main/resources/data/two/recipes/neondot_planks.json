@@ -1,0 +1,13 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+  	"group" : "planks",
+  	"ingredients" : [
+    	{
+      		"tag" : "two:neondot_stems"
+    	}
+  	],
+  	"result" : {
+    	"item" : "two:neondot_planks",
+    	"count" : 4
+  	}
+}
