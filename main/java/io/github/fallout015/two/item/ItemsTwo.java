@@ -45,7 +45,6 @@ import net.minecraft.item.ShovelItem;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.WallOrFloorItem;
-import net.minecraft.item.Item.Properties;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.ActionResult;
@@ -615,6 +614,7 @@ public class ItemsTwo {
     public static final Item DARK_DWARF_ARCHER_SPAWN_EGG = register("dark_dwarf_archer_spawn_egg", new SpawnEggItem(EntityTypeTwo.DARK_DWARF_ARCHER, 3617852, 7880467, new Item.Properties().group(ItemGroup.MISC)));
     public static final Item ICE_SLIME_SPAWN_EGG = register("ice_slime_spawn_egg", new SpawnEggItem(EntityTypeTwo.ICE_SLIME, 14606335, 16382719, new Item.Properties().group(ItemGroup.MISC)));
     public static final Item MUMMIFIED_ZOMBIE_SPAWN_EGG = register("mummified_zombie_spawn_egg", new SpawnEggItem(EntityTypeTwo.MUMMIFIED_ZOMBIE, 3490609, 13487798, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item PENGUIN_SPAWN_EGG = register("penguin_spawn_egg", new SpawnEggItem(EntityTypeTwo.PENGUIN, 1250583, 16316656, new Item.Properties().group(ItemGroup.MISC)));
     public static final Item RED_PANDA_SPAWN_EGG = register("red_panda_spawn_egg", new SpawnEggItem(EntityTypeTwo.RED_PANDA, 3215619, 13847826, new Item.Properties().group(ItemGroup.MISC)));
     
     public static final Item CHAMELEON_EYE = register("chameleon_eye", new Item(new Item.Properties().group(ItemGroup.MISC)));
@@ -1134,7 +1134,9 @@ public class ItemsTwo {
    
     public static final Item OBSIDIAN_HELMET = register("obsidian_helmet", new ArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)) {
     	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-    		// Prevent the player from catching fire (or just put them out every tick that they are)
+    		if(player.isBurning()) {
+    			player.extinguish();
+    		}
     	}
     });
     public static final Item OBSIDIAN_CHESTPLATE = register("obsidian_chestplate", new ArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
