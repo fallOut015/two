@@ -35,7 +35,7 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 //	private ItemStack stackoutput = ItemStack.EMPTY;
 	
 	private boolean showUsableIcons = true;
-	private float field_214126_x;
+//	private float field_214126_x;
 	private int field_214128_z = 1;
 	
 	public static final Predicate<Item> PLANKS = item -> item.getTags().contains(ItemTags.PLANKS.func_230234_a_());
@@ -140,7 +140,7 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 	            int j1 = i2 + i1 % 4 * 14;
 	            int k1 = k2 + i1 / 4 * 14;
 	            this.field_230706_i_.getTextureManager().bindTexture(UPHOLSTERY_TABLE_GUI_TEXTURE);
-	            int yblittingstart = this.ySize;
+//	            int yblittingstart = this.ySize;
 
 //	            this.blit(j1, k1, 14 * (l - 1), yblittingstart + (this.selectedFurniture != null && l == this.selectedFurniture.getID() ? 14 : 0), 14, 14);
 	            this.renderMatrix(l, j1, k1);

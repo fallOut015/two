@@ -70,6 +70,7 @@ import io.github.fallout015.two.tileentity.TileEntityTypeTwo;
 import io.github.fallout015.two.util.SoundEventsTwo;
 import io.github.fallout015.two.world.gen.carver.WorldCarverTwo;
 import io.github.fallout015.two.world.gen.feature.FeatureTwo;
+import io.github.fallout015.two.world.gen.feature.FeaturesTwo;
 import io.github.fallout015.two.world.gen.feature.structure.StructureTwo;
 import io.github.fallout015.two.world.gen.placement.PlacementTwo;
 import io.github.fallout015.two.world.gen.surfacebuilders.SurfaceBuilderTwo;
@@ -80,6 +81,7 @@ import net.minecraft.client.renderer.entity.EvokerFangsRenderer;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.CreatureEntity;
+import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -123,8 +125,15 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.biome.MobSpawnInfo.Spawners;
+import net.minecraft.world.gen.GenerationStage.Carving;
+import net.minecraft.world.gen.GenerationStage.Decoration;
+import net.minecraft.world.gen.carver.ConfiguredCarver;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.ProbabilityConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
@@ -151,6 +160,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 import net.minecraftforge.event.entity.player.PlayerXpEvent;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.SleepFinishedTimeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -301,14 +311,6 @@ public class Two {
 //    	DefaultBiomeFeaturesTwo.addCarvers();
     	
 //    	try {
-//        	WorldGenRegistries.field_243657_i.func_230516_a_(Biomes.DESERT).func_242440_e().func_242496_b().add(FeaturesTwo.DESERT_STONE_REPLACER);
-//        	WorldGenRegistries.field_243657_i.func_230516_a_(Biomes.DESERT_HILLS).func_242440_e().func_242496_b().add(FeaturesTwo.DESERT_STONE_REPLACER);
-//        	WorldGenRegistries.field_243657_i.func_230516_a_(Biomes.DESERT_LAKES).func_242440_e().func_242496_b().add(FeaturesTwo.DESERT_STONE_REPLACER);
-//
-//        	WorldGenRegistries.field_243657_i.func_230516_a_(Biomes.SAVANNA).func_242433_b().func_242559_a(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(EntityTypeTwo.BEARDED_DRAGON, 12, 2, 4));
-//        	WorldGenRegistries.field_243657_i.func_230516_a_(Biomes.SAVANNA_PLATEAU).func_242433_b().func_242559_a(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(EntityTypeTwo.BEARDED_DRAGON, 12, 2, 4));
-//        	WorldGenRegistries.field_243657_i.func_230516_a_(Biomes.SHATTERED_SAVANNA).func_242433_b().func_242559_a(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(EntityTypeTwo.BEARDED_DRAGON, 12, 2, 4));
-//        	WorldGenRegistries.field_243657_i.func_230516_a_(Biomes.SHATTERED_SAVANNA_PLATEAU).func_242433_b().func_242559_a(EntityClassification.CREATURE).add(new MobSpawnInfo.Spawners(EntityTypeTwo.BEARDED_DRAGON, 12, 2, 4));
 //    	} catch(NullPointerException npe) {
 //    		npe.printStackTrace();
 //    	}
@@ -419,10 +421,6 @@ public class Two {
     		Config.bakeConfig();
     	}
     }
-//    @SubscribeEvent
-//    public static void onBiomeLoaded(final BiomeLoadingEvent event) {
-//    	
-//    }
     
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
@@ -515,6 +513,96 @@ public class Two {
     
     @Mod.EventBusSubscriber
     public static class Events {
+    	@SubscribeEvent
+    	public static void onBiomeLoad(final BiomeLoadingEvent biomeLoadingEvent) {
+    		if(biomeLoadingEvent.getCategory() == Category.NETHER) {
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_NETHER_AMETHYST);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_NETHER_GARNET);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_NETHER_LEAD);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_NETHER_TITANIUM);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_NETHER_TOPAZ);
+    		} else if(biomeLoadingEvent.getCategory() == Category.THEEND) {
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_END_COBALT);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_END_JADE);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_END_PLATINUM);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_END_SAPPHIRE);
+    		} else {
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_ALUMINUM);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_COPPER);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_OPAL);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_PYRITE);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_RUBY);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_SILVER);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_TALC);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_TIN);
+    			if(biomeLoadingEvent.getName() == Biomes.SAVANNA.getRegistryName() || biomeLoadingEvent.getName() == Biomes.SAVANNA_PLATEAU.getRegistryName() || biomeLoadingEvent.getName() == Biomes.SHATTERED_SAVANNA.getRegistryName() || biomeLoadingEvent.getName() == Biomes.SHATTERED_SAVANNA_PLATEAU.getRegistryName()) {
+        			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_TANZANITE);
+    			}
+    		}
+    		if(biomeLoadingEvent.getCategory() == Category.ICY) {
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).clear();
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.RAW_GENERATION).add(() -> FeaturesTwo.ICY_STONE_REPLACER);
+
+    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.CREATURE).add(new Spawners(EntityTypeTwo.PENGUIN, 10, 3, 5));
+
+    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.MONSTER).add(new Spawners(EntityTypeTwo.ICE_SLIME, 10, 1, 3));
+    		} else if(biomeLoadingEvent.getCategory() == Category.SAVANNA) {
+    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.CREATURE).add(new Spawners(EntityTypeTwo.BEARDED_DRAGON, 12, 2, 4));
+    		} else if(biomeLoadingEvent.getCategory() == Category.DESERT) {
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).clear();
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.RAW_GENERATION).add(() -> FeaturesTwo.DESERT_STONE_REPLACER);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_DESERT_COAL);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_DESERT_COPPER);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_DESERT_GOLD);
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_DESERT_IRON);
+    			
+//    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_DECORATION).add(() -> Feature.SIMPLE_BLOCK.withConfiguration(FeaturesTwo.Configs.SUCCULIGHT_CONFIG).withPlacement(Placement.COUNT_BIASED_RANGE.configure(new CountRangeConfig(1, 8, 32, 64))));
+    			
+    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.CREATURE).add(new Spawners(EntityTypeTwo.CHAMELEON, 10, 1, 2));
+
+    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.MONSTER).add(new Spawners(EntityTypeTwo.MUMMIFIED_ZOMBIE, 7, 1, 2));
+    		} else if(biomeLoadingEvent.getCategory() == Category.JUNGLE) {
+    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.CREATURE).add(new Spawners(EntityTypeTwo.CHAMELEON, 12, 2, 4));
+    		} else if(biomeLoadingEvent.getCategory() == Category.MESA) {
+//    			biomeLoadingEvent.getGeneration().getStructures().add(() -> StructureTwo.);
+    		} else if(biomeLoadingEvent.getCategory() == Category.MUSHROOM) {
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).clear();
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.RAW_GENERATION).add(() -> FeaturesTwo.MUSHROOM_STONE_REPLACER);
+    		}
+    		
+    		biomeLoadingEvent.getGeneration().getCarvers(Carving.AIR).add(() -> new ConfiguredCarver<>(WorldCarverTwo.CAVERN, new ProbabilityConfig(0.01285715F)));
+    		biomeLoadingEvent.getGeneration().getCarvers(Carving.AIR).add(() -> new ConfiguredCarver<>(WorldCarverTwo.WIDE_CAVE, new ProbabilityConfig(0.07285715F)));
+    		
+//    		Biomes.DESERT.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, FeatureTwo.REPLACE_BLOCK.withConfiguration(new ReplaceBlockConfig(Blocks.SMOOTH_SANDSTONE.getDefaultState(), Blocks.SANDSTONE.getDefaultState())).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(256))));
+//    		Biomes.DESERT_HILLS.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, FeatureTwo.REPLACE_BLOCK.withConfiguration(new ReplaceBlockConfig(Blocks.SMOOTH_SANDSTONE.getDefaultState(), Blocks.SANDSTONE.getDefaultState())).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(256))));
+//    		Biomes.DESERT_LAKES.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, FeatureTwo.REPLACE_BLOCK.withConfiguration(new ReplaceBlockConfig(Blocks.SMOOTH_SANDSTONE.getDefaultState(), Blocks.SANDSTONE.getDefaultState())).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(256))));
+    		
+    		// add biome seams
+    		
+    		// unrelated : for desert biomes add more vegetation and add dunes, with very little vegetation
+    		// also sandstorms
+    		
+//    		Biomes.DESERT.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.SIMPLE_BLOCK.withConfiguration(SUCCULIGHT_CONFIG).withPlacement(Placement.COUNT_BIASED_RANGE.configure(new CountRangeConfig(1, 8, 32, 64))));
+//    		Biomes.DESERT_HILLS.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.SIMPLE_BLOCK.withConfiguration(SUCCULIGHT_CONFIG).withPlacement(Placement.COUNT_BIASED_RANGE.configure(new CountRangeConfig(1, 8, 32, 64))));
+//    		Biomes.DESERT_LAKES.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.SIMPLE_BLOCK.withConfiguration(SUCCULIGHT_CONFIG).withPlacement(Placement.COUNT_BIASED_RANGE.configure(new CountRangeConfig(1, 8, 32, 64))));
+
+    		
+    		
+//    		Biomes.MUSHROOM_FIELD_SHORE.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.SIMPLE_BLOCK.withConfiguration(NEONDOT_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(7))));
+//    		Biomes.MUSHROOM_FIELDS.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.SIMPLE_BLOCK.withConfiguration(NEONDOT_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(8))));
+//    		
+//    		Biomes.MUSHROOM_FIELD_SHORE.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.SIMPLE_BLOCK.withConfiguration(BRIMSHINE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(7))));
+//    		Biomes.MUSHROOM_FIELDS.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.SIMPLE_BLOCK.withConfiguration(BRIMSHINE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(8))));
+    	
+    	
+//    		Biomes.MUSHROOM_FIELD_SHORE.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, FeatureTwo.HUGE_NEONDOT.withConfiguration(BIG_NEONDOT).withPlacement(Placement.COUNT_DEPTH_AVERAGE.configure(new DepthAverageConfig(1, 32, 32))));
+//    		Biomes.MUSHROOM_FIELDS.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, FeatureTwo.HUGE_NEONDOT.withConfiguration(BIG_NEONDOT).withPlacement(Placement.COUNT_DEPTH_AVERAGE.configure(new DepthAverageConfig(1, 32, 32))));
+    //
+//    		Biomes.MUSHROOM_FIELD_SHORE.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, FeatureTwo.HUGE_BRIMSHINE.withConfiguration(BIG_BRIMSHINE).withPlacement(Placement.COUNT_DEPTH_AVERAGE.configure(new DepthAverageConfig(1, 32, 32))));
+//    		Biomes.MUSHROOM_FIELDS.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, FeatureTwo.HUGE_BRIMSHINE.withConfiguration(BIG_BRIMSHINE).withPlacement(Placement.COUNT_DEPTH_AVERAGE.configure(new DepthAverageConfig(1, 32, 32))));
+    	
+    		// TODO
+    	}
     	@SubscribeEvent
     	public static void onItemToss(final ItemTossEvent itemTossEvent) {
     		if(Config.enableThrowingArrows && itemTossEvent.getEntityItem().getItem().getItem() instanceof ArrowItem && !itemTossEvent.getPlayer().getEntityWorld().isRemote) {
