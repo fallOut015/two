@@ -431,26 +431,26 @@ public class ItemsTwo {
 	public static final Item DREAMCATCHER_RANDOM = register(BlocksTwo.DREAMCATCHER_RANDOM, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item DREAMCATCHER_SKY = register(BlocksTwo.DREAMCATCHER_SKY, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
-	public static final Item MAPLE_TAP = register(BlocksTwo.MAPLE_TAP, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item MAPLE_TAP = register(BlocksTwo.MAPLE_TAP, new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/);
 	public static final Item GROUND_LIGHT = register(BlocksTwo.GROUND_LIGHT, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item BILLBOARD = register(BlocksTwo.BILLBOARD, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item CONVEYER = register(BlocksTwo.CONVEYER, new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/);
 	public static final Item ICE_SLIME_BLOCK = register(BlocksTwo.ICE_SLIME_BLOCK, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
-	public static final Item TELEPORTER = register(BlocksTwo.TELEPORTER, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item TELEPORTER = register(BlocksTwo.TELEPORTER, new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/);
 	
-	public static final Item UPHOLSTERY_TABLE = register(BlocksTwo.UPHOLSTERY_TABLE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item UPHOLSTERY_TABLE = register(BlocksTwo.UPHOLSTERY_TABLE, new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/);
 	
-	public static final Item CHAIR = register("chair", new ChairItem(BlocksTwo.CHAIR, new Item.Properties().group(ItemGroup.DECORATIONS)));
-	public static final Item EDGE_STOOL = register("edge_stool", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
-	public static final Item ROUND_STOOL = register("round_stool", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
-	public static final Item EDGE_TABLE = register("edge_table", new EdgeTableItem(BlocksTwo.EDGE_TABLE, new Item.Properties().group(ItemGroup.DECORATIONS)));
-	public static final Item ROUND_TABLE = register("round_table", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
-	public static final Item CUPBOARD = register("cupboard", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
-	public static final Item LAMP = register("lamp", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
-	public static final Item BED = register("bed", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
-	public static final Item COUCH = register("couch", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
-	public static final Item SHELF = register("shelf", new Item(new Item.Properties().group(ItemGroup.DECORATIONS)));
+	public static final Item CHAIR = register("chair", new ChairItem(BlocksTwo.CHAIR, new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+	public static final Item EDGE_STOOL = register("edge_stool", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+	public static final Item ROUND_STOOL = register("round_stool", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+	public static final Item EDGE_TABLE = register("edge_table", new EdgeTableItem(BlocksTwo.EDGE_TABLE, new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+	public static final Item ROUND_TABLE = register("round_table", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+	public static final Item CUPBOARD = register("cupboard", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+	public static final Item LAMP = register("lamp", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+	public static final Item BED = register("bed", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+	public static final Item COUCH = register("couch", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+	public static final Item SHELF = register("shelf", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
 	
 	public static final Item STARSTONE_TORCH = register(new WallOrFloorItem(BlocksTwo.STARSTONE_TORCH, BlocksTwo.STARSTONE_WALL_TORCH, new Item.Properties().group(ItemGroup.DECORATIONS)));
 
@@ -498,16 +498,16 @@ public class ItemsTwo {
 	
 	// Transportation
 	//public static final Item MAPLE_BOAT = register("maple_boat", new BoatItem(BoatEntityTwo.Type.MAPLE, new Item.Properties().group(ItemGroup.TRANSPORTATION)));
-	public static final Item CRIMSON_BOAT = register("crimson_boat", new BoatItemTwo(BoatEntityTwo.Type.CRIMSON, (new Item.Properties()).maxStackSize(1).group(ItemGroup.TRANSPORTATION)));
-	public static final Item WARPED_BOAT = register("warped_boat", new BoatItemTwo(BoatEntityTwo.Type.CRIMSON, (new Item.Properties()).maxStackSize(1).group(ItemGroup.TRANSPORTATION)));
-	public static final Item MAPLE_BOAT = register("maple_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
-	public static final Item CHERRY_BOAT = register("cherry_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
-	public static final Item GHOSTWOOD_BOAT = register("ghostwood_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
-	public static final Item CLOUDWOOD_BOAT = register("cloudwood_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
-	public static final Item BLACKBARK_BOAT = register("blackbark_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
-	public static final Item FROSTBARK_BOAT = register("frostbark_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
+	public static final Item CRIMSON_BOAT = register("crimson_boat", new BoatItemTwo(BoatEntityTwo.Type.CRIMSON, (new Item.Properties()).maxStackSize(1)/*.group(ItemGroup.TRANSPORTATION)*/));
+	public static final Item WARPED_BOAT = register("warped_boat", new BoatItemTwo(BoatEntityTwo.Type.CRIMSON, (new Item.Properties()).maxStackSize(1)/*.group(ItemGroup.TRANSPORTATION)*/));
+	public static final Item MAPLE_BOAT = register("maple_boat", new Item(new Item.Properties()/*.group(ItemGroup.TRANSPORTATION)*/));
+	public static final Item CHERRY_BOAT = register("cherry_boat", new Item(new Item.Properties()/*.group(ItemGroup.TRANSPORTATION)*/));
+	public static final Item GHOSTWOOD_BOAT = register("ghostwood_boat", new Item(new Item.Properties()/*.group(ItemGroup.TRANSPORTATION)*/));
+	public static final Item CLOUDWOOD_BOAT = register("cloudwood_boat", new Item(new Item.Properties()/*.group(ItemGroup.TRANSPORTATION)*/));
+	public static final Item BLACKBARK_BOAT = register("blackbark_boat", new Item(new Item.Properties()/*.group(ItemGroup.TRANSPORTATION)*/));
+	public static final Item FROSTBARK_BOAT = register("frostbark_boat", new Item(new Item.Properties()/*.group(ItemGroup.TRANSPORTATION)*/));
 	
-	public static final Item OBSIDIAN_BOAT = register("obsidian_boat", new Item(new Item.Properties().group(ItemGroup.TRANSPORTATION)));
+	public static final Item OBSIDIAN_BOAT = register("obsidian_boat", new Item(new Item.Properties()/*.group(ItemGroup.TRANSPORTATION)*/));
 	
 	
 	
@@ -602,7 +602,7 @@ public class ItemsTwo {
     //public static final Item BACKPACK = register("backpack", new BackpackItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
     //backpack -> wearable, another tab of items
     //fanny pack -> wearable, displays extra row
-    public static final Item SMALL_BACKPACK = register("small_backpack", new BackpackItem(new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item SMALL_BACKPACK = register("small_backpack", new BackpackItem(new Item.Properties()/*.group(ItemGroup.MISC)*/));
     public static final Item KNAPSACK = register("knapsack", new KnapsackItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
     //potion sack -> displays extra potion slots
     //quiver -> displays extra arrow slots
@@ -610,21 +610,21 @@ public class ItemsTwo {
     
     public static final Item BEARDED_DRAGON_SPAWN_EGG = register("bearded_dragon_spawn_egg", new SpawnEggItem(EntityTypeTwo.BEARDED_DRAGON, 14397817, 15255450, new Item.Properties().group(ItemGroup.MISC)));
     public static final Item CHAMELEON_SPAWN_EGG = register("chameleon_spawn_egg", new SpawnEggItem(EntityTypeTwo.CHAMELEON, 2162500, 14463743, new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item CRIMP_SPAWN_EGG = register("crimp_spawn_egg", new SpawnEggItem(EntityTypeTwo.CRIMP, 2892067, 7084570, new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item DARK_DWARF_ARCHER_SPAWN_EGG = register("dark_dwarf_archer_spawn_egg", new SpawnEggItem(EntityTypeTwo.DARK_DWARF_ARCHER, 3617852, 7880467, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item CRIMP_SPAWN_EGG = register("crimp_spawn_egg", new SpawnEggItem(EntityTypeTwo.CRIMP, 2892067, 7084570, new Item.Properties()/*.group(ItemGroup.MISC)*/));
+    public static final Item DARK_DWARF_ARCHER_SPAWN_EGG = register("dark_dwarf_archer_spawn_egg", new SpawnEggItem(EntityTypeTwo.DARK_DWARF_ARCHER, 3617852, 7880467, new Item.Properties()/*.group(ItemGroup.MISC)*/));
     public static final Item ICE_SLIME_SPAWN_EGG = register("ice_slime_spawn_egg", new SpawnEggItem(EntityTypeTwo.ICE_SLIME, 14606335, 16382719, new Item.Properties().group(ItemGroup.MISC)));
     public static final Item MUMMIFIED_ZOMBIE_SPAWN_EGG = register("mummified_zombie_spawn_egg", new SpawnEggItem(EntityTypeTwo.MUMMIFIED_ZOMBIE, 3490609, 13487798, new Item.Properties().group(ItemGroup.MISC)));
     public static final Item PENGUIN_SPAWN_EGG = register("penguin_spawn_egg", new SpawnEggItem(EntityTypeTwo.PENGUIN, 1250583, 16316656, new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item RED_PANDA_SPAWN_EGG = register("red_panda_spawn_egg", new SpawnEggItem(EntityTypeTwo.RED_PANDA, 3215619, 13847826, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item RED_PANDA_SPAWN_EGG = register("red_panda_spawn_egg", new SpawnEggItem(EntityTypeTwo.RED_PANDA, 3215619, 13847826, new Item.Properties()/*.group(ItemGroup.MISC)*/));
     
     public static final Item CHAMELEON_EYE = register("chameleon_eye", new Item(new Item.Properties().group(ItemGroup.MISC)));
     public static final Item CHAMELEON_SKIN = register("chameleon_skin", new Item(new Item.Properties().group(ItemGroup.MISC)));
     
     public static final Item ICE_SLIME_BALL = register("ice_slime_ball", new Item(new Item.Properties().group(ItemGroup.MISC)));
     
-    public static final Item SNOWGLOBE = register("snowglobe", new SnowglobeItem(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1)));
+    public static final Item SNOWGLOBE = register("snowglobe", new SnowglobeItem(new Item.Properties()/*.group(ItemGroup.MISC)*/.maxStackSize(1)));
     
-    public static final Item REGOLITH_DUST = register("regolith_dust", new Item(new Item.Properties().group(ItemGroup.MISC)  ) {
+    public static final Item REGOLITH_DUST = register("regolith_dust", new Item(new Item.Properties()/*.group(ItemGroup.MISC)*/  ) {
     	public net.minecraft.util.ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, net.minecraft.util.Hand handIn) {
 //			playerIn.changeDimension(DimensionTypeTwo.NIDAVELLIR, new ITeleporter() {
 //				public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
@@ -639,7 +639,7 @@ public class ItemsTwo {
     public static final Item MUSIC_DISC_BAD_DREAMS = register("music_disc_bad_dreams", new MusicDiscItem(13, () -> SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
     public static final Item MUSIC_DISC_REALM_NINE = register("music_disc_realm_nine", new MusicDiscItem(14, () -> SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
 	
-    public static final Item MUD_BUCKET = register("mud_bucket", new BucketItem(() -> FluidsTwo.MUD, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item MUD_BUCKET = register("mud_bucket", new BucketItem(() -> FluidsTwo.MUD, new Item.Properties()/*.group(ItemGroup.MISC)*/));
     
     public static final Item LETTER_A = register(BlocksTwo.LETTER_A, new Item.Properties().group(ItemGroup.MISC));
     public static final Item LETTER_B = register(BlocksTwo.LETTER_B, new Item.Properties().group(ItemGroup.MISC));
@@ -759,12 +759,12 @@ public class ItemsTwo {
 	// TODO fix stats
 	
 	public static final Item SMITHING_HAMMER = register("smithing_hammer", new SmithingHammerItem(new Item.Properties().group(ItemGroup.TOOLS).defaultMaxDamage(100)));
-	public static final Item HANDSAW = register("handsaw", new Item(new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item HANDSAW = register("handsaw", new Item(new Item.Properties()/*.group(ItemGroup.TOOLS)*/));
 	public static final Item ROTATING_WRENCH = register("rotating_wrench", new RotatingWrenchItem(new Item.Properties().group(ItemGroup.TOOLS)));
 	// mattock
 	// drill? or maybe the hammer will also serve this functionality.
 	
-	public static final Item CRAFTING_BOOK = register("crafting_book", new CraftingBookItem(new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item CRAFTING_BOOK = register("crafting_book", new CraftingBookItem(new Item.Properties()/*.group(ItemGroup.TOOLS)*/));
 	// other books
 	
 
@@ -831,7 +831,7 @@ public class ItemsTwo {
     public static final Item BANISHER = register("banisher", new BanisherItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE).maxDamage(1280)));
     public static final Item STORMBREAKER = register("stormbreaker", new StormbreakerItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.EPIC)));
     public static final Item EVOCATION_STAFF = register("evocation_staff", new EvocationStaffItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.EPIC).maxDamage(1280)));
-    public static final Item CONJURATION_STAFF = register("conjuration_staff", new ConjurationStaffItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.EPIC).maxDamage(1280)));
+    public static final Item CONJURATION_STAFF = register("conjuration_staff", new ConjurationStaffItem(new Item.Properties()/*.group(ItemGroup.COMBAT)*/.maxStackSize(1).rarity(Rarity.EPIC).maxDamage(1280)));
     
     public static final Item WOODEN_CAPPED_ARROW = register("wooden_capped_arrow", new CappedArrowItem(ItemTier.WOOD, new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item STONE_CAPPED_ARROW = register("stone_capped_arrow", new CappedArrowItem(ItemTier.STONE, new Item.Properties().group(ItemGroup.COMBAT)));
@@ -854,7 +854,7 @@ public class ItemsTwo {
     // some other bomb (doesn't destroy)
     // flash bomb
     // smoke bomb
-    public static final Item SHURIKEN = register("shuriken", new ShurikenItem(new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item SHURIKEN = register("shuriken", new ShurikenItem(new Item.Properties()/*.group(ItemGroup.COMBAT)*/));
     // TODO Shuriken code so that it can stick in blocks and whatnot. 
     // Also rendering and spinning. 
     
@@ -1143,10 +1143,10 @@ public class ItemsTwo {
     public static final Item OBSIDIAN_LEGGINGS = register("obsidian_leggings", new ArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item OBSIDIAN_BOOTS = register("obsidian_boots", new ArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
 
-    public static final Item TOP_HAT = register("top_hat", new TopHatItem(new Item.Properties().group(ItemGroup.COMBAT)));
+    public static final Item TOP_HAT = register("top_hat", new TopHatItem(new Item.Properties()/*.group(ItemGroup.COMBAT)*/));
     
-    public static final Item DOUBLE_JUMP_BOOTS = register("double_jump_boots", new DoubleJumpBootsItem(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)));
-    public static final Item BEAMING_BOOTS = register("beaming_boots", new BeamingBootsItem(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)));
+    public static final Item DOUBLE_JUMP_BOOTS = register("double_jump_boots", new DoubleJumpBootsItem(new Item.Properties()/*.group(ItemGroup.COMBAT)*/.rarity(Rarity.RARE)));
+    public static final Item BEAMING_BOOTS = register("beaming_boots", new BeamingBootsItem(new Item.Properties()/*.group(ItemGroup.COMBAT)*/.rarity(Rarity.RARE)));
     public static final Item SLIME_BOOTS = register("slime_boots", new SlimeBootsItem(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)));
     public static final Item HERMES_HELMET = register("hermes_helmet", new HermesHelmetItem(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)));
     

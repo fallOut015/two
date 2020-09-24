@@ -15,6 +15,7 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureSpread;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.feature.ReplaceBlockConfig;
 import net.minecraft.world.gen.feature.TwoLayerFeature;
 import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
 import net.minecraft.world.gen.feature.template.RuleTest;
@@ -65,16 +66,19 @@ public class FeaturesTwo { // Configured features with placements.
 	public static final ConfiguredFeature<?, ?> HUGE_NEONDOT = register("huge_neondot", FeatureTwo.HUGE_NEONDOT.withConfiguration(new BigMushroomFeatureConfig(new SimpleBlockStateProvider(FeaturesTwo.States.NEONDOT_CAP), new SimpleBlockStateProvider(FeaturesTwo.States.NEONDOT_STEM), 2)));
 	public static final ConfiguredFeature<?, ?> HUGE_BRIMSHINE = register("huge_brimshine", FeatureTwo.HUGE_BRIMSHINE.withConfiguration(new BigMushroomFeatureConfig(new SimpleBlockStateProvider(FeaturesTwo.States.BRIMSHINE_CAP), new SimpleBlockStateProvider(FeaturesTwo.States.BRIMSHINE_STEM), 3)));
 	// Stone Replacers
-	public static final ConfiguredFeature<?, ?> DESERT_STONE_REPLACER = register("desert_stone_replacer", FeatureTwo.MULTI_REPLACE_BLOCK.withConfiguration(new MultiReplaceBlockConfig(Blocks.STONE.getDefaultState(), Blocks.SMOOTH_SANDSTONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.SAND.getDefaultState())).withPlacement(PlacementTwo.PLACE_ALL_TO_64.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
-//	public static final ConfiguredFeature<?, ?> DESERT_SANDSTONE_PLACER = register("desert_sandstone_placer", FeatureTwo.REPLACE_BLOCK.withConfiguration(new ReplaceBlockConfig(Blocks.SMOOTH_SANDSTONE.getDefaultState(), Blocks.SANDSTONE.getDefaultState())).withPlacement(Placement.field_242902_f.configure(new FrequencyConfig(256))));
+	public static final ConfiguredFeature<?, ?> DESERT_STONE_REPLACER = register("desert_stone_replacer", FeatureTwo.MULTI_REPLACE_BLOCK.withConfiguration(new MultiReplaceBlockConfig(States.STONE, States.SMOOTH_SANDSTONE, States.STONE, States.SAND)).withPlacement(PlacementTwo.PLACE_ALL_TO_64.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+	public static final ConfiguredFeature<?, ?> ICY_STONE_REPLACER = register("icy_stone_replacer", FeatureTwo.REPLACE_BLOCK.withConfiguration(new ReplaceBlockConfig(States.STONE, Blocks.PACKED_ICE.getDefaultState())).withPlacement(PlacementTwo.PLACE_ALL_TO_64.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+	public static final ConfiguredFeature<?, ?> MUSHROOM_STONE_REPLACER = register("mushroom_stone_replacer", FeatureTwo.MULTI_REPLACE_BLOCK.withConfiguration(new MultiReplaceBlockConfig(States.STONE, States.SPORESTONE, States.STONE, States.SPORESTONE_SOIL)).withPlacement(PlacementTwo.PLACE_ALL_TO_64.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+	//	public static final ConfiguredFeature<?, ?> DESERT_SANDSTONE_PLACER = register("desert_sandstone_placer", FeatureTwo.REPLACE_BLOCK.withConfiguration(new ReplaceBlockConfig(Blocks.SMOOTH_SANDSTONE.getDefaultState(), Blocks.SANDSTONE.getDefaultState())).withPlacement(Placement.field_242902_f.configure(new FrequencyConfig(256))));
 	
 	private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String key, ConfiguredFeature<FC, ?> configuredFeature) {
 		return configuredFeature;
 	}
 
 	public static final class Configs {
-		public static final BlockWithContextConfig NEONDOT_CONFIG = new BlockWithContextConfig(FeaturesTwo.States.NEONDOT, ImmutableList.of(FeaturesTwo.States.SPORESTONE_SOIL), ImmutableList.of(FeaturesTwo.States.CAVE_AIR), ImmutableList.of());
-		public static final BlockWithContextConfig BRIMSHINE_CONFIG = new BlockWithContextConfig(FeaturesTwo.States.BRIMSHINE, ImmutableList.of(FeaturesTwo.States.SPORESTONE_SOIL), ImmutableList.of(FeaturesTwo.States.CAVE_AIR), ImmutableList.of());
+		public static final BlockWithContextConfig NEONDOT_CONFIG = new BlockWithContextConfig(FeaturesTwo.States.NEONDOT, ImmutableList.of(FeaturesTwo.States.SPORESTONE_SOIL), ImmutableList.of(States.CAVE_AIR), ImmutableList.of());
+		public static final BlockWithContextConfig BRIMSHINE_CONFIG = new BlockWithContextConfig(FeaturesTwo.States.BRIMSHINE, ImmutableList.of(FeaturesTwo.States.SPORESTONE_SOIL), ImmutableList.of(States.CAVE_AIR), ImmutableList.of());
+		public static final BlockWithContextConfig SUCCULIGHT_CONFIG = new BlockWithContextConfig(FeaturesTwo.States.BRIMSHINE, ImmutableList.of(FeaturesTwo.States.SAND), ImmutableList.of(States.CAVE_AIR), ImmutableList.of());
 	}
 	
 	public static final class Placements { // references to the PlacementTwo class (with configs).
@@ -130,6 +134,11 @@ public class FeaturesTwo { // Configured features with placements.
 		protected static final BlockState NEONDOT = BlocksTwo.NEONDOT.getDefaultState();
 		protected static final BlockState BRIMSHINE = BlocksTwo.NEONDOT.getDefaultState();
 		
+		protected static final BlockState STONE = Blocks.STONE.getDefaultState();
+
+		protected static final BlockState SAND = Blocks.SAND.getDefaultState();
+		protected static final BlockState SMOOTH_SANDSTONE = Blocks.SMOOTH_SANDSTONE.getDefaultState();
+		protected static final BlockState SPORESTONE = BlocksTwo.SPORESTONE.getDefaultState();
 		protected static final BlockState SPORESTONE_SOIL = BlocksTwo.SPORESTONE_SOIL.getDefaultState();
 	
 		protected static final BlockState CAVE_AIR = Blocks.CAVE_AIR.getDefaultState();
