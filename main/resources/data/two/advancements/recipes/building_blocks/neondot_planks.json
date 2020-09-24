@@ -1,0 +1,32 @@
+{
+	"parent" : "minecraft:recipes/root",
+  	"rewards" : {
+    	"recipes" : [
+      		"two:neondot_planks"
+    	]
+  	},
+  	"criteria" : {
+    	"has_stems" : {
+      		"trigger" : "minecraft:inventory_changed",
+      		"conditions" : {
+        		"items" : [
+          			{
+            			"tag" : "two:neondot_stems"
+          			}
+        		]
+      		}
+    	},
+    	"has_the_recipe" : {
+      		"trigger" : "minecraft:recipe_unlocked",
+      		"conditions" : {
+        		"recipe" : "two:neondot_planks"
+      		}
+    	}
+  	},
+  	"requirements" : [
+    	[
+      		"has_stems",
+      		"has_the_recipe"
+    	]
+  	]
+}

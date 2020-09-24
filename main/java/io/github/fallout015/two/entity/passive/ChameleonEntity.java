@@ -69,8 +69,8 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 		this.goalSelector.addGoal(2, new LandOnOwnersShoulderGoal(this));
 		this.goalSelector.addGoal(3, new PanicGoal(this, 2.0D));
 		this.goalSelector.addGoal(4, new BreedGoal(this, 0.8D));
-		this.goalSelector.addGoal(5, new RestOnBlockGoal(this, (blockState) -> blockState.getBlock() == Blocks.SAND)); // add a light value to the predicate
-		this.goalSelector.addGoal(5, new RestOnBlockGoal(this, (blockState) -> blockState.getBlock() == Blocks.JUNGLE_LOG));
+		this.goalSelector.addGoal(5, new ChameleonEntity.RestOnBlockGoal(this, (blockState) -> blockState.getBlock() == Blocks.SAND)); // add a light value to the predicate
+		this.goalSelector.addGoal(5, new ChameleonEntity.RestOnBlockGoal(this, (blockState) -> blockState.getBlock() == Blocks.JUNGLE_LOG));
 		this.goalSelector.addGoal(6, new TemptGoal(this, 1.2D, false, TEMPTATION_ITEMS));
 		this.goalSelector.addGoal(7, new LookAtGoal(this, PlayerEntity.class, 10.0F));
 		this.goalSelector.addGoal(8, new WaterAvoidingRandomWalkingGoal(this, 0.8D, 1.0000001E-5F));

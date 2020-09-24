@@ -177,7 +177,7 @@ public class BlocksTwo {
 	public static final Block FROSTBARK_LOG = register("frostbark_log", Blocks.func_235430_a_(MaterialColor.WHITE_TERRACOTTA, MaterialColor.ICE));
 	public static final Block NEONDOT_STEM = register("neondot_stem", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.CYAN).hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
 	public static final Block BRIMSHINE_STEM = register("brimshine_stem", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
-
+	
 	public static final Block STRIPPED_CHERRY_LOG = register("stripped_cherry_log", Blocks.func_235430_a_(MaterialColor.PINK_TERRACOTTA, MaterialColor.PINK_TERRACOTTA));
 	public static final Block STRIPPED_MAPLE_LOG = register("stripped_maple_log", Blocks.func_235430_a_(MaterialColor.SAND, MaterialColor.SAND));
 	public static final Block STRIPPED_GHOSTWOOD_LOG = register("stripped_ghostwood_log", Blocks.func_235430_a_(MaterialColor.RED_TERRACOTTA, MaterialColor.RED_TERRACOTTA));
@@ -423,7 +423,6 @@ public class BlocksTwo {
 	
 	// Blood Aether
 	public static final Block SANGUINE = register("sanguine", new Block(Block.Properties.create(Material.SAND)));
-	public static final Block CRIMSON = register("crimson", new Block(Block.Properties.create(Material.IRON)));
 	public static final Block ABADDON = register("abaddon", new Block(Block.Properties.create(Material.ROCK)));
 	
 	// Frostbite

@@ -3,7 +3,7 @@ package io.github.fallout015.two.client.renderer.entity.model;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 
-import io.github.fallout015.two.entity.passive.NetherBugEntity;
+import io.github.fallout015.two.entity.passive.CrimpEntity;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
@@ -12,7 +12,7 @@ import net.minecraft.util.math.MathHelper;
 // Exported for Minecraft version 1.15
 // Paste this class into your mod and generate all required imports
 
-public class NetherBugModel<T extends NetherBugEntity> extends EntityModel<T> {
+public class CrimpModel<T extends CrimpEntity> extends EntityModel<T> {
 	private final ModelRenderer body;
 	private final ModelRenderer legA;
 	private final ModelRenderer legB;
@@ -34,7 +34,7 @@ public class NetherBugModel<T extends NetherBugEntity> extends EntityModel<T> {
 	private final ModelRenderer left;
 	private final ModelRenderer frontleft;
 
-	public NetherBugModel() {
+	public CrimpModel() {
 		textureWidth = 32;
 		textureHeight = 48;
 

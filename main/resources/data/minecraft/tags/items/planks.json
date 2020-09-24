@@ -2,11 +2,13 @@
 	"replace" : false,
 	"values" : [
 		"two:cherry_planks",
-		"two:maple_planks",
+    	"two:maple_planks",
 		"two:ghostwood_planks",
-		"two:cloudwood_planks",
+    	"two:cloudwood_planks",
 		"two:blackbark_planks",
-		"two:frostbark_planks",
+    	"two:frostbark_planks",
+		"two:neondot_planks",
+		"two:brimshine_planks",
 		"#two:stained_wooden_planks"
 	]
 }

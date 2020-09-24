@@ -89,6 +89,10 @@ public class ItemsTwo {
 	public static final Item CLOUDWOOD_PLANKS = register(BlocksTwo.CLOUDWOOD_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item BLACKBARK_PLANKS = register(BlocksTwo.BLACKBARK_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item FROSTBARK_PLANKS = register(BlocksTwo.FROSTBARK_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item NEONDOT_PLANKS = register(BlocksTwo.NEONDOT_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item BRIMSHINE_PLANKS = register(BlocksTwo.BRIMSHINE_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+
+	
 	
 	public static final Item WHITE_STAINED_WOODEN_PLANKS = register(BlocksTwo.WHITE_STAINED_WOODEN_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item ORANGE_STAINED_WOODEN_PLANKS = register(BlocksTwo.ORANGE_STAINED_WOODEN_PLANKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -260,7 +264,6 @@ public class ItemsTwo {
 	public static final Item SPORESTONE_SOIL = register(BlocksTwo.SPORESTONE_SOIL, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	public static final Item SANGUINE = register(BlocksTwo.SANGUINE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-	public static final Item CRIMSON = register(BlocksTwo.CRIMSON, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item ABADDON = register(BlocksTwo.ABADDON, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	public static final Item PERMAFROST_GRASS_BLOCK = register(BlocksTwo.PERMAFROST_GRASS_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -605,12 +608,14 @@ public class ItemsTwo {
     //quiver -> displays extra arrow slots
     public static final Item INSPECTION_SPECTACLES = register("inspection_spectacles", new InspectionSpectaclesItem(new Item.Properties().group(ItemGroup.MISC).rarity(Rarity.EPIC)));
     
-    public static final Item CHAMELEON_SPAWN_EGG = register("chameleon_spawn_egg", new SpawnEggItem(EntityTypeTwo.CHAMELEON, 2162500, 14463743, new Item.Properties().group(ItemGroup.MISC)));
     public static final Item BEARDED_DRAGON_SPAWN_EGG = register("bearded_dragon_spawn_egg", new SpawnEggItem(EntityTypeTwo.BEARDED_DRAGON, 14397817, 15255450, new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item RED_PANDA_SPAWN_EGG = register("red_panda_spawn_egg", new SpawnEggItem(EntityTypeTwo.RED_PANDA, 3215619, 13847826, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item CHAMELEON_SPAWN_EGG = register("chameleon_spawn_egg", new SpawnEggItem(EntityTypeTwo.CHAMELEON, 2162500, 14463743, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item CRIMP_SPAWN_EGG = register("crimp_spawn_egg", new SpawnEggItem(EntityTypeTwo.CRIMP, 2892067, 7084570, new Item.Properties().group(ItemGroup.MISC)));
     public static final Item DARK_DWARF_ARCHER_SPAWN_EGG = register("dark_dwarf_archer_spawn_egg", new SpawnEggItem(EntityTypeTwo.DARK_DWARF_ARCHER, 3617852, 7880467, new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item MUMMIFIED_ZOMBIE_SPAWN_EGG = register("mummified_zombie_spawn_egg", new SpawnEggItem(EntityTypeTwo.MUMMIFIED_ZOMBIE, 3490609, 13487798, new Item.Properties().group(ItemGroup.MISC)));
     public static final Item ICE_SLIME_SPAWN_EGG = register("ice_slime_spawn_egg", new SpawnEggItem(EntityTypeTwo.ICE_SLIME, 14606335, 16382719, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item MUMMIFIED_ZOMBIE_SPAWN_EGG = register("mummified_zombie_spawn_egg", new SpawnEggItem(EntityTypeTwo.MUMMIFIED_ZOMBIE, 3490609, 13487798, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item PENGUIN_SPAWN_EGG = register("penguin_spawn_egg", new SpawnEggItem(EntityTypeTwo.PENGUIN, 1250583, 16316656, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item RED_PANDA_SPAWN_EGG = register("red_panda_spawn_egg", new SpawnEggItem(EntityTypeTwo.RED_PANDA, 3215619, 13847826, new Item.Properties().group(ItemGroup.MISC)));
     
     public static final Item CHAMELEON_EYE = register("chameleon_eye", new Item(new Item.Properties().group(ItemGroup.MISC)));
     public static final Item CHAMELEON_SKIN = register("chameleon_skin", new Item(new Item.Properties().group(ItemGroup.MISC)));
@@ -1129,7 +1134,9 @@ public class ItemsTwo {
    
     public static final Item OBSIDIAN_HELMET = register("obsidian_helmet", new ArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)) {
     	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-    		// Prevent the player from catching fire (or just put them out every tick that they are)
+    		if(player.isBurning()) {
+    			player.extinguish();
+    		}
     	}
     });
     public static final Item OBSIDIAN_CHESTPLATE = register("obsidian_chestplate", new ArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));

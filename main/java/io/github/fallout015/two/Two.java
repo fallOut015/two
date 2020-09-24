@@ -10,10 +10,12 @@ import java.util.UUID;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.lwjgl.glfw.GLFW;
 
 import com.google.common.collect.Sets;
 
 import io.github.fallout015.two.block.BlocksTwo;
+import io.github.fallout015.two.block.DreamcatcherBlock;
 import io.github.fallout015.two.client.particle.FrostParticle;
 import io.github.fallout015.two.client.particle.SparkParticle;
 import io.github.fallout015.two.client.particle.TwinkleParticle;
@@ -23,12 +25,13 @@ import io.github.fallout015.two.client.renderer.entity.BoatRendererTwo;
 import io.github.fallout015.two.client.renderer.entity.BombArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.CappedArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.ChameleonRenderer;
+import io.github.fallout015.two.client.renderer.entity.CrimpRenderer;
 import io.github.fallout015.two.client.renderer.entity.DarkDwarfArcherRenderer;
 import io.github.fallout015.two.client.renderer.entity.FireArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.IceArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.IceSlimeRenderer;
 import io.github.fallout015.two.client.renderer.entity.MummifiedZombieRenderer;
-import io.github.fallout015.two.client.renderer.entity.NetherBugRenderer;
+import io.github.fallout015.two.client.renderer.entity.PenguinRenderer;
 import io.github.fallout015.two.client.renderer.entity.RedPandaRenderer;
 import io.github.fallout015.two.client.renderer.entity.ShockArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.ShurikenRenderer;
@@ -50,7 +53,8 @@ import io.github.fallout015.two.entity.EntityTypeTwo;
 import io.github.fallout015.two.entity.monster.MummifiedZombieEntity;
 import io.github.fallout015.two.entity.passive.BeardedDragonEntity;
 import io.github.fallout015.two.entity.passive.ChameleonEntity;
-import io.github.fallout015.two.entity.passive.NetherBugEntity;
+import io.github.fallout015.two.entity.passive.CrimpEntity;
+import io.github.fallout015.two.entity.passive.PenguinEntity;
 import io.github.fallout015.two.entity.passive.RedPandaEntity;
 import io.github.fallout015.two.fluid.FluidsTwo;
 import io.github.fallout015.two.inventory.container.ContainerTypeTwo;
@@ -59,6 +63,8 @@ import io.github.fallout015.two.item.ItemsTwo;
 import io.github.fallout015.two.item.SlimeBootsItem;
 import io.github.fallout015.two.particles.ParticleTypesTwo;
 import io.github.fallout015.two.potion.EffectsTwo;
+import io.github.fallout015.two.server.JumpPacketHandler;
+import io.github.fallout015.two.server.PacketHandler;
 import io.github.fallout015.two.stats.StatsTwo;
 import io.github.fallout015.two.tileentity.TileEntityTypeTwo;
 import io.github.fallout015.two.util.SoundEventsTwo;
@@ -115,6 +121,7 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.Feature;
@@ -123,6 +130,7 @@ import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.ParticleFactoryRegisterEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
@@ -284,6 +292,8 @@ public class Two {
     }
 
 	private void setup(final FMLCommonSetupEvent event) {
+		PacketHandler.INSTANCE.registerMessage(JumpPacketHandler.JUMP_ID, JumpPacketHandler.class, JumpPacketHandler::encoder, JumpPacketHandler::decoder, JumpPacketHandler::handle);
+
 //    	DeferredWorkQueue ? 
 //    	DefaultBiomeFeaturesTwo.addFeatures();
 //    	DefaultBiomeFeaturesTwo.addStructures();
@@ -306,7 +316,8 @@ public class Two {
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.CHAMELEON, ChameleonEntity.applyAttributes().func_233813_a_());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonEntity.applyAttributes().func_233813_a_());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.RED_PANDA, RedPandaEntity.applyAttributes().func_233813_a_());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.NETHER_BUG, NetherBugEntity.applyAttributes().func_233813_a_());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.CRIMP, CrimpEntity.applyAttributes().func_233813_a_());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.PENGUIN, PenguinEntity.applyAttributes().func_233813_a_());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.DARK_DWARF_ARCHER, MonsterEntity.func_234295_eP_().func_233813_a_()); // TODO give own stats. 
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.MUMMIFIED_ZOMBIE, MummifiedZombieEntity.applyAttributes().func_233813_a_());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.ICE_SLIME, MonsterEntity.func_234295_eP_().func_233813_a_()); // TODO give own stats.
@@ -321,7 +332,8 @@ public class Two {
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CHAMELEON, ChameleonRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.RED_PANDA, RedPandaRenderer::new);
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.NETHER_BUG, NetherBugRenderer::new);
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CRIMP, CrimpRenderer::new);
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.PENGUIN, PenguinRenderer::new);
     	
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CAPPED_ARROW, CappedArrowRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.FIRE_ARROW, FireArrowRenderer::new);
@@ -537,11 +549,12 @@ public class Two {
     	}
 		@SubscribeEvent
     	public static void onPlayerWakeUp(final PlayerWakeUpEvent playerWakeUpEvent) {
-			if(playerWakeUpEvent.getPlayer().getEntityWorld().getDayTime() == 24000) {
-//    			if(playerWakeUpEvent.getPlayer().dimension == DimensionType.OVERWORLD && playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation(DimensionType.OVERWORLD).up()).getBlock() instanceof DreamcatcherBlock) {
-//    				((DreamcatcherBlock) playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedLocation(DimensionType.OVERWORLD).up()).getBlock()).onPlayerWakeUp(playerWakeUpEvent);
-//    			} // TODO
-    		}
+			boolean isOverworld = playerWakeUpEvent.getPlayer().getEntityWorld().func_234923_W_() == World.field_234918_g_;
+			boolean hasDreamcatcher = playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedPosition().get().up()).getBlock() instanceof DreamcatcherBlock;
+			boolean successfulSleep = playerWakeUpEvent.getPlayer().getEntityWorld().getDayTime() == 24000;
+			if(successfulSleep && isOverworld && hasDreamcatcher) {
+				((DreamcatcherBlock) playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedPosition().get().up()).getBlock()).onPlayerWakeUp(playerWakeUpEvent);
+			}
     	}
 		@SubscribeEvent
 		public static void onSleepFinishedTime(final SleepFinishedTimeEvent sleepFinishedTimeEvent) {
@@ -593,26 +606,25 @@ public class Two {
     			livingJumpEvent.getEntityLiving().setMotion(Vector3d.ZERO);
     			return;
     		}
-    		if(livingJumpEvent.getEntityLiving() instanceof PlayerEntity) {
-//    			livingJumpEvent.getEntityLiving().addVelocity(0, 0.42F, 0);
-//    			LOGGER.info("Player Jump!");
-    			PlayerEntity p = (PlayerEntity) livingJumpEvent.getEntityLiving();
-        		LinkedList<ItemStack> list = new LinkedList<ItemStack>();
-        		livingJumpEvent.getEntityLiving().getArmorInventoryList().forEach(list::add);
-//        		LOGGER.info(list);
-        		if(list.getFirst().getItem() == ItemsTwo.DOUBLE_JUMP_BOOTS) {
-//        			LOGGER.info("Boots!");
-//        			LOGGER.info("Jumps: " + list.getFirst().getTag().getInt("jumps"));
-//        			LOGGER.info("Extra Jump Limit: " + list.getFirst().getTag().getInt("extrajumplimit"));
-        			if(list.getFirst().getTag().getInt("jumps") < list.getFirst().getTag().getInt("extrajumplimit")) {
-//        				LOGGER.info("Allowed jump limit!");
-        				if(p.isAirBorne) {
-//        					LOGGER.info("Airborne!");
-//        					p.jump();
-        					list.getFirst().getTag().putInt("jumps", list.getFirst().getTag().getInt("jumps") + 1);
-        				}
-        			}
-        		}
+//        		if(list.getFirst().getItem() == ItemsTwo.DOUBLE_JUMP_BOOTS) {
+////        			LOGGER.info("Boots!");
+////        			LOGGER.info("Jumps: " + list.getFirst().getTag().getInt("jumps"));
+////        			LOGGER.info("Extra Jump Limit: " + list.getFirst().getTag().getInt("extrajumplimit"));
+//        			if(list.getFirst().getTag().getInt("jumps") < list.getFirst().getTag().getInt("extrajumplimit")) {
+////        				LOGGER.info("Allowed jump limit!");
+//        				if(p.isAirBorne) {
+////        					LOGGER.info("Airborne!");
+////        					p.jump();
+//        					list.getFirst().getTag().putInt("jumps", list.getFirst().getTag().getInt("jumps") + 1);
+//        				}
+//        			}
+//        		}
+    	}
+    	@SubscribeEvent
+    	public static void onKeyInput(final InputEvent.KeyInputEvent inputEvent$KeyInputEvent) {
+    		if(inputEvent$KeyInputEvent.getKey() == GLFW.GLFW_KEY_SPACE && inputEvent$KeyInputEvent.getAction() == GLFW.GLFW_PRESS) {
+        		PacketHandler.INSTANCE.sendToServer(new JumpPacketHandler());
+        		Two.LOGGER.info("Sending jump packet to server");
     		}
     	}
     	@SubscribeEvent

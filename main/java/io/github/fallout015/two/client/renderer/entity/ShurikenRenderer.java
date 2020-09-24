@@ -24,8 +24,6 @@ public class ShurikenRenderer<T extends ShurikenEntity> extends EntityRenderer<T
 	
 	public ShurikenRenderer(EntityRendererManager renderManager) {
 		super(renderManager);
-		
-		Two.LOGGER.info("shuriken renderer constructed");
 	}
 	
 	@Override

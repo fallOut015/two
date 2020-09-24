@@ -11,7 +11,8 @@ import io.github.fallout015.two.entity.monster.IceSlimeEntity;
 import io.github.fallout015.two.entity.monster.MummifiedZombieEntity;
 import io.github.fallout015.two.entity.passive.BeardedDragonEntity;
 import io.github.fallout015.two.entity.passive.ChameleonEntity;
-import io.github.fallout015.two.entity.passive.NetherBugEntity;
+import io.github.fallout015.two.entity.passive.CrimpEntity;
+import io.github.fallout015.two.entity.passive.PenguinEntity;
 import io.github.fallout015.two.entity.passive.RedPandaEntity;
 import io.github.fallout015.two.entity.projectile.BombArrowEntity;
 import io.github.fallout015.two.entity.projectile.CappedArrowEntity;
@@ -31,7 +32,8 @@ public class EntityTypeTwo {
 	public static final EntityType<ChameleonEntity> CHAMELEON = register("chameleon", EntityType.Builder.create(ChameleonEntity::new, EntityClassification.CREATURE).size(0.25f, 0.25f));
 	public static final EntityType<BeardedDragonEntity> BEARDED_DRAGON = register("bearded_dragon", EntityType.Builder.create(BeardedDragonEntity::new, EntityClassification.CREATURE).size(0.2f, 0.2f));
 	public static final EntityType<RedPandaEntity> RED_PANDA = register("red_panda", EntityType.Builder.create(RedPandaEntity::new, EntityClassification.CREATURE).size(0.6875f, 1f));
-	public static final EntityType<NetherBugEntity> NETHER_BUG = register("nether_bug", EntityType.Builder.create(NetherBugEntity::new, EntityClassification.CREATURE).size(0.6875f, 1f));
+	public static final EntityType<CrimpEntity> CRIMP = register("crimp", EntityType.Builder.create(CrimpEntity::new, EntityClassification.CREATURE).size(0.6875f, 1f));
+	public static final EntityType<PenguinEntity> PENGUIN = register("penguin", EntityType.Builder.create(PenguinEntity::new, EntityClassification.CREATURE).size(0.5f, 0.8f));
 	
 	//	public static EntityType<WandererEntity> WANDERER = (EntityType<WandererEntity>) register("wanderer", EntityType.Builder.create(WandererEntity::new, EntityClassification.MONSTER).size(0.5f, 1.0f).build("wanderer"));
 //	public static EntityType<ShadowEntity> SHADOW = (EntityType<ShadowEntity>) register("shadow", EntityType.Builder.create(ShadowEntity::new, EntityClassification.MONSTER).size(0.5f, 1.0f).build("shadow"));
