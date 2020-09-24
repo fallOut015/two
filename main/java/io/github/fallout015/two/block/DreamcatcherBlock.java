@@ -2,15 +2,18 @@ package io.github.fallout015.two.block;
 
 import java.util.List;
 import java.util.Random;
+import java.util.function.Function;
 
 import javax.annotation.Nullable;
 
 import io.github.fallout015.two.Two;
+import io.github.fallout015.two.world.WorldTwo;
 import io.netty.util.internal.shaded.org.jctools.queues.MessagePassingQueue.Consumer;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.HorizontalBlock;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
@@ -19,6 +22,7 @@ import net.minecraft.loot.LootParameterSets;
 import net.minecraft.loot.LootParameters;
 import net.minecraft.loot.LootTable;
 import net.minecraft.particles.IParticleData;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.Direction;
@@ -34,6 +38,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 
 // TODO
@@ -124,17 +129,22 @@ public class DreamcatcherBlock extends Block {
 	}
 	public static void dreamcatcherLucky(PlayerWakeUpEvent playerWakeUpEvent) { }
 	public static void dreamcatcherNightmare(PlayerWakeUpEvent playerWakeUpEvent) {
-		BlockState bedstate = playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedPosition().get());
+//		BlockState bedstate = playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedPosition().get());
 		//Block bed = bedstate.getBlock();
-		IWorldReader worldreader = playerWakeUpEvent.getPlayer().getEntityWorld();
-		BlockPos blockpos = playerWakeUpEvent.getPlayer().getBedPosition().get();
-//		ServerWorld serverworld = playerWakeUpEvent.getPlayer().getServer().getWorld(/*RegistryKey<World>*/);
-//		playerWakeUpEvent.getPlayer().changeDimension(p_241206_1_, teleporter);
-//		playerWakeUpEvent.getPlayer().changeDimension(DimensionTypeTwo.NIGHTMARE, new ITeleporter() {
-//			public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
-//				return repositionEntity.apply(false);
-//			}
-//		});
+//		IWorldReader worldreader = playerWakeUpEvent.getPlayer().getEntityWorld();
+//		BlockPos blockpos = playerWakeUpEvent.getPlayer().getBedPosition().get();
+
+		Two.LOGGER.info("nightmare time");
+		
+		ServerWorld serverworld = (ServerWorld) playerWakeUpEvent.getPlayer().world;
+		MinecraftServer minecraftserver = serverworld.getServer();
+		ServerWorld dim = minecraftserver.getWorld(WorldTwo.NIGHTMARE);
+		playerWakeUpEvent.getPlayer().changeDimension(dim, new ITeleporter() {
+			public Entity placeEntity(Entity entity, ServerWorld currentWorld, ServerWorld destWorld, float yaw, Function<Boolean, Entity> repositionEntity) {
+				return repositionEntity.apply(false);
+			}
+		});
+
 //		bedstate.getBlock().setBedOccupied(bedstate, worldreader, blockpos, playerWakeUpEvent.getEntityLiving(), false);
 //		playerWakeUpEvent.getPlayer().sendStatusMessage(new TranslationTextComponent("block.minecraft.bed.nightmare"), true);
 //		// Somewhere I need to make a manager for the inventories, probably in the ModDimension classes. 

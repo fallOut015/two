@@ -5,6 +5,7 @@ import net.minecraftforge.fml.network.NetworkRegistry;
 import net.minecraftforge.fml.network.simple.SimpleChannel;
 
 public class PacketHandler {
+	private static int ids;
 	private static final String PROTOCOL_VERSION = "1";
 	public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
 	    new ResourceLocation("two", "main"),
@@ -17,5 +18,9 @@ public class PacketHandler {
 	
 	protected PacketHandler(int id) {
 		this.id = id;
+	}
+	
+	public static int getNewID() {
+		return ids++;
 	}
 }
