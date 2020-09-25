@@ -30,7 +30,9 @@ import io.github.fallout015.two.client.renderer.entity.DarkDwarfArcherRenderer;
 import io.github.fallout015.two.client.renderer.entity.FireArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.IceArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.IceSlimeRenderer;
+import io.github.fallout015.two.client.renderer.entity.MagmeelRenderer;
 import io.github.fallout015.two.client.renderer.entity.MummifiedZombieRenderer;
+import io.github.fallout015.two.client.renderer.entity.NetherFishRenderer;
 import io.github.fallout015.two.client.renderer.entity.PenguinRenderer;
 import io.github.fallout015.two.client.renderer.entity.RedPandaRenderer;
 import io.github.fallout015.two.client.renderer.entity.ShockArrowRenderer;
@@ -50,6 +52,7 @@ import io.github.fallout015.two.common.capabilities.CapabilitiesTwo;
 import io.github.fallout015.two.enchantment.AbilityEnchantment;
 import io.github.fallout015.two.enchantment.EnchantmentsTwo;
 import io.github.fallout015.two.entity.EntityTypeTwo;
+import io.github.fallout015.two.entity.boss.magmeel.MagmeelEntity;
 import io.github.fallout015.two.entity.monster.MummifiedZombieEntity;
 import io.github.fallout015.two.entity.passive.BeardedDragonEntity;
 import io.github.fallout015.two.entity.passive.ChameleonEntity;
@@ -95,6 +98,7 @@ import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.monster.SilverfishEntity;
 import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.entity.passive.BeeEntity;
+import net.minecraft.entity.passive.fish.AbstractFishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.fluid.Fluid;
@@ -320,10 +324,14 @@ public class Two {
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.RED_PANDA, RedPandaEntity.applyAttributes().func_233813_a_());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.CRIMP, CrimpEntity.applyAttributes().func_233813_a_());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.PENGUIN, PenguinEntity.applyAttributes().func_233813_a_());
+		
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.DARK_DWARF_ARCHER, MonsterEntity.func_234295_eP_().func_233813_a_()); // TODO give own stats. 
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.MUMMIFIED_ZOMBIE, MummifiedZombieEntity.applyAttributes().func_233813_a_());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.ICE_SLIME, MonsterEntity.func_234295_eP_().func_233813_a_()); // TODO give own stats.
-    }
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.NETHER_FISH, AbstractFishEntity.func_234176_m_().func_233813_a_()); // TODO give own stats.
+
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.MAGMEEL, MagmeelEntity.applyAttributes().func_233813_a_());
+	}
 	private void doClientStuff(final FMLClientSetupEvent event) {
 //    	for(String name : BLACKLIST) {
 //    		if(name.equals(event.getMinecraftSupplier().get().player.getName().getString())) {
@@ -352,12 +360,15 @@ public class Two {
 
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.MUMMIFIED_ZOMBIE, MummifiedZombieRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.ICE_SLIME, IceSlimeRenderer::new);
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.NETHER_FISH, NetherFishRenderer::new);
     	
     	//    	RenderingRegistry.registerEntityRenderingHandler(EntityType.WOLF, WolfRendererTwo::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SIGIL, SigilRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.TWISTER, TwisterRenderer::new);
     	
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SWARM, SwarmRenderer::new);
+    	
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.MAGMEEL, MagmeelRenderer::new);
     	
     	ClientRegistry.bindTileEntityRenderer(TileEntityTypeTwo.CHAIR, ChairRenderer::new);
     	
