@@ -98,12 +98,12 @@ public class ButterflyEntity extends CreatureEntity implements IFlyingAnimal {
 	public void tick() {
 		int groundDistance = 0;
 		BlockPos pos = this.getPosition();
-		while(this.getEntityWorld().getBlockState(pos).isAir(this.getEntityWorld(), pos)) {
+		while(this.getEntityWorld().isAirBlock(pos)) {
 			++ groundDistance;
 			pos = pos.down();
 		}
 		
-		if(groundDistance < 2 + this.fallDistance) {
+		if(groundDistance < 2/* + this.fallDistance*/) {
 			this.addVelocity(0, 0.2f, 0);
 			if(this.getMotion().getY() > 0.4f) {
 				this.setMotion(this.getMotion().getX(), 0.4f, this.getMotion().getZ());
