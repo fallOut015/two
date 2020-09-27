@@ -126,11 +126,43 @@ public class BlocksTwo {
 	public static final Block RED_STAINED_WOODEN_STAIRS = register("red_stained_wooden_stairs", new StairsBlock(RED_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(RED_STAINED_WOODEN_PLANKS)));
 	public static final Block BLACK_STAINED_WOODEN_STAIRS = register("black_stained_wooden_stairs", new StairsBlock(BLACK_STAINED_WOODEN_PLANKS::getDefaultState, Block.Properties.from(BLACK_STAINED_WOODEN_PLANKS)));
 	
+	public static final Block WHITE_STAINED_WOODEN_FENCE = register("white_stained_wooden_fence", new FenceBlock(Block.Properties.from(WHITE_STAINED_WOODEN_PLANKS)));
+	public static final Block ORANGE_STAINED_WOODEN_FENCE = register("orange_stained_wooden_fence", new FenceBlock(Block.Properties.from(ORANGE_STAINED_WOODEN_PLANKS)));
+	public static final Block MAGENTA_STAINED_WOODEN_FENCE = register("magenta_stained_wooden_fence", new FenceBlock(Block.Properties.from(MAGENTA_STAINED_WOODEN_PLANKS)));
+	public static final Block LIGHT_BLUE_STAINED_WOODEN_FENCE = register("light_blue_stained_wooden_fence", new FenceBlock(Block.Properties.from(LIGHT_BLUE_STAINED_WOODEN_PLANKS)));
+	public static final Block YELLOW_STAINED_WOODEN_FENCE = register("yellow_stained_wooden_fence", new FenceBlock(Block.Properties.from(YELLOW_STAINED_WOODEN_PLANKS)));
+	public static final Block LIME_STAINED_WOODEN_FENCE = register("lime_stained_wooden_fence", new FenceBlock(Block.Properties.from(LIME_STAINED_WOODEN_PLANKS)));
+	public static final Block PINK_STAINED_WOODEN_FENCE = register("pink_stained_wooden_fence", new FenceBlock(Block.Properties.from(PINK_STAINED_WOODEN_PLANKS)));
+	public static final Block GRAY_STAINED_WOODEN_FENCE = register("gray_stained_wooden_fence", new FenceBlock(Block.Properties.from(GRAY_STAINED_WOODEN_PLANKS)));
+	public static final Block LIGHT_GRAY_STAINED_WOODEN_FENCE = register("light_gray_stained_wooden_fence", new FenceBlock(Block.Properties.from(LIGHT_GRAY_STAINED_WOODEN_PLANKS)));
+	public static final Block CYAN_STAINED_WOODEN_FENCE = register("cyan_stained_wooden_fence", new FenceBlock(Block.Properties.from(CYAN_STAINED_WOODEN_PLANKS)));
+	public static final Block PURPLE_STAINED_WOODEN_FENCE = register("purple_stained_wooden_fence", new FenceBlock(Block.Properties.from(PURPLE_STAINED_WOODEN_PLANKS)));
+	public static final Block BLUE_STAINED_WOODEN_FENCE = register("blue_stained_wooden_fence", new FenceBlock(Block.Properties.from(BLUE_STAINED_WOODEN_PLANKS)));
+	public static final Block BROWN_STAINED_WOODEN_FENCE = register("brown_stained_wooden_fence", new FenceBlock(Block.Properties.from(BROWN_STAINED_WOODEN_PLANKS)));
+	public static final Block GREEN_STAINED_WOODEN_FENCE = register("green_stained_wooden_fence", new FenceBlock(Block.Properties.from(GREEN_STAINED_WOODEN_PLANKS)));
+	public static final Block RED_STAINED_WOODEN_FENCE = register("red_stained_wooden_fence", new FenceBlock(Block.Properties.from(RED_STAINED_WOODEN_PLANKS)));
+	public static final Block BLACK_STAINED_WOODEN_FENCE = register("black_stained_wooden_fence", new FenceBlock(Block.Properties.from(BLACK_STAINED_WOODEN_PLANKS)));
+
+	public static final Block WHITE_STAINED_WOODEN_FENCE_GATE = register("white_stained_wooden_fence_gate", new FenceGateBlock(Block.Properties.from(WHITE_STAINED_WOODEN_PLANKS)));
+	public static final Block ORANGE_STAINED_WOODEN_FENCE_GATE = register("orange_stained_wooden_fence_gate", new FenceGateBlock(Block.Properties.from(ORANGE_STAINED_WOODEN_PLANKS)));
+	public static final Block MAGENTA_STAINED_WOODEN_FENCE_GATE = register("magenta_stained_wooden_fence_gate", new FenceGateBlock(Block.Properties.from(MAGENTA_STAINED_WOODEN_PLANKS)));
+	public static final Block LIGHT_BLUE_STAINED_WOODEN_FENCE_GATE = register("light_blue_stained_wooden_fence_gate", new FenceGateBlock(Block.Properties.from(LIGHT_BLUE_STAINED_WOODEN_PLANKS)));
+	public static final Block YELLOW_STAINED_WOODEN_FENCE_GATE = register("yellow_stained_wooden_fence_gate", new FenceGateBlock(Block.Properties.from(YELLOW_STAINED_WOODEN_PLANKS)));
+	public static final Block LIME_STAINED_WOODEN_FENCE_GATE = register("lime_stained_wooden_fence_gate", new FenceGateBlock(Block.Properties.from(LIME_STAINED_WOODEN_PLANKS)));
+	public static final Block PINK_STAINED_WOODEN_FENCE_GATE = register("pink_stained_wooden_fence_gate", new FenceGateBlock(Block.Properties.from(PINK_STAINED_WOODEN_PLANKS)));
+	public static final Block GRAY_STAINED_WOODEN_FENCE_GATE = register("gray_stained_wooden_fence_gate", new FenceGateBlock(Block.Properties.from(GRAY_STAINED_WOODEN_PLANKS)));
+	public static final Block LIGHT_GRAY_STAINED_WOODEN_FENCE_GATE = register("light_gray_stained_wooden_fence_gate", new FenceGateBlock(Block.Properties.from(LIGHT_GRAY_STAINED_WOODEN_PLANKS)));
+	public static final Block CYAN_STAINED_WOODEN_FENCE_GATE = register("cyan_stained_wooden_fence_gate", new FenceGateBlock(Block.Properties.from(CYAN_STAINED_WOODEN_PLANKS)));
+	public static final Block PURPLE_STAINED_WOODEN_FENCE_GATE = register("purple_stained_wooden_fence_gate", new FenceGateBlock(Block.Properties.from(PURPLE_STAINED_WOODEN_PLANKS)));
+	public static final Block BLUE_STAINED_WOODEN_FENCE_GATE = register("blue_stained_wooden_fence_gate", new FenceGateBlock(Block.Properties.from(BLUE_STAINED_WOODEN_PLANKS)));
+	public static final Block BROWN_STAINED_WOODEN_FENCE_GATE = register("brown_stained_wooden_fence_gate", new FenceGateBlock(Block.Properties.from(BROWN_STAINED_WOODEN_PLANKS)));
+	public static final Block GREEN_STAINED_WOODEN_FENCE_GATE = register("green_stained_wooden_fence_gate", new FenceGateBlock(Block.Properties.from(GREEN_STAINED_WOODEN_PLANKS)));
+	public static final Block RED_STAINED_WOODEN_FENCE_GATE = register("red_stained_wooden_fence_gate", new FenceGateBlock(Block.Properties.from(RED_STAINED_WOODEN_PLANKS)));
+	public static final Block BLACK_STAINED_WOODEN_FENCE_GATE = register("black_stained_wooden_fence_gate", new FenceGateBlock(Block.Properties.from(BLACK_STAINED_WOODEN_PLANKS)));
+
 	// stained boat
 	// stained sign
-	// stained fence (next)
 	// stained door (not sure how it's gonna work)
-	// stained fence gate (next)
 	// stained button
 	// stained pressure plate
 	// stained trapdoor (also not sure)

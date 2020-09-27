@@ -384,6 +384,23 @@ public class ItemsTwo {
 	public static final Item BRIMSHINE_CAP = register(BlocksTwo.BRIMSHINE_CAP, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item SHROOMGLOW = register(BlocksTwo.SHROOMGLOW, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
+	public static final Item WHITE_STAINED_WOODEN_FENCE = register(BlocksTwo.WHITE_STAINED_WOODEN_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item ORANGE_STAINED_WOODEN_FENCE = register(BlocksTwo.ORANGE_STAINED_WOODEN_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item MAGENTA_STAINED_WOODEN_FENCE = register(BlocksTwo.MAGENTA_STAINED_WOODEN_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item LIGHT_BLUE_STAINED_WOODEN_FENCE = register(BlocksTwo.LIGHT_BLUE_STAINED_WOODEN_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item YELLOW_STAINED_WOODEN_FENCE = register(BlocksTwo.YELLOW_STAINED_WOODEN_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item LIME_STAINED_WOODEN_FENCE = register(BlocksTwo.LIME_STAINED_WOODEN_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item PINK_STAINED_WOODEN_FENCE = register(BlocksTwo.PINK_STAINED_WOODEN_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item GRAY_STAINED_WOODEN_FENCE = register(BlocksTwo.GRAY_STAINED_WOODEN_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item LIGHT_GRAY_STAINED_WOODEN_FENCE = register(BlocksTwo.LIGHT_GRAY_STAINED_WOODEN_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item CYAN_STAINED_WOODEN_FENCE = register(BlocksTwo.CYAN_STAINED_WOODEN_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item PURPLE_STAINED_WOODEN_FENCE = register(BlocksTwo.PURPLE_STAINED_WOODEN_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item BLUE_STAINED_WOODEN_FENCE = register(BlocksTwo.BLUE_STAINED_WOODEN_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item BROWN_STAINED_WOODEN_FENCE = register(BlocksTwo.BROWN_STAINED_WOODEN_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item GREEN_STAINED_WOODEN_FENCE = register(BlocksTwo.GREEN_STAINED_WOODEN_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item RED_STAINED_WOODEN_FENCE = register(BlocksTwo.RED_STAINED_WOODEN_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item BLACK_STAINED_WOODEN_FENCE = register(BlocksTwo.BLACK_STAINED_WOODEN_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
+
 	public static final Item CHERRY_FENCE = register(BlocksTwo.CHERRY_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item MAPLE_FENCE = register(BlocksTwo.MAPLE_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item GHOSTWOOD_FENCE = register(BlocksTwo.GHOSTWOOD_FENCE, new Item.Properties().group(ItemGroup.DECORATIONS));
@@ -472,6 +489,23 @@ public class ItemsTwo {
 	public static final Item CLOUDWOOD_TRAPDOOR = register(BlocksTwo.CLOUDWOOD_TRAPDOOR, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item BLACKBARK_TRAPDOOR = register(BlocksTwo.BLACKBARK_TRAPDOOR, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item FROSTBARK_TRAPDOOR = register(BlocksTwo.FROSTBARK_TRAPDOOR, new Item.Properties().group(ItemGroup.REDSTONE));
+
+	public static final Item WHITE_STAINED_WOODEN_FENCE_GATE = register(BlocksTwo.WHITE_STAINED_WOODEN_FENCE_GATE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item ORANGE_STAINED_WOODEN_FENCE_GATE = register(BlocksTwo.ORANGE_STAINED_WOODEN_FENCE_GATE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item MAGENTA_STAINED_WOODEN_FENCE_GATE = register(BlocksTwo.MAGENTA_STAINED_WOODEN_FENCE_GATE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item LIGHT_BLUE_STAINED_WOODEN_FENCE_GATE = register(BlocksTwo.LIGHT_BLUE_STAINED_WOODEN_FENCE_GATE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item YELLOW_STAINED_WOODEN_FENCE_GATE = register(BlocksTwo.YELLOW_STAINED_WOODEN_FENCE_GATE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item LIME_STAINED_WOODEN_FENCE_GATE = register(BlocksTwo.LIME_STAINED_WOODEN_FENCE_GATE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item PINK_STAINED_WOODEN_FENCE_GATE = register(BlocksTwo.PINK_STAINED_WOODEN_FENCE_GATE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item GRAY_STAINED_WOODEN_FENCE_GATE = register(BlocksTwo.GRAY_STAINED_WOODEN_FENCE_GATE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item LIGHT_GRAY_STAINED_WOODEN_FENCE_GATE = register(BlocksTwo.LIGHT_GRAY_STAINED_WOODEN_FENCE_GATE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item CYAN_STAINED_WOODEN_FENCE_GATE = register(BlocksTwo.CYAN_STAINED_WOODEN_FENCE_GATE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item PURPLE_STAINED_WOODEN_FENCE_GATE = register(BlocksTwo.PURPLE_STAINED_WOODEN_FENCE_GATE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item BLUE_STAINED_WOODEN_FENCE_GATE = register(BlocksTwo.BLUE_STAINED_WOODEN_FENCE_GATE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item BROWN_STAINED_WOODEN_FENCE_GATE = register(BlocksTwo.BROWN_STAINED_WOODEN_FENCE_GATE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item GREEN_STAINED_WOODEN_FENCE_GATE = register(BlocksTwo.GREEN_STAINED_WOODEN_FENCE_GATE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item RED_STAINED_WOODEN_FENCE_GATE = register(BlocksTwo.RED_STAINED_WOODEN_FENCE_GATE, new Item.Properties().group(ItemGroup.DECORATIONS));
+	public static final Item BLACK_STAINED_WOODEN_FENCE_GATE = register(BlocksTwo.BLACK_STAINED_WOODEN_FENCE_GATE, new Item.Properties().group(ItemGroup.DECORATIONS));
 
 	public static final Item CHERRY_FENCE_GATE = register(BlocksTwo.CHERRY_FENCE_GATE, new Item.Properties().group(ItemGroup.REDSTONE));
 	public static final Item MAPLE_FENCE_GATE = register(BlocksTwo.MAPLE_FENCE_GATE, new Item.Properties().group(ItemGroup.REDSTONE));
