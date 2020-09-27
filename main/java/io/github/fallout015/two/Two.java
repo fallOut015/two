@@ -23,6 +23,7 @@ import io.github.fallout015.two.client.renderer.RenderTypeLookupTwo;
 import io.github.fallout015.two.client.renderer.entity.BeardedDragonRenderer;
 import io.github.fallout015.two.client.renderer.entity.BoatRendererTwo;
 import io.github.fallout015.two.client.renderer.entity.BombArrowRenderer;
+import io.github.fallout015.two.client.renderer.entity.ButterflyRenderer;
 import io.github.fallout015.two.client.renderer.entity.CappedArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.ChameleonRenderer;
 import io.github.fallout015.two.client.renderer.entity.CrimpRenderer;
@@ -30,7 +31,6 @@ import io.github.fallout015.two.client.renderer.entity.DarkDwarfArcherRenderer;
 import io.github.fallout015.two.client.renderer.entity.FireArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.IceArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.IceSlimeRenderer;
-import io.github.fallout015.two.client.renderer.entity.MagmeelRenderer;
 import io.github.fallout015.two.client.renderer.entity.MummifiedZombieRenderer;
 import io.github.fallout015.two.client.renderer.entity.NetherFishRenderer;
 import io.github.fallout015.two.client.renderer.entity.PenguinRenderer;
@@ -52,7 +52,7 @@ import io.github.fallout015.two.common.capabilities.CapabilitiesTwo;
 import io.github.fallout015.two.enchantment.AbilityEnchantment;
 import io.github.fallout015.two.enchantment.EnchantmentsTwo;
 import io.github.fallout015.two.entity.EntityTypeTwo;
-import io.github.fallout015.two.entity.boss.magmeel.MagmeelEntity;
+import io.github.fallout015.two.entity.effect.ButterflyEntity;
 import io.github.fallout015.two.entity.monster.MummifiedZombieEntity;
 import io.github.fallout015.two.entity.passive.BeardedDragonEntity;
 import io.github.fallout015.two.entity.passive.ChameleonEntity;
@@ -81,11 +81,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EvokerFangsRenderer;
+import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
@@ -113,6 +115,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.INBT;
 import net.minecraft.particles.ParticleType;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -130,8 +133,10 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.MobSpawnInfo.Spawners;
+import net.minecraft.world.biome.ParticleEffectAmbience;
 import net.minecraft.world.gen.GenerationStage.Carving;
 import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.carver.ConfiguredCarver;
@@ -145,13 +150,13 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.ParticleFactoryRegisterEvent;
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
+import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
@@ -319,18 +324,20 @@ public class Two {
 //    		npe.printStackTrace();
 //    	}
 		
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.CHAMELEON, ChameleonEntity.applyAttributes().func_233813_a_());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonEntity.applyAttributes().func_233813_a_());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.RED_PANDA, RedPandaEntity.applyAttributes().func_233813_a_());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.CRIMP, CrimpEntity.applyAttributes().func_233813_a_());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.PENGUIN, PenguinEntity.applyAttributes().func_233813_a_());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.CHAMELEON, ChameleonEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.RED_PANDA, RedPandaEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.CRIMP, CrimpEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.PENGUIN, PenguinEntity.applyAttributes().create());
 		
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.DARK_DWARF_ARCHER, MonsterEntity.func_234295_eP_().func_233813_a_()); // TODO give own stats. 
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.MUMMIFIED_ZOMBIE, MummifiedZombieEntity.applyAttributes().func_233813_a_());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.ICE_SLIME, MonsterEntity.func_234295_eP_().func_233813_a_()); // TODO give own stats.
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.NETHER_FISH, AbstractFishEntity.func_234176_m_().func_233813_a_()); // TODO give own stats.
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.DARK_DWARF_ARCHER, MonsterEntity.func_234295_eP_().create()); // TODO give own stats. 
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.MUMMIFIED_ZOMBIE, MummifiedZombieEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.ICE_SLIME, MonsterEntity.func_234295_eP_().create()); // TODO give own stats.
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.NETHER_FISH, AbstractFishEntity.func_234176_m_().create()); // TODO give own stats.
 
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.MAGMEEL, MagmeelEntity.applyAttributes().func_233813_a_());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.BUTTERFLY, ButterflyEntity.applyAttributes().create());
+
+//		GlobalEntityTypeAttributes.put(EntityTypeTwo.MAGMEEL, MagmeelEntity.applyAttributes().create());
 	}
 	private void doClientStuff(final FMLClientSetupEvent event) {
 //    	for(String name : BLACKLIST) {
@@ -367,9 +374,10 @@ public class Two {
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.TWISTER, TwisterRenderer::new);
     	
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SWARM, SwarmRenderer::new);
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BUTTERFLY, ButterflyRenderer::new);
     	
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.MAGMEEL, MagmeelRenderer::new);
-    	
+//    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.MAGMEEL, MagmeelRenderer::new);
+
     	ClientRegistry.bindTileEntityRenderer(TileEntityTypeTwo.CHAIR, ChairRenderer::new);
     	
     	RenderTypeLookupTwo.setRenderLayers();
@@ -577,8 +585,19 @@ public class Two {
     		} else if(biomeLoadingEvent.getCategory() == Category.MESA) {
 //    			biomeLoadingEvent.getGeneration().getStructures().add(() -> StructureTwo.);
     		} else if(biomeLoadingEvent.getCategory() == Category.MUSHROOM) {
+    			int w = biomeLoadingEvent.getEffects().getWaterColor();
+    			int wf = biomeLoadingEvent.getEffects().getWaterFogColor();
+    			int s = biomeLoadingEvent.getEffects().getSkyColor();
+    			int f = biomeLoadingEvent.getEffects().getFogColor();
+    			
+    			biomeLoadingEvent.setEffects(new BiomeAmbience.Builder().setWaterColor(w).setWaterFogColor(wf).withSkyColor(s).setFogColor(f).setParticle(new ParticleEffectAmbience(ParticleTypes.WARPED_SPORE, 0.25f)).build());
+    			
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).clear();
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.RAW_GENERATION).add(() -> FeaturesTwo.MUSHROOM_STONE_REPLACER);
+    		} else if(biomeLoadingEvent.getCategory() == Category.FOREST) {
+    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.AMBIENT).add(new Spawners(EntityTypeTwo.BUTTERFLY, 200, 1, 1));
+    		} else if(biomeLoadingEvent.getCategory() == Category.PLAINS) {
+    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.AMBIENT).add(new Spawners(EntityTypeTwo.BUTTERFLY, 200, 1, 1));
     		}
     		
     		biomeLoadingEvent.getGeneration().getCarvers(Carving.AIR).add(() -> new ConfiguredCarver<>(WorldCarverTwo.CAVERN, new ProbabilityConfig(0.01285715F)));
@@ -648,7 +667,7 @@ public class Two {
     	}
 		@SubscribeEvent
     	public static void onPlayerWakeUp(final PlayerWakeUpEvent playerWakeUpEvent) {
-			boolean isOverworld = playerWakeUpEvent.getPlayer().getEntityWorld().func_234923_W_() == World.field_234918_g_;
+			boolean isOverworld = playerWakeUpEvent.getPlayer().getEntityWorld().getDimensionKey() == World.OVERWORLD;
 			boolean hasDreamcatcher = playerWakeUpEvent.getPlayer().getEntityWorld().getBlockState(playerWakeUpEvent.getPlayer().getBedPosition().get().up()).getBlock() instanceof DreamcatcherBlock;
 			boolean successfulSleep = playerWakeUpEvent.getPlayer().getEntityWorld().getDayTime() == 24000;
 			if(successfulSleep && isOverworld && hasDreamcatcher) {
@@ -742,7 +761,7 @@ public class Two {
         		}
         		if(list.getFirst().getItem() == ItemsTwo.DOUBLE_JUMP_BOOTS) {
 //        			LOGGER.info("Boots!");
-        			if(p.func_233570_aj_()) {
+        			if(p.isOnGround()) {
 //        				LOGGER.info("Grounded!");
         				list.getFirst().getTag().putInt("jumps", 0);
         			}
@@ -766,10 +785,10 @@ public class Two {
     		
     		leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance().getHealth(), AttributeModifier.Operation.ADDITION);
     		float health = playerXpEvent$LevelChange.getPlayer().getHealth();
-    		if(playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.field_233818_a_).hasModifier(leveluphealth)) {
-        		playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.field_233818_a_).removeModifier(leveluphealth);
+    		if(playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.MAX_HEALTH).hasModifier(leveluphealth)) {
+        		playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.MAX_HEALTH).removeModifier(leveluphealth);
     		}
-    		playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.field_233818_a_).func_233767_b_(leveluphealth);
+    		playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.MAX_HEALTH).applyNonPersistentModifier(leveluphealth); // TODO try persistant if this one is troublesome
     		playerXpEvent$LevelChange.getPlayer().setHealth(health);
     	}
     	@SubscribeEvent
@@ -786,10 +805,10 @@ public class Two {
                		CapabilitiesTwo.PLAYERUPGRADES.readNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP, nbt);
         		
             		leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", 0, AttributeModifier.Operation.ADDITION);
-            		if(playerEvent$Clone.getPlayer().getAttribute(Attributes.field_233818_a_).hasModifier(leveluphealth)) {
-            			playerEvent$Clone.getPlayer().getAttribute(Attributes.field_233818_a_).removeModifier(leveluphealth);
+            		if(playerEvent$Clone.getPlayer().getAttribute(Attributes.MAX_HEALTH).hasModifier(leveluphealth)) {
+            			playerEvent$Clone.getPlayer().getAttribute(Attributes.MAX_HEALTH).removeModifier(leveluphealth);
             		}
-            		playerEvent$Clone.getPlayer().getAttribute(Attributes.field_233818_a_).func_233767_b_(leveluphealth);
+            		playerEvent$Clone.getPlayer().getAttribute(Attributes.MAX_HEALTH).applyNonPersistentModifier(leveluphealth); // TODO ditto
     			} catch(NullPointerException npe) {
     				LOGGER.warn(npe);
     			}
@@ -919,7 +938,7 @@ public class Two {
     			if(itemTooltipEvent.getItemStack().hasTag()) {
     				if(itemTooltipEvent.getItemStack().getTag().contains("pos")) {
     					BlockPos pos = BlockPos.fromLong(itemTooltipEvent.getItemStack().getTag().getLong("pos"));
-    					itemTooltipEvent.getToolTip().add(new TranslationTextComponent("item.minecraft.ender_eye.pos").func_240701_a_(TextFormatting.ITALIC, TextFormatting.YELLOW).func_230529_a_(new StringTextComponent("(" + pos.getX() + ", " + pos.getY() + ", " + pos.getZ() + ")"))); // attuned ender eyes found in chests and stuff will have obfuscated names
+    					itemTooltipEvent.getToolTip().add(new TranslationTextComponent("item.minecraft.ender_eye.pos").mergeStyle(TextFormatting.ITALIC, TextFormatting.YELLOW).append(new StringTextComponent("(" + pos.getX() + ", " + pos.getY() + ", " + pos.getZ() + ")"))); // attuned ender eyes found in chests and stuff will have obfuscated names
     				}
     			}
     		}
@@ -988,15 +1007,46 @@ public class Two {
 //        		renderLivingEvent$Pre.getBuffers().getBuffer(renderType).color(0, 64, 128, 128);
 //    		} // TODO shade an entity an icy blue when frozen
 //    	}
+//    	@SubscribeEvent
+//    	public static void onRenderGameOverlayPre(final RenderGameOverlayEvent.Pre renderGameOverlayEvent$Pre) {
+//    		if(renderGameOverlayEvent$Pre.getType() == ElementType.VIGNETTE) {
+//    			// render a light cyan vignette when frozen
+//    		}
+//    	}
+//    	@SubscribeEvent
+//    	public static void onRenderGameOverlayPost(final RenderGameOverlayEvent.Post renderGameOverlayEvent$Post) {
+//    		
+//    	}
     	@SubscribeEvent
-    	public static void onRenderGameOverlayPre(final RenderGameOverlayEvent.Pre renderGameOverlayEvent$Pre) {
-    		if(renderGameOverlayEvent$Pre.getType() == ElementType.VIGNETTE) {
-    			// render a light cyan vignette when frozen
+    	public static void onEntitySize(final EntityEvent.Size entityEvent$Size) {
+    		if(entityEvent$Size.getEntity().getTags().contains("small")) {
+    			Two.LOGGER.info("small size");
+    			entityEvent$Size.setNewEyeHeight(entityEvent$Size.getOldEyeHeight() * 0.25f);
+    			entityEvent$Size.setNewSize(entityEvent$Size.getOldSize().scale(0.25f));
+    		} else if(entityEvent$Size.getEntity().getTags().contains("big")) {
+    			Two.LOGGER.info("big size");
+    			entityEvent$Size.setNewEyeHeight(entityEvent$Size.getOldEyeHeight() * 4f);
+    			entityEvent$Size.setNewSize(entityEvent$Size.getOldSize().scale(4f));
     		}
     	}
     	@SubscribeEvent
-    	public static void onRenderGameOverlayPost(final RenderGameOverlayEvent.Post renderGameOverlayEvent$Post) {
-    		
+    	public static void onRenderLivingPre(final RenderLivingEvent.Pre<LivingEntity, EntityModel<LivingEntity>> renderLivingEvent$pre) {
+    		if(renderLivingEvent$pre.getEntity().getTags().contains("small")) {
+    			Two.LOGGER.info("render pre small");
+    			renderLivingEvent$pre.getMatrixStack().push();
+    			renderLivingEvent$pre.getMatrixStack().scale(0.25f, 0.25f, 0.25f);
+    		} else if(renderLivingEvent$pre.getEntity().getTags().contains("big")) {
+    			Two.LOGGER.info("render pre big");
+    			renderLivingEvent$pre.getMatrixStack().push();
+    			renderLivingEvent$pre.getMatrixStack().scale(4f, 4f, 4f);
+    		}
+    	} // TODO ...
+    	@SubscribeEvent
+    	public static void onRenderLivingPost(final RenderLivingEvent.Post<LivingEntity, EntityModel<LivingEntity>> renderLivingEvent$post) {
+    		if(renderLivingEvent$post.getEntity().getTags().contains("small") || renderLivingEvent$post.getEntity().getTags().contains("big")) {
+    			Two.LOGGER.info("render post small or big");
+    			renderLivingEvent$post.getMatrixStack().pop();
+    		}
     	}
     }
 }

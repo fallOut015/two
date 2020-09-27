@@ -30,7 +30,7 @@ public abstract class BloodBladeItem extends SwordItem {
 		super(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, builder);
 		
 		if(texture) {
-			ItemModelsProperties.func_239418_a_(this, new ResourceLocation("two", "pam_texture"), (itemStack, clientWorld,livingEntity) -> {
+			ItemModelsProperties.registerProperty(this, new ResourceLocation("two", "pam_texture"), (itemStack, clientWorld,livingEntity) -> {
 				return Two.Config.pamTextureBloodBlade ? 1F : 0F;
 			});
 		}

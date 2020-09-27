@@ -2,7 +2,7 @@ package io.github.fallout015.two.entity;
 
 import java.util.LinkedList;
 
-import io.github.fallout015.two.entity.boss.magmeel.MagmeelEntity;
+import io.github.fallout015.two.entity.effect.ButterflyEntity;
 import io.github.fallout015.two.entity.effect.SigilEntity;
 import io.github.fallout015.two.entity.effect.SwarmEntity;
 import io.github.fallout015.two.entity.effect.TwisterEntity;
@@ -57,14 +57,13 @@ public class EntityTypeTwo {
 	
 	public static final EntityType<ShurikenEntity> SHURIKEN = register("shuriken", EntityType.Builder.<ShurikenEntity>create(ShurikenEntity::new, EntityClassification.MISC).size(0.25f, 0.25f));
 	
-	public static final EntityType<BoatEntityTwo> BOAT_TWO = register("boat_two", EntityType.Builder.<BoatEntityTwo>create(BoatEntityTwo::new, EntityClassification.MISC).size(1.375F, 0.5625F).func_233606_a_(10));
+	public static final EntityType<BoatEntityTwo> BOAT_TWO = register("boat_two", EntityType.Builder.<BoatEntityTwo>create(BoatEntityTwo::new, EntityClassification.MISC).size(1.375F, 0.5625F).trackingRange(10));
 
 	public static final EntityType<SigilEntity> SIGIL = register("sigil", EntityType.Builder.create(SigilEntity::new, EntityClassification.MISC).size(4, 0.1f).disableSerialization());
 	public static final EntityType<TwisterEntity> TWISTER = register("twister", EntityType.Builder.<TwisterEntity>create(TwisterEntity::new, EntityClassification.MISC).size(1, 2).disableSerialization());
 	
 	public static final EntityType<SwarmEntity> SWARM = register("swarm", EntityType.Builder.create(SwarmEntity::new, EntityClassification.AMBIENT).size(0, 0));
-	
-	public static final EntityType<MagmeelEntity> MAGMEEL = register("magmeel", EntityType.Builder.create(MagmeelEntity::new, EntityClassification.MONSTER).size(1, 1));
+	public static final EntityType<ButterflyEntity> BUTTERFLY = register("butterfly", EntityType.Builder.create(ButterflyEntity::new, EntityClassification.AMBIENT));
 	
 	
 	

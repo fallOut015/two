@@ -21,7 +21,7 @@ public abstract class AbilityEnchantment extends Enchantment {
 	@Override
 	public ITextComponent getDisplayName(int level) {
 		IFormattableTextComponent iformattabletextcomponent = new TranslationTextComponent(this.getName());
-		iformattabletextcomponent.func_240699_a_(TextFormatting.GREEN);
+		iformattabletextcomponent.mergeStyle(TextFormatting.GREEN);
 		
 //		if (level != 1 || this.getMaxLevel() != 1) {
 //			iformattabletextcomponent.func_240702_b_(" ").func_230529_a_(new TranslationTextComponent("enchantment.level." + level));

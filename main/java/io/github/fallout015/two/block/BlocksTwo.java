@@ -147,9 +147,7 @@ public class BlocksTwo {
 	public static final Block PURPETAL_PETAL = register("purpetal_petal", new Block(Block.Properties.create(Material.ORGANIC)));
 	public static final Block PURPETAL_PISTOL = register("purpetal_pistol", new Block(Block.Properties.create(Material.ORGANIC)));
 	
-	public static final Block SUCCULIGHT = register("succulight", new SucculightBlock(Effects.NIGHT_VISION, 5, Block.Properties.create(Material.CACTUS).notSolid().doesNotBlockMovement().func_235838_a_(state -> {
-		return 6;
-	})));
+	public static final Block SUCCULIGHT = register("succulight", new SucculightBlock(Effects.NIGHT_VISION, 5, Block.Properties.create(Material.CACTUS).notSolid().doesNotBlockMovement().setLightLevel(state -> 6)));
 	public static final Block POTTED_SUCCULIGHT = register("potted_succulight", new FlowerPotBlock(null, () -> BlocksTwo.SUCCULIGHT, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()));
 	
 	public static final Block CHERRY_SAPLING = register("cherry_sapling", new SaplingBlock(new CherryTree(), Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT)));
@@ -169,21 +167,21 @@ public class BlocksTwo {
 	// potted brimshine TODO
 	
 	// working on the ATs
-	public static final Block CHERRY_LOG = register("cherry_log", Blocks.func_235430_a_(MaterialColor.PINK_TERRACOTTA, MaterialColor.STONE));
-	public static final Block MAPLE_LOG = register("maple_log", Blocks.func_235430_a_(MaterialColor.SAND, MaterialColor.BROWN_TERRACOTTA));
-	public static final Block GHOSTWOOD_LOG = register("ghostwood_log", Blocks.func_235430_a_(MaterialColor.RED_TERRACOTTA, MaterialColor.SNOW));
-	public static final Block CLOUDWOOD_LOG = register("cloudwood_log", Blocks.func_235430_a_(MaterialColor.SNOW, MaterialColor.CYAN));
-	public static final Block BLACKBARK_LOG = register("blackbark_log", Blocks.func_235430_a_(MaterialColor.BROWN_TERRACOTTA, MaterialColor.BLACK));
-	public static final Block FROSTBARK_LOG = register("frostbark_log", Blocks.func_235430_a_(MaterialColor.WHITE_TERRACOTTA, MaterialColor.ICE));
+	public static final Block CHERRY_LOG = register("cherry_log", Blocks.createLogBlock(MaterialColor.PINK_TERRACOTTA, MaterialColor.STONE));
+	public static final Block MAPLE_LOG = register("maple_log", Blocks.createLogBlock(MaterialColor.SAND, MaterialColor.BROWN_TERRACOTTA));
+	public static final Block GHOSTWOOD_LOG = register("ghostwood_log", Blocks.createLogBlock(MaterialColor.RED_TERRACOTTA, MaterialColor.SNOW));
+	public static final Block CLOUDWOOD_LOG = register("cloudwood_log", Blocks.createLogBlock(MaterialColor.SNOW, MaterialColor.CYAN));
+	public static final Block BLACKBARK_LOG = register("blackbark_log", Blocks.createLogBlock(MaterialColor.BROWN_TERRACOTTA, MaterialColor.BLACK));
+	public static final Block FROSTBARK_LOG = register("frostbark_log", Blocks.createLogBlock(MaterialColor.WHITE_TERRACOTTA, MaterialColor.ICE));
 	public static final Block NEONDOT_STEM = register("neondot_stem", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.CYAN).hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
 	public static final Block BRIMSHINE_STEM = register("brimshine_stem", new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(1.0F).sound(SoundType.WOOD)));
 	
-	public static final Block STRIPPED_CHERRY_LOG = register("stripped_cherry_log", Blocks.func_235430_a_(MaterialColor.PINK_TERRACOTTA, MaterialColor.PINK_TERRACOTTA));
-	public static final Block STRIPPED_MAPLE_LOG = register("stripped_maple_log", Blocks.func_235430_a_(MaterialColor.SAND, MaterialColor.SAND));
-	public static final Block STRIPPED_GHOSTWOOD_LOG = register("stripped_ghostwood_log", Blocks.func_235430_a_(MaterialColor.RED_TERRACOTTA, MaterialColor.RED_TERRACOTTA));
-	public static final Block STRIPPED_CLOUDWOOD_LOG = register("stripped_cloudwood_log", Blocks.func_235430_a_(MaterialColor.SNOW, MaterialColor.SNOW));
-	public static final Block STRIPPED_BLACKBARK_LOG = register("stripped_blackbark_log", Blocks.func_235430_a_(MaterialColor.BROWN_TERRACOTTA, MaterialColor.BROWN_TERRACOTTA));
-	public static final Block STRIPPED_FROSTBARK_LOG = register("stripped_frostbark_log", Blocks.func_235430_a_(MaterialColor.WHITE_TERRACOTTA, MaterialColor.WHITE_TERRACOTTA)); // TODO more parity, thanks for teaching me that word, @Mojang
+	public static final Block STRIPPED_CHERRY_LOG = register("stripped_cherry_log", Blocks.createLogBlock(MaterialColor.PINK_TERRACOTTA, MaterialColor.PINK_TERRACOTTA));
+	public static final Block STRIPPED_MAPLE_LOG = register("stripped_maple_log", Blocks.createLogBlock(MaterialColor.SAND, MaterialColor.SAND));
+	public static final Block STRIPPED_GHOSTWOOD_LOG = register("stripped_ghostwood_log", Blocks.createLogBlock(MaterialColor.RED_TERRACOTTA, MaterialColor.RED_TERRACOTTA));
+	public static final Block STRIPPED_CLOUDWOOD_LOG = register("stripped_cloudwood_log", Blocks.createLogBlock(MaterialColor.SNOW, MaterialColor.SNOW));
+	public static final Block STRIPPED_BLACKBARK_LOG = register("stripped_blackbark_log", Blocks.createLogBlock(MaterialColor.BROWN_TERRACOTTA, MaterialColor.BROWN_TERRACOTTA));
+	public static final Block STRIPPED_FROSTBARK_LOG = register("stripped_frostbark_log", Blocks.createLogBlock(MaterialColor.WHITE_TERRACOTTA, MaterialColor.WHITE_TERRACOTTA)); // TODO more parity, thanks for teaching me that word, @Mojang
 	// stripped neondot stem
 	// stripped brimshine stem
 	
@@ -388,11 +386,11 @@ public class BlocksTwo {
 	public static final Block SPORESTONE_SOIL = register("sporestone_soil", new Block(Block.Properties.create(Material.ROCK, MaterialColor.BLACK).hardnessAndResistance(1.0f, 4.0f).harvestTool(ToolType.PICKAXE)));
 	// make same block? (like grass)
 	
-	public static final Block NEONDOT = register("neondot", new NeondotBlock(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT).func_235838_a_(state -> 4)));
-	public static final Block BRIMSHINE = register("brimshine", new BrimshineBlock(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT).func_235838_a_(state -> 4)));
+	public static final Block NEONDOT = register("neondot", new NeondotBlock(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT).setLightLevel(state -> 4)));
+	public static final Block BRIMSHINE = register("brimshine", new BrimshineBlock(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0).sound(SoundType.PLANT).setLightLevel(state -> 4)));
 
-	public static final Block SHROOMGLOW = register("shroomglow", new Block(Block.Properties.create(Material.WOOD, MaterialColor.LIME).hardnessAndResistance(0.5f).sound(SoundType.CLOTH).func_235838_a_(state -> 8)));
-	public static final Block SHROOMGLOW_LANTERN = register("shroomglow_lantern", new LanternBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(3.5F).sound(SoundType.LANTERN).func_235838_a_(state -> 12).notSolid()));
+	public static final Block SHROOMGLOW = register("shroomglow", new Block(Block.Properties.create(Material.WOOD, MaterialColor.LIME).hardnessAndResistance(0.5f).sound(SoundType.CLOTH).setLightLevel(state -> 8)));
+	public static final Block SHROOMGLOW_LANTERN = register("shroomglow_lantern", new LanternBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(3.5F).sound(SoundType.LANTERN).setLightLevel(state -> 12).notSolid()));
 	
 	public static final Block CRYSTAL = register("crystal", new Block(Block.Properties.create(Material.GLASS, MaterialColor.CYAN).hardnessAndResistance(1.0f, 0.3f).sound(SoundType.STONE).notSolid()));
 	
@@ -472,7 +470,7 @@ public class BlocksTwo {
 	public static final Block END_PLATINUM_ORE = register("end_platinum_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(5).harvestTool(ToolType.PICKAXE)));
 	public static final Block NETHER_TITANIUM_ORE = register("nether_titanium_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
 	public static final Block PYRITE_ORE = register("pyrite_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
-	public static final Block NIDAVELLIR_STARSTONE_ORE = register("nidavellir_starstone_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(6).harvestTool(ToolType.PICKAXE).func_235838_a_(state -> 10)));
+	public static final Block NIDAVELLIR_STARSTONE_ORE = register("nidavellir_starstone_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(6).harvestTool(ToolType.PICKAXE).setLightLevel(state -> 10)));
 	public static final Block NIDAVELLIR_URU_ORE = register("nidavellir_uru_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(9).harvestTool(ToolType.PICKAXE)));
 	
 	public static final Block TALC_BLOCK = register("talc_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.SNOW).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
@@ -484,7 +482,7 @@ public class BlocksTwo {
 	public static final Block PLATINUM_BLOCK = register("platinum_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY_TERRACOTTA).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block TITANIUM_BLOCK = register("titanium_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY_TERRACOTTA).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block PYRITE_BLOCK = register("pyrite_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GOLD).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
-	public static final Block STARSTONE_BLOCK = register("starstone_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GOLD).hardnessAndResistance(5.0f, 6.0f).sound(SoundType.METAL).func_235838_a_(state -> 15)));
+	public static final Block STARSTONE_BLOCK = register("starstone_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GOLD).hardnessAndResistance(5.0f, 6.0f).sound(SoundType.METAL).setLightLevel(state -> 15)));
 	public static final Block URU_BLOCK = register("uru_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(5.0f, 6.0f).sound(SoundType.METAL)));
 	public static final Block STEEL_BLOCK = register("steel_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GRAY).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block HARDENED_STEEL_BLOCK = register("hardened_steel_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.STONE).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
@@ -523,8 +521,8 @@ public class BlocksTwo {
 	public static final Block DREAMCATCHER_SKY = register("dreamcatcher_sky", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.SNOW).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.CLOUD, DreamcatcherBlock::dreamcatcherSky));
 	
 	public static final Block MAPLE_TAP = register("maple_tap", new MapleTapBlock(Block.Properties.create(Material.IRON)));
-	public static final Block GROUND_LIGHT = register("ground_light", new GroundLightBlock(Block.Properties.create(Material.GLASS).func_235838_a_(state -> 8).hardnessAndResistance(0.5f).doesNotBlockMovement()));
-	public static final Block BILLBOARD = register("billboard", new Block(Block.Properties.create(Material.GLASS).func_235838_a_(state -> 5).hardnessAndResistance(0.2f).sound(SoundType.GLASS)));
+	public static final Block GROUND_LIGHT = register("ground_light", new GroundLightBlock(Block.Properties.create(Material.GLASS).setLightLevel(state -> 8).hardnessAndResistance(0.5f).doesNotBlockMovement()));
+	public static final Block BILLBOARD = register("billboard", new Block(Block.Properties.create(Material.GLASS).setLightLevel(state -> 5).hardnessAndResistance(0.2f).sound(SoundType.GLASS)));
 	
 	public static final Block CONVEYER = register("conveyer", new ConveyerBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(1.0f)));
 	public static final Block ICE_SLIME_BLOCK = register("ice_slime_block", new SlimeBlock(Block.Properties.create(Material.CLAY, MaterialColor.ICE).slipperiness(1.98F).sound(SoundType.SLIME).notSolid()));
@@ -541,8 +539,8 @@ public class BlocksTwo {
 //	public static final Block LAMP;
 	
 	// TODO parity with vanilla torches, also, maybe improve from 16 to 18 or something
-	public static final Block STARSTONE_TORCH = register("starstone_torch", new TorchBlock(Block.Properties.create(Material.MISCELLANEOUS).func_235838_a_(state -> 16).doesNotBlockMovement().hardnessAndResistance(0), ParticleTypesTwo.TWINKLE));
-	public static final Block STARSTONE_WALL_TORCH = register("starstone_wall_torch", new WallTorchBlock(Block.Properties.create(Material.MISCELLANEOUS).func_235838_a_(state -> 16).doesNotBlockMovement().hardnessAndResistance(0), ParticleTypesTwo.TWINKLE));
+	public static final Block STARSTONE_TORCH = register("starstone_torch", new TorchBlock(Block.Properties.create(Material.MISCELLANEOUS).setLightLevel(state -> 16).doesNotBlockMovement().hardnessAndResistance(0), ParticleTypesTwo.TWINKLE));
+	public static final Block STARSTONE_WALL_TORCH = register("starstone_wall_torch", new WallTorchBlock(Block.Properties.create(Material.MISCELLANEOUS).setLightLevel(state -> 16).doesNotBlockMovement().hardnessAndResistance(0), ParticleTypesTwo.TWINKLE));
 	
 	public static final Block FLAGSTONE_PATH = register("flagstone_path", new Block(Block.Properties.from(Blocks.GRASS_PATH)));
 	

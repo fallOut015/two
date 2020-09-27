@@ -52,10 +52,10 @@ public enum ArmorMaterialTwo implements IArmorMaterial {
 		return Ingredient.fromItems(Items.DARK_OAK_PLANKS);
 	}),
 	CRIMSON("crimson", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_FUNGUS, 0.0f, 0, () -> {
-		return Ingredient.fromItems(Items.field_234798_v_);
+		return Ingredient.fromItems(Items.CRIMSON_PLANKS);
 	}),
 	WARPED("warped", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_FUNGUS, 0.0f, 0, () -> {
-		return Ingredient.fromItems(Items.field_234799_w_);
+		return Ingredient.fromItems(Items.WARPED_PLANKS);
 	}),
 	CHERRY("cherry", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, 0, () -> {
 		return Ingredient.fromItems(ItemsTwo.CHERRY_PLANKS);
@@ -241,7 +241,7 @@ public enum ArmorMaterialTwo implements IArmorMaterial {
 	    return this.toughness;
 	}
 	@Override
-	public float func_230304_f_() {
+	public float getKnockbackResistance() {
 		return this.knockbackResistance;
 	}
 }

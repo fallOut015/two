@@ -57,7 +57,7 @@ public class MummifiedZombieEntity extends ZombieEntity {
 	}
 	
 	public static AttributeModifierMap.MutableAttribute applyAttributes() {
-		return MonsterEntity.func_234295_eP_().func_233815_a_(Attributes.field_233819_b_, 40.0D).func_233815_a_(Attributes.field_233821_d_, (double)0.33F).func_233815_a_(Attributes.field_233823_f_, 4.0D).func_233815_a_(Attributes.field_233826_i_, 3.0D).func_233814_a_(Attributes.field_233829_l_);
+		return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, 40.0D).createMutableAttribute(Attributes.MOVEMENT_SPEED, (double)0.33F).createMutableAttribute(Attributes.ATTACK_DAMAGE, 4.0D).createMutableAttribute(Attributes.ARMOR, 3.0D).createMutableAttribute(Attributes.ZOMBIE_SPAWN_REINFORCEMENTS);
 	}
 	
 	@Override

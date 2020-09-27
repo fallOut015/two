@@ -55,9 +55,9 @@ public class BigNeondotFeature extends AbstractBigMushroomFeature {
 						mutable.setPos(pos).move(l, i, i1).move(this.facing);
 						if (world.getBlockState(mutable).canBeReplacedByLeaves(world, mutable)) {
 							if(rand.nextInt(5) == 0) {
-								this.func_230367_a_(world, mutable, BlocksTwo.SHROOMGLOW.getDefaultState());
+								this.setBlockState(world, mutable, BlocksTwo.SHROOMGLOW.getDefaultState());
 							} else {
-								this.func_230367_a_(world, mutable, config.field_227272_a_.getBlockState(rand, pos));
+								this.setBlockState(world, mutable, config.field_227272_a_.getBlockState(rand, pos));
 							}
 							// change to assigning one dot per face. 
 						}
@@ -75,20 +75,20 @@ public class BigNeondotFeature extends AbstractBigMushroomFeature {
 				mutable.setPos(pos).move(Direction.UP, i);
 			}
 			if (world.getBlockState(mutable).canBeReplacedByLogs(world, mutable)) {
-				this.func_230367_a_(world, mutable, config.field_227273_b_.getBlockState(rand, pos));
+				this.setBlockState(world, mutable, config.field_227273_b_.getBlockState(rand, pos));
 				if(i == 0 || i == 1 || i == 3) {
 					if(i == 0) {
 						// TODO change to algorithm
-						this.func_230367_a_(world, mutable.offset(this.facing).north(), config.field_227273_b_.getBlockState(rand, pos));
-						this.func_230367_a_(world, mutable.offset(this.facing).east(), config.field_227273_b_.getBlockState(rand, pos));
-						this.func_230367_a_(world, mutable.offset(this.facing).south(), config.field_227273_b_.getBlockState(rand, pos));
-						this.func_230367_a_(world, mutable.offset(this.facing).west(), config.field_227273_b_.getBlockState(rand, pos));
-						this.func_230367_a_(world, mutable.north(), config.field_227273_b_.getBlockState(rand, pos));
-						this.func_230367_a_(world, mutable.east(), config.field_227273_b_.getBlockState(rand, pos));
-						this.func_230367_a_(world, mutable.south(), config.field_227273_b_.getBlockState(rand, pos));
-						this.func_230367_a_(world, mutable.west(), config.field_227273_b_.getBlockState(rand, pos));
+						this.setBlockState(world, mutable.offset(this.facing).north(), config.field_227273_b_.getBlockState(rand, pos));
+						this.setBlockState(world, mutable.offset(this.facing).east(), config.field_227273_b_.getBlockState(rand, pos));
+						this.setBlockState(world, mutable.offset(this.facing).south(), config.field_227273_b_.getBlockState(rand, pos));
+						this.setBlockState(world, mutable.offset(this.facing).west(), config.field_227273_b_.getBlockState(rand, pos));
+						this.setBlockState(world, mutable.north(), config.field_227273_b_.getBlockState(rand, pos));
+						this.setBlockState(world, mutable.east(), config.field_227273_b_.getBlockState(rand, pos));
+						this.setBlockState(world, mutable.south(), config.field_227273_b_.getBlockState(rand, pos));
+						this.setBlockState(world, mutable.west(), config.field_227273_b_.getBlockState(rand, pos));
 					}
-					this.func_230367_a_(world, mutable.offset(this.facing), config.field_227273_b_.getBlockState(rand, pos));
+					this.setBlockState(world, mutable.offset(this.facing), config.field_227273_b_.getBlockState(rand, pos));
 				}
 			}
 		}
@@ -125,7 +125,7 @@ public class BigNeondotFeature extends AbstractBigMushroomFeature {
 	            	for(int l = -k; l <= k; ++l) {
 	            		for(int i1 = -k; i1 <= k; ++i1) {
 	            			BlockState blockstate = p_227209_1_.getBlockState(p_227209_4_.setPos(p_227209_2_).move(l, j, i1));
-	            			if (!blockstate.isAir(p_227209_1_, p_227209_4_) && !blockstate.func_235714_a_(BlockTags.LEAVES)) {
+	            			if (!blockstate.isAir(p_227209_1_, p_227209_4_) && !blockstate.isIn(BlockTags.LEAVES)) {
 	            				return false;
 	            			}
 	            		}

@@ -679,6 +679,25 @@ public class ItemsTwo {
     public static final Item NUMBER_8 = register(BlocksTwo.NUMBER_8, new Item.Properties().group(ItemGroup.MISC));
     public static final Item NUMBER_9 = register(BlocksTwo.NUMBER_9, new Item.Properties().group(ItemGroup.MISC));
     
+    public static final Item SHRINKINATOR = register("shrinkinator", new Item(new Item.Properties().maxStackSize(1)) {
+    	public void onUse(World worldIn, LivingEntity livingEntityIn, ItemStack stack, int count) {
+    		if(!livingEntityIn.getTags().contains("small")) {
+    			livingEntityIn.addTag("small");		
+    		} else {
+    			livingEntityIn.removeTag("small");
+    		}
+    	};
+    });
+    public static final Item LARGINATOR = register("larginator", new Item(new Item.Properties().maxStackSize(1)) {
+    	public void onUse(World worldIn, LivingEntity livingEntityIn, ItemStack stack, int count) {
+    		if(!livingEntityIn.getTags().contains("big")) {
+    			livingEntityIn.addTag("big");		
+    		} else {
+    			livingEntityIn.removeTag("big");
+    		}
+    	};
+    });
+    
     
     
     // Foodstuffs
@@ -761,6 +780,7 @@ public class ItemsTwo {
 	public static final Item SMITHING_HAMMER = register("smithing_hammer", new SmithingHammerItem(new Item.Properties().group(ItemGroup.TOOLS).defaultMaxDamage(100)));
 	public static final Item HANDSAW = register("handsaw", new Item(new Item.Properties()/*.group(ItemGroup.TOOLS)*/));
 	public static final Item ROTATING_WRENCH = register("rotating_wrench", new RotatingWrenchItem(new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final Item NET = register("net", new NetItem(new Item.Properties().group(ItemGroup.TOOLS)));
 	// mattock
 	// drill? or maybe the hammer will also serve this functionality.
 	

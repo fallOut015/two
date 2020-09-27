@@ -31,7 +31,7 @@ public class JumpPacketHandler extends PacketHandler {
 	    	
 	        ServerPlayerEntity sender = ctx.get().getSender();
 	        
-	        if(!sender.func_233570_aj_() && sender.getItemStackFromSlot(EquipmentSlotType.FEET).getItem() == ItemsTwo.DOUBLE_JUMP_BOOTS) {
+	        if(!sender.isOnGround() && sender.getItemStackFromSlot(EquipmentSlotType.FEET).getItem() == ItemsTwo.DOUBLE_JUMP_BOOTS) {
 	        	sender.addVelocity(0, 0.84f, 0);
 	        	if(sender.getMotion().getY() > 0.84f) { // clamp velocity
 	        		sender.setMotion(sender.getMotion().getX(), 0.84f, sender.getMotion().getX());

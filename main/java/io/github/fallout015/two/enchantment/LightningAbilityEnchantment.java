@@ -74,8 +74,8 @@ public class LightningAbilityEnchantment extends AbilityEnchantment {
         	if(playerIn.getEntityWorld() instanceof ServerWorld) {
         		LightningBoltEntity lightningboltentity = EntityType.LIGHTNING_BOLT.create(playerIn.getEntityWorld());
         		BlockPos bp = new BlockPos(d1, blockpos.getY() + d0, d3);
-        		lightningboltentity.func_233576_c_(Vector3d.func_237492_c_(bp));
-                lightningboltentity.func_233623_a_(playerIn.getEntityWorld().getGameRules().getBoolean(GameRules.DO_MOB_SPAWNING) && playerIn.getEntityWorld().rand.nextDouble() < (double) playerIn.getEntityWorld().getDifficultyForLocation(bp).getAdditionalDifficulty() * 0.01D);
+        		lightningboltentity.moveForced(Vector3d.copyCenteredHorizontally(bp));
+                lightningboltentity.setEffectOnly(playerIn.getEntityWorld().getGameRules().getBoolean(GameRules.DO_MOB_SPAWNING) && playerIn.getEntityWorld().rand.nextDouble() < (double) playerIn.getEntityWorld().getDifficultyForLocation(bp).getAdditionalDifficulty() * 0.01D);
                 playerIn.getEntityWorld().addEntity(lightningboltentity);
         	}
         }

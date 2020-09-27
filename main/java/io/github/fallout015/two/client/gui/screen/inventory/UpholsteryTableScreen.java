@@ -38,11 +38,11 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 //	private float field_214126_x;
 	private int field_214128_z = 1;
 	
-	public static final Predicate<Item> PLANKS = item -> item.getTags().contains(ItemTags.PLANKS.func_230234_a_());
-	public static final Predicate<Item> WOOL = item -> item.getTags().contains(ItemTags.WOOL.func_230234_a_());
-	public static final Predicate<Item> GLASS = item -> item.getTags().contains(Tags.Items.GLASS.func_230234_a_());
-	public static final Predicate<Item> INGOTS = item -> item.getTags().contains(Tags.Items.INGOTS.func_230234_a_());
-	public static final Predicate<Item> STORAGE_BLOCKS = item -> item.getTags().contains(Tags.Items.STORAGE_BLOCKS.func_230234_a_());
+	public static final Predicate<Item> PLANKS = item -> item.getTags().contains(ItemTags.PLANKS.getName());
+	public static final Predicate<Item> WOOL = item -> item.getTags().contains(ItemTags.WOOL.getName());
+	public static final Predicate<Item> GLASS = item -> item.getTags().contains(Tags.Items.GLASS.getName());
+	public static final Predicate<Item> INGOTS = item -> item.getTags().contains(Tags.Items.INGOTS.getName());
+	public static final Predicate<Item> STORAGE_BLOCKS = item -> item.getTags().contains(Tags.Items.STORAGE_BLOCKS.getName());
 	
 	public static final Predicate<Item> PLANKS_STORAGE_BLOCKS = item -> PLANKS.or(STORAGE_BLOCKS).test(item);
 	public static final Predicate<Item> PLANKS_WOOL_STORAGE_BLOCKS = item -> PLANKS_STORAGE_BLOCKS.or(WOOL).test(item);
@@ -97,17 +97,18 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 		screenContainer.setUpdate(this::update);
 	}
 
-	public void func_230430_a_(MatrixStack p_230430_1_, int p_230430_2_, int p_230430_3_, float p_230430_4_) {
-		super.func_230430_a_(p_230430_1_, p_230430_2_, p_230430_3_, p_230430_4_);
-		this.func_230459_a_(p_230430_1_, p_230430_2_, p_230430_3_);
+	public void render(MatrixStack stack, int x, int y, float partialTicks) {
+		super.render(stack, x, y, partialTicks);
+//		this.func_230459_a_(stack, x, partialTicks);
 	}
-	protected void func_230450_a_(MatrixStack p_230450_1_, float p_230450_2_, int p_230450_3_, int p_230450_4_) {
-		this.func_230446_a_(p_230450_1_);
-		this.field_230706_i_.getTextureManager().bindTexture(UPHOLSTERY_TABLE_GUI_TEXTURE);
+	@Override
+	protected void drawGuiContainerBackgroundLayer(MatrixStack stack, float partialTicks, int x, int y) {
+		this.renderBackground(stack);
+		this.minecraft.getTextureManager().bindTexture(UPHOLSTERY_TABLE_GUI_TEXTURE);
 		
-		int i = this.guiLeft;
-		int j = this.guiTop;
-		this.func_238474_b_(p_230450_1_, i, j, 0, 0, this.xSize, this.ySize);
+		int guiLeft = this.guiLeft;
+		int guiTop = this.guiTop;
+//		this.func_238474_b_(stack, guiLeft, guiTop, 0, 0, this.xSize, this.ySize);
 		
 		Slot top = this.container.top();
 		Slot middle = this.container.middle();
@@ -125,21 +126,21 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 		RenderHelper.setupGuiFlatDiffuseLighting();
 //		IRenderTypeBuffer.Impl irendertypebuffer$impl = this.minecraft.getRenderTypeBuffers().getBufferSource();
 		MatrixStack matrixstack = new MatrixStack();
-		matrixstack.translate((double)(i + 139), (double)(j + 52), 0.0D);
+		matrixstack.translate((double)(guiLeft + 139), (double)(guiTop + 52), 0.0D);
 		matrixstack.scale(24.0F, -24.0F, 1.0F);
 		matrixstack.translate(0.5D, 0.5D, 0.5D);
 		matrixstack.scale(0.6666667F, -0.6666667F, -0.6666667F);
 //		irendertypebuffer$impl.finish();
 		if(this.showUsableIcons) {
-			int i2 = i + 60;
-			int k2 = j + 13;
+			int i2 = guiLeft + 60;
+			int k2 = guiTop + 13;
 			int i3 = this.field_214128_z + 10;
 
 			for(int l = this.field_214128_z; l < i3; ++l) {
 				int i1 = l - this.field_214128_z;
 	            int j1 = i2 + i1 % 4 * 14;
 	            int k1 = k2 + i1 / 4 * 14;
-	            this.field_230706_i_.getTextureManager().bindTexture(UPHOLSTERY_TABLE_GUI_TEXTURE);
+	            this.minecraft.getTextureManager().bindTexture(UPHOLSTERY_TABLE_GUI_TEXTURE);
 //	            int yblittingstart = this.ySize;
 
 //	            this.blit(j1, k1, 14 * (l - 1), yblittingstart + (this.selectedFurniture != null && l == this.selectedFurniture.getID() ? 14 : 0), 14, 14);
@@ -157,7 +158,7 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 		matrixstack.translate(0.5D, 0.5D, 0.0D);
 		matrixstack.translate(0.5D, 0.5D, 0.5D);
 		matrixstack.scale(0.6666667F, -0.6666667F, -0.6666667F);
-		IRenderTypeBuffer.Impl irendertypebuffer$impl = this.field_230706_i_.getRenderTypeBuffers().getBufferSource();
+		IRenderTypeBuffer.Impl irendertypebuffer$impl = this.minecraft.getRenderTypeBuffers().getBufferSource();
 		matrixstack.pop();
 		irendertypebuffer$impl.finish();
 	}
@@ -206,8 +207,8 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 	            		default:
 	            			this.selectedFurniture = null;
 	            	}
-	            	if(this.container.enchantItem(this.field_230706_i_.player, this.selectedFurniture)) {
-	                	this.field_230706_i_.playerController.sendEnchantPacket(this.container.windowId, this.selectedFurniture == null ? 0 : this.selectedFurniture.getID());
+	            	if(this.container.enchantItem(this.minecraft.player, this.selectedFurniture)) {
+	                	this.minecraft.playerController.sendEnchantPacket(this.container.windowId, this.selectedFurniture == null ? 0 : this.selectedFurniture.getID());
 	        		}
 	            	Minecraft.getInstance().getSoundHandler().play(SimpleSound.master(SoundEventsTwo.GUI_UPHOLSTERY_TABLE_SELECT_TEMPLATE, 1.0F));
 	            	return true;
@@ -217,7 +218,7 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 			i = this.guiLeft + 119;
 			j = this.guiTop + 9;
 		}
-		return super.func_231044_a_(mousex, mousey, mousez);
+		return super.mouseClicked(mousex, mousey, mousez);
 	}
 	protected boolean hasClickedOutside(double d1, double d3, int i5, int i6, int i7) {
 		return d1 < (double) i5 || d3 < (double) i6 || d1 >= (double) (i5 + this.xSize) || d3 >= (double) (i6 + this.ySize);

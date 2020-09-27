@@ -40,6 +40,6 @@ public class RedPandaEntity extends AnimalEntity {
 	}
 	
 	public static AttributeModifierMap.MutableAttribute applyAttributes() {
-		return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233821_d_, (double)0.16F).func_233815_a_(Attributes.field_233818_a_, 20.0D);
+		return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MOVEMENT_SPEED, (double)0.16F).createMutableAttribute(Attributes.MAX_HEALTH, 20.0D);
 	}
 }

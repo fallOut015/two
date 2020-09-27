@@ -18,10 +18,12 @@ public class WideCaveWorldCarver extends WorldCarver<ProbabilityConfig> {
 		super(codec, maxHeight);
 	}
 
+	@Override
 	public boolean shouldCarve(Random rand, int chunkX, int chunkZ, ProbabilityConfig config) {
 		return rand.nextFloat() <= config.probability;
 	}
-	public boolean func_225555_a_(IChunk p_225555_1_, Function<BlockPos, Biome> p_225555_2_, Random p_225555_3_, int p_225555_4_, int p_225555_5_, int p_225555_6_, int p_225555_7_, int p_225555_8_, BitSet p_225555_9_, ProbabilityConfig p_225555_10_) {
+	@Override
+	public boolean carveRegion(IChunk p_225555_1_, Function<BlockPos, Biome> p_225555_2_, Random p_225555_3_, int p_225555_4_, int p_225555_5_, int p_225555_6_, int p_225555_7_, int p_225555_8_, BitSet p_225555_9_, ProbabilityConfig p_225555_10_) {
 		int i = (this.func_222704_c() * 2 - 1) * 16;
 		int j = p_225555_3_.nextInt(p_225555_3_.nextInt(p_225555_3_.nextInt(this.func_222724_a()) + 1) + 1);
 
@@ -106,6 +108,7 @@ public class WideCaveWorldCarver extends WorldCarver<ProbabilityConfig> {
 		}
 
 	}
+	@Override
 	protected boolean func_222708_a(double p_222708_1_, double p_222708_3_, double p_222708_5_, int p_222708_7_) {
 		return p_222708_3_ <= -0.7D || p_222708_1_ * p_222708_1_ + p_222708_3_ * p_222708_3_ + p_222708_5_ * p_222708_5_ >= 1.0D;
 	}
