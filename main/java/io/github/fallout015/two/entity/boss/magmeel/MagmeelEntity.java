@@ -1,72 +1,197 @@
 package io.github.fallout015.two.entity.boss.magmeel;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ILivingEntityData;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.BossInfo;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerBossInfo;
 
 public class MagmeelEntity extends MonsterEntity {
-	private final ServerBossInfo bossInfo = (ServerBossInfo)(new ServerBossInfo(this.getDisplayName(), BossInfo.Color.WHITE, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
-	MagmeelHeadEntity head;
-	MagmeelSegmentEntity[] segments;
-	MagmeelTailEntity tail;
+	private static final DataParameter<Integer> SEGMENTS = EntityDataManager.createKey(MagmeelEntity.class, DataSerializers.VARINT);
+//	private final ServerBossInfo bossInfo = (ServerBossInfo)(new ServerBossInfo(this.getDisplayName(), BossInfo.Color.WHITE, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
+//	private MagmeelHeadEntity head;
+//	private MagmeelSegmentEntity[] segments;
+//	private MagmeelTailEntity tail;
 	
 	public MagmeelEntity(EntityType<? extends MagmeelEntity> type, World world) {
 		super(type, world);
+		
+//		this.head = new MagmeelHeadEntity(this);
+//		for(int i = 0; i < 10; ++ i) {
+//			this.segments[i] = new MagmeelSegmentEntity(this);
+//		}
+//		this.tail = new MagmeelTailEntity(this);
 	}
 	
 	public static AttributeModifierMap.MutableAttribute applyAttributes() {
-		return MonsterEntity.func_234295_eP_().func_233815_a_(Attributes.field_233819_b_, 100.0D).func_233815_a_(Attributes.field_233821_d_, (double)0.5F).func_233815_a_(Attributes.field_233823_f_, 1.0D).func_233815_a_(Attributes.field_233826_i_, 5.0D).func_233814_a_(Attributes.field_233829_l_);
+		return MonsterEntity.func_234295_eP_().createMutableAttribute(Attributes.MAX_HEALTH, 100.0D).createMutableAttribute(Attributes.MOVEMENT_SPEED, (double)0.5F).createMutableAttribute(Attributes.ATTACK_DAMAGE, 1.0D).createMutableAttribute(Attributes.ARMOR, 5.0D);
 	}
 
 	@Override
 	public void readAdditional(CompoundNBT compound) {
 		super.readAdditional(compound);
-		if (this.hasCustomName()) {
-			this.bossInfo.setName(this.getDisplayName());
-		}
+//		if (this.hasCustomName()) {
+//			this.bossInfo.setName(this.getDisplayName());
+//		}
+		this.dataManager.set(SEGMENTS, compound.getInt("SEGMENTS"));
 	}
 	@Override
-	public void setCustomName(@Nullable ITextComponent name) {
-		super.setCustomName(name);
-		this.bossInfo.setName(this.getDisplayName());
-	}
-	@Override
-	public boolean isNonBoss() {
-		return false;
-	}
-	@Override
-	protected void updateAITasks() {
-		super.updateAITasks();
+	public void writeAdditional(CompoundNBT compound) {
+		super.writeAdditional(compound);
 		
-		this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
+		compound.putInt("SEGMENTS", this.dataManager.get(SEGMENTS).intValue());
 	}
+//	@Override
+//	public void setCustomName(@Nullable ITextComponent name) {
+//		super.setCustomName(name);
+//		this.bossInfo.setName(this.getDisplayName());
+//	}
+//	@Override
+//	public boolean isNonBoss() {
+//		return false;
+//	}
+//	@Override
+//	protected void updateAITasks() {
+//		super.updateAITasks();
+//		
+//		this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
+//	}
+//	@Override
+//	public void addTrackingPlayer(ServerPlayerEntity player) {
+//		super.addTrackingPlayer(player);
+//		this.bossInfo.addPlayer(player);
+//	}
+//	@Override
+//	public void removeTrackingPlayer(ServerPlayerEntity player) {
+//		super.removeTrackingPlayer(player);
+//		this.bossInfo.removePlayer(player);
+//	}
 	@Override
-	public void addTrackingPlayer(ServerPlayerEntity player) {
-		super.addTrackingPlayer(player);
-		this.bossInfo.addPlayer(player);
-	}
-	@Override
-	public void removeTrackingPlayer(ServerPlayerEntity player) {
-		super.removeTrackingPlayer(player);
-		this.bossInfo.removePlayer(player);
+	public ILivingEntityData onInitialSpawn(IServerWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, ILivingEntityData spawnDataIn, CompoundNBT dataTag) {
+		this.dataManager.set(SEGMENTS, getSegmentCountForDifficulty(difficultyIn));
+
+		return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
 	}
 	
-	public MagmeelHeadEntity getHead() {
-		return this.head;
+//	public MagmeelHeadEntity getHead() {
+//		return this.head;
+//	}
+//	public MagmeelSegmentEntity[] getSegments() {
+//		return this.segments;
+//	}
+//	public MagmeelTailEntity getTail() {
+//		return this.tail;
+//	}
+	public static int getSegmentCountForDifficulty(DifficultyInstance difficultyIn) {
+		switch(difficultyIn.getDifficulty()) {
+			case EASY:
+				return 5;
+			case NORMAL:
+				return 10;
+			case HARD:
+				return 20;
+			case PEACEFUL:
+			default:
+				return 0;
+		}
 	}
-	public MagmeelSegmentEntity[] getSegments() {
-		return this.segments;
-	}
-	public MagmeelTailEntity getTail() {
-		return this.tail;
-	}
+	
+//	public class MagmeelHeadEntity extends Entity {
+//		final MagmeelEntity magmeel;
+//		
+//		public MagmeelHeadEntity(MagmeelEntity magmeel) {
+//			super(EntityTypeTwo.MAGMEEL, magmeel.getEntityWorld());
+//			
+//			this.magmeel = magmeel;
+//		}
+//
+//		@Override
+//		protected void registerData() {
+//			// TODO Auto-generated method stub
+//			
+//		}
+//		@Override
+//		public void readAdditional(CompoundNBT compound) {
+//			// TODO Auto-generated method stub
+//			
+//		}
+//		@Override
+//		public void writeAdditional(CompoundNBT compound) {
+//			// TODO Auto-generated method stub
+//			
+//		}
+//		@Override
+//		public IPacket<?> createSpawnPacket() {
+//			// TODO Auto-generated method stub
+//			return null;
+//		}
+//	}
+//	public class MagmeelSegmentEntity extends Entity {
+//		final MagmeelEntity magmeel;
+//
+//		public MagmeelSegmentEntity(MagmeelEntity magmeel) {
+//			super(EntityTypeTwo.MAGMEEL, magmeel.getEntityWorld());
+//			
+//			this.magmeel = magmeel;
+//		}
+//
+//		@Override
+//		protected void registerData() {
+//			// TODO Auto-generated method stub
+//			
+//		}
+//		@Override
+//		public void readAdditional(CompoundNBT compound) {
+//			// TODO Auto-generated method stub
+//			
+//		}
+//		@Override
+//		public void writeAdditional(CompoundNBT compound) {
+//			// TODO Auto-generated method stub
+//			
+//		}
+//		@Override
+//		public IPacket<?> createSpawnPacket() {
+//			// TODO Auto-generated method stub
+//			return null;
+//		}
+//	}
+//	public class MagmeelTailEntity extends Entity {
+//		final MagmeelEntity magmeel;
+//		
+//		public MagmeelTailEntity(MagmeelEntity magmeel) {
+//			super(EntityTypeTwo.MAGMEEL, magmeel.getEntityWorld());
+//			
+//			this.magmeel = magmeel;
+//		}
+//
+//		@Override
+//		protected void registerData() {
+//			// TODO Auto-generated method stub
+//			
+//		}
+//		@Override
+//		public void readAdditional(CompoundNBT compound) {
+//			// TODO Auto-generated method stub
+//			
+//		}
+//		@Override
+//		public void writeAdditional(CompoundNBT compound) {
+//			// TODO Auto-generated method stub
+//			
+//		}
+//		@Override
+//		public IPacket<?> createSpawnPacket() {
+//			// TODO Auto-generated method stub
+//			return null;
+//		}
+//	}
 }
