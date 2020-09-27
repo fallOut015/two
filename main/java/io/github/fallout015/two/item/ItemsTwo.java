@@ -1177,29 +1177,19 @@ public class ItemsTwo {
     public static final Item SPONGE_LEGGINGS = register("sponge_leggings", new SpongeArmorItem(ArmorMaterialTwo.SPONGE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item SPONGE_BOOTS = register("sponge_boots", new SpongeArmorItem(ArmorMaterialTwo.SPONGE, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
     
-    public static final Item GLOWSTONE_HELMET = register("glowstone_helmet", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)) {
-    	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-    		// Lighting whatnot
-    	}
-    });
-    public static final Item GLOWSTONE_CHESTPLATE = register("glowstone_chestplate", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item GLOWSTONE_LEGGINGS = register("glowstone_leggings", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item GLOWSTONE_BOOTS = register("glowstone_boots", new ArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+    public static final Item GLOWSTONE_HELMET = register("glowstone_helmet", new GlowstoneArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GLOWSTONE_CHESTPLATE = register("glowstone_chestplate", new GlowstoneArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GLOWSTONE_LEGGINGS = register("glowstone_leggings", new GlowstoneArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GLOWSTONE_BOOTS = register("glowstone_boots", new GlowstoneArmorItem(ArmorMaterialTwo.GLOWSTONE, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
    
-    public static final Item OBSIDIAN_HELMET = register("obsidian_helmet", new ArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)) {
-    	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-    		if(player.isBurning()) {
-    			player.extinguish();
-    		}
-    	}
-    });
-    public static final Item OBSIDIAN_CHESTPLATE = register("obsidian_chestplate", new ArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item OBSIDIAN_LEGGINGS = register("obsidian_leggings", new ArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item OBSIDIAN_BOOTS = register("obsidian_boots", new ArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+    public static final Item OBSIDIAN_HELMET = register("obsidian_helmet", new ObsidianArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item OBSIDIAN_CHESTPLATE = register("obsidian_chestplate", new ObsidianArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item OBSIDIAN_LEGGINGS = register("obsidian_leggings", new ObsidianArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item OBSIDIAN_BOOTS = register("obsidian_boots", new ObsidianArmorItem(ArmorMaterialTwo.OBSIDIAN, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
 
-    public static final Item TOP_HAT = register("top_hat", new TopHatItem(new Item.Properties()/*.group(ItemGroup.COMBAT)*/));
+    public static final Item TOP_HAT = register("top_hat", new TopHatItem(new Item.Properties()/*.group(ItemGroup.MISCELLANEOUS)*/));
     
-    public static final Item DOUBLE_JUMP_BOOTS = register("double_jump_boots", new DoubleJumpBootsItem(new Item.Properties()/*.group(ItemGroup.COMBAT)*/.rarity(Rarity.RARE)));
+    public static final Item DOUBLE_JUMP_BOOTS = register("double_jump_boots", new DoubleJumpBootsItem(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)));
     public static final Item BEAMING_BOOTS = register("beaming_boots", new BeamingBootsItem(new Item.Properties()/*.group(ItemGroup.COMBAT)*/.rarity(Rarity.RARE)));
     public static final Item SLIME_BOOTS = register("slime_boots", new SlimeBootsItem(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)));
     public static final Item HERMES_HELMET = register("hermes_helmet", new HermesHelmetItem(new Item.Properties().group(ItemGroup.COMBAT).rarity(Rarity.RARE)));

@@ -126,7 +126,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
@@ -161,7 +160,6 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -718,53 +716,24 @@ public class Two {
     		}
     	}
     	@SubscribeEvent
-    	public static void onLivingJump(final LivingJumpEvent livingJumpEvent) {
-    		if(livingJumpEvent.getEntityLiving().getActivePotionEffect(EffectsTwo.FROSTY) != null) {
-    			livingJumpEvent.getEntityLiving().setJumping(false);
-    			livingJumpEvent.getEntityLiving().setMotion(Vector3d.ZERO);
-    			return;
-    		}
-//        		if(list.getFirst().getItem() == ItemsTwo.DOUBLE_JUMP_BOOTS) {
-////        			LOGGER.info("Boots!");
-////        			LOGGER.info("Jumps: " + list.getFirst().getTag().getInt("jumps"));
-////        			LOGGER.info("Extra Jump Limit: " + list.getFirst().getTag().getInt("extrajumplimit"));
-//        			if(list.getFirst().getTag().getInt("jumps") < list.getFirst().getTag().getInt("extrajumplimit")) {
-////        				LOGGER.info("Allowed jump limit!");
-//        				if(p.isAirBorne) {
-////        					LOGGER.info("Airborne!");
-////        					p.jump();
-//        					list.getFirst().getTag().putInt("jumps", list.getFirst().getTag().getInt("jumps") + 1);
-//        				}
-//        			}
-//        		}
-    	}
-    	@SubscribeEvent
     	public static void onKeyInput(final InputEvent.KeyInputEvent inputEvent$KeyInputEvent) {
-    		if(inputEvent$KeyInputEvent.getKey() == GLFW.GLFW_KEY_SPACE && inputEvent$KeyInputEvent.getAction() == GLFW.GLFW_PRESS) {
-        		PacketHandler.INSTANCE.sendToServer(new JumpPacketHandler());
-        		Two.LOGGER.info("Sending jump packet to server");
+    		if(!Minecraft.getInstance().isGamePaused() && inputEvent$KeyInputEvent.getKey() == GLFW.GLFW_KEY_SPACE && inputEvent$KeyInputEvent.getAction() == GLFW.GLFW_PRESS) {
+    			Two.LOGGER.debug("Sending jump packet to server");
+    			PacketHandler.INSTANCE.sendToServer(new JumpPacketHandler());
     		}
     	}
     	@SubscribeEvent
     	public static void onLivingFall(final LivingFallEvent livingFallEvent) {
     		if(livingFallEvent.getEntityLiving() instanceof PlayerEntity) {
-//    			LOGGER.info("Player Fall!");
-    			PlayerEntity p = (PlayerEntity) livingFallEvent.getEntityLiving();
-        		LinkedList<ItemStack> list = new LinkedList<ItemStack>();
-        		livingFallEvent.getEntityLiving().getArmorInventoryList().forEach(list::add);
-//        		LOGGER.info(list);
-        		if(list.getFirst().getItem() == ItemsTwo.SLIME_BOOTS) {
-        			int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.REBOUND, list.getFirst());
+        		if(livingFallEvent.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.FEET).getItem() == ItemsTwo.SLIME_BOOTS) {
+        			int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.REBOUND, livingFallEvent.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.FEET));
         			if(level > 0) {
             			SlimeBootsItem.bounce(livingFallEvent.getEntityLiving(), level);
         			}
         		}
-        		if(list.getFirst().getItem() == ItemsTwo.DOUBLE_JUMP_BOOTS) {
-//        			LOGGER.info("Boots!");
-        			if(p.isOnGround()) {
-//        				LOGGER.info("Grounded!");
-        				list.getFirst().getTag().putInt("jumps", 0);
-        			}
+        		if(livingFallEvent.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.FEET).getItem() == ItemsTwo.DOUBLE_JUMP_BOOTS) {
+        			livingFallEvent.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.FEET).getOrCreateTag().putInt("jumps", 0);
+        			// queue something to let the player know that the jumps are regained
         		}
     		}
     	}
@@ -1048,5 +1017,11 @@ public class Two {
     			renderLivingEvent$post.getMatrixStack().pop();
     		}
     	}
+//    	@SubscribeEvent
+//    	public static void onPlayerTick(final TickEvent.PlayerTickEvent tickEvent$PlayerTickEvent) {
+//    		if(tickEvent$PlayerTickEvent.phase == Phase.END && tickEvent$PlayerTickEvent.player.removeTag("fireproof")) {
+//    			tickEvent$PlayerTickEvent.player.extinguish();
+//    		}
+//    	}
     }
 }
