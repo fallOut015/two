@@ -50,6 +50,7 @@ import net.minecraftforge.registries.ObjectHolder;
 
 @ObjectHolder("two")
 public class BlocksTwo {
+	public static final Block LIGHT_SOURCE = register("light_source", new LightSourceBlock(Block.Properties.create(Material.MISCELLANEOUS).setLightLevel(state -> 16).doesNotBlockMovement().noDrops().notSolid().setAir().tickRandomly()));
 //	public static final Block TEST_BLOCK = register("test_block", new Block(Block.Properties.create(Material.MISCELLANEOUS).lightValue(1)));
     
 //	@ObjectHolder("minecraft:anvil")
