@@ -19,6 +19,12 @@
 	
 	"entity.two.sigil" : "Sigil",
 	
+	"entity.two.butterfly" : "Butterfly",
+	"entity.two.butterfly.black_yellow" : "Zebra Longwing",
+	"entity.two.butterfly.blue_black" : "Blue",
+	"entity.two.butterfly.red_white" : "Monarch",
+	"entity.two.butterfly.white_black" : "Marbled",
+
 	
 	
 
@@ -739,6 +745,8 @@
 	"item.two.smithing_hammer" : "Smithing Hammer",
 	"item.two.handsaw" : "Handsaw",
 	"item.two.rotating_wrench" : "Rotating Wrench",
+	"item.two.net" : "Net",
+	"item.two.net.used" : "Stuffed Net",
 	
 	"item.two.crafting_book" : "Crafting Book",
 	
