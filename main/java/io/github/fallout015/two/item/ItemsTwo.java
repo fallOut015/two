@@ -1217,7 +1217,6 @@ public class ItemsTwo {
     ore mattocks
     ore sickles
     handsaw
-    ore smithing hammers
     whetstone
     jewelry
     speedy wagon
