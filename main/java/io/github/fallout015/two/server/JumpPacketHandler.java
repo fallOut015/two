@@ -44,6 +44,8 @@ public class JumpPacketHandler extends PacketHandler {
 		        	sender.jump();
 		        	sender.velocityChanged = true;
 		        	
+					bootstack.damageItem(1, sender, playerEntity -> playerEntity.sendBreakAnimation(EquipmentSlotType.FEET));
+		        	
 		        	for(int i = 0; i < 8; ++i) {
 		        		double xmod = Math.cos(((360 / 8) * i) * (180d / Math.PI));
 		        		double zmod = Math.sin(((360 / 8) * i) * (180d / Math.PI));
@@ -52,6 +54,11 @@ public class JumpPacketHandler extends PacketHandler {
 		        	
 		        	// let the player know how many uses they have left (xp bar?) and let the player know when the last jump is used
 		        	// maybe give the boots a passive glow or particle effect or something that goes away when all of the extra jumps are expended
+		        	
+		        	// power down sound effect when the last use is expended
+		        	// power up sound effect when you regain uses
+		        	// have a glow around the boots when there are uses
+		        	// do something to show how many uses there are
 	        	}
 	        }
 	    });
