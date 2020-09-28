@@ -27,7 +27,7 @@ public class BanisherItem extends Item implements IVanishable {
 
 	public BanisherItem(Properties properties) {
 		super(properties);
-		this.attackDamage = 0.5f;
+		this.attackDamage = 0f;
 		float attackSpeedIn = -3.5f;
 		Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
 	    builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.attackDamage, AttributeModifier.Operation.ADDITION));
