@@ -184,7 +184,7 @@ public enum ArmorMaterialTwo implements IArmorMaterial {
 		return Ingredient.fromItems(Items.OBSIDIAN);
 	}),
 	
-	DOUBLE_JUMP_BOOTS("double_jump_boots", 5, new int[] {2, 0, 0, 0}, 5, SoundEventsTwo.ITEM_ARMOR_EQUIP_DOUBLE_JUMP_BOOTS, 0.0f, 0, () -> {
+	DOUBLE_JUMP_BOOTS("double_jump_boots", 25, new int[] {2, 0, 0, 0}, 5, SoundEventsTwo.ITEM_ARMOR_EQUIP_DOUBLE_JUMP_BOOTS, 0.0f, 0, () -> {
 		return Ingredient.fromItems(Items.FEATHER);
 	}),
 	BEAMING_BOOTS("beaming_boots", 5, new int[] {2, 0, 0, 0}, 5, SoundEventsTwo.ITEM_ARMOR_EQUIP_BEAMING_BOOTS, 0.0f, 0, () -> {
