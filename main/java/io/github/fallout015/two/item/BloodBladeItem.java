@@ -3,6 +3,7 @@ package io.github.fallout015.two.item;
 import java.util.List;
 
 import io.github.fallout015.two.Two;
+import io.github.fallout015.two.common.Config;
 import io.github.fallout015.two.enchantment.EnchantmentsTwo;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -31,7 +32,7 @@ public abstract class BloodBladeItem extends SwordItem {
 		
 		if(texture) {
 			ItemModelsProperties.registerProperty(this, new ResourceLocation("two", "pam_texture"), (itemStack, clientWorld,livingEntity) -> {
-				return Two.Config.pamTextureBloodBlade ? 1F : 0F;
+				return Config.pamTextureBloodBlade ? 1F : 0F;
 			});
 		}
 	}
