@@ -2,6 +2,7 @@ package io.github.fallout015.two.entity;
 
 import java.util.LinkedList;
 
+import io.github.fallout015.two.entity.boss.magmeel.MagmeelEntity;
 import io.github.fallout015.two.entity.effect.ButterflyEntity;
 import io.github.fallout015.two.entity.effect.SigilEntity;
 import io.github.fallout015.two.entity.effect.SwarmEntity;
@@ -63,7 +64,9 @@ public class EntityTypeTwo {
 	public static final EntityType<TwisterEntity> TWISTER = register("twister", EntityType.Builder.<TwisterEntity>create(TwisterEntity::new, EntityClassification.MISC).size(1, 2).disableSerialization());
 	
 	public static final EntityType<SwarmEntity> SWARM = register("swarm", EntityType.Builder.create(SwarmEntity::new, EntityClassification.AMBIENT).size(0, 0));
-	public static final EntityType<ButterflyEntity> BUTTERFLY = register("butterfly", EntityType.Builder.create(ButterflyEntity::new, EntityClassification.AMBIENT));
+	public static final EntityType<ButterflyEntity> BUTTERFLY = register("butterfly", EntityType.Builder.create(ButterflyEntity::new, EntityClassification.AMBIENT).size(0.5f, 0.5f));
+	
+	public static final EntityType<MagmeelEntity> MAGMEEL = register("magmeel", EntityType.Builder.create(MagmeelEntity::new, EntityClassification.MONSTER).size(0.5f, 0.5f));
 	
 	
 	
@@ -71,8 +74,8 @@ public class EntityTypeTwo {
 		entityTypeRegistryEvent.getRegistry().registerAll(Holder.ENTITYTYPESTWO.toArray(new EntityType<?>[] {}));
 	}
 	private static <T extends Entity> EntityType<T> register(String key, EntityType.Builder<T> entityType) {
-		@SuppressWarnings("unchecked")
-		EntityType<T> entity = (EntityType<T>) entityType.build(key).setRegistryName(key);
+		EntityType<T> entity = (EntityType<T>) entityType.build(key);
+		entity.setRegistryName(key);
 		Holder.ENTITYTYPESTWO.add(entity);
 		return entity;
 	}

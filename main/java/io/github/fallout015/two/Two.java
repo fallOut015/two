@@ -7,7 +7,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
-import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.glfw.GLFW;
@@ -31,6 +30,7 @@ import io.github.fallout015.two.client.renderer.entity.DarkDwarfArcherRenderer;
 import io.github.fallout015.two.client.renderer.entity.FireArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.IceArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.IceSlimeRenderer;
+import io.github.fallout015.two.client.renderer.entity.MagmeelRenderer;
 import io.github.fallout015.two.client.renderer.entity.MummifiedZombieRenderer;
 import io.github.fallout015.two.client.renderer.entity.NetherFishRenderer;
 import io.github.fallout015.two.client.renderer.entity.PenguinRenderer;
@@ -48,10 +48,12 @@ import io.github.fallout015.two.client.renderer.entity.layers.HeadphonesLayer;
 import io.github.fallout015.two.client.renderer.entity.layers.InspectionSpectaclesLayer;
 import io.github.fallout015.two.client.renderer.entity.layers.TopHatLayer;
 import io.github.fallout015.two.client.renderer.tileentity.ChairRenderer;
+import io.github.fallout015.two.common.Config;
 import io.github.fallout015.two.common.capabilities.CapabilitiesTwo;
 import io.github.fallout015.two.enchantment.AbilityEnchantment;
 import io.github.fallout015.two.enchantment.EnchantmentsTwo;
 import io.github.fallout015.two.entity.EntityTypeTwo;
+import io.github.fallout015.two.entity.boss.magmeel.MagmeelEntity;
 import io.github.fallout015.two.entity.effect.ButterflyEntity;
 import io.github.fallout015.two.entity.monster.MummifiedZombieEntity;
 import io.github.fallout015.two.entity.passive.BeardedDragonEntity;
@@ -81,13 +83,11 @@ import net.minecraft.block.Block;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EvokerFangsRenderer;
-import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
@@ -115,7 +115,6 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.INBT;
 import net.minecraft.particles.ParticleType;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -132,10 +131,7 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.MobSpawnInfo.Spawners;
-import net.minecraft.world.biome.ParticleEffectAmbience;
 import net.minecraft.world.gen.GenerationStage.Carving;
 import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.carver.ConfiguredCarver;
@@ -149,13 +145,9 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.ParticleFactoryRegisterEvent;
-import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
@@ -184,94 +176,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod("two")
 public class Two {
-	public static class Config {
-		public static final ClientConfig CLIENT;
-		public static final ForgeConfigSpec CLIENT_SPEC;
-		
-		static {
-			final Pair<ClientConfig, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(ClientConfig::new);
-			CLIENT_SPEC = specPair.getRight();
-			CLIENT = specPair.getLeft();
-		}
-		
-		public static boolean pamTextureBloodBlade = true;
-		public static boolean disableStainedWoodenCrafting = false;
-		public static boolean disableGlazedBricksCrafting = false;
-		public static boolean disableAdditionalCaves = false;
-		public static boolean disableModifiedCaves = false;
-		public static boolean disableNewNetherOres = false;
-		public static boolean disableNewOverworldOres = false;
-		public static boolean disableNewEndOres = false;
-		public static boolean renameVanillaItems = true;
-		public static boolean disableDreamcatchersInVillages = false;
-		public static boolean enableThrowingArrows = false;
-		public static boolean disableDaggerSneakAttack = false;
-		public static boolean bombArrowsObeyMobGriefing = false;
-		public static boolean disableInspectionSpectacleDescriptions = false;
-		public static boolean enablePickaxeTips = false;
-		public static boolean disableTeleporterCrafting = false;
-		public static boolean disableUndergroundRegions = false;
-		public static boolean disableUndergroundBiomes = false;
-		public static boolean disableAdobeFreezing = false;
-		
-		public static void bakeConfig() {
-			pamTextureBloodBlade = CLIENT.PAM_TEXTURE_BLOOD_BLADE.get();
-			disableInspectionSpectacleDescriptions = CLIENT.DISABLE_INSPECTION_SPECTACLES_DESCRIPTIONS.get();
-			enablePickaxeTips = CLIENT.ENABLE_PICKAXE_TIPS.get();
-			
-			disableStainedWoodenCrafting = CLIENT.DISABLE_STAINED_WOODEN_CRAFTING.get();
-			disableGlazedBricksCrafting = CLIENT.DISABLE_GLAZED_BRICK_CRAFTING.get();
-			
-			enableThrowingArrows = CLIENT.ENABLE_THROWING_ARROWS.get();
-		}
-		
-		public static class ClientConfig {
-			// Cosmetic
-			public final BooleanValue PAM_TEXTURE_BLOOD_BLADE;
-			public final BooleanValue DISABLE_INSPECTION_SPECTACLES_DESCRIPTIONS;
-			public final BooleanValue ENABLE_PICKAXE_TIPS;
-			// Crafting
-			public final BooleanValue DISABLE_STAINED_WOODEN_CRAFTING;
-			public final BooleanValue DISABLE_GLAZED_BRICK_CRAFTING;
-//			public final BooleanValue disableTeleporterCrafting;
-			// World Gen
-//			public final BooleanValue disableAdditionalCaves;
-//			public final BooleanValue disableModifiedCaves;
-//			public final BooleanValue disableNewNetherOres;
-//			public final BooleanValue disableNewOverworldOres;
-//			public final BooleanValue disableNewEndOres;
-//			public final BooleanValue disableUndergroundRegions;
-//			public final BooleanValue disableUndergroundBiomes;
-			// Vanilla Alterations
-//			public final BooleanValue renameVanillaItems;
-			// Structures
-//			public final BooleanValue disableDreamcatchersInVillages;
-			// Misc
-			public final BooleanValue ENABLE_THROWING_ARROWS;
-//			public final BooleanValue disableDaggerSneakAttack;
-//			public final BooleanValue bombArrowsObeyMobGriefing;
-//			public final BooleanValue disableAdobeFreezing;
-			
-			public ClientConfig(ForgeConfigSpec.Builder builder) {
-				builder.push("Cosmetic");
-				this.PAM_TEXTURE_BLOOD_BLADE = builder.comment("Use Pam's texture for the Blood Venom Blade.").translation("two.config.pamTextureBloodBlade").define("PAM_TEXTURE_BLOOD_BLADE", true);
-				this.DISABLE_INSPECTION_SPECTACLES_DESCRIPTIONS = builder.comment("Disable the paragraph descriptions for items when wearing the Inspection Spectacles.").translation("two.config.disableInspectionSpectaclesDescriptions").define("DISABLE_INSPECTION_SPECTACLES_DESCRIPTIONS", false);
-				this.ENABLE_PICKAXE_TIPS = builder.comment("Enable pickaxe tooltips for what ores you can mine.").translation("two.config.enablePickaxeTips").define("ENABLE_PICKAXE_TIPS", false);
-				builder.pop();
-				builder.push("Crafting");
-				this.DISABLE_STAINED_WOODEN_CRAFTING = builder.comment("Disable the crafting recipes for everything related to Stained Wooden Planks. In case you have another mod that uses it.").translation("two.config.disableStainedWoodenCrafting").define("DISABLE_STAINED_WOODEN_CRAFTING", false);
-				this.DISABLE_GLAZED_BRICK_CRAFTING = builder.comment("Disable the crafting recipes for everything related to Glazed Bricks. In case you have another mod that uses it.").translation("two.config.disableGlazedBricksCrafting").define("DISABLE_GLAZED_BRICKS_CRAFTING", false);
-				builder.pop();
-				builder.push("Misc");
-				this.ENABLE_THROWING_ARROWS = builder.comment("Enable pressing Q to throw arrows like darts.").translation("two.config.enableThrowingArrows").define("ENABLE_THROWING_ARROWS", false);
-				builder.pop();
-//				builder.push("category");
-//				this.anInt = builder.comment("anInt usage description").translation(Two.class.getAnnotation(Mod.class).value() + ".config." + "anInt").defineInRange("anInt", 10, 0, 100);
-//				builder.pop();
-			}
-		}
-	}
-	
 	// TODO PRESSURE PLATE, FENCE, STAIRS, BUTTON, SIGN, AND BOAT FOR STAINED PLANKS
 	
 	// GLAIVE
@@ -288,9 +192,6 @@ public class Two {
     
 	public static AttributeModifier leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", 2, AttributeModifier.Operation.ADDITION);
     
-	@SuppressWarnings("unused")
-	private static final String[] BLACKLIST;
-	
     public Two() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
@@ -302,26 +203,9 @@ public class Two {
         MinecraftForge.EVENT_BUS.register(this);
     }
     
-    static {
-    	BLACKLIST = new String[] {
-    		"Dev"
-    	};
-    }
-
 	private void setup(final FMLCommonSetupEvent event) {
 		PacketHandler.INSTANCE.registerMessage(JumpPacketHandler.JUMP_ID, JumpPacketHandler.class, JumpPacketHandler::encoder, JumpPacketHandler::decoder, JumpPacketHandler::handle);
 
-//    	DeferredWorkQueue ? 
-//    	DefaultBiomeFeaturesTwo.addFeatures();
-//    	DefaultBiomeFeaturesTwo.addStructures();
-//    	DefaultBiomeFeaturesTwo.addSpawns();
-//    	DefaultBiomeFeaturesTwo.addCarvers();
-    	
-//    	try {
-//    	} catch(NullPointerException npe) {
-//    		npe.printStackTrace();
-//    	}
-		
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.CHAMELEON, ChameleonEntity.applyAttributes().create());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonEntity.applyAttributes().create());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.RED_PANDA, RedPandaEntity.applyAttributes().create());
@@ -335,15 +219,9 @@ public class Two {
 
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.BUTTERFLY, ButterflyEntity.applyAttributes().create());
 
-//		GlobalEntityTypeAttributes.put(EntityTypeTwo.MAGMEEL, MagmeelEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.MAGMEEL, MagmeelEntity.applyAttributes().create());
 	}
 	private void doClientStuff(final FMLClientSetupEvent event) {
-//    	for(String name : BLACKLIST) {
-//    		if(name.equals(event.getMinecraftSupplier().get().player.getName().getString())) {
-//    			Assert.assrt("You are blacklisted!", false);
-//    		}
-//    	} // TODO blacklist code
-    	
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CHAMELEON, ChameleonRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.RED_PANDA, RedPandaRenderer::new);
@@ -367,7 +245,7 @@ public class Two {
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.ICE_SLIME, IceSlimeRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.NETHER_FISH, NetherFishRenderer::new);
     	
-    	//    	RenderingRegistry.registerEntityRenderingHandler(EntityType.WOLF, WolfRendererTwo::new);
+//    	RenderingRegistry.registerEntityRenderingHandler(EntityType.WOLF, WolfRendererTwo::new); // TODO
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SIGIL, SigilRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.TWISTER, TwisterRenderer::new);
     	
@@ -376,10 +254,16 @@ public class Two {
     	
 //    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.MAGMEEL, MagmeelRenderer::new);
 
+    	
+    	
     	ClientRegistry.bindTileEntityRenderer(TileEntityTypeTwo.CHAIR, ChairRenderer::new);
+    	
+    	
     	
     	RenderTypeLookupTwo.setRenderLayers();
 
+    	
+    	
     	CapabilitiesTwo.register();
     	
     	try {
@@ -403,18 +287,23 @@ public class Two {
     private void processIMC(final InterModProcessEvent event) {}
     @OnlyIn(Dist.CLIENT)
     private static void clientOnly() {
+    	// Top Hat
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new TopHatLayer(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new TopHatLayer(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
 
+    	// Inspection Spectacles
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new InspectionSpectaclesLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new InspectionSpectaclesLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
 
+    	// Chameleon Shoulder
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new ChameleonLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new ChameleonLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
 
+    	// Bearded Dragon Shoulder
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new BeardedDragonLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new BeardedDragonLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
 
+    	// Chameleon Cloak
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("default").addLayer(new ChameleonCloakLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("default")));
     	Minecraft.getInstance().getRenderManager().getSkinMap().get("slim").addLayer(new ChameleonCloakLayer<>(Minecraft.getInstance().getRenderManager().getSkinMap().get("slim")));
 
@@ -552,9 +441,6 @@ public class Two {
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_SILVER);
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_TALC);
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_TIN);
-    			if(biomeLoadingEvent.getName() == Biomes.SAVANNA.getRegistryName() || biomeLoadingEvent.getName() == Biomes.SAVANNA_PLATEAU.getRegistryName() || biomeLoadingEvent.getName() == Biomes.SHATTERED_SAVANNA.getRegistryName() || biomeLoadingEvent.getName() == Biomes.SHATTERED_SAVANNA_PLATEAU.getRegistryName()) {
-        			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_TANZANITE);
-    			}
     		}
     		if(biomeLoadingEvent.getCategory() == Category.ICY) {
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).clear();
@@ -564,6 +450,8 @@ public class Two {
 
     			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.MONSTER).add(new Spawners(EntityTypeTwo.ICE_SLIME, 10, 1, 3));
     		} else if(biomeLoadingEvent.getCategory() == Category.SAVANNA) {
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_TANZANITE);
+
     			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.CREATURE).add(new Spawners(EntityTypeTwo.BEARDED_DRAGON, 12, 2, 4));
     		} else if(biomeLoadingEvent.getCategory() == Category.DESERT) {
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).clear();
@@ -583,13 +471,6 @@ public class Two {
     		} else if(biomeLoadingEvent.getCategory() == Category.MESA) {
 //    			biomeLoadingEvent.getGeneration().getStructures().add(() -> StructureTwo.);
     		} else if(biomeLoadingEvent.getCategory() == Category.MUSHROOM) {
-    			int w = biomeLoadingEvent.getEffects().getWaterColor();
-    			int wf = biomeLoadingEvent.getEffects().getWaterFogColor();
-    			int s = biomeLoadingEvent.getEffects().getSkyColor();
-    			int f = biomeLoadingEvent.getEffects().getFogColor();
-    			
-    			biomeLoadingEvent.setEffects(new BiomeAmbience.Builder().setWaterColor(w).setWaterFogColor(wf).withSkyColor(s).setFogColor(f).setParticle(new ParticleEffectAmbience(ParticleTypes.WARPED_SPORE, 0.25f)).build());
-    			
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).clear();
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.RAW_GENERATION).add(() -> FeaturesTwo.MUSHROOM_STONE_REPLACER);
     		} else if(biomeLoadingEvent.getCategory() == Category.FOREST) {
@@ -633,12 +514,12 @@ public class Two {
     	}
     	@SubscribeEvent
     	public static void onItemToss(final ItemTossEvent itemTossEvent) {
+    		
     		if(Config.enableThrowingArrows && itemTossEvent.getEntityItem().getItem().getItem() instanceof ArrowItem && !itemTossEvent.getPlayer().getEntityWorld().isRemote) {
     			AbstractArrowEntity abstractarrowentity = ((ArrowItem) itemTossEvent.getEntityItem().getItem().getItem()).createArrow(itemTossEvent.getEntityItem().getEntityWorld(), itemTossEvent.getEntityItem().getItem(), itemTossEvent.getPlayer());
 //                abstractarrowentity.shoot(itemTossEvent.getPlayer(), itemTossEvent.getPlayer().rotationPitch, itemTossEvent.getPlayer().rotationYaw, 0.0F, 0.9F, 2.0F);
                 itemTossEvent.getPlayer().getEntityWorld().addEntity(abstractarrowentity);
                 itemTossEvent.setCanceled(true);
-                // TODO Keep? Remove? I personally don't like this. And adding an extra item with a drop action sounds weird. 
                 // Also TODO add item back to inventory in creative after it's cancelled, and add back shooting. 
     		}
     	}
@@ -815,19 +696,6 @@ public class Two {
         			}
         		});
     		}
-    		if(playerInteractEvent$rightClickItem.getItemStack().getItem() == Items.ENDER_EYE) {
-    			if(playerInteractEvent$rightClickItem.getItemStack().hasTag()) {
-    				if(playerInteractEvent$rightClickItem.getItemStack().getTag().contains("pos")) {
-    					BlockPos pos = BlockPos.fromLong(playerInteractEvent$rightClickItem.getItemStack().getTag().getLong("pos"));
-    					float x = pos.getX();
-    					float y = pos.getY();
-    					float z = pos.getZ();
-    					playerInteractEvent$rightClickItem.getPlayer().attemptTeleport(x, y, z, true);
-    					// TODO try true in attemptTeleport
-//    					playerInteractEvent$rightClickItem.getPlayer().setPosition(x, y, z);
-    				}
-    			}
-    		}
     	}
     	@SubscribeEvent
     	public static void onLoadFromFile(final PlayerEvent.LoadFromFile playerEvent$LoadFromFile) {
@@ -986,37 +854,6 @@ public class Two {
 //    	public static void onRenderGameOverlayPost(final RenderGameOverlayEvent.Post renderGameOverlayEvent$Post) {
 //    		
 //    	}
-    	@SubscribeEvent
-    	public static void onEntitySize(final EntityEvent.Size entityEvent$Size) {
-    		if(entityEvent$Size.getEntity().getTags().contains("small")) {
-    			Two.LOGGER.info("small size");
-    			entityEvent$Size.setNewEyeHeight(entityEvent$Size.getOldEyeHeight() * 0.25f);
-    			entityEvent$Size.setNewSize(entityEvent$Size.getOldSize().scale(0.25f));
-    		} else if(entityEvent$Size.getEntity().getTags().contains("big")) {
-    			Two.LOGGER.info("big size");
-    			entityEvent$Size.setNewEyeHeight(entityEvent$Size.getOldEyeHeight() * 4f);
-    			entityEvent$Size.setNewSize(entityEvent$Size.getOldSize().scale(4f));
-    		}
-    	}
-    	@SubscribeEvent
-    	public static void onRenderLivingPre(final RenderLivingEvent.Pre<LivingEntity, EntityModel<LivingEntity>> renderLivingEvent$pre) {
-    		if(renderLivingEvent$pre.getEntity().getTags().contains("small")) {
-    			Two.LOGGER.info("render pre small");
-    			renderLivingEvent$pre.getMatrixStack().push();
-    			renderLivingEvent$pre.getMatrixStack().scale(0.25f, 0.25f, 0.25f);
-    		} else if(renderLivingEvent$pre.getEntity().getTags().contains("big")) {
-    			Two.LOGGER.info("render pre big");
-    			renderLivingEvent$pre.getMatrixStack().push();
-    			renderLivingEvent$pre.getMatrixStack().scale(4f, 4f, 4f);
-    		}
-    	} // TODO ...
-    	@SubscribeEvent
-    	public static void onRenderLivingPost(final RenderLivingEvent.Post<LivingEntity, EntityModel<LivingEntity>> renderLivingEvent$post) {
-    		if(renderLivingEvent$post.getEntity().getTags().contains("small") || renderLivingEvent$post.getEntity().getTags().contains("big")) {
-    			Two.LOGGER.info("render post small or big");
-    			renderLivingEvent$post.getMatrixStack().pop();
-    		}
-    	}
 //    	@SubscribeEvent
 //    	public static void onPlayerTick(final TickEvent.PlayerTickEvent tickEvent$PlayerTickEvent) {
 //    		if(tickEvent$PlayerTickEvent.phase == Phase.END && tickEvent$PlayerTickEvent.player.removeTag("fireproof")) {
