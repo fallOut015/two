@@ -358,6 +358,8 @@ public class ItemsTwo {
 
 	public static final Item SUCCULIGHT = register(BlocksTwo.SUCCULIGHT, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
+	public static final Item SPORESTONE_ROOTS = register(BlocksTwo.SPORESTONE_ROOTS, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
 	public static final Item NEONDOT = register(BlocksTwo.NEONDOT, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item BRIMSHINE = register(BlocksTwo.BRIMSHINE, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
