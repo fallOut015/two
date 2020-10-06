@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:red_stained_wooden_fence_from_base"
+    ]
+  },
+  "criteria": {
+    "red_stained_wooden_fence_from_base": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:fences/wooden"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:red_stained_wooden_fence_from_base"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "red_stained_wooden_fence_from_base",
+      "has_the_recipe"
+    ]
+  ]
+}

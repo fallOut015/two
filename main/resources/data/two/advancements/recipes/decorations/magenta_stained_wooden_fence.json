@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:magenta_stained_wooden_fence"
+    ]
+  },
+  "criteria": {
+    "magenta_stained_wooden_fence": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:magenta_stained_wooden_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:magenta_stained_wooden_fence"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "magenta_stained_wooden_fence",
+      "has_the_recipe"
+    ]
+  ]
+}

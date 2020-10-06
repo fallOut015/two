@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:red_stained_wooden_fence_gate"
+    ]
+  },
+  "criteria": {
+    "red_stained_wooden_fence_gate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:red_stained_wooden_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:red_stained_wooden_fence_gate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "red_stained_wooden_fence_gate",
+      "has_the_recipe"
+    ]
+  ]
+}

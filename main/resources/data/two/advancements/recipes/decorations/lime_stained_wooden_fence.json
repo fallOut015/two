@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:lime_stained_wooden_fence"
+    ]
+  },
+  "criteria": {
+    "lime_stained_wooden_fence": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:lime_stained_wooden_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:lime_stained_wooden_fence"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "lime_stained_wooden_fence",
+      "has_the_recipe"
+    ]
+  ]
+}
