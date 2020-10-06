@@ -21,7 +21,7 @@ public class KnapsackScreen extends ContainerScreen<KnapsackContainer> {
 		this.ySize = 150;
 	}
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({ "unused", "deprecation" })
 	@Override
 	protected void drawGuiContainerBackgroundLayer(MatrixStack matrixStack, float partialTicks, int x, int y) {
 	    RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);

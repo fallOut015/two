@@ -12,6 +12,8 @@ public class RenderTypeLookupTwo {
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.SUCCULIGHT, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.POTTED_SUCCULIGHT, RenderType.getCutout());
 
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.SPORESTONE_ROOTS, RenderType.getTranslucent());
+
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.NEONDOT, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.BRIMSHINE, RenderType.getCutout());
 
