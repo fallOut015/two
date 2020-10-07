@@ -912,7 +912,7 @@ public class ItemsTwo {
     		target.setFire(5);
     	}
     });
-    public static final Item BLOOD_VENOM_BLADE = register("blood_venom_blade", new BloodBladeItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE), true) {
+    public static final Item BLOOD_VENOM_BLADE = register("blood_venom_blade", new BloodBladeItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1).rarity(Rarity.RARE)) {
     	@Override
     	public void bonusEffect(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     		target.addPotionEffect(new EffectInstance(Effects.POISON, 50, 3, false, true));

@@ -108,6 +108,7 @@ import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemModelsProperties;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
@@ -122,6 +123,7 @@ import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.IItemProvider;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.StringTextComponent;
@@ -265,6 +267,8 @@ public class Two {
     	
     	CapabilitiesTwo.register();
     	
+    	
+    	
     	try {
     		Two.LOGGER.info("Adding compostables. Making Composter$registerCompostable accessible.");
     		Method registerCompostable = ComposterBlock.class.getDeclaredMethod("registerCompostable", float.class, IItemProvider.class);
@@ -275,6 +279,8 @@ public class Two {
         	registerCompostable.invoke(null, 0.5f, ItemsTwo.CARROT_STEM);
         	registerCompostable.setAccessible(false); // safety cause why not
         	Two.LOGGER.info("Composter$registerCompostable is private again.");
+        	
+        	// replace with a public AT TODO
     	} catch (Exception exception) { LOGGER.warn(exception); }
 
     	try {
@@ -316,6 +322,12 @@ public class Two {
     
     	// Nick's cosmetic gauntlet, one for default and one for slim
     	// Hanna's cosmetic cat ears
+    	
+    	
+    	
+    	ItemModelsProperties.registerProperty(ItemsTwo.BLOOD_VENOM_BLADE, new ResourceLocation("two", "pam_texture"), (itemStack, clientWorld, livingEntity) -> {
+			return Config.pamTextureBloodBlade ? 1F : 0F;
+		});
     }
     
     @SubscribeEvent

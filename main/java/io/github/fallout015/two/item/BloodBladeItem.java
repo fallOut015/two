@@ -3,14 +3,12 @@ package io.github.fallout015.two.item;
 import java.util.List;
 
 import io.github.fallout015.two.Two;
-import io.github.fallout015.two.common.Config;
 import io.github.fallout015.two.enchantment.EnchantmentsTwo;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemModelsProperties;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.nbt.CompoundNBT;
@@ -18,23 +16,13 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 
 public abstract class BloodBladeItem extends SwordItem {
 	public BloodBladeItem(Properties builder) {
-		this(builder, false);
-	}
-	public BloodBladeItem(Properties builder, boolean texture) {
 		super(ItemTierTwo.BLOOD_BLADE, 3, -2.4f, builder);
-		
-		if(texture) {
-			ItemModelsProperties.registerProperty(this, new ResourceLocation("two", "pam_texture"), (itemStack, clientWorld,livingEntity) -> {
-				return Config.pamTextureBloodBlade ? 1F : 0F;
-			});
-		}
 	}
 	
 	@Override
