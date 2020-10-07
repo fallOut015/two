@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "two:smooth_redstone"
+    }
+  },
+  "result": {
+    "item": "two:smooth_redstone_stairs",
+    "count": 4
+  }
+}

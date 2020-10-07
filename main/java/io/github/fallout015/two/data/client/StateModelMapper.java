@@ -12,6 +12,8 @@ import com.google.common.collect.ImmutableList;
 import com.google.gson.JsonElement;
 
 import io.github.fallout015.two.data.client.writer.block.CubeAllWriter;
+import io.github.fallout015.two.data.client.writer.block.CubeColumnHorizontalWriter;
+import io.github.fallout015.two.data.client.writer.block.CubeColumnWriter;
 import io.github.fallout015.two.data.client.writer.block.FenceGateOpenWriter;
 import io.github.fallout015.two.data.client.writer.block.FenceGateWallOpenWriter;
 import io.github.fallout015.two.data.client.writer.block.FenceGateWallWriter;
@@ -19,6 +21,11 @@ import io.github.fallout015.two.data.client.writer.block.FenceGateWriter;
 import io.github.fallout015.two.data.client.writer.block.FenceInventoryWriter;
 import io.github.fallout015.two.data.client.writer.block.FencePostWriter;
 import io.github.fallout015.two.data.client.writer.block.FenceSideWriter;
+import io.github.fallout015.two.data.client.writer.block.SlabTopWriter;
+import io.github.fallout015.two.data.client.writer.block.SlabWriter;
+import io.github.fallout015.two.data.client.writer.block.StairsInnerWriter;
+import io.github.fallout015.two.data.client.writer.block.StairsOuterWriter;
+import io.github.fallout015.two.data.client.writer.block.StairsWriter;
 import io.github.fallout015.two.data.client.writer.item.FenceItemWriter;
 import net.minecraft.block.Block;
 import net.minecraft.data.BlockModelWriter;
@@ -39,20 +46,14 @@ public class StateModelMapper {
 		this.itemmodel = itemmodel;
 		this.sharedblock = sharedblock;
 	}
+	public StateModelMapper(final Block block, final BiConsumer<Block, Map<Block, IFinishedBlockState>> blockstate, final Function<ResourceLocation, Supplier<JsonElement>> blockmodel, final Function<ResourceLocation, Supplier<JsonElement>> itemmodel, final @Nullable Block sharedblock) {
+		this(block, blockstate, ImmutableList.of(blockmodel), itemmodel, sharedblock);
+	}
 	public StateModelMapper(final Block block, final BiConsumer<Block, Map<Block, IFinishedBlockState>> blockstate, final List<Function<ResourceLocation, Supplier<JsonElement>>> blockmodels, final Function<ResourceLocation, Supplier<JsonElement>> itemmodel) {
 		this(block, blockstate, blockmodels, itemmodel, null);
 	}
 	public StateModelMapper(final Block block, final BiConsumer<Block, Map<Block, IFinishedBlockState>> blockstate, final Function<ResourceLocation, Supplier<JsonElement>> blockmodel, final Function<ResourceLocation, Supplier<JsonElement>> itemmodel) {
 		this(block, blockstate, ImmutableList.of(blockmodel), itemmodel);
-	}
-	public StateModelMapper(final Block block, final BiConsumer<Block, Map<Block, IFinishedBlockState>> blockstate, final Function<ResourceLocation, Supplier<JsonElement>> blockmodel) {
-		this(block, blockstate, blockmodel, BlockModelWriter::new);
-	}
-	public StateModelMapper(final Block block, final BiConsumer<Block, Map<Block, IFinishedBlockState>> blockstate) {
-		this(block, blockstate, CubeAllWriter::new);
-	}
-	public StateModelMapper(final Block block) {
-		this(block, BlockStateBuilders::buildNoVariants);
 	}
 	
 	public Block getBlock() {
@@ -76,7 +77,7 @@ public class StateModelMapper {
 	
 	public static class CubeAllMapper extends StateModelMapper {
 		public CubeAllMapper(final Block block) {
-			super(block);
+			super(block, BlockStateBuilders::buildNoVariants, CubeAllWriter::new, BlockModelWriter::new);
 		}
 	}
 	public static class FenceMapper extends StateModelMapper {
@@ -105,6 +106,48 @@ public class StateModelMapper {
 					FenceGateWallWriter::new, 
 					FenceGateWriter::new
 				), 
+				BlockModelWriter::new,
+				sharedblock
+			);
+		}
+	}
+	public static class CubeColumnMapper extends StateModelMapper {
+		public CubeColumnMapper(final Block block, boolean rotatable) {
+			super(
+				block, 
+				rotatable ? BlockStateBuilders::buildThreeAxis : BlockStateBuilders::buildNoVariants, 
+				rotatable ? ImmutableList.of(
+					CubeColumnWriter::new, 
+					CubeColumnHorizontalWriter::new
+				) : ImmutableList.of(CubeColumnWriter::new), 
+				BlockModelWriter::new
+			);
+		}
+	}
+	public static class StairsMapper extends StateModelMapper {
+		public StairsMapper(final Block block, final Block sharedblock) {
+			super(
+				block,
+				BlockStateBuilders::buildStairs,
+				ImmutableList.of(
+					StairsInnerWriter::new,
+					StairsOuterWriter::new,
+					StairsWriter::new
+				),
+				BlockModelWriter::new,
+				sharedblock
+			);
+		}
+	}
+	public static class SlabMapper extends StateModelMapper {
+		public SlabMapper(final Block block, final Block sharedblock) {
+			super(
+				block,
+				BlockStateBuilders::buildSlab,
+				ImmutableList.of(
+					SlabWriter::new,
+					SlabTopWriter::new
+				),
 				BlockModelWriter::new,
 				sharedblock
 			);

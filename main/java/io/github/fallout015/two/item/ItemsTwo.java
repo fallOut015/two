@@ -350,12 +350,41 @@ public class ItemsTwo {
 	public static final Item SMOOTH_GOLD_SLAB = register(BlocksTwo.SMOOTH_GOLD_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item GOLD_BRICKS = register(BlocksTwo.GOLD_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 
+	public static final Item CHISELED_DIAMOND_BLOCK = register(BlocksTwo.CHISELED_DIAMOND_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item DIAMOND_PILLAR = register(BlocksTwo.DIAMOND_PILLAR, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item DIAMOND_STAIRS = register(BlocksTwo.DIAMOND_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item DIAMOND_SLAB = register(BlocksTwo.DIAMOND_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_DIAMOND = register(BlocksTwo.SMOOTH_DIAMOND, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_DIAMOND_STAIRS = register(BlocksTwo.SMOOTH_DIAMOND_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_DIAMOND_SLAB = register(BlocksTwo.SMOOTH_DIAMOND_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item DIAMOND_BRICKS = register(BlocksTwo.DIAMOND_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+
+	public static final Item CHISELED_EMERALD_BLOCK = register(BlocksTwo.CHISELED_EMERALD_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item EMERALD_PILLAR = register(BlocksTwo.EMERALD_PILLAR, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item EMERALD_STAIRS = register(BlocksTwo.EMERALD_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item EMERALD_SLAB = register(BlocksTwo.EMERALD_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_EMERALD = register(BlocksTwo.SMOOTH_EMERALD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_EMERALD_STAIRS = register(BlocksTwo.SMOOTH_EMERALD_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_EMERALD_SLAB = register(BlocksTwo.SMOOTH_EMERALD_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item EMERALD_BRICKS = register(BlocksTwo.EMERALD_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+
+	public static final Item CHISELED_REDSTONE_BLOCK = register(BlocksTwo.CHISELED_REDSTONE_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item REDSTONE_PILLAR = register(BlocksTwo.REDSTONE_PILLAR, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item REDSTONE_STAIRS = register(BlocksTwo.REDSTONE_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item REDSTONE_SLAB = register(BlocksTwo.REDSTONE_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_REDSTONE = register(BlocksTwo.SMOOTH_REDSTONE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_REDSTONE_STAIRS = register(BlocksTwo.SMOOTH_REDSTONE_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_REDSTONE_SLAB = register(BlocksTwo.SMOOTH_REDSTONE_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item REDSTONE_BRICKS = register(BlocksTwo.REDSTONE_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+
+	public static final Item CHISELED_COAL_BLOCK = register(BlocksTwo.CHISELED_COAL_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item COAL_PILLAR = register(BlocksTwo.COAL_PILLAR, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item COAL_STAIRS = register(BlocksTwo.COAL_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item COAL_SLAB = register(BlocksTwo.COAL_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_COAL = register(BlocksTwo.SMOOTH_COAL, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_COAL_STAIRS = register(BlocksTwo.SMOOTH_COAL_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_COAL_SLAB = register(BlocksTwo.SMOOTH_COAL_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item COAL_BRICKS = register(BlocksTwo.COAL_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-	
-	public static final Item CRYSTAL = register(BlocksTwo.CRYSTAL, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	
 	

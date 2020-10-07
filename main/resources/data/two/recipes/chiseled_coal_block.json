@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "two:coal_slab"
+    }
+  },
+  "result": {
+    "item": "two:chiseled_coal_block"
+  }
+}

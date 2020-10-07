@@ -9,7 +9,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import io.github.fallout015.two.Two;
+import net.minecraft.advancements.criterion.StatePropertiesPredicate;
 import net.minecraft.block.Block;
+import net.minecraft.block.SlabBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DirectoryCache;
 import net.minecraft.data.IDataProvider;
@@ -20,7 +22,11 @@ import net.minecraft.loot.LootParameterSets;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.LootTableManager;
+import net.minecraft.loot.conditions.BlockStateProperty;
 import net.minecraft.loot.conditions.SurvivesExplosion;
+import net.minecraft.loot.functions.ExplosionDecay;
+import net.minecraft.loot.functions.SetCount;
+import net.minecraft.state.properties.SlabType;
 import net.minecraft.util.ResourceLocation;
 
 public abstract class BaseLootTableProvider extends LootTableProvider {
@@ -46,6 +52,26 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
         
         lootTables.put(block, LootTable.builder().addLootPool(builder));
 	}
+    public static void buildSlabType(Block block, final Map<Block, LootTable.Builder> lootTables) {
+    	LootPool.Builder builder = LootPool.builder()
+    		.rolls(ConstantRange.of(1))
+            .addEntry(
+            	ItemLootEntry.builder(
+            		block
+            	).acceptFunction(
+            		SetCount.builder(
+            			ConstantRange.of(2)
+            		).acceptCondition(
+            			BlockStateProperty.builder(
+            				block
+            			).fromProperties(StatePropertiesPredicate.Builder.newBuilder().withProp(SlabBlock.TYPE, SlabType.DOUBLE))
+            		)
+            	).acceptFunction(ExplosionDecay.builder())
+            )
+        ;
+    	
+        lootTables.put(block, LootTable.builder().addLootPool(builder));
+    }
     
     @Override
     public void act(DirectoryCache cache) {

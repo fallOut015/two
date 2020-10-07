@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": [
+      {
+        "item": "two:chiseled_redstone_block"
+      },
+      {
+        "item": "minecraft:redstone_block"
+      },
+      {
+        "item": "two:redstone_pillar"
+      }
+    ]
+  },
+  "result": {
+    "item": "two:redstone_slab",
+    "count": 6
+  }
+}

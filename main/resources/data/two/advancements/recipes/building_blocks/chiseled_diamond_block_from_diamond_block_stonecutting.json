@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:chiseled_diamond_block_from_diamond_block_stonecutting"
+    ]
+  },
+  "criteria": {
+    "chiseled_diamond_block_from_diamond_block_stonecutting": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:diamond_block"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:chiseled_diamond_block_from_diamond_block_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "chiseled_diamond_block_from_diamond_block_stonecutting",
+      "has_the_recipe"
+    ]
+  ]
+}

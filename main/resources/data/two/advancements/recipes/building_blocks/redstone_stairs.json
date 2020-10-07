@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:redstone_stairs"
+    ]
+  },
+  "criteria": {
+    "has_chiseled_redstone_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:chiseled_redstone_block"
+          }
+        ]
+      }
+    },
+    "has_redstone_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:redstone_block"
+          }
+        ]
+      }
+    },
+    "has_redstone_pillar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:redstone_pillar"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:redstone_stairs"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_chiseled_redstone_block",
+      "has_redstone_block",
+      "has_redstone_pillar",
+      "has_the_recipe"
+    ]
+  ]
+}

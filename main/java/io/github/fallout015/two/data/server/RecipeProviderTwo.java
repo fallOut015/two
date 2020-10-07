@@ -4,6 +4,7 @@ import java.util.function.Consumer;
 
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.advancements.criterion.ItemPredicate;
+import net.minecraft.data.CookingRecipeBuilder;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.RecipeProvider;
@@ -22,89 +23,37 @@ public class RecipeProviderTwo extends RecipeProvider {
 	
 	@Override
 	protected void registerRecipes(Consumer<IFinishedRecipe> consumerIn) {
-//		buildOreBricks(ItemsTwo.LAPIS_BRICKS, Items.LAPIS_BLOCK, consumerIn);
-//		buildOreBricks(ItemsTwo.IRON_BRICKS, Items.IRON_BLOCK, consumerIn);
-//		buildOreBricks(ItemsTwo.GOLD_BRICKS, Items.GOLD_BLOCK, consumerIn);
-//		buildOreBricks(ItemsTwo.DIAMOND_BRICKS, Items.DIAMOND_BLOCK, consumerIn);
-//		buildOreBricks(ItemsTwo.EMERALD_BRICKS, Items.EMERALD_BLOCK, consumerIn);
-//		buildOreBricks(ItemsTwo.REDSTONE_BRICKS, Items.REDSTONE_BLOCK, consumerIn);
-//		buildOreBricks(ItemsTwo.COAL_BRICKS, Items.COAL_BLOCK, consumerIn);
-		
-//		buildOreBricksStonecutting(ItemsTwo.LAPIS_BRICKS, Items.LAPIS_BLOCK, consumerIn);
-//		buildOreBricksStonecutting(ItemsTwo.IRON_BRICKS, Items.IRON_BLOCK, consumerIn);
-//		buildOreBricksStonecutting(ItemsTwo.GOLD_BRICKS, Items.GOLD_BLOCK, consumerIn);
-//		buildOreBricksStonecutting(ItemsTwo.DIAMOND_BRICKS, Items.DIAMOND_BLOCK, consumerIn);
-//		buildOreBricksStonecutting(ItemsTwo.EMERALD_BRICKS, Items.EMERALD_BLOCK, consumerIn);
-//		buildOreBricksStonecutting(ItemsTwo.REDSTONE_BRICKS, Items.REDSTONE_BLOCK, consumerIn);
-//		buildOreBricksStonecutting(ItemsTwo.COAL_BRICKS, Items.COAL_BLOCK, consumerIn);
-		
-//		buildStainedFenceRecipe(ItemsTwo.WHITE_STAINED_WOODEN_FENCE, ItemsTwo.WHITE_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceRecipe(ItemsTwo.ORANGE_STAINED_WOODEN_FENCE, ItemsTwo.ORANGE_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceRecipe(ItemsTwo.MAGENTA_STAINED_WOODEN_FENCE, ItemsTwo.MAGENTA_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceRecipe(ItemsTwo.LIGHT_BLUE_STAINED_WOODEN_FENCE, ItemsTwo.LIGHT_BLUE_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceRecipe(ItemsTwo.YELLOW_STAINED_WOODEN_FENCE, ItemsTwo.YELLOW_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceRecipe(ItemsTwo.LIME_STAINED_WOODEN_FENCE, ItemsTwo.LIME_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceRecipe(ItemsTwo.PINK_STAINED_WOODEN_FENCE, ItemsTwo.PINK_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceRecipe(ItemsTwo.GRAY_STAINED_WOODEN_FENCE, ItemsTwo.GRAY_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceRecipe(ItemsTwo.LIGHT_GRAY_STAINED_WOODEN_FENCE, ItemsTwo.LIGHT_GRAY_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceRecipe(ItemsTwo.CYAN_STAINED_WOODEN_FENCE, ItemsTwo.CYAN_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceRecipe(ItemsTwo.PURPLE_STAINED_WOODEN_FENCE, ItemsTwo.PURPLE_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceRecipe(ItemsTwo.BLUE_STAINED_WOODEN_FENCE, ItemsTwo.BLUE_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceRecipe(ItemsTwo.BROWN_STAINED_WOODEN_FENCE, ItemsTwo.BROWN_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceRecipe(ItemsTwo.GREEN_STAINED_WOODEN_FENCE, ItemsTwo.GREEN_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceRecipe(ItemsTwo.RED_STAINED_WOODEN_FENCE, ItemsTwo.RED_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceRecipe(ItemsTwo.BLACK_STAINED_WOODEN_FENCE, ItemsTwo.BLACK_STAINED_WOODEN_PLANKS).build(consumer);
+//		buildChiseledBlockRecipes(ItemsTwo.CHISELED_DIAMOND_BLOCK, ItemsTwo.DIAMOND_SLAB, Items.DIAMOND_BLOCK, ItemsTwo.DIAMOND_PILLAR, consumerIn);
+//		buildPillarRecipes(ItemsTwo.DIAMOND_PILLAR, Items.DIAMOND_BLOCK, ItemsTwo.CHISELED_DIAMOND_BLOCK, consumerIn);
+//		buildOreStairRecipes(ItemsTwo.DIAMOND_STAIRS, ItemsTwo.CHISELED_DIAMOND_BLOCK, Items.DIAMOND_BLOCK, ItemsTwo.DIAMOND_PILLAR, consumerIn);
+//		buildOreSlabRecipes(ItemsTwo.DIAMOND_SLAB, ItemsTwo.CHISELED_DIAMOND_BLOCK, Items.DIAMOND_BLOCK, ItemsTwo.DIAMOND_PILLAR, consumerIn);
+//		buildSmeltingRecipe(ItemsTwo.SMOOTH_DIAMOND, Items.DIAMOND_BLOCK, 0.1f, 200, consumerIn);
+//		buildSmoothOreStairRecipes(ItemsTwo.SMOOTH_DIAMOND_STAIRS, ItemsTwo.SMOOTH_DIAMOND, consumerIn);
+//		buildSmoothOreSlabRecipes(ItemsTwo.SMOOTH_DIAMOND_SLAB, ItemsTwo.SMOOTH_DIAMOND, consumerIn);
 //
-//		buildStainedFenceGateRecipe(ItemsTwo.WHITE_STAINED_WOODEN_FENCE_GATE, ItemsTwo.WHITE_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceGateRecipe(ItemsTwo.ORANGE_STAINED_WOODEN_FENCE_GATE, ItemsTwo.ORANGE_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceGateRecipe(ItemsTwo.MAGENTA_STAINED_WOODEN_FENCE_GATE, ItemsTwo.MAGENTA_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceGateRecipe(ItemsTwo.LIGHT_BLUE_STAINED_WOODEN_FENCE_GATE, ItemsTwo.LIGHT_BLUE_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceGateRecipe(ItemsTwo.YELLOW_STAINED_WOODEN_FENCE_GATE, ItemsTwo.YELLOW_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceGateRecipe(ItemsTwo.LIME_STAINED_WOODEN_FENCE_GATE, ItemsTwo.LIME_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceGateRecipe(ItemsTwo.PINK_STAINED_WOODEN_FENCE_GATE, ItemsTwo.PINK_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceGateRecipe(ItemsTwo.GRAY_STAINED_WOODEN_FENCE_GATE, ItemsTwo.GRAY_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceGateRecipe(ItemsTwo.LIGHT_GRAY_STAINED_WOODEN_FENCE_GATE, ItemsTwo.LIGHT_GRAY_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceGateRecipe(ItemsTwo.CYAN_STAINED_WOODEN_FENCE_GATE, ItemsTwo.CYAN_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceGateRecipe(ItemsTwo.PURPLE_STAINED_WOODEN_FENCE_GATE, ItemsTwo.PURPLE_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceGateRecipe(ItemsTwo.BLUE_STAINED_WOODEN_FENCE_GATE, ItemsTwo.BLUE_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceGateRecipe(ItemsTwo.BROWN_STAINED_WOODEN_FENCE_GATE, ItemsTwo.BROWN_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceGateRecipe(ItemsTwo.GREEN_STAINED_WOODEN_FENCE_GATE, ItemsTwo.GREEN_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceGateRecipe(ItemsTwo.RED_STAINED_WOODEN_FENCE_GATE, ItemsTwo.RED_STAINED_WOODEN_PLANKS).build(consumer);
-//		buildStainedFenceGateRecipe(ItemsTwo.BLACK_STAINED_WOODEN_FENCE_GATE, ItemsTwo.BLACK_STAINED_WOODEN_PLANKS).build(consumer);
-//	
-//		buildDyeableEightRecipe(ItemsTwo.WHITE_STAINED_WOODEN_FENCE, Tags.Items.FENCES_WOODEN, Items.WHITE_DYE).setGroup("stained_wooden_fence").build(consumer, "two:white_stained_wooden_fence_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.ORANGE_STAINED_WOODEN_FENCE, Tags.Items.FENCES_WOODEN, Items.ORANGE_DYE).setGroup("stained_wooden_fence").build(consumer, "two:orange_stained_wooden_fence_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.MAGENTA_STAINED_WOODEN_FENCE, Tags.Items.FENCES_WOODEN, Items.MAGENTA_DYE).setGroup("stained_wooden_fence").build(consumer, "two:magenta_stained_wooden_fence_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.LIGHT_BLUE_STAINED_WOODEN_FENCE, Tags.Items.FENCES_WOODEN, Items.LIGHT_BLUE_DYE).setGroup("stained_wooden_fence").build(consumer, "two:light_blue_stained_wooden_fence_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.YELLOW_STAINED_WOODEN_FENCE, Tags.Items.FENCES_WOODEN, Items.YELLOW_DYE).setGroup("stained_wooden_fence").build(consumer, "two:yellow_stained_wooden_fence_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.LIME_STAINED_WOODEN_FENCE, Tags.Items.FENCES_WOODEN, Items.LIME_DYE).setGroup("stained_wooden_fence").build(consumer, "two:lime_stained_wooden_fence_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.PINK_STAINED_WOODEN_FENCE, Tags.Items.FENCES_WOODEN, Items.PINK_DYE).setGroup("stained_wooden_fence").build(consumer, "two:pink_stained_wooden_fence_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.GRAY_STAINED_WOODEN_FENCE, Tags.Items.FENCES_WOODEN, Items.GRAY_DYE).setGroup("stained_wooden_fence").build(consumer, "two:gray_stained_wooden_fence_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.LIGHT_GRAY_STAINED_WOODEN_FENCE, Tags.Items.FENCES_WOODEN, Items.LIGHT_GRAY_DYE).setGroup("stained_wooden_fence").build(consumer, "two:light_gray_stained_wooden_fence_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.CYAN_STAINED_WOODEN_FENCE, Tags.Items.FENCES_WOODEN, Items.CYAN_DYE).setGroup("stained_wooden_fence").build(consumer, "two:cyan_stained_wooden_fence_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.PURPLE_STAINED_WOODEN_FENCE, Tags.Items.FENCES_WOODEN, Items.PURPLE_DYE).setGroup("stained_wooden_fence").build(consumer, "two:purple_stained_wooden_fence_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.BLUE_STAINED_WOODEN_FENCE, Tags.Items.FENCES_WOODEN, Items.BLUE_DYE).setGroup("stained_wooden_fence").build(consumer, "two:blue_stained_wooden_fence_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.BROWN_STAINED_WOODEN_FENCE, Tags.Items.FENCES_WOODEN, Items.BROWN_DYE).setGroup("stained_wooden_fence").build(consumer, "two:brown_stained_wooden_fence_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.GREEN_STAINED_WOODEN_FENCE, Tags.Items.FENCES_WOODEN, Items.GREEN_DYE).setGroup("stained_wooden_fence").build(consumer, "two:green_stained_wooden_fence_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.RED_STAINED_WOODEN_FENCE, Tags.Items.FENCES_WOODEN, Items.RED_DYE).setGroup("stained_wooden_fence").build(consumer, "two:red_stained_wooden_fence_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.BLACK_STAINED_WOODEN_FENCE, Tags.Items.FENCES_WOODEN, Items.BLACK_DYE).setGroup("stained_wooden_fence").build(consumer, "two:black_stained_wooden_fence_from_base");
+//		buildChiseledBlockRecipes(ItemsTwo.CHISELED_EMERALD_BLOCK, ItemsTwo.EMERALD_SLAB, Items.EMERALD_BLOCK, ItemsTwo.EMERALD_PILLAR, consumerIn);
+//		buildPillarRecipes(ItemsTwo.EMERALD_PILLAR, Items.EMERALD_BLOCK, ItemsTwo.CHISELED_EMERALD_BLOCK, consumerIn);
+//		buildOreStairRecipes(ItemsTwo.EMERALD_STAIRS, ItemsTwo.CHISELED_EMERALD_BLOCK, Items.EMERALD_BLOCK, ItemsTwo.EMERALD_PILLAR, consumerIn);
+//		buildOreSlabRecipes(ItemsTwo.EMERALD_SLAB, ItemsTwo.CHISELED_EMERALD_BLOCK, Items.EMERALD_BLOCK, ItemsTwo.EMERALD_PILLAR, consumerIn);
+//		buildSmeltingRecipe(ItemsTwo.SMOOTH_EMERALD, Items.EMERALD_BLOCK, 0.1f, 200, consumerIn);
+//		buildSmoothOreStairRecipes(ItemsTwo.SMOOTH_EMERALD_STAIRS, ItemsTwo.SMOOTH_EMERALD, consumerIn);
+//		buildSmoothOreSlabRecipes(ItemsTwo.SMOOTH_EMERALD_SLAB, ItemsTwo.SMOOTH_EMERALD, consumerIn);
 //
-//		buildDyeableEightRecipe(ItemsTwo.WHITE_STAINED_WOODEN_FENCE_GATE, Tags.Items.FENCE_GATES_WOODEN, Items.WHITE_DYE).setGroup("stained_wooden_fence_gate").build(consumer, "two:white_stained_wooden_fence_gate_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.ORANGE_STAINED_WOODEN_FENCE_GATE, Tags.Items.FENCE_GATES_WOODEN, Items.ORANGE_DYE).setGroup("stained_wooden_fence_gate").build(consumer, "two:orange_stained_wooden_fence_gate_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.MAGENTA_STAINED_WOODEN_FENCE_GATE, Tags.Items.FENCE_GATES_WOODEN, Items.MAGENTA_DYE).setGroup("stained_wooden_fence_gate").build(consumer, "two:magenta_stained_wooden_fence_gate_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.LIGHT_BLUE_STAINED_WOODEN_FENCE_GATE, Tags.Items.FENCE_GATES_WOODEN, Items.LIGHT_BLUE_DYE).setGroup("stained_wooden_fence_gate").build(consumer, "two:light_blue_stained_wooden_fence_gate_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.YELLOW_STAINED_WOODEN_FENCE_GATE, Tags.Items.FENCE_GATES_WOODEN, Items.YELLOW_DYE).setGroup("stained_wooden_fence_gate").build(consumer, "two:yellow_stained_wooden_fence_gate_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.LIME_STAINED_WOODEN_FENCE_GATE, Tags.Items.FENCE_GATES_WOODEN, Items.LIME_DYE).setGroup("stained_wooden_fence_gate").build(consumer, "two:lime_stained_wooden_fence_gate_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.PINK_STAINED_WOODEN_FENCE_GATE, Tags.Items.FENCE_GATES_WOODEN, Items.PINK_DYE).setGroup("stained_wooden_fence_gate").build(consumer, "two:pink_stained_wooden_fence_gate_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.GRAY_STAINED_WOODEN_FENCE_GATE, Tags.Items.FENCE_GATES_WOODEN, Items.GRAY_DYE).setGroup("stained_wooden_fence_gate").build(consumer, "two:gray_stained_wooden_fence_gate_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.LIGHT_GRAY_STAINED_WOODEN_FENCE_GATE, Tags.Items.FENCE_GATES_WOODEN, Items.LIGHT_GRAY_DYE).setGroup("stained_wooden_fence_gate").build(consumer, "two:light_gray_stained_wooden_fence_gate_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.CYAN_STAINED_WOODEN_FENCE_GATE, Tags.Items.FENCE_GATES_WOODEN, Items.CYAN_DYE).setGroup("stained_wooden_fence_gate").build(consumer, "two:cyan_stained_wooden_fence_gate_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.PURPLE_STAINED_WOODEN_FENCE_GATE, Tags.Items.FENCE_GATES_WOODEN, Items.PURPLE_DYE).setGroup("stained_wooden_fence_gate").build(consumer, "two:purple_stained_wooden_fence_gate_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.BLUE_STAINED_WOODEN_FENCE_GATE, Tags.Items.FENCE_GATES_WOODEN, Items.BLUE_DYE).setGroup("stained_wooden_fence_gate").build(consumer, "two:blue_stained_wooden_fence_gate_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.BROWN_STAINED_WOODEN_FENCE_GATE, Tags.Items.FENCE_GATES_WOODEN, Items.BROWN_DYE).setGroup("stained_wooden_fence_gate").build(consumer, "two:brown_stained_wooden_fence_gate_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.GREEN_STAINED_WOODEN_FENCE_GATE, Tags.Items.FENCE_GATES_WOODEN, Items.GREEN_DYE).setGroup("stained_wooden_fence_gate").build(consumer, "two:green_stained_wooden_fence_gate_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.RED_STAINED_WOODEN_FENCE_GATE, Tags.Items.FENCE_GATES_WOODEN, Items.RED_DYE).setGroup("stained_wooden_fence_gate").build(consumer, "two:red_stained_wooden_fence_gate_from_base");
-//		buildDyeableEightRecipe(ItemsTwo.BLACK_STAINED_WOODEN_FENCE_GATE, Tags.Items.FENCE_GATES_WOODEN, Items.BLACK_DYE).setGroup("stained_wooden_fence_gate").build(consumer, "two:black_stained_wooden_fence_gate_from_base");
+//		buildChiseledBlockRecipes(ItemsTwo.CHISELED_REDSTONE_BLOCK, ItemsTwo.REDSTONE_SLAB, Items.REDSTONE_BLOCK, ItemsTwo.REDSTONE_PILLAR, consumerIn);
+//		buildPillarRecipes(ItemsTwo.REDSTONE_PILLAR, Items.REDSTONE_BLOCK, ItemsTwo.CHISELED_REDSTONE_BLOCK, consumerIn);
+//		buildOreStairRecipes(ItemsTwo.REDSTONE_STAIRS, ItemsTwo.CHISELED_REDSTONE_BLOCK, Items.REDSTONE_BLOCK, ItemsTwo.REDSTONE_PILLAR, consumerIn);
+//		buildOreSlabRecipes(ItemsTwo.REDSTONE_SLAB, ItemsTwo.CHISELED_REDSTONE_BLOCK, Items.REDSTONE_BLOCK, ItemsTwo.REDSTONE_PILLAR, consumerIn);
+//		buildSmeltingRecipe(ItemsTwo.SMOOTH_REDSTONE, Items.REDSTONE_BLOCK, 0.1f, 200, consumerIn);
+//		buildSmoothOreStairRecipes(ItemsTwo.SMOOTH_REDSTONE_STAIRS, ItemsTwo.SMOOTH_REDSTONE, consumerIn);
+//		buildSmoothOreSlabRecipes(ItemsTwo.SMOOTH_REDSTONE_SLAB, ItemsTwo.SMOOTH_REDSTONE, consumerIn);
+//
+//		buildChiseledBlockRecipes(ItemsTwo.CHISELED_COAL_BLOCK, ItemsTwo.COAL_SLAB, Items.COAL_BLOCK, ItemsTwo.COAL_PILLAR, consumerIn);
+//		buildPillarRecipes(ItemsTwo.COAL_PILLAR, Items.COAL_BLOCK, ItemsTwo.CHISELED_COAL_BLOCK, consumerIn);
+//		buildOreStairRecipes(ItemsTwo.COAL_STAIRS, ItemsTwo.CHISELED_COAL_BLOCK, Items.COAL_BLOCK, ItemsTwo.COAL_PILLAR, consumerIn);
+//		buildOreSlabRecipes(ItemsTwo.COAL_SLAB, ItemsTwo.CHISELED_COAL_BLOCK, Items.COAL_BLOCK, ItemsTwo.COAL_PILLAR, consumerIn);
+//		buildSmeltingRecipe(ItemsTwo.SMOOTH_COAL, Items.COAL_BLOCK, 0.1f, 200, consumerIn);
+//		buildSmoothOreStairRecipes(ItemsTwo.SMOOTH_COAL_STAIRS, ItemsTwo.SMOOTH_COAL, consumerIn);
+//		buildSmoothOreSlabRecipes(ItemsTwo.SMOOTH_COAL_SLAB, ItemsTwo.SMOOTH_COAL, consumerIn);
 	}
 	
 	public static void buildFenceRecipe(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
@@ -160,5 +109,185 @@ public class RecipeProviderTwo extends RecipeProvider {
 			consumerIn, 
 			"two:" + result.asItem().getRegistryName().getPath() + "_from_" + base.toString() + "_stonecutting"
 		);
+	}
+	
+	public static void buildChiseledBlockRecipes(IItemProvider result, IItemProvider craftingbase, IItemProvider stonecuttingbase, IItemProvider pillar, Consumer<IFinishedRecipe> consumerIn) {
+		buildChiseledBlockCrafting(result, craftingbase, stonecuttingbase, pillar, consumerIn);
+		buildChiseledBlockStonecutting(result, stonecuttingbase, consumerIn);
+	}
+	public static void buildChiseledBlockCrafting(IItemProvider result, IItemProvider base, IItemProvider block, IItemProvider pillar, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(result)
+			.patternLine("#")
+			.patternLine("#")
+			.key('#', base)
+			.addCriterion("has_" + result.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(result))
+			.addCriterion("has_" + block.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(block))
+			.addCriterion("has_" + pillar.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(pillar))
+		.build(consumerIn);
+	}
+	public static void buildChiseledBlockStonecutting(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+		SingleItemRecipeBuilder.stonecuttingRecipe(
+			Ingredient.fromItems(base), 
+			result)
+		.addCriterion(
+			result.asItem().getRegistryName().getPath() + "_from_" + base.toString() + "_stonecutting",
+			InventoryChangeTrigger.Instance.forItems(base)
+		).build(
+			consumerIn, 
+			"two:" + result.asItem().getRegistryName().getPath() + "_from_" + base.toString() + "_stonecutting"
+		);
+	}
+	
+	public static void buildPillarRecipes(IItemProvider result, IItemProvider base, IItemProvider chiseled, Consumer<IFinishedRecipe> consumerIn) {
+		buildPillarCrafting(result, base, chiseled, consumerIn);
+		buildPillarStonecutting(result, base, consumerIn);
+	}
+	public static void buildPillarCrafting(IItemProvider result, IItemProvider base, IItemProvider chiseled, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(result)
+			.patternLine("#")
+			.patternLine("#")
+			.key('#', base)
+			.addCriterion("has_" + chiseled.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(chiseled))
+			.addCriterion("has_" + base.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(base))
+			.addCriterion("has_" + result.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(result))
+		.build(consumerIn);
+	}
+	public static void buildPillarStonecutting(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+		SingleItemRecipeBuilder.stonecuttingRecipe(
+			Ingredient.fromItems(base), 
+			result)
+		.addCriterion(
+			"has_" + base.toString(),
+			InventoryChangeTrigger.Instance.forItems(base)
+		).build(
+			consumerIn, 
+			"two:" + result.asItem().getRegistryName().getPath() + "_from_" + base.toString() + "_stonecutting"
+		);
+	}
+	
+	public static void buildOreStairRecipes(IItemProvider result, IItemProvider chiseledbase, IItemProvider base, IItemProvider pillarbase, Consumer<IFinishedRecipe> consumerIn) {
+		buildOreStairCrafting(result, chiseledbase, base, pillarbase, consumerIn);
+		buildOreStairStonecutting(result, base, consumerIn);
+	}
+	public static void buildOreStairCrafting(IItemProvider result, IItemProvider chiseledbase, IItemProvider base, IItemProvider pillarbase, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(result, 4)
+			.patternLine("#  ")
+			.patternLine("## ")
+			.patternLine("###")
+			.key('#', Ingredient.fromItems(chiseledbase, base, pillarbase))
+			.addCriterion("has_" + chiseledbase.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(chiseledbase))
+			.addCriterion("has_" + base.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(base))
+			.addCriterion("has_" + pillarbase.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(pillarbase))
+		.build(consumerIn);
+	}
+	public static void buildOreStairStonecutting(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+		SingleItemRecipeBuilder.stonecuttingRecipe(
+			Ingredient.fromItems(base), 
+			result
+		).addCriterion(
+			"has_" + base.toString(),
+			InventoryChangeTrigger.Instance.forItems(base)
+		).build(
+			consumerIn, 
+			"two:" + result.asItem().getRegistryName().getPath() + "_from_" + base.toString() + "_stonecutting"
+		);
+	}
+
+	public static void buildOreSlabRecipes(IItemProvider result, IItemProvider chiseledbase, IItemProvider base, IItemProvider pillarbase, Consumer<IFinishedRecipe> consumerIn) {
+		buildOreSlabCrafting(result, chiseledbase, base, pillarbase, consumerIn);
+		buildOreSlabStonecutting(result, base, consumerIn);
+	}
+	public static void buildOreSlabCrafting(IItemProvider result, IItemProvider chiseledbase, IItemProvider base, IItemProvider pillarbase, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(result, 6)
+			.patternLine("###")
+			.key('#', Ingredient.fromItems(chiseledbase, base, pillarbase))
+			.addCriterion("has_" + chiseledbase.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(chiseledbase))
+			.addCriterion("has_" + base.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(base))
+			.addCriterion("has_" + pillarbase.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(pillarbase))
+		.build(consumerIn);
+	}
+	public static void buildOreSlabStonecutting(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+		SingleItemRecipeBuilder.stonecuttingRecipe(
+			Ingredient.fromItems(base), 
+			result,
+			2
+		).addCriterion(
+			"has_" + base.toString(),
+			InventoryChangeTrigger.Instance.forItems(base)
+		).build(
+			consumerIn, 
+			"two:" + result.asItem().getRegistryName().getPath() + "_from_" + base.toString() + "_stonecutting"
+		);
+	}
+
+	public static void buildSmoothOreSlabRecipes(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+		buildSmoothOreSlabCrafting(result, base, consumerIn);
+		buildSmoothOreSlabStonecutting(result, base, consumerIn);
+	}
+	public static void buildSmoothOreSlabCrafting(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(result, 6)
+			.patternLine("###")
+			.key('#', base)
+			.addCriterion("has_" + base.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(base))
+		.build(consumerIn);
+	}
+	public static void buildSmoothOreSlabStonecutting(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+		SingleItemRecipeBuilder.stonecuttingRecipe(
+			Ingredient.fromItems(base), 
+			result,
+			2
+		).addCriterion(
+			"has_" + base.toString(),
+			InventoryChangeTrigger.Instance.forItems(base)
+		).build(
+			consumerIn, 
+			"two:" + result.asItem().getRegistryName().getPath() + "_from_" + base.toString() + "_stonecutting"
+		);
+	}
+
+	public static void buildSmoothOreStairRecipes(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+		buildSmoothOreStairCrafting(result, base, consumerIn);
+		buildSmoothOreStairStonecutting(result, base, consumerIn);
+	}
+	public static void buildSmoothOreStairCrafting(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(result, 4)
+			.patternLine("#  ")
+			.patternLine("## ")
+			.patternLine("###")
+			.key('#', base)
+			.addCriterion("has_" + base.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(base))
+		.build(consumerIn);
+	}
+	public static void buildSmoothOreStairStonecutting(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+		SingleItemRecipeBuilder.stonecuttingRecipe(
+			Ingredient.fromItems(base), 
+			result
+		).addCriterion(
+			"has_" + base.toString(),
+			InventoryChangeTrigger.Instance.forItems(base)
+		).build(
+			consumerIn, 
+			"two:" + result.asItem().getRegistryName().getPath() + "_from_" + base.toString() + "_stonecutting"
+		);
+	}
+
+	public static void buildSmeltingRecipe(IItemProvider result, IItemProvider base, float experience, int cookingtime, Consumer<IFinishedRecipe> consumerIn) {
+		CookingRecipeBuilder.smeltingRecipe(
+			Ingredient.fromItems(
+				base
+			), 
+			result, 
+			experience, 
+			cookingtime
+		).addCriterion(
+			"has_" + base.toString(),
+			InventoryChangeTrigger.Instance.forItems(base)
+		).build(consumerIn);
 	}
 }

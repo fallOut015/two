@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "two:smooth_coal"
+    }
+  },
+  "result": {
+    "item": "two:smooth_coal_slab",
+    "count": 6
+  }
+}

@@ -427,8 +427,6 @@ public class BlocksTwo {
 	public static final Block SHROOMGLOW = register("shroomglow", new Block(Block.Properties.create(Material.WOOD, MaterialColor.LIME).hardnessAndResistance(0.5f).sound(SoundType.CLOTH).setLightLevel(state -> 8)));
 	public static final Block SHROOMGLOW_LANTERN = register("shroomglow_lantern", new LanternBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(3.5F).sound(SoundType.LANTERN).setLightLevel(state -> 12).notSolid()));
 	
-	public static final Block CRYSTAL = register("crystal", new Block(Block.Properties.create(Material.GLASS, MaterialColor.CYAN).hardnessAndResistance(1.0f, 0.3f).sound(SoundType.STONE).notSolid()));
-	
 	// Nightmare
 	public static final Block GAULT = register("gault", new Block(Block.Properties.create(MaterialTwo.GAULT).hardnessAndResistance(2.0f)));
 	public static final Block NIGHTSTONE = register("nightstone", new Block(Block.Properties.create(MaterialTwo.NIGHSTONE).hardnessAndResistance(7.0f)));
@@ -547,9 +545,40 @@ public class BlocksTwo {
 	public static final Block SMOOTH_GOLD_SLAB = register("smooth_gold_slab", new SlabBlock(Block.Properties.from(SMOOTH_GOLD)));
 	public static final Block GOLD_BRICKS = register("gold_bricks", new Block(AbstractBlock.Properties.from(Blocks.GOLD_BLOCK)));
 
+	public static final Block CHISELED_DIAMOND_BLOCK = register("chiseled_diamond_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.DIAMOND).hardnessAndResistance(0.8F)));
+	public static final Block DIAMOND_PILLAR = register("diamond_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.DIAMOND).hardnessAndResistance(0.8F)));
+	public static final Block DIAMOND_STAIRS = register("diamond_stairs", new StairsBlock(Blocks.DIAMOND_BLOCK::getDefaultState, Block.Properties.from(Blocks.DIAMOND_BLOCK)));
+	public static final Block DIAMOND_SLAB = register("diamond_slab", new SlabBlock(Block.Properties.create(Material.IRON, MaterialColor.DIAMOND).hardnessAndResistance(2.0F, 6.0F)));
+	public static final Block SMOOTH_DIAMOND = register("smooth_diamond", new Block(Block.Properties.create(Material.IRON, MaterialColor.DIAMOND).hardnessAndResistance(2.0F, 6.0F)));
+	public static final Block SMOOTH_DIAMOND_STAIRS = register("smooth_diamond_stairs", new StairsBlock(SMOOTH_DIAMOND::getDefaultState, Block.Properties.from(SMOOTH_DIAMOND)));
+	public static final Block SMOOTH_DIAMOND_SLAB = register("smooth_diamond_slab", new SlabBlock(Block.Properties.from(SMOOTH_DIAMOND)));
 	public static final Block DIAMOND_BRICKS = register("diamond_bricks", new Block(AbstractBlock.Properties.from(Blocks.DIAMOND_BLOCK)));
+
+	public static final Block CHISELED_EMERALD_BLOCK = register("chiseled_emerald_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.EMERALD).hardnessAndResistance(0.8F)));
+	public static final Block EMERALD_PILLAR = register("emerald_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.EMERALD).hardnessAndResistance(0.8F)));
+	public static final Block EMERALD_STAIRS = register("emerald_stairs", new StairsBlock(Blocks.EMERALD_BLOCK::getDefaultState, Block.Properties.from(Blocks.EMERALD_BLOCK)));
+	public static final Block EMERALD_SLAB = register("emerald_slab", new SlabBlock(Block.Properties.create(Material.IRON, MaterialColor.EMERALD).hardnessAndResistance(2.0F, 6.0F)));
+	public static final Block SMOOTH_EMERALD = register("smooth_emerald", new Block(Block.Properties.create(Material.IRON, MaterialColor.EMERALD).hardnessAndResistance(2.0F, 6.0F)));
+	public static final Block SMOOTH_EMERALD_STAIRS = register("smooth_emerald_stairs", new StairsBlock(SMOOTH_EMERALD::getDefaultState, Block.Properties.from(SMOOTH_EMERALD)));
+	public static final Block SMOOTH_EMERALD_SLAB = register("smooth_emerald_slab", new SlabBlock(Block.Properties.from(SMOOTH_EMERALD)));
 	public static final Block EMERALD_BRICKS = register("emerald_bricks", new Block(AbstractBlock.Properties.from(Blocks.EMERALD_BLOCK)));
+	
+	public static final Block CHISELED_REDSTONE_BLOCK = register("chiseled_redstone_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.TNT).hardnessAndResistance(0.8F)));
+	public static final Block REDSTONE_PILLAR = register("redstone_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.TNT).hardnessAndResistance(0.8F)));
+	public static final Block REDSTONE_STAIRS = register("redstone_stairs", new StairsBlock(Blocks.REDSTONE_BLOCK::getDefaultState, Block.Properties.from(Blocks.REDSTONE_BLOCK)));
+	public static final Block REDSTONE_SLAB = register("redstone_slab", new SlabBlock(Block.Properties.create(Material.IRON, MaterialColor.TNT).hardnessAndResistance(2.0F, 6.0F)));
+	public static final Block SMOOTH_REDSTONE = register("smooth_redstone", new Block(Block.Properties.create(Material.IRON, MaterialColor.TNT).hardnessAndResistance(2.0F, 6.0F)));
+	public static final Block SMOOTH_REDSTONE_STAIRS = register("smooth_redstone_stairs", new StairsBlock(SMOOTH_REDSTONE::getDefaultState, Block.Properties.from(SMOOTH_REDSTONE)));
+	public static final Block SMOOTH_REDSTONE_SLAB = register("smooth_redstone_slab", new SlabBlock(Block.Properties.from(SMOOTH_REDSTONE)));
 	public static final Block REDSTONE_BRICKS = register("redstone_bricks", new Block(AbstractBlock.Properties.from(Blocks.REDSTONE_BLOCK)));
+
+	public static final Block CHISELED_COAL_BLOCK = register("chiseled_coal_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.BLACK).hardnessAndResistance(0.8F)));
+	public static final Block COAL_PILLAR = register("coal_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.BLACK).hardnessAndResistance(0.8F)));
+	public static final Block COAL_STAIRS = register("coal_stairs", new StairsBlock(Blocks.COAL_BLOCK::getDefaultState, Block.Properties.from(Blocks.COAL_BLOCK)));
+	public static final Block COAL_SLAB = register("coal_slab", new SlabBlock(Block.Properties.create(Material.IRON, MaterialColor.BLACK).hardnessAndResistance(2.0F, 6.0F)));
+	public static final Block SMOOTH_COAL = register("smooth_coal", new Block(Block.Properties.create(Material.IRON, MaterialColor.BLACK).hardnessAndResistance(2.0F, 6.0F)));
+	public static final Block SMOOTH_COAL_STAIRS = register("smooth_coal_stairs", new StairsBlock(SMOOTH_COAL::getDefaultState, Block.Properties.from(SMOOTH_COAL)));
+	public static final Block SMOOTH_COAL_SLAB = register("smooth_coal_slab", new SlabBlock(Block.Properties.from(SMOOTH_COAL)));
 	public static final Block COAL_BRICKS = register("coal_bricks", new Block(AbstractBlock.Properties.from(Blocks.COAL_BLOCK)));
 	
 	public static final Block DREAMCATCHER_CHAOS = register("dreamcatcher_chaos", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.RED).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.ANGRY_VILLAGER, DreamcatcherBlock::dreamcatcherChaos));
