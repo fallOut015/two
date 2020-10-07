@@ -24,8 +24,8 @@ public enum ItemTierTwo implements IItemTier {
 	TANZANITE(2, 1000, 8.0f, 3.0f, 20, () -> { // Overworld, savanna biomes. 
 		return Ingredient.fromItems(ItemsTwo.TANZANITE);
 	}),
-	AMETHYST(3, 1810, 7.0f, 3.0f, 6, () -> { // Nether
-		return Ingredient.fromItems(ItemsTwo.AMETHYST);
+	AMETHYST(3, 1810, 7.0f, 3.0f, 6, () -> {
+		return Ingredient.fromItems(ItemsTwo.ABADDON); // TODO change to minecraft amethyst when 1.17 releases
 	}),
 	GARNET(3, 1650, 7.0f, 3.0f, 7, () -> { // Nether
 		return Ingredient.fromItems(ItemsTwo.GARNET);

@@ -421,7 +421,6 @@ public class Two {
     	@SubscribeEvent
     	public static void onBiomeLoad(final BiomeLoadingEvent biomeLoadingEvent) {
     		if(biomeLoadingEvent.getCategory() == Category.NETHER) {
-//    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_NETHER_AMETHYST);
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_NETHER_GARNET);
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_NETHER_LEAD);
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_NETHER_TITANIUM);

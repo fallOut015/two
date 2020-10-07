@@ -478,7 +478,6 @@ public class BlocksTwo {
 	public static final Block END_JADE_ORE = register("end_jade_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
 	public static final Block OPAL_ORE = register("opal_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(1).harvestTool(ToolType.PICKAXE)));
 	public static final Block TANZANITE_ORE = register("tanzanite_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(2).harvestTool(ToolType.PICKAXE)));
-//	public static final Block NETHER_AMETHYST_ORE = register("nether_amethyst_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
 	public static final Block NETHER_GARNET_ORE = register("nether_garnet_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
 	public static final Block NETHER_TOPAZ_ORE = register("nether_topaz_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
 	public static final Block END_SAPPHIRE_ORE = register("end_sapphire_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(6).harvestTool(ToolType.PICKAXE)));
@@ -489,7 +488,6 @@ public class BlocksTwo {
 	public static final Block JADE_BLOCK = register("jade_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GREEN).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block OPAL_BLOCK = register("opal_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_BLUE).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block TANZANITE_BLOCK = register("tanzanite_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.BLUE).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
-//	public static final Block AMETHYST_BLOCK = register("amethyst_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.PURPLE).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block GARNET_BLOCK = register("garnet_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.PINK).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block TOPAZ_BLOCK = register("topaz_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.YELLOW).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block SAPPHIRE_BLOCK = register("sapphire_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.BLUE_TERRACOTTA).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
@@ -549,6 +547,11 @@ public class BlocksTwo {
 	public static final Block SMOOTH_GOLD_SLAB = register("smooth_gold_slab", new SlabBlock(Block.Properties.from(SMOOTH_GOLD)));
 	public static final Block GOLD_BRICKS = register("gold_bricks", new Block(AbstractBlock.Properties.from(Blocks.GOLD_BLOCK)));
 
+	public static final Block DIAMOND_BRICKS = register("diamond_bricks", new Block(AbstractBlock.Properties.from(Blocks.DIAMOND_BLOCK)));
+	public static final Block EMERALD_BRICKS = register("emerald_bricks", new Block(AbstractBlock.Properties.from(Blocks.EMERALD_BLOCK)));
+	public static final Block REDSTONE_BRICKS = register("redstone_bricks", new Block(AbstractBlock.Properties.from(Blocks.REDSTONE_BLOCK)));
+	public static final Block COAL_BRICKS = register("coal_bricks", new Block(AbstractBlock.Properties.from(Blocks.COAL_BLOCK)));
+	
 	public static final Block DREAMCATCHER_CHAOS = register("dreamcatcher_chaos", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.RED).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.ANGRY_VILLAGER, DreamcatcherBlock::dreamcatcherChaos));
 	public static final Block DREAMCATCHER_HEALING = register("dreamcatcher_healing", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.PINK).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.HEART, DreamcatcherBlock::dreamcatcherHealing));
 	public static final Block DREAMCATCHER_LOOT = register("dreamcatcher_loot", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.YELLOW).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.FALLING_NECTAR, DreamcatcherBlock::dreamcatcherLoot));

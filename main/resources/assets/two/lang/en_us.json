@@ -397,7 +397,6 @@
 	"block.two.end_jade_ore" : "End Jade Ore",
 	"block.two.opal_ore" : "Opal Ore",
 	"block.two.tanzanite_ore" : "Tanzanite Ore",
-	"block.two.nether_amethyst_ore" : "Nether Amethyst Ore",
 	"block.two.nether_garnet_ore" : "Nether Garnet Ore",
 	"block.two.nether_topaz_ore" : "Nether Topaz Ore",
 	"block.two.end_sapphire_ore" : "End Sapphire Ore",
@@ -408,7 +407,6 @@
 	"block.two.jade_block" : "Block of Jade",
 	"block.two.opal_block" : "Block of Opal",
 	"block.two.tanzanite_block" : "Block of Tanzanite",
-	"block.two.amethyst_block" : "Block of Amethyst",
 	"block.two.garnet_block" : "Block of Garnet",
 	"block.two.topaz_block" : "Block of Topaz",
 	"block.two.sapphire_block" : "Block of Sapphire",
@@ -448,6 +446,7 @@
 	"block.two.smooth_lapis" : "Smooth Lapis Lazuli",
 	"block.two.smooth_lapis_stairs" : "Smooth Lapis Lazuli Stairs",
 	"block.two.smooth_lapis_slab" : "Smooth Lapis Lazuli Slab",
+	"block.two.lapis_bricks" : "Lapis Bricks",
 	
 	"block.two.chiseled_iron_block" : "Chiseled Iron Block",
 	"block.two.iron_pillar" : "Iron Pillar",
@@ -456,6 +455,7 @@
 	"block.two.smooth_iron" : "Smooth Iron",
 	"block.two.smooth_iron_stairs" : "Smooth Iron Stairs",
 	"block.two.smooth_iron_slab" : "Smooth Iron Slab",
+	"block.two.iron_bricks" : "Iron Bricks",
 	
 	"block.two.chiseled_gold_block" : "Chiseled Gold Block",
 	"block.two.gold_pillar" : "Gold Pillar",
@@ -464,6 +464,7 @@
 	"block.two.smooth_gold" : "Smooth Gold",
 	"block.two.smooth_gold_stairs" : "Smooth Gold Stairs",
 	"block.two.smooth_gold_slab" : "Smooth Gold Slab",
+	"block.two.gold_bricks" : "Gold Bricks",
 	
 	"block.two.chiseled_diamond_block" : "Chiseled Diamond Block",
 	"block.two.diamond_pillar" : "Diamond Pillar",
@@ -472,6 +473,7 @@
 	"block.two.smooth_diamond" : "Smooth Diamond",
 	"block.two.smooth_diamond_stairs" : "Smooth Diamond Stairs",
 	"block.two.smooth_diamond_slab" : "Smooth Diamond Slab",
+	"block.two.diamond_bricks" : "Diamond Bricks",
 	
 	"block.two.chiseled_emerald_block" : "Chiseled Emerald Block",
 	"block.two.emerald_pillar" : "Emerald Pillar",
@@ -480,6 +482,7 @@
 	"block.two.smooth_emerald" : "Smooth Emerald",
 	"block.two.smooth_emerald_stairs" : "Smooth Emerald Stairs",
 	"block.two.smooth_emerald_slab" : "Smooth Emerald Slab",
+	"block.two.emerald_bricks" : "Emerald Bricks",
 	
 	"block.two.chiseled_redstone_block" : "Chiseled Redstone Block",
 	"block.two.redstone_pillar" : "Redstone Pillar",
@@ -488,6 +491,7 @@
 	"block.two.smooth_redstone" : "Smooth Redstone",
 	"block.two.smooth_redstone_stairs" : "Smooth Redstone Stairs",
 	"block.two.smooth_redstone_slab" : "Smooth Redstone Slab",
+	"block.two.redstone_bricks" : "Redstone Bricks",
 	
 	"block.two.chiseled_coal_block" : "Chiseled Coal Block",
 	"block.two.coal_pillar" : "Coal Pillar",
@@ -496,6 +500,7 @@
 	"block.two.smooth_coal" : "Smooth Coal",
 	"block.two.smooth_coal_stairs" : "Smooth Coal Stairs",
 	"block.two.smooth_coal_slab" : "Smooth Coal Slab",
+	"block.two.coal_bricks" : "Coal Bricks",
 
 	"block.two.dreamcatcher_chaos" : "Chaotic Dreamcatcher",
 	"block.two.dreamcatcher_healing" : "Rejuvenating Dreamcatcher",
@@ -600,7 +605,6 @@
 	"item.two.jade" : "End Jade",
 	"item.two.opal" : "Opal",
 	"item.two.tanzanite" : "Tanzanite",
-	"item.two.amethyst" : "Nether Amethyst",
 	"item.two.garnet" : "Nether Garnet",
 	"item.two.topaz" : "Nether Topaz",
 	"item.two.sapphire" : "End Sapphire",

@@ -44,7 +44,6 @@ public class FeaturesTwo { // Configured features with placements.
 	public static final ConfiguredFeature<?, ?> ORE_END_JADE = register("ore_end_jade", Feature.ORE.withConfiguration(new OreFeatureConfig(FeaturesTwo.RuleTests.END_STONE, FeaturesTwo.States.END_JADE_ORE, 7)).func_242733_d(128).func_242728_a().func_242731_b(20));
 	public static final ConfiguredFeature<?, ?> ORE_OPAL = register("ore_opal", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, FeaturesTwo.States.OPAL_ORE, 17)).func_242733_d(128).func_242728_a().func_242731_b(20));
 	public static final ConfiguredFeature<?, ?> ORE_TANZANITE = register("ore_tanzanite", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, FeaturesTwo.States.TANZANITE_ORE, 17)).func_242733_d(128).func_242728_a().func_242731_b(20));
-//	public static final ConfiguredFeature<?, ?> ORE_NETHER_AMETHYST = register("ore_nether_amethyst", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241883_b, FeaturesTwo.States.NETHER_AMETHYST_ORE, 17)).func_242733_d(128).func_242728_a().func_242731_b(20));
 	public static final ConfiguredFeature<?, ?> ORE_NETHER_GARNET = register("ore_nether_garnet", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241883_b, FeaturesTwo.States.NETHER_GARNET_ORE, 17)).func_242733_d(128).func_242728_a().func_242731_b(20));
 	public static final ConfiguredFeature<?, ?> ORE_NETHER_TOPAZ = register("ore_nether_topaz", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241883_b, FeaturesTwo.States.NETHER_TOPAZ_ORE, 17)).func_242733_d(128).func_242728_a().func_242731_b(20));
 	public static final ConfiguredFeature<?, ?> ORE_END_SAPPHIRE = register("ore_end_sapphire", Feature.ORE.withConfiguration(new OreFeatureConfig(FeaturesTwo.RuleTests.END_STONE, FeaturesTwo.States.END_SAPPHIRE_ORE, 7)).func_242733_d(128).func_242728_a().func_242731_b(20));
@@ -107,7 +106,6 @@ public class FeaturesTwo { // Configured features with placements.
 		protected static final BlockState END_JADE_ORE = BlocksTwo.END_JADE_ORE.getDefaultState();
 		protected static final BlockState OPAL_ORE = BlocksTwo.OPAL_ORE.getDefaultState();
 		protected static final BlockState TANZANITE_ORE = BlocksTwo.TANZANITE_ORE.getDefaultState();
-//		protected static final BlockState NETHER_AMETHYST_ORE = BlocksTwo.NETHER_AMETHYST_ORE.getDefaultState();
 		protected static final BlockState NETHER_GARNET_ORE = BlocksTwo.NETHER_GARNET_ORE.getDefaultState();
 		protected static final BlockState NETHER_TOPAZ_ORE = BlocksTwo.NETHER_TOPAZ_ORE.getDefaultState();
 		protected static final BlockState END_SAPPHIRE_ORE = BlocksTwo.END_SAPPHIRE_ORE.getDefaultState();
