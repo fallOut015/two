@@ -9,6 +9,14 @@ public class BlockStateProviderTwo extends BaseBlockStateProvider {
 	
 	@Override
     protected void addBlockstates() {
+//		this.addMapper(new StateModelMapper.CubeAllMapper(BlocksTwo.LAPIS_BRICKS));
+//		this.addMapper(new StateModelMapper.CubeAllMapper(BlocksTwo.IRON_BRICKS));
+//		this.addMapper(new StateModelMapper.CubeAllMapper(BlocksTwo.GOLD_BRICKS));
+//		this.addMapper(new StateModelMapper.CubeAllMapper(BlocksTwo.DIAMOND_BRICKS));
+//		this.addMapper(new StateModelMapper.CubeAllMapper(BlocksTwo.EMERALD_BRICKS));
+//		this.addMapper(new StateModelMapper.CubeAllMapper(BlocksTwo.REDSTONE_BRICKS));
+//		this.addMapper(new StateModelMapper.CubeAllMapper(BlocksTwo.COAL_BRICKS));
+		
 //    	this.addMapper(new FenceMapper(BlocksTwo.WHITE_STAINED_WOODEN_FENCE, BlocksTwo.WHITE_STAINED_WOODEN_PLANKS));
 //    	mappers.add(new FenceMapper(BlocksTwo.ORANGE_STAINED_WOODEN_FENCE, BlocksTwo.ORANGE_STAINED_WOODEN_PLANKS));
 //    	mappers.add(new FenceMapper(BlocksTwo.MAGENTA_STAINED_WOODEN_FENCE, BlocksTwo.MAGENTA_STAINED_WOODEN_PLANKS));

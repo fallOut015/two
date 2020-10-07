@@ -8,7 +8,9 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.RecipeProvider;
 import net.minecraft.data.ShapedRecipeBuilder;
+import net.minecraft.data.SingleItemRecipeBuilder;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ITag;
 import net.minecraft.util.IItemProvider;
 import net.minecraftforge.common.Tags;
@@ -19,7 +21,23 @@ public class RecipeProviderTwo extends RecipeProvider {
 	}
 	
 	@Override
-	protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
+	protected void registerRecipes(Consumer<IFinishedRecipe> consumerIn) {
+//		buildOreBricks(ItemsTwo.LAPIS_BRICKS, Items.LAPIS_BLOCK, consumerIn);
+//		buildOreBricks(ItemsTwo.IRON_BRICKS, Items.IRON_BLOCK, consumerIn);
+//		buildOreBricks(ItemsTwo.GOLD_BRICKS, Items.GOLD_BLOCK, consumerIn);
+//		buildOreBricks(ItemsTwo.DIAMOND_BRICKS, Items.DIAMOND_BLOCK, consumerIn);
+//		buildOreBricks(ItemsTwo.EMERALD_BRICKS, Items.EMERALD_BLOCK, consumerIn);
+//		buildOreBricks(ItemsTwo.REDSTONE_BRICKS, Items.REDSTONE_BLOCK, consumerIn);
+//		buildOreBricks(ItemsTwo.COAL_BRICKS, Items.COAL_BLOCK, consumerIn);
+		
+//		buildOreBricksStonecutting(ItemsTwo.LAPIS_BRICKS, Items.LAPIS_BLOCK, consumerIn);
+//		buildOreBricksStonecutting(ItemsTwo.IRON_BRICKS, Items.IRON_BLOCK, consumerIn);
+//		buildOreBricksStonecutting(ItemsTwo.GOLD_BRICKS, Items.GOLD_BLOCK, consumerIn);
+//		buildOreBricksStonecutting(ItemsTwo.DIAMOND_BRICKS, Items.DIAMOND_BLOCK, consumerIn);
+//		buildOreBricksStonecutting(ItemsTwo.EMERALD_BRICKS, Items.EMERALD_BLOCK, consumerIn);
+//		buildOreBricksStonecutting(ItemsTwo.REDSTONE_BRICKS, Items.REDSTONE_BLOCK, consumerIn);
+//		buildOreBricksStonecutting(ItemsTwo.COAL_BRICKS, Items.COAL_BLOCK, consumerIn);
+		
 //		buildStainedFenceRecipe(ItemsTwo.WHITE_STAINED_WOODEN_FENCE, ItemsTwo.WHITE_STAINED_WOODEN_PLANKS).build(consumer);
 //		buildStainedFenceRecipe(ItemsTwo.ORANGE_STAINED_WOODEN_FENCE, ItemsTwo.ORANGE_STAINED_WOODEN_PLANKS).build(consumer);
 //		buildStainedFenceRecipe(ItemsTwo.MAGENTA_STAINED_WOODEN_FENCE, ItemsTwo.MAGENTA_STAINED_WOODEN_PLANKS).build(consumer);
@@ -89,40 +107,58 @@ public class RecipeProviderTwo extends RecipeProvider {
 //		buildDyeableEightRecipe(ItemsTwo.BLACK_STAINED_WOODEN_FENCE_GATE, Tags.Items.FENCE_GATES_WOODEN, Items.BLACK_DYE).setGroup("stained_wooden_fence_gate").build(consumer, "two:black_stained_wooden_fence_gate_from_base");
 	}
 	
-	public static ShapedRecipeBuilder buildStainedFenceRecipe(IItemProvider result, IItemProvider base) {
-		return buildFenceRecipe(result, base).setGroup("stained_wooden_fence");
-	}
-	public static ShapedRecipeBuilder buildStainedFenceGateRecipe(IItemProvider result, IItemProvider base) {
-		return buildFenceGateRecipe(result, base).setGroup("stained_wooden_fence_gate");
-	}
-	
-	public static ShapedRecipeBuilder buildFenceRecipe(IItemProvider result, IItemProvider base) {
-		return ShapedRecipeBuilder
+	public static void buildFenceRecipe(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
 			.shapedRecipe(result, 3)
 			.patternLine("W#W")
 			.patternLine("W#W")
 			.key('#', Tags.Items.RODS_WOODEN)
 			.key('W', base)
-			.addCriterion(result.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(base));
+			.addCriterion(result.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(base))
+		.build(consumerIn);
 	}
-	public static ShapedRecipeBuilder buildFenceGateRecipe(IItemProvider result, IItemProvider base) {
-		return ShapedRecipeBuilder
+	public static void buildFenceGateRecipe(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
 			.shapedRecipe(result)
 			.patternLine("#W#")
 			.patternLine("#W#")
 			.key('#', Tags.Items.RODS_WOODEN)
 			.key('W', base)
-			.addCriterion(result.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(base));
+			.addCriterion(result.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(base))
+		.build(consumerIn);
 	}
 	
-	public static ShapedRecipeBuilder buildDyeableEightRecipe(IItemProvider result, ITag<Item> base, IItemProvider dye) {
-		return ShapedRecipeBuilder
+	public static void buildDyeableEightRecipe(IItemProvider result, ITag<Item> base, IItemProvider dye, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
 			.shapedRecipe(result, 8)
 			.patternLine("###")
 			.patternLine("#$#")
 			.patternLine("###")
 			.key('#', base)
 			.key('$', dye)
-			.addCriterion(result.asItem().getRegistryName().getPath() + "_from_base", InventoryChangeTrigger.Instance.forItems(ItemPredicate.Builder.create().tag(base).build()));
+			.addCriterion(result.asItem().getRegistryName().getPath() + "_from_base", InventoryChangeTrigger.Instance.forItems(ItemPredicate.Builder.create().tag(base).build()))
+		.build(consumerIn);
+	}
+	
+	public static void buildOreBricks(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(result, 4)
+			.patternLine("##")
+			.patternLine("##")
+			.key('#', base)
+			.addCriterion(result.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(base))
+		.build(consumerIn);
+	}
+	public static void buildOreBricksStonecutting(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+		SingleItemRecipeBuilder.stonecuttingRecipe(
+			Ingredient.fromItems(base), 
+			result)
+		.addCriterion(
+			result.asItem().getRegistryName().getPath() + "_from_" + base.toString() + "_stonecutting",
+			InventoryChangeTrigger.Instance.forItems(base)
+		).build(
+			consumerIn, 
+			"two:" + result.asItem().getRegistryName().getPath() + "_from_" + base.toString() + "_stonecutting"
+		);
 	}
 }

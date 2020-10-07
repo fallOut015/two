@@ -1,7 +1,5 @@
 package io.github.fallout015.two.data;
 
-import io.github.fallout015.two.data.client.BlockStateProviderTwo;
-import io.github.fallout015.two.data.server.LootTableProviderTwo;
 import io.github.fallout015.two.data.server.RecipeProviderTwo;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -16,13 +14,13 @@ public class DataGeneratorTwo {
 			DataGenerator gen = event.getGenerator();
 
 			if(event.includeClient()) {
-				gen.addProvider(new BlockStateProviderTwo(gen));
-				// lang gen
+//				gen.addProvider(new BlockStateProviderTwo(gen));
+//				gen.addProvider(new LanguageProviderTwo(gen));
 				// item model gen
 			}
 			
 			if(event.includeServer()) {
-				gen.addProvider(new LootTableProviderTwo(gen));
+//				gen.addProvider(new LootTableProviderTwo(gen));
 				gen.addProvider(new RecipeProviderTwo(gen));
 				// tag
 			}

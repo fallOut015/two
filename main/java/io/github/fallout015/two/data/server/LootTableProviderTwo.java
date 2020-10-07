@@ -1,5 +1,6 @@
 package io.github.fallout015.two.data.server;
 
+import io.github.fallout015.two.block.BlocksTwo;
 import net.minecraft.data.DataGenerator;
 
 public class LootTableProviderTwo extends BaseLootTableProvider {
@@ -9,6 +10,14 @@ public class LootTableProviderTwo extends BaseLootTableProvider {
 
 	@Override
     protected void addTables() {
+		buildSurvivesExplosion(BlocksTwo.LAPIS_BRICKS, lootTables);
+		buildSurvivesExplosion(BlocksTwo.IRON_BRICKS, lootTables);
+		buildSurvivesExplosion(BlocksTwo.GOLD_BRICKS, lootTables);
+		buildSurvivesExplosion(BlocksTwo.DIAMOND_BRICKS, lootTables);
+		buildSurvivesExplosion(BlocksTwo.EMERALD_BRICKS, lootTables);
+		buildSurvivesExplosion(BlocksTwo.REDSTONE_BRICKS, lootTables);
+		buildSurvivesExplosion(BlocksTwo.COAL_BRICKS, lootTables);
+		
 //		buildSurvivesExplosion(BlocksTwo.WHITE_STAINED_WOODEN_FENCE, this.lootTables);
 //		buildSurvivesExplosion(BlocksTwo.ORANGE_STAINED_WOODEN_FENCE, this.lootTables);
 //		buildSurvivesExplosion(BlocksTwo.MAGENTA_STAINED_WOODEN_FENCE, this.lootTables);

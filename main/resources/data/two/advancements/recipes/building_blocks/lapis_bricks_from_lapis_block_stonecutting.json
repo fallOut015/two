@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:lapis_bricks_from_lapis_block_stonecutting"
+    ]
+  },
+  "criteria": {
+    "lapis_bricks_from_lapis_block_stonecutting": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:lapis_block"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:lapis_bricks_from_lapis_block_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "lapis_bricks_from_lapis_block_stonecutting",
+      "has_the_recipe"
+    ]
+  ]
+}

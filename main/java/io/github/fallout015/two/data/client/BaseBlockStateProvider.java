@@ -74,7 +74,6 @@ public abstract class BaseBlockStateProvider extends BlockStateProvider {
 				ResourceLocation resource = new ResourceLocation(ModelsResourceUtil.func_240221_a_(block).toString() + writer.getFileAppend());
 				
 				mapModelGen(resource, writer, models);
-
 			}
 			mapModelGen(ModelsResourceUtil.func_240219_a_(item), mapper.getItemModel().apply(ModelsResourceUtil.func_240221_a_(block)), models);
 			
@@ -139,8 +138,8 @@ public abstract class BaseBlockStateProvider extends BlockStateProvider {
 	} // maps the blockstates
 	private static void mapModelGen(ResourceLocation resource, Supplier<JsonElement> supplier, Map<ResourceLocation, Supplier<JsonElement>> map) {
 		Supplier<JsonElement> file = map.put(resource, supplier);
-			
-		if (file != null) {
+		
+		if(file != null) {
 			throw new IllegalStateException("Duplicate model definition for " + resource);
 		}
 	} // maps the models
