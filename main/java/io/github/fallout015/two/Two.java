@@ -1,11 +1,8 @@
 package io.github.fallout015.two;
 
-import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.UUID;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -87,8 +84,6 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.entity.item.ItemEntity;
@@ -112,15 +107,12 @@ import net.minecraft.item.ItemModelsProperties;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.nbt.CompressedStreamTools;
-import net.minecraft.nbt.INBT;
 import net.minecraft.particles.ParticleType;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.stats.StatType;
 import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
@@ -132,6 +124,7 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.MobSpawnInfo.Spawners;
 import net.minecraft.world.gen.GenerationStage.Carving;
 import net.minecraft.world.gen.GenerationStage.Decoration;
@@ -159,7 +152,6 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
-import net.minecraftforge.event.entity.player.PlayerXpEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.SleepFinishedTimeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -190,8 +182,6 @@ public class Two {
 	// FURNITURE
 	
     public static final Logger LOGGER = LogManager.getLogger(Two.class.getAnnotation(Mod.class).value());
-    
-	public static AttributeModifier leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", 2, AttributeModifier.Operation.ADDITION);
     
     public Two() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -433,10 +423,8 @@ public class Two {
     	@SubscribeEvent
     	public static void onBiomeLoad(final BiomeLoadingEvent biomeLoadingEvent) {
     		if(biomeLoadingEvent.getCategory() == Category.NETHER) {
-    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_NETHER_GARNET);
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_NETHER_LEAD);
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_NETHER_TITANIUM);
-    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_NETHER_TOPAZ);
     		} else if(biomeLoadingEvent.getCategory() == Category.THEEND) {
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_END_COBALT);
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_END_JADE);
@@ -487,6 +475,16 @@ public class Two {
     			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.AMBIENT).add(new Spawners(EntityTypeTwo.BUTTERFLY, 200, 1, 1));
     		} else if(biomeLoadingEvent.getCategory() == Category.PLAINS) {
     			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.AMBIENT).add(new Spawners(EntityTypeTwo.BUTTERFLY, 200, 1, 1));
+    		}
+    		
+    		if(biomeLoadingEvent.getName() == Biomes.CRIMSON_FOREST.getRegistryName()) {
+//    			biomeLoadingEvent.getGeneration().getStructures().add(() -> FeatureTwo.LOST);
+    			
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_NETHER_GARNET);
+    		} else if(biomeLoadingEvent.getName() == Biomes.WARPED_FOREST.getRegistryName()) {
+//    			biomeLoadingEvent.getGeneration().getStructures().add(() -> FeatureTwo.LOST);
+    			
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_NETHER_TOPAZ);
     		}
     		
     		biomeLoadingEvent.getGeneration().getCarvers(Carving.AIR).add(() -> new ConfiguredCarver<>(WorldCarverTwo.CAVERN, new ProbabilityConfig(0.01285715F)));
@@ -628,52 +626,59 @@ public class Two {
         		}
     		}
     	}
-    	@SubscribeEvent
-    	public static void onLevelChange(final PlayerXpEvent.LevelChange playerXpEvent$LevelChange) {
-    		// Later on when there are choices for leveling up this will be in an if statement. 
-    		
-    		INBT nbt = CapabilitiesTwo.PLAYERUPGRADES.writeNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP);
-       		
-       		((CompoundNBT) nbt).putDouble("health", ((CompoundNBT) nbt).getDouble("health") + playerXpEvent$LevelChange.getLevels());
-       		((CompoundNBT) nbt).putDouble("hunger", ((CompoundNBT) nbt).getDouble("hunger") + playerXpEvent$LevelChange.getLevels());
-       		((CompoundNBT) nbt).putDouble("armor", ((CompoundNBT) nbt).getDouble("armor") + playerXpEvent$LevelChange.getLevels());
-       		((CompoundNBT) nbt).putDouble("breathing", ((CompoundNBT) nbt).getDouble("breathing") + playerXpEvent$LevelChange.getLevels());
-
-    		CapabilitiesTwo.PLAYERUPGRADES.readNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP, nbt);
-
-    		Two.LOGGER.info("instance double health: " + CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance().getHealth());
-    		
-    		leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance().getHealth(), AttributeModifier.Operation.ADDITION);
-    		float health = playerXpEvent$LevelChange.getPlayer().getHealth();
-    		if(playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.MAX_HEALTH).hasModifier(leveluphealth)) {
-        		playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.MAX_HEALTH).removeModifier(leveluphealth);
-    		}
-    		playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.MAX_HEALTH).applyNonPersistentModifier(leveluphealth); // TODO try persistant if this one is troublesome
-    		playerXpEvent$LevelChange.getPlayer().setHealth(health);
-    	}
-    	@SubscribeEvent
-    	public static void onPlayerClone(final PlayerEvent.Clone playerEvent$Clone) {
-    		if(playerEvent$Clone.isWasDeath()) {
-    			try {
-    				INBT nbt = CapabilitiesTwo.PLAYERUPGRADES.writeNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP);
-               		
-            		((CompoundNBT) nbt).putDouble("health", 0);
-               		((CompoundNBT) nbt).putDouble("hunger", 0);
-               		((CompoundNBT) nbt).putDouble("armor", 0);
-               		((CompoundNBT) nbt).putDouble("breathing", 0);
-            		
-               		CapabilitiesTwo.PLAYERUPGRADES.readNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP, nbt);
-        		
-            		leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", 0, AttributeModifier.Operation.ADDITION);
-            		if(playerEvent$Clone.getPlayer().getAttribute(Attributes.MAX_HEALTH).hasModifier(leveluphealth)) {
-            			playerEvent$Clone.getPlayer().getAttribute(Attributes.MAX_HEALTH).removeModifier(leveluphealth);
-            		}
-            		playerEvent$Clone.getPlayer().getAttribute(Attributes.MAX_HEALTH).applyNonPersistentModifier(leveluphealth); // TODO ditto
-    			} catch(NullPointerException npe) {
-    				LOGGER.warn(npe);
-    			}
-    		}
-    	}
+    	// TODO integrate UUID with the cabability, for now I'm deactivating this.
+//    	@SubscribeEvent
+//    	public static void onLevelChange(final PlayerXpEvent.LevelChange playerXpEvent$LevelChange) {
+//    		// Later on when there are choices for leveling up this will be in an if statement. 
+//    		
+//    		INBT nbt = CapabilitiesTwo.PLAYERUPGRADES.writeNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP);
+//       		
+//    		INBT stats = new CompoundNBT();
+//       		((CompoundNBT) stats).putDouble("health", ((CompoundNBT) stats).getDouble("health") + playerXpEvent$LevelChange.getLevels());
+//       		((CompoundNBT) stats).putDouble("hunger", ((CompoundNBT) stats).getDouble("hunger") + playerXpEvent$LevelChange.getLevels());
+//       		((CompoundNBT) stats).putDouble("armor", ((CompoundNBT) stats).getDouble("armor") + playerXpEvent$LevelChange.getLevels());
+//       		((CompoundNBT) stats).putDouble("breathing", ((CompoundNBT) stats).getDouble("breathing") + playerXpEvent$LevelChange.getLevels());
+//    		String uuid = playerXpEvent$LevelChange.getPlayer().getUniqueID().toString();
+//    		((CompoundNBT) nbt).put(uuid, stats); // map the player UUID to their stats
+//
+//    		CapabilitiesTwo.PLAYERUPGRADES.readNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP, nbt);
+//
+//    		Two.LOGGER.info("instance double health: " + CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance().getHealth());
+//    		
+//    		leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance().getHealth(), AttributeModifier.Operation.ADDITION);
+//    		float health = playerXpEvent$LevelChange.getPlayer().getHealth();
+//    		if(playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.MAX_HEALTH).hasModifier(leveluphealth)) {
+//        		playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.MAX_HEALTH).removeModifier(leveluphealth);
+//    		}
+//    		playerXpEvent$LevelChange.getPlayer().getAttribute(Attributes.MAX_HEALTH).applyNonPersistentModifier(leveluphealth); // TODO try persistant if this one is troublesome
+//    		playerXpEvent$LevelChange.getPlayer().setHealth(health);
+//    	}
+//    	@SubscribeEvent
+//    	public static void onPlayerClone(final PlayerEvent.Clone playerEvent$Clone) {
+//    		if(playerEvent$Clone.isWasDeath()) {
+//    			try {
+//    				INBT nbt = CapabilitiesTwo.PLAYERUPGRADES.writeNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP);
+//               		
+//    				INBT stats = new CompoundNBT();
+//            		((CompoundNBT) stats).putDouble("health", 0);
+//               		((CompoundNBT) stats).putDouble("hunger", 0);
+//               		((CompoundNBT) stats).putDouble("armor", 0);
+//               		((CompoundNBT) stats).putDouble("breathing", 0);
+//            		String uuid = playerEvent$Clone.getPlayer().getUniqueID().toString();
+//            		((CompoundNBT) nbt).put(uuid, stats);
+//            		
+//               		CapabilitiesTwo.PLAYERUPGRADES.readNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP, nbt);
+//        		
+//            		leveluphealth = new AttributeModifier(UUID.fromString("b27e893d-adfa-413d-be70-d1445dfdcf5f"), "level_up_health", 0, AttributeModifier.Operation.ADDITION);
+//            		if(playerEvent$Clone.getPlayer().getAttribute(Attributes.MAX_HEALTH).hasModifier(leveluphealth)) {
+//            			playerEvent$Clone.getPlayer().getAttribute(Attributes.MAX_HEALTH).removeModifier(leveluphealth);
+//            		}
+//            		playerEvent$Clone.getPlayer().getAttribute(Attributes.MAX_HEALTH).applyNonPersistentModifier(leveluphealth); // TODO ditto
+//    			} catch(NullPointerException npe) {
+//    				LOGGER.warn(npe);
+//    			}
+//    		}
+//    	}
     	@SubscribeEvent
     	public static void onFinish(final LivingEntityUseItemEvent.Finish livingEntityUseItemEvent$Finish) {
     		if(livingEntityUseItemEvent$Finish.getItem().isFood() && livingEntityUseItemEvent$Finish.getEntityLiving() instanceof PlayerEntity && !((PlayerEntity) livingEntityUseItemEvent$Finish.getEntityLiving()).isCreative()) {
@@ -707,34 +712,34 @@ public class Two {
         		});
     		}
     	}
-    	@SubscribeEvent
-    	public static void onLoadFromFile(final PlayerEvent.LoadFromFile playerEvent$LoadFromFile) {
-    		if(playerEvent$LoadFromFile.getPlayerDirectory().canRead()) {
-    			File fileIn = new File(playerEvent$LoadFromFile.getPlayerDirectory().getPath() + "/two_playerdata.nbt");
-    			try {
-					CapabilitiesTwo.PLAYERUPGRADES.readNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP, CompressedStreamTools.read(fileIn));
-				} catch (IOException e) {
-					e.printStackTrace();
-				} catch (NullPointerException e) {
-					Two.LOGGER.warn(e);
-				}
-    			LOGGER.info("Read from two_playerdata.nbt");
-    		}
-    	}
-    	@SubscribeEvent
-    	public static void onSaveToFile(final PlayerEvent.SaveToFile playerEvent$SaveToFile) {
-    		if(playerEvent$SaveToFile.getPlayerDirectory().canWrite()) {
-    			File fileIn = new File(playerEvent$SaveToFile.getPlayerDirectory().getPath() + "/two_playerdata.nbt");
-    			CompoundNBT compound = (CompoundNBT) CapabilitiesTwo.PLAYERUPGRADES.writeNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP);
-    			try {
-					CompressedStreamTools.write(compound, fileIn);
-    				fileIn.createNewFile();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-    			LOGGER.info("Wrote to two_playerdata.nbt");
-    		}
-    	}
+//    	@SubscribeEvent
+//    	public static void onLoadFromFile(final PlayerEvent.LoadFromFile playerEvent$LoadFromFile) {
+//    		if(playerEvent$LoadFromFile.getPlayerDirectory().canRead()) {
+//    			File fileIn = new File(playerEvent$LoadFromFile.getPlayerDirectory().getPath() + "/two_playerdata.nbt");
+//    			try {
+//					CapabilitiesTwo.PLAYERUPGRADES.readNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP, CompressedStreamTools.read(fileIn));
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				} catch (NullPointerException e) {
+//					Two.LOGGER.warn(e);
+//				}
+//    			LOGGER.info("Read from two_playerdata.nbt");
+//    		}
+//    	}
+//    	@SubscribeEvent
+//    	public static void onSaveToFile(final PlayerEvent.SaveToFile playerEvent$SaveToFile) {
+//    		if(playerEvent$SaveToFile.getPlayerDirectory().canWrite()) {
+//    			File fileIn = new File(playerEvent$SaveToFile.getPlayerDirectory().getPath() + "/two_playerdata.nbt");
+//    			CompoundNBT compound = (CompoundNBT) CapabilitiesTwo.PLAYERUPGRADES.writeNBT(CapabilitiesTwo.PLAYERUPGRADES.getDefaultInstance(), Direction.UP);
+//    			try {
+//					CompressedStreamTools.write(compound, fileIn);
+//    				fileIn.createNewFile();
+//				} catch (IOException e1) {
+//					e1.printStackTrace();
+//				}
+//    			LOGGER.info("Wrote to two_playerdata.nbt");
+//    		}
+//    	}
     	@SubscribeEvent
     	@OnlyIn(Dist.CLIENT)
     	public static void onItemTooltip(final ItemTooltipEvent itemTooltipEvent) {
