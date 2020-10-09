@@ -1,6 +1,5 @@
 package io.github.fallout015.two.data;
 
-import io.github.fallout015.two.data.server.RecipeProviderTwo;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -11,6 +10,7 @@ public class DataGeneratorTwo {
 	public static class Gen {
 		@SubscribeEvent
 		public static void gatherData(final GatherDataEvent event) {
+			@SuppressWarnings("unused")
 			DataGenerator gen = event.getGenerator();
 
 			if(event.includeClient()) {
@@ -21,7 +21,7 @@ public class DataGeneratorTwo {
 			
 			if(event.includeServer()) {
 //				gen.addProvider(new LootTableProviderTwo(gen));
-				gen.addProvider(new RecipeProviderTwo(gen));
+//				gen.addProvider(new RecipeProviderTwo(gen));
 				// tag
 			}
 		}		

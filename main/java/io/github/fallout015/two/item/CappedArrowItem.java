@@ -25,7 +25,7 @@ public class CappedArrowItem extends ArrowItem {
 		super(properties);
 		this.tier = tier;
 		Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-	    builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)tier.getEfficiency() / ItemTier.IRON.getEfficiency(), AttributeModifier.Operation.MULTIPLY_BASE));
+	    builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)tier.getEfficiency() / ItemTier.IRON.getEfficiency(), AttributeModifier.Operation.MULTIPLY_TOTAL));
 	    this.modifiers = builder.build();
 	}
 	

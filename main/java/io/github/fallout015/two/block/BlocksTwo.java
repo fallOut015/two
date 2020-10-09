@@ -580,7 +580,16 @@ public class BlocksTwo {
 	public static final Block SMOOTH_COAL_STAIRS = register("smooth_coal_stairs", new StairsBlock(SMOOTH_COAL::getDefaultState, Block.Properties.from(SMOOTH_COAL)));
 	public static final Block SMOOTH_COAL_SLAB = register("smooth_coal_slab", new SlabBlock(Block.Properties.from(SMOOTH_COAL)));
 	public static final Block COAL_BRICKS = register("coal_bricks", new Block(AbstractBlock.Properties.from(Blocks.COAL_BLOCK)));
-	
+	// TODO check block properties... parity with quartz and with its own block
+	public static final Block CHISELED_NETHERITE_BLOCK = register("chiseled_netherite_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.BLACK).hardnessAndResistance(50.0F, 1200.0F)));
+	public static final Block NETHERITE_PILLAR = register("netherite_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.BLACK).hardnessAndResistance(50.0F, 1200.0F)));
+	public static final Block NETHERITE_STAIRS = register("netherite_stairs", new StairsBlock(Blocks.NETHERITE_BLOCK::getDefaultState, Block.Properties.from(Blocks.NETHERITE_BLOCK)));
+	public static final Block NETHERITE_SLAB = register("netherite_slab", new SlabBlock(Block.Properties.create(Material.IRON, MaterialColor.BLACK).hardnessAndResistance(50.0F, 1200.0F)));
+	public static final Block SMOOTH_NETHERITE = register("smooth_netherite", new Block(Block.Properties.create(Material.IRON, MaterialColor.BLACK).hardnessAndResistance(50.0F, 1200.0F)));
+	public static final Block SMOOTH_NETHERITE_STAIRS = register("smooth_netherite_stairs", new StairsBlock(SMOOTH_NETHERITE::getDefaultState, Block.Properties.from(SMOOTH_NETHERITE)));
+	public static final Block SMOOTH_NETHERITE_SLAB = register("smooth_netherite_slab", new SlabBlock(Block.Properties.from(SMOOTH_NETHERITE)));
+	public static final Block NETHERITE_BRICKS = register("netherite_bricks", new Block(AbstractBlock.Properties.from(Blocks.NETHERITE_BLOCK)));
+
 	public static final Block DREAMCATCHER_CHAOS = register("dreamcatcher_chaos", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.RED).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.ANGRY_VILLAGER, DreamcatcherBlock::dreamcatcherChaos));
 	public static final Block DREAMCATCHER_HEALING = register("dreamcatcher_healing", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.PINK).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.HEART, DreamcatcherBlock::dreamcatcherHealing));
 	public static final Block DREAMCATCHER_LOOT = register("dreamcatcher_loot", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.YELLOW).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.FALLING_NECTAR, DreamcatcherBlock::dreamcatcherLoot));

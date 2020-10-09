@@ -1,5 +1,6 @@
 package io.github.fallout015.two.data.server;
 
+import io.github.fallout015.two.block.BlocksTwo;
 import net.minecraft.data.DataGenerator;
 
 public class LootTableProviderTwo extends BaseLootTableProvider {
@@ -40,5 +41,14 @@ public class LootTableProviderTwo extends BaseLootTableProvider {
 //		buildSurvivesExplosion(BlocksTwo.SMOOTH_COAL, lootTables);
 //		buildSurvivesExplosion(BlocksTwo.SMOOTH_COAL_STAIRS, lootTables);
 //		buildSlabType(BlocksTwo.SMOOTH_COAL_SLAB, lootTables);
+		
+		buildSurvivesExplosion(BlocksTwo.CHISELED_NETHERITE_BLOCK, lootTables);
+		buildSurvivesExplosion(BlocksTwo.NETHERITE_PILLAR, lootTables);
+		buildSurvivesExplosion(BlocksTwo.NETHERITE_STAIRS, lootTables);
+		buildSlabType(BlocksTwo.NETHERITE_SLAB, lootTables);
+		buildSurvivesExplosion(BlocksTwo.SMOOTH_NETHERITE, lootTables);
+		buildSurvivesExplosion(BlocksTwo.SMOOTH_NETHERITE_STAIRS, lootTables);
+		buildSlabType(BlocksTwo.SMOOTH_NETHERITE_SLAB, lootTables);
+		buildSurvivesExplosion(BlocksTwo.NETHERITE_BRICKS, lootTables);
 	}
 }

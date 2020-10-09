@@ -2,6 +2,7 @@ package io.github.fallout015.two.data.server;
 
 import java.util.function.Consumer;
 
+import io.github.fallout015.two.item.ItemsTwo;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.data.CookingRecipeBuilder;
@@ -11,6 +12,7 @@ import net.minecraft.data.RecipeProvider;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.SingleItemRecipeBuilder;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ITag;
 import net.minecraft.util.IItemProvider;
@@ -54,6 +56,16 @@ public class RecipeProviderTwo extends RecipeProvider {
 //		buildSmeltingRecipe(ItemsTwo.SMOOTH_COAL, Items.COAL_BLOCK, 0.1f, 200, consumerIn);
 //		buildSmoothOreStairRecipes(ItemsTwo.SMOOTH_COAL_STAIRS, ItemsTwo.SMOOTH_COAL, consumerIn);
 //		buildSmoothOreSlabRecipes(ItemsTwo.SMOOTH_COAL_SLAB, ItemsTwo.SMOOTH_COAL, consumerIn);
+
+	
+		buildChiseledBlockRecipes(ItemsTwo.CHISELED_NETHERITE_BLOCK, ItemsTwo.NETHERITE_SLAB, Items.NETHERITE_BRICKS, ItemsTwo.NETHERITE_PILLAR, consumerIn);
+		buildPillarRecipes(ItemsTwo.NETHERITE_PILLAR, Items.NETHERITE_BRICKS, ItemsTwo.CHISELED_NETHERITE_BLOCK, consumerIn);
+		buildOreStairRecipes(ItemsTwo.NETHERITE_STAIRS, ItemsTwo.CHISELED_NETHERITE_BLOCK, Items.NETHERITE_BRICKS, ItemsTwo.NETHERITE_PILLAR, consumerIn);
+		buildOreSlabRecipes(ItemsTwo.NETHERITE_SLAB, ItemsTwo.CHISELED_NETHERITE_BLOCK, Items.NETHERITE_BRICKS, ItemsTwo.NETHERITE_PILLAR, consumerIn);
+		buildSmeltingRecipe(ItemsTwo.SMOOTH_NETHERITE, Items.NETHERITE_BRICKS, 0.1f, 200, consumerIn);
+		buildSmoothOreStairRecipes(ItemsTwo.SMOOTH_NETHERITE_STAIRS, ItemsTwo.SMOOTH_NETHERITE, consumerIn);
+		buildSmoothOreSlabRecipes(ItemsTwo.SMOOTH_NETHERITE_SLAB, ItemsTwo.SMOOTH_NETHERITE, consumerIn);
+		buildOreBricksRecipes(ItemsTwo.NETHERITE_BRICKS, Items.NETHERITE_BRICKS, consumerIn);
 	}
 	
 	public static void buildFenceRecipe(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
@@ -89,7 +101,11 @@ public class RecipeProviderTwo extends RecipeProvider {
 		.build(consumerIn);
 	}
 	
-	public static void buildOreBricks(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+	public static void buildOreBricksRecipes(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+		buildOreBricksCrafting(result, base, consumerIn);
+		buildOreBricksStonecutting(result, base, consumerIn);
+	}
+	public static void buildOreBricksCrafting(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
 		ShapedRecipeBuilder
 			.shapedRecipe(result, 4)
 			.patternLine("##")

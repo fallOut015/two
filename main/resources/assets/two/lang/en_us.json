@@ -501,6 +501,15 @@
 	"block.two.smooth_coal_stairs" : "Smooth Coal Stairs",
 	"block.two.smooth_coal_slab" : "Smooth Coal Slab",
 	"block.two.coal_bricks" : "Coal Bricks",
+	
+	"block.two.chiseled_netherite_block": "Chiseled Netherite Block",
+  	"block.two.netherite_bricks": "Netherite Bricks",
+  	"block.two.netherite_pillar": "Netherite Pillar",
+  	"block.two.netherite_slab": "Netherite Slab",
+  	"block.two.netherite_stairs": "Netherite Stairs",
+  	"block.two.smooth_netherite": "Smooth Netherite",
+  	"block.two.smooth_netherite_slab": "Smooth Netherite Slab",
+  	"block.two.smooth_netherite_stairs": "Smooth Netherite Stairs",
 
 	"block.two.dreamcatcher_chaos" : "Chaotic Dreamcatcher",
 	"block.two.dreamcatcher_healing" : "Rejuvenating Dreamcatcher",
@@ -626,7 +635,7 @@
 	"item.two.hardened_steel_ingot" : "Hardened Steel Ingot",
 	
 	"item.two.chainmail_horse_armor" : "Chainmail Horse Armor",
-	
+	"item.two.netherite_horse_armor" : "Netherite Horse Armor",
 	"item.two.emerald_horse_armor" : "Emerald Horse Armor",
 	"item.two.ruby_horse_armor" : "Ruby Horse Armor",
 	"item.two.lead_horse_armor" : "Lead Horse Armor",
@@ -769,11 +778,12 @@
 	"item.two.myrkylite_hoe" : "Myrkylite Hoe",
 
 	
-	"item.two.iron_sickle" : "Iron Sickle",
 	"item.two.wooden_sickle" : "Wooden Sickle",
 	"item.two.stone_sickle" : "Stone Sickle",
-	"item.two.diamond_sickle" : "Diamond Sickle",
+	"item.two.iron_sickle" : "Iron Sickle",
 	"item.two.golden_sickle" : "Golden Sickle",
+	"item.two.diamond_sickle" : "Diamond Sickle",
+	"item.two.netherite_sickle" : "Netherite Sickle",
 	"item.two.emerald_sickle" : "Emerald Sickle",
 	"item.two.ruby_sickle" : "Ruby Sickle",
 	"item.two.lead_sickle" : "Lead Sickle",
@@ -800,6 +810,7 @@
 	"item.two.wooden_battleaxe" : "Wooden Battleaxe",
 	"item.two.stone_battleaxe" : "Stone Battleaxe",
 	"item.two.diamond_battleaxe" : "Diamond Battleaxe",
+	"item.two.netherite_battleaxe" : "Netherite Battleaxe",
 	"item.two.golden_battleaxe" : "Golden Battleaxe",
 	"item.two.emerald_battleaxe" : "Emerald Battleaxe",
 	"item.two.ruby_battleaxe" : "Ruby Battleaxe",
@@ -811,6 +822,7 @@
 	"item.two.wooden_dagger" : "Wooden Dagger",
 	"item.two.stone_dagger" : "Stone Dagger",
 	"item.two.diamond_dagger" : "Diamond Dagger",
+	"item.two.netherite_dagger" : "Netherite Dagger",
 	"item.two.golden_dagger" : "Golden Dagger",
 	"item.two.emerald_dagger" : "Emerald Dagger",
 	"item.two.ruby_dagger" : "Ruby Dagger",
@@ -833,6 +845,7 @@
 	"item.two.stone_capped_arrow" : "Stone Capped Arrow",
 	"item.two.golden_capped_arrow" : "Golden Capped Arrow",
 	"item.two.diamond_capped_arrow" : "Diamond Capped Arrow",
+	"item.two.netherite_capped_arrow" : "Netherite Capped Arrow",
 	"item.two.emerald_capped_arrow" : "Emerald Capped Arrow",
 	"item.two.ruby_capped_arrow" : "Ruby Capped Arrow",
 	"item.two.lead_capped_arrow" : "Lead Capped Arrow",
