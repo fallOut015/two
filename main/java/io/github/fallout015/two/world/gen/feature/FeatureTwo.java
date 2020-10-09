@@ -17,7 +17,7 @@ public class FeatureTwo {
 	
 	public static final Feature<BigMushroomFeatureConfig> HUGE_NEONDOT = register("huge_neondot", new BigNeondotFeature(BigMushroomFeatureConfig.field_236528_a_));
 	public static final Feature<BigMushroomFeatureConfig> HUGE_BRIMSHINE = register("huge_brimshine", new BigBrimshineFeature(BigMushroomFeatureConfig.field_236528_a_));
-	
+
 	// desert arch feature
 	
 	public static void onFeaturesRegistry(final RegistryEvent.Register<Feature<?>> featureRegistryEvent) {
