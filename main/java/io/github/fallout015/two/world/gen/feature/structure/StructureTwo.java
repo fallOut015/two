@@ -3,6 +3,7 @@ package io.github.fallout015.two.world.gen.feature.structure;
 import java.util.LinkedList;
 
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ObjectHolder;
@@ -11,6 +12,7 @@ import net.minecraftforge.registries.ObjectHolder;
 public abstract class StructureTwo {
 //	public static final Structure<NoFeatureConfig> ADOBE_WELL = register("Adobe_Well", new AdobeWellStructure(), GenerationStage.Decoration.SURFACE_STRUCTURES); // Move to features. 
 //	public static final Structure<NoFeatureConfig> DWARVEN_KEEP = register("Dwarven_Keep", new DwarvenKeepStructure(), GenerationStage.Decoration.SURFACE_STRUCTURES);
+	public static final Structure<NoFeatureConfig> LOST = register("Lost", new LostStructure(NoFeatureConfig.field_236558_a_), GenerationStage.Decoration.SURFACE_STRUCTURES);
 	
 	
 	
