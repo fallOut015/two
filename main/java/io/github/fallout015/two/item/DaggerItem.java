@@ -29,9 +29,9 @@ public class DaggerItem extends TieredItem implements IVanishable {
 	private final float attackDamage;
 	private final Multimap<Attribute, AttributeModifier> modifiers;
 	   
-	public DaggerItem(IItemTier tier, int attackDamageIn, float attackSpeedIn, Item.Properties properties) {
+	public DaggerItem(IItemTier tier, float attackSpeedIn, Item.Properties properties) {
 		super(tier, properties);
-	    this.attackDamage = (float)attackDamageIn + tier.getAttackDamage();
+	    this.attackDamage = tier.getAttackDamage();
 	    Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
 	    builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.attackDamage, AttributeModifier.Operation.ADDITION));
 	    builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)attackSpeedIn, AttributeModifier.Operation.ADDITION));
