@@ -507,15 +507,15 @@ public class ItemsTwo {
 	public static final Item UPHOLSTERY_TABLE = register(BlocksTwo.UPHOLSTERY_TABLE, new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/);
 	
 	public static final Item CHAIR = register("chair", new ChairItem(BlocksTwo.CHAIR, new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
-	public static final Item EDGE_STOOL = register("edge_stool", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
-	public static final Item ROUND_STOOL = register("round_stool", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
-	public static final Item EDGE_TABLE = register("edge_table", new EdgeTableItem(BlocksTwo.EDGE_TABLE, new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
-	public static final Item ROUND_TABLE = register("round_table", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
-	public static final Item CUPBOARD = register("cupboard", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
-	public static final Item LAMP = register("lamp", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
-	public static final Item BED = register("bed", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
-	public static final Item COUCH = register("couch", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
-	public static final Item SHELF = register("shelf", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+//	public static final Item EDGE_STOOL = register("edge_stool", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+//	public static final Item ROUND_STOOL = register("round_stool", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+//	public static final Item EDGE_TABLE = register("edge_table", new EdgeTableItem(BlocksTwo.EDGE_TABLE, new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+//	public static final Item ROUND_TABLE = register("round_table", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+//	public static final Item CUPBOARD = register("cupboard", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+//	public static final Item LAMP = register("lamp", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+//	public static final Item BED = register("bed", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+//	public static final Item COUCH = register("couch", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
+//	public static final Item SHELF = register("shelf", new Item(new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/));
 	
 	public static final Item STARSTONE_TORCH = register(new WallOrFloorItem(BlocksTwo.STARSTONE_TORCH, BlocksTwo.STARSTONE_WALL_TORCH, new Item.Properties().group(ItemGroup.DECORATIONS)));
 
@@ -760,25 +760,6 @@ public class ItemsTwo {
     public static final Item NUMBER_7 = register(BlocksTwo.NUMBER_7, new Item.Properties().group(ItemGroup.MISC));
     public static final Item NUMBER_8 = register(BlocksTwo.NUMBER_8, new Item.Properties().group(ItemGroup.MISC));
     public static final Item NUMBER_9 = register(BlocksTwo.NUMBER_9, new Item.Properties().group(ItemGroup.MISC));
-    
-    public static final Item SHRINKINATOR = register("shrinkinator", new Item(new Item.Properties().maxStackSize(1)) {
-    	public void onUse(World worldIn, LivingEntity livingEntityIn, ItemStack stack, int count) {
-    		if(!livingEntityIn.getTags().contains("small")) {
-    			livingEntityIn.addTag("small");		
-    		} else {
-    			livingEntityIn.removeTag("small");
-    		}
-    	};
-    });
-    public static final Item LARGINATOR = register("larginator", new Item(new Item.Properties().maxStackSize(1)) {
-    	public void onUse(World worldIn, LivingEntity livingEntityIn, ItemStack stack, int count) {
-    		if(!livingEntityIn.getTags().contains("big")) {
-    			livingEntityIn.addTag("big");		
-    		} else {
-    			livingEntityIn.removeTag("big");
-    		}
-    	};
-    });
     
     
     

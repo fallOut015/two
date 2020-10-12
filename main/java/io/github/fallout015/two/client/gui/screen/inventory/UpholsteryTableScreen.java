@@ -48,16 +48,16 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 	public static final Predicate<Item> PLANKS_WOOL_STORAGE_BLOCKS = item -> PLANKS_STORAGE_BLOCKS.or(WOOL).test(item);
 
 	public static enum Furniture {
-		CHAIR       (ItemsTwo.CHAIR      , PLANKS_WOOL_STORAGE_BLOCKS, PLANKS_WOOL_STORAGE_BLOCKS, PLANKS_STORAGE_BLOCKS),
-		EDGE_STOOL  (ItemsTwo.EDGE_STOOL , PLANKS_WOOL_STORAGE_BLOCKS, PLANKS_STORAGE_BLOCKS,      PLANKS_STORAGE_BLOCKS),
-		ROUND_STOOL (ItemsTwo.ROUND_STOOL, PLANKS_WOOL_STORAGE_BLOCKS, PLANKS_STORAGE_BLOCKS,      PLANKS_STORAGE_BLOCKS),
-		EDGE_TABLE  (ItemsTwo.EDGE_TABLE , PLANKS_STORAGE_BLOCKS     , PLANKS_STORAGE_BLOCKS,      PLANKS_STORAGE_BLOCKS),
-		ROUND_TABLE (ItemsTwo.ROUND_TABLE, PLANKS_STORAGE_BLOCKS     , PLANKS_STORAGE_BLOCKS,      PLANKS_STORAGE_BLOCKS),
-		CUPBOARD    (ItemsTwo.CUPBOARD   , PLANKS_STORAGE_BLOCKS     , INGOTS,                     PLANKS_STORAGE_BLOCKS),
-		LAMP        (ItemsTwo.LAMP       , WOOL                      , GLASS     ,                 PLANKS_STORAGE_BLOCKS),
-		BED         (ItemsTwo.BED        , WOOL                      , WOOL      ,                 PLANKS_STORAGE_BLOCKS),
-		COUCH       (ItemsTwo.COUCH      , WOOL                      , WOOL      ,                 PLANKS_STORAGE_BLOCKS),
-		SHELF       (ItemsTwo.SHELF      , PLANKS_STORAGE_BLOCKS     , PLANKS_STORAGE_BLOCKS,      PLANKS_STORAGE_BLOCKS);
+		CHAIR       (ItemsTwo.CHAIR      , PLANKS_WOOL_STORAGE_BLOCKS, PLANKS_WOOL_STORAGE_BLOCKS, PLANKS_STORAGE_BLOCKS);//,
+//		EDGE_STOOL  (ItemsTwo.EDGE_STOOL , PLANKS_WOOL_STORAGE_BLOCKS, PLANKS_STORAGE_BLOCKS,      PLANKS_STORAGE_BLOCKS),
+//		ROUND_STOOL (ItemsTwo.ROUND_STOOL, PLANKS_WOOL_STORAGE_BLOCKS, PLANKS_STORAGE_BLOCKS,      PLANKS_STORAGE_BLOCKS),
+//		EDGE_TABLE  (ItemsTwo.EDGE_TABLE , PLANKS_STORAGE_BLOCKS     , PLANKS_STORAGE_BLOCKS,      PLANKS_STORAGE_BLOCKS),
+//		ROUND_TABLE (ItemsTwo.ROUND_TABLE, PLANKS_STORAGE_BLOCKS     , PLANKS_STORAGE_BLOCKS,      PLANKS_STORAGE_BLOCKS),
+//		CUPBOARD    (ItemsTwo.CUPBOARD   , PLANKS_STORAGE_BLOCKS     , INGOTS,                     PLANKS_STORAGE_BLOCKS),
+//		LAMP        (ItemsTwo.LAMP       , WOOL                      , GLASS     ,                 PLANKS_STORAGE_BLOCKS),
+//		BED         (ItemsTwo.BED        , WOOL                      , WOOL      ,                 PLANKS_STORAGE_BLOCKS),
+//		COUCH       (ItemsTwo.COUCH      , WOOL                      , WOOL      ,                 PLANKS_STORAGE_BLOCKS),
+//		SHELF       (ItemsTwo.SHELF      , PLANKS_STORAGE_BLOCKS     , PLANKS_STORAGE_BLOCKS,      PLANKS_STORAGE_BLOCKS);
 		
 		private Integer id;
 		private Item item;
@@ -177,33 +177,33 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 	            		case 1:
 	            			this.selectedFurniture = Furniture.CHAIR;
 	            			break;
-	            		case 2:
-	            			this.selectedFurniture = Furniture.EDGE_STOOL;
-	            			break;
-	            		case 3:
-	            			this.selectedFurniture = Furniture.ROUND_STOOL;
-	            			break;
-	            		case 4:
-	            			this.selectedFurniture = Furniture.EDGE_TABLE;
-	            			break;
-	            		case 5:
-	            			this.selectedFurniture = Furniture.ROUND_TABLE;
-	            			break;
-	            		case 6:
-	            			this.selectedFurniture = Furniture.CUPBOARD;
-	            			break;
-	            		case 7:
-	            			this.selectedFurniture = Furniture.LAMP;
-	            			break;
-	            		case 8:
-	            			this.selectedFurniture = Furniture.BED;
-	            			break;
-	            		case 9:
-	            			this.selectedFurniture = Furniture.COUCH;
-	            			break;
-	            		case 10:
-	            			this.selectedFurniture = Furniture.SHELF;
-	            			break;
+//	            		case 2:
+//	            			this.selectedFurniture = Furniture.EDGE_STOOL;
+//	            			break;
+//	            		case 3:
+//	            			this.selectedFurniture = Furniture.ROUND_STOOL;
+//	            			break;
+//	            		case 4:
+//	            			this.selectedFurniture = Furniture.EDGE_TABLE;
+//	            			break;
+//	            		case 5:
+//	            			this.selectedFurniture = Furniture.ROUND_TABLE;
+//	            			break;
+//	            		case 6:
+//	            			this.selectedFurniture = Furniture.CUPBOARD;
+//	            			break;
+//	            		case 7:
+//	            			this.selectedFurniture = Furniture.LAMP;
+//	            			break;
+//	            		case 8:
+//	            			this.selectedFurniture = Furniture.BED;
+//	            			break;
+//	            		case 9:
+//	            			this.selectedFurniture = Furniture.COUCH;
+//	            			break;
+//	            		case 10:
+//	            			this.selectedFurniture = Furniture.SHELF;
+//	            			break;
 	            		default:
 	            			this.selectedFurniture = null;
 	            	}
