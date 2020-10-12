@@ -2,7 +2,6 @@ package io.github.fallout015.two.data.server;
 
 import java.util.function.Consumer;
 
-import io.github.fallout015.two.item.ItemsTwo;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.data.CookingRecipeBuilder;
@@ -12,7 +11,6 @@ import net.minecraft.data.RecipeProvider;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.SingleItemRecipeBuilder;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ITag;
 import net.minecraft.util.IItemProvider;
@@ -25,6 +23,135 @@ public class RecipeProviderTwo extends RecipeProvider {
 	
 	@Override
 	protected void registerRecipes(Consumer<IFinishedRecipe> consumerIn) {
+//		buildStainedArmorRecipes(
+//			ItemsTwo.WHITE_STAINED_WOODEN_HELMET, 
+//			ItemsTwo.WHITE_STAINED_WOODEN_CHESTPLATE, 
+//			ItemsTwo.WHITE_STAINED_WOODEN_LEGGINGS, 
+//			ItemsTwo.WHITE_STAINED_WOODEN_BOOTS, 
+//			ItemsTwo.WHITE_STAINED_WOODEN_PLANKS, 
+//			consumerIn
+//		);
+//		buildStainedArmorRecipes(
+//			ItemsTwo.ORANGE_STAINED_WOODEN_HELMET, 
+//			ItemsTwo.ORANGE_STAINED_WOODEN_CHESTPLATE, 
+//			ItemsTwo.ORANGE_STAINED_WOODEN_LEGGINGS, 
+//			ItemsTwo.ORANGE_STAINED_WOODEN_BOOTS, 
+//			ItemsTwo.ORANGE_STAINED_WOODEN_PLANKS, 
+//			consumerIn
+//		);
+//		buildStainedArmorRecipes(
+//			ItemsTwo.MAGENTA_STAINED_WOODEN_HELMET, 
+//			ItemsTwo.MAGENTA_STAINED_WOODEN_CHESTPLATE, 
+//			ItemsTwo.MAGENTA_STAINED_WOODEN_LEGGINGS, 
+//			ItemsTwo.MAGENTA_STAINED_WOODEN_BOOTS, 
+//			ItemsTwo.MAGENTA_STAINED_WOODEN_PLANKS, 
+//			consumerIn
+//		);
+//		buildStainedArmorRecipes(
+//			ItemsTwo.LIGHT_BLUE_STAINED_WOODEN_HELMET, 
+//			ItemsTwo.LIGHT_BLUE_STAINED_WOODEN_CHESTPLATE, 
+//			ItemsTwo.LIGHT_BLUE_STAINED_WOODEN_LEGGINGS, 
+//			ItemsTwo.LIGHT_BLUE_STAINED_WOODEN_BOOTS, 
+//			ItemsTwo.LIGHT_BLUE_STAINED_WOODEN_PLANKS, 
+//			consumerIn
+//		);
+//		buildStainedArmorRecipes(
+//			ItemsTwo.YELLOW_STAINED_WOODEN_HELMET, 
+//			ItemsTwo.YELLOW_STAINED_WOODEN_CHESTPLATE, 
+//			ItemsTwo.YELLOW_STAINED_WOODEN_LEGGINGS, 
+//			ItemsTwo.YELLOW_STAINED_WOODEN_BOOTS, 
+//			ItemsTwo.YELLOW_STAINED_WOODEN_PLANKS, 
+//			consumerIn
+//		);
+//		buildStainedArmorRecipes(
+//			ItemsTwo.LIME_STAINED_WOODEN_HELMET, 
+//			ItemsTwo.LIME_STAINED_WOODEN_CHESTPLATE, 
+//			ItemsTwo.LIME_STAINED_WOODEN_LEGGINGS, 
+//			ItemsTwo.LIME_STAINED_WOODEN_BOOTS, 
+//			ItemsTwo.LIME_STAINED_WOODEN_PLANKS, 
+//			consumerIn
+//		);
+//		buildStainedArmorRecipes(
+//			ItemsTwo.PINK_STAINED_WOODEN_HELMET, 
+//			ItemsTwo.PINK_STAINED_WOODEN_CHESTPLATE, 
+//			ItemsTwo.PINK_STAINED_WOODEN_LEGGINGS, 
+//			ItemsTwo.PINK_STAINED_WOODEN_BOOTS, 
+//			ItemsTwo.PINK_STAINED_WOODEN_PLANKS, 
+//			consumerIn
+//		);
+//		buildStainedArmorRecipes(
+//			ItemsTwo.GRAY_STAINED_WOODEN_HELMET, 
+//			ItemsTwo.GRAY_STAINED_WOODEN_CHESTPLATE, 
+//			ItemsTwo.GRAY_STAINED_WOODEN_LEGGINGS, 
+//			ItemsTwo.GRAY_STAINED_WOODEN_BOOTS, 
+//			ItemsTwo.GRAY_STAINED_WOODEN_PLANKS, 
+//			consumerIn
+//		);
+//		buildStainedArmorRecipes(
+//			ItemsTwo.LIGHT_GRAY_STAINED_WOODEN_HELMET, 
+//			ItemsTwo.LIGHT_GRAY_STAINED_WOODEN_CHESTPLATE, 
+//			ItemsTwo.LIGHT_GRAY_STAINED_WOODEN_LEGGINGS, 
+//			ItemsTwo.LIGHT_GRAY_STAINED_WOODEN_BOOTS, 
+//			ItemsTwo.LIGHT_GRAY_STAINED_WOODEN_PLANKS, 
+//			consumerIn
+//		);
+//		buildStainedArmorRecipes(
+//			ItemsTwo.CYAN_STAINED_WOODEN_HELMET, 
+//			ItemsTwo.CYAN_STAINED_WOODEN_CHESTPLATE, 
+//			ItemsTwo.CYAN_STAINED_WOODEN_LEGGINGS, 
+//			ItemsTwo.CYAN_STAINED_WOODEN_BOOTS, 
+//			ItemsTwo.CYAN_STAINED_WOODEN_PLANKS, 
+//			consumerIn
+//		);
+//		buildStainedArmorRecipes(
+//			ItemsTwo.PURPLE_STAINED_WOODEN_HELMET, 
+//			ItemsTwo.PURPLE_STAINED_WOODEN_CHESTPLATE, 
+//			ItemsTwo.PURPLE_STAINED_WOODEN_LEGGINGS, 
+//			ItemsTwo.PURPLE_STAINED_WOODEN_BOOTS, 
+//			ItemsTwo.PURPLE_STAINED_WOODEN_PLANKS, 
+//			consumerIn
+//		);
+//		buildStainedArmorRecipes(
+//			ItemsTwo.BLUE_STAINED_WOODEN_HELMET, 
+//			ItemsTwo.BLUE_STAINED_WOODEN_CHESTPLATE, 
+//			ItemsTwo.BLUE_STAINED_WOODEN_LEGGINGS, 
+//			ItemsTwo.BLUE_STAINED_WOODEN_BOOTS, 
+//			ItemsTwo.BLUE_STAINED_WOODEN_PLANKS, 
+//			consumerIn
+//		);
+//		buildStainedArmorRecipes(
+//			ItemsTwo.BROWN_STAINED_WOODEN_HELMET, 
+//			ItemsTwo.BROWN_STAINED_WOODEN_CHESTPLATE, 
+//			ItemsTwo.BROWN_STAINED_WOODEN_LEGGINGS, 
+//			ItemsTwo.BROWN_STAINED_WOODEN_BOOTS, 
+//			ItemsTwo.BROWN_STAINED_WOODEN_PLANKS, 
+//			consumerIn
+//		);
+//		buildStainedArmorRecipes(
+//			ItemsTwo.GREEN_STAINED_WOODEN_HELMET, 
+//			ItemsTwo.GREEN_STAINED_WOODEN_CHESTPLATE, 
+//			ItemsTwo.GREEN_STAINED_WOODEN_LEGGINGS, 
+//			ItemsTwo.GREEN_STAINED_WOODEN_BOOTS, 
+//			ItemsTwo.GREEN_STAINED_WOODEN_PLANKS, 
+//			consumerIn
+//		);
+//		buildStainedArmorRecipes(
+//			ItemsTwo.RED_STAINED_WOODEN_HELMET, 
+//			ItemsTwo.RED_STAINED_WOODEN_CHESTPLATE, 
+//			ItemsTwo.RED_STAINED_WOODEN_LEGGINGS, 
+//			ItemsTwo.RED_STAINED_WOODEN_BOOTS, 
+//			ItemsTwo.RED_STAINED_WOODEN_PLANKS, 
+//			consumerIn
+//		);
+//		buildStainedArmorRecipes(
+//			ItemsTwo.BLACK_STAINED_WOODEN_HELMET, 
+//			ItemsTwo.BLACK_STAINED_WOODEN_CHESTPLATE, 
+//			ItemsTwo.BLACK_STAINED_WOODEN_LEGGINGS, 
+//			ItemsTwo.BLACK_STAINED_WOODEN_BOOTS, 
+//			ItemsTwo.BLACK_STAINED_WOODEN_PLANKS, 
+//			consumerIn
+//		);
+		
 //		buildChiseledBlockRecipes(ItemsTwo.CHISELED_DIAMOND_BLOCK, ItemsTwo.DIAMOND_SLAB, Items.DIAMOND_BLOCK, ItemsTwo.DIAMOND_PILLAR, consumerIn);
 //		buildPillarRecipes(ItemsTwo.DIAMOND_PILLAR, Items.DIAMOND_BLOCK, ItemsTwo.CHISELED_DIAMOND_BLOCK, consumerIn);
 //		buildOreStairRecipes(ItemsTwo.DIAMOND_STAIRS, ItemsTwo.CHISELED_DIAMOND_BLOCK, Items.DIAMOND_BLOCK, ItemsTwo.DIAMOND_PILLAR, consumerIn);
@@ -58,14 +185,14 @@ public class RecipeProviderTwo extends RecipeProvider {
 //		buildSmoothOreSlabRecipes(ItemsTwo.SMOOTH_COAL_SLAB, ItemsTwo.SMOOTH_COAL, consumerIn);
 
 	
-		buildChiseledBlockRecipes(ItemsTwo.CHISELED_NETHERITE_BLOCK, ItemsTwo.NETHERITE_SLAB, Items.NETHERITE_BRICKS, ItemsTwo.NETHERITE_PILLAR, consumerIn);
-		buildPillarRecipes(ItemsTwo.NETHERITE_PILLAR, Items.NETHERITE_BRICKS, ItemsTwo.CHISELED_NETHERITE_BLOCK, consumerIn);
-		buildOreStairRecipes(ItemsTwo.NETHERITE_STAIRS, ItemsTwo.CHISELED_NETHERITE_BLOCK, Items.NETHERITE_BRICKS, ItemsTwo.NETHERITE_PILLAR, consumerIn);
-		buildOreSlabRecipes(ItemsTwo.NETHERITE_SLAB, ItemsTwo.CHISELED_NETHERITE_BLOCK, Items.NETHERITE_BRICKS, ItemsTwo.NETHERITE_PILLAR, consumerIn);
-		buildSmeltingRecipe(ItemsTwo.SMOOTH_NETHERITE, Items.NETHERITE_BRICKS, 0.1f, 200, consumerIn);
-		buildSmoothOreStairRecipes(ItemsTwo.SMOOTH_NETHERITE_STAIRS, ItemsTwo.SMOOTH_NETHERITE, consumerIn);
-		buildSmoothOreSlabRecipes(ItemsTwo.SMOOTH_NETHERITE_SLAB, ItemsTwo.SMOOTH_NETHERITE, consumerIn);
-		buildOreBricksRecipes(ItemsTwo.NETHERITE_BRICKS, Items.NETHERITE_BRICKS, consumerIn);
+//		buildChiseledBlockRecipes(ItemsTwo.CHISELED_NETHERITE_BLOCK, ItemsTwo.NETHERITE_SLAB, Items.NETHERITE_BRICKS, ItemsTwo.NETHERITE_PILLAR, consumerIn);
+//		buildPillarRecipes(ItemsTwo.NETHERITE_PILLAR, Items.NETHERITE_BRICKS, ItemsTwo.CHISELED_NETHERITE_BLOCK, consumerIn);
+//		buildOreStairRecipes(ItemsTwo.NETHERITE_STAIRS, ItemsTwo.CHISELED_NETHERITE_BLOCK, Items.NETHERITE_BRICKS, ItemsTwo.NETHERITE_PILLAR, consumerIn);
+//		buildOreSlabRecipes(ItemsTwo.NETHERITE_SLAB, ItemsTwo.CHISELED_NETHERITE_BLOCK, Items.NETHERITE_BRICKS, ItemsTwo.NETHERITE_PILLAR, consumerIn);
+//		buildSmeltingRecipe(ItemsTwo.SMOOTH_NETHERITE, Items.NETHERITE_BRICKS, 0.1f, 200, consumerIn);
+//		buildSmoothOreStairRecipes(ItemsTwo.SMOOTH_NETHERITE_STAIRS, ItemsTwo.SMOOTH_NETHERITE, consumerIn);
+//		buildSmoothOreSlabRecipes(ItemsTwo.SMOOTH_NETHERITE_SLAB, ItemsTwo.SMOOTH_NETHERITE, consumerIn);
+//		buildOreBricksRecipes(ItemsTwo.NETHERITE_BRICKS, Items.NETHERITE_BRICKS, consumerIn);
 	}
 	
 	public static void buildFenceRecipe(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
@@ -305,5 +432,61 @@ public class RecipeProviderTwo extends RecipeProvider {
 			"has_" + base.toString(),
 			InventoryChangeTrigger.Instance.forItems(base)
 		).build(consumerIn);
+	}
+	
+	public static void buildArmorRecipes(IItemProvider helmet, IItemProvider chestplate, IItemProvider leggings, IItemProvider boots, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+		buildHelmetRecipe(helmet, base, "", consumerIn);
+		buildChestplateRecipe(chestplate, base, "", consumerIn);
+		buildLeggingsRecipe(leggings, base, "", consumerIn);
+		buildBootsRecipe(boots, base, "", consumerIn);
+	}
+	public static void buildStainedArmorRecipes(IItemProvider helmet, IItemProvider chestplate, IItemProvider leggings, IItemProvider boots, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
+		buildHelmetRecipe(helmet, base, "wooden_helmet", consumerIn);
+		buildChestplateRecipe(chestplate, base, "wooden_chestplate", consumerIn);
+		buildLeggingsRecipe(leggings, base, "wooden_leggings", consumerIn);
+		buildBootsRecipe(boots, base, "wooden_boots", consumerIn);
+	}
+	
+	public static void buildHelmetRecipe(IItemProvider helmet, IItemProvider base, String group, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(helmet)
+			.setGroup(group)
+			.patternLine("XXX")
+			.patternLine("X X")
+			.key('X', base)
+			.addCriterion("has_" + base.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(base))
+		.build(consumerIn);
+	}
+	public static void buildChestplateRecipe(IItemProvider chestplate, IItemProvider base, String group, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(chestplate)
+			.setGroup(group)
+			.patternLine("X X")
+			.patternLine("XXX")
+			.patternLine("XXX")
+			.key('X', base)
+			.addCriterion("has_" + base.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(base))
+		.build(consumerIn);
+	}
+	public static void buildLeggingsRecipe(IItemProvider leggings, IItemProvider base, String group, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(leggings)
+			.setGroup(group)
+			.patternLine("XXX")
+			.patternLine("X X")
+			.patternLine("X X")
+			.key('X', base)
+			.addCriterion("has_" + base.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(base))
+		.build(consumerIn);
+	}
+	public static void buildBootsRecipe(IItemProvider boots, IItemProvider base, String group, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(boots)
+			.setGroup(group)
+			.patternLine("X X")
+			.patternLine("X X")
+			.key('X', base)
+			.addCriterion("has_" + base.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(base))
+		.build(consumerIn);
 	}
 }
