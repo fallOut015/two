@@ -35,6 +35,9 @@ public class RenderTypeLookupTwo {
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_RANDOM, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_SKY, RenderType.getCutout());
 
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.CATTAILS, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.CATTAILS_PLANT, RenderType.getCutout());
+
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.MAPLE_TAP, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.ICE_SLIME_BLOCK, RenderType.getTranslucent());
 

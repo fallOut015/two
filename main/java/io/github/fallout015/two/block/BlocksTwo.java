@@ -599,6 +599,9 @@ public class BlocksTwo {
 	public static final Block DREAMCATCHER_RANDOM = register("dreamcatcher_random", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.BLACK).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.NOTE, DreamcatcherBlock::dreamcatcherRandom));
 	public static final Block DREAMCATCHER_SKY = register("dreamcatcher_sky", new DreamcatcherBlock(Block.Properties.create(Material.WOOL, MaterialColor.SNOW).hardnessAndResistance(0.4F).notSolid(), ParticleTypes.CLOUD, DreamcatcherBlock::dreamcatcherSky));
 	
+	public static final Block CATTAILS = register("cattails", new CattailsTopBlock(AbstractBlock.Properties.create(Material.OCEAN_PLANT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.WET_GRASS)));
+	public static final Block CATTAILS_PLANT = register("cattails_plant", new CattailsBlock(AbstractBlock.Properties.create(Material.OCEAN_PLANT).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.WET_GRASS)));
+	
 	public static final Block MAPLE_TAP = register("maple_tap", new MapleTapBlock(Block.Properties.create(Material.IRON)));
 	public static final Block GROUND_LIGHT = register("ground_light", new GroundLightBlock(Block.Properties.create(Material.GLASS).setLightLevel(state -> 8).hardnessAndResistance(0.5f).doesNotBlockMovement()));
 	public static final Block BILLBOARD = register("billboard", new Block(Block.Properties.create(Material.GLASS).setLightLevel(state -> 5).hardnessAndResistance(0.2f).sound(SoundType.GLASS)));

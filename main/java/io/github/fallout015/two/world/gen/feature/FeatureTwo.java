@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import net.minecraft.world.gen.feature.BigMushroomFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ReplaceBlockConfig;
 import net.minecraft.world.gen.feature.ReplaceBlockFeature;
 import net.minecraftforge.event.RegistryEvent;
@@ -17,6 +18,8 @@ public class FeatureTwo {
 	
 	public static final Feature<BigMushroomFeatureConfig> HUGE_NEONDOT = register("huge_neondot", new BigNeondotFeature(BigMushroomFeatureConfig.field_236528_a_));
 	public static final Feature<BigMushroomFeatureConfig> HUGE_BRIMSHINE = register("huge_brimshine", new BigBrimshineFeature(BigMushroomFeatureConfig.field_236528_a_));
+
+	public static final Feature<NoFeatureConfig> CATTAILS = register("cattails", new CattailsFeature(NoFeatureConfig.field_236558_a_));
 
 	// desert arch feature
 	

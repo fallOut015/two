@@ -20,7 +20,11 @@ import net.minecraft.world.gen.feature.TwoLayerFeature;
 import net.minecraft.world.gen.feature.template.BlockMatchRuleTest;
 import net.minecraft.world.gen.feature.template.RuleTest;
 import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
+import net.minecraft.world.gen.placement.ConfiguredPlacement;
 import net.minecraft.world.gen.placement.IPlacementConfig;
+import net.minecraft.world.gen.placement.NoPlacementConfig;
+import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.placement.TopSolidWithNoiseConfig;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 
 // Not to be confused with FeatureTwo. These are specific features, i.e., features with configs. And blockstate references. These are NOT registered, this class is more for convenience
@@ -72,6 +76,8 @@ public class FeaturesTwo { // Configured features with placements.
 	public static final ConfiguredFeature<?, ?> MUSHROOM_STONE_REPLACER = register("mushroom_stone_replacer", FeatureTwo.MULTI_REPLACE_BLOCK.withConfiguration(new MultiReplaceBlockConfig(States.STONE, States.SPORESTONE, States.STONE, States.SPORESTONE_SOIL)).withPlacement(PlacementTwo.PLACE_ALL_TO_64.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 	//	public static final ConfiguredFeature<?, ?> DESERT_SANDSTONE_PLACER = register("desert_sandstone_placer", FeatureTwo.REPLACE_BLOCK.withConfiguration(new ReplaceBlockConfig(Blocks.SMOOTH_SANDSTONE.getDefaultState(), Blocks.SANDSTONE.getDefaultState())).withPlacement(Placement.field_242902_f.configure(new FrequencyConfig(256))));
 	
+	public static final ConfiguredFeature<?, ?> SWAMP_CATTAILS = register("swamp_cattails", FeatureTwo.CATTAILS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(FeaturesTwo.Placements.CATTAILS_PLACEMENT).func_242728_a().withPlacement(Placement.field_242901_e.configure(new TopSolidWithNoiseConfig(120, 80.0D, 0.0D))));
+
 	private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String key, ConfiguredFeature<FC, ?> configuredFeature) {
 		return configuredFeature;
 	}
@@ -83,6 +89,7 @@ public class FeaturesTwo { // Configured features with placements.
 	}
 	
 	public static final class Placements { // references to the PlacementTwo class (with configs).
+		public static final ConfiguredPlacement<NoPlacementConfig> CATTAILS_PLACEMENT = Placement.TOP_SOLID_HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG);
 	}
 	
 	public static final class States { // values of block states.
