@@ -27,6 +27,7 @@ import io.github.fallout015.two.client.renderer.entity.DarkDwarfArcherRenderer;
 import io.github.fallout015.two.client.renderer.entity.FireArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.IceArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.IceSlimeRenderer;
+import io.github.fallout015.two.client.renderer.entity.JellyfishRenderer;
 import io.github.fallout015.two.client.renderer.entity.MummifiedZombieRenderer;
 import io.github.fallout015.two.client.renderer.entity.NetherFishRenderer;
 import io.github.fallout015.two.client.renderer.entity.PenguinRenderer;
@@ -34,7 +35,6 @@ import io.github.fallout015.two.client.renderer.entity.RedPandaRenderer;
 import io.github.fallout015.two.client.renderer.entity.ShockArrowRenderer;
 import io.github.fallout015.two.client.renderer.entity.ShurikenRenderer;
 import io.github.fallout015.two.client.renderer.entity.SigilRenderer;
-import io.github.fallout015.two.client.renderer.entity.SwarmRenderer;
 import io.github.fallout015.two.client.renderer.entity.TwisterRenderer;
 import io.github.fallout015.two.client.renderer.entity.layers.BeardedDragonLayer;
 import io.github.fallout015.two.client.renderer.entity.layers.ChameleonCloakLayer;
@@ -55,6 +55,7 @@ import io.github.fallout015.two.entity.monster.MummifiedZombieEntity;
 import io.github.fallout015.two.entity.passive.BeardedDragonEntity;
 import io.github.fallout015.two.entity.passive.ChameleonEntity;
 import io.github.fallout015.two.entity.passive.CrimpEntity;
+import io.github.fallout015.two.entity.passive.JellyfishEntity;
 import io.github.fallout015.two.entity.passive.PenguinEntity;
 import io.github.fallout015.two.entity.passive.RedPandaEntity;
 import io.github.fallout015.two.fluid.FluidsTwo;
@@ -197,11 +198,12 @@ public class Two {
 	private void setup(final FMLCommonSetupEvent event) {
 		PacketHandler.INSTANCE.registerMessage(JumpPacketHandler.JUMP_ID, JumpPacketHandler.class, JumpPacketHandler::encoder, JumpPacketHandler::decoder, JumpPacketHandler::handle);
 
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.CHAMELEON, ChameleonEntity.applyAttributes().create());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonEntity.applyAttributes().create());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.RED_PANDA, RedPandaEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.CHAMELEON, ChameleonEntity.applyAttributes().create());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.CRIMP, CrimpEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.JELLYFISH, JellyfishEntity.applyAttributes().create());
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.PENGUIN, PenguinEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.RED_PANDA, RedPandaEntity.applyAttributes().create());
 		
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.DARK_DWARF_ARCHER, MonsterEntity.func_234295_eP_().create()); // TODO give own stats. 
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.MUMMIFIED_ZOMBIE, MummifiedZombieEntity.applyAttributes().create());
@@ -213,11 +215,12 @@ public class Two {
 		GlobalEntityTypeAttributes.put(EntityTypeTwo.MAGMEEL, MagmeelEntity.applyAttributes().create());
 	}
 	private void doClientStuff(final FMLClientSetupEvent event) {
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CHAMELEON, ChameleonRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonRenderer::new);
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.RED_PANDA, RedPandaRenderer::new);
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CHAMELEON, ChameleonRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CRIMP, CrimpRenderer::new);
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.JELLYFISH, JellyfishRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.PENGUIN, PenguinRenderer::new);
+    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.RED_PANDA, RedPandaRenderer::new);
     	
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CAPPED_ARROW, CappedArrowRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.FIRE_ARROW, FireArrowRenderer::new);
@@ -240,7 +243,7 @@ public class Two {
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SIGIL, SigilRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.TWISTER, TwisterRenderer::new);
     	
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SWARM, SwarmRenderer::new);
+//    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SWARM, SwarmRenderer::new);
     	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BUTTERFLY, ButterflyRenderer::new);
     	
 //    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.MAGMEEL, MagmeelRenderer::new);
@@ -485,6 +488,8 @@ public class Two {
 //    			biomeLoadingEvent.getGeneration().getStructures().add(() -> FeatureTwo.LOST);
     			
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_NETHER_TOPAZ);
+    		} else if(biomeLoadingEvent.getName() == Biomes.SWAMP.getRegistryName()) {
+    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.VEGETAL_DECORATION).add(() -> FeaturesTwo.SWAMP_CATTAILS);
     		}
     		
     		biomeLoadingEvent.getGeneration().getCarvers(Carving.AIR).add(() -> new ConfiguredCarver<>(WorldCarverTwo.CAVERN, new ProbabilityConfig(0.01285715F)));

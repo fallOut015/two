@@ -494,6 +494,8 @@ public class ItemsTwo {
 	public static final Item DREAMCATCHER_RANDOM = register(BlocksTwo.DREAMCATCHER_RANDOM, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item DREAMCATCHER_SKY = register(BlocksTwo.DREAMCATCHER_SKY, new Item.Properties().group(ItemGroup.DECORATIONS));
 	
+	public static final Item CATTAILS = register(BlocksTwo.CATTAILS, new Item.Properties().group(ItemGroup.DECORATIONS));
+	
 	public static final Item MAPLE_TAP = register(BlocksTwo.MAPLE_TAP, new Item.Properties()/*.group(ItemGroup.DECORATIONS)*/);
 	public static final Item GROUND_LIGHT = register(BlocksTwo.GROUND_LIGHT, new Item.Properties().group(ItemGroup.DECORATIONS));
 	public static final Item BILLBOARD = register(BlocksTwo.BILLBOARD, new Item.Properties().group(ItemGroup.DECORATIONS));
@@ -692,6 +694,7 @@ public class ItemsTwo {
     public static final Item CRIMP_SPAWN_EGG = register("crimp_spawn_egg", new SpawnEggItem(EntityTypeTwo.CRIMP, 2892067, 7084570, new Item.Properties()/*.group(ItemGroup.MISC)*/));
     public static final Item DARK_DWARF_ARCHER_SPAWN_EGG = register("dark_dwarf_archer_spawn_egg", new SpawnEggItem(EntityTypeTwo.DARK_DWARF_ARCHER, 3617852, 7880467, new Item.Properties()/*.group(ItemGroup.MISC)*/));
     public static final Item ICE_SLIME_SPAWN_EGG = register("ice_slime_spawn_egg", new SpawnEggItem(EntityTypeTwo.ICE_SLIME, 14606335, 16382719, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item JELLYFISH_SPAWN_EGG = register("jellyfish_spawn_egg", new SpawnEggItem(EntityTypeTwo.JELLYFISH, 2461380, 8443135, new Item.Properties()/*.group(ItemGroup.MISC)*/));
     public static final Item MUMMIFIED_ZOMBIE_SPAWN_EGG = register("mummified_zombie_spawn_egg", new SpawnEggItem(EntityTypeTwo.MUMMIFIED_ZOMBIE, 3490609, 13487798, new Item.Properties().group(ItemGroup.MISC)));
     public static final Item PENGUIN_SPAWN_EGG = register("penguin_spawn_egg", new SpawnEggItem(EntityTypeTwo.PENGUIN, 1250583, 16316656, new Item.Properties().group(ItemGroup.MISC)));
     public static final Item RED_PANDA_SPAWN_EGG = register("red_panda_spawn_egg", new SpawnEggItem(EntityTypeTwo.RED_PANDA, 3215619, 13847826, new Item.Properties()/*.group(ItemGroup.MISC)*/));

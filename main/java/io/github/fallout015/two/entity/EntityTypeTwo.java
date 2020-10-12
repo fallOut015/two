@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import io.github.fallout015.two.entity.boss.magmeel.MagmeelEntity;
 import io.github.fallout015.two.entity.effect.ButterflyEntity;
 import io.github.fallout015.two.entity.effect.SigilEntity;
-import io.github.fallout015.two.entity.effect.SwarmEntity;
 import io.github.fallout015.two.entity.effect.TwisterEntity;
 import io.github.fallout015.two.entity.item.BoatEntityTwo;
 import io.github.fallout015.two.entity.monster.DarkDwarfArcherEntity;
@@ -15,6 +14,7 @@ import io.github.fallout015.two.entity.monster.NetherFishEntity;
 import io.github.fallout015.two.entity.passive.BeardedDragonEntity;
 import io.github.fallout015.two.entity.passive.ChameleonEntity;
 import io.github.fallout015.two.entity.passive.CrimpEntity;
+import io.github.fallout015.two.entity.passive.JellyfishEntity;
 import io.github.fallout015.two.entity.passive.PenguinEntity;
 import io.github.fallout015.two.entity.passive.RedPandaEntity;
 import io.github.fallout015.two.entity.projectile.BombArrowEntity;
@@ -32,11 +32,12 @@ import net.minecraftforge.registries.ObjectHolder;
 
 @ObjectHolder("two")
 public class EntityTypeTwo {
-	public static final EntityType<ChameleonEntity> CHAMELEON = register("chameleon", EntityType.Builder.create(ChameleonEntity::new, EntityClassification.CREATURE).size(0.25f, 0.25f));
 	public static final EntityType<BeardedDragonEntity> BEARDED_DRAGON = register("bearded_dragon", EntityType.Builder.create(BeardedDragonEntity::new, EntityClassification.CREATURE).size(0.2f, 0.2f));
-	public static final EntityType<RedPandaEntity> RED_PANDA = register("red_panda", EntityType.Builder.create(RedPandaEntity::new, EntityClassification.CREATURE).size(0.6875f, 1f));
+	public static final EntityType<ChameleonEntity> CHAMELEON = register("chameleon", EntityType.Builder.create(ChameleonEntity::new, EntityClassification.CREATURE).size(0.25f, 0.25f));
 	public static final EntityType<CrimpEntity> CRIMP = register("crimp", EntityType.Builder.create(CrimpEntity::new, EntityClassification.CREATURE).size(0.6875f, 1f));
+	public static final EntityType<JellyfishEntity> JELLYFISH = register("jellyfish", EntityType.Builder.create(JellyfishEntity::new, EntityClassification.CREATURE).size(0.75f, 0.75f));
 	public static final EntityType<PenguinEntity> PENGUIN = register("penguin", EntityType.Builder.create(PenguinEntity::new, EntityClassification.CREATURE).size(0.5f, 0.8f));
+	public static final EntityType<RedPandaEntity> RED_PANDA = register("red_panda", EntityType.Builder.create(RedPandaEntity::new, EntityClassification.CREATURE).size(0.6875f, 1f));
 	
 	//	public static EntityType<WandererEntity> WANDERER = (EntityType<WandererEntity>) register("wanderer", EntityType.Builder.create(WandererEntity::new, EntityClassification.MONSTER).size(0.5f, 1.0f).build("wanderer"));
 //	public static EntityType<ShadowEntity> SHADOW = (EntityType<ShadowEntity>) register("shadow", EntityType.Builder.create(ShadowEntity::new, EntityClassification.MONSTER).size(0.5f, 1.0f).build("shadow"));
@@ -63,7 +64,7 @@ public class EntityTypeTwo {
 	public static final EntityType<SigilEntity> SIGIL = register("sigil", EntityType.Builder.create(SigilEntity::new, EntityClassification.MISC).size(4, 0.1f).disableSerialization());
 	public static final EntityType<TwisterEntity> TWISTER = register("twister", EntityType.Builder.<TwisterEntity>create(TwisterEntity::new, EntityClassification.MISC).size(1, 2).disableSerialization());
 	
-	public static final EntityType<SwarmEntity> SWARM = register("swarm", EntityType.Builder.create(SwarmEntity::new, EntityClassification.AMBIENT).size(0, 0));
+//	public static final EntityType<SwarmEntity> SWARM = register("swarm", EntityType.Builder.create(SwarmEntity::new, EntityClassification.AMBIENT).size(0, 0));
 	public static final EntityType<ButterflyEntity> BUTTERFLY = register("butterfly", EntityType.Builder.create(ButterflyEntity::new, EntityClassification.AMBIENT).size(0.5f, 0.5f));
 	
 	public static final EntityType<MagmeelEntity> MAGMEEL = register("magmeel", EntityType.Builder.create(MagmeelEntity::new, EntityClassification.MONSTER).size(0.5f, 0.5f));

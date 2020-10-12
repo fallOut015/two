@@ -6,6 +6,8 @@
 	
 	"entity.two.crimp" : "Crimp",
 	
+	"entity.two.jellyfish" : "Jellyfish",
+	
 	"entity.two.dark_dwarf_archer" : "Dark Dwarven Archer",
 	"entity.two.mummified_zombie" : "Mummified Zombie",
 	"entity.two.ice_slime" : "Ice Slime",
@@ -520,6 +522,9 @@
 	"block.two.dreamcatcher_random" : "Mischievous Dreamcatcher",
 	"block.two.dreamcatcher_sky" : "Cloudy Dreamcatcher",
 	
+	"block.two.cattails" : "Cattails",
+	"block.two.cattails_plant" : "Cattails Plant",
+	
 	"block.two.maple_tap" : "Maple Tap",
 	"block.two.ground_light" : "Ground Light",
 	"block.two.billboard" : "Billboard",
@@ -712,6 +717,7 @@
 	"item.two.crimp_spawn_egg" : "Crimp Spawn Egg",
 	"item.two.dark_dwarf_archer_spawn_egg" : "Dark Dwarven Archer Spawn Egg",
 	"item.two.ice_slime_spawn_egg" : "Ice Slime Spawn Egg",
+	"item.two.jellyfish_spawn_egg" : "Jellyfish Spawn Egg",
 	"item.two.mummified_zombie_spawn_egg" : "Mummified Zombie Spawn Egg",
 	"item.two.penguin_spawn_egg" : "Penguin Spawn Egg",
 	"item.two.red_panda_spawn_egg" : "Red Panda Spawn Egg",
