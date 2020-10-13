@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:garnet_battleaxe"
+    ]
+  },
+  "criteria": {
+    "garnet_battleaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:garnet"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:garnet_battleaxe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "garnet_battleaxe",
+      "has_the_recipe"
+    ]
+  ]
+}

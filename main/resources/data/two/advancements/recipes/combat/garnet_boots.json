@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:garnet_boots"
+    ]
+  },
+  "criteria": {
+    "has_garnet_boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:garnet"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:garnet_boots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_garnet_boots",
+      "has_the_recipe"
+    ]
+  ]
+}

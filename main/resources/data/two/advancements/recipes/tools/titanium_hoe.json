@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:titanium_hoe"
+    ]
+  },
+  "criteria": {
+    "titanium_hoe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:titanium_ingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:titanium_hoe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "titanium_hoe",
+      "has_the_recipe"
+    ]
+  ]
+}

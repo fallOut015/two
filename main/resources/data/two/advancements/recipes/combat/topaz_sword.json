@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:topaz_sword"
+    ]
+  },
+  "criteria": {
+    "topaz_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:topaz"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:topaz_sword"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "topaz_sword",
+      "has_the_recipe"
+    ]
+  ]
+}

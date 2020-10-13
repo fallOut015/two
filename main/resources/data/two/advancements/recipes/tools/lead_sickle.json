@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:lead_sickle"
+    ]
+  },
+  "criteria": {
+    "lead_sickle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:lead_ingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:lead_sickle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "lead_sickle",
+      "has_the_recipe"
+    ]
+  ]
+}

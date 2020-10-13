@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:titanium_capped_arrow"
+    ]
+  },
+  "criteria": {
+    "titanium_capped_arrow": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:titanium_ingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:titanium_capped_arrow"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "titanium_capped_arrow",
+      "has_the_recipe"
+    ]
+  ]
+}

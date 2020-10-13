@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:garnet_chestplate"
+    ]
+  },
+  "criteria": {
+    "has_garnet_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:garnet"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:garnet_chestplate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_garnet_chestplate",
+      "has_the_recipe"
+    ]
+  ]
+}

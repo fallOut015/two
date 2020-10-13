@@ -11,6 +11,7 @@ import net.minecraft.data.RecipeProvider;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.SingleItemRecipeBuilder;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ITag;
 import net.minecraft.util.IItemProvider;
@@ -23,126 +24,10 @@ public class RecipeProviderTwo extends RecipeProvider {
 	
 	@Override
 	protected void registerRecipes(Consumer<IFinishedRecipe> consumerIn) {
-//		buildStainedArmorRecipes(
-//			ItemsTwo.WHITE_STAINED_WOODEN_HELMET, 
-//			ItemsTwo.WHITE_STAINED_WOODEN_CHESTPLATE, 
-//			ItemsTwo.WHITE_STAINED_WOODEN_LEGGINGS, 
-//			ItemsTwo.WHITE_STAINED_WOODEN_BOOTS, 
-//			ItemsTwo.WHITE_STAINED_WOODEN_PLANKS, 
-//			consumerIn
-//		);
-//		buildStainedArmorRecipes(
-//			ItemsTwo.ORANGE_STAINED_WOODEN_HELMET, 
-//			ItemsTwo.ORANGE_STAINED_WOODEN_CHESTPLATE, 
-//			ItemsTwo.ORANGE_STAINED_WOODEN_LEGGINGS, 
-//			ItemsTwo.ORANGE_STAINED_WOODEN_BOOTS, 
-//			ItemsTwo.ORANGE_STAINED_WOODEN_PLANKS, 
-//			consumerIn
-//		);
-//		buildStainedArmorRecipes(
-//			ItemsTwo.MAGENTA_STAINED_WOODEN_HELMET, 
-//			ItemsTwo.MAGENTA_STAINED_WOODEN_CHESTPLATE, 
-//			ItemsTwo.MAGENTA_STAINED_WOODEN_LEGGINGS, 
-//			ItemsTwo.MAGENTA_STAINED_WOODEN_BOOTS, 
-//			ItemsTwo.MAGENTA_STAINED_WOODEN_PLANKS, 
-//			consumerIn
-//		);
-//		buildStainedArmorRecipes(
-//			ItemsTwo.LIGHT_BLUE_STAINED_WOODEN_HELMET, 
-//			ItemsTwo.LIGHT_BLUE_STAINED_WOODEN_CHESTPLATE, 
-//			ItemsTwo.LIGHT_BLUE_STAINED_WOODEN_LEGGINGS, 
-//			ItemsTwo.LIGHT_BLUE_STAINED_WOODEN_BOOTS, 
-//			ItemsTwo.LIGHT_BLUE_STAINED_WOODEN_PLANKS, 
-//			consumerIn
-//		);
-//		buildStainedArmorRecipes(
-//			ItemsTwo.YELLOW_STAINED_WOODEN_HELMET, 
-//			ItemsTwo.YELLOW_STAINED_WOODEN_CHESTPLATE, 
-//			ItemsTwo.YELLOW_STAINED_WOODEN_LEGGINGS, 
-//			ItemsTwo.YELLOW_STAINED_WOODEN_BOOTS, 
-//			ItemsTwo.YELLOW_STAINED_WOODEN_PLANKS, 
-//			consumerIn
-//		);
-//		buildStainedArmorRecipes(
-//			ItemsTwo.LIME_STAINED_WOODEN_HELMET, 
-//			ItemsTwo.LIME_STAINED_WOODEN_CHESTPLATE, 
-//			ItemsTwo.LIME_STAINED_WOODEN_LEGGINGS, 
-//			ItemsTwo.LIME_STAINED_WOODEN_BOOTS, 
-//			ItemsTwo.LIME_STAINED_WOODEN_PLANKS, 
-//			consumerIn
-//		);
-//		buildStainedArmorRecipes(
-//			ItemsTwo.PINK_STAINED_WOODEN_HELMET, 
-//			ItemsTwo.PINK_STAINED_WOODEN_CHESTPLATE, 
-//			ItemsTwo.PINK_STAINED_WOODEN_LEGGINGS, 
-//			ItemsTwo.PINK_STAINED_WOODEN_BOOTS, 
-//			ItemsTwo.PINK_STAINED_WOODEN_PLANKS, 
-//			consumerIn
-//		);
-//		buildStainedArmorRecipes(
-//			ItemsTwo.GRAY_STAINED_WOODEN_HELMET, 
-//			ItemsTwo.GRAY_STAINED_WOODEN_CHESTPLATE, 
-//			ItemsTwo.GRAY_STAINED_WOODEN_LEGGINGS, 
-//			ItemsTwo.GRAY_STAINED_WOODEN_BOOTS, 
-//			ItemsTwo.GRAY_STAINED_WOODEN_PLANKS, 
-//			consumerIn
-//		);
-//		buildStainedArmorRecipes(
-//			ItemsTwo.LIGHT_GRAY_STAINED_WOODEN_HELMET, 
-//			ItemsTwo.LIGHT_GRAY_STAINED_WOODEN_CHESTPLATE, 
-//			ItemsTwo.LIGHT_GRAY_STAINED_WOODEN_LEGGINGS, 
-//			ItemsTwo.LIGHT_GRAY_STAINED_WOODEN_BOOTS, 
-//			ItemsTwo.LIGHT_GRAY_STAINED_WOODEN_PLANKS, 
-//			consumerIn
-//		);
-//		buildStainedArmorRecipes(
-//			ItemsTwo.CYAN_STAINED_WOODEN_HELMET, 
-//			ItemsTwo.CYAN_STAINED_WOODEN_CHESTPLATE, 
-//			ItemsTwo.CYAN_STAINED_WOODEN_LEGGINGS, 
-//			ItemsTwo.CYAN_STAINED_WOODEN_BOOTS, 
-//			ItemsTwo.CYAN_STAINED_WOODEN_PLANKS, 
-//			consumerIn
-//		);
-//		buildStainedArmorRecipes(
-//			ItemsTwo.PURPLE_STAINED_WOODEN_HELMET, 
-//			ItemsTwo.PURPLE_STAINED_WOODEN_CHESTPLATE, 
-//			ItemsTwo.PURPLE_STAINED_WOODEN_LEGGINGS, 
-//			ItemsTwo.PURPLE_STAINED_WOODEN_BOOTS, 
-//			ItemsTwo.PURPLE_STAINED_WOODEN_PLANKS, 
-//			consumerIn
-//		);
-//		buildStainedArmorRecipes(
-//			ItemsTwo.BLUE_STAINED_WOODEN_HELMET, 
-//			ItemsTwo.BLUE_STAINED_WOODEN_CHESTPLATE, 
-//			ItemsTwo.BLUE_STAINED_WOODEN_LEGGINGS, 
-//			ItemsTwo.BLUE_STAINED_WOODEN_BOOTS, 
-//			ItemsTwo.BLUE_STAINED_WOODEN_PLANKS, 
-//			consumerIn
-//		);
-//		buildStainedArmorRecipes(
-//			ItemsTwo.BROWN_STAINED_WOODEN_HELMET, 
-//			ItemsTwo.BROWN_STAINED_WOODEN_CHESTPLATE, 
-//			ItemsTwo.BROWN_STAINED_WOODEN_LEGGINGS, 
-//			ItemsTwo.BROWN_STAINED_WOODEN_BOOTS, 
-//			ItemsTwo.BROWN_STAINED_WOODEN_PLANKS, 
-//			consumerIn
-//		);
-//		buildStainedArmorRecipes(
-//			ItemsTwo.GREEN_STAINED_WOODEN_HELMET, 
-//			ItemsTwo.GREEN_STAINED_WOODEN_CHESTPLATE, 
-//			ItemsTwo.GREEN_STAINED_WOODEN_LEGGINGS, 
-//			ItemsTwo.GREEN_STAINED_WOODEN_BOOTS, 
-//			ItemsTwo.GREEN_STAINED_WOODEN_PLANKS, 
-//			consumerIn
-//		);
-//		buildStainedArmorRecipes(
-//			ItemsTwo.RED_STAINED_WOODEN_HELMET, 
-//			ItemsTwo.RED_STAINED_WOODEN_CHESTPLATE, 
-//			ItemsTwo.RED_STAINED_WOODEN_LEGGINGS, 
-//			ItemsTwo.RED_STAINED_WOODEN_BOOTS, 
-//			ItemsTwo.RED_STAINED_WOODEN_PLANKS, 
-//			consumerIn
-//		);
+//		buildWeaponRecipes(ItemsTwo.LEAD_SWORD, ItemsTwo.LEAD_BATTLEAXE, ItemsTwo.LEAD_DAGGER, ItemsTwo.LEAD_CAPPED_ARROW, ItemTagsTwo.INGOTS_LEAD, ItemsTwo.LEAD_INGOT, consumerIn);
+//		buildToolRecipes(ItemsTwo.LEAD_SHOVEL, ItemsTwo.LEAD_PICKAXE, ItemsTwo.LEAD_HOE, ItemsTwo.LEAD_AXE, ItemsTwo.LEAD_SICKLE, ItemTagsTwo.INGOTS_LEAD, ItemsTwo.LEAD_INGOT, consumerIn);
+//		buildArmorRecipes(ItemsTwo.LEAD_HELMET, ItemsTwo.LEAD_CHESTPLATE, ItemsTwo.LEAD_LEGGINGS, ItemsTwo.LEAD_BOOTS, ItemsTwo.LEAD_HORSE_ARMOR, ItemTagsTwo.INGOTS_LEAD, ItemsTwo.LEAD_INGOT, consumerIn);
+
 //		buildStainedArmorRecipes(
 //			ItemsTwo.BLACK_STAINED_WOODEN_HELMET, 
 //			ItemsTwo.BLACK_STAINED_WOODEN_CHESTPLATE, 
@@ -152,39 +37,6 @@ public class RecipeProviderTwo extends RecipeProvider {
 //			consumerIn
 //		);
 		
-//		buildChiseledBlockRecipes(ItemsTwo.CHISELED_DIAMOND_BLOCK, ItemsTwo.DIAMOND_SLAB, Items.DIAMOND_BLOCK, ItemsTwo.DIAMOND_PILLAR, consumerIn);
-//		buildPillarRecipes(ItemsTwo.DIAMOND_PILLAR, Items.DIAMOND_BLOCK, ItemsTwo.CHISELED_DIAMOND_BLOCK, consumerIn);
-//		buildOreStairRecipes(ItemsTwo.DIAMOND_STAIRS, ItemsTwo.CHISELED_DIAMOND_BLOCK, Items.DIAMOND_BLOCK, ItemsTwo.DIAMOND_PILLAR, consumerIn);
-//		buildOreSlabRecipes(ItemsTwo.DIAMOND_SLAB, ItemsTwo.CHISELED_DIAMOND_BLOCK, Items.DIAMOND_BLOCK, ItemsTwo.DIAMOND_PILLAR, consumerIn);
-//		buildSmeltingRecipe(ItemsTwo.SMOOTH_DIAMOND, Items.DIAMOND_BLOCK, 0.1f, 200, consumerIn);
-//		buildSmoothOreStairRecipes(ItemsTwo.SMOOTH_DIAMOND_STAIRS, ItemsTwo.SMOOTH_DIAMOND, consumerIn);
-//		buildSmoothOreSlabRecipes(ItemsTwo.SMOOTH_DIAMOND_SLAB, ItemsTwo.SMOOTH_DIAMOND, consumerIn);
-//
-//		buildChiseledBlockRecipes(ItemsTwo.CHISELED_EMERALD_BLOCK, ItemsTwo.EMERALD_SLAB, Items.EMERALD_BLOCK, ItemsTwo.EMERALD_PILLAR, consumerIn);
-//		buildPillarRecipes(ItemsTwo.EMERALD_PILLAR, Items.EMERALD_BLOCK, ItemsTwo.CHISELED_EMERALD_BLOCK, consumerIn);
-//		buildOreStairRecipes(ItemsTwo.EMERALD_STAIRS, ItemsTwo.CHISELED_EMERALD_BLOCK, Items.EMERALD_BLOCK, ItemsTwo.EMERALD_PILLAR, consumerIn);
-//		buildOreSlabRecipes(ItemsTwo.EMERALD_SLAB, ItemsTwo.CHISELED_EMERALD_BLOCK, Items.EMERALD_BLOCK, ItemsTwo.EMERALD_PILLAR, consumerIn);
-//		buildSmeltingRecipe(ItemsTwo.SMOOTH_EMERALD, Items.EMERALD_BLOCK, 0.1f, 200, consumerIn);
-//		buildSmoothOreStairRecipes(ItemsTwo.SMOOTH_EMERALD_STAIRS, ItemsTwo.SMOOTH_EMERALD, consumerIn);
-//		buildSmoothOreSlabRecipes(ItemsTwo.SMOOTH_EMERALD_SLAB, ItemsTwo.SMOOTH_EMERALD, consumerIn);
-//
-//		buildChiseledBlockRecipes(ItemsTwo.CHISELED_REDSTONE_BLOCK, ItemsTwo.REDSTONE_SLAB, Items.REDSTONE_BLOCK, ItemsTwo.REDSTONE_PILLAR, consumerIn);
-//		buildPillarRecipes(ItemsTwo.REDSTONE_PILLAR, Items.REDSTONE_BLOCK, ItemsTwo.CHISELED_REDSTONE_BLOCK, consumerIn);
-//		buildOreStairRecipes(ItemsTwo.REDSTONE_STAIRS, ItemsTwo.CHISELED_REDSTONE_BLOCK, Items.REDSTONE_BLOCK, ItemsTwo.REDSTONE_PILLAR, consumerIn);
-//		buildOreSlabRecipes(ItemsTwo.REDSTONE_SLAB, ItemsTwo.CHISELED_REDSTONE_BLOCK, Items.REDSTONE_BLOCK, ItemsTwo.REDSTONE_PILLAR, consumerIn);
-//		buildSmeltingRecipe(ItemsTwo.SMOOTH_REDSTONE, Items.REDSTONE_BLOCK, 0.1f, 200, consumerIn);
-//		buildSmoothOreStairRecipes(ItemsTwo.SMOOTH_REDSTONE_STAIRS, ItemsTwo.SMOOTH_REDSTONE, consumerIn);
-//		buildSmoothOreSlabRecipes(ItemsTwo.SMOOTH_REDSTONE_SLAB, ItemsTwo.SMOOTH_REDSTONE, consumerIn);
-//
-//		buildChiseledBlockRecipes(ItemsTwo.CHISELED_COAL_BLOCK, ItemsTwo.COAL_SLAB, Items.COAL_BLOCK, ItemsTwo.COAL_PILLAR, consumerIn);
-//		buildPillarRecipes(ItemsTwo.COAL_PILLAR, Items.COAL_BLOCK, ItemsTwo.CHISELED_COAL_BLOCK, consumerIn);
-//		buildOreStairRecipes(ItemsTwo.COAL_STAIRS, ItemsTwo.CHISELED_COAL_BLOCK, Items.COAL_BLOCK, ItemsTwo.COAL_PILLAR, consumerIn);
-//		buildOreSlabRecipes(ItemsTwo.COAL_SLAB, ItemsTwo.CHISELED_COAL_BLOCK, Items.COAL_BLOCK, ItemsTwo.COAL_PILLAR, consumerIn);
-//		buildSmeltingRecipe(ItemsTwo.SMOOTH_COAL, Items.COAL_BLOCK, 0.1f, 200, consumerIn);
-//		buildSmoothOreStairRecipes(ItemsTwo.SMOOTH_COAL_STAIRS, ItemsTwo.SMOOTH_COAL, consumerIn);
-//		buildSmoothOreSlabRecipes(ItemsTwo.SMOOTH_COAL_SLAB, ItemsTwo.SMOOTH_COAL, consumerIn);
-
-	
 //		buildChiseledBlockRecipes(ItemsTwo.CHISELED_NETHERITE_BLOCK, ItemsTwo.NETHERITE_SLAB, Items.NETHERITE_BRICKS, ItemsTwo.NETHERITE_PILLAR, consumerIn);
 //		buildPillarRecipes(ItemsTwo.NETHERITE_PILLAR, Items.NETHERITE_BRICKS, ItemsTwo.CHISELED_NETHERITE_BLOCK, consumerIn);
 //		buildOreStairRecipes(ItemsTwo.NETHERITE_STAIRS, ItemsTwo.CHISELED_NETHERITE_BLOCK, Items.NETHERITE_BRICKS, ItemsTwo.NETHERITE_PILLAR, consumerIn);
@@ -487,6 +339,177 @@ public class RecipeProviderTwo extends RecipeProvider {
 			.patternLine("X X")
 			.key('X', base)
 			.addCriterion("has_" + base.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(base))
+		.build(consumerIn);
+	}
+	
+	public static void buildWeaponRecipes(IItemProvider sword, IItemProvider battleaxe, IItemProvider dagger, IItemProvider cappedarrow, ITag<Item> base, IItemProvider advancmentbase, Consumer<IFinishedRecipe> consumerIn) {
+		buildSwordRecipe(sword, base, advancmentbase, consumerIn);
+		buildBattleaxeRecipe(battleaxe, base, advancmentbase, consumerIn);
+		buildDaggerRecipe(dagger, base, advancmentbase, consumerIn);
+		buildCappedArrowRecipe(cappedarrow, base, advancmentbase, consumerIn);
+	}
+	public static void buildSwordRecipe(IItemProvider result, ITag<Item> base, IItemProvider advancmentbase, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(result, 1)
+			.patternLine("X")
+			.patternLine("X")
+			.patternLine("#")
+			.key('#', Tags.Items.RODS_WOODEN)
+			.key('X', base)
+			.addCriterion(result.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(advancmentbase))
+		.build(consumerIn);
+	}
+	public static void buildBattleaxeRecipe(IItemProvider result, ITag<Item> base, IItemProvider advancmentbase, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(result, 1)
+			.patternLine("XXX")
+			.patternLine("X#X")
+			.patternLine(" # ")
+			.key('#', Tags.Items.RODS_WOODEN)
+			.key('X', base)
+			.addCriterion(result.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(advancmentbase))
+		.build(consumerIn);
+	}
+	public static void buildDaggerRecipe(IItemProvider result, ITag<Item> base, IItemProvider advancmentbase, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(result, 1)
+			.patternLine("X")
+			.patternLine("#")
+			.key('#', Tags.Items.RODS_WOODEN)
+			.key('X', base)
+			.addCriterion(result.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(advancmentbase))
+		.build(consumerIn);
+	}
+	public static void buildCappedArrowRecipe(IItemProvider result, ITag<Item> base, IItemProvider advancmentbase, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(result, 4)
+			.patternLine("X")
+			.patternLine("#")
+			.patternLine("Y")
+			.key('#', Tags.Items.RODS_WOODEN)
+			.key('X', base)
+			.key('Y', Items.FEATHER)
+			.addCriterion(result.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(advancmentbase))
+		.build(consumerIn);
+	}
+	
+	public static void buildToolRecipes(IItemProvider shovel, IItemProvider pickaxe, IItemProvider hoe, IItemProvider axe, IItemProvider sickle, ITag<Item> base, IItemProvider advancmentbase, Consumer<IFinishedRecipe> consumerIn) {
+		buildShovelRecipe(shovel, base, advancmentbase, consumerIn);
+		buildPickaxeRecipe(pickaxe, base, advancmentbase, consumerIn);
+		buildHoeRecipe(hoe, base, advancmentbase, consumerIn);
+		buildAxeRecipe(axe, base, advancmentbase, consumerIn);
+		buildSickleRecipe(sickle, base, advancmentbase, consumerIn);
+	}
+	public static void buildShovelRecipe(IItemProvider result, ITag<Item> base, IItemProvider advancmentbase, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(result, 1)
+			.patternLine("X")
+			.patternLine("#")
+			.patternLine("#")
+			.key('#', Tags.Items.RODS_WOODEN)
+			.key('X', base)
+			.addCriterion(result.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(advancmentbase))
+		.build(consumerIn);
+	}
+	public static void buildPickaxeRecipe(IItemProvider result, ITag<Item> base, IItemProvider advancmentbase, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(result, 1)
+			.patternLine("XXX")
+			.patternLine(" # ")
+			.patternLine(" # ")
+			.key('#', Tags.Items.RODS_WOODEN)
+			.key('X', base)
+			.addCriterion(result.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(advancmentbase))
+		.build(consumerIn);
+	}
+	public static void buildHoeRecipe(IItemProvider result, ITag<Item> base, IItemProvider advancmentbase, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(result, 1)
+			.patternLine("XX")
+			.patternLine(" #")
+			.patternLine(" #")
+			.key('#', Tags.Items.RODS_WOODEN)
+			.key('X', base)
+			.addCriterion(result.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(advancmentbase))
+		.build(consumerIn);
+	}
+	public static void buildAxeRecipe(IItemProvider result, ITag<Item> base, IItemProvider advancmentbase, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(result, 1)
+			.patternLine("XX")
+			.patternLine("X#")
+			.patternLine(" #")
+			.key('#', Tags.Items.RODS_WOODEN)
+			.key('X', base)
+			.addCriterion(result.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(advancmentbase))
+		.build(consumerIn);
+	}
+	public static void buildSickleRecipe(IItemProvider result, ITag<Item> base, IItemProvider advancmentbase, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(result, 1)
+			.patternLine("XXX")
+			.patternLine("  X")
+			.patternLine(" # ")
+			.key('#', Tags.Items.RODS_WOODEN)
+			.key('X', base)
+			.addCriterion(result.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(advancmentbase))
+		.build(consumerIn);
+	}
+	
+	public static void buildArmorRecipes(IItemProvider helmet, IItemProvider chestplate, IItemProvider leggings, IItemProvider boots, IItemProvider horsearmor, ITag<Item> base, IItemProvider advancementbase, Consumer<IFinishedRecipe> consumerIn) {
+		buildHelmetRecipe(helmet, base, advancementbase, consumerIn);
+		buildChestplateRecipe(chestplate, base, advancementbase, consumerIn);
+		buildLeggingsRecipe(leggings, base, advancementbase, consumerIn);
+		buildBootsRecipe(boots, base, advancementbase, consumerIn);
+		buildHorseArmorRecipe(horsearmor, base, advancementbase, consumerIn);
+	}
+	public static void buildHelmetRecipe(IItemProvider helmet, ITag<Item> base, IItemProvider advancementbase, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(helmet)
+			.patternLine("XXX")
+			.patternLine("X X")
+			.key('X', base)
+			.addCriterion("has_" + helmet.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(advancementbase))
+		.build(consumerIn);
+	}
+	public static void buildChestplateRecipe(IItemProvider chestplate, ITag<Item> base, IItemProvider advancementbase, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(chestplate)
+			.patternLine("X X")
+			.patternLine("XXX")
+			.patternLine("XXX")
+			.key('X', base)
+			.addCriterion("has_" + chestplate.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(advancementbase))
+		.build(consumerIn);
+	}
+	public static void buildLeggingsRecipe(IItemProvider leggings, ITag<Item> base, IItemProvider advancementbase, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(leggings)
+			.patternLine("XXX")
+			.patternLine("X X")
+			.patternLine("X X")
+			.key('X', base)
+			.addCriterion("has_" + leggings.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(advancementbase))
+		.build(consumerIn);
+	}
+	public static void buildBootsRecipe(IItemProvider boots, ITag<Item> base, IItemProvider advancementbase, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(boots)
+			.patternLine("XXX")
+			.patternLine("X X")
+			.patternLine("X X")
+			.key('X', base)
+			.addCriterion("has_" + boots.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(advancementbase))
+		.build(consumerIn);
+	}
+	public static void buildHorseArmorRecipe(IItemProvider horsearmor, ITag<Item> base, IItemProvider advancementbase, Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(horsearmor)
+			.patternLine("X X")
+			.patternLine("XXX")
+			.patternLine("X X")
+			.key('X', base)
+			.addCriterion("has_" + horsearmor.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(advancementbase))
 		.build(consumerIn);
 	}
 }

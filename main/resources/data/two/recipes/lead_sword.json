@@ -1,19 +1,19 @@
 {
-	"type" : "minecraft:crafting_shaped",
-	"pattern" : [
-		"X",
-    	"X",
-    	"#"
-	],
-	"key" : {
-    	"#" : {
-      		"tag" : "forge:rods/wooden"
-    	},
-    	"X" : {
-    		"tag" : "forge:ingots/lead"
-    	}
-  	},
-  	"result" : {
-    	"item" : "two:lead_sword"
-  	}
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "X",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:rods/wooden"
+    },
+    "X": {
+      "tag": "forge:ingots/lead"
+    }
+  },
+  "result": {
+    "item": "two:lead_sword"
+  }
 }

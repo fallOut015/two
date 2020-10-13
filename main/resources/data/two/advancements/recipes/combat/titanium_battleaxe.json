@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:titanium_battleaxe"
+    ]
+  },
+  "criteria": {
+    "titanium_battleaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:titanium_ingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:titanium_battleaxe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "titanium_battleaxe",
+      "has_the_recipe"
+    ]
+  ]
+}

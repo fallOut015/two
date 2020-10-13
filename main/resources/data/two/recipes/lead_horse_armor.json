@@ -1,16 +1,16 @@
 {
-	"type" : "minecraft:crafting_shaped",
-	"pattern" : [
-		"X X",
-    	"XXX",
-    	"X X"
-	],
-	"key" : {
-		"X" : {
-    		"tag" : "forge:ingots/lead"
-    	}
-  	},
-  	"result" : {
-    	"item" : "two:lead_horse_armor"
-  	}
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "XXX",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:ingots/lead"
+    }
+  },
+  "result": {
+    "item": "two:lead_horse_armor"
+  }
 }

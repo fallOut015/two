@@ -19,8 +19,17 @@ public enum ArmorMaterialTwo implements IArmorMaterial {
 	RUBY("ruby", 0, new int[] {0, 0, 0, 0}, 0, SoundEventsTwo.ITEM_ARMOR_EQUIP_RUBY, 0.0f, 0, () -> {
 		return Ingredient.fromItems(ItemsTwo.RUBY);
 	}),
-	LEAD("lead", 0, new int[] {0, 0, 0, 0}, 0, SoundEventsTwo.ITEM_ARMOR_EQUIP_LEAD, 0.0f, 0, () -> {
+	LEAD("lead", 15, new int[] {2, 5, 6, 2}, 11, SoundEventsTwo.ITEM_ARMOR_EQUIP_LEAD, 0.0f, 0, () -> {
 		return Ingredient.fromItems(ItemsTwo.LEAD_INGOT);
+	}),
+	TITANIUM("titanium", 45, new int[] {2, 5, 6, 2}, 4, SoundEventsTwo.ITEM_ARMOR_EQUIP_TITANIUM, 3.0f, 0, () -> {
+		return Ingredient.fromItems(ItemsTwo.TITANIUM_INGOT);
+	}),
+	GARNET("garnet", 15, new int[] {2, 5, 6, 2}, 11, SoundEventsTwo.ITEM_ARMOR_EQUIP_GARNET, 0.0f, 0, () -> {
+		return Ingredient.fromItems(ItemsTwo.GARNET);
+	}),
+	TOPAZ("topaz", 15, new int[] {2, 5, 6, 2}, 11, SoundEventsTwo.ITEM_ARMOR_EQUIP_TOPAZ, 0.0f, 0, () -> {
+		return Ingredient.fromItems(ItemsTwo.TOPAZ);
 	}),
 	COPPER("copper", 16, new int[] {2, 5, 6, 2}, 0, SoundEventsTwo.ITEM_ARMOR_EQUIP_COPPER, 0.0f, 0, () -> {
 		return Ingredient.fromItems(ItemsTwo.COPPER_INGOT);

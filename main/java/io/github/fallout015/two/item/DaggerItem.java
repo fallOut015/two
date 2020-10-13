@@ -1,8 +1,8 @@
 package io.github.fallout015.two.item;
 
 import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.Multimap;
 import com.google.common.collect.ImmutableMultimap.Builder;
+import com.google.common.collect.Multimap;
 
 import io.github.fallout015.two.enchantment.EnchantmentsTwo;
 import net.minecraft.block.BlockState;
