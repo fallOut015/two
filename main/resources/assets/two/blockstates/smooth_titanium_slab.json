@@ -4,7 +4,7 @@
       "model": "two:block/smooth_titanium_slab"
     },
     "type=double": {
-      "model": "two:block/smooth_titanium_block"
+      "model": "two:block/smooth_titanium"
     },
     "type=top": {
       "model": "two:block/smooth_titanium_slab_top"

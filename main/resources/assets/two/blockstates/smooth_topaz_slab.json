@@ -4,7 +4,7 @@
       "model": "two:block/smooth_topaz_slab"
     },
     "type=double": {
-      "model": "two:block/smooth_topaz_block"
+      "model": "two:block/smooth_topaz"
     },
     "type=top": {
       "model": "two:block/smooth_topaz_slab_top"

@@ -4,7 +4,7 @@
       "model": "two:block/smooth_garnet_slab"
     },
     "type=double": {
-      "model": "two:block/smooth_garnet_block"
+      "model": "two:block/smooth_garnet"
     },
     "type=top": {
       "model": "two:block/smooth_garnet_slab_top"
