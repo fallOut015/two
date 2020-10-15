@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "two:smooth_lead"
+    }
+  },
+  "result": {
+    "item": "two:smooth_lead_slab",
+    "count": 6
+  }
+}

@@ -1,6 +1,5 @@
 package io.github.fallout015.two.data.server;
 
-import io.github.fallout015.two.block.BlocksTwo;
 import net.minecraft.data.DataGenerator;
 
 public class LootTableProviderTwo extends BaseLootTableProvider {
@@ -42,13 +41,23 @@ public class LootTableProviderTwo extends BaseLootTableProvider {
 //		buildSurvivesExplosion(BlocksTwo.SMOOTH_COAL_STAIRS, lootTables);
 //		buildSlabType(BlocksTwo.SMOOTH_COAL_SLAB, lootTables);
 		
-		buildSurvivesExplosion(BlocksTwo.CHISELED_NETHERITE_BLOCK, lootTables);
-		buildSurvivesExplosion(BlocksTwo.NETHERITE_PILLAR, lootTables);
-		buildSurvivesExplosion(BlocksTwo.NETHERITE_STAIRS, lootTables);
-		buildSlabType(BlocksTwo.NETHERITE_SLAB, lootTables);
-		buildSurvivesExplosion(BlocksTwo.SMOOTH_NETHERITE, lootTables);
-		buildSurvivesExplosion(BlocksTwo.SMOOTH_NETHERITE_STAIRS, lootTables);
-		buildSlabType(BlocksTwo.SMOOTH_NETHERITE_SLAB, lootTables);
-		buildSurvivesExplosion(BlocksTwo.NETHERITE_BRICKS, lootTables);
+//		buildSurvivesExplosion(BlocksTwo.CHISELED_NETHERITE_BLOCK, lootTables);
+//		buildSurvivesExplosion(BlocksTwo.NETHERITE_PILLAR, lootTables);
+//		buildSurvivesExplosion(BlocksTwo.NETHERITE_STAIRS, lootTables);
+//		buildSlabType(BlocksTwo.NETHERITE_SLAB, lootTables);
+//		buildSurvivesExplosion(BlocksTwo.SMOOTH_NETHERITE, lootTables);
+//		buildSurvivesExplosion(BlocksTwo.SMOOTH_NETHERITE_STAIRS, lootTables);
+//		buildSlabType(BlocksTwo.SMOOTH_NETHERITE_SLAB, lootTables);
+//		buildSurvivesExplosion(BlocksTwo.NETHERITE_BRICKS, lootTables);
+		
+//		buildSurvivesExplosion(BlocksTwo.LEAD_BLOCK, lootTables);
+//		buildSurvivesExplosion(BlocksTwo.CHISELED_LEAD_BLOCK, lootTables);
+//		buildSurvivesExplosion(BlocksTwo.LEAD_PILLAR, lootTables);
+//		buildSurvivesExplosion(BlocksTwo.LEAD_STAIRS, lootTables);
+//		buildSlabType(BlocksTwo.LEAD_SLAB, lootTables);
+//		buildSurvivesExplosion(BlocksTwo.SMOOTH_LEAD, lootTables);
+//		buildSurvivesExplosion(BlocksTwo.SMOOTH_LEAD_STAIRS, lootTables);
+//		buildSlabType(BlocksTwo.SMOOTH_LEAD_SLAB, lootTables);
+//		buildSurvivesExplosion(BlocksTwo.LEAD_BRICKS, lootTables);
 	}
 }

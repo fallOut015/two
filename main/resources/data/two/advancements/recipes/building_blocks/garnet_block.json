@@ -1,32 +1,32 @@
 {
-	"parent" : "minecraft:recipes/root",
-  	"rewards" : {
-    	"recipes" : [
-      		"two:garnet_block"
-    	]
-  	},
-  	"criteria" : {
-    	"has_garnet" : {
-      		"trigger" : "minecraft:inventory_changed",
-      		"conditions" : {
-        		"items" : [
-          			{
-            			"item" : "two:garnet"
-          			}
-        		]
-      		}
-    	},
-    	"has_the_recipe" : {
-      		"trigger" : "minecraft:recipe_unlocked",
-      		"conditions" : {
-        		"recipe" : "two:garnet_block"
-      		}
-    	}
-  	},
-  	"requirements" : [
-    	[
-      		"has_garnet",
-      		"has_the_recipe"
-    	]
-  	]
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:garnet_block"
+    ]
+  },
+  "criteria": {
+    "has_garnet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:garnet"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:garnet_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_garnet",
+      "has_the_recipe"
+    ]
+  ]
 }

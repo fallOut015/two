@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "two:block/smooth_garnet_slab"
+    },
+    "type=double": {
+      "model": "two:block/smooth_garnet_block"
+    },
+    "type=top": {
+      "model": "two:block/smooth_garnet_slab_top"
+    }
+  }
+}

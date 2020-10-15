@@ -4,7 +4,6 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import io.github.fallout015.two.Two;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.AbstractTopPlantBlock;
 import net.minecraft.block.Block;
@@ -99,6 +98,7 @@ public class CattailsTopBlock extends AbstractTopPlantBlock implements ILiquidCo
 	protected int getGrowthAmount(Random rand) {
 		return 1;
 	}
+	@SuppressWarnings("deprecation")
 	@Override
 	protected boolean canGrowIn(BlockState state) {
 		return state.isIn(Blocks.WATER) || state.isAir();

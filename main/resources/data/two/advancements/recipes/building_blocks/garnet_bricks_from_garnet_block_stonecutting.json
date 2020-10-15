@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:garnet_bricks_from_garnet_block_stonecutting"
+    ]
+  },
+  "criteria": {
+    "garnet_bricks_from_garnet_block_stonecutting": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:garnet_block"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:garnet_bricks_from_garnet_block_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "garnet_bricks_from_garnet_block_stonecutting",
+      "has_the_recipe"
+    ]
+  ]
+}

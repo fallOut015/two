@@ -37,14 +37,15 @@ public class RecipeProviderTwo extends RecipeProvider {
 //			consumerIn
 //		);
 		
-//		buildChiseledBlockRecipes(ItemsTwo.CHISELED_NETHERITE_BLOCK, ItemsTwo.NETHERITE_SLAB, Items.NETHERITE_BRICKS, ItemsTwo.NETHERITE_PILLAR, consumerIn);
-//		buildPillarRecipes(ItemsTwo.NETHERITE_PILLAR, Items.NETHERITE_BRICKS, ItemsTwo.CHISELED_NETHERITE_BLOCK, consumerIn);
-//		buildOreStairRecipes(ItemsTwo.NETHERITE_STAIRS, ItemsTwo.CHISELED_NETHERITE_BLOCK, Items.NETHERITE_BRICKS, ItemsTwo.NETHERITE_PILLAR, consumerIn);
-//		buildOreSlabRecipes(ItemsTwo.NETHERITE_SLAB, ItemsTwo.CHISELED_NETHERITE_BLOCK, Items.NETHERITE_BRICKS, ItemsTwo.NETHERITE_PILLAR, consumerIn);
-//		buildSmeltingRecipe(ItemsTwo.SMOOTH_NETHERITE, Items.NETHERITE_BRICKS, 0.1f, 200, consumerIn);
-//		buildSmoothOreStairRecipes(ItemsTwo.SMOOTH_NETHERITE_STAIRS, ItemsTwo.SMOOTH_NETHERITE, consumerIn);
-//		buildSmoothOreSlabRecipes(ItemsTwo.SMOOTH_NETHERITE_SLAB, ItemsTwo.SMOOTH_NETHERITE, consumerIn);
-//		buildOreBricksRecipes(ItemsTwo.NETHERITE_BRICKS, Items.NETHERITE_BRICKS, consumerIn);
+//		buildBlockOfRecipe(ItemsTwo.LEAD_BLOCK, ItemsTwo.LEAD_INGOT, consumerIn);
+//		buildChiseledBlockRecipes(ItemsTwo.CHISELED_LEAD_BLOCK, ItemsTwo.LEAD_SLAB, ItemsTwo.LEAD_BLOCK, ItemsTwo.LEAD_PILLAR, consumerIn);
+//		buildPillarRecipes(ItemsTwo.LEAD_PILLAR, ItemsTwo.LEAD_BLOCK, ItemsTwo.CHISELED_LEAD_BLOCK, consumerIn);
+//		buildOreStairRecipes(ItemsTwo.LEAD_STAIRS, ItemsTwo.CHISELED_LEAD_BLOCK, ItemsTwo.LEAD_BLOCK, ItemsTwo.LEAD_PILLAR, consumerIn);
+//		buildOreSlabRecipes(ItemsTwo.LEAD_SLAB, ItemsTwo.CHISELED_LEAD_BLOCK, ItemsTwo.LEAD_BLOCK, ItemsTwo.LEAD_PILLAR, consumerIn);
+//		buildSmeltingRecipe(ItemsTwo.SMOOTH_LEAD, ItemsTwo.LEAD_BLOCK, 0.1f, 200, consumerIn);
+//		buildSmoothOreStairRecipes(ItemsTwo.SMOOTH_LEAD_STAIRS, ItemsTwo.SMOOTH_LEAD, consumerIn);
+//		buildSmoothOreSlabRecipes(ItemsTwo.SMOOTH_LEAD_SLAB, ItemsTwo.SMOOTH_LEAD, consumerIn);
+//		buildOreBricksRecipes(ItemsTwo.LEAD_BRICKS, ItemsTwo.LEAD_BLOCK, consumerIn);
 	}
 	
 	public static void buildFenceRecipe(IItemProvider result, IItemProvider base, Consumer<IFinishedRecipe> consumerIn) {
@@ -510,6 +511,17 @@ public class RecipeProviderTwo extends RecipeProvider {
 			.patternLine("X X")
 			.key('X', base)
 			.addCriterion("has_" + horsearmor.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(advancementbase))
+		.build(consumerIn);
+	}
+	
+	public static void buildBlockOfRecipe(IItemProvider result, IItemProvider base,  Consumer<IFinishedRecipe> consumerIn) {
+		ShapedRecipeBuilder
+			.shapedRecipe(result)
+			.patternLine("###")
+			.patternLine("###")
+			.patternLine("###")
+			.key('#', base)
+			.addCriterion("has_" + base.asItem().getRegistryName().getPath(), InventoryChangeTrigger.Instance.forItems(base))
 		.build(consumerIn);
 	}
 }

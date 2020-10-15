@@ -486,8 +486,27 @@ public class BlocksTwo {
 	public static final Block JADE_BLOCK = register("jade_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GREEN).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block OPAL_BLOCK = register("opal_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_BLUE).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block TANZANITE_BLOCK = register("tanzanite_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.BLUE).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
+	
 	public static final Block GARNET_BLOCK = register("garnet_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.PINK).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
+	public static final Block CHISELED_GARNET_BLOCK = register("chiseled_garnet_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.PINK).hardnessAndResistance(0.8F)));
+	public static final Block GARNET_PILLAR = register("garnet_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.PINK).hardnessAndResistance(0.8F)));
+	public static final Block GARNET_STAIRS = register("garnet_stairs", new StairsBlock(GARNET_BLOCK::getDefaultState, Block.Properties.from(GARNET_BLOCK)));
+	public static final Block GARNET_SLAB = register("garnet_slab", new SlabBlock(Block.Properties.create(Material.IRON, MaterialColor.PINK).hardnessAndResistance(5.0F, 6.0F)));
+	public static final Block SMOOTH_GARNET = register("smooth_garnet", new Block(Block.Properties.create(Material.IRON, MaterialColor.PINK).hardnessAndResistance(5.0F, 6.0F)));
+	public static final Block SMOOTH_GARNET_STAIRS = register("smooth_garnet_stairs", new StairsBlock(SMOOTH_GARNET::getDefaultState, Block.Properties.from(SMOOTH_GARNET)));
+	public static final Block SMOOTH_GARNET_SLAB = register("smooth_garnet_slab", new SlabBlock(Block.Properties.from(SMOOTH_GARNET)));
+	public static final Block GARNET_BRICKS = register("garnet_bricks", new Block(AbstractBlock.Properties.from(GARNET_BLOCK)));
+
 	public static final Block TOPAZ_BLOCK = register("topaz_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.YELLOW).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
+	public static final Block CHISELED_TOPAZ_BLOCK = register("chiseled_topaz_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.YELLOW).hardnessAndResistance(0.8F)));
+	public static final Block TOPAZ_PILLAR = register("topaz_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.YELLOW).hardnessAndResistance(0.8F)));
+	public static final Block TOPAZ_STAIRS = register("topaz_stairs", new StairsBlock(TOPAZ_BLOCK::getDefaultState, Block.Properties.from(TOPAZ_BLOCK)));
+	public static final Block TOPAZ_SLAB = register("topaz_slab", new SlabBlock(Block.Properties.create(Material.IRON, MaterialColor.YELLOW).hardnessAndResistance(5.0F, 6.0F)));
+	public static final Block SMOOTH_TOPAZ = register("smooth_topaz", new Block(Block.Properties.create(Material.IRON, MaterialColor.YELLOW).hardnessAndResistance(5.0F, 6.0F)));
+	public static final Block SMOOTH_TOPAZ_STAIRS = register("smooth_topaz_stairs", new StairsBlock(SMOOTH_TOPAZ::getDefaultState, Block.Properties.from(SMOOTH_TOPAZ)));
+	public static final Block SMOOTH_TOPAZ_SLAB = register("smooth_topaz_slab", new SlabBlock(Block.Properties.from(SMOOTH_TOPAZ)));
+	public static final Block TOPAZ_BRICKS = register("topaz_bricks", new Block(AbstractBlock.Properties.from(TOPAZ_BLOCK)));
+
 	public static final Block SAPPHIRE_BLOCK = register("sapphire_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.BLUE_TERRACOTTA).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block RUBY_BLOCK = register("ruby_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.RED_TERRACOTTA).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block CELESTIUM_BLOCK = register("celestium_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_BLUE).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
@@ -505,13 +524,33 @@ public class BlocksTwo {
 	public static final Block NIDAVELLIR_URU_ORE = register("nidavellir_uru_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(9).harvestTool(ToolType.PICKAXE)));
 	// TODO remove copper and amethyst ores... :(
 	public static final Block TALC_BLOCK = register("talc_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.SNOW).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
+
 	public static final Block LEAD_BLOCK = register("lead_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
+	public static final Block CHISELED_LEAD_BLOCK = register("chiseled_lead_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY).hardnessAndResistance(0.8F)));
+	public static final Block LEAD_PILLAR = register("lead_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY).hardnessAndResistance(0.8F)));
+	public static final Block LEAD_STAIRS = register("lead_stairs", new StairsBlock(LEAD_BLOCK::getDefaultState, Block.Properties.from(LEAD_BLOCK)));
+	public static final Block LEAD_SLAB = register("lead_slab", new SlabBlock(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY).hardnessAndResistance(5.0F, 6.0F)));
+	public static final Block SMOOTH_LEAD = register("smooth_lead", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY).hardnessAndResistance(5.0F, 6.0F)));
+	public static final Block SMOOTH_LEAD_STAIRS = register("smooth_lead_stairs", new StairsBlock(SMOOTH_LEAD::getDefaultState, Block.Properties.from(SMOOTH_LEAD)));
+	public static final Block SMOOTH_LEAD_SLAB = register("smooth_lead_slab", new SlabBlock(Block.Properties.from(SMOOTH_LEAD)));
+	public static final Block LEAD_BRICKS = register("lead_bricks", new Block(AbstractBlock.Properties.from(LEAD_BLOCK)));
+
 	public static final Block TIN_BLOCK = register("tin_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block ALUMINUM_BLOCK = register("aluminum_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block SILVER_BLOCK = register("silver_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GRAY_TERRACOTTA).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block COPPER_BLOCK = register("copper_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block PLATINUM_BLOCK = register("platinum_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY_TERRACOTTA).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
-	public static final Block TITANIUM_BLOCK = register("titanium_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY_TERRACOTTA).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
+
+	public static final Block TITANIUM_BLOCK = register("titanium_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY_TERRACOTTA).hardnessAndResistance(15.0F, 16.0F).sound(SoundType.METAL)));
+	public static final Block CHISELED_TITANIUM_BLOCK = register("chiseled_titanium_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY_TERRACOTTA).hardnessAndResistance(0.8F)));
+	public static final Block TITANIUM_PILLAR = register("titanium_pillar", new RotatedPillarBlock(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY_TERRACOTTA).hardnessAndResistance(0.8F)));
+	public static final Block TITANIUM_STAIRS = register("titanium_stairs", new StairsBlock(TITANIUM_BLOCK::getDefaultState, Block.Properties.from(TITANIUM_BLOCK)));
+	public static final Block TITANIUM_SLAB = register("titanium_slab", new SlabBlock(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY_TERRACOTTA).hardnessAndResistance(5.0F, 6.0F)));
+	public static final Block SMOOTH_TITANIUM = register("smooth_titanium", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY_TERRACOTTA).hardnessAndResistance(5.0F, 6.0F)));
+	public static final Block SMOOTH_TITANIUM_STAIRS = register("smooth_titanium_stairs", new StairsBlock(SMOOTH_TITANIUM::getDefaultState, Block.Properties.from(SMOOTH_TITANIUM)));
+	public static final Block SMOOTH_TITANIUM_SLAB = register("smooth_titanium_slab", new SlabBlock(Block.Properties.from(SMOOTH_TITANIUM)));
+	public static final Block TITANIUM_BRICKS = register("titanium_bricks", new Block(AbstractBlock.Properties.from(TITANIUM_BLOCK)));
+
 	public static final Block PYRITE_BLOCK = register("pyrite_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GOLD).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block STARSTONE_BLOCK = register("starstone_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GOLD).hardnessAndResistance(5.0f, 6.0f).sound(SoundType.METAL).setLightLevel(state -> 15)));
 	public static final Block URU_BLOCK = register("uru_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.IRON).hardnessAndResistance(5.0f, 6.0f).sound(SoundType.METAL)));

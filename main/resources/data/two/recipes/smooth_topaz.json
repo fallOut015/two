@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "two:topaz_block"
+  },
+  "result": "two:smooth_topaz",
+  "experience": 0.1,
+  "cookingtime": 200
+}

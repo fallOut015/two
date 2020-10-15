@@ -301,8 +301,27 @@ public class ItemsTwo {
 	public static final Item JADE_BLOCK = register(BlocksTwo.JADE_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item OPAL_BLOCK = register(BlocksTwo.OPAL_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item TANZANITE_BLOCK = register(BlocksTwo.TANZANITE_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
 	public static final Item GARNET_BLOCK = register(BlocksTwo.GARNET_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item CHISELED_GARNET_BLOCK = register(BlocksTwo.CHISELED_GARNET_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item GARNET_PILLAR = register(BlocksTwo.GARNET_PILLAR, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item GARNET_STAIRS = register(BlocksTwo.GARNET_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item GARNET_SLAB = register(BlocksTwo.GARNET_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_GARNET = register(BlocksTwo.SMOOTH_GARNET, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_GARNET_STAIRS = register(BlocksTwo.SMOOTH_GARNET_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_GARNET_SLAB = register(BlocksTwo.SMOOTH_GARNET_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item GARNET_BRICKS = register(BlocksTwo.GARNET_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+
 	public static final Item TOPAZ_BLOCK = register(BlocksTwo.TOPAZ_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item CHISELED_TOPAZ_BLOCK = register(BlocksTwo.CHISELED_TOPAZ_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item TOPAZ_PILLAR = register(BlocksTwo.TOPAZ_PILLAR, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item TOPAZ_STAIRS = register(BlocksTwo.TOPAZ_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item TOPAZ_SLAB = register(BlocksTwo.TOPAZ_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_TOPAZ = register(BlocksTwo.SMOOTH_TOPAZ, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_TOPAZ_STAIRS = register(BlocksTwo.SMOOTH_TOPAZ_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_TOPAZ_SLAB = register(BlocksTwo.SMOOTH_TOPAZ_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item TOPAZ_BRICKS = register(BlocksTwo.TOPAZ_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+
 	public static final Item SAPPHIRE_BLOCK = register(BlocksTwo.SAPPHIRE_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item RUBY_BLOCK = register(BlocksTwo.RUBY_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item CELESTIUM_BLOCK = register(BlocksTwo.CELESTIUM_BLOCK, new Item.Properties()/*.group(ItemGroup.BUILDING_BLOCKS)*/);
@@ -320,13 +339,33 @@ public class ItemsTwo {
 	public static final Item NIDAVELLIR_URU_ORE = register(BlocksTwo.NIDAVELLIR_URU_ORE, new Item.Properties()/*.group(ItemGroup.BUILDING_BLOCKS)*/);
 	
 	public static final Item TALC_BLOCK = register(BlocksTwo.TALC_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
 	public static final Item LEAD_BLOCK = register(BlocksTwo.LEAD_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item CHISELED_LEAD_BLOCK = register(BlocksTwo.CHISELED_LEAD_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LEAD_PILLAR = register(BlocksTwo.LEAD_PILLAR, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LEAD_STAIRS = register(BlocksTwo.LEAD_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LEAD_SLAB = register(BlocksTwo.LEAD_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_LEAD = register(BlocksTwo.SMOOTH_LEAD, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_LEAD_STAIRS = register(BlocksTwo.SMOOTH_LEAD_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_LEAD_SLAB = register(BlocksTwo.SMOOTH_LEAD_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item LEAD_BRICKS = register(BlocksTwo.LEAD_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+
 	public static final Item TIN_BLOCK = register(BlocksTwo.TIN_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item ALUMINUM_BLOCK = register(BlocksTwo.ALUMINUM_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item SILVER_BLOCK = register(BlocksTwo.SILVER_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item COPPER_BLOCK = register(BlocksTwo.COPPER_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item PLATINUM_BLOCK = register(BlocksTwo.PLATINUM_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	
 	public static final Item TITANIUM_BLOCK = register(BlocksTwo.TITANIUM_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item CHISELED_TITANIUM_BLOCK = register(BlocksTwo.CHISELED_TITANIUM_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item TITANIUM_PILLAR = register(BlocksTwo.TITANIUM_PILLAR, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item TITANIUM_STAIRS = register(BlocksTwo.TITANIUM_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item TITANIUM_SLAB = register(BlocksTwo.TITANIUM_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_TITANIUM = register(BlocksTwo.SMOOTH_TITANIUM, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_TITANIUM_STAIRS = register(BlocksTwo.SMOOTH_TITANIUM_STAIRS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item SMOOTH_TITANIUM_SLAB = register(BlocksTwo.SMOOTH_TITANIUM_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+	public static final Item TITANIUM_BRICKS = register(BlocksTwo.TITANIUM_BRICKS, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
+
 	public static final Item PYRITE_BLOCK = register(BlocksTwo.PYRITE_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item STARSTONE_BLOCK = register(BlocksTwo.STARSTONE_BLOCK, new Item.Properties()/*.group(ItemGroup.BUILDING_BLOCKS)*/);
 	public static final Item URU_BLOCK = register(BlocksTwo.URU_BLOCK, new Item.Properties()/*.group(ItemGroup.BUILDING_BLOCKS)*/);

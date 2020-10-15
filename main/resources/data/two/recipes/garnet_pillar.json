@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "two:garnet_block"
+    }
+  },
+  "result": {
+    "item": "two:garnet_pillar"
+  }
+}

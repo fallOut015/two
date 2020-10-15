@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:smooth_garnet_slab_from_smooth_garnet_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_smooth_garnet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:smooth_garnet"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:smooth_garnet_slab_from_smooth_garnet_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_smooth_garnet",
+      "has_the_recipe"
+    ]
+  ]
+}

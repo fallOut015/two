@@ -1,7 +1,7 @@
 {
-	"variants" : {
-    	"" : {
-			"model" : "two:block/topaz_block"
-		}
-	}
+  "variants": {
+    "": {
+      "model": "two:block/topaz_block"
+    }
+  }
 }

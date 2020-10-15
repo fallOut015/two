@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "two:titanium_block"
+  },
+  "result": "two:smooth_titanium",
+  "experience": 0.1,
+  "cookingtime": 200
+}

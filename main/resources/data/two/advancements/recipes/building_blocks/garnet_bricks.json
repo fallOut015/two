@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:garnet_bricks"
+    ]
+  },
+  "criteria": {
+    "garnet_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:garnet_block"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:garnet_bricks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "garnet_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

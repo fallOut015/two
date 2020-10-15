@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "two:topaz_block"
+  },
+  "result": "two:topaz_pillar",
+  "count": 1
+}

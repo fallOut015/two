@@ -17,13 +17,11 @@ public class DataGeneratorTwo {
 //				gen.addProvider(new BlockStateProviderTwo(gen));
 //				gen.addProvider(new LanguageProviderTwo(gen));
 //				gen.addProvider(new ItemModelProviderTwo(gen));
-				// item model gen
 			}
 			
 			if(event.includeServer()) {
 //				gen.addProvider(new LootTableProviderTwo(gen));
 //				gen.addProvider(new RecipeProviderTwo(gen));
-				
 				// tag
 			}
 		}		

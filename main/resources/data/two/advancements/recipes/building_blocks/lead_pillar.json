@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:lead_pillar"
+    ]
+  },
+  "criteria": {
+    "has_chiseled_lead_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:chiseled_lead_block"
+          }
+        ]
+      }
+    },
+    "has_lead_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:lead_block"
+          }
+        ]
+      }
+    },
+    "has_lead_pillar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:lead_pillar"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:lead_pillar"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_chiseled_lead_block",
+      "has_lead_block",
+      "has_lead_pillar",
+      "has_the_recipe"
+    ]
+  ]
+}
