@@ -685,8 +685,9 @@ public class ItemsTwo {
     public static final Item JUNGLE_HORSE_ARMOR = register("jungle_horse_armor", new HorseArmorItem(2, "jungle", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
     public static final Item ACACIA_HORSE_ARMOR = register("acacia_horse_armor", new HorseArmorItem(2, "acacia", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
     public static final Item DARK_OAK_HORSE_ARMOR = register("dark_oak_horse_armor", new HorseArmorItem(2, "dark_oak", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
-    // crimson horse armor
-    // warped horse armor
+    public static final Item CRIMSON_HORSE_ARMOR = register("crimson_horse_armor", new HorseArmorItem(2, "crimson", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+    public static final Item WARPED_HORSE_ARMOR = register("warped_horse_armor", new HorseArmorItem(2, "warped", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC)))); // TODO fireproof
+
     public static final Item CHERRY_HORSE_ARMOR = register("cherry_horse_armor", new HorseArmorItem(2, "cherry", new Item.Properties().maxStackSize(1)/*.group(ItemGroup.MISC)*/));
     public static final Item MAPLE_HORSE_ARMOR = register("maple_horse_armor", new HorseArmorItem(2, "maple", new Item.Properties().maxStackSize(1)/*.group(ItemGroup.MISC)*/));
     public static final Item GHOSTWOOD_HORSE_ARMOR = register("ghostwood_horse_armor", new HorseArmorItem(2, "ghostwood", new Item.Properties().maxStackSize(1)/*.group(ItemGroup.MISC)*/));
