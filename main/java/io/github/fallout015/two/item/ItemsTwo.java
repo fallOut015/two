@@ -1192,10 +1192,10 @@ public class ItemsTwo {
     public static final Item BROWN_STAINED_WOODEN_LEGGINGS = register("brown_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.BROWN_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item BROWN_STAINED_WOODEN_BOOTS = register("brown_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.BROWN_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
 
-    public static final Item GREEN_STAINED_WOODEN_HELMET = register("green_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.WHITE_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item GREEN_STAINED_WOODEN_CHESTPLATE = register("green_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.WHITE_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item GREEN_STAINED_WOODEN_LEGGINGS = register("green_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.WHITE_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item GREEN_STAINED_WOODEN_BOOTS = register("green_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.WHITE_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GREEN_STAINED_WOODEN_HELMET = register("green_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.GREEN_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GREEN_STAINED_WOODEN_CHESTPLATE = register("green_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.GREEN_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GREEN_STAINED_WOODEN_LEGGINGS = register("green_stained_wooden_leggings", new ArmorItem(ArmorMaterialTwo.GREEN_STAINED_WOOD, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+    public static final Item GREEN_STAINED_WOODEN_BOOTS = register("green_stained_wooden_boots", new ArmorItem(ArmorMaterialTwo.GREEN_STAINED_WOOD, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));
 
     public static final Item RED_STAINED_WOODEN_HELMET = register("red_stained_wooden_helmet", new ArmorItem(ArmorMaterialTwo.RED_STAINED_WOOD, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item RED_STAINED_WOODEN_CHESTPLATE = register("red_stained_wooden_chestplate", new ArmorItem(ArmorMaterialTwo.RED_STAINED_WOOD, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
