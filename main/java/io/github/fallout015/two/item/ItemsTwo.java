@@ -911,7 +911,7 @@ public class ItemsTwo {
 	public static final Item MYRKYLITE_SICKLE = register("myrkylite_sickle", new SickleItem(ItemTierTwo.MYRKYLITE, 0, -3.0f, new Item.Properties()/*.group(ItemGroup.TOOLS)*/));
 	// TODO fix stats (damage should be 1 in the att modifiers)
 	
-	public static final Item SMITHING_HAMMER = register("smithing_hammer", new SmithingHammerItem(new Item.Properties().group(ItemGroup.TOOLS).defaultMaxDamage(100)));
+	public static final Item SMITHING_HAMMER = register("smithing_hammer", new SmithingHammerItem(new Item.Properties()/*.group(ItemGroup.TOOLS)*/.defaultMaxDamage(100)));
 	public static final Item HANDSAW = register("handsaw", new Item(new Item.Properties()/*.group(ItemGroup.TOOLS)*/));
 	public static final Item ROTATING_WRENCH = register("rotating_wrench", new RotatingWrenchItem(new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item NET = register("net", new NetItem(new Item.Properties().group(ItemGroup.TOOLS)));
