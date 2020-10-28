@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "stained_wooden_fence_gate",
+  "pattern": [
+    "###",
+    "#$#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:fence_gates/wooden"
+    },
+    "$": {
+      "item": "minecraft:lime_dye"
+    }
+  },
+  "result": {
+    "item": "two:lime_stained_wooden_fence_gate",
+    "count": 8
+  }
+}

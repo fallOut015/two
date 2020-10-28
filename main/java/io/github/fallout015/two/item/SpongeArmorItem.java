@@ -35,13 +35,18 @@ public class SpongeArmorItem extends ArmorItem {
 			// do checks for horse armor, return void if there's already a horse wearing any armor
 		}
 		
+//		int radius = 2;
+		
 		for(ItemStack itemStack : player.getArmorInventoryList()) {
+//			if(itemStack.getItem() instanceof SpongeArmorItem) {
+//				++ radius;
+//			}
 			if(itemStack.equals(stack, true)) {
 				break;
 			} else if(itemStack.getItem() instanceof SpongeArmorItem) {
 				return;
 			}
-		} // Only checks once even if you have more sponge armor. make a value that goes up that increases your absorbancy
+		}
 		// TODO
 		
 		if(player.isInWater()) {

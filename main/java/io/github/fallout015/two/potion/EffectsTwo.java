@@ -11,7 +11,7 @@ import net.minecraftforge.registries.ObjectHolder;
 
 @ObjectHolder("two")
 public class EffectsTwo {
-	public static final Effect FROSTY = register("frosty", (new EffectTwo(EffectType.HARMFUL, 14024703)).addAttributesModifier(Attributes.field_233821_d_, "e81d73be-7ee5-4811-b94b-d9eb3fb4c9cb", -1d, AttributeModifier.Operation.MULTIPLY_TOTAL));
+	public static final Effect FROSTY = register("frosty", (new EffectTwo(EffectType.HARMFUL, 14024703)).addAttributesModifier(Attributes.MOVEMENT_SPEED, "e81d73be-7ee5-4811-b94b-d9eb3fb4c9cb", -1d, AttributeModifier.Operation.MULTIPLY_TOTAL));
 	
 	public static void onEffectsRegistry(final RegistryEvent.Register<Effect> effectRegistryEvent) {
     	effectRegistryEvent.getRegistry().registerAll(Holder.EFFECTSTWO.toArray(new Effect[] {}));

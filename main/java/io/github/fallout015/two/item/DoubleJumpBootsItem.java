@@ -6,24 +6,24 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.world.World;
 
 public class DoubleJumpBootsItem extends ArmorItem {
-	private static final int EXTRA_JUMPS = 3;
-	
 	public DoubleJumpBootsItem(Properties builder) {
 		super(ArmorMaterialTwo.DOUBLE_JUMP_BOOTS, EquipmentSlotType.FEET, builder);
 	}
 	
 	@Override
 	public void onCreated(ItemStack stack, World worldIn, PlayerEntity playerIn) {
-		int jumps = EXTRA_JUMPS;
-		jumps += EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.BOUNDING, stack);
-		
-		CompoundNBT nbt = new CompoundNBT();
-		nbt.putInt("extrajumplimit", jumps);
-		nbt.putInt("jumps", 0);
-		playerIn.getArmorInventoryList().iterator().next().setTag(nbt);
+		stack.getOrCreateTag().putInt("jumps", 0);
+	}
+	
+	/**
+	 * 
+	 * @param ItemStack 
+	 * @return the number of times you can do a midair jump (no enchantments is 3, Bounding I is 4, Bounding II is 5, and Bounding III is 6
+	 */
+	public static int getJumpLimit(ItemStack stack) {
+		return 3 + EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.BOUNDING, stack);
 	}
 }

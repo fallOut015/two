@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:light_gray_stained_wooden_fence_gate"
+    ]
+  },
+  "criteria": {
+    "light_gray_stained_wooden_fence_gate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:light_gray_stained_wooden_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:light_gray_stained_wooden_fence_gate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "light_gray_stained_wooden_fence_gate",
+      "has_the_recipe"
+    ]
+  ]
+}

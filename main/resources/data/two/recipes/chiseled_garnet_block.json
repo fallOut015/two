@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "two:garnet_slab"
+    }
+  },
+  "result": {
+    "item": "two:chiseled_garnet_block"
+  }
+}

@@ -5,7 +5,10 @@ import io.github.fallout015.two.entity.passive.CrimpEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public class CrimpRenderer extends MobRenderer<CrimpEntity, CrimpModel<CrimpEntity>> {
 	public static final ResourceLocation TEXTURE = new ResourceLocation("two", "textures/entity/crimp.png");
 	

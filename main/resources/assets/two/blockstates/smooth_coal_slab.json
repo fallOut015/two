@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "two:block/smooth_coal_slab"
+    },
+    "type=double": {
+      "model": "two:block/smooth_coal"
+    },
+    "type=top": {
+      "model": "two:block/smooth_coal_slab_top"
+    }
+  }
+}

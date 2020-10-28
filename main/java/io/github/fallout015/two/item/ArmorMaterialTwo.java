@@ -19,8 +19,17 @@ public enum ArmorMaterialTwo implements IArmorMaterial {
 	RUBY("ruby", 0, new int[] {0, 0, 0, 0}, 0, SoundEventsTwo.ITEM_ARMOR_EQUIP_RUBY, 0.0f, 0, () -> {
 		return Ingredient.fromItems(ItemsTwo.RUBY);
 	}),
-	LEAD("lead", 0, new int[] {0, 0, 0, 0}, 0, SoundEventsTwo.ITEM_ARMOR_EQUIP_LEAD, 0.0f, 0, () -> {
+	LEAD("lead", 15, new int[] {2, 5, 6, 2}, 11, SoundEventsTwo.ITEM_ARMOR_EQUIP_LEAD, 0.0f, 0, () -> {
 		return Ingredient.fromItems(ItemsTwo.LEAD_INGOT);
+	}),
+	TITANIUM("titanium", 45, new int[] {2, 5, 6, 2}, 4, SoundEventsTwo.ITEM_ARMOR_EQUIP_TITANIUM, 3.0f, 0, () -> {
+		return Ingredient.fromItems(ItemsTwo.TITANIUM_INGOT);
+	}),
+	GARNET("garnet", 15, new int[] {2, 5, 6, 2}, 11, SoundEventsTwo.ITEM_ARMOR_EQUIP_GARNET, 0.0f, 0, () -> {
+		return Ingredient.fromItems(ItemsTwo.GARNET);
+	}),
+	TOPAZ("topaz", 15, new int[] {2, 5, 6, 2}, 11, SoundEventsTwo.ITEM_ARMOR_EQUIP_TOPAZ, 0.0f, 0, () -> {
+		return Ingredient.fromItems(ItemsTwo.TOPAZ);
 	}),
 	COPPER("copper", 16, new int[] {2, 5, 6, 2}, 0, SoundEventsTwo.ITEM_ARMOR_EQUIP_COPPER, 0.0f, 0, () -> {
 		return Ingredient.fromItems(ItemsTwo.COPPER_INGOT);
@@ -52,10 +61,10 @@ public enum ArmorMaterialTwo implements IArmorMaterial {
 		return Ingredient.fromItems(Items.DARK_OAK_PLANKS);
 	}),
 	CRIMSON("crimson", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_FUNGUS, 0.0f, 0, () -> {
-		return Ingredient.fromItems(Items.field_234798_v_);
+		return Ingredient.fromItems(Items.CRIMSON_PLANKS);
 	}),
 	WARPED("warped", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_FUNGUS, 0.0f, 0, () -> {
-		return Ingredient.fromItems(Items.field_234799_w_);
+		return Ingredient.fromItems(Items.WARPED_PLANKS);
 	}),
 	CHERRY("cherry", 5, new int[] {1, 2, 3, 1}, 10, SoundEventsTwo.ITEM_ARMOR_EQUIP_WOOD, 0.0f, 0, () -> {
 		return Ingredient.fromItems(ItemsTwo.CHERRY_PLANKS);
@@ -184,7 +193,7 @@ public enum ArmorMaterialTwo implements IArmorMaterial {
 		return Ingredient.fromItems(Items.OBSIDIAN);
 	}),
 	
-	DOUBLE_JUMP_BOOTS("double_jump_boots", 5, new int[] {2, 0, 0, 0}, 5, SoundEventsTwo.ITEM_ARMOR_EQUIP_DOUBLE_JUMP_BOOTS, 0.0f, 0, () -> {
+	DOUBLE_JUMP_BOOTS("double_jump_boots", 25, new int[] {2, 0, 0, 0}, 5, SoundEventsTwo.ITEM_ARMOR_EQUIP_DOUBLE_JUMP_BOOTS, 0.0f, 0, () -> {
 		return Ingredient.fromItems(Items.FEATHER);
 	}),
 	BEAMING_BOOTS("beaming_boots", 5, new int[] {2, 0, 0, 0}, 5, SoundEventsTwo.ITEM_ARMOR_EQUIP_BEAMING_BOOTS, 0.0f, 0, () -> {
@@ -241,7 +250,7 @@ public enum ArmorMaterialTwo implements IArmorMaterial {
 	    return this.toughness;
 	}
 	@Override
-	public float func_230304_f_() {
+	public float getKnockbackResistance() {
 		return this.knockbackResistance;
 	}
 }

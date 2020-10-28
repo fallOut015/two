@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:topaz_sickle"
+    ]
+  },
+  "criteria": {
+    "topaz_sickle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:topaz"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:topaz_sickle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "topaz_sickle",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -21,11 +21,11 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 
 public class SickleItem extends ToolItem {
-	private static final Set<Block> effectiveBlocksIn = ImmutableSet.of(Blocks.NETHER_WART_BLOCK, Blocks.field_235374_mn_, Blocks.HAY_BLOCK, Blocks.DRIED_KELP_BLOCK, Blocks.field_235396_nb_, Blocks.field_235383_mw_, Blocks.SPONGE, Blocks.WET_SPONGE, Blocks.JUNGLE_LEAVES, Blocks.OAK_LEAVES, Blocks.SPRUCE_LEAVES, Blocks.DARK_OAK_LEAVES, Blocks.ACACIA_LEAVES, Blocks.BIRCH_LEAVES); // TODO change to sickle effective blocks
+	private static final Set<Block> EFFECTIVE_ON_BLOCKS = ImmutableSet.of(Blocks.NETHER_WART_BLOCK, Blocks.WARPED_WART_BLOCK, Blocks.HAY_BLOCK, Blocks.DRIED_KELP_BLOCK, Blocks.TARGET, Blocks.SHROOMLIGHT, Blocks.SPONGE, Blocks.WET_SPONGE, Blocks.JUNGLE_LEAVES, Blocks.OAK_LEAVES, Blocks.SPRUCE_LEAVES, Blocks.DARK_OAK_LEAVES, Blocks.ACACIA_LEAVES, Blocks.BIRCH_LEAVES);
 	private static final Set<Block> CROPS = Sets.newHashSet(Blocks.WHEAT, Blocks.CARROTS, Blocks.POTATOES);
 
 	public SickleItem(IItemTier tier, int attackDamageIn, float attackSpeedIn, Item.Properties p_i48512_5_) {
-		super((float)attackDamageIn, attackSpeedIn, tier, effectiveBlocksIn, p_i48512_5_.addToolType(net.minecraftforge.common.ToolType.HOE, tier.getHarvestLevel())); // TODO add sickle
+		super((float)attackDamageIn, attackSpeedIn, tier, EFFECTIVE_ON_BLOCKS, p_i48512_5_.addToolType(net.minecraftforge.common.ToolType.HOE, tier.getHarvestLevel())); // TODO add sickle
 	}
 	
 	@Override

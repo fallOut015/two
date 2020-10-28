@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "XXX",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "tag": "forge:ingots/titanium"
+    }
+  },
+  "result": {
+    "item": "two:titanium_horse_armor"
+  }
+}

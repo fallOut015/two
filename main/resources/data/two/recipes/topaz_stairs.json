@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": [
+      {
+        "item": "two:chiseled_topaz_block"
+      },
+      {
+        "item": "two:topaz_block"
+      },
+      {
+        "item": "two:topaz_pillar"
+      }
+    ]
+  },
+  "result": {
+    "item": "two:topaz_stairs",
+    "count": 4
+  }
+}

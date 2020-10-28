@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:titanium_pickaxe"
+    ]
+  },
+  "criteria": {
+    "titanium_pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:titanium_ingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:titanium_pickaxe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "titanium_pickaxe",
+      "has_the_recipe"
+    ]
+  ]
+}

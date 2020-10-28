@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:smooth_topaz_slab_from_smooth_topaz_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_smooth_topaz": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:smooth_topaz"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:smooth_topaz_slab_from_smooth_topaz_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_smooth_topaz",
+      "has_the_recipe"
+    ]
+  ]
+}

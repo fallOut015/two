@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:brown_stained_wooden_chestplate"
+    ]
+  },
+  "criteria": {
+    "has_brown_stained_wooden_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:brown_stained_wooden_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:brown_stained_wooden_chestplate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_brown_stained_wooden_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

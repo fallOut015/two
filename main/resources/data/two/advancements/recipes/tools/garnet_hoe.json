@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:garnet_hoe"
+    ]
+  },
+  "criteria": {
+    "garnet_hoe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:garnet"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:garnet_hoe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "garnet_hoe",
+      "has_the_recipe"
+    ]
+  ]
+}

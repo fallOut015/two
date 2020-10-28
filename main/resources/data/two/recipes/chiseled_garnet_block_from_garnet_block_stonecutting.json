@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "two:garnet_block"
+  },
+  "result": "two:chiseled_garnet_block",
+  "count": 1
+}

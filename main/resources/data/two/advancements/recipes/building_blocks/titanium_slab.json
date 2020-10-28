@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:titanium_slab"
+    ]
+  },
+  "criteria": {
+    "has_chiseled_titanium_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:chiseled_titanium_block"
+          }
+        ]
+      }
+    },
+    "has_titanium_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:titanium_block"
+          }
+        ]
+      }
+    },
+    "has_titanium_pillar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:titanium_pillar"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:titanium_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_chiseled_titanium_block",
+      "has_titanium_block",
+      "has_titanium_pillar",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,9 +1,0 @@
-{
-  	"type": "minecraft:smelting",
-  	"ingredient": {
-  	  "item": "two:nether_amethyst_ore"
-  	},
-  	"result": "two:amethyst",
-  	"experience": 1.0,
-  	"cookingtime": 200
-}

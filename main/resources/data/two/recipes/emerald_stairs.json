@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": [
+      {
+        "item": "two:chiseled_emerald_block"
+      },
+      {
+        "item": "minecraft:emerald_block"
+      },
+      {
+        "item": "two:emerald_pillar"
+      }
+    ]
+  },
+  "result": {
+    "item": "two:emerald_stairs",
+    "count": 4
+  }
+}

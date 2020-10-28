@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "stained_wooden_fence",
+  "pattern": [
+    "###",
+    "#$#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:fences/wooden"
+    },
+    "$": {
+      "item": "minecraft:light_blue_dye"
+    }
+  },
+  "result": {
+    "item": "two:light_blue_stained_wooden_fence",
+    "count": 8
+  }
+}

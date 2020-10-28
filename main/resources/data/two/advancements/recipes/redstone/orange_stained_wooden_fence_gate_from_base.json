@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:orange_stained_wooden_fence_gate_from_base"
+    ]
+  },
+  "criteria": {
+    "orange_stained_wooden_fence_gate_from_base": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:fence_gates/wooden"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:orange_stained_wooden_fence_gate_from_base"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "orange_stained_wooden_fence_gate_from_base",
+      "has_the_recipe"
+    ]
+  ]
+}

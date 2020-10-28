@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "two:lead_block"
+  },
+  "result": "two:lead_stairs",
+  "count": 1
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "two:smooth_redstone"
+  },
+  "result": "two:smooth_redstone_slab",
+  "count": 2
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "two:block/chiseled_garnet_block_top",
+    "side": "two:block/chiseled_garnet_block"
+  }
+}

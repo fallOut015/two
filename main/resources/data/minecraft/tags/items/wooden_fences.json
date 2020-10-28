@@ -6,6 +6,23 @@
 		"two:ghostwood_fence",
     	"two:cloudwood_fence",
 		"two:blackbark_fence",
-    	"two:frostbark_fence"
+    	"two:frostbark_fence",
+
+		"two:white_stained_wooden_fence",
+		"two:orange_stained_wooden_fence",
+		"two:magenta_stained_wooden_fence",
+		"two:light_blue_stained_wooden_fence",
+		"two:yellow_stained_wooden_fence",
+		"two:lime_stained_wooden_fence",
+		"two:pink_stained_wooden_fence",
+		"two:gray_stained_wooden_fence",
+		"two:light_gray_stained_wooden_fence",
+		"two:cyan_stained_wooden_fence",
+		"two:purple_stained_wooden_fence",
+		"two:blue_stained_wooden_fence",
+		"two:brown_stained_wooden_fence",
+		"two:green_stained_wooden_fence",
+		"two:red_stained_wooden_fence",
+		"two:black_stained_wooden_fence"
   	]
 }

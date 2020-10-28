@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:pink_stained_wooden_chestplate"
+    ]
+  },
+  "criteria": {
+    "has_pink_stained_wooden_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:pink_stained_wooden_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:pink_stained_wooden_chestplate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pink_stained_wooden_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

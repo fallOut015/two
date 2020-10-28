@@ -27,11 +27,11 @@ public class BanisherItem extends Item implements IVanishable {
 
 	public BanisherItem(Properties properties) {
 		super(properties);
-		this.attackDamage = 0.5f;
+		this.attackDamage = 0f;
 		float attackSpeedIn = -3.5f;
 		Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-	    builder.put(Attributes.field_233823_f_, new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.attackDamage, AttributeModifier.Operation.ADDITION));
-	    builder.put(Attributes.field_233825_h_, new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)attackSpeedIn, AttributeModifier.Operation.ADDITION));
+	    builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.attackDamage, AttributeModifier.Operation.ADDITION));
+	    builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double)attackSpeedIn, AttributeModifier.Operation.ADDITION));
 	    this.modifiers = builder.build();
 	}
 	
@@ -54,7 +54,7 @@ public class BanisherItem extends Item implements IVanishable {
 		if(entity instanceof LivingEntity) {
 			stack.hitEntity((LivingEntity) entity, player);
 			if((player).getCooledAttackStrength(0.5f) == 1f) {
-				((LivingEntity) entity).func_233627_a_(2 * (EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.DISTANCE, stack) + 1), -(entity.prevPosX - player.prevPosX), -(entity.prevPosZ - player.prevPosZ));
+				((LivingEntity) entity).applyKnockback(2 * (EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.DISTANCE, stack) + 1), -(entity.prevPosX - player.prevPosX), -(entity.prevPosZ - player.prevPosZ));
 				entity.world.addParticle(ParticleTypes.EXPLOSION, entity.getPosX(), entity.getPosY(), entity.getPosZ(), -(entity.prevPosX - player.prevPosX), -0.1, -(entity.prevPosZ - player.prevPosZ));
 				stack.damageItem(4, player, livingEntityIn -> livingEntityIn.sendBreakAnimation(EquipmentSlotType.MAINHAND));
 				return true;

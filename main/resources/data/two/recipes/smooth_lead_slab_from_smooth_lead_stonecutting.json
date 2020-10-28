@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "two:smooth_lead"
+  },
+  "result": "two:smooth_lead_slab",
+  "count": 2
+}

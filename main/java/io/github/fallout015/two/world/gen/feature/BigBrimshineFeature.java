@@ -47,7 +47,7 @@ public class BigBrimshineFeature extends AbstractBigMushroomFeature {
 	            	for(int l = -k; l <= k; ++l) {
 	            		for(int i1 = -k; i1 <= k; ++i1) {
 	            			BlockState blockstate = p_227209_1_.getBlockState(p_227209_4_.setPos(p_227209_2_).move(l, j, i1));
-	            			if (!blockstate.isAir(p_227209_1_, p_227209_4_) && !blockstate.func_235714_a_(BlockTags.LEAVES)) {
+	            			if (!blockstate.isAir(p_227209_1_, p_227209_4_) && !blockstate.isIn(BlockTags.LEAVES)) {
 	            				return false;
 	            			}
 	            		}

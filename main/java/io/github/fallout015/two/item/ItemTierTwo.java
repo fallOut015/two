@@ -24,13 +24,13 @@ public enum ItemTierTwo implements IItemTier {
 	TANZANITE(2, 1000, 8.0f, 3.0f, 20, () -> { // Overworld, savanna biomes. 
 		return Ingredient.fromItems(ItemsTwo.TANZANITE);
 	}),
-	AMETHYST(3, 1810, 7.0f, 3.0f, 6, () -> { // Nether
-		return Ingredient.fromItems(ItemsTwo.AMETHYST);
+	AMETHYST(3, 1810, 7.0f, 3.0f, 6, () -> {
+		return Ingredient.fromItems(ItemsTwo.ABADDON); // TODO change to minecraft amethyst when 1.17 releases
 	}),
-	GARNET(3, 1650, 7.0f, 3.0f, 7, () -> { // Nether
+	GARNET(2, 650, 8.0f, 3.0f, 17, () -> { // Nether
 		return Ingredient.fromItems(ItemsTwo.GARNET);
 	}),
-	TOPAZ(3, 1675, 7.0f, 3.0f, 8, () -> { // Nether
+	TOPAZ(2, 675, 8.0f, 2.0f, 18, () -> { // Nether
 		return Ingredient.fromItems(ItemsTwo.TOPAZ);
 	}),
 	SAPPHIRE(6, 5600, 10.0f, 6.0f, 10, () -> { // End
@@ -46,7 +46,7 @@ public enum ItemTierTwo implements IItemTier {
 	TALC(0, 0, 100.0f, 1.0f, 0, () -> { // Talcum poisoning effect. Overworld
 		return Ingredient.fromItems(ItemsTwo.TALC);
 	}),
-	LEAD(1, 131, 5.0f, 2.0f, 14, () -> { // Lead poisoning effect. Nether
+	LEAD(2, 131, 8.0f, 2.0f, 18, () -> { // Lead poisoning effect. Nether
 		return Ingredient.fromItems(ItemsTwo.LEAD_INGOT);
 	}),
 	TIN(1, 250, 6.0f, 2.0f, 5, () -> { // Overworld
@@ -64,7 +64,7 @@ public enum ItemTierTwo implements IItemTier {
 	PLATINUM(5, 1905, 7.0f, 4.0f, 10, () -> { // End
 		return Ingredient.fromItems(ItemsTwo.PLATINUM_INGOT);
 	}),
-	TITANIUM(4, 1810, 6.0f, 3.0f, 15, () -> { // Nether
+	TITANIUM(3, 5810, 7.0f, 2.0f, 15, () -> { // Nether
 		return Ingredient.fromItems(ItemsTwo.TITANIUM_INGOT);
 	}),
 	PYRITE(0, 32, 12.0F, 0.0F, 22, () -> { // Behaves like gold. Overworld

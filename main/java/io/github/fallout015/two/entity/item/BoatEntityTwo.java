@@ -651,7 +651,7 @@ public class BoatEntityTwo extends Entity {
 			double d2 = (double)blockpos.getY() + this.world.func_242403_h(blockpos);
 			double d3 = (double)blockpos.getY() + this.world.func_242403_h(blockpos1);
 
-			for(Pose pose : p_230268_1_.func_230297_ef_()) {
+			for(Pose pose : p_230268_1_.getAvailablePoses()) {
 	            Vector3d vector3d1 = TransportationHelper.func_242381_a(this.world, d0, d2, d1, p_230268_1_, pose);
 	            if (vector3d1 != null) {
 	            	p_230268_1_.setPose(pose);
@@ -734,7 +734,7 @@ public class BoatEntityTwo extends Entity {
 				}
 
 	            this.fallDistance = 0.0F;
-			} else if (!this.world.getFluidState(this.func_233580_cy_().down()).isTagged(FluidTags.WATER) && y < 0.0D) {
+			} else if (!this.world.getFluidState(this.getOnPosition().down()).isTagged(FluidTags.WATER) && y < 0.0D) {
 				this.fallDistance = (float)((double)this.fallDistance - y);
 			}
 		}
@@ -833,8 +833,8 @@ public class BoatEntityTwo extends Entity {
 	}
 
 	public static enum Type {
-		CRIMSON(Blocks.field_235344_mC_, "crimson"),
-		WARPED(Blocks.field_235345_mD_, "warped");
+		CRIMSON(Blocks.CRIMSON_PLANKS, "crimson"),
+		WARPED(Blocks.WARPED_PLANKS, "warped");
 
 		private final String name;
 		private final Block block;

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "two:block/smooth_garnet",
+    "top": "two:block/smooth_garnet",
+    "side": "two:block/smooth_garnet"
+  }
+}

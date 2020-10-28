@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_boots",
+  "pattern": [
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "two:brown_stained_wooden_planks"
+    }
+  },
+  "result": {
+    "item": "two:brown_stained_wooden_boots"
+  }
+}

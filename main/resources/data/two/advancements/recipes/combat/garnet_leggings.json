@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:garnet_leggings"
+    ]
+  },
+  "criteria": {
+    "has_garnet_leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:garnet"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:garnet_leggings"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_garnet_leggings",
+      "has_the_recipe"
+    ]
+  ]
+}

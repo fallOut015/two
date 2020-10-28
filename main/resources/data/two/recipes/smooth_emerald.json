@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:emerald_block"
+  },
+  "result": "two:smooth_emerald",
+  "experience": 0.1,
+  "cookingtime": 200
+}

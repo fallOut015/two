@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "two:block/topaz_slab"
+    },
+    "type=double": {
+      "model": "two:block/topaz_block"
+    },
+    "type=top": {
+      "model": "two:block/topaz_slab_top"
+    }
+  }
+}

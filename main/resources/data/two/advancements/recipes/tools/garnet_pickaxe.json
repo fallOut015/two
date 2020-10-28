@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:garnet_pickaxe"
+    ]
+  },
+  "criteria": {
+    "garnet_pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:garnet"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:garnet_pickaxe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "garnet_pickaxe",
+      "has_the_recipe"
+    ]
+  ]
+}

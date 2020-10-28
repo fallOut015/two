@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:smooth_coal_stairs_from_smooth_coal_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_smooth_coal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:smooth_coal"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:smooth_coal_stairs_from_smooth_coal_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_smooth_coal",
+      "has_the_recipe"
+    ]
+  ]
+}

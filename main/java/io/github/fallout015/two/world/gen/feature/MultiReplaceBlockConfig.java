@@ -9,13 +9,13 @@ import net.minecraft.world.gen.feature.IFeatureConfig;
 public class MultiReplaceBlockConfig implements IFeatureConfig {
 	public static final Codec<MultiReplaceBlockConfig> CODEC = RecordCodecBuilder.create((instance) -> {
 		return instance.group(
-			BlockState.field_235877_b_.fieldOf("target1").forGetter((config) -> {
+			BlockState.CODEC.fieldOf("target1").forGetter((config) -> {
 			return config.target1;
-		}), BlockState.field_235877_b_.fieldOf("state1").forGetter((config) -> {
+		}), BlockState.CODEC.fieldOf("state1").forGetter((config) -> {
 			return config.state1;
-		}), BlockState.field_235877_b_.fieldOf("target2").forGetter((config) -> {
+		}), BlockState.CODEC.fieldOf("target2").forGetter((config) -> {
 			return config.target2;
-		}), BlockState.field_235877_b_.fieldOf("state2").forGetter((config) -> {
+		}), BlockState.CODEC.fieldOf("state2").forGetter((config) -> {
 			return config.state2;
 		})).apply(instance, MultiReplaceBlockConfig::new);
 	});

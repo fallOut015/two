@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:redstone_bricks_from_redstone_block_stonecutting"
+    ]
+  },
+  "criteria": {
+    "redstone_bricks_from_redstone_block_stonecutting": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:redstone_block"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:redstone_bricks_from_redstone_block_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "redstone_bricks_from_redstone_block_stonecutting",
+      "has_the_recipe"
+    ]
+  ]
+}

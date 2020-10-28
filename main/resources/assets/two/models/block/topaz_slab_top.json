@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "two:block/topaz_block",
+    "top": "two:block/topaz_block",
+    "side": "two:block/topaz_block"
+  }
+}

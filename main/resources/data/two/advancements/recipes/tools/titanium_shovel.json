@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:titanium_shovel"
+    ]
+  },
+  "criteria": {
+    "titanium_shovel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:titanium_ingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:titanium_shovel"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "titanium_shovel",
+      "has_the_recipe"
+    ]
+  ]
+}

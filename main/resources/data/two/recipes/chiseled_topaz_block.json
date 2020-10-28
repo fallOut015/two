@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "two:topaz_slab"
+    }
+  },
+  "result": {
+    "item": "two:chiseled_topaz_block"
+  }
+}

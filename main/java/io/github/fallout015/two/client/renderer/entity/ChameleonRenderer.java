@@ -37,7 +37,7 @@ public class ChameleonRenderer extends MobRenderer<ChameleonEntity, ChameleonMod
 	ResourceLocation blockOnResource(ChameleonEntity entity, BlockState blockStateIn) {
 		String location;
 		try {
-			TextureAtlasSprite texture = Minecraft.getInstance().getBlockRendererDispatcher().getBlockModelShapes().getModel(blockStateIn).getQuads(blockStateIn, Direction.UP, entity.getRNG()).get(0).func_187508_a();
+			TextureAtlasSprite texture = Minecraft.getInstance().getBlockRendererDispatcher().getBlockModelShapes().getModel(blockStateIn).getQuads(blockStateIn, Direction.UP, entity.getRNG()).get(0).getSprite();
 			location = texture.getName().getNamespace().replaceFirst("minecraft:", "") + ":textures/" + texture.getName().getPath() + ".png";
 		} catch(IndexOutOfBoundsException exception) {
 			location = "two:textures/entity/chameleon.png";
@@ -132,7 +132,7 @@ public class ChameleonRenderer extends MobRenderer<ChameleonEntity, ChameleonMod
 			this.entityModel.setRotationAngles(entityIn, f5, f8, f7, f2, f6);
 			boolean flag = this.isVisible(entityIn);
 			boolean flag1 = !flag && !entityIn.isInvisibleToPlayer(Minecraft.getInstance().player);
-			if(entityIn.getOn().getBlock().getTags().contains(Tags.Blocks.GLASS.func_230234_a_())) {
+			if(entityIn.getOn().getBlock().getTags().contains(Tags.Blocks.GLASS.getName())) {
 				flag1 = true;
 			}
 			RenderType rendertype = this.func_230496_a_(entityIn, flag, flag1, false); // udpate render code, the fourth "false" should be flag2 which controls outlines
@@ -152,7 +152,7 @@ public class ChameleonRenderer extends MobRenderer<ChameleonEntity, ChameleonMod
 			}
 
 			matrixStackIn.pop();
-			net.minecraftforge.client.event.RenderNameplateEvent renderNameplateEvent = new net.minecraftforge.client.event.RenderNameplateEvent(entityIn, entityIn.getDisplayName().func_230531_f_(), this, matrixStackIn, bufferIn, packedLightIn, partialTicks);
+			net.minecraftforge.client.event.RenderNameplateEvent renderNameplateEvent = new net.minecraftforge.client.event.RenderNameplateEvent(entityIn, entityIn.getDisplayName().copyRaw(), this, matrixStackIn, bufferIn, packedLightIn, partialTicks);
 			net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(renderNameplateEvent);
 			if (renderNameplateEvent.getResult() != net.minecraftforge.eventbus.api.Event.Result.DENY && (renderNameplateEvent.getResult() == net.minecraftforge.eventbus.api.Event.Result.ALLOW || this.canRenderName(entityIn))) {
 				this.renderName(entityIn, renderNameplateEvent.getContent(), matrixStackIn, bufferIn, packedLightIn);

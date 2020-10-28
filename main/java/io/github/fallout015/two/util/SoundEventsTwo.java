@@ -12,6 +12,9 @@ public class SoundEventsTwo {
 	@ObjectHolder("item.armor.equip_emerald") public static final SoundEvent ITEM_ARMOR_EQUIP_EMERALD = register("item.armor.equip_emerald");
 	@ObjectHolder("item.armor.equip_ruby") public static final SoundEvent ITEM_ARMOR_EQUIP_RUBY = register("item.armor.equip_ruby");
 	@ObjectHolder("item.armor.equip_lead") public static final SoundEvent ITEM_ARMOR_EQUIP_LEAD = register("item.armor.equip_lead");
+	@ObjectHolder("item.armor.equip_titanium") public static final SoundEvent ITEM_ARMOR_EQUIP_TITANIUM = register("item.armor.equip_titanium");
+	@ObjectHolder("item.armor.equip_garnet") public static final SoundEvent ITEM_ARMOR_EQUIP_GARNET = register("item.armor.equip_garnet");
+	@ObjectHolder("item.armor.equip_topaz") public static final SoundEvent ITEM_ARMOR_EQUIP_TOPAZ = register("item.armor.equip_topaz");
 	@ObjectHolder("item.armor.equip_copper") public static final SoundEvent ITEM_ARMOR_EQUIP_COPPER = register("item.armor.equip_copper");
 	
 	@ObjectHolder("item.armor.equip_stone") public static final SoundEvent ITEM_ARMOR_EQUIP_STONE = register("item.armor.equip_stone");
@@ -26,7 +29,8 @@ public class SoundEventsTwo {
 	@ObjectHolder("item.armor.equip_glowstone") public static final SoundEvent ITEM_ARMOR_EQUIP_GLOWSTONE = register("item.armor.equip_glowstone");
 	@ObjectHolder("item.armor.equip_obsidian") public static final SoundEvent ITEM_ARMOR_EQUIP_OBSIDIAN = register("item.armor.equip_obsidian");
 	
-	@ObjectHolder("item.armor.equip_double_jump_boots") public static final SoundEvent ITEM_ARMOR_EQUIP_DOUBLE_JUMP_BOOTS = register("item.armor.equip_double_jump_boots");
+	@ObjectHolder("item.armor.equip_double_jump_boots") public static final SoundEvent ITEM_ARMOR_EQUIP_DOUBLE_JUMP_BOOTS = register("item.armor.equip_double_jump_boots"); // also used for power up sound
+	@ObjectHolder("item.armor.off_double_jumps_boots") public static final SoundEvent ITEM_ARMOR_OFF_DOUBLE_JUMP_BOOTS = register("item.armor.off_double_jump_boots"); // used for when the double jump boots run out of double jumps
 	@ObjectHolder("item.armor.equip_beaming_boots") public static final SoundEvent ITEM_ARMOR_EQUIP_BEAMING_BOOTS = register("item.armor.equip_beaming_boots");
 	@ObjectHolder("item.armor.equip_slime_boots") public static final SoundEvent ITEM_ARMOR_EQUIP_SLIME_BOOTS = register("item.armor.equip_slime_boots");
 	@ObjectHolder("item.armor.equip_hermes_helmet") public static final SoundEvent ITEM_ARMOR_EQUIP_HERMES_HELMET = register("item.armor.equip_hermes_helmet");

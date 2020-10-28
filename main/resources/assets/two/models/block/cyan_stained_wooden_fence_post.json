@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "two:block/cyan_stained_wooden_planks"
+  }
+}

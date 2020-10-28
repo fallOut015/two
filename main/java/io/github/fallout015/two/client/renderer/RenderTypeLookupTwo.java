@@ -12,12 +12,12 @@ public class RenderTypeLookupTwo {
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.SUCCULIGHT, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.POTTED_SUCCULIGHT, RenderType.getCutout());
 
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.SPORESTONE_ROOTS, RenderType.getTranslucent());
+
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.NEONDOT, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.BRIMSHINE, RenderType.getCutout());
 
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.SHROOMGLOW_LANTERN, RenderType.getCutout());
-
-	    RenderTypeLookup.setRenderLayer(BlocksTwo.CRYSTAL, RenderType.getTranslucent());
 
 		RenderTypeLookup.setRenderLayer(BlocksTwo.CHERRY_SAPLING, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.MAPLE_SAPLING, RenderType.getCutout());
@@ -34,6 +34,9 @@ public class RenderTypeLookupTwo {
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_RAINBOW, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_RANDOM, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.DREAMCATCHER_SKY, RenderType.getCutout());
+
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.CATTAILS, RenderType.getCutout());
+	    RenderTypeLookup.setRenderLayer(BlocksTwo.CATTAILS_PLANT, RenderType.getCutout());
 
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.MAPLE_TAP, RenderType.getCutout());
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.ICE_SLIME_BLOCK, RenderType.getTranslucent());

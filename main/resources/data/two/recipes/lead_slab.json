@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": [
+      {
+        "item": "two:chiseled_lead_block"
+      },
+      {
+        "item": "two:lead_block"
+      },
+      {
+        "item": "two:lead_pillar"
+      }
+    ]
+  },
+  "result": {
+    "item": "two:lead_slab",
+    "count": 6
+  }
+}

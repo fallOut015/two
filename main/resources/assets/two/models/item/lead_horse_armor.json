@@ -1,6 +1,6 @@
 {
-    "parent" : "minecraft:item/generated",
-    "textures" : {
-        "layer0" : "two:item/lead_horse_armor"
-    }
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "two:item/lead_horse_armor"
+  }
 }

@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:chiseled_diamond_block"
+    ]
+  },
+  "criteria": {
+    "has_chiseled_diamond_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:chiseled_diamond_block"
+          }
+        ]
+      }
+    },
+    "has_diamond_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:diamond_block"
+          }
+        ]
+      }
+    },
+    "has_diamond_pillar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:diamond_pillar"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:chiseled_diamond_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_chiseled_diamond_block",
+      "has_diamond_block",
+      "has_diamond_pillar",
+      "has_the_recipe"
+    ]
+  ]
+}

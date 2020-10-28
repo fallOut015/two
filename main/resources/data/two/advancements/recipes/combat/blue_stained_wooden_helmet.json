@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:blue_stained_wooden_helmet"
+    ]
+  },
+  "criteria": {
+    "has_blue_stained_wooden_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:blue_stained_wooden_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:blue_stained_wooden_helmet"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_blue_stained_wooden_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

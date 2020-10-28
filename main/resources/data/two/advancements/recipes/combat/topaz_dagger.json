@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:topaz_dagger"
+    ]
+  },
+  "criteria": {
+    "topaz_dagger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:topaz"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:topaz_dagger"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "topaz_dagger",
+      "has_the_recipe"
+    ]
+  ]
+}

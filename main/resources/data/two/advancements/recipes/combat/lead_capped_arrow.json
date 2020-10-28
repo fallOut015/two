@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "has_lead_ingot": {
+    "lead_capped_arrow": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_lead_ingot",
+      "lead_capped_arrow",
       "has_the_recipe"
     ]
   ]

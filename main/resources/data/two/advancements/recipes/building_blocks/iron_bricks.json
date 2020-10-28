@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:iron_bricks"
+    ]
+  },
+  "criteria": {
+    "iron_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:iron_block"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:iron_bricks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "iron_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

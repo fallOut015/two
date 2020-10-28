@@ -38,7 +38,7 @@ public class CrimpEntity extends CreatureEntity {
 	}
 	
 	public static AttributeModifierMap.MutableAttribute applyAttributes() {
-		return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233821_d_, (double)0.15F).func_233815_a_(Attributes.field_233818_a_, 10.0D);
+		return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MOVEMENT_SPEED, (double)0.15F).createMutableAttribute(Attributes.MAX_HEALTH, 10.0D);
 	}
 	
 	public void setCurling(boolean value) {

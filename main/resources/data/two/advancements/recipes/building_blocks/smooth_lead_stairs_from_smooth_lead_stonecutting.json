@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:smooth_lead_stairs_from_smooth_lead_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_smooth_lead": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:smooth_lead"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:smooth_lead_stairs_from_smooth_lead_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_smooth_lead",
+      "has_the_recipe"
+    ]
+  ]
+}

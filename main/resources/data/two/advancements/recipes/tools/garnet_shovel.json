@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:garnet_shovel"
+    ]
+  },
+  "criteria": {
+    "garnet_shovel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:garnet"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:garnet_shovel"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "garnet_shovel",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -10,7 +10,7 @@
       		"tag" : "minecraft:planks"
     	},
     	"X" : {
-    		"tag" : "forge:cobblestone"
+    		"tag" : "minecraft:stone_tool_materials"
     	}
   	},
   	"result" : {

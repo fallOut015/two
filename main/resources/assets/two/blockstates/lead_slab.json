@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "two:block/lead_slab"
+    },
+    "type=double": {
+      "model": "two:block/lead_block"
+    },
+    "type=top": {
+      "model": "two:block/lead_slab_top"
+    }
+  }
+}

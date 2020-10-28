@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "two:smooth_garnet"
+  },
+  "result": "two:smooth_garnet_stairs",
+  "count": 1
+}

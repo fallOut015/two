@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:titanium_dagger"
+    ]
+  },
+  "criteria": {
+    "titanium_dagger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "two:titanium_ingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:titanium_dagger"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "titanium_dagger",
+      "has_the_recipe"
+    ]
+  ]
+}

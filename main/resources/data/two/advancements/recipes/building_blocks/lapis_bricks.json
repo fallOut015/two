@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "two:lapis_bricks"
+    ]
+  },
+  "criteria": {
+    "lapis_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:lapis_block"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "two:lapis_bricks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "lapis_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

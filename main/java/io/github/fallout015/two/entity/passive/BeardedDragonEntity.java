@@ -59,7 +59,7 @@ public class BeardedDragonEntity extends ShoulderRidingEntity {
 	}
 	
 	public static AttributeModifierMap.MutableAttribute applyAttributes() {
-		return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233821_d_, (double)0.3F).func_233815_a_(Attributes.field_233818_a_, 5.0D);
+		return MobEntity.func_233666_p_().createMutableAttribute(Attributes.MOVEMENT_SPEED, (double)0.3F).createMutableAttribute(Attributes.MAX_HEALTH, 5.0D);
 	}
 	
 	public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
@@ -82,7 +82,7 @@ public class BeardedDragonEntity extends ShoulderRidingEntity {
 	            if (!(item instanceof DyeItem)) {
 	            	ActionResultType actionresulttype = super.func_230254_b_(player, hand);
 	            	if ((!actionresulttype.isSuccessOrConsume() || this.isChild()) && this.isOwner(player)) {
-	            		this.func_233687_w_(!this.func_233685_eM_());
+	            		this.func_233687_w_(!this.isSitting());
 	            		this.isJumping = false;
 	            		this.navigator.clearPath();
 	            		this.setAttackTarget((LivingEntity)null);
@@ -123,10 +123,10 @@ public class BeardedDragonEntity extends ShoulderRidingEntity {
 	public void setTamed(boolean tamed) {
 		super.setTamed(tamed);
 		if (tamed) {
-			this.getAttribute(Attributes.field_233818_a_).setBaseValue(10.0D);
+			this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(10.0D);
 			this.setHealth(10.0F);
 		} else {
-			this.getAttribute(Attributes.field_233818_a_).setBaseValue(5.0D);
+			this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(5.0D);
 		}
 	}
 }

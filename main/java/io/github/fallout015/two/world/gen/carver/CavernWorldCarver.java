@@ -78,7 +78,7 @@ public class CavernWorldCarver extends WorldCarver<ProbabilityConfig> {
 	}
 	
 	@Override
-	public boolean func_225555_a_(IChunk chunk, Function<BlockPos, Biome> biomeGetter, Random rand, int i4, int i5, int i6, int i7, int i8, BitSet bitSet, ProbabilityConfig config) {
+	public boolean carveRegion(IChunk chunk, Function<BlockPos, Biome> biomeGetter, Random rand, int i4, int i5, int i6, int i7, int i8, BitSet bitSet, ProbabilityConfig config) {
 		int i = (this.func_222704_c() * 2 - 1) * 16;
 		int j = rand.nextInt(rand.nextInt(rand.nextInt(this.func_222724_a()) + 1) + 1);
 

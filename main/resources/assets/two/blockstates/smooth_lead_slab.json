@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "two:block/smooth_lead_slab"
+    },
+    "type=double": {
+      "model": "two:block/smooth_lead"
+    },
+    "type=top": {
+      "model": "two:block/smooth_lead_slab_top"
+    }
+  }
+}
