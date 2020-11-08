@@ -25,7 +25,7 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 public class CappedArrowEntity extends AbstractArrowEntity implements IEntityAdditionalSpawnData {
 	private IItemTier tier;
-	private static final Map<IItemTier, Item> ITEM_FOR_ARROW_TIER = new HashMap<IItemTier, Item>(9);
+	private static final Map<IItemTier, Item> ITEM_FOR_ARROW_TIER = new HashMap<IItemTier, Item>();
 
 	public CappedArrowEntity(EntityType<? extends CappedArrowEntity> entityType, World worldIn) {
 		super(entityType, worldIn);
@@ -89,7 +89,6 @@ public class CappedArrowEntity extends AbstractArrowEntity implements IEntityAdd
 		ITEM_FOR_ARROW_TIER.put(ItemTierTwo.EMERALD, ItemsTwo.EMERALD_CAPPED_ARROW);
 		ITEM_FOR_ARROW_TIER.put(ItemTierTwo.RUBY, ItemsTwo.RUBY_CAPPED_ARROW);
 		ITEM_FOR_ARROW_TIER.put(ItemTierTwo.LEAD, ItemsTwo.LEAD_CAPPED_ARROW);
-		ITEM_FOR_ARROW_TIER.put(ItemTierTwo.COPPER, ItemsTwo.COPPER_CAPPED_ARROW);
 		ITEM_FOR_ARROW_TIER.put(ItemTierTwo.MYRKYLITE, ItemsTwo.MYRKYLITE_CAPPED_ARROW);
 	}
 

@@ -56,7 +56,6 @@ public class FeaturesTwo { // Configured features with placements.
 	public static final ConfiguredFeature<?, ?> ORE_TIN = register("ore_tin", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, FeaturesTwo.States.TIN_ORE, 11)).func_242733_d(64).func_242728_a().func_242731_b(20));
 	public static final ConfiguredFeature<?, ?> ORE_ALUMINUM = register("ore_aluminum", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, FeaturesTwo.States.ALUMINUM_ORE, 9)).func_242733_d(64).func_242728_a().func_242731_b(20));
 	public static final ConfiguredFeature<?, ?> ORE_SILVER = register("ore_silver", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, FeaturesTwo.States.SILVER_ORE, 7)).func_242733_d(48).func_242728_a().func_242731_b(10));
-	public static final ConfiguredFeature<?, ?> ORE_COPPER = register("ore_copper", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, FeaturesTwo.States.COPPER_ORE, 11)).func_242733_d(64).func_242728_a().func_242731_b(20));
 	public static final ConfiguredFeature<?, ?> ORE_PYRITE = register("ore_pyrite", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, FeaturesTwo.States.PYRITE_ORE, 9)).func_242733_d(32).func_242728_a().func_242731_b(2));
 
 	public static final ConfiguredFeature<?, ?> ORE_END_COBALT = register("ore_end_cobalt", Feature.ORE.withConfiguration(new OreFeatureConfig(FeaturesTwo.RuleTests.END_STONE, FeaturesTwo.States.END_COBALT_ORE, 7)).func_242733_d(128).func_242728_a().func_242731_b(20));
@@ -126,7 +125,6 @@ public class FeaturesTwo { // Configured features with placements.
 		protected static final BlockState TIN_ORE = BlocksTwo.TIN_ORE.getDefaultState();
 		protected static final BlockState ALUMINUM_ORE = BlocksTwo.ALUMINUM_ORE.getDefaultState();
 		protected static final BlockState SILVER_ORE = BlocksTwo.SILVER_ORE.getDefaultState();
-		protected static final BlockState COPPER_ORE = BlocksTwo.COPPER_ORE.getDefaultState();
 		protected static final BlockState END_PLATINUM_ORE = BlocksTwo.END_PLATINUM_ORE.getDefaultState();
 		protected static final BlockState NETHER_TITANIUM_ORE = BlocksTwo.NETHER_TITANIUM_ORE.getDefaultState();
 		protected static final BlockState PYRITE_ORE = BlocksTwo.PYRITE_ORE.getDefaultState();

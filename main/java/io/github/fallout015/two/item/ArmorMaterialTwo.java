@@ -31,9 +31,9 @@ public enum ArmorMaterialTwo implements IArmorMaterial {
 	TOPAZ("topaz", 15, new int[] {2, 5, 6, 2}, 11, SoundEventsTwo.ITEM_ARMOR_EQUIP_TOPAZ, 0.0f, 0, () -> {
 		return Ingredient.fromItems(ItemsTwo.TOPAZ);
 	}),
-	COPPER("copper", 16, new int[] {2, 5, 6, 2}, 0, SoundEventsTwo.ITEM_ARMOR_EQUIP_COPPER, 0.0f, 0, () -> {
-		return Ingredient.fromItems(ItemsTwo.COPPER_INGOT);
-	}),
+//	COPPER("copper", 16, new int[] {2, 5, 6, 2}, 0, SoundEventsTwo.ITEM_ARMOR_EQUIP_COPPER, 0.0f, 0, () -> {
+//		return Ingredient.fromItems(ItemsTwo.COPPER_INGOT);
+//	}),
 	
 	STONE("stone", 10, new int[] {1, 4, 5, 2}, 6, SoundEventsTwo.ITEM_ARMOR_EQUIP_STONE, 1.0f, 0, () -> {
 		return Ingredient.fromItems(Items.COBBLESTONE);

@@ -331,7 +331,6 @@ public class ItemsTwo {
 	public static final Item TIN_ORE = register(BlocksTwo.TIN_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item ALUMINUM_ORE = register(BlocksTwo.ALUMINUM_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item SILVER_ORE = register(BlocksTwo.SILVER_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-	public static final Item COPPER_ORE = register(BlocksTwo.COPPER_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item END_PLATINUM_ORE = register(BlocksTwo.END_PLATINUM_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item NETHER_TITANIUM_ORE = register(BlocksTwo.NETHER_TITANIUM_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item PYRITE_ORE = register(BlocksTwo.PYRITE_ORE, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -353,7 +352,6 @@ public class ItemsTwo {
 	public static final Item TIN_BLOCK = register(BlocksTwo.TIN_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item ALUMINUM_BLOCK = register(BlocksTwo.ALUMINUM_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item SILVER_BLOCK = register(BlocksTwo.SILVER_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
-	public static final Item COPPER_BLOCK = register(BlocksTwo.COPPER_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	public static final Item PLATINUM_BLOCK = register(BlocksTwo.PLATINUM_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
 	
 	public static final Item TITANIUM_BLOCK = register(BlocksTwo.TITANIUM_BLOCK, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
@@ -653,12 +651,12 @@ public class ItemsTwo {
 	public static final Item RUBY = register("ruby", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	public static final Item CELESTIUM = register("celestium", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	
+	public static final Item COPPER_INGOT = register("copper_ingot", new Item(new Item.Properties()));
 	public static final Item TALC = register("talc", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	public static final Item LEAD_INGOT = register("lead_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	public static final Item TIN_INGOT = register("tin_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	public static final Item ALUMINUM_INGOT = register("aluminum_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	public static final Item SILVER_INGOT = register("silver_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
-	public static final Item COPPER_INGOT = register("copper_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	public static final Item PLATINUM_INGOT = register("platinum_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	public static final Item TITANIUM_INGOT = register("titanium_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
 	public static final Item PYRITE_INGOT = register("pyrite_ingot", new Item(new Item.Properties().group(ItemGroup.MISC)));
@@ -675,7 +673,7 @@ public class ItemsTwo {
 	public static final Item TITANIUM_HORSE_ARMOR = register("titanium_horse_armor", new HorseArmorItem(13, "titanium", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
 	public static final Item GARNET_HORSE_ARMOR = register("garnet_horse_armor", new HorseArmorItem(5, "garnet", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
 	public static final Item TOPAZ_HORSE_ARMOR = register("topaz_horse_armor", new HorseArmorItem(5, "topaz", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
-	public static final Item COPPER_HORSE_ARMOR = register("copper_horse_armor", new HorseArmorItem(6, "copper", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
+//	public static final Item COPPER_HORSE_ARMOR = register("copper_horse_armor", new HorseArmorItem(6, "copper", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
 	public static final Item STONE_HORSE_ARMOR = register("stone_horse_armor", new HorseArmorItem(4, "stone", new Item.Properties().maxStackSize(1).group((ItemGroup.MISC))));
 	public static final Item MYRKYLITE_HORSE_ARMOR = register("myrkylite_horse_armor", new HorseArmorItem(4, "myrkylite", new Item.Properties().maxStackSize(1)/*.group(ItemGroup.MISC)*/));
 	
@@ -883,10 +881,10 @@ public class ItemsTwo {
 	public static final Item TOPAZ_AXE = register("topaz_axe", new AxeItem(ItemTierTwo.TOPAZ, 6.0f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item TOPAZ_HOE = register("topaz_hoe", new HoeItem(ItemTierTwo.TOPAZ, -2, -1.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
 
-	public static final Item COPPER_SHOVEL = register("copper_shovel", new ShovelItem(ItemTierTwo.COPPER, 1.5f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item COPPER_PICKAXE = register("copper_pickaxe", new PickaxeItem(ItemTierTwo.COPPER, 1, -2.8f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item COPPER_AXE = register("copper_axe", new AxeItem(ItemTierTwo.COPPER, 6.0f, -3.1f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item COPPER_HOE = register("copper_hoe", new HoeItem(ItemTierTwo.COPPER, 0, -1.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
+//	public static final Item COPPER_SHOVEL = register("copper_shovel", new ShovelItem(ItemTierTwo.COPPER, 1.5f, -3.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+//	public static final Item COPPER_PICKAXE = register("copper_pickaxe", new PickaxeItem(ItemTierTwo.COPPER, 1, -2.8f, new Item.Properties().group(ItemGroup.TOOLS)));
+//	public static final Item COPPER_AXE = register("copper_axe", new AxeItem(ItemTierTwo.COPPER, 6.0f, -3.1f, new Item.Properties().group(ItemGroup.TOOLS)));
+//	public static final Item COPPER_HOE = register("copper_hoe", new HoeItem(ItemTierTwo.COPPER, 0, -1.0f, new Item.Properties().group(ItemGroup.TOOLS)));	
 
     public static final Item MYRKYLITE_SHOVEL = register("myrkylite_shovel", new ShovelItem(ItemTierTwo.MYRKYLITE, 1.5f, -3.0f, new Item.Properties()/*.group(ItemGroup.TOOLS)*/));
 	public static final Item MYRKYLITE_PICKAXE = register("myrkylite_pickaxe", new PickaxeItem(ItemTierTwo.MYRKYLITE, 1, -2.8f, new Item.Properties()/*.group(ItemGroup.TOOLS)*/));
@@ -907,7 +905,7 @@ public class ItemsTwo {
 	public static final Item TITANIUM_SICKLE = register("titanium_sickle", new SickleItem(ItemTierTwo.TITANIUM, -2, -1.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item GARNET_SICKLE = register("garnet_sickle", new SickleItem(ItemTierTwo.GARNET, -2, -1.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item TOPAZ_SICKLE = register("topaz_sickle", new SickleItem(ItemTierTwo.TOPAZ, -2, -1.0f, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final Item COPPER_SICKLE = register("copper_sickle", new SickleItem(ItemTierTwo.COPPER, 0, -1.0f, new Item.Properties().group(ItemGroup.TOOLS)));
+//	public static final Item COPPER_SICKLE = register("copper_sickle", new SickleItem(ItemTierTwo.COPPER, 0, -1.0f, new Item.Properties().group(ItemGroup.TOOLS)));
 	public static final Item MYRKYLITE_SICKLE = register("myrkylite_sickle", new SickleItem(ItemTierTwo.MYRKYLITE, 0, -3.0f, new Item.Properties()/*.group(ItemGroup.TOOLS)*/));
 	// TODO fix stats (damage should be 1 in the att modifiers)
 	
@@ -948,9 +946,9 @@ public class ItemsTwo {
     public static final Item TOPAZ_BATTLEAXE = register("topaz_battleaxe", new BattleaxeItem(ItemTierTwo.TOPAZ, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item TOPAZ_DAGGER = register("topaz_dagger", new DaggerItem(ItemTierTwo.TOPAZ, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
 
-    public static final Item COPPER_SWORD = register("copper_sword", new SwordItem(ItemTierTwo.COPPER, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT)));
-    public static final Item COPPER_BATTLEAXE = register("copper_battleaxe", new BattleaxeItem(ItemTierTwo.COPPER, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item COPPER_DAGGER = register("copper_dagger", new DaggerItem(ItemTierTwo.COPPER, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+//    public static final Item COPPER_SWORD = register("copper_sword", new SwordItem(ItemTierTwo.COPPER, 3, -2.4f, new Item.Properties().group(ItemGroup.COMBAT)));
+//    public static final Item COPPER_BATTLEAXE = register("copper_battleaxe", new BattleaxeItem(ItemTierTwo.COPPER, 6, -2.4F, (new Item.Properties()).group(ItemGroup.COMBAT)));
+//    public static final Item COPPER_DAGGER = register("copper_dagger", new DaggerItem(ItemTierTwo.COPPER, -0.8F, (new Item.Properties()).group(ItemGroup.COMBAT)));
 
     public static final Item MYRKYLITE_SWORD = register("myrkylite_sword", new SwordItem(ItemTierTwo.MYRKYLITE, 3, -2.4f, new Item.Properties()/*.group(ItemGroup.COMBAT)*/));
     public static final Item MYRKYLITE_BATTLEAXE = register("myrkylite_battleaxe", new BattleaxeItem(ItemTierTwo.MYRKYLITE, 6, -2.4f, (new Item.Properties())/*.group(ItemGroup.COMBAT)*/));
@@ -996,7 +994,7 @@ public class ItemsTwo {
     public static final Item TITANIUM_CAPPED_ARROW = register("titanium_capped_arrow", new CappedArrowItem(ItemTierTwo.TITANIUM, new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item GARNET_CAPPED_ARROW = register("garnet_capped_arrow", new CappedArrowItem(ItemTierTwo.GARNET, new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item TOPAZ_CAPPED_ARROW = register("topaz_capped_arrow", new CappedArrowItem(ItemTierTwo.TOPAZ, new Item.Properties().group(ItemGroup.COMBAT)));
-    public static final Item COPPER_CAPPED_ARROW = register("copper_capped_arrow", new CappedArrowItem(ItemTierTwo.COPPER, new Item.Properties().group(ItemGroup.COMBAT)));
+//    public static final Item COPPER_CAPPED_ARROW = register("copper_capped_arrow", new CappedArrowItem(ItemTierTwo.COPPER, new Item.Properties().group(ItemGroup.COMBAT)));
     public static final Item MYRKYLITE_CAPPED_ARROW = register("myrkylite_capped_arrow", new CappedArrowItem(ItemTierTwo.MYRKYLITE, new Item.Properties()/*.group(ItemGroup.COMBAT)*/));
     
     public static final Item FIRE_ARROW = register("fire_arrow", new FireArrowItem(new Item.Properties().group(ItemGroup.COMBAT)));
@@ -1042,10 +1040,10 @@ public class ItemsTwo {
     public static final Item TOPAZ_LEGGINGS = register("topaz_leggings", new ArmorItem(ArmorMaterialTwo.TOPAZ, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item TOPAZ_BOOTS = register("topaz_boots", new ArmorItem(ArmorMaterialTwo.TOPAZ, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
 
-    public static final Item COPPER_HELMET = register("copper_helmet", new ArmorItem(ArmorMaterialTwo.COPPER, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item COPPER_CHESTPLATE = register("copper_chestplate", new ArmorItem(ArmorMaterialTwo.COPPER, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item COPPER_LEGGINGS = register("copper_leggings", new ArmorItem(ArmorMaterialTwo.COPPER, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
-    public static final Item COPPER_BOOTS = register("copper_boots", new ArmorItem(ArmorMaterialTwo.COPPER, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
+//    public static final Item COPPER_HELMET = register("copper_helmet", new ArmorItem(ArmorMaterialTwo.COPPER, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
+//    public static final Item COPPER_CHESTPLATE = register("copper_chestplate", new ArmorItem(ArmorMaterialTwo.COPPER, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
+//    public static final Item COPPER_LEGGINGS = register("copper_leggings", new ArmorItem(ArmorMaterialTwo.COPPER, EquipmentSlotType.LEGS, (new Item.Properties()).group(ItemGroup.COMBAT)));
+//    public static final Item COPPER_BOOTS = register("copper_boots", new ArmorItem(ArmorMaterialTwo.COPPER, EquipmentSlotType.FEET, (new Item.Properties()).group(ItemGroup.COMBAT)));    
 
     public static final Item STONE_HELMET = register("stone_helmet", new ArmorItem(ArmorMaterialTwo.STONE, EquipmentSlotType.HEAD, (new Item.Properties()).group(ItemGroup.COMBAT)));
     public static final Item STONE_CHESTPLATE = register("stone_chestplate", new ArmorItem(ArmorMaterialTwo.STONE, EquipmentSlotType.CHEST, (new Item.Properties()).group(ItemGroup.COMBAT)));
@@ -1470,14 +1468,14 @@ public class ItemsTwo {
 				return cappedarrowentity;
 	         }
 		});
-		DispenserBlock.registerDispenseBehavior(ItemsTwo.COPPER_CAPPED_ARROW, new ProjectileDispenseBehavior() {
-			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
-				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
-				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
-				cappedarrowentity.setItemTier(ItemTierTwo.COPPER);
-				return cappedarrowentity;
-	         }
-		});
+//		DispenserBlock.registerDispenseBehavior(ItemsTwo.COPPER_CAPPED_ARROW, new ProjectileDispenseBehavior() {
+//			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
+//				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());
+//				cappedarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.ALLOWED;
+//				cappedarrowentity.setItemTier(ItemTierTwo.COPPER);
+//				return cappedarrowentity;
+//	         }
+//		});
 		DispenserBlock.registerDispenseBehavior(ItemsTwo.MYRKYLITE_CAPPED_ARROW, new ProjectileDispenseBehavior() {
 			protected ProjectileEntity getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn) {
 				CappedArrowEntity cappedarrowentity = new CappedArrowEntity(worldIn, position.getX(), position.getY(), position.getZ());

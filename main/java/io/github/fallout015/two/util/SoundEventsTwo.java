@@ -15,7 +15,7 @@ public class SoundEventsTwo {
 	@ObjectHolder("item.armor.equip_titanium") public static final SoundEvent ITEM_ARMOR_EQUIP_TITANIUM = register("item.armor.equip_titanium");
 	@ObjectHolder("item.armor.equip_garnet") public static final SoundEvent ITEM_ARMOR_EQUIP_GARNET = register("item.armor.equip_garnet");
 	@ObjectHolder("item.armor.equip_topaz") public static final SoundEvent ITEM_ARMOR_EQUIP_TOPAZ = register("item.armor.equip_topaz");
-	@ObjectHolder("item.armor.equip_copper") public static final SoundEvent ITEM_ARMOR_EQUIP_COPPER = register("item.armor.equip_copper");
+//	@ObjectHolder("item.armor.equip_copper") public static final SoundEvent ITEM_ARMOR_EQUIP_COPPER = register("item.armor.equip_copper");
 	
 	@ObjectHolder("item.armor.equip_stone") public static final SoundEvent ITEM_ARMOR_EQUIP_STONE = register("item.armor.equip_stone");
 	@ObjectHolder("item.armor.equip_myrkylite") public static final SoundEvent ITEM_ARMOR_EQUIP_MYRKYLITE = register("item.armor.equip_myrkylite");

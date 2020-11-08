@@ -435,7 +435,6 @@ public class Two {
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_END_SAPPHIRE);
     		} else {
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_ALUMINUM);
-    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_COPPER);
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_OPAL);
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_PYRITE);
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_RUBY);

@@ -516,13 +516,11 @@ public class BlocksTwo {
 	public static final Block TIN_ORE = register("tin_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(1).harvestTool(ToolType.PICKAXE)));
 	public static final Block ALUMINUM_ORE = register("aluminum_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(1).harvestTool(ToolType.PICKAXE)));
 	public static final Block SILVER_ORE = register("silver_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(2).harvestTool(ToolType.PICKAXE)));
-	public static final Block COPPER_ORE = register("copper_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(2).harvestTool(ToolType.PICKAXE)));
 	public static final Block END_PLATINUM_ORE = register("end_platinum_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(5).harvestTool(ToolType.PICKAXE)));
 	public static final Block NETHER_TITANIUM_ORE = register("nether_titanium_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
 	public static final Block PYRITE_ORE = register("pyrite_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
 	public static final Block NIDAVELLIR_STARSTONE_ORE = register("nidavellir_starstone_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(6).harvestTool(ToolType.PICKAXE).setLightLevel(state -> 10)));
 	public static final Block NIDAVELLIR_URU_ORE = register("nidavellir_uru_ore", new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 3.0f).harvestLevel(9).harvestTool(ToolType.PICKAXE)));
-	// TODO remove copper and amethyst ores... :(
 	public static final Block TALC_BLOCK = register("talc_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.SNOW).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 
 	public static final Block LEAD_BLOCK = register("lead_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
@@ -538,7 +536,6 @@ public class BlocksTwo {
 	public static final Block TIN_BLOCK = register("tin_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block ALUMINUM_BLOCK = register("aluminum_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block SILVER_BLOCK = register("silver_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.GRAY_TERRACOTTA).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
-	public static final Block COPPER_BLOCK = register("copper_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.ORANGE_TERRACOTTA).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 	public static final Block PLATINUM_BLOCK = register("platinum_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY_TERRACOTTA).hardnessAndResistance(5.0F, 6.0F).sound(SoundType.METAL)));
 
 	public static final Block TITANIUM_BLOCK = register("titanium_block", new Block(Block.Properties.create(Material.IRON, MaterialColor.LIGHT_GRAY_TERRACOTTA).hardnessAndResistance(15.0F, 16.0F).sound(SoundType.METAL)));

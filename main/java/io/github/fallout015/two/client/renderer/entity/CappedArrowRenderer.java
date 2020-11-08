@@ -27,10 +27,9 @@ public class CappedArrowRenderer extends ArrowRenderer<CappedArrowEntity> {
 	private static final ResourceLocation RESOURCE_LOCATION_TITANIUM = new ResourceLocation("two", "textures/entity/projectiles/titanium_capped_arrow.png");
 	private static final ResourceLocation RESOURCE_LOCATION_GARNET = new ResourceLocation("two", "textures/entity/projectiles/garnet_capped_arrow.png");
 	private static final ResourceLocation RESOURCE_LOCATION_TOPAZ = new ResourceLocation("two", "textures/entity/projectiles/topaz_capped_arrow.png");
-	private static final ResourceLocation RESOURCE_LOCATION_COPPER = new ResourceLocation("two", "textures/entity/projectiles/copper_capped_arrow.png");
 	private static final ResourceLocation RESOURCE_LOCATION_MYRKYLITE = new ResourceLocation("two", "textures/entity/projectiles/myrkylite_capped_arrow.png");
 
-	private static final Map<IItemTier, ResourceLocation> RESOURCE_FOR_ARROW_TIER = new HashMap<IItemTier, ResourceLocation>(9);
+	private static final Map<IItemTier, ResourceLocation> RESOURCE_FOR_ARROW_TIER = new HashMap<IItemTier, ResourceLocation>();
 	
 	public CappedArrowRenderer(EntityRendererManager renderManagerIn) {
 		super(renderManagerIn);
@@ -54,7 +53,6 @@ public class CappedArrowRenderer extends ArrowRenderer<CappedArrowEntity> {
 		RESOURCE_FOR_ARROW_TIER.put(ItemTierTwo.TITANIUM, RESOURCE_LOCATION_TITANIUM);
 		RESOURCE_FOR_ARROW_TIER.put(ItemTierTwo.GARNET, RESOURCE_LOCATION_GARNET);
 		RESOURCE_FOR_ARROW_TIER.put(ItemTierTwo.TOPAZ, RESOURCE_LOCATION_TOPAZ);
-		RESOURCE_FOR_ARROW_TIER.put(ItemTierTwo.COPPER, RESOURCE_LOCATION_COPPER);
 		RESOURCE_FOR_ARROW_TIER.put(ItemTierTwo.MYRKYLITE, RESOURCE_LOCATION_MYRKYLITE);
 	}
 }
