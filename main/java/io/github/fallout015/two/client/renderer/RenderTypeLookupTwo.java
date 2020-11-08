@@ -4,9 +4,10 @@ import io.github.fallout015.two.block.BlocksTwo;
 import io.github.fallout015.two.fluid.FluidsTwo;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 public class RenderTypeLookupTwo {
-	public static void setRenderLayers() {
+	public static void doClientStuff(final FMLClientSetupEvent event) {
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.PURPETAL, RenderType.getCutout());
 	    
 	    RenderTypeLookup.setRenderLayer(BlocksTwo.SUCCULIGHT, RenderType.getCutout());

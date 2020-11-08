@@ -15,27 +15,9 @@ import io.github.fallout015.two.block.DreamcatcherBlock;
 import io.github.fallout015.two.client.particle.FrostParticle;
 import io.github.fallout015.two.client.particle.SparkParticle;
 import io.github.fallout015.two.client.particle.TwinkleParticle;
+import io.github.fallout015.two.client.registry.ClientRegistryTwo;
+import io.github.fallout015.two.client.registry.RenderingRegistryTwo;
 import io.github.fallout015.two.client.renderer.RenderTypeLookupTwo;
-import io.github.fallout015.two.client.renderer.entity.BeardedDragonRenderer;
-import io.github.fallout015.two.client.renderer.entity.BoatRendererTwo;
-import io.github.fallout015.two.client.renderer.entity.BombArrowRenderer;
-import io.github.fallout015.two.client.renderer.entity.ButterflyRenderer;
-import io.github.fallout015.two.client.renderer.entity.CappedArrowRenderer;
-import io.github.fallout015.two.client.renderer.entity.ChameleonRenderer;
-import io.github.fallout015.two.client.renderer.entity.CrimpRenderer;
-import io.github.fallout015.two.client.renderer.entity.DarkDwarfArcherRenderer;
-import io.github.fallout015.two.client.renderer.entity.FireArrowRenderer;
-import io.github.fallout015.two.client.renderer.entity.IceArrowRenderer;
-import io.github.fallout015.two.client.renderer.entity.IceSlimeRenderer;
-import io.github.fallout015.two.client.renderer.entity.JellyfishRenderer;
-import io.github.fallout015.two.client.renderer.entity.MummifiedZombieRenderer;
-import io.github.fallout015.two.client.renderer.entity.NetherFishRenderer;
-import io.github.fallout015.two.client.renderer.entity.PenguinRenderer;
-import io.github.fallout015.two.client.renderer.entity.RedPandaRenderer;
-import io.github.fallout015.two.client.renderer.entity.ShockArrowRenderer;
-import io.github.fallout015.two.client.renderer.entity.ShurikenRenderer;
-import io.github.fallout015.two.client.renderer.entity.SigilRenderer;
-import io.github.fallout015.two.client.renderer.entity.TwisterRenderer;
 import io.github.fallout015.two.client.renderer.entity.layers.BeardedDragonLayer;
 import io.github.fallout015.two.client.renderer.entity.layers.ChameleonCloakLayer;
 import io.github.fallout015.two.client.renderer.entity.layers.ChameleonLayer;
@@ -43,21 +25,13 @@ import io.github.fallout015.two.client.renderer.entity.layers.CrownLayer;
 import io.github.fallout015.two.client.renderer.entity.layers.HeadphonesLayer;
 import io.github.fallout015.two.client.renderer.entity.layers.InspectionSpectaclesLayer;
 import io.github.fallout015.two.client.renderer.entity.layers.TopHatLayer;
-import io.github.fallout015.two.client.renderer.tileentity.ChairRenderer;
 import io.github.fallout015.two.common.Config;
 import io.github.fallout015.two.common.capabilities.CapabilitiesTwo;
 import io.github.fallout015.two.enchantment.AbilityEnchantment;
 import io.github.fallout015.two.enchantment.EnchantmentsTwo;
 import io.github.fallout015.two.entity.EntityTypeTwo;
-import io.github.fallout015.two.entity.boss.magmeel.MagmeelEntity;
-import io.github.fallout015.two.entity.effect.ButterflyEntity;
-import io.github.fallout015.two.entity.monster.MummifiedZombieEntity;
-import io.github.fallout015.two.entity.passive.BeardedDragonEntity;
+import io.github.fallout015.two.entity.ai.attributes.GlobalEntityTypeAttributesTwo;
 import io.github.fallout015.two.entity.passive.ChameleonEntity;
-import io.github.fallout015.two.entity.passive.CrimpEntity;
-import io.github.fallout015.two.entity.passive.JellyfishEntity;
-import io.github.fallout015.two.entity.passive.PenguinEntity;
-import io.github.fallout015.two.entity.passive.RedPandaEntity;
 import io.github.fallout015.two.fluid.FluidsTwo;
 import io.github.fallout015.two.inventory.container.ContainerTypeTwo;
 import io.github.fallout015.two.item.ArmorMaterialTwo;
@@ -79,23 +53,19 @@ import io.github.fallout015.two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 import net.minecraft.block.Block;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.EvokerFangsRenderer;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.merchant.villager.VillagerProfession;
 import net.minecraft.entity.monster.CaveSpiderEntity;
 import net.minecraft.entity.monster.EndermiteEntity;
-import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.monster.SilverfishEntity;
 import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.entity.passive.BeeEntity;
-import net.minecraft.entity.passive.fish.AbstractFishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.fluid.Fluid;
@@ -157,8 +127,6 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.SleepFinishedTimeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -196,71 +164,14 @@ public class Two {
     }
     
 	private void setup(final FMLCommonSetupEvent event) {
-		PacketHandler.INSTANCE.registerMessage(JumpPacketHandler.JUMP_ID, JumpPacketHandler.class, JumpPacketHandler::encoder, JumpPacketHandler::decoder, JumpPacketHandler::handle);
-
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonEntity.applyAttributes().create());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.CHAMELEON, ChameleonEntity.applyAttributes().create());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.CRIMP, CrimpEntity.applyAttributes().create());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.JELLYFISH, JellyfishEntity.applyAttributes().create());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.PENGUIN, PenguinEntity.applyAttributes().create());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.RED_PANDA, RedPandaEntity.applyAttributes().create());
-		
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.DARK_DWARF_ARCHER, MonsterEntity.func_234295_eP_().create()); // TODO give own stats. 
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.MUMMIFIED_ZOMBIE, MummifiedZombieEntity.applyAttributes().create());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.ICE_SLIME, MonsterEntity.func_234295_eP_().create()); // TODO give own stats.
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.NETHER_FISH, AbstractFishEntity.func_234176_m_().create()); // TODO give own stats.
-
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.BUTTERFLY, ButterflyEntity.applyAttributes().create());
-
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.MAGMEEL, MagmeelEntity.applyAttributes().create());
+		PacketHandler.setup(event);
+		GlobalEntityTypeAttributesTwo.setup(event);
 	}
 	private void doClientStuff(final FMLClientSetupEvent event) {
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonRenderer::new);
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CHAMELEON, ChameleonRenderer::new);
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CRIMP, CrimpRenderer::new);
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.JELLYFISH, JellyfishRenderer::new);
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.PENGUIN, PenguinRenderer::new);
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.RED_PANDA, RedPandaRenderer::new);
-    	
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.CAPPED_ARROW, CappedArrowRenderer::new);
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.FIRE_ARROW, FireArrowRenderer::new);
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.ICE_ARROW, IceArrowRenderer::new);
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BOMB_ARROW, BombArrowRenderer::new);
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SHOCK_ARROW, ShockArrowRenderer::new);
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.EVOCATION_FANGS, EvokerFangsRenderer::new);
-    	
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SHURIKEN, ShurikenRenderer::new);
-
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BOAT_TWO, BoatRendererTwo::new);
-
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.DARK_DWARF_ARCHER, DarkDwarfArcherRenderer::new);
-
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.MUMMIFIED_ZOMBIE, MummifiedZombieRenderer::new);
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.ICE_SLIME, IceSlimeRenderer::new);
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.NETHER_FISH, NetherFishRenderer::new);
-    	
-//    	RenderingRegistry.registerEntityRenderingHandler(EntityType.WOLF, WolfRendererTwo::new); // TODO
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SIGIL, SigilRenderer::new);
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.TWISTER, TwisterRenderer::new);
-    	
-//    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.SWARM, SwarmRenderer::new);
-    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.BUTTERFLY, ButterflyRenderer::new);
-    	
-//    	RenderingRegistry.registerEntityRenderingHandler(EntityTypeTwo.MAGMEEL, MagmeelRenderer::new);
-
-    	
-    	
-    	ClientRegistry.bindTileEntityRenderer(TileEntityTypeTwo.CHAIR, ChairRenderer::new);
-    	
-    	
-    	
-    	RenderTypeLookupTwo.setRenderLayers();
-
-    	
-    	
-    	CapabilitiesTwo.register();
-    	
-    	
+		RenderingRegistryTwo.doClientStuff(event);
+		ClientRegistryTwo.doClientStuff(event);
+    	RenderTypeLookupTwo.doClientStuff(event);
+    	CapabilitiesTwo.doClientStuff(event);
     	
     	try {
     		Two.LOGGER.info("Adding compostables. Making Composter$registerCompostable accessible.");
