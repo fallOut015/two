@@ -39,7 +39,7 @@ public class SickleItem extends ToolItem {
 					
 					context.getItem().damageItem(1, context.getPlayer(), playerEntity -> playerEntity.sendBreakAnimation(context.getHand() == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND));
 					
-					int extrareach = (EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.SWIPING, context.getItem()));
+					int extrareach = (EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.SWIPING.get(), context.getItem()));
 					
 					BlockPos topleft = new BlockPos(context.getPos().north().west().getX() - extrareach, context.getPos().north().west().getY(), context.getPos().north().west().getZ() - extrareach);
 					BlockPos bottomright = new BlockPos(context.getPos().south().east().getX() + extrareach, context.getPos().south().east().getY(), context.getPos().south().east().getZ() + extrareach);

@@ -27,7 +27,7 @@ public class NetItem extends Item {
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		if(playerIn.getHeldItem(handIn).getOrCreateTag().contains("ButterflyEntity") && worldIn instanceof ServerWorld) {
-			ButterflyEntity butterfly = EntityTypeTwo.BUTTERFLY.create((ServerWorld) worldIn, (CompoundNBT) playerIn.getHeldItem(handIn).getOrCreateTag().get("ButterflyEntity"), null, playerIn, rayTrace(worldIn, playerIn, FluidMode.ANY).getPos(), SpawnReason.EVENT, false, false);
+			ButterflyEntity butterfly = EntityTypeTwo.BUTTERFLY.get().create((ServerWorld) worldIn, (CompoundNBT) playerIn.getHeldItem(handIn).getOrCreateTag().get("ButterflyEntity"), null, playerIn, rayTrace(worldIn, playerIn, FluidMode.ANY).getPos(), SpawnReason.EVENT, false, false);
 			butterfly.setVariant(((CompoundNBT) playerIn.getHeldItem(handIn).getOrCreateTag().get("ButterflyEntity")).getInt("VARIANT"));
 			playerIn.getHeldItem(handIn).getOrCreateTag().remove("ButterflyEntity");
 			worldIn.addEntity(butterfly);

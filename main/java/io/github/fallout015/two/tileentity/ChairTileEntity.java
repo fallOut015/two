@@ -12,7 +12,7 @@ public class ChairTileEntity extends TileEntity implements IFurnitureSlots {
 	private String legs = "oak_planks";
 	
 	public ChairTileEntity() {
-		super(TileEntityTypeTwo.CHAIR);
+		super(TileEntityTypeTwo.CHAIR.get());
 	}
 	
 	public CompoundNBT write(CompoundNBT compound) {

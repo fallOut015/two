@@ -27,7 +27,7 @@ public class RedPandaEntity extends AnimalEntity {
 
 	@Override
 	public AgeableEntity func_241840_a(ServerWorld serverWorld, AgeableEntity ageable) {
-		RedPandaEntity redpandaentity = EntityTypeTwo.RED_PANDA.create(serverWorld);
+		RedPandaEntity redpandaentity = EntityTypeTwo.RED_PANDA.get().create(serverWorld);
 		return redpandaentity;
 	}
 	@Override

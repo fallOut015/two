@@ -17,7 +17,7 @@ public class KnapsackContainer extends Container {
 		this(windowId, player, new KnapsackInventory(player.player, ItemStack.EMPTY));
 	}
 	public KnapsackContainer(int id, PlayerInventory playerInventoryIn, IInventory knapsackInventory) {
-		super(ContainerTypeTwo.KNAPSACK, id);
+		super(ContainerTypeTwo.KNAPSACK.get(), id);
 		assertInventorySize(knapsackInventory, 18);
 	    this.knapsackInventory = knapsackInventory;
 	    this.compoundNBT = new CompoundNBT();

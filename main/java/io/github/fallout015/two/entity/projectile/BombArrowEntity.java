@@ -17,10 +17,10 @@ public class BombArrowEntity extends AbstractArrowEntity {
 		super(entityType, worldIn);
 	}
 	public BombArrowEntity(World worldIn, double x, double y, double z) {
-		super(EntityTypeTwo.BOMB_ARROW, x, y, z, worldIn);
+		super(EntityTypeTwo.BOMB_ARROW.get(), x, y, z, worldIn);
 	}
 	public BombArrowEntity(World worldIn, LivingEntity shooter) {
-		super(EntityTypeTwo.BOMB_ARROW, shooter, worldIn);
+		super(EntityTypeTwo.BOMB_ARROW.get(), shooter, worldIn);
 	}
 	
 	@Override

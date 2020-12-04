@@ -92,7 +92,7 @@ public class ChameleonEntity extends ShoulderRidingEntity {
 	}
 	@Override
 	public AgeableEntity func_241840_a(ServerWorld serverWorld, AgeableEntity ageable) {
-		ChameleonEntity chameleonentity = EntityTypeTwo.CHAMELEON.create(serverWorld);
+		ChameleonEntity chameleonentity = EntityTypeTwo.CHAMELEON.get().create(serverWorld);
 		UUID uuid = this.getOwnerId();
 		if (uuid != null) {
 			chameleonentity.setOwnerId(uuid);

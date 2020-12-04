@@ -35,7 +35,7 @@ public class ChameleonLayer<T extends PlayerEntity> extends LayerRenderer<T, Pla
 	private void renderChameleon(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, T entitylivingbaseIn, float limbSwing, float limbSwingAmount, float netHeadYaw, float headPitch, boolean leftShoulderIn) {
 		CompoundNBT compoundnbt = leftShoulderIn ? entitylivingbaseIn.getLeftShoulderEntity() : entitylivingbaseIn.getRightShoulderEntity();
 		EntityType.byKey(compoundnbt.getString("id")).filter((p_215344_0_) -> {
-			return p_215344_0_ == EntityTypeTwo.CHAMELEON;
+			return p_215344_0_ == EntityTypeTwo.CHAMELEON.get();
 		}).ifPresent((p_229137_11_) -> {
 			matrixStackIn.push();
 			matrixStackIn.translate(leftShoulderIn ? (double)0.4F : (double)-0.4F, entitylivingbaseIn.isCrouching() ? (double)-1.3F : -1.5D, 0.0D);

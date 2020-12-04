@@ -5,7 +5,7 @@ import net.minecraft.inventory.EquipmentSlotType;
 
 public class BoundingEnchantment extends Enchantment {
 	public BoundingEnchantment(Enchantment.Rarity rarityIn, EquipmentSlotType... slots) {
-		super(rarityIn, EnchantmentsTwo.Holder.DOUBLE_JUMP_BOOTS, slots);
+		super(rarityIn, EnchantmentTypeTwo.DOUBLE_JUMP_BOOTS, slots);
 	}
 	
 	@Override

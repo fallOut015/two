@@ -21,15 +21,14 @@ public class KnapsackScreen extends ContainerScreen<KnapsackContainer> {
 		this.ySize = 150;
 	}
 
-	@SuppressWarnings({ "unused", "deprecation" })
 	@Override
 	protected void drawGuiContainerBackgroundLayer(MatrixStack matrixStack, float partialTicks, int x, int y) {
 	    RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
 	    this.minecraft.getTextureManager().bindTexture(KNAPSACK_GUI_TEXTURE);
 	    int i = (this.guiLeft - this.xSize) / 2;
 	    int j = (this.guiTop - this.ySize) / 2;
-//	    this.func_238474_b_(matrixStack, i, j, 0, 0, this.xSize, 53);
-//	    this.func_238474_b_(matrixStack, i, j + 53, 0, 126, this.xSize, 96);
+	    this.fillGradient(matrixStack, i, j, 0, 0, this.xSize, 53);
+	    this.fillGradient(matrixStack, i, j + 53, 0, 126, this.xSize, 96);
 	}
 	
 	@Override

@@ -210,7 +210,7 @@ public class UpholsteryTableScreen extends ContainerScreen<UpholsteryTableContai
 	            	if(this.container.enchantItem(this.minecraft.player, this.selectedFurniture)) {
 	                	this.minecraft.playerController.sendEnchantPacket(this.container.windowId, this.selectedFurniture == null ? 0 : this.selectedFurniture.getID());
 	        		}
-	            	Minecraft.getInstance().getSoundHandler().play(SimpleSound.master(SoundEventsTwo.GUI_UPHOLSTERY_TABLE_SELECT_TEMPLATE, 1.0F));
+	            	Minecraft.getInstance().getSoundHandler().play(SimpleSound.master(SoundEventsTwo.GUI_UPHOLSTERY_TABLE_SELECT_TEMPLATE.get(), 1.0F));
 	            	return true;
 	            }
 			}

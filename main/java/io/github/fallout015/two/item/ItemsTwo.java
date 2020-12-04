@@ -11,7 +11,7 @@ import com.google.common.collect.ImmutableMultimap.Builder;
 import com.google.common.collect.Multimap;
 
 import io.github.fallout015.two.block.BlocksTwo;
-import io.github.fallout015.two.enchantment.EnchantmentsTwo;
+import io.github.fallout015.two.enchantment.EnchantmentTypeTwo;
 import io.github.fallout015.two.entity.EntityTypeTwo;
 import io.github.fallout015.two.entity.item.BoatEntityTwo;
 import io.github.fallout015.two.entity.projectile.BombArrowEntity;
@@ -48,7 +48,6 @@ import net.minecraft.item.MusicDiscItem;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.Rarity;
 import net.minecraft.item.ShovelItem;
-import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.WallOrFloorItem;
 import net.minecraft.util.ActionResult;
@@ -740,16 +739,16 @@ public class ItemsTwo {
     //quiver -> displays extra arrow slots
     public static final Item INSPECTION_SPECTACLES = register("inspection_spectacles", new InspectionSpectaclesItem(new Item.Properties().group(ItemGroup.MISC).rarity(Rarity.EPIC)));
     
-    public static final Item BEARDED_DRAGON_SPAWN_EGG = register("bearded_dragon_spawn_egg", new SpawnEggItem(EntityTypeTwo.BEARDED_DRAGON, 14397817, 15255450, new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item CHAMELEON_SPAWN_EGG = register("chameleon_spawn_egg", new SpawnEggItem(EntityTypeTwo.CHAMELEON, 2162500, 14463743, new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item CRIMP_SPAWN_EGG = register("crimp_spawn_egg", new SpawnEggItem(EntityTypeTwo.CRIMP, 2892067, 7084570, new Item.Properties()/*.group(ItemGroup.MISC)*/));
-    public static final Item DARK_DWARF_ARCHER_SPAWN_EGG = register("dark_dwarf_archer_spawn_egg", new SpawnEggItem(EntityTypeTwo.DARK_DWARF_ARCHER, 3617852, 7880467, new Item.Properties()/*.group(ItemGroup.MISC)*/));
-    public static final Item ICE_SLIME_SPAWN_EGG = register("ice_slime_spawn_egg", new SpawnEggItem(EntityTypeTwo.ICE_SLIME, 14606335, 16382719, new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item JELLYFISH_SPAWN_EGG = register("jellyfish_spawn_egg", new SpawnEggItem(EntityTypeTwo.JELLYFISH, 2461380, 8443135, new Item.Properties()/*.group(ItemGroup.MISC)*/));
-    public static final Item MUMMIFIED_ZOMBIE_SPAWN_EGG = register("mummified_zombie_spawn_egg", new SpawnEggItem(EntityTypeTwo.MUMMIFIED_ZOMBIE, 3490609, 13487798, new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item PENGUIN_SPAWN_EGG = register("penguin_spawn_egg", new SpawnEggItem(EntityTypeTwo.PENGUIN, 1250583, 16316656, new Item.Properties().group(ItemGroup.MISC)));
-    public static final Item RED_PANDA_SPAWN_EGG = register("red_panda_spawn_egg", new SpawnEggItem(EntityTypeTwo.RED_PANDA, 3215619, 13847826, new Item.Properties()/*.group(ItemGroup.MISC)*/));
-    
+    public static final Item BEARDED_DRAGON_SPAWN_EGG = register("bearded_dragon_spawn_egg", new SpawnEggItemTwo(() -> EntityTypeTwo.BEARDED_DRAGON.get(), 14397817, 15255450, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item CHAMELEON_SPAWN_EGG = register("chameleon_spawn_egg", new SpawnEggItemTwo(() -> EntityTypeTwo.CHAMELEON.get(), 2162500, 14463743, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item CRIMP_SPAWN_EGG = register("crimp_spawn_egg", new SpawnEggItemTwo(() -> EntityTypeTwo.CRIMP.get(), 2892067, 7084570, new Item.Properties()/*.group(ItemGroup.MISC)*/));
+    public static final Item DARK_DWARF_ARCHER_SPAWN_EGG = register("dark_dwarf_archer_spawn_egg", new SpawnEggItemTwo(() -> EntityTypeTwo.DARK_DWARF_ARCHER.get(), 3617852, 7880467, new Item.Properties()/*.group(ItemGroup.MISC)*/));
+    public static final Item ICE_SLIME_SPAWN_EGG = register("ice_slime_spawn_egg", new SpawnEggItemTwo(() -> EntityTypeTwo.ICE_SLIME.get(), 14606335, 16382719, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item JELLYFISH_SPAWN_EGG = register("jellyfish_spawn_egg", new SpawnEggItemTwo(() -> EntityTypeTwo.JELLYFISH.get(), 2461380, 8443135, new Item.Properties()/*.group(ItemGroup.MISC)*/));
+    public static final Item MUMMIFIED_ZOMBIE_SPAWN_EGG = register("mummified_zombie_spawn_egg", new SpawnEggItemTwo(() -> EntityTypeTwo.MUMMIFIED_ZOMBIE.get(), 3490609, 13487798, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item PENGUIN_SPAWN_EGG = register("penguin_spawn_egg", new SpawnEggItemTwo(() -> EntityTypeTwo.PENGUIN.get(), 1250583, 16316656, new Item.Properties().group(ItemGroup.MISC)));
+    public static final Item RED_PANDA_SPAWN_EGG = register("red_panda_spawn_egg", new SpawnEggItemTwo(() -> EntityTypeTwo.RED_PANDA.get(), 3215619, 13847826, new Item.Properties()/*.group(ItemGroup.MISC)*/));
+    //TODO
     public static final Item CHAMELEON_EYE = register("chameleon_eye", new Item(new Item.Properties().group(ItemGroup.MISC)));
     public static final Item CHAMELEON_SKIN = register("chameleon_skin", new Item(new Item.Properties().group(ItemGroup.MISC)));
     
@@ -769,10 +768,10 @@ public class ItemsTwo {
     	};
     });
     
-    public static final Item MUSIC_DISC_BAD_DREAMS = register("music_disc_bad_dreams", new MusicDiscItem(13, () -> SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
-    public static final Item MUSIC_DISC_REALM_NINE = register("music_disc_realm_nine", new MusicDiscItem(14, () -> SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
+    public static final Item MUSIC_DISC_BAD_DREAMS = register("music_disc_bad_dreams", new MusicDiscItem(13, SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
+    public static final Item MUSIC_DISC_REALM_NINE = register("music_disc_realm_nine", new MusicDiscItem(14, SoundEventsTwo.MUSIC_NIGHTMARE, new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.RARE)));
 	
-    public static final Item MUD_BUCKET = register("mud_bucket", new BucketItem(() -> FluidsTwo.MUD, new Item.Properties()/*.group(ItemGroup.MISC)*/));
+    public static final Item MUD_BUCKET = register("mud_bucket", new BucketItem(() -> FluidsTwo.MUD.get(), new Item.Properties()/*.group(ItemGroup.MISC)*/));
     
     public static final Item LETTER_A = register(BlocksTwo.LETTER_A, new Item.Properties().group(ItemGroup.MISC));
     public static final Item LETTER_B = register(BlocksTwo.LETTER_B, new Item.Properties().group(ItemGroup.MISC));
@@ -1351,8 +1350,8 @@ public class ItemsTwo {
     
 		// TODO give tnt fuel time and have it explode when it's done
 		
-		ItemGroup.COMBAT.setRelevantEnchantmentTypes(new EnchantmentType[]{EnchantmentType.VANISHABLE, EnchantmentType.ARMOR, EnchantmentType.ARMOR_FEET, EnchantmentType.ARMOR_HEAD, EnchantmentType.ARMOR_LEGS, EnchantmentType.ARMOR_CHEST, EnchantmentType.BOW, EnchantmentType.WEAPON, EnchantmentType.WEARABLE, EnchantmentType.BREAKABLE, EnchantmentType.TRIDENT, EnchantmentType.CROSSBOW, EnchantmentsTwo.Holder.DOUBLE_JUMP_BOOTS, EnchantmentsTwo.Holder.BLOOD_BLADE, EnchantmentsTwo.Holder.BANISHER, EnchantmentsTwo.Holder.HERMES_HELMET, EnchantmentsTwo.Holder.EVOCATION_STAFF, EnchantmentsTwo.Holder.DAGGER, EnchantmentsTwo.Holder.SLIME_BOOTS });
-		ItemGroup.TOOLS.setRelevantEnchantmentTypes(new EnchantmentType[]{EnchantmentType.VANISHABLE, EnchantmentType.DIGGER, EnchantmentType.FISHING_ROD, EnchantmentType.BREAKABLE, EnchantmentsTwo.Holder.SICKLE });
+		ItemGroup.COMBAT.setRelevantEnchantmentTypes(new EnchantmentType[]{EnchantmentType.VANISHABLE, EnchantmentType.ARMOR, EnchantmentType.ARMOR_FEET, EnchantmentType.ARMOR_HEAD, EnchantmentType.ARMOR_LEGS, EnchantmentType.ARMOR_CHEST, EnchantmentType.BOW, EnchantmentType.WEAPON, EnchantmentType.WEARABLE, EnchantmentType.BREAKABLE, EnchantmentType.TRIDENT, EnchantmentType.CROSSBOW, EnchantmentTypeTwo.DOUBLE_JUMP_BOOTS, EnchantmentTypeTwo.BLOOD_BLADE, EnchantmentTypeTwo.BANISHER, EnchantmentTypeTwo.HERMES_HELMET, EnchantmentTypeTwo.EVOCATION_STAFF, EnchantmentTypeTwo.DAGGER, EnchantmentTypeTwo.SLIME_BOOTS });
+		ItemGroup.TOOLS.setRelevantEnchantmentTypes(new EnchantmentType[]{EnchantmentType.VANISHABLE, EnchantmentType.DIGGER, EnchantmentType.FISHING_ROD, EnchantmentType.BREAKABLE, EnchantmentTypeTwo.SICKLE });
 
 		Holder.FOOD_TO_SCRAPS.put(Items.GOLDEN_APPLE, ItemsTwo.GOLDEN_APPLE_CORE);
 		Holder.FOOD_TO_SCRAPS.put(Items.GOLDEN_CARROT, ItemsTwo.GOLDEN_CARROT_STEM);

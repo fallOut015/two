@@ -18,10 +18,10 @@ public class IceArrowEntity extends AbstractArrowEntity {
 		super(entityType, worldIn);
 	}
 	public IceArrowEntity(World worldIn, double x, double y, double z) {
-		super(EntityTypeTwo.ICE_ARROW, x, y, z, worldIn);
+		super(EntityTypeTwo.ICE_ARROW.get(), x, y, z, worldIn);
 	}
 	public IceArrowEntity(World worldIn, LivingEntity shooter) {
-		super(EntityTypeTwo.ICE_ARROW, shooter, worldIn);
+		super(EntityTypeTwo.ICE_ARROW.get(), shooter, worldIn);
 	}
 	
 	@Override
@@ -36,11 +36,11 @@ public class IceArrowEntity extends AbstractArrowEntity {
 	public void tick() {
 		super.tick();
 		if (this.world.isRemote && !this.inGround) {
-			this.world.addParticle(ParticleTypesTwo.FROST, this.getPosX(), this.getPosY(), this.getPosZ(), 0.0D, 0.0D, 0.0D);
+			this.world.addParticle(ParticleTypesTwo.FROST.get(), this.getPosX(), this.getPosY(), this.getPosZ(), 0.0D, 0.0D, 0.0D);
 		}
 	}
 	@Override
 	protected void arrowHit(LivingEntity living) {
-		living.addPotionEffect(new EffectInstance(EffectsTwo.FROSTY, 50, 1, false, false));
+		living.addPotionEffect(new EffectInstance(EffectsTwo.FROSTY.get(), 50, 1, false, false));
 	}
 }

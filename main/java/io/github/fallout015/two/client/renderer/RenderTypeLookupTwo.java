@@ -87,7 +87,7 @@ public class RenderTypeLookupTwo {
 	    
 	    
 	    
-	    RenderTypeLookup.setRenderLayer(FluidsTwo.FLOWING_MUD, RenderType.getTranslucent());
-	    RenderTypeLookup.setRenderLayer(FluidsTwo.MUD, RenderType.getTranslucent());
+	    RenderTypeLookup.setRenderLayer(FluidsTwo.FLOWING_MUD.get(), RenderType.getTranslucent());
+	    RenderTypeLookup.setRenderLayer(FluidsTwo.MUD.get(), RenderType.getTranslucent());
 	}
 }

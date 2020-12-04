@@ -1,27 +1,24 @@
 package io.github.fallout015.two.stats;
 
-import java.util.LinkedList;
-
-import net.minecraft.stats.IStatFormatter;
+import io.github.fallout015.two.Two;
 import net.minecraft.stats.StatType;
-import net.minecraft.stats.Stats;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
-import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class StatsTwo {
-	public static final ResourceLocation INTERACT_WITH_UPHOLSTERY_TABLE = registerCustom("interact_with_upholstery_table", IStatFormatter.DEFAULT);
+	private static final DeferredRegister<StatType<?>> STAT_TYPES = DeferredRegister.create(ForgeRegistries.STAT_TYPES, Two.MODID);
+
 	
-	public static void onStatTypesRegistry(final RegistryEvent.Register<StatType<?>> statTypeRegistryEvent) {
-		statTypeRegistryEvent.getRegistry().registerAll(Holder.STATTYPES.toArray(new StatType<?> [] {}));
-	}
-	static ResourceLocation registerCustom(String key, IStatFormatter statFormatter) {
-		ResourceLocation resourcelocation = new ResourceLocation("two", key);
-		Registry.register(Registry.CUSTOM_STAT, key, resourcelocation);
-		Stats.CUSTOM.get(resourcelocation, statFormatter);
-		return resourcelocation;
-	}
-	static class Holder {
-		public static final LinkedList<StatType<?>> STATTYPES = new LinkedList<StatType<?>>();
+	
+	public static final RegistryObject<StatType<ResourceLocation>> INTERACT_WITH_UPHOLSTERY_TABLE = STAT_TYPES.register("interact_with_upholstery_table", () -> new StatType<ResourceLocation>(Registry.CUSTOM_STAT));
+	
+	
+	
+	public static void register(IEventBus bus) {
+		STAT_TYPES.register(bus);
 	}
 }

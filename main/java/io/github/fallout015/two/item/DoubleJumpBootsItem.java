@@ -24,6 +24,6 @@ public class DoubleJumpBootsItem extends ArmorItem {
 	 * @return the number of times you can do a midair jump (no enchantments is 3, Bounding I is 4, Bounding II is 5, and Bounding III is 6
 	 */
 	public static int getJumpLimit(ItemStack stack) {
-		return 3 + EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.BOUNDING, stack);
+		return 3 + EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.BOUNDING.get(), stack);
 	}
 }

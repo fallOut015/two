@@ -32,11 +32,9 @@ import net.minecraft.block.SlimeBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.StairsBlock;
 import net.minecraft.block.StandingSignBlock;
-import net.minecraft.block.TorchBlock;
 import net.minecraft.block.TrapDoorBlock;
 import net.minecraft.block.WallBlock;
 import net.minecraft.block.WallSignBlock;
-import net.minecraft.block.WallTorchBlock;
 import net.minecraft.block.WoodButtonBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -57,7 +55,7 @@ public class BlocksTwo {
 //	@ObjectHolder("minecraft:anvil")
 //	public static final Block ANVIL = register("minecraft:anvil", new AnvilBlockTwo(Block.Properties.create(Material.ANVIL)).setRegistryName("minecraft", "anvil"));
 	
-	public static final Block MUD = register("mud", new FlowingFluidBlock(() -> FluidsTwo.MUD, Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(150f).noDrops()));
+	public static final Block MUD = register("mud", new FlowingFluidBlock(FluidsTwo.MUD, Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(150f).noDrops()));
 	
 	//public static final Block CEDAR_PLANKS = register("cedar_planks", new Block(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 	//public static final Block REDWOOD_PLANKS = register("redwood_planks", new Block(Block.Properties.create(Material.WOOD, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
@@ -652,8 +650,8 @@ public class BlocksTwo {
 	public static final Block CHAIR = register("chair", new ChairBlock(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.5f).sound(SoundType.WOOD)));
 	
 	// TODO parity with vanilla torches, also, maybe improve from 16 to 18 or something
-	public static final Block STARSTONE_TORCH = register("starstone_torch", new TorchBlock(Block.Properties.create(Material.MISCELLANEOUS).setLightLevel(state -> 16).doesNotBlockMovement().hardnessAndResistance(0), ParticleTypesTwo.TWINKLE));
-	public static final Block STARSTONE_WALL_TORCH = register("starstone_wall_torch", new WallTorchBlock(Block.Properties.create(Material.MISCELLANEOUS).setLightLevel(state -> 16).doesNotBlockMovement().hardnessAndResistance(0), ParticleTypesTwo.TWINKLE));
+	public static final Block STARSTONE_TORCH = register("starstone_torch", new TorchBlockTwo(Block.Properties.create(Material.MISCELLANEOUS).setLightLevel(state -> 16).doesNotBlockMovement().hardnessAndResistance(0), () -> ParticleTypesTwo.TWINKLE.get()));
+	public static final Block STARSTONE_WALL_TORCH = register("starstone_wall_torch", new WallTorchBlockTwo(Block.Properties.create(Material.MISCELLANEOUS).setLightLevel(state -> 16).doesNotBlockMovement().hardnessAndResistance(0), () -> ParticleTypesTwo.TWINKLE.get()));
 	
 	public static final Block FLAGSTONE_PATH = register("flagstone_path", new Block(Block.Properties.from(Blocks.GRASS_PATH)));
 	

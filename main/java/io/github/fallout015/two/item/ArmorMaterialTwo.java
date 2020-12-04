@@ -211,17 +211,17 @@ public enum ArmorMaterialTwo implements IArmorMaterial {
 	private final int maxDamageFactor;
 	private final int[] damageReductionAmountArray;
 	private final int enchantability;
-	private final SoundEvent soundEvent;
+	private final LazyValue<SoundEvent> soundEvent;
 	private final float toughness;
 	private final float knockbackResistance;
 	private final LazyValue<Ingredient> repairMaterial;
 
-	private ArmorMaterialTwo(String nameIn, int maxDamageFactorIn, int[] damageReductionAmountsIn, int enchantabilityIn, SoundEvent equipSoundIn, float toughness, float knockbackResistance, Supplier<Ingredient> repairMaterialSupplier) {
+	private ArmorMaterialTwo(String nameIn, int maxDamageFactorIn, int[] damageReductionAmountsIn, int enchantabilityIn, Supplier<SoundEvent> equipSoundIn, float toughness, float knockbackResistance, Supplier<Ingredient> repairMaterialSupplier) {
 		this.name = nameIn;
 	    this.maxDamageFactor = maxDamageFactorIn;
 	    this.damageReductionAmountArray = damageReductionAmountsIn;
 	    this.enchantability = enchantabilityIn;
-	    this.soundEvent = equipSoundIn;
+	    this.soundEvent = new LazyValue<>(equipSoundIn);
 	    this.toughness = toughness;
 	    this.knockbackResistance = knockbackResistance;
 	    this.repairMaterial = new LazyValue<>(repairMaterialSupplier);
@@ -237,7 +237,7 @@ public enum ArmorMaterialTwo implements IArmorMaterial {
 	    return this.enchantability;
 	}
 	public SoundEvent getSoundEvent() {
-	    return this.soundEvent;
+	    return this.soundEvent.getValue();
 	}
 	public Ingredient getRepairMaterial() {
 	    return this.repairMaterial.getValue();

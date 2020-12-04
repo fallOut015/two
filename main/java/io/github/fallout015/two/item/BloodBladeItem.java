@@ -52,8 +52,8 @@ public abstract class BloodBladeItem extends SwordItem {
 			if((player).getCooledAttackStrength(0.5f) == 1f) {
 				this.bonusEffect(stack, (LivingEntity) entity, player);
 
-				if(EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.VITALITY_THIEF, stack) > 0) {
-					player.addPotionEffect(new EffectInstance(Effects.INSTANT_HEALTH, 1, EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.VITALITY_THIEF, stack), false, false));
+				if(EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.VITALITY_THIEF.get(), stack) > 0) {
+					player.addPotionEffect(new EffectInstance(Effects.INSTANT_HEALTH, 1, EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.VITALITY_THIEF.get(), stack), false, false));
 				}
 			}
 			

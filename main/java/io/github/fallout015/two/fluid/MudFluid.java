@@ -22,10 +22,10 @@ import net.minecraftforge.fluids.FluidAttributes;
 
 public abstract class MudFluid extends FlowingFluid {
 	public Fluid getFlowingFluid() {
-		return FluidsTwo.FLOWING_MUD;
+		return FluidsTwo.FLOWING_MUD.get();
 	}
 	public Fluid getStillFluid() {
-		return FluidsTwo.MUD;
+		return FluidsTwo.MUD.get();
 	}
 	public Item getFilledBucket() {
 		return ItemsTwo.MUD_BUCKET;
@@ -70,7 +70,7 @@ public abstract class MudFluid extends FlowingFluid {
 	}
 	@Override
 	public boolean isEquivalentTo(Fluid fluidIn) {
-		return fluidIn == FluidsTwo.MUD || fluidIn == FluidsTwo.FLOWING_MUD;
+		return fluidIn == FluidsTwo.MUD.get() || fluidIn == FluidsTwo.FLOWING_MUD.get();
 	}
 	
 	public static class Flowing extends MudFluid {

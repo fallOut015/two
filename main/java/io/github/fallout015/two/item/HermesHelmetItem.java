@@ -17,7 +17,7 @@ public class HermesHelmetItem extends ArmorItem {
 	
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-		int amplifierIn = EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.GENTLE_DESCENT, stack);
+		int amplifierIn = EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.GENTLE_DESCENT.get(), stack);
 		
 		if(player.getActivePotionEffect(Effects.SLOW_FALLING) == null) {
 			player.addPotionEffect(new EffectInstance(Effects.SLOW_FALLING, 1, amplifierIn, true, false));

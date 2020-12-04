@@ -5,7 +5,7 @@ import net.minecraft.inventory.EquipmentSlotType;
 
 public class SnappingEnchantment extends Enchantment {
 	public SnappingEnchantment(Enchantment.Rarity rarityIn, EquipmentSlotType... slots) {
-		super(rarityIn, EnchantmentsTwo.Holder.EVOCATION_STAFF, slots);
+		super(rarityIn, EnchantmentTypeTwo.EVOCATION_STAFF, slots);
 	}
 	
 	@Override

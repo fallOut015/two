@@ -53,7 +53,7 @@ public class UpholsteryTableContainer extends Container {
 	    this(id, playerInventory, IWorldPosCallable.DUMMY);
 	}
 	public UpholsteryTableContainer(int id, PlayerInventory playerInventory, final IWorldPosCallable worldPosCallable) {
-		super(ContainerTypeTwo.UPHOLSTERY_TABLE, id);
+		super(ContainerTypeTwo.UPHOLSTERY_TABLE.get(), id);
 		
 		this.worldPos = worldPosCallable;
 		
@@ -93,7 +93,7 @@ public class UpholsteryTableContainer extends Container {
 	            worldPosCallable.consume((worldIn, pos) -> {
 	            	long l = worldIn.getGameTime();
 	            	if (UpholsteryTableContainer.this.time != l) {
-	            		worldIn.playSound((PlayerEntity) null, pos, SoundEventsTwo.GUI_UPHOLSTERY_TABLE_TAKE_RESULT, SoundCategory.BLOCKS, 1.0F, 1.0F);
+	            		worldIn.playSound((PlayerEntity) null, pos, SoundEventsTwo.GUI_UPHOLSTERY_TABLE_TAKE_RESULT.get(), SoundCategory.BLOCKS, 1.0F, 1.0F);
 	            		UpholsteryTableContainer.this.time = l;
 	            	}
 

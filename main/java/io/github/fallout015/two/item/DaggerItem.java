@@ -53,7 +53,7 @@ public class DaggerItem extends TieredItem implements IVanishable {
 	}
 	@Override
 	public ActionResultType itemInteractionForEntity(ItemStack stack, PlayerEntity playerIn, LivingEntity target, Hand hand) {
-		if(EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.DISARMING, stack) > 0 && playerIn.getPositionVec().distanceTo(target.getPositionVec()) < 1.41421356237) {
+		if(EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.DISARMING.get(), stack) > 0 && playerIn.getPositionVec().distanceTo(target.getPositionVec()) < 1.41421356237) {
 			if(target.entityDropItem(target.getHeldItem(hand)) == null) {
 				return ActionResultType.FAIL;
 			}

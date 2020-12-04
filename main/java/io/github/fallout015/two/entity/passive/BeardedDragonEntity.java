@@ -38,7 +38,7 @@ public class BeardedDragonEntity extends ShoulderRidingEntity {
 
 	@Override
 	public AgeableEntity func_241840_a(ServerWorld serverWorld, AgeableEntity ageable) {
-		BeardedDragonEntity beardeddragonentity = EntityTypeTwo.BEARDED_DRAGON.create(serverWorld);
+		BeardedDragonEntity beardeddragonentity = EntityTypeTwo.BEARDED_DRAGON.get().create(serverWorld);
 		UUID uuid = this.getOwnerId();
 		if (uuid != null) {
 			beardeddragonentity.setOwnerId(uuid);

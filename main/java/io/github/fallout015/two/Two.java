@@ -49,18 +49,14 @@ import io.github.fallout015.two.world.gen.feature.FeatureTwo;
 import io.github.fallout015.two.world.gen.feature.FeaturesTwo;
 import io.github.fallout015.two.world.gen.feature.structure.StructureTwo;
 import io.github.fallout015.two.world.gen.placement.PlacementTwo;
-import io.github.fallout015.two.world.gen.surfacebuilders.SurfaceBuilderTwo;
 import net.minecraft.block.Block;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.client.Minecraft;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.merchant.villager.VillagerProfession;
 import net.minecraft.entity.monster.CaveSpiderEntity;
 import net.minecraft.entity.monster.EndermiteEntity;
 import net.minecraft.entity.monster.SilverfishEntity;
@@ -68,9 +64,7 @@ import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.Item;
@@ -78,40 +72,28 @@ import net.minecraft.item.ItemModelsProperties;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.particles.ParticleType;
-import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
-import net.minecraft.stats.StatType;
-import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.MobSpawnInfo.Spawners;
 import net.minecraft.world.gen.GenerationStage.Carving;
 import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.carver.ConfiguredCarver;
-import net.minecraft.world.gen.carver.WorldCarver;
-import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.placement.Placement;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.ParticleFactoryRegisterEvent;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
@@ -136,7 +118,7 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod("two")
+@Mod(Two.MODID)
 public class Two {
 	// TODO PRESSURE PLATE, FENCE, STAIRS, BUTTON, SIGN, AND BOAT FOR STAINED PLANKS
 	
@@ -150,20 +132,34 @@ public class Two {
 	// PILLARS
 	// FURNITURE
 	
-    public static final Logger LOGGER = LogManager.getLogger(Two.class.getAnnotation(Mod.class).value());
+    public static final String MODID = "two";
+    public static final Logger LOGGER = LogManager.getLogger(MODID);
     
     public Two() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
-        
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_SPEC);
         
         MinecraftForge.EVENT_BUS.register(this);
+        
+        ContainerTypeTwo.register(FMLJavaModLoadingContext.get().getModEventBus());
+        EffectsTwo.register(FMLJavaModLoadingContext.get().getModEventBus());
+        EnchantmentsTwo.register(FMLJavaModLoadingContext.get().getModEventBus());
+        EntityTypeTwo.register(FMLJavaModLoadingContext.get().getModEventBus());
+        FeatureTwo.register(FMLJavaModLoadingContext.get().getModEventBus());
+        FluidsTwo.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ParticleTypesTwo.register(FMLJavaModLoadingContext.get().getModEventBus());
+        PlacementTwo.register(FMLJavaModLoadingContext.get().getModEventBus());
+        SoundEventsTwo.register(FMLJavaModLoadingContext.get().getModEventBus());
+        StatsTwo.register(FMLJavaModLoadingContext.get().getModEventBus());
+        StructureTwo.register(FMLJavaModLoadingContext.get().getModEventBus());
+        TileEntityTypeTwo.register(FMLJavaModLoadingContext.get().getModEventBus());
+        WorldCarverTwo.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
     
-	private void setup(final FMLCommonSetupEvent event) {
+    private void setup(final FMLCommonSetupEvent event) {
 		PacketHandler.setup(event);
 		GlobalEntityTypeAttributesTwo.setup(event);
 	}
@@ -192,8 +188,6 @@ public class Two {
     		clientOnly();
     	} catch(NoSuchMethodError e) { Two.LOGGER.error(e + " this is SUPPOSED to happen!"); }
     }
-    private void enqueueIMC(final InterModEnqueueEvent event) {}
-    private void processIMC(final InterModProcessEvent event) {}
     @OnlyIn(Dist.CLIENT)
     private static void clientOnly() {
     	// Top Hat
@@ -227,12 +221,12 @@ public class Two {
     	// Nick's cosmetic gauntlet, one for default and one for slim
     	// Hanna's cosmetic cat ears
     	
-    	
-    	
     	ItemModelsProperties.registerProperty(ItemsTwo.BLOOD_VENOM_BLADE, new ResourceLocation("two", "pam_texture"), (itemStack, clientWorld, livingEntity) -> {
 			return Config.pamTextureBloodBlade ? 1F : 0F;
 		});
     }
+    private void enqueueIMC(final InterModEnqueueEvent event) {}
+    private void processIMC(final InterModProcessEvent event) {}
     
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) {}
@@ -245,12 +239,12 @@ public class Two {
     
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
-        @SuppressWarnings("resource")
-        @SubscribeEvent
+    	@SuppressWarnings("resource")
+    	@SubscribeEvent
         public static void onParticleFactoryRegistry(final ParticleFactoryRegisterEvent event) {
-    		Minecraft.getInstance().particles.registerFactory(ParticleTypesTwo.FROST, FrostParticle.Factory::new);
-    		Minecraft.getInstance().particles.registerFactory(ParticleTypesTwo.SPARK, SparkParticle.Factory::new);
-    		Minecraft.getInstance().particles.registerFactory(ParticleTypesTwo.TWINKLE, TwinkleParticle.Factory::new);
+    		Minecraft.getInstance().particles.registerFactory(ParticleTypesTwo.FROST.get(), FrostParticle.Factory::new);
+    		Minecraft.getInstance().particles.registerFactory(ParticleTypesTwo.SPARK.get(), SparkParticle.Factory::new);
+    		Minecraft.getInstance().particles.registerFactory(ParticleTypesTwo.TWINKLE.get(), TwinkleParticle.Factory::new);
         }
     	
     	@SubscribeEvent
@@ -261,75 +255,6 @@ public class Two {
         public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
     		ItemsTwo.onItemsRegistry(itemRegistryEvent);
         }
-    	@SubscribeEvent
-    	public static void onBiomesRegistry(final RegistryEvent.Register<Biome> biomeRegistryEvent) {
-//    		BiomesTwo.onBiomesRegistry(biomeRegistryEvent);
-    	}
-    	@SubscribeEvent
-    	public static void onContainerTypesRegistry(final RegistryEvent.Register<ContainerType<?>> containerTypeRegistryEvent) {
-    		ContainerTypeTwo.onContainerTypesRegistry(containerTypeRegistryEvent);
-    	}
-    	@SubscribeEvent
-    	public static void onEffectsRegistry(final RegistryEvent.Register<Effect> effectRegistryEvent) {
-    		EffectsTwo.onEffectsRegistry(effectRegistryEvent);
-    	}
-    	@SubscribeEvent
-    	public static void onEnchantmentsRegistry(final RegistryEvent.Register<Enchantment> enchantmentRegistryEvent) {
-    		EnchantmentsTwo.onEnchantmentsRegistry(enchantmentRegistryEvent);
-    	}
-    	@SubscribeEvent
-    	public static void onEntityTypesRegistry(final RegistryEvent.Register<EntityType<?>> entityTypeRegistryEvent) {
-    		EntityTypeTwo.onEntityTypesRegistry(entityTypeRegistryEvent);
-    	}
-    	@SubscribeEvent
-    	public static void onFeaturesRegistry(final RegistryEvent.Register<Feature<?>> featureRegistryEvent) {
-    		FeatureTwo.onFeaturesRegistry(featureRegistryEvent);
-    	}
-    	@SubscribeEvent
-    	public static void onFluidsRegistry(final RegistryEvent.Register<Fluid> fluidRegistryEvent) {
-    		FluidsTwo.onFluidsRegistry(fluidRegistryEvent);
-    	}
-    	@SubscribeEvent
-    	public static void onGlobalLootModifierSerializersRegistry(final RegistryEvent.Register<GlobalLootModifierSerializer<?>> globalLootModifierSerializerRegistryEvent) {
-    		// loot stuff
-//    		LootTables.CHESTS_SIMPLE_DUNGEON.
-    	}
-    	@SubscribeEvent
-    	public static void onParticleTypesRegistry(final RegistryEvent.Register<ParticleType<?>> particleTypeRegistryEvent) {
-    		ParticleTypesTwo.onParticleTypesRegistry(particleTypeRegistryEvent);
-    	}
-    	@SubscribeEvent
-    	public static void onPlacementsRegistry(final RegistryEvent.Register<Placement<?>> placementRegistryEvent) {
-    		PlacementTwo.onPlacementsRegistry(placementRegistryEvent);
-    	}
-    	@SubscribeEvent
-        public static void onSoundEventsRegistry(final RegistryEvent.Register<SoundEvent> soundEventRegistryEvent) {
-        	SoundEventsTwo.onSoundEventsRegistry(soundEventRegistryEvent);
-        }
-    	@SubscribeEvent
-    	public static void onStatTypesRegistry(final RegistryEvent.Register<StatType<?>> statTypeRegistry) {
-    		StatsTwo.onStatTypesRegistry(statTypeRegistry);
-    	}
-    	@SubscribeEvent
-    	public static void onStructuresRegistry(final RegistryEvent.Register<Structure<?>> structureRegistry) {
-    		StructureTwo.onStructuresRegistry(structureRegistry);
-    	}
-    	@SubscribeEvent
-    	public static void onSurfaceBuildersRegistry(final RegistryEvent.Register<SurfaceBuilder<?>> surfaceBuilderRegistryEvent) {
-    		SurfaceBuilderTwo.onSurfaceBuildersRegistry(surfaceBuilderRegistryEvent);
-    	}
-    	@SubscribeEvent
-    	public static void onTileEntitiesRegistry(final RegistryEvent.Register<TileEntityType<?>> tileEntityRegistryEvent) {
-    		TileEntityTypeTwo.onTileEntitiesRegistry(tileEntityRegistryEvent);
-    	}
-    	@SubscribeEvent
-    	public static void onVillagerProfessionsRegistry(final RegistryEvent.Register<VillagerProfession> villagerProfessionRegistryEvent) {
-    		// tailor and carpenter for now
-    	}
-    	@SubscribeEvent
-    	public static void onWorldCarversRegistry(final RegistryEvent.Register<WorldCarver<?>> worldCarverRegistryEvent) {
-    		WorldCarverTwo.onWorldCarversRegistry(worldCarverRegistryEvent);
-    	}
     }
     
     @Mod.EventBusSubscriber
@@ -357,13 +282,13 @@ public class Two {
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).clear();
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.RAW_GENERATION).add(() -> FeaturesTwo.ICY_STONE_REPLACER);
 
-    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.CREATURE).add(new Spawners(EntityTypeTwo.PENGUIN, 10, 3, 5));
+    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.CREATURE).add(new Spawners(EntityTypeTwo.PENGUIN.get(), 10, 3, 5));
 
-    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.MONSTER).add(new Spawners(EntityTypeTwo.ICE_SLIME, 10, 1, 3));
+    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.MONSTER).add(new Spawners(EntityTypeTwo.ICE_SLIME.get(), 10, 1, 3));
     		} else if(biomeLoadingEvent.getCategory() == Category.SAVANNA) {
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).add(() -> FeaturesTwo.ORE_TANZANITE);
 
-    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.CREATURE).add(new Spawners(EntityTypeTwo.BEARDED_DRAGON, 12, 2, 4));
+    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.CREATURE).add(new Spawners(EntityTypeTwo.BEARDED_DRAGON.get(), 12, 2, 4));
     		} else if(biomeLoadingEvent.getCategory() == Category.DESERT) {
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).clear();
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.RAW_GENERATION).add(() -> FeaturesTwo.DESERT_STONE_REPLACER);
@@ -374,20 +299,20 @@ public class Two {
     			
 //    			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_DECORATION).add(() -> Feature.SIMPLE_BLOCK.withConfiguration(FeaturesTwo.Configs.SUCCULIGHT_CONFIG).withPlacement(Placement.COUNT_BIASED_RANGE.configure(new CountRangeConfig(1, 8, 32, 64))));
     			
-    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.CREATURE).add(new Spawners(EntityTypeTwo.CHAMELEON, 10, 1, 2));
+    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.CREATURE).add(new Spawners(EntityTypeTwo.CHAMELEON.get(), 10, 1, 2));
 
-    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.MONSTER).add(new Spawners(EntityTypeTwo.MUMMIFIED_ZOMBIE, 7, 1, 2));
+    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.MONSTER).add(new Spawners(EntityTypeTwo.MUMMIFIED_ZOMBIE.get(), 7, 1, 2));
     		} else if(biomeLoadingEvent.getCategory() == Category.JUNGLE) {
-    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.CREATURE).add(new Spawners(EntityTypeTwo.CHAMELEON, 12, 2, 4));
+    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.CREATURE).add(new Spawners(EntityTypeTwo.CHAMELEON.get(), 12, 2, 4));
     		} else if(biomeLoadingEvent.getCategory() == Category.MESA) {
 //    			biomeLoadingEvent.getGeneration().getStructures().add(() -> StructureTwo.);
     		} else if(biomeLoadingEvent.getCategory() == Category.MUSHROOM) {
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.UNDERGROUND_ORES).clear();
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.RAW_GENERATION).add(() -> FeaturesTwo.MUSHROOM_STONE_REPLACER);
     		} else if(biomeLoadingEvent.getCategory() == Category.FOREST) {
-    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.AMBIENT).add(new Spawners(EntityTypeTwo.BUTTERFLY, 200, 1, 1));
+    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.AMBIENT).add(new Spawners(EntityTypeTwo.BUTTERFLY.get(), 200, 1, 1));
     		} else if(biomeLoadingEvent.getCategory() == Category.PLAINS) {
-    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.AMBIENT).add(new Spawners(EntityTypeTwo.BUTTERFLY, 200, 1, 1));
+    			biomeLoadingEvent.getSpawns().getSpawner(EntityClassification.AMBIENT).add(new Spawners(EntityTypeTwo.BUTTERFLY.get(), 200, 1, 1));
     		}
     		
     		if(biomeLoadingEvent.getName() == Biomes.CRIMSON_FOREST.getRegistryName()) {
@@ -402,8 +327,8 @@ public class Two {
     			biomeLoadingEvent.getGeneration().getFeatures(Decoration.VEGETAL_DECORATION).add(() -> FeaturesTwo.SWAMP_CATTAILS);
     		}
     		
-    		biomeLoadingEvent.getGeneration().getCarvers(Carving.AIR).add(() -> new ConfiguredCarver<>(WorldCarverTwo.CAVERN, new ProbabilityConfig(0.01285715F)));
-    		biomeLoadingEvent.getGeneration().getCarvers(Carving.AIR).add(() -> new ConfiguredCarver<>(WorldCarverTwo.WIDE_CAVE, new ProbabilityConfig(0.07285715F)));
+    		biomeLoadingEvent.getGeneration().getCarvers(Carving.AIR).add(() -> new ConfiguredCarver<>(WorldCarverTwo.CAVERN.get(), new ProbabilityConfig(0.01285715F)));
+    		biomeLoadingEvent.getGeneration().getCarvers(Carving.AIR).add(() -> new ConfiguredCarver<>(WorldCarverTwo.WIDE_CAVE.get(), new ProbabilityConfig(0.07285715F)));
     		
 //    		Biomes.DESERT.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, FeatureTwo.REPLACE_BLOCK.withConfiguration(new ReplaceBlockConfig(Blocks.SMOOTH_SANDSTONE.getDefaultState(), Blocks.SANDSTONE.getDefaultState())).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(256))));
 //    		Biomes.DESERT_HILLS.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, FeatureTwo.REPLACE_BLOCK.withConfiguration(new ReplaceBlockConfig(Blocks.SMOOTH_SANDSTONE.getDefaultState(), Blocks.SANDSTONE.getDefaultState())).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(256))));
@@ -530,7 +455,7 @@ public class Two {
     	public static void onLivingFall(final LivingFallEvent livingFallEvent) {
     		if(livingFallEvent.getEntityLiving() instanceof PlayerEntity) {
         		if(livingFallEvent.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.FEET).getItem() == ItemsTwo.SLIME_BOOTS) {
-        			int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.REBOUND, livingFallEvent.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.FEET));
+        			int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.REBOUND.get(), livingFallEvent.getEntityLiving().getItemStackFromSlot(EquipmentSlotType.FEET));
         			if(level > 0) {
             			SlimeBootsItem.bounce(livingFallEvent.getEntityLiving(), level);
         			}

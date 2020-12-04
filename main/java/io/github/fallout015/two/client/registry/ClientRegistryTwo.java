@@ -7,6 +7,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 public class ClientRegistryTwo {
 	public static void doClientStuff(final FMLClientSetupEvent event) {
-    	ClientRegistry.bindTileEntityRenderer(TileEntityTypeTwo.CHAIR, ChairRenderer::new);
+    	ClientRegistry.bindTileEntityRenderer(TileEntityTypeTwo.CHAIR.get(), ChairRenderer::new);
 	}
 }

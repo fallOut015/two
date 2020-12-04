@@ -1,27 +1,25 @@
 package io.github.fallout015.two.tileentity;
 
-import java.util.LinkedList;
-
+import io.github.fallout015.two.Two;
 import io.github.fallout015.two.block.BlocksTwo;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.registries.ObjectHolder;
+import net.minecraft.util.Util;
+import net.minecraft.util.datafix.TypeReferences;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
-@ObjectHolder("two")
 public class TileEntityTypeTwo {
-	public static final TileEntityType<ChairTileEntity> CHAIR = register("chair", TileEntityType.Builder.create(ChairTileEntity::new, BlocksTwo.CHAIR));
+	private static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, Two.MODID);
 
-	public static void onTileEntitiesRegistry(final RegistryEvent.Register<TileEntityType<?>> tileEntityRegistryEvent) {
-		tileEntityRegistryEvent.getRegistry().registerAll(Holder.TILEENTITYTYPESTWO.toArray(new TileEntityType<?> [] {}));
-	}
-	private static <T extends TileEntity> TileEntityType<T> register(String key, TileEntityType.Builder<T> builder) {
-		TileEntityType<T> tileEntityType = builder.build(null);
-		tileEntityType.setRegistryName(key);
-		Holder.TILEENTITYTYPESTWO.add(tileEntityType);
-		return tileEntityType;
-	}
-	static class Holder {
-		public static final LinkedList<TileEntityType<?>> TILEENTITYTYPESTWO = new LinkedList<TileEntityType<?>>();
+	
+	
+	public static final RegistryObject<TileEntityType<ChairTileEntity>> CHAIR = TILE_ENTITIES.register("chair", () -> TileEntityType.Builder.create(ChairTileEntity::new, BlocksTwo.CHAIR).build(Util.attemptDataFix(TypeReferences.BLOCK_ENTITY, "chair")));
+	
+	
+	
+	public static void register(IEventBus bus) {
+		TILE_ENTITIES.register(bus);
 	}
 }

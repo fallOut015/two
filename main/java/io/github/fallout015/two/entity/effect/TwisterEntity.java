@@ -23,7 +23,7 @@ public class TwisterEntity extends Entity {
 		this.ignoreFrustumCheck = false;
 	}
 	public TwisterEntity(World worldIn, double x, double y, double z, @Nullable ServerPlayerEntity caster) {
-		super(EntityTypeTwo.TWISTER, worldIn);
+		super(EntityTypeTwo.TWISTER.get(), worldIn);
 		
 		this.setLocationAndAngles(x, y, z, 0.0F, 0.0F);
 		this.caster = caster;

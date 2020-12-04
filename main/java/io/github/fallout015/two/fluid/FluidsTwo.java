@@ -1,26 +1,23 @@
 package io.github.fallout015.two.fluid;
 
-import java.util.LinkedList;
-
-import net.minecraft.fluid.FlowingFluid;
+import io.github.fallout015.two.Two;
 import net.minecraft.fluid.Fluid;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
-@ObjectHolder("two")
 public class FluidsTwo {
-	public static final FlowingFluid MUD = register("mud", new MudFluid.Source());
-	public static final FlowingFluid FLOWING_MUD = register("flowing_mud", new MudFluid.Flowing());
+	private static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, Two.MODID);
 	
-	public static void onFluidsRegistry(final RegistryEvent.Register<Fluid> fluidRegistryEvent) {
-		fluidRegistryEvent.getRegistry().registerAll(Holder.FLUIDSTWO.toArray(new Fluid [] {}));
-	}
-	static <T extends Fluid> T register(String key, T fluid) {
-		Holder.FLUIDSTWO.add(fluid.setRegistryName("two", key));
-		
-		return fluid;
-	}
-	static class Holder {
-		public static final LinkedList<Fluid> FLUIDSTWO = new LinkedList<Fluid>();
+	
+	
+	public static final RegistryObject<MudFluid.Source> MUD = FLUIDS.register("mud", () -> new MudFluid.Source());
+	public static final RegistryObject<MudFluid.Flowing> FLOWING_MUD = FLUIDS.register("flowing_mud", () -> new MudFluid.Flowing());
+
+	
+	
+	public static void register(IEventBus bus) {
+		FLUIDS.register(bus);
 	}
 }

@@ -58,7 +58,7 @@ public class PenguinEntity extends AnimalEntity {
 
 	@Override
 	public AgeableEntity func_241840_a(ServerWorld serverWorld, AgeableEntity p_241840_2_) {
-		return EntityTypeTwo.PENGUIN.create(serverWorld);
+		return EntityTypeTwo.PENGUIN.get().create(serverWorld);
 	}
 	
 	public static AttributeModifierMap.MutableAttribute applyAttributes() {
@@ -156,7 +156,7 @@ public class PenguinEntity extends AnimalEntity {
 		} else if(entityIn.getType() == EntityType.COD) {
 			entityIn.remove();
 			this.setFish(new ItemStack(Items.COD));
-		} else if(entityIn instanceof PenguinEntity && entityIn.getType() == EntityTypeTwo.PENGUIN && ((PenguinEntity) entityIn).isChild()) {
+		} else if(entityIn instanceof PenguinEntity && entityIn.getType() == EntityTypeTwo.PENGUIN.get() && ((PenguinEntity) entityIn).isChild()) {
 			((PenguinEntity) entityIn).setFish(this.getFish());
 			this.removeFish();
 		}
@@ -192,7 +192,7 @@ public class PenguinEntity extends AnimalEntity {
 			// Find the nearest child penguin with the least health.
 			float minhealth = this.creature.getMaxHealth();
 			@Nullable Entity target = null;
-			for(PenguinEntity penguin : this.creature.getEntityWorld().getEntitiesWithinAABB(EntityTypeTwo.PENGUIN, new AxisAlignedBB(new BlockPos(this.creature.getPositionVec())).grow(this.distance), penguin -> penguin.isChild())) {
+			for(PenguinEntity penguin : this.creature.getEntityWorld().getEntitiesWithinAABB(EntityTypeTwo.PENGUIN.get(), new AxisAlignedBB(new BlockPos(this.creature.getPositionVec())).grow(this.distance), penguin -> penguin.isChild())) {
 				if(penguin.getHealth() < minhealth) {
 					minhealth = penguin.getHealth();
 					target = penguin;

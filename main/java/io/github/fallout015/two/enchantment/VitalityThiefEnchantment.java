@@ -5,7 +5,7 @@ import net.minecraft.inventory.EquipmentSlotType;
 
 public class VitalityThiefEnchantment extends Enchantment {
 	protected VitalityThiefEnchantment(Enchantment.Rarity rarityIn, EquipmentSlotType... slots) {
-		super(rarityIn, EnchantmentsTwo.Holder.BLOOD_BLADE, slots);
+		super(rarityIn, EnchantmentTypeTwo.BLOOD_BLADE, slots);
 	}
 	
 	@Override

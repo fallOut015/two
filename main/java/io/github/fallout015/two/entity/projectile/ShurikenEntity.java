@@ -18,10 +18,10 @@ public class ShurikenEntity extends ProjectileItemEntity {
 		super(type, world);
 	}
 	public ShurikenEntity(World worldIn, LivingEntity throwerIn) {
-		super(EntityTypeTwo.SHURIKEN, throwerIn, worldIn);
+		super(EntityTypeTwo.SHURIKEN.get(), throwerIn, worldIn);
 	}
 	public ShurikenEntity(World worldIn, double x, double y, double z) {
-		super(EntityTypeTwo.SHURIKEN, x, y, z, worldIn);
+		super(EntityTypeTwo.SHURIKEN.get(), x, y, z, worldIn);
 	}
 	
 	protected Item getDefaultItem() {

@@ -38,7 +38,7 @@ public class EvocationStaffItem extends Item implements IVanishable {
 		double d1 = Math.max(result.getHitVec().getY(), playerIn.getPosY()) + 1.0D;
 		float f = (float)MathHelper.atan2(result.getHitVec().getZ() - playerIn.getPosZ(), result.getHitVec().getX() - playerIn.getPosX());
 
-		int snappingLevel = EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.SNAPPING, playerIn.getHeldItem(handIn));
+		int snappingLevel = EnchantmentHelper.getEnchantmentLevel(EnchantmentsTwo.SNAPPING.get(), playerIn.getHeldItem(handIn));
 		
 		if (playerIn.getDistanceSq(result.getHitVec()) < 9.0D) {
 			for(int i = 0; i < 5; ++i) {

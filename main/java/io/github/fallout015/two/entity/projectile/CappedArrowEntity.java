@@ -31,10 +31,10 @@ public class CappedArrowEntity extends AbstractArrowEntity implements IEntityAdd
 		super(entityType, worldIn);
 	}
 	public CappedArrowEntity(World worldIn, double x, double y, double z) {
-		super(EntityTypeTwo.CAPPED_ARROW, x, y, z, worldIn);
+		super(EntityTypeTwo.CAPPED_ARROW.get(), x, y, z, worldIn);
 	}
 	public CappedArrowEntity(World worldIn, LivingEntity shooter) {
-		super(EntityTypeTwo.CAPPED_ARROW, shooter, worldIn);
+		super(EntityTypeTwo.CAPPED_ARROW.get(), shooter, worldIn);
 	}
 	
 	@Override

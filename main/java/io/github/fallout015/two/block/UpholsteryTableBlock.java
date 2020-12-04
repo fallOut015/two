@@ -28,7 +28,7 @@ public class UpholsteryTableBlock extends Block {
 		   return ActionResultType.SUCCESS;
 	   } else {
 		   player.openContainer(state.getContainer(worldIn, pos));
-		   player.addStat(StatsTwo.INTERACT_WITH_UPHOLSTERY_TABLE);
+		   player.addStat(StatsTwo.INTERACT_WITH_UPHOLSTERY_TABLE.get().getRegistryName()); // TODO?
 		   return ActionResultType.SUCCESS;
 	   }
    }

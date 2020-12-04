@@ -16,10 +16,10 @@ public class ShockArrowEntity extends AbstractArrowEntity {
 		super(entityType, worldIn);
 	}
 	public ShockArrowEntity(World worldIn, double x, double y, double z) {
-		super(EntityTypeTwo.SHOCK_ARROW, x, y, z, worldIn);
+		super(EntityTypeTwo.SHOCK_ARROW.get(), x, y, z, worldIn);
 	}
 	public ShockArrowEntity(World worldIn, LivingEntity shooter) {
-		super(EntityTypeTwo.SHOCK_ARROW, shooter, worldIn);
+		super(EntityTypeTwo.SHOCK_ARROW.get(), shooter, worldIn);
 	}
 	
 	@Override
@@ -34,7 +34,7 @@ public class ShockArrowEntity extends AbstractArrowEntity {
 	public void tick() {
 		super.tick();
 		if (this.world.isRemote && !this.inGround) {
-			this.world.addParticle(ParticleTypesTwo.SPARK, this.getPosX(), this.getPosY(), this.getPosZ(), 0.0D, 0.0D, 0.0D);
+			this.world.addParticle(ParticleTypesTwo.SPARK.get(), this.getPosX(), this.getPosY(), this.getPosZ(), 0.0D, 0.0D, 0.0D);
 		}
 	}
 	@Override

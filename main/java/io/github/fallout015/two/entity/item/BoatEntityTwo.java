@@ -91,7 +91,7 @@ public class BoatEntityTwo extends Entity {
 	}
 
 	public BoatEntityTwo(World worldIn, double x, double y, double z) {
-		this(EntityTypeTwo.BOAT_TWO, worldIn);
+		this(EntityTypeTwo.BOAT_TWO.get(), worldIn);
 		this.setPosition(x, y, z);
 		this.setMotion(Vector3d.ZERO);
 		this.prevPosX = x;

@@ -16,10 +16,10 @@ public class FireArrowEntity extends AbstractArrowEntity {
 		super(entityType, worldIn);
 	}
 	public FireArrowEntity(World worldIn, double x, double y, double z) {
-		super(EntityTypeTwo.FIRE_ARROW, x, y, z, worldIn);
+		super(EntityTypeTwo.FIRE_ARROW.get(), x, y, z, worldIn);
 	}
 	public FireArrowEntity(World worldIn, LivingEntity shooter) {
-		super(EntityTypeTwo.FIRE_ARROW, shooter, worldIn);
+		super(EntityTypeTwo.FIRE_ARROW.get(), shooter, worldIn);
 	}
 	
 	@Override

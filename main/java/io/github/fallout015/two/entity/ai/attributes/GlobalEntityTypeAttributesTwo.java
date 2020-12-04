@@ -17,20 +17,20 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public class GlobalEntityTypeAttributesTwo {
 	public static void setup(final FMLCommonSetupEvent event) {
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.BEARDED_DRAGON, BeardedDragonEntity.applyAttributes().create());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.CHAMELEON, ChameleonEntity.applyAttributes().create());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.CRIMP, CrimpEntity.applyAttributes().create());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.JELLYFISH, JellyfishEntity.applyAttributes().create());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.PENGUIN, PenguinEntity.applyAttributes().create());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.RED_PANDA, RedPandaEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.BEARDED_DRAGON.get(), BeardedDragonEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.CHAMELEON.get(), ChameleonEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.CRIMP.get(), CrimpEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.JELLYFISH.get(), JellyfishEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.PENGUIN.get(), PenguinEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.RED_PANDA.get(), RedPandaEntity.applyAttributes().create());
 		
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.DARK_DWARF_ARCHER, MonsterEntity.func_234295_eP_().create()); // TODO give own stats. 
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.MUMMIFIED_ZOMBIE, MummifiedZombieEntity.applyAttributes().create());
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.ICE_SLIME, MonsterEntity.func_234295_eP_().create()); // TODO give own stats.
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.NETHER_FISH, AbstractFishEntity.func_234176_m_().create()); // TODO give own stats.
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.DARK_DWARF_ARCHER.get(), MonsterEntity.func_234295_eP_().create()); // TODO give own stats. 
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.MUMMIFIED_ZOMBIE.get(), MummifiedZombieEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.ICE_SLIME.get(), MonsterEntity.func_234295_eP_().create()); // TODO give own stats.
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.NETHER_FISH.get(), AbstractFishEntity.func_234176_m_().create()); // TODO give own stats.
 
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.BUTTERFLY, ButterflyEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.BUTTERFLY.get(), ButterflyEntity.applyAttributes().create());
 
-		GlobalEntityTypeAttributes.put(EntityTypeTwo.MAGMEEL, MagmeelEntity.applyAttributes().create());
+		GlobalEntityTypeAttributes.put(EntityTypeTwo.MAGMEEL.get(), MagmeelEntity.applyAttributes().create());
 	}
 }

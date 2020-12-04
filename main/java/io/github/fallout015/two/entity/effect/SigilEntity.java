@@ -12,7 +12,7 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 public class SigilEntity extends Entity {
 	public SigilEntity(EntityType<? extends Entity> type, World worldIn) {
-		super(EntityTypeTwo.SIGIL, worldIn); // super(type)? TODO
+		super(EntityTypeTwo.SIGIL.get(), worldIn); // super(type)? TODO
 	}
 
 	@Override

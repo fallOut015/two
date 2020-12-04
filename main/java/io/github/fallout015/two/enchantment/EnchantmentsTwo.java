@@ -1,65 +1,49 @@
 package io.github.fallout015.two.enchantment;
 
-import java.util.LinkedList;
-
-import io.github.fallout015.two.item.BloodBladeItem;
-import io.github.fallout015.two.item.DaggerItem;
-import io.github.fallout015.two.item.ItemsTwo;
-import io.github.fallout015.two.item.SickleItem;
+import io.github.fallout015.two.Two;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentType;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
-@ObjectHolder("two")
 public class EnchantmentsTwo {
-	public static final Enchantment SWIPING = register("swiping", new SwipingEnchantment(Enchantment.Rarity.UNCOMMON, EquipmentSlotType.MAINHAND));
-	public static final Enchantment DISABLER = register("disabler", new DisablerEnchantment(Enchantment.Rarity.UNCOMMON, EquipmentSlotType.MAINHAND));
-	public static final Enchantment DISARMING = register("disarming", new DisarmingEnchantment(Enchantment.Rarity.COMMON, EquipmentSlotType.MAINHAND));
-	public static final Enchantment VITALITY_THIEF = register("vitality_thief", new VitalityThiefEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
-	public static final Enchantment SNAPPING = register("snapping", new SnappingEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
-	public static final Enchantment DISTANCE = register("distance", new DistanceEnchantment(Enchantment.Rarity.RARE, EquipmentSlotType.MAINHAND));
-	public static final Enchantment BOUNDING = register("bounding", new BoundingEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.FEET));
-	public static final Enchantment GENTLE_DESCENT = register("gentle_descent", new GentleDescentEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.HEAD));
-	public static final Enchantment REBOUND = register("rebound", new ReboundEnchantment(Enchantment.Rarity.COMMON, EquipmentSlotType.FEET));
+	private static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, Two.MODID);
+
 	
-	public static final Enchantment FLIMSINESS_CURSE = register("flimsiness_curse", new FlimsinessCurseEnchantment(Enchantment.Rarity.UNCOMMON, EquipmentSlotType.MAINHAND));
-	public static final Enchantment CLUMSINESS_CURSE = register("clumsiness_curse", new ClumsinessCurseEnchantment(Enchantment.Rarity.UNCOMMON, EquipmentSlotType.MAINHAND));
-	public static final Enchantment BACKFIRE_CURSE = register("backfire_curse", new BackfireCurseEnchantment(Enchantment.Rarity.RARE, EquipmentSlotType.MAINHAND));
-	public static final Enchantment HEAVINESS_CURSE = register("heaviness_curse", new HeavinessCurseEnchantment(Enchantment.Rarity.RARE, EquipmentSlotType.HEAD, EquipmentSlotType.CHEST, EquipmentSlotType.LEGS, EquipmentSlotType.FEET));
 	
-	public static final Enchantment FIRE_ABILITY = register("fire_ability", new FireAbilityEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
-	public static final Enchantment LIGHTNING_ABILITY = register("lightning_ability", new LightningAbilityEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
-	public static final Enchantment GRASS_ABILITY = register("grass_ability", new GrassAbilityEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
-	public static final Enchantment NETHER_ABILITY = register("nether_ability", new NetherAbilityEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
-	public static final Enchantment WIND_ABILITY = register("wind_ability", new WindAbilityEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
-	public static final Enchantment ICE_ABILITY = register("ice_ability", new IceAbilityEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> SWIPING = ENCHANTMENTS.register("swiping", () -> new SwipingEnchantment(Enchantment.Rarity.UNCOMMON, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> DISABLER = ENCHANTMENTS.register("disabler", () -> new DisablerEnchantment(Enchantment.Rarity.UNCOMMON, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> DISARMING = ENCHANTMENTS.register("disarming", () -> new DisarmingEnchantment(Enchantment.Rarity.COMMON, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> VITALITY_THIEF = ENCHANTMENTS.register("vitality_thief", () -> new VitalityThiefEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> SNAPPING = ENCHANTMENTS.register("snapping", () -> new SnappingEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> DISTANCE = ENCHANTMENTS.register("distance", () -> new DistanceEnchantment(Enchantment.Rarity.RARE, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> BOUNDING = ENCHANTMENTS.register("bounding", () -> new BoundingEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.FEET));
+	public static final RegistryObject<Enchantment> GENTLE_DESCENT = ENCHANTMENTS.register("gentle_descent", () -> new GentleDescentEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.HEAD));
+	public static final RegistryObject<Enchantment> REBOUND = ENCHANTMENTS.register("rebound", () -> new ReboundEnchantment(Enchantment.Rarity.COMMON, EquipmentSlotType.FEET));
+	
+	public static final RegistryObject<Enchantment> FLIMSINESS_CURSE = ENCHANTMENTS.register("flimsiness_curse", () -> new FlimsinessCurseEnchantment(Enchantment.Rarity.UNCOMMON, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> CLUMSINESS_CURSE = ENCHANTMENTS.register("clumsiness_curse", () -> new ClumsinessCurseEnchantment(Enchantment.Rarity.UNCOMMON, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> BACKFIRE_CURSE = ENCHANTMENTS.register("backfire_curse", () -> new BackfireCurseEnchantment(Enchantment.Rarity.RARE, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> HEAVINESS_CURSE = ENCHANTMENTS.register("heaviness_curse", () -> new HeavinessCurseEnchantment(Enchantment.Rarity.RARE, EquipmentSlotType.HEAD, EquipmentSlotType.CHEST, EquipmentSlotType.LEGS, EquipmentSlotType.FEET));
+	
+	public static final RegistryObject<Enchantment> FIRE_ABILITY = ENCHANTMENTS.register("fire_ability", () -> new FireAbilityEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> LIGHTNING_ABILITY = ENCHANTMENTS.register("lightning_ability", () -> new LightningAbilityEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> GRASS_ABILITY = ENCHANTMENTS.register("grass_ability", () -> new GrassAbilityEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> NETHER_ABILITY = ENCHANTMENTS.register("nether_ability", () -> new NetherAbilityEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> WIND_ABILITY = ENCHANTMENTS.register("wind_ability", () -> new WindAbilityEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
+	public static final RegistryObject<Enchantment> ICE_ABILITY = ENCHANTMENTS.register("ice_ability", () -> new IceAbilityEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlotType.MAINHAND));
 
 	// electricity
-	// evoking
 	// conjuring
 	// something for shields and bucklers
 	// crossbow enchantments for arbalest
 	// bow enchantments for longbow
 	
-	public static void onEnchantmentsRegistry(final RegistryEvent.Register<Enchantment> enchantmentRegistryEvent) {
-		enchantmentRegistryEvent.getRegistry().registerAll(Holder.ENCHANTMENTSTWO.toArray(new Enchantment [] {}));
-	}
-	private static Enchantment register(String key, Enchantment enchantment) {
-		Holder.ENCHANTMENTSTWO.add(enchantment.setRegistryName(key));
-		return enchantment;
-	}
-	public static class Holder {
-		public static final LinkedList<Enchantment> ENCHANTMENTSTWO = new LinkedList<Enchantment>();
 	
-		public static final EnchantmentType DOUBLE_JUMP_BOOTS = EnchantmentType.create("double_jump_boots", item -> item.asItem() == ItemsTwo.DOUBLE_JUMP_BOOTS);
-		public static final EnchantmentType SICKLE = EnchantmentType.create("sickle", item -> item.asItem() instanceof SickleItem);
-		public static final EnchantmentType DAGGER = EnchantmentType.create("dagger", item -> item.asItem() instanceof DaggerItem);
-		public static final EnchantmentType BLOOD_BLADE = EnchantmentType.create("blood_blade", item -> item.asItem() instanceof BloodBladeItem);
-		public static final EnchantmentType EVOCATION_STAFF = EnchantmentType.create("evocation_staff", item -> item.asItem() == ItemsTwo.EVOCATION_STAFF);
-		public static final EnchantmentType BANISHER = EnchantmentType.create("banisher", item -> item.asItem() == ItemsTwo.BANISHER);
-		public static final EnchantmentType HERMES_HELMET = EnchantmentType.create("hermes_helmet", item -> item.asItem() == ItemsTwo.HERMES_HELMET);
-		public static final EnchantmentType SLIME_BOOTS = EnchantmentType.create("slime_boots", item -> item.asItem() == ItemsTwo.SLIME_BOOTS);
+	
+	public static void register(IEventBus bus) {
+		ENCHANTMENTS.register(bus);
 	}
 }

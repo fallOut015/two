@@ -28,7 +28,7 @@ public class IceSlimeEntity extends SlimeEntity {
 			if (this.getDistanceSq(entityIn) < 0.6D * (double)i * 0.6D * (double)i && this.canEntityBeSeen(entityIn) && entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), this.func_225512_er_())) {
 				this.playSound(SoundEvents.ENTITY_SLIME_ATTACK, 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
 				this.applyEnchantments(this, entityIn);
-				entityIn.addPotionEffect(new EffectInstance(EffectsTwo.FROSTY, 100, 1, false, true));
+				entityIn.addPotionEffect(new EffectInstance(EffectsTwo.FROSTY.get(), 100, 1, false, true));
 			}
 		}
 	}
